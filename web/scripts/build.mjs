@@ -30,6 +30,7 @@ await bundle.close()
 
 const html = fs.readFileSync(cwd + '/index.html', 'utf8')
   .replace('./assets/app.js', `./assets/app.js?v=${commit}-${Date.now().toString(36)}`)
+  .replace('./styles.css', `./styles.css?v=${commit}-${Date.now().toString(36)}`)
 fs.writeFileSync(cwd + '/dist/index.html', html)
 fs.copyFileSync(cwd + '/src/styles.css', cwd + '/dist/styles.css')
 
