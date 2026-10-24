@@ -2,8 +2,54 @@
   "events": [
     {
       "date": "2026-10-24",
-      "event": "seed_created",
-      "summary": "초기 시드: 플랫폼 29 / 채용공고 13 / 뉴스 16 / 이벤트 45 (국내 26 + 해외 19, 채용연계 3)"
+      "new_postings": [
+        "wanted:wd391332",
+        "wanted:wd390319",
+        "wanted:wd377832",
+        "jumpit:55361658",
+        "jobkorea:50232251",
+        "jobkorea:49928240",
+        "jobkorea:50214047",
+        "jobkorea:50172427",
+        "jobkorea:50228434"
+      ],
+      "policy_changed": [],
+      "deadline_changed": [],
+      "status_changed": [],
+      "new_events": [
+        "wevity:111843-hallym-donghae-ai-hackathon",
+        "wevity:111588-narajangteo-hackathon",
+        "wevity:111847-socialsecurity-ai-idea-contest"
+      ],
+      "event_status_changed": [],
+      "event_deadline_changed": [],
+      "updated_postings": 0,
+      "updated_events": 2,
+      "sources": [
+        {
+          "name": "wanted",
+          "ok": true,
+          "visited": 6
+        },
+        {
+          "name": "jumpit",
+          "ok": true,
+          "visited": 3
+        },
+        {
+          "name": "jobkorea",
+          "ok": true,
+          "visited": 7,
+          "note": "상세 본문 미렌더링 — 제목/full-text 히트만 판별 가능"
+        },
+        {
+          "name": "wevity",
+          "ok": true,
+          "visited": 11
+        }
+      ],
+      "notes": "P2 실증 런. [제약 발견] 잡코리아 신규 상세 UI 본문 미렌더링(SSR/iframe/POST 재시도 모두 실패) → 잡코리아는 제목 명시만 확정, full-text 히트는 needs_review. [키워드 평가] '과제 전형'(3,946건)은 국책/연구과제 오탐 다수로 폐기 예정, '사전과제'(788건)·'바이브코딩'(180건) 실효적. [위비티 파라미터] 검색은 sw=키워드&sp=contents (kwd 아님) — ROUTINE_PROMPT 반영. [교차포스팅] 한국프리미엄카드마케팅 원티드/잡코리아 동일 공고 → 원티드 레코드에 마감일 반영, 잡코리아 중복 미기록. [다음 런 우선순위 후보 — 위비티 상세 미방문] 제2회 대한민국 AI 창조공모대전(D-34), 한국세라믹기술원 AI 영상 공모전(D-30), 나무엑스 AI 숏폼 공모전(D-29), 산사람x AI-Kive AI MV 챌린지(D-18), 2026 AI 플레이 콘텐츠 공모전(D-68), 현대차그룹 차량용 앱 공모전(D-22), Render×XYZ×Tin Computer 글로벌 테크 해커톤(D-22), 2026 스페이스 해커톤(D-12), 배경데이터 콘텐츠 아이디어 공모전(D-6).",
+      "summary": "+9공고 +3이벤트 · 정책변경 0 · 상태변경 0 · 마감변경 0"
     }
   ]
 }

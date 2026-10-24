@@ -297,14 +297,14 @@
     "ai_usage": "required",
     "format": "unknown",
     "team": "unknown",
-    "prize": null,
+    "prize": "총 6,000만원 / 21작품 (AI CF 대상 1,000만원)",
     "hiring_link": false,
     "apply_deadline": "2026-10-25",
     "submit_deadline": "2026-10-25",
     "result_date": null,
     "status": "open",
-    "url": "https://www.wevity.com/?c=find&s=1&kwd=AI",
-    "evidence": "AI CF(영상) 제작 부문 공모, 위비티 D-1 마감임박(10/24 기준)",
+    "url": "https://www.wevity.com/?c=find&s=1&gbn=view&gp=1&ix=111674",
+    "evidence": "'본접수 2026. 9. 21. ~ 10. 25. *접수기간 7일 연장' — 시드 이전에 10/18→10/25 연장 발생(원문 확인). AI 숏폼/AI CF/AI CM송 3개 부문",
     "source": "wevity",
     "first_seen": "2026-10-24",
     "last_checked": "2026-10-24",
@@ -326,14 +326,14 @@
     "ai_usage": "required",
     "format": "unknown",
     "team": "unknown",
-    "prize": null,
+    "prize": "추첨 80명×1만원 상품권 + 자체심사 4명×5만원 상품권 (시상금 아님)",
     "hiring_link": false,
     "apply_deadline": "2026-10-27",
     "submit_deadline": "2026-10-27",
-    "result_date": null,
+    "result_date": "2026-11-03",
     "status": "open",
-    "url": "https://ai-radar.kr/contests/2026%EB%85%84-%EB%8C%80%EA%B5%AC%EC%A0%95%EC%9B%90%EB%B0%95%EB%9E%8C%ED%9A%8C-AI-%EC%95%84%ED%8A%B8-%EC%B1%8C%EB%A6%B0%EC%A7%80-%EA%B3%B5%EB%AA%A8%EC%A0%84-17103c.html",
-    "evidence": "AI 생성 아트 작품 공모(예체능/미술 분류)",
+    "url": "https://www.wevity.com/?c=find&s=1&gbn=view&gp=1&ix=110908",
+    "evidence": "'생성형 AI를 활용하여 5가지 주제 중 하나를 선택해 작품 제작' — 참여방법 자체가 생성형 AI 사용",
     "source": "ai-radar/wevity",
     "first_seen": "2026-10-24",
     "last_checked": "2026-10-24",
@@ -482,7 +482,7 @@
     "source": "official/news",
     "first_seen": "2026-10-24",
     "last_checked": "2026-10-24",
-    "check_cadence": "archive_candidate",
+    "check_cadence": "none",
     "review": "confirmed",
     "history": [
       {
@@ -511,7 +511,7 @@
     "source": "news",
     "first_seen": "2026-10-24",
     "last_checked": "2026-10-24",
-    "check_cadence": "weekly",
+    "check_cadence": "none",
     "review": "confirmed",
     "history": [
       {
@@ -540,7 +540,7 @@
     "source": "official/blog",
     "first_seen": "2026-10-24",
     "last_checked": "2026-10-24",
-    "check_cadence": "archive_candidate",
+    "check_cadence": "none",
     "review": "confirmed",
     "history": [
       {
@@ -569,7 +569,7 @@
     "source": "news",
     "first_seen": "2026-10-24",
     "last_checked": "2026-10-24",
-    "check_cadence": "weekly",
+    "check_cadence": "none",
     "review": "confirmed",
     "history": [
       {
@@ -598,7 +598,7 @@
     "source": "official/thinkyou/aichallenge4all",
     "first_seen": "2026-10-24",
     "last_checked": "2026-10-24",
-    "check_cadence": "archive_candidate",
+    "check_cadence": "none",
     "review": "confirmed",
     "history": [
       {
@@ -627,7 +627,7 @@
     "source": "aichallenge4all",
     "first_seen": "2026-10-24",
     "last_checked": "2026-10-24",
-    "check_cadence": "archive_candidate",
+    "check_cadence": "none",
     "review": "confirmed",
     "history": [
       {
@@ -656,7 +656,7 @@
     "source": "aichallenge4all",
     "first_seen": "2026-10-24",
     "last_checked": "2026-10-24",
-    "check_cadence": "archive_candidate",
+    "check_cadence": "none",
     "review": "confirmed",
     "history": [
       {
@@ -685,7 +685,7 @@
     "source": "wevity",
     "first_seen": "2026-10-24",
     "last_checked": "2026-10-24",
-    "check_cadence": "archive_candidate",
+    "check_cadence": "none",
     "review": "confirmed",
     "history": [
       {
@@ -714,7 +714,7 @@
     "source": "wevity",
     "first_seen": "2026-10-24",
     "last_checked": "2026-10-24",
-    "check_cadence": "archive_candidate",
+    "check_cadence": "none",
     "review": "confirmed",
     "history": [
       {
@@ -743,7 +743,7 @@
     "source": "wevity",
     "first_seen": "2026-10-24",
     "last_checked": "2026-10-24",
-    "check_cadence": "archive_candidate",
+    "check_cadence": "none",
     "review": "confirmed",
     "history": [
       {
@@ -1236,7 +1236,7 @@
     "source": "lablab",
     "first_seen": "2026-10-24",
     "last_checked": "2026-10-24",
-    "check_cadence": "archive_candidate",
+    "check_cadence": "none",
     "review": "confirmed",
     "history": [
       {
@@ -1265,7 +1265,7 @@
     "source": "lablab",
     "first_seen": "2026-10-24",
     "last_checked": "2026-10-24",
-    "check_cadence": "archive_candidate",
+    "check_cadence": "none",
     "review": "confirmed",
     "history": [
       {
@@ -1294,13 +1294,100 @@
     "source": "mlh",
     "first_seen": "2026-10-24",
     "last_checked": "2026-10-24",
-    "check_cadence": "archive_candidate",
+    "check_cadence": "none",
     "review": "confirmed",
     "history": [
       {
         "date": "2026-10-24",
         "event": "created",
         "status": "closed"
+      }
+    ]
+  },
+  {
+    "id": "wevity:111843-hallym-donghae-ai-hackathon",
+    "type": "hackathon",
+    "title": "2026 한림 G-Lab@동해 AI활용 지역문제해결 해커톤",
+    "host": "한림대학교, 동해시",
+    "ai_usage": "required",
+    "format": "unknown",
+    "team": "대학생·기타",
+    "prize": "총 1천만원 이하(1등 100만원)",
+    "hiring_link": false,
+    "apply_deadline": "2026-10-26",
+    "submit_deadline": "2026-10-26",
+    "result_date": null,
+    "status": "open",
+    "url": "https://www.wevity.com/?c=find&s=1&gbn=view&gp=1&ix=111843",
+    "evidence": "대회명 자체가 'AI활용 지역문제해결 해커톤' — AI 활용이 주제. 접수 10/12~10/26",
+    "source": "wevity",
+    "review": "auto",
+    "first_seen": "2026-10-24",
+    "last_checked": "2026-10-24",
+    "check_cadence": "daily",
+    "history": [
+      {
+        "date": "2026-10-24",
+        "event": "created",
+        "status": "open"
+      }
+    ]
+  },
+  {
+    "id": "wevity:111588-narajangteo-hackathon",
+    "type": "hackathon",
+    "title": "나랏돈 50조 찾기 프로젝트 - 나라장터 해커톤",
+    "host": "개혁신당",
+    "ai_usage": "unknown",
+    "format": "unknown",
+    "team": "제한없음",
+    "prize": "총 1천만원 이하",
+    "hiring_link": false,
+    "apply_deadline": "2026-10-25",
+    "submit_deadline": "2026-10-25",
+    "result_date": null,
+    "status": "open",
+    "url": "https://www.wevity.com/?c=find&s=1&gbn=view&gp=1&ix=111588",
+    "evidence": "위비티 상세내용 비어 AI 사용 여부 미확인",
+    "source": "wevity",
+    "review": "needs_review",
+    "first_seen": "2026-10-24",
+    "last_checked": "2026-10-24",
+    "check_cadence": "daily",
+    "history": [
+      {
+        "date": "2026-10-24",
+        "event": "created",
+        "status": "open"
+      }
+    ]
+  },
+  {
+    "id": "wevity:111847-socialsecurity-ai-idea-contest",
+    "type": "competition",
+    "title": "2026 사회보장 데이터를 활용한 AI 혁신 아이디어 경진대회",
+    "host": "한국사회보장정보원, 대구가톨릭대학교 (후원: 보건복지부)",
+    "ai_usage": "required",
+    "format": "online",
+    "team": "전 국민 개인·팀",
+    "prize": "16팀 시상 (대상 보건복지부 장관상 500만원)",
+    "hiring_link": false,
+    "apply_deadline": "2026-11-20",
+    "submit_deadline": "2026-11-20",
+    "result_date": "2026-12-03",
+    "status": "open",
+    "url": "https://www.wevity.com/?c=find&s=1&gbn=view&gp=1&ix=111847",
+    "evidence": "공모주제: '사회보장 데이터·AI를 활용하여 공공성을 추구하는 아이디어 발굴'",
+    "source": "wevity",
+    "review": "auto",
+    "first_seen": "2026-10-24",
+    "last_checked": "2026-10-24",
+    "check_cadence": "weekly",
+    "history": [
+      {
+        "date": "2026-10-24",
+        "event": "created",
+        "status": "open"
       }
     ]
   }

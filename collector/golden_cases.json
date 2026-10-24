@@ -1,0 +1,13 @@
+{
+  "comment": "골든케이스 — 확정 사례. merge 후 validate.mjs가 이 케이스를 재현하지 못하면 커밋 금지(잠금). 케이스가 시대에 뒤처지면 이 파일을 먼저 수정하고 사유를 커밋한다.",
+  "postings": [
+    { "id": "seed-kr-01", "expect": { "company_includes": "올리브영", "ai_policy": "required" } },
+    { "id": "seed-kr-03", "expect": { "company_includes": "크래프톤", "ai_policy": "allowed_graded" } },
+    { "id": "seed-kr-05", "expect": { "company_includes": "무신사", "ai_policy": "allowed_graded" } },
+    { "id": "seed-kr-07", "expect": { "company_includes": "더게임", "ai_policy": "required" } }
+  ],
+  "events": [
+    { "id": "ko-0017", "expect": { "title_includes": "코파톤", "ai_usage": "required", "hiring_link": true } },
+    { "id": "ko-0001", "expect": { "ai_usage": "required", "hiring_link": true } }
+  ]
+}
