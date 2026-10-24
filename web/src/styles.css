@@ -110,3 +110,56 @@ tr.row:hover td { background: #111726; }
 .mth p { margin: 4px 0; }
 .mth code { color: var(--fg-hi); }
 .empty { padding: 24px 16px; color: var(--faint); }
+
+/* ===== P0/P1 개선 (레퍼런스 이식) ===== */
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+/* 배지: amber — 정책색(red/blue)과 분리 (Bloomberg 색역할 분리) */
+.badge { color: var(--yellow); font-size: 10px; margin-left: 6px; font-weight: 600; }
+
+/* 마감 임박 행 셀 배경 (endoflife.date) */
+tr.hot td { background: rgba(255,92,92,.055); }
+tr.hot:hover td { background: rgba(255,92,92,.1); }
+
+/* 정렬 가능 컬럼헤더 (TradingView 워치리스트 / Carbon 3상태) */
+th button.sort { background: none; border: 0; color: inherit; font: inherit; letter-spacing: inherit; padding: 0; cursor: pointer; display: inline-flex; gap: 4px; align-items: center; }
+th button.sort:hover { color: var(--fg-hi); }
+th .dir { color: var(--blue); }
+
+/* 매칭 카운트 (GitHub Projects) */
+.match-n { margin-left: auto; padding: 6px 12px; font-size: 10.5px; color: var(--dim); font-variant-numeric: tabular-nums; align-self: center; white-space: nowrap; }
+
+/* 수집 컨텍스트 바 (GitHub 코드뷰 Latest commit / k9s 크럼바) */
+.ctxbar { display: flex; gap: 0; border-bottom: 1px solid var(--border); flex-wrap: wrap; }
+.ctxbar span { padding: 5px 12px; font-size: 10.5px; color: var(--faint); border-right: 1px solid var(--border2); white-space: nowrap; }
+.ctxbar span b { color: var(--mut); font-weight: 600; font-variant-numeric: tabular-nums; }
+.ctxbar .ok i { display: inline-block; width: 5px; height: 5px; background: var(--green); margin-right: 6px; }
+
+/* 키 힌트 바 (k9s/lazygit) */
+.keybar { display: flex; gap: 14px; padding: 6px 12px; border-top: 1px solid var(--border); color: var(--faint); font-size: 10px; flex-wrap: wrap; position: sticky; bottom: 0; background: var(--bg); }
+.keybar .kbd { margin-right: 4px; }
+
+/* 커서 행 (j/k 이동) */
+tr.cur td { background: #111726; box-shadow: inset 2px 0 0 var(--blue); }
+
+/* 검색 매치 하이라이트 (Pencil & Paper) */
+.hl { background: rgba(232,196,104,.28); color: var(--fg-hi); }
+
+/* 최근 조회 (bundlephobia 실데이터 흔적) */
+.recent { grid-column: 1 / -1; display: flex; gap: 10px; align-items: center; padding: 0 12px 6px; border-bottom: 1px solid var(--border); font-size: 10px; color: var(--faint); flex-wrap: wrap; }
+.recent a { color: var(--mut); cursor: pointer; }
+.recent a:hover { color: var(--fg-hi); text-decoration: none; }
+
+/* 빈 상태 — 정체성 문장 (shodan/solved.ac 톤) */
+.empty-id { padding: 40px 20px; color: var(--dim); }
+.empty-id .l1 { color: var(--mut); font-size: 13px; margin-bottom: 6px; }
+.empty-id .l2 { font-size: 10.5px; }
+
+/* 밀도 (AG Grid spacing 토큰 / MUI 토글) */
+.dens { display: flex; align-self: center; }
+.dens button { background: none; border: 1px solid var(--border); color: var(--faint); font: 10px var(--mono); padding: 3px 8px; cursor: pointer; }
+.dens button.on { color: var(--fg-hi); background: #11151C; }
+[data-density="compact"] td { padding: 2px 8px; font-size: 11px; }
+[data-density="compact"] th { padding: 4px 8px; }
+[data-density="compact"] .hx .in { padding: 5px 8px 6px 24px; }
+[data-density="compact"] .ln { font-size: 10.5px; line-height: 1.6; }

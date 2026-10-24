@@ -13,6 +13,17 @@ const TABS = ['all', 'postings', 'hackathon', 'competition', 'contest', 'platfor
 export default function App() {
   const [tab, setTab] = useState('all')
   const [q, setQ] = useState('')
+  const [recent, setRecent] = useState(() => {
+    try { return JSON.parse(localStorage.getItem('am-recent') || '[]') } catch { return [] }
+  })
+
+  const onVisit = (r) => {
+    setRecent(prev => {
+      const next = [r.name, ...prev.filter(n => n !== r.name)].slice(0, 5)
+      localStorage.setItem('am-recent', JSON.stringify(next))
+      return next
+    })
+  }
 
   useEffect(() => {
     const onKey = (e) => {
@@ -45,6 +56,12 @@ export default function App() {
           </span>
           <span className="live"><i aria-hidden="true"></i>{stats.lastRun ? `수집 ${stats.lastRun}` : '미실행'}</span>
         </span>
+        {recent.length > 0 && (
+          <div className="recent">
+            <span>최근 조회</span>
+            {recent.map((n) => <a key={n} onClick={() => setQ(n)}>{n}</a>)}
+          </div>
+        )}
       </header>
       <Rail tab={tab} setTab={setTab} counts={counts} review={stats.review} />
       <main className="main">
@@ -63,7 +80,8 @@ export default function App() {
               rows={rows}
               type={tab}
               q={q}
-              title={TABS.find((t) => t === tab)}
+              setQ={setQ}
+              onVisit={onVisit}
             />
           </>
         )}
