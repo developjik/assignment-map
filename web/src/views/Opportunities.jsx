@@ -46,6 +46,7 @@ function Hl({ text, q }) {
 
 export default function Opportunities({ rows, type, q, setQ, onVisit }) {
   const [policy, setPolicy] = useState('all')
+  const [jobfam, setJobfam] = useState('all')
   const [status, setStatus] = useState('open')
   const [openRow, setOpenRow] = useState(null)
   const [sort, setSort] = useState(null)
@@ -67,6 +68,7 @@ export default function Opportunities({ rows, type, q, setQ, onVisit }) {
     const ql = (q || '').trim().toLowerCase()
     const base = (r) => {
       if (!typeMatch(r)) return false
+      if (jobfam === 'fe' && r.kind === 'posting' && !(r.positions || []).includes('frontend')) return false
       if (policy === 'required' && r.policyKey !== 'required') return false
       if (policy === 'allowed_graded' && r.policyKey !== 'allowed_graded') return false
       if (policy === 'allowed' && r.policyKey !== 'allowed') return false
@@ -87,7 +89,7 @@ export default function Opportunities({ rows, type, q, setQ, onVisit }) {
     if (sort && cmp[sort.key]) out.sort((a, b) => cmp[sort.key](a, b) * sort.dir)
     else out.sort((a, b) => (a.open === b.open ? 0 : a.open ? -1 : 1) || ((a.dd === null) - (b.dd === null)) || ((a.dd ?? 0) - (b.dd ?? 0)))
     return { filtered: out, totalNoStatus: noStatus.length }
-  }, [rows, typeMatch, policy, status, q, sort])
+  }, [rows, typeMatch, jobfam, policy, status, q, sort])
 
   const sortMsg = sort ? `${COLS.find(c => c.id === sort.key)?.label} ${sort.dir === 1 ? '오름차순' : '내림차순'} 정렬, ${filtered.length}건` : ''
 
@@ -108,7 +110,7 @@ export default function Opportunities({ rows, type, q, setQ, onVisit }) {
   // 커서 추적 — 뷰포트 벗어나면 스크롤 (이슈 #2)
   useEffect(() => { curRef.current?.scrollIntoView({ block: 'nearest' }) }, [cur, filtered])
 
-  useEffect(() => { setCur(0) }, [type, policy, status, q])
+  useEffect(() => { setCur(0) }, [type, jobfam, policy, status, q])
 
   const resetFilters = () => { setPolicy('all'); setStatus('open'); setSort(null); setQ('') }
   const clickSort = (key) => {
@@ -126,6 +128,9 @@ export default function Opportunities({ rows, type, q, setQ, onVisit }) {
         <span>다음 수집 <b>{meta.last_run ? nextRun(meta.last_run) : '예정'}</b></span>
       </div>
       <div className="fr">
+        <span className="fl">직군</span>
+        <button className={'fopt' + (jobfam === 'all' ? ' on' : '')} aria-pressed={jobfam === 'all'} onClick={() => setJobfam('all')}>전체</button>
+        <button className={'fopt' + (jobfam === 'fe' ? ' on' : '')} aria-pressed={jobfam === 'fe'} onClick={() => setJobfam('fe')} title="FE 포지션 공고 + 직군 무관 행사">FE</button>
         <span className="fl">AI 정책</span>
         {POLICY_FILTERS.map((f) => (
           <button key={f.id} className={`fopt ${f.cls || ''}` + (policy === f.id ? ' on' : '')} aria-pressed={policy === f.id}

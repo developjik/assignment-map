@@ -39,7 +39,7 @@ export const rows = [
   ...postingsRaw.map((p) => ({
     kind: 'posting', id: p.id, name: p.company, title: p.title || '',
     sub: p.positions_raw || (p.positions || []).join('/'),
-    type: '채용', policy: POLICY[p.ai_policy] || POLICY.unspecified,
+    type: '채용', positions: p.positions || [], policy: POLICY[p.ai_policy] || POLICY.unspecified,
     policyKey: p.ai_policy, evidence: (p.evidence || [])[0]?.quote || p.note || '',
     source: (p.source || '').replace('manual-research', '리서치'),
     deadline: p.deadline, status: p.status, open: isOpen(p.status),
@@ -50,7 +50,7 @@ export const rows = [
   ...eventsRaw.map((e) => ({
     kind: 'event', id: e.id, name: e.title, title: e.title,
     sub: [e.host, e.team && e.team !== 'unknown' ? e.team : ''].filter(Boolean).join(' | '),
-    type: { hackathon: '해커톤', competition: '대회', contest: '공모전' }[e.type] || e.type,
+    type: { hackathon: '해커톤', competition: '대회', contest: '공모전' }[e.type] || e.type, positions: [],
     policy: EV_POLICY[e.ai_usage] || EV_POLICY.unknown,
     policyKey: e.ai_usage === 'required' ? 'required' : e.ai_usage === 'allowed' ? 'allowed' : e.ai_usage,
     evidence: e.evidence || '', source: e.source,
