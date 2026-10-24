@@ -1,6 +1,6 @@
 :root {
   --bg: #0B0E14; --panel: #0F131B; --panel2: #0D111A; --border: #1A2130; --border2: #12161F;
-  --fg: #C9D4E3; --fg-hi: #E8EEF6; --mut: #8B98AD; --dim: #66738A; --faint: #4A5568;
+  --fg: #C9D4E3; --fg-hi: #E8EEF6; --mut: #8B98AD; --dim: #82909F; --faint: #6E7B90;
   --red: #FF5C5C; --blue: #5CA8FF; --green: #34D399; --yellow: #E5C07B;
   --mono: "JetBrains Mono", "SF Mono", Menlo, monospace;
 }
@@ -163,3 +163,49 @@ tr.cur td { background: #111726; box-shadow: inset 2px 0 0 var(--blue); }
 [data-density="compact"] th { padding: 4px 8px; }
 [data-density="compact"] .hx .in { padding: 5px 8px 6px 24px; }
 [data-density="compact"] .ln { font-size: 10.5px; line-height: 1.6; }
+
+/* ===== 감사 반영 (20+8 이슈) ===== */
+/* 스크롤바 — 터미널 톤 */
+.twrap::-webkit-scrollbar, .main::-webkit-scrollbar { height: 8px; width: 8px; }
+.twrap::-webkit-scrollbar-thumb, .main::-webkit-scrollbar-thumb { background: #232C3E; }
+.twrap::-webkit-scrollbar-track, .main::-webkit-scrollbar-track { background: #0D111A; }
+::selection { background: rgba(232,196,104,.35); color: #E8EEF6; }
+
+/* 검색 포커스 표시 */
+.sbox:focus-within { border-color: var(--blue); }
+.sbox:focus-within .kbd { color: var(--blue); }
+
+/* 헤더 태그라인 (온보딩) */
+.tagline { color: var(--faint); font-size: 10.5px; white-space: nowrap; }
+
+/* 컬럼 폭 규율 — 이름은 넓게, 부차는 한 줄 (NN/g 1열 원칙 + 행 리듬) */
+td.c-name { min-width: 200px; max-width: 300px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+td.c-sub { max-width: 210px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.co { display: inline-block; max-width: 260px; overflow: hidden; text-overflow: ellipsis; vertical-align: bottom; }
+
+/* 데스크톱: 기회 표는 가로스크롤 없애고 헤더 스티키 활성화 */
+@media (min-width: 900px) { .tscroll { overflow-x: visible; } }
+
+/* 모바일: 부차 컬럼 숨김 (우선순위 컬럼만) */
+@media (max-width: 760px) {
+  [data-col="evidence"], [data-col="checked"], [data-col="sub"] { display: none; }
+}
+
+/* 뉴스 태그 라벨 */
+.tag-l { font-size: 10.5px; margin-right: 8px; }
+.tag-pol { color: var(--red); } .tag-stat { color: var(--blue); } .tag-misc { color: var(--faint); }
+
+/* 플랫폼 표 — 셀 wrap 허용 (1570px 가로스크롤 해소) */
+.pwrap td { white-space: normal; word-break: keep-all; line-height: 1.45; vertical-align: top; }
+.pwrap table { min-width: 900px; }
+
+/* 매칭 카운트 한글화 */
+.match-n b { color: var(--mut); }
+
+/* 최근 조회 — 버튼화(키보드) */
+.recent button { background: none; border: 0; color: var(--mut); font: 10px var(--mono); cursor: pointer; padding: 0; }
+.recent button:hover { color: var(--fg-hi); }
+
+/* 방법론 범례 */
+.legend { display: flex; gap: 18px; flex-wrap: wrap; margin: 6px 0 10px; }
+.legend span { font-size: 11px; }

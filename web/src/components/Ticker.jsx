@@ -9,8 +9,8 @@ export default function Ticker({ stats, spark }) {
       <span className="sq">D-7 이내 <b className="up">{stats.d7}</b></span>
       <span className="sq">채용 연계 <b className="bl">{stats.hiring}</b></span>
       <span className="sq">검토 필요 <b className="yl">{stats.review}</b></span>
-      <span className="spark">
-        7일 신규
+      <span className="spark" title={`최근 수집 7회 동안 신규 ${spark.reduce((s, v) => s + v, 0)}건`}>
+        7일 +{spark.reduce((s, v) => s + v, 0)}
         <svg width="72" height="16" aria-hidden="true" focusable="false">
           <polyline points={pts} fill="none" stroke="var(--green)" strokeWidth="1.2" />
         </svg>
