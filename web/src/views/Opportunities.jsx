@@ -148,6 +148,10 @@ export default function Opportunities({ rows, type, q, setQ, onVisit }) {
       </div>
       <div className="twrap tscroll">
         <table>
+          <colgroup>
+            <col style={{ width: '21%' }} /><col style={{ width: '6%' }} /><col style={{ width: '17%' }} />
+            <col style={{ width: '11%' }} /><col style={{ width: '26%' }} /><col style={{ width: '10%' }} /><col style={{ width: '9%' }} />
+          </colgroup>
           <thead>
             <tr>
               {COLS.map((c) => (

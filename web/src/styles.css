@@ -183,6 +183,9 @@ td.c-name { min-width: 200px; max-width: 300px; overflow: hidden; text-overflow:
 td.c-sub { max-width: 210px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .co { display: inline-block; max-width: 260px; overflow: hidden; text-overflow: ellipsis; vertical-align: bottom; }
 
+/* 기회 표: fixed 레이아웃 — 컨테이너 폭에 항상 맞음 (900~1280 중간 폭 대응) */
+.tscroll table { table-layout: fixed; width: 100%; min-width: 0; }
+.tscroll td, .tscroll th { overflow: hidden; text-overflow: ellipsis; }
 /* 데스크톱: 기회 표는 가로스크롤 없애고 헤더 스티키 활성화 */
 @media (min-width: 900px) { .tscroll { overflow-x: visible; } }
 
