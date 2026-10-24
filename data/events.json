@@ -1,0 +1,1307 @@
+[
+  {
+    "id": "ko-0001",
+    "type": "competition",
+    "title": "데이콘 국부펀드 KIC, AI 에이전트 공모전",
+    "host": "한국투자공사(KIC) / 데이콘(daker.ai) 플랫폼",
+    "ai_usage": "required",
+    "format": "online",
+    "team": "unknown",
+    "prize": "총 상금 1,500만 원(최우수 600만) + 최우수팀 청년인턴 필기전형 5% 가산",
+    "hiring_link": true,
+    "apply_deadline": "2026-11-12",
+    "submit_deadline": "2026-11-12",
+    "result_date": null,
+    "status": "open",
+    "url": "https://daker.ai/public/hackathons/kic-ai-agent-competition",
+    "evidence": "공모주제 자체가 '투자·금융 업무 혁신을 위한 AI Agent 개발'",
+    "source": "thinkyou/dev-event/official",
+    "first_seen": "2026-10-24",
+    "last_checked": "2026-10-24",
+    "check_cadence": "weekly",
+    "review": "confirmed",
+    "history": [
+      {
+        "date": "2026-10-24",
+        "event": "created",
+        "status": "open"
+      }
+    ]
+  },
+  {
+    "id": "ko-0002",
+    "type": "hackathon",
+    "title": "2026 서울AI디지털배움터 청년 AI 해커톤",
+    "host": "서울특별시 / 서울AI디지털배움터(알럭스온라인)",
+    "ai_usage": "required",
+    "format": "offline",
+    "team": "팀(5~6인)",
+    "prize": "총 300만 원 상당 + 무료 바이브코딩 사전세미나(11/14 구름스퀘어 강남)",
+    "hiring_link": false,
+    "apply_deadline": "2026-11-08",
+    "submit_deadline": null,
+    "result_date": "2026-11-21",
+    "status": "open",
+    "url": "https://forms.gle/HNx9CiyYZS3sXuwj9",
+    "evidence": "'AI 코딩 도구로 6시간 내 서비스 개발·배포' 바이브코딩 당일형 해커톤(본선 11/21 아키스케치 성수)",
+    "source": "thinkyou/gcontest/tomatodle",
+    "first_seen": "2026-10-24",
+    "last_checked": "2026-10-24",
+    "check_cadence": "weekly",
+    "review": "confirmed",
+    "history": [
+      {
+        "date": "2026-10-24",
+        "event": "created",
+        "status": "open"
+      }
+    ]
+  },
+  {
+    "id": "ko-0003",
+    "type": "competition",
+    "title": "2026 DATA·AI 분석 경진대회 (문제해결 부문)",
+    "host": "과기정통부·국가과학기술연구회·국회도서관·대전시·해양경찰청·한국수자원공사·대전중구청 / 주관 KISTI",
+    "ai_usage": "required",
+    "format": "hybrid",
+    "team": "개인/팀(최대 4인)",
+    "prize": "총 상금 1,300만 원(대상 국회의장상 300만), 우수자 학술대회 발표 기회",
+    "hiring_link": false,
+    "apply_deadline": null,
+    "submit_deadline": "2026-11-06",
+    "result_date": "2026-11-25",
+    "status": "open",
+    "url": "https://aida.kisti.re.kr/competition/main/competition/COMP_000000000000050/detail.do",
+    "evidence": "'높은 성능의 인공지능 모델 개발'이 곧 참가 과제(녹조 예측 AI, 웹 대체텍스트 품질 판정 AI 등 7개 과제)",
+    "source": "official/wevity/news",
+    "first_seen": "2026-10-24",
+    "last_checked": "2026-10-24",
+    "check_cadence": "daily",
+    "review": "confirmed",
+    "history": [
+      {
+        "date": "2026-10-24",
+        "event": "created",
+        "status": "open"
+      }
+    ]
+  },
+  {
+    "id": "ko-0004",
+    "type": "hackathon",
+    "title": "2026 청도 바이브코딩 해커톤 with 해커그라운드",
+    "host": "해커그라운드 / 대구한의대학교 (후원: 마이크로소프트, 청도군)",
+    "ai_usage": "required",
+    "format": "offline",
+    "team": "unknown",
+    "prize": "총 상금 500만 원",
+    "hiring_link": false,
+    "apply_deadline": "2026-11-03",
+    "submit_deadline": null,
+    "result_date": "2026-11-06",
+    "status": "open",
+    "url": "https://hackersground.kr",
+    "evidence": "대회명이 바이브코딩(AI 코딩 도구 활용) 해커톤, 11/5~6 청도신화랑풍류마을 개최",
+    "source": "wevity",
+    "first_seen": "2026-10-24",
+    "last_checked": "2026-10-24",
+    "check_cadence": "daily",
+    "review": "confirmed",
+    "history": [
+      {
+        "date": "2026-10-24",
+        "event": "created",
+        "status": "open"
+      }
+    ]
+  },
+  {
+    "id": "ko-0005",
+    "type": "contest",
+    "title": "2026 조달청 AI 게임·콘텐츠 공모전",
+    "host": "조달청",
+    "ai_usage": "required",
+    "format": "unknown",
+    "team": "개인/팀(10명 이내)",
+    "prize": "총 상금 1천만 원 이하(1등 200만 원)",
+    "hiring_link": false,
+    "apply_deadline": "2026-11-22",
+    "submit_deadline": "2026-11-22",
+    "result_date": null,
+    "status": "open",
+    "url": "https://blog.naver.com/ppspr/224439199284",
+    "evidence": "공모주제가 '조달청 소재 AI 게임·콘텐츠' 제작",
+    "source": "wevity",
+    "first_seen": "2026-10-24",
+    "last_checked": "2026-10-24",
+    "check_cadence": "weekly",
+    "review": "confirmed",
+    "history": [
+      {
+        "date": "2026-10-24",
+        "event": "created",
+        "status": "open"
+      }
+    ]
+  },
+  {
+    "id": "ko-0006",
+    "type": "contest",
+    "title": "2026 충북글로벌게임센터 AI 게임 개발 공모전",
+    "host": "청주시문화산업진흥재단 충북글로벌게임센터",
+    "ai_usage": "required",
+    "format": "online",
+    "team": "개인/팀(5인 이하, 충북 주소지 한정)",
+    "prize": "총 상금 2,800만 원(대상 800만 원)",
+    "hiring_link": false,
+    "apply_deadline": "2026-10-30",
+    "submit_deadline": "2026-10-30",
+    "result_date": null,
+    "status": "upcoming",
+    "url": "https://cbgame.org/sub.php?code=8&mode=view&no=204&category=&page=1&search=&keyword=",
+    "evidence": "공모 주제 'AI를 활용하여 제작한 미출시·개발중 게임', 접수 10/26 오픈 예정",
+    "source": "wevity",
+    "first_seen": "2026-10-24",
+    "last_checked": "2026-10-24",
+    "check_cadence": "daily",
+    "review": "confirmed",
+    "history": [
+      {
+        "date": "2026-10-24",
+        "event": "created",
+        "status": "upcoming"
+      }
+    ]
+  },
+  {
+    "id": "ko-0007",
+    "type": "contest",
+    "title": "2026 대한지방행정공제회 생성형 AI 콘텐츠 공모전",
+    "host": "대한지방행정공제회",
+    "ai_usage": "required",
+    "format": "unknown",
+    "team": "unknown",
+    "prize": null,
+    "hiring_link": false,
+    "apply_deadline": "2026-11-08",
+    "submit_deadline": "2026-11-08",
+    "result_date": null,
+    "status": "open",
+    "url": "https://ai-radar.kr/contests/2026-%EB%8C%80%ED%95%9C%EC%A7%80%EB%B0%A9%ED%96%89%EC%A0%95%EA%B3%B5%EC%A0%9C%ED%9A%8C-%EC%83%9D%EC%84%B1%ED%98%95-AI-%EC%BD%98%ED%85%90%EC%B8%A0-%EA%B3%B5%EB%AA%A8%EC%A0%84-22181f.html",
+    "evidence": "생성형 AI 콘텐츠 제작이 대회 주제(영상/UCC/사진 분류)",
+    "source": "ai-radar/wevity",
+    "first_seen": "2026-10-24",
+    "last_checked": "2026-10-24",
+    "check_cadence": "weekly",
+    "review": "confirmed",
+    "history": [
+      {
+        "date": "2026-10-24",
+        "event": "created",
+        "status": "open"
+      }
+    ]
+  },
+  {
+    "id": "ko-0008",
+    "type": "contest",
+    "title": "2026 제2회 퓨리얼 AI 콘테스트(AI영상/AI사운드)",
+    "host": "퓨리얼(주)피코그램",
+    "ai_usage": "required",
+    "format": "online",
+    "team": "unknown",
+    "prize": "AI영상 대상 200만 원, AI사운드(CM송) 대상 100만 원",
+    "hiring_link": false,
+    "apply_deadline": "2026-11-09",
+    "submit_deadline": "2026-11-09",
+    "result_date": null,
+    "status": "open",
+    "url": "https://ai-radar.kr/contests/2026-%EC%A0%9C-2%ED%9A%8C-%ED%93%A8%EB%A6%AC%EC%96%BC-AI-%EC%98%81%EC%83%81-%EC%BD%98%ED%85%8C%EC%8A%A4%ED%8A%B8-91ef6d.html",
+    "evidence": "AI영상/AI사운드 부문 자체가 생성형 AI 제작물 공모",
+    "source": "ai-radar/thinkyou/wevity",
+    "first_seen": "2026-10-24",
+    "last_checked": "2026-10-24",
+    "check_cadence": "weekly",
+    "review": "confirmed",
+    "history": [
+      {
+        "date": "2026-10-24",
+        "event": "created",
+        "status": "open"
+      }
+    ]
+  },
+  {
+    "id": "ko-0009",
+    "type": "contest",
+    "title": "Meta와 함께하는 AI 페스티벌 (AI로 그려낸 가족 이야기)",
+    "host": "디지털리터러시협회 (후원: Meta)",
+    "ai_usage": "required",
+    "format": "online",
+    "team": "unknown",
+    "prize": "총 상금 2,060만 원(대상 500만 원)",
+    "hiring_link": false,
+    "apply_deadline": "2026-11-15",
+    "submit_deadline": "2026-11-15",
+    "result_date": null,
+    "status": "open",
+    "url": "https://ai-radar.kr/contests/Meta%EC%99%80-%ED%95%A8%EA%BB%98%ED%95%98%EB%8A%94-AI-%ED%8E%98%EC%8A%A4%ED%8B%B0%EB%B2%8C-AI%EB%A1%9C-%EA%B7%B8%EB%A0%A4%EB%82%B8-%EA%B0%80%EC%A1%B1-%EC%9D%B4%EC%95%BC%EA%B8%B0-ec5f15.html",
+    "evidence": "AI 이미지 생성으로 가족 이야기를 그려내는 콘텐츠 공모",
+    "source": "ai-radar/aichallenge4all/wevity",
+    "first_seen": "2026-10-24",
+    "last_checked": "2026-10-24",
+    "check_cadence": "weekly",
+    "review": "confirmed",
+    "history": [
+      {
+        "date": "2026-10-24",
+        "event": "created",
+        "status": "open"
+      }
+    ]
+  },
+  {
+    "id": "ko-0010",
+    "type": "contest",
+    "title": "2026 전국 학생 AI 시민성 프로젝트 공모전",
+    "host": "(사)인공지능융합교육연구협회",
+    "ai_usage": "required",
+    "format": "unknown",
+    "team": "unknown",
+    "prize": null,
+    "hiring_link": false,
+    "apply_deadline": "2026-10-31",
+    "submit_deadline": "2026-10-31",
+    "result_date": "2026-11-20",
+    "status": "open",
+    "url": "https://aichallenge4all.or.kr/competitions",
+    "evidence": "AI 시민성 프로젝트 제작 공모, 발표 11/20",
+    "source": "aichallenge4all",
+    "first_seen": "2026-10-24",
+    "last_checked": "2026-10-24",
+    "check_cadence": "daily",
+    "review": "confirmed",
+    "history": [
+      {
+        "date": "2026-10-24",
+        "event": "created",
+        "status": "open"
+      }
+    ]
+  },
+  {
+    "id": "ko-0011",
+    "type": "contest",
+    "title": "2026 화성특례시 AI CF 공모전 - 제6회 별별화성 Awards",
+    "host": "화성특례시",
+    "ai_usage": "required",
+    "format": "unknown",
+    "team": "unknown",
+    "prize": null,
+    "hiring_link": false,
+    "apply_deadline": "2026-10-25",
+    "submit_deadline": "2026-10-25",
+    "result_date": null,
+    "status": "open",
+    "url": "https://www.wevity.com/?c=find&s=1&kwd=AI",
+    "evidence": "AI CF(영상) 제작 부문 공모, 위비티 D-1 마감임박(10/24 기준)",
+    "source": "wevity",
+    "first_seen": "2026-10-24",
+    "last_checked": "2026-10-24",
+    "check_cadence": "daily",
+    "review": "confirmed",
+    "history": [
+      {
+        "date": "2026-10-24",
+        "event": "created",
+        "status": "open"
+      }
+    ]
+  },
+  {
+    "id": "ko-0012",
+    "type": "contest",
+    "title": "2026 대구정원박람회 AI 아트 챌린지 공모전",
+    "host": "대구광역시",
+    "ai_usage": "required",
+    "format": "unknown",
+    "team": "unknown",
+    "prize": null,
+    "hiring_link": false,
+    "apply_deadline": "2026-10-27",
+    "submit_deadline": "2026-10-27",
+    "result_date": null,
+    "status": "open",
+    "url": "https://ai-radar.kr/contests/2026%EB%85%84-%EB%8C%80%EA%B5%AC%EC%A0%95%EC%9B%90%EB%B0%95%EB%9E%8C%ED%9A%8C-AI-%EC%95%84%ED%8A%B8-%EC%B1%8C%EB%A6%B0%EC%A7%80-%EA%B3%B5%EB%AA%A8%EC%A0%84-17103c.html",
+    "evidence": "AI 생성 아트 작품 공모(예체능/미술 분류)",
+    "source": "ai-radar/wevity",
+    "first_seen": "2026-10-24",
+    "last_checked": "2026-10-24",
+    "check_cadence": "daily",
+    "review": "confirmed",
+    "history": [
+      {
+        "date": "2026-10-24",
+        "event": "created",
+        "status": "open"
+      }
+    ]
+  },
+  {
+    "id": "ko-0013",
+    "type": "competition",
+    "title": "2026 AI·디지털 기반 사회문제 해결 챌린지 (시빅테크)",
+    "host": "행정안전부 계열 시빅테크 (후원: CODE FOR KOREA, CODE FOR BUSAN)",
+    "ai_usage": "allowed",
+    "format": "hybrid",
+    "team": "개인/팀(4인 이하)",
+    "prize": null,
+    "hiring_link": false,
+    "apply_deadline": "2026-09-30",
+    "submit_deadline": "2026-11-03",
+    "result_date": "2026-12-31",
+    "status": "judging",
+    "url": "https://devcontest-digitalsolveup.kr/summary?c=1",
+    "evidence": "디지털 사회혁신 서비스 개발 공모, 상세기획서 11/3 · 본선 결과물 12월 초 제출",
+    "source": "official",
+    "first_seen": "2026-10-24",
+    "last_checked": "2026-10-24",
+    "check_cadence": "archive_candidate",
+    "review": "confirmed",
+    "history": [
+      {
+        "date": "2026-10-24",
+        "event": "created",
+        "status": "judging"
+      }
+    ]
+  },
+  {
+    "id": "ko-0014",
+    "type": "competition",
+    "title": "대한민국 고등학생 AI·SW 공모전",
+    "host": "한국인공지능소프트웨어산업협회",
+    "ai_usage": "allowed",
+    "format": "unknown",
+    "team": "unknown",
+    "prize": null,
+    "hiring_link": false,
+    "apply_deadline": "2026-09-27",
+    "submit_deadline": null,
+    "result_date": "2026-11-24",
+    "status": "judging",
+    "url": "https://aichallenge4all.or.kr/competitions",
+    "evidence": "AI·SW 작품 공모전, 신청 마감 후 11/24 본선 진행 단계",
+    "source": "aichallenge4all",
+    "first_seen": "2026-10-24",
+    "last_checked": "2026-10-24",
+    "check_cadence": "archive_candidate",
+    "review": "confirmed",
+    "history": [
+      {
+        "date": "2026-10-24",
+        "event": "created",
+        "status": "judging"
+      }
+    ]
+  },
+  {
+    "id": "ko-0015",
+    "type": "competition",
+    "title": "에이전틱 플레이어 10 (AGENTIC PLAYER 10)",
+    "host": "카카오 (후원: 과학기술정보통신부)",
+    "ai_usage": "required",
+    "format": "hybrid",
+    "team": "개인/팀(개발자·스타트업·대학생 누구나)",
+    "prize": "총 상금 2,700만 원(대상 1,000만 원 + 과기정통부 장관상)",
+    "hiring_link": false,
+    "apply_deadline": "2026-07-14",
+    "submit_deadline": "2026-09-28",
+    "result_date": null,
+    "status": "judging",
+    "url": "https://www.thelec.kr/news/articleView.html?idxno=58211",
+    "evidence": "카카오 PlayMCP 기반 AI 에이전트 서비스 개발 경진대회, 본선 20팀 사용자투표·심사 후 10월 시상",
+    "source": "news",
+    "first_seen": "2026-10-24",
+    "last_checked": "2026-10-24",
+    "check_cadence": "archive_candidate",
+    "review": "confirmed",
+    "history": [
+      {
+        "date": "2026-10-24",
+        "event": "created",
+        "status": "judging"
+      }
+    ]
+  },
+  {
+    "id": "ko-0016",
+    "type": "competition",
+    "title": "2026 금융 AI Challenge",
+    "host": "unknown",
+    "ai_usage": "required",
+    "format": "unknown",
+    "team": "unknown",
+    "prize": null,
+    "hiring_link": false,
+    "apply_deadline": "2026-09-07",
+    "submit_deadline": "2026-09-07",
+    "result_date": "2026-10-23",
+    "status": "judging",
+    "url": "https://aichallenge4all.or.kr/competitions",
+    "evidence": "금융 AI 챌린지(참가대상 누구나), 결과발표 10/23 공지 기준",
+    "source": "aichallenge4all",
+    "first_seen": "2026-10-24",
+    "last_checked": "2026-10-24",
+    "check_cadence": "archive_candidate",
+    "review": "confirmed",
+    "history": [
+      {
+        "date": "2026-10-24",
+        "event": "created",
+        "status": "judging"
+      }
+    ]
+  },
+  {
+    "id": "ko-0017",
+    "type": "hackathon",
+    "title": "코파톤: AI 네이티브 배틀그라운드 (Cofathon)",
+    "host": "크래프톤 × CJ올리브영",
+    "ai_usage": "required",
+    "format": "offline",
+    "team": "개인/팀(비개발자 참가 가능)",
+    "prize": "총 상금 1,000만 원 + 크래프톤 FDE·올리브영 AI 엔지니어 채용 서류전형 통과",
+    "hiring_link": true,
+    "apply_deadline": "2026-07-17",
+    "submit_deadline": null,
+    "result_date": "2026-07-30",
+    "status": "closed",
+    "url": "https://cofathon.getcofa.com/",
+    "evidence": "'AI를 활용해 결과물 구현'이 참가 자격 요건, Cofa-Probe로 AI 활용 과정까지 평가(7/30 펍지 성수 개최)",
+    "source": "official/news",
+    "first_seen": "2026-10-24",
+    "last_checked": "2026-10-24",
+    "check_cadence": "archive_candidate",
+    "review": "confirmed",
+    "history": [
+      {
+        "date": "2026-10-24",
+        "event": "created",
+        "status": "closed"
+      }
+    ]
+  },
+  {
+    "id": "ko-0018",
+    "type": "hackathon",
+    "title": "LG 에이머스 해커톤 (9기)",
+    "host": "LG(LG스포츠 출제)",
+    "ai_usage": "required",
+    "format": "offline",
+    "team": "팀",
+    "prize": "상위 3팀 총 1,000만 원 + 수상자 LG 입사 서류전형 면제, 결선 96명 전원 총 1억 원 지원금",
+    "hiring_link": true,
+    "apply_deadline": null,
+    "submit_deadline": null,
+    "result_date": "2026-09-20",
+    "status": "closed",
+    "url": "https://www.etnews.com/20260920000062",
+    "evidence": "주제 '투수 제구 성공 확률 예측 AI 모델 개발', 9/19~20 이천 LG인화원 결선(연 2회, 만 19~29세)",
+    "source": "news",
+    "first_seen": "2026-10-24",
+    "last_checked": "2026-10-24",
+    "check_cadence": "weekly",
+    "review": "confirmed",
+    "history": [
+      {
+        "date": "2026-10-24",
+        "event": "created",
+        "status": "closed"
+      }
+    ]
+  },
+  {
+    "id": "ko-0019",
+    "type": "hackathon",
+    "title": "2026 NAIS AI 해커톤 (R&D 특화 AI Agent)",
+    "host": "국가과학기술연구회(NST) 국가과학AI연구센터(NAIS)",
+    "ai_usage": "required",
+    "format": "hybrid",
+    "team": "개인/팀(최대 5인)",
+    "prize": "총 상금 1,000만 원 + 부총리 겸 과기정통부 장관상",
+    "hiring_link": false,
+    "apply_deadline": "2026-09-07",
+    "submit_deadline": null,
+    "result_date": null,
+    "status": "closed",
+    "url": "https://ai4scikorea.org/#competition",
+    "evidence": "주제 '연구의 모든 순간에 AI 에이전트를 심다', 본선 9/30~10/1 AI4Sci Korea 2026(서울드래곤시티) 연계",
+    "source": "official/blog",
+    "first_seen": "2026-10-24",
+    "last_checked": "2026-10-24",
+    "check_cadence": "archive_candidate",
+    "review": "confirmed",
+    "history": [
+      {
+        "date": "2026-10-24",
+        "event": "created",
+        "status": "closed"
+      }
+    ]
+  },
+  {
+    "id": "ko-0020",
+    "type": "hackathon",
+    "title": "SSAFY X Kakao tech bootcamp AI Hackathon",
+    "host": "카카오 × 삼성전자 (고용노동부 KDT)",
+    "ai_usage": "required",
+    "format": "offline",
+    "team": "팀",
+    "prize": "총 1,500만 원(5개 팀 각 300만 원, 고용노동부 장관상 등)",
+    "hiring_link": false,
+    "apply_deadline": null,
+    "submit_deadline": null,
+    "result_date": "2026-06-14",
+    "status": "closed",
+    "url": "https://www.thelec.kr/news/articleView.html?idxno=58075",
+    "evidence": "'AI 민생 10대 프로젝트'를 AI 기술로 해결하는 프로토타입 구현(6/13~14 카카오 AI캠퍼스, KDT 교육생 대상)",
+    "source": "news",
+    "first_seen": "2026-10-24",
+    "last_checked": "2026-10-24",
+    "check_cadence": "weekly",
+    "review": "confirmed",
+    "history": [
+      {
+        "date": "2026-10-24",
+        "event": "created",
+        "status": "closed"
+      }
+    ]
+  },
+  {
+    "id": "ko-0021",
+    "type": "competition",
+    "title": "MABC 2026 (Making AI Beneficial Challenge)",
+    "host": "업스테이지(Upstage)",
+    "ai_usage": "required",
+    "format": "unknown",
+    "team": "unknown",
+    "prize": null,
+    "hiring_link": false,
+    "apply_deadline": "2026-08-31",
+    "submit_deadline": null,
+    "result_date": "2026-09-19",
+    "status": "closed",
+    "url": "https://upstage.ai/ko/mabc-2026",
+    "evidence": "전국민 AI 에이전트 챌린지, 참가신청 7/8~8/31 · 최종 발표회 9/19 종료",
+    "source": "official/thinkyou/aichallenge4all",
+    "first_seen": "2026-10-24",
+    "last_checked": "2026-10-24",
+    "check_cadence": "archive_candidate",
+    "review": "confirmed",
+    "history": [
+      {
+        "date": "2026-10-24",
+        "event": "created",
+        "status": "closed"
+      }
+    ]
+  },
+  {
+    "id": "ko-0022",
+    "type": "contest",
+    "title": "2026 K-AI 콘텐츠 공모전",
+    "host": "KT",
+    "ai_usage": "required",
+    "format": "unknown",
+    "team": "unknown",
+    "prize": "총 상금 5,400만 원(통합대상 1작품 1,000만 원)",
+    "hiring_link": false,
+    "apply_deadline": "2026-07-15",
+    "submit_deadline": "2026-07-15",
+    "result_date": "2026-08-14",
+    "status": "closed",
+    "url": "https://aichallenge4all.or.kr/competitions",
+    "evidence": "AI 콘텐츠 제작 공모, 작품접수 7/1~7/15 · 8월 2주 시상",
+    "source": "aichallenge4all",
+    "first_seen": "2026-10-24",
+    "last_checked": "2026-10-24",
+    "check_cadence": "archive_candidate",
+    "review": "confirmed",
+    "history": [
+      {
+        "date": "2026-10-24",
+        "event": "created",
+        "status": "closed"
+      }
+    ]
+  },
+  {
+    "id": "ko-0023",
+    "type": "hackathon",
+    "title": "기상·기후 AI 해커톤 경진대회",
+    "host": "기상청 계열(기상·기후 데이터 기관)",
+    "ai_usage": "required",
+    "format": "unknown",
+    "team": "unknown",
+    "prize": "총 상금 1,000만 원",
+    "hiring_link": false,
+    "apply_deadline": "2026-07-03",
+    "submit_deadline": "2026-07-03",
+    "result_date": null,
+    "status": "closed",
+    "url": "https://aichallenge4all.or.kr/competitions",
+    "evidence": "기상·기후 데이터 AI 해커톤, 접수 6/8~7/3 종료",
+    "source": "aichallenge4all",
+    "first_seen": "2026-10-24",
+    "last_checked": "2026-10-24",
+    "check_cadence": "archive_candidate",
+    "review": "confirmed",
+    "history": [
+      {
+        "date": "2026-10-24",
+        "event": "created",
+        "status": "closed"
+      }
+    ]
+  },
+  {
+    "id": "ko-0024",
+    "type": "competition",
+    "title": "제4회 경남 AI·SW 경진대회",
+    "host": "경상남도, 창원특례시, 진주시",
+    "ai_usage": "allowed",
+    "format": "unknown",
+    "team": "unknown",
+    "prize": null,
+    "hiring_link": false,
+    "apply_deadline": "2026-09-29",
+    "submit_deadline": null,
+    "result_date": null,
+    "status": "closed",
+    "url": "https://www.wevity.com/?c=find&s=1&gub=1&cidx=21",
+    "evidence": "AI·SW 작품 경진대회, 위비티 D+25(9/29 마감)",
+    "source": "wevity",
+    "first_seen": "2026-10-24",
+    "last_checked": "2026-10-24",
+    "check_cadence": "archive_candidate",
+    "review": "confirmed",
+    "history": [
+      {
+        "date": "2026-10-24",
+        "event": "created",
+        "status": "closed"
+      }
+    ]
+  },
+  {
+    "id": "ko-0025",
+    "type": "competition",
+    "title": "2026 CWNU SW-DNA² 챌린지 대학생 AI·SW 경진대회",
+    "host": "국립창원대학교",
+    "ai_usage": "allowed",
+    "format": "unknown",
+    "team": "unknown",
+    "prize": null,
+    "hiring_link": false,
+    "apply_deadline": "2026-10-23",
+    "submit_deadline": null,
+    "result_date": null,
+    "status": "closed",
+    "url": "https://www.wevity.com/?c=find&s=1&gub=1&cidx=21",
+    "evidence": "AI·SW 경진대회, 위비티 D+1(10/23 마감, 10/24 기준 최근 종료)",
+    "source": "wevity",
+    "first_seen": "2026-10-24",
+    "last_checked": "2026-10-24",
+    "check_cadence": "archive_candidate",
+    "review": "confirmed",
+    "history": [
+      {
+        "date": "2026-10-24",
+        "event": "created",
+        "status": "closed"
+      }
+    ]
+  },
+  {
+    "id": "ko-0026",
+    "type": "competition",
+    "title": "2026 대학생 프로그래밍 경시대회",
+    "host": "과학기술정보통신부",
+    "ai_usage": "unknown",
+    "format": "unknown",
+    "team": "unknown",
+    "prize": null,
+    "hiring_link": false,
+    "apply_deadline": "2026-09-22",
+    "submit_deadline": null,
+    "result_date": null,
+    "status": "closed",
+    "url": "https://www.wevity.com/?c=find&s=1&gub=1&cidx=21",
+    "evidence": "알고리즘 경시대회(코딩테스트 순위전 성격, AI 규정 미공개) — 노출 제외 후보로 기록",
+    "source": "wevity",
+    "first_seen": "2026-10-24",
+    "last_checked": "2026-10-24",
+    "check_cadence": "archive_candidate",
+    "review": "confirmed",
+    "history": [
+      {
+        "date": "2026-10-24",
+        "event": "created",
+        "status": "closed"
+      }
+    ]
+  },
+  {
+    "id": "global-0001",
+    "type": "hackathon",
+    "title": "Nebius x NVIDIA Global AI Hackathon",
+    "host": "Nebius x NVIDIA",
+    "ai_usage": "required",
+    "format": "online",
+    "team": "solo/team",
+    "prize": "총 $50,000+ (그랑프리 $20,000) + 트랙별 NVIDIA Jetson Orin Nano, 도시별 $500 등",
+    "hiring_link": false,
+    "apply_deadline": null,
+    "submit_deadline": "2026-10-30",
+    "result_date": null,
+    "status": "open",
+    "url": "https://nebiusglobalaihackathon.devpost.com/",
+    "evidence": "NVIDIA 오픈소스 모델(Nemotron 등)을 Nebius Token Factory/AI Cloud에서 돌리는 앱·에이전트 빌드가 제출 필수 요건. 글로벌 온라인",
+    "source": "devpost",
+    "first_seen": "2026-10-24",
+    "last_checked": "2026-10-24",
+    "check_cadence": "daily",
+    "review": "confirmed",
+    "history": [
+      {
+        "date": "2026-10-24",
+        "event": "created",
+        "status": "open"
+      }
+    ]
+  },
+  {
+    "id": "global-0002",
+    "type": "hackathon",
+    "title": "PayPal AI Hackathon",
+    "host": "PayPal",
+    "ai_usage": "required",
+    "format": "online",
+    "team": "solo/team",
+    "prize": "총 $67,500+ (1등 $12,000), Most Creative/Impactful 등 특별상 다수",
+    "hiring_link": false,
+    "apply_deadline": null,
+    "submit_deadline": "2026-11-12",
+    "result_date": null,
+    "status": "open",
+    "url": "https://paypalaihackathon.devpost.com/",
+    "evidence": "'PayPal과 AI를 의미있게 함께 사용'이 유일한 핵심 요건(공식 문구), 개인/팀 참가 명시, 글로벌 온라인",
+    "source": "devpost",
+    "first_seen": "2026-10-24",
+    "last_checked": "2026-10-24",
+    "check_cadence": "weekly",
+    "review": "confirmed",
+    "history": [
+      {
+        "date": "2026-10-24",
+        "event": "created",
+        "status": "open"
+      }
+    ]
+  },
+  {
+    "id": "global-0003",
+    "type": "competition",
+    "title": "OpenCV AI Competition 2026, powered by AWS",
+    "host": "OpenCV Foundation x AWS",
+    "ai_usage": "allowed",
+    "format": "online",
+    "team": "team",
+    "prize": "총 $20,250 (1등 $5,000) + AWS $150 컴퓨트 그랜트 55팀",
+    "hiring_link": false,
+    "apply_deadline": null,
+    "submit_deadline": "2026-10-26",
+    "result_date": "2026-11-10",
+    "status": "open",
+    "url": "https://opencv26.devpost.com/",
+    "evidence": "OpenCV5+AWS가 핵심 요건, Physical AI·GenAI 강조 + Agentic Vision 별도 상금(단, AI 코딩 어시스턴트 사용만으로는 에이전틱 트랙 불인정)",
+    "source": "devpost",
+    "first_seen": "2026-10-24",
+    "last_checked": "2026-10-24",
+    "check_cadence": "daily",
+    "review": "confirmed",
+    "history": [
+      {
+        "date": "2026-10-24",
+        "event": "created",
+        "status": "open"
+      }
+    ]
+  },
+  {
+    "id": "global-0004",
+    "type": "hackathon",
+    "title": "Life After Code (GitLab Transcend Hackathon)",
+    "host": "GitLab (Google Cloud, Anthropic 협력)",
+    "ai_usage": "required",
+    "format": "online",
+    "team": "solo/team",
+    "prize": "총 $45,000 (자율레벨별 $4,000~$5,000 등)",
+    "hiring_link": false,
+    "apply_deadline": null,
+    "submit_deadline": "2026-10-27",
+    "result_date": "2026-11-16",
+    "status": "open",
+    "url": "https://gitlab-transcend.devpost.com/",
+    "evidence": "GitLab Duo Agent Platform의 에이전트/플로우/MCP 사용이 모든 프로젝트 필수, 코드 생성 이후 DevSecOps 단계 자동화 에이전트 빌드",
+    "source": "devpost",
+    "first_seen": "2026-10-24",
+    "last_checked": "2026-10-24",
+    "check_cadence": "daily",
+    "review": "confirmed",
+    "history": [
+      {
+        "date": "2026-10-24",
+        "event": "created",
+        "status": "open"
+      }
+    ]
+  },
+  {
+    "id": "global-0005",
+    "type": "hackathon",
+    "title": "Qloo Agentic Hackathon",
+    "host": "Qloo",
+    "ai_usage": "required",
+    "format": "online",
+    "team": "solo/team",
+    "prize": "총 $25,000 (1등 $15,000) + Jason Calacanis 최애작에 $25,000 개인 투자",
+    "hiring_link": false,
+    "apply_deadline": null,
+    "submit_deadline": "2026-10-30",
+    "result_date": "2026-11-05",
+    "status": "open",
+    "url": "https://qloo.devpost.com/",
+    "evidence": "Qloo API를 활용한 에이전틱 툴·에이전트 앱 빌드가 참가 조건, 라이브 데모 앱 외부 호스팅 필수",
+    "source": "devpost",
+    "first_seen": "2026-10-24",
+    "last_checked": "2026-10-24",
+    "check_cadence": "daily",
+    "review": "confirmed",
+    "history": [
+      {
+        "date": "2026-10-24",
+        "event": "created",
+        "status": "open"
+      }
+    ]
+  },
+  {
+    "id": "global-0006",
+    "type": "hackathon",
+    "title": "Build With AI: Basics",
+    "host": "Devpost",
+    "ai_usage": "required",
+    "format": "online",
+    "team": "unknown",
+    "prize": "총 $2,500 (1등 $1,250 + Devpost 뉴스레터·소셜 노출)",
+    "hiring_link": false,
+    "apply_deadline": null,
+    "submit_deadline": "2026-10-26",
+    "result_date": null,
+    "status": "open",
+    "url": "https://learn-ai-basics.devpost.com/",
+    "evidence": "AI 코딩 에이전트(Claude Code/Codex/Cursor)+Devpost Learn 스킬팩으로 동작하는 앱을 만들어 제출하는 매달 열리는 학습형 해커톤",
+    "source": "devpost",
+    "first_seen": "2026-10-24",
+    "last_checked": "2026-10-24",
+    "check_cadence": "daily",
+    "review": "confirmed",
+    "history": [
+      {
+        "date": "2026-10-24",
+        "event": "created",
+        "status": "open"
+      }
+    ]
+  },
+  {
+    "id": "global-0007",
+    "type": "hackathon",
+    "title": "AWS Communication Developer Services (CDS) Agentic AI Partner Hackathon",
+    "host": "AWS",
+    "ai_usage": "required",
+    "format": "online",
+    "team": "solo/team",
+    "prize": "총 $40,000 + AWS 합동 케이스스터디·전문가 1:1 GTM 지원",
+    "hiring_link": false,
+    "apply_deadline": null,
+    "submit_deadline": "2026-10-28",
+    "result_date": null,
+    "status": "open",
+    "url": "https://aws-cds-partner.devpost.com/",
+    "evidence": "AWS CDS 위 AI 솔루션 구축 필수(Bedrock AgentCore 권장). 단, AWS 파트너 조직 소속 + ACE 기회 ID 생성 필요라 일반 개인 참가 제한",
+    "source": "devpost",
+    "first_seen": "2026-10-24",
+    "last_checked": "2026-10-24",
+    "check_cadence": "daily",
+    "review": "confirmed",
+    "history": [
+      {
+        "date": "2026-10-24",
+        "event": "created",
+        "status": "open"
+      }
+    ]
+  },
+  {
+    "id": "global-0008",
+    "type": "hackathon",
+    "title": "YouCam API Skin AI & eCommerce VTO Hackathon",
+    "host": "Perfect Corp",
+    "ai_usage": "required",
+    "format": "online",
+    "team": "solo/team",
+    "prize": "총 $6,000 (1등 $2,500 + 블로그 노출), Women in Tech·학생 특별상 각 $1,000",
+    "hiring_link": false,
+    "apply_deadline": null,
+    "submit_deadline": "2026-11-02",
+    "result_date": null,
+    "status": "open",
+    "url": "https://youcam-api-skin-ai-ecommerce.devpost.com/",
+    "evidence": "YouCam AI API(Skin AI·VTO) 1개 이상 통합한 웹/모바일 프로토타입 제출이 자격 조건",
+    "source": "devpost",
+    "first_seen": "2026-10-24",
+    "last_checked": "2026-10-24",
+    "check_cadence": "daily",
+    "review": "confirmed",
+    "history": [
+      {
+        "date": "2026-10-24",
+        "event": "created",
+        "status": "open"
+      }
+    ]
+  },
+  {
+    "id": "global-0009",
+    "type": "competition",
+    "title": "AMD AI League",
+    "host": "AMD x lablab.ai",
+    "ai_usage": "required",
+    "format": "online",
+    "team": "solo",
+    "prize": "리그 총 $10,000+ (1등 $5,000), 매치별 $500, 가입 시 $100 GPU 크레딧 + AMD ROCm 자격증(Credly)",
+    "hiring_link": false,
+    "apply_deadline": null,
+    "submit_deadline": "2026-12-01",
+    "result_date": null,
+    "status": "open",
+    "url": "https://lablab.ai/ai-hackathons/amd-lablab-ai-academy-challenge",
+    "evidence": "AMD GPU 인프라에서 AI를 빌드하는 6개 매치 리그전(개인 참가만 허용). 현재 Match 4 '웹 정보 검색 에이전트' 진행 중(10/13~27)",
+    "source": "lablab",
+    "first_seen": "2026-10-24",
+    "last_checked": "2026-10-24",
+    "check_cadence": "weekly",
+    "review": "confirmed",
+    "history": [
+      {
+        "date": "2026-10-24",
+        "event": "created",
+        "status": "open"
+      }
+    ]
+  },
+  {
+    "id": "global-0010",
+    "type": "hackathon",
+    "title": "Vultr: Agent Rush Hackathon",
+    "host": "Vultr x lablab.ai",
+    "ai_usage": "required",
+    "format": "hybrid",
+    "team": "solo/team",
+    "prize": "$9,000 + $5,000 크레딧 (참가자 전원 $200 Vultr 크레딧)",
+    "hiring_link": false,
+    "apply_deadline": null,
+    "submit_deadline": "2026-11-08",
+    "result_date": null,
+    "status": "upcoming",
+    "url": "https://lablab.ai/ai-hackathons/vultr-hackathon",
+    "evidence": "샌드박스에서 실제 작업(코드 실행·브라우저 조작)을 수행하는 웹 기반 AI 에이전트 빌드가 과제. 온라인 11/3~8, 현지(솔트레이크시티) 11/8 선택",
+    "source": "lablab",
+    "first_seen": "2026-10-24",
+    "last_checked": "2026-10-24",
+    "check_cadence": "weekly",
+    "review": "confirmed",
+    "history": [
+      {
+        "date": "2026-10-24",
+        "event": "created",
+        "status": "upcoming"
+      }
+    ]
+  },
+  {
+    "id": "global-0011",
+    "type": "hackathon",
+    "title": "Kiroween 2026",
+    "host": "Kiro (AWS)",
+    "ai_usage": "required",
+    "format": "online",
+    "team": "solo/team",
+    "prize": "총 $100,000 현금 (상세 규정·배분은 10/30 공개 예정)",
+    "hiring_link": false,
+    "apply_deadline": null,
+    "submit_deadline": "2026-12-04",
+    "result_date": null,
+    "status": "upcoming",
+    "url": "https://kiroween.devpost.com/",
+    "evidence": "Kiro(에이전틱 AI IDE)로 기간 내 새 프로젝트를 만들어 제출하는 연례 해커톤. 등록 가능, 빌드는 10/30부터(12/4 14:00 PT 마감)",
+    "source": "devpost",
+    "first_seen": "2026-10-24",
+    "last_checked": "2026-10-24",
+    "check_cadence": "weekly",
+    "review": "confirmed",
+    "history": [
+      {
+        "date": "2026-10-24",
+        "event": "created",
+        "status": "upcoming"
+      }
+    ]
+  },
+  {
+    "id": "global-0012",
+    "type": "hackathon",
+    "title": "Google Cloud Agents for Impact",
+    "host": "Google Cloud",
+    "ai_usage": "required",
+    "format": "hybrid",
+    "team": "solo/team",
+    "prize": "현금 상금(금액 미공개) + Google Cloud Next '27 무대 발표 기회 + Credly 배지",
+    "hiring_link": false,
+    "apply_deadline": null,
+    "submit_deadline": null,
+    "result_date": null,
+    "status": "upcoming",
+    "url": "https://cloud.google.com/resources/agents-for-impact-2026",
+    "evidence": "ADK v2·Gemini·Antigravity 등 구글 에이전틱 스택으로 사회공헌 에이전트를 빌드하는 3단계 프로그램. 1단계 도시별 오프라인(2026.10~12), 3단계 디지털 해커톤 2027.1~3 온라인 제출",
+    "source": "google-cloud",
+    "first_seen": "2026-10-24",
+    "last_checked": "2026-10-24",
+    "check_cadence": "weekly",
+    "review": "confirmed",
+    "history": [
+      {
+        "date": "2026-10-24",
+        "event": "created",
+        "status": "upcoming"
+      }
+    ]
+  },
+  {
+    "id": "global-0013",
+    "type": "hackathon",
+    "title": "DeveloperWeek 2027 Hackathon",
+    "host": "DevNetwork",
+    "ai_usage": "allowed",
+    "format": "hybrid",
+    "team": "solo/team",
+    "prize": "총 $6,000",
+    "hiring_link": false,
+    "apply_deadline": null,
+    "submit_deadline": "2027-02-11",
+    "result_date": null,
+    "status": "upcoming",
+    "url": "https://developerweek-2027-hackathon.devpost.com/",
+    "evidence": "ML/AI 트랙 포함 일반 해커톤(Devpost Machine Learning/AI 태그), AI 필수 요건은 아님. 산타클라라 현장+온라인 병행",
+    "source": "devpost",
+    "first_seen": "2026-10-24",
+    "last_checked": "2026-10-24",
+    "check_cadence": "weekly",
+    "review": "confirmed",
+    "history": [
+      {
+        "date": "2026-10-24",
+        "event": "created",
+        "status": "upcoming"
+      }
+    ]
+  },
+  {
+    "id": "global-0014",
+    "type": "hackathon",
+    "title": "Since AI 2026",
+    "host": "Since AI ry (MLH 2026-27 시즌 등재)",
+    "ai_usage": "allowed",
+    "format": "offline",
+    "team": "solo/team",
+    "prize": "총 €50,000",
+    "hiring_link": false,
+    "apply_deadline": null,
+    "submit_deadline": "2026-11-08",
+    "result_date": null,
+    "status": "upcoming",
+    "url": "https://sinceai2026.devpost.com/",
+    "evidence": "AI 태그 붙은 AI 테마 해커톤(핀란드 투르쿠 현장 11/6~8). 한국 거주자는 여행 필요",
+    "source": "devpost",
+    "first_seen": "2026-10-24",
+    "last_checked": "2026-10-24",
+    "check_cadence": "weekly",
+    "review": "confirmed",
+    "history": [
+      {
+        "date": "2026-10-24",
+        "event": "created",
+        "status": "upcoming"
+      }
+    ]
+  },
+  {
+    "id": "global-0015",
+    "type": "hackathon",
+    "title": "Google Cloud AI Builder Cup 2026 (JAPAC)",
+    "host": "Hack2skill x Google Cloud",
+    "ai_usage": "required",
+    "format": "hybrid",
+    "team": "team",
+    "prize": "총 $30,000 + 싱가포르 결승(Demo Day) 왕복 여행 지원",
+    "hiring_link": false,
+    "apply_deadline": "2026-10-11",
+    "submit_deadline": "2026-10-18",
+    "result_date": "2026-12-04",
+    "status": "judging",
+    "url": "https://hack2skill.com/event/aibuildercup2026",
+    "evidence": "Google Cloud AI 스택으로 실무 문제 프로토타입을 만들어 제출(한국 포함 JAPAC 21세 이상 직장인·창업가, 2~4인 팀). 현재 평가 단계(10/19~11/6), 파이널리스트 11/7 발표",
+    "source": "google-cloud",
+    "first_seen": "2026-10-24",
+    "last_checked": "2026-10-24",
+    "check_cadence": "archive_candidate",
+    "review": "confirmed",
+    "history": [
+      {
+        "date": "2026-10-24",
+        "event": "created",
+        "status": "judging"
+      }
+    ]
+  },
+  {
+    "id": "global-0016",
+    "type": "hackathon",
+    "title": "AMD Developer Hackathon: ACT III",
+    "host": "AMD x lablab.ai",
+    "ai_usage": "required",
+    "format": "hybrid",
+    "team": "solo/team",
+    "prize": null,
+    "hiring_link": false,
+    "apply_deadline": null,
+    "submit_deadline": "2026-10-17",
+    "result_date": null,
+    "status": "judging",
+    "url": "https://lablab.ai/ai-hackathons/amd-developer-hackathon-act-iii",
+    "evidence": "AMD 인프라로 AI 앱을 만드는 lablab 해커톤 시리즈 3막. 온라인 빌드 10/12~17 종료, 현지 10/17~18. 결과 집계 중",
+    "source": "lablab",
+    "first_seen": "2026-10-24",
+    "last_checked": "2026-10-24",
+    "check_cadence": "archive_candidate",
+    "review": "confirmed",
+    "history": [
+      {
+        "date": "2026-10-24",
+        "event": "created",
+        "status": "judging"
+      }
+    ]
+  },
+  {
+    "id": "global-0017",
+    "type": "hackathon",
+    "title": "AssemblyAI - Voice Agent Hackathon",
+    "host": "AssemblyAI x lablab.ai",
+    "ai_usage": "required",
+    "format": "online",
+    "team": "solo/team",
+    "prize": "$10,000 풀 ($5,000 현금 + $5,000 API 크레딧)",
+    "hiring_link": false,
+    "apply_deadline": null,
+    "submit_deadline": "2026-09-30",
+    "result_date": null,
+    "status": "closed",
+    "url": "https://lablab.ai/ai-hackathons/assemblyai-voice-agent-hackathon",
+    "evidence": "AssemblyAI API로 음성 AI 에이전트를 만들어 제출하는 한 달짜리 온라인 챌린지(9월 종료)",
+    "source": "lablab",
+    "first_seen": "2026-10-24",
+    "last_checked": "2026-10-24",
+    "check_cadence": "archive_candidate",
+    "review": "confirmed",
+    "history": [
+      {
+        "date": "2026-10-24",
+        "event": "created",
+        "status": "closed"
+      }
+    ]
+  },
+  {
+    "id": "global-0018",
+    "type": "hackathon",
+    "title": "IBM Bob 2.0 Hackathon",
+    "host": "IBM x lablab.ai",
+    "ai_usage": "required",
+    "format": "online",
+    "team": "solo/team",
+    "prize": null,
+    "hiring_link": false,
+    "apply_deadline": null,
+    "submit_deadline": "2026-09-27",
+    "result_date": null,
+    "status": "closed",
+    "url": "https://lablab.ai/ai-hackathons/ibm-bob-2-hackathon",
+    "evidence": "AI 보조 개발(AI-assisted development) 주제 공식 IBM 해커톤, 48시간 온라인 빌드(9/25~27, 15,727명 참가)",
+    "source": "lablab",
+    "first_seen": "2026-10-24",
+    "last_checked": "2026-10-24",
+    "check_cadence": "archive_candidate",
+    "review": "confirmed",
+    "history": [
+      {
+        "date": "2026-10-24",
+        "event": "created",
+        "status": "closed"
+      }
+    ]
+  },
+  {
+    "id": "global-0019",
+    "type": "hackathon",
+    "title": "MLH Global Hack Week: GenAI",
+    "host": "Major League Hacking (MLH)",
+    "ai_usage": "required",
+    "format": "online",
+    "team": "solo/team",
+    "prize": null,
+    "hiring_link": false,
+    "apply_deadline": null,
+    "submit_deadline": "2026-05-14",
+    "result_date": null,
+    "status": "closed",
+    "url": "https://mlh.io/seasons/2026/events",
+    "evidence": "MLH 완전 온라인 해커톤 주간의 GenAI 테마 에디션(5/8~14 종료). 차기 GHW 일정은 아직 미공개",
+    "source": "mlh",
+    "first_seen": "2026-10-24",
+    "last_checked": "2026-10-24",
+    "check_cadence": "archive_candidate",
+    "review": "confirmed",
+    "history": [
+      {
+        "date": "2026-10-24",
+        "event": "created",
+        "status": "closed"
+      }
+    ]
+  }
+]

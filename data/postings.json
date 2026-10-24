@@ -1,0 +1,483 @@
+[
+  {
+    "id": "seed-kr-01",
+    "source": "manual-research",
+    "company": "CJ올리브영",
+    "positions": [
+      "frontend"
+    ],
+    "positions_raw": "개발 직군 경력 3직무(커머스·코어 플랫폼, AI 추천 엔지니어) / FE 단독 여부 미확인",
+    "assignment_type": "unknown",
+    "process_raw": "서류→AI 과제→1차 면접→인성+2차 면접. 기존 라이브 코딩 대체 (크래프톤 코파 프로브)",
+    "ai_policy": "required",
+    "policy_raw": "AI 활용 요구",
+    "evidence": [
+      {
+        "quote": "결과물+문제 정의+프롬프트 작성 과정+반복 개선+결과 검증 다면평가",
+        "field": "research"
+      }
+    ],
+    "url": null,
+    "urls_research": [],
+    "deadline": null,
+    "status": "closed",
+    "state_raw": "마감 (2026.7.20~8.9)",
+    "first_seen": "2026-07",
+    "last_checked": "2026-10-11",
+    "check_cadence": null,
+    "review": "confirmed",
+    "history": [
+      {
+        "date": "2026-07",
+        "event": "created",
+        "ai_policy": "required",
+        "note": "2026.7 공고"
+      }
+    ],
+    "note": "국내 'AI 과제 전형' 대표 1호급 사례. 코파톤 입상 시 서류 통과 혜택"
+  },
+  {
+    "id": "seed-kr-02",
+    "source": "manual-research",
+    "company": "CJ올리브네트웍스",
+    "positions": [
+      "frontend"
+    ],
+    "positions_raw": "신입 11개 직무(AI·데이터·SW·DX·ERP·보안·인프라·클라우드·네트워크·AI영상기획) / FE 별도 표기 미확인",
+    "assignment_type": "unknown",
+    "process_raw": "기술직군 단독 코딩테스트 폐지→AI 역량 평가. 기술직군 '바이브 코딩 테스트', 비기술 'AI 활용역량 테스트'",
+    "ai_policy": "required",
+    "policy_raw": "AI 활용 요구",
+    "evidence": [
+      {
+        "quote": "프롬프트 조작·제어로 의도한 SW 구조를 오차 없이 출력하는 능력 측정",
+        "field": "research"
+      }
+    ],
+    "url": null,
+    "urls_research": [],
+    "deadline": null,
+    "status": "closed",
+    "state_raw": "마감 (2026.9, ~9/30, 2027.1 입사)",
+    "first_seen": "2026-09",
+    "last_checked": "2026-10-11",
+    "check_cadence": null,
+    "review": "confirmed",
+    "history": [
+      {
+        "date": "2026-09",
+        "event": "created",
+        "ai_policy": "required",
+        "note": "2026.9 공고"
+      }
+    ],
+    "note": "전형: 서류→AI 역량 평가→1·2차 면접→약 3주 현장 인턴십"
+  },
+  {
+    "id": "seed-kr-03",
+    "source": "manual-research",
+    "company": "크래프톤",
+    "positions": [
+      "frontend"
+    ],
+    "positions_raw": "개발 직군 / FE 여부 미확인",
+    "assignment_type": "unknown",
+    "process_raw": "채용 과제에 자체 솔루션 코파 프로브 적용",
+    "ai_policy": "allowed_graded",
+    "policy_raw": "AI 허용 + AI 채점",
+    "evidence": [
+      {
+        "quote": "코드+대화기록·프롬프트·도구설정·검증실행흔적 자동 수집, 사후 질의응답, 면접 리포트",
+        "field": "research"
+      }
+    ],
+    "url": null,
+    "urls_research": [],
+    "deadline": null,
+    "status": "open",
+    "state_raw": "정책 진행 중",
+    "first_seen": "2026-08",
+    "last_checked": "2026-10-11",
+    "check_cadence": null,
+    "review": "confirmed",
+    "history": [
+      {
+        "date": "2026-08",
+        "event": "created",
+        "ai_policy": "allowed_graded",
+        "note": "2026.8.29 보도"
+      }
+    ],
+    "note": "코파 프로브 개발사 — 자사 채용에도 도입"
+  },
+  {
+    "id": "seed-kr-04",
+    "source": "manual-research",
+    "company": "컬리",
+    "positions": [
+      "frontend"
+    ],
+    "positions_raw": "개발자 공채 / FE 여부 미상",
+    "assignment_type": "unknown",
+    "process_raw": "서류 통과자 코딩테스트에서 AI 허용",
+    "ai_policy": "allowed",
+    "policy_raw": "명시적 허용",
+    "evidence": [
+      {
+        "quote": "프롬프트 제출 요구 언급 없음",
+        "field": "research"
+      }
+    ],
+    "url": null,
+    "urls_research": [],
+    "deadline": null,
+    "status": "closed",
+    "state_raw": "마감 (2025)",
+    "first_seen": "2025",
+    "last_checked": "2026-10-11",
+    "check_cadence": null,
+    "review": "confirmed",
+    "history": [
+      {
+        "date": "2025",
+        "event": "created",
+        "ai_policy": "allowed",
+        "note": "2025 공채"
+      }
+    ],
+    "note": "설립 후 최초의 코딩테스트 AI 허용. 비개발 직군도 생성 AI 역량 평가 방침"
+  },
+  {
+    "id": "seed-kr-05",
+    "source": "manual-research",
+    "company": "무신사",
+    "positions": [
+      "etc"
+    ],
+    "positions_raw": "개발 직군",
+    "assignment_type": "unknown",
+    "process_raw": "코딩테스트 AI 사용 허용 + 자체 AI 평가 시스템 'The Machine'로 AI 활용 코드를 AI가 평가",
+    "ai_policy": "allowed_graded",
+    "policy_raw": "AI 허용 + AI 채점",
+    "evidence": [
+      {
+        "quote": "—",
+        "field": "research"
+      }
+    ],
+    "url": null,
+    "urls_research": [],
+    "deadline": null,
+    "status": "closed",
+    "state_raw": "정책 (기술블로그 공개)",
+    "first_seen": "2026-04",
+    "last_checked": "2026-10-11",
+    "check_cadence": null,
+    "review": "confirmed",
+    "history": [
+      {
+        "date": "2026-04",
+        "event": "created",
+        "ai_policy": "allowed_graded",
+        "note": "2026.4.20 블로그"
+      }
+    ],
+    "note": "AI 허용(잡코리아 2026.5 보도) + 자체 AI 채점 파이프라인 구축"
+  },
+  {
+    "id": "seed-kr-06",
+    "source": "manual-research",
+    "company": "토스",
+    "positions": [
+      "frontend"
+    ],
+    "positions_raw": "프로덕트 디자이너 (FE 아님 — 참고)",
+    "assignment_type": "unknown",
+    "process_raw": "포트폴리오 없이 과제만으로 평가(챌린지 전형)",
+    "ai_policy": "allowed",
+    "policy_raw": "명시적 허용",
+    "evidence": [
+      {
+        "quote": "프롬프트 제출 없음, 피그마/GitHub 링크 제출",
+        "field": "research"
+      }
+    ],
+    "url": null,
+    "urls_research": [],
+    "deadline": null,
+    "status": "closed",
+    "state_raw": "마감 (2026.6.26~7.12)",
+    "first_seen": "2026-06",
+    "last_checked": "2026-10-11",
+    "check_cadence": null,
+    "review": "confirmed",
+    "history": [
+      {
+        "date": "2026-06",
+        "event": "created",
+        "ai_policy": "allowed",
+        "note": "2026.6"
+      }
+    ],
+    "note": "\"리서치·프로토타입·UI 디자인 등 모든 과정에서 AI 도구 사용 가능\" 명시 — 비개발 직군 선행 사례"
+  },
+  {
+    "id": "seed-kr-07",
+    "source": "manual-research",
+    "company": "더게임(TheGame AI)",
+    "positions": [
+      "frontend"
+    ],
+    "positions_raw": "GOlang 백엔드 (FE 아님 — 참고)",
+    "assignment_type": "unknown",
+    "process_raw": "별도 과제 없음, 면접 평가 기준에 명시",
+    "ai_policy": "required",
+    "policy_raw": "AI 활용 요구",
+    "evidence": [
+      {
+        "quote": "제작물 지참(프롬프트 제출 명시 없음)",
+        "field": "research"
+      }
+    ],
+    "url": null,
+    "urls_research": [],
+    "deadline": null,
+    "status": "open",
+    "state_raw": "상시 (원티드 진행 중)",
+    "first_seen": "2026-10",
+    "last_checked": "2026-10-11",
+    "check_cadence": null,
+    "review": "confirmed",
+    "history": [
+      {
+        "date": "2026-10",
+        "event": "created",
+        "ai_policy": "required",
+        "note": "2026.10 기준 진행 중"
+      }
+    ],
+    "note": "\"면접 때 AI agent로 무엇을 만들었는가\"를 중점 확인"
+  },
+  {
+    "id": "seed-kr-08",
+    "source": "manual-research",
+    "company": "엘리스",
+    "positions": [
+      "frontend"
+    ],
+    "positions_raw": "프론트엔드 엔지니어 (커리어 부스트 위크)",
+    "assignment_type": "unknown",
+    "process_raw": "서류·알고리즘 테스트 없음, 4일 미니 프로젝트(과제)+페어 프로그래밍 인터뷰",
+    "ai_policy": "unspecified",
+    "policy_raw": "미언급",
+    "evidence": [
+      {
+        "quote": "없음",
+        "field": "research"
+      }
+    ],
+    "url": null,
+    "urls_research": [],
+    "deadline": null,
+    "status": "closed",
+    "state_raw": "마감 (2025.5)",
+    "first_seen": "2025-05",
+    "last_checked": "2026-10-11",
+    "check_cadence": null,
+    "review": "confirmed",
+    "history": [
+      {
+        "date": "2025-05",
+        "event": "created",
+        "ai_policy": "unspecified",
+        "note": "2025.5"
+      }
+    ],
+    "note": "FE 과제 전형 자체의 참고 사례 (AI 정책 문구 없음)"
+  },
+  {
+    "id": "seed-kr-09",
+    "source": "manual-research",
+    "company": "마이리얼트립",
+    "positions": [
+      "etc"
+    ],
+    "positions_raw": "신입 공채 (직무 미특정)",
+    "assignment_type": "unknown",
+    "process_raw": "서류→면접 2회 (과제 전형 없음)",
+    "ai_policy": "unspecified",
+    "policy_raw": "미언급",
+    "evidence": [
+      {
+        "quote": "없음 — 서류 가이드에서 \"AI는 도구로 쓴 경험을 보여달라\" 권고",
+        "field": "research"
+      }
+    ],
+    "url": null,
+    "urls_research": [],
+    "deadline": null,
+    "status": "closed",
+    "state_raw": "마감 (~2026.10.11)",
+    "first_seen": "2026-10",
+    "last_checked": "2026-10-11",
+    "check_cadence": null,
+    "review": "confirmed",
+    "history": [
+      {
+        "date": "2026-10",
+        "event": "created",
+        "ai_policy": "unspecified",
+        "note": "2026.10"
+      }
+    ],
+    "note": ""
+  },
+  {
+    "id": "seed-kr-10",
+    "source": "manual-research",
+    "company": "당근마켓",
+    "positions": [
+      "frontend"
+    ],
+    "positions_raw": "2026 윈터테크 FE 인턴 (Frontend)",
+    "assignment_type": "unknown",
+    "process_raw": "세부 전형 미확인",
+    "ai_policy": "unspecified",
+    "policy_raw": "미확인",
+    "evidence": [
+      {
+        "quote": "미확인",
+        "field": "research"
+      }
+    ],
+    "url": null,
+    "urls_research": [],
+    "deadline": null,
+    "status": "closed",
+    "state_raw": "마감 (2025.11.3~14)",
+    "first_seen": "2025-11",
+    "last_checked": "2026-10-11",
+    "check_cadence": null,
+    "review": "confirmed",
+    "history": [
+      {
+        "date": "2025-11",
+        "event": "created",
+        "ai_policy": "unspecified",
+        "note": "2025.11"
+      }
+    ],
+    "note": "2025.5 보도 기준 \"채용 시험 AI 도입 검토 중\". 당시 네카라쿠배당토는 AI 금지군 언급"
+  },
+  {
+    "id": "seed-kr-11",
+    "source": "manual-research",
+    "company": "뱅크샐러드",
+    "positions": [
+      "etc"
+    ],
+    "positions_raw": "전직군(테크 포함)",
+    "assignment_type": "unknown",
+    "process_raw": "직무에 따라 과제 또는 코딩테스트 추가 가능",
+    "ai_policy": "unspecified",
+    "policy_raw": "미언급",
+    "evidence": [
+      {
+        "quote": "—",
+        "field": "research"
+      }
+    ],
+    "url": null,
+    "urls_research": [],
+    "deadline": null,
+    "status": "closed",
+    "state_raw": "마감 (2025.11~12.31)",
+    "first_seen": "2025-11",
+    "last_checked": "2026-10-11",
+    "check_cadence": null,
+    "review": "confirmed",
+    "history": [
+      {
+        "date": "2025-11",
+        "event": "created",
+        "ai_policy": "unspecified",
+        "note": "2025.11"
+      }
+    ],
+    "note": ""
+  },
+  {
+    "id": "seed-kr-12",
+    "source": "manual-research",
+    "company": "하이퍼커넥트",
+    "positions": [
+      "etc"
+    ],
+    "positions_raw": "AI·ML 신입 개발자",
+    "assignment_type": "unknown",
+    "process_raw": "코딩테스트/사전과제 전형 존재",
+    "ai_policy": "unspecified",
+    "policy_raw": "미언급",
+    "evidence": [
+      {
+        "quote": "—",
+        "field": "research"
+      }
+    ],
+    "url": null,
+    "urls_research": [],
+    "deadline": null,
+    "status": "closed",
+    "state_raw": "마감 (2024.1)",
+    "first_seen": "2024-01",
+    "last_checked": "2026-10-11",
+    "check_cadence": null,
+    "review": "confirmed",
+    "history": [
+      {
+        "date": "2024-01",
+        "event": "created",
+        "ai_policy": "unspecified",
+        "note": "2024.1"
+      }
+    ],
+    "note": ""
+  },
+  {
+    "id": "seed-kr-13",
+    "source": "manual-research",
+    "company": "네이버·카카오",
+    "positions": [
+      "etc"
+    ],
+    "positions_raw": "신입 개발자 공채",
+    "assignment_type": "unknown",
+    "process_raw": "—",
+    "ai_policy": "unspecified",
+    "policy_raw": "미실시",
+    "evidence": [
+      {
+        "quote": "—",
+        "field": "research"
+      }
+    ],
+    "url": null,
+    "urls_research": [],
+    "deadline": null,
+    "status": "no_hiring",
+    "state_raw": "2026년 공채 미실시(네이버 7년 만 공백, 카카오 그룹 공채 없음, 부스트캠프 중단)",
+    "first_seen": "2026-08",
+    "last_checked": "2026-10-11",
+    "check_cadence": null,
+    "review": "confirmed",
+    "history": [
+      {
+        "date": "2026-08",
+        "event": "created",
+        "ai_policy": "unspecified",
+        "note": "2026.8 보도"
+      }
+    ],
+    "note": "공고 단위 AI 정책 확인 대상 자체 부재"
+  }
+]
