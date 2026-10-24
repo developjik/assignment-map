@@ -12,8 +12,14 @@ a:hover { text-decoration: underline; text-underline-offset: 3px; }
 :focus-visible { outline: 1px solid var(--blue); outline-offset: 1px; }
 @media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; } }
 
-.app { display: grid; grid-template-columns: 168px 1fr; min-height: 100vh; }
-@media (max-width: 760px) { .app { grid-template-columns: 1fr; } .rail { border-right: 0; border-bottom: 1px solid var(--border); } .rail nav { display: flex; flex-wrap: wrap; } .ritem { flex: 1 1 auto; } }
+.app { display: grid; grid-template-columns: 168px 1fr; grid-template-rows: auto minmax(0, 1fr); height: 100vh; overflow: hidden; }
+@media (max-width: 760px) {
+  .app { grid-template-columns: 1fr; grid-template-rows: auto auto; height: auto; min-height: 100vh; overflow: visible; }
+  .rail { border-right: 0; border-bottom: 1px solid var(--border); overflow: visible; }
+  .rail nav { display: flex; flex-wrap: wrap; } .ritem { flex: 1 1 auto; }
+  .main { overflow: visible; }
+  .twrap { overflow: visible; flex: none; }
+}
 
 /* header */
 .hd { grid-column: 1 / -1; display: flex; align-items: center; gap: 12px; padding: 9px 12px; border-bottom: 1px solid var(--border); flex-wrap: wrap; }
@@ -29,7 +35,7 @@ a:hover { text-decoration: underline; text-underline-offset: 3px; }
 .live i { width: 6px; height: 6px; background: var(--green); display: inline-block; }
 
 /* rail */
-.rail { border-right: 1px solid var(--border); padding: 8px 0; }
+.rail { border-right: 1px solid var(--border); padding: 8px 0; overflow-y: auto; min-height: 0; }
 .ritem { display: flex; justify-content: space-between; gap: 8px; padding: 5px 12px; color: var(--mut); font-size: 11.5px; cursor: pointer; background: none; border: 0; font-family: inherit; width: 100%; text-align: left; }
 .ritem:hover { color: var(--fg-hi); }
 .ritem.on { color: var(--fg-hi); background: #11151C; box-shadow: inset 2px 0 0 var(--blue); }
@@ -37,7 +43,7 @@ a:hover { text-decoration: underline; text-underline-offset: 3px; }
 .ritem .n.hl { color: var(--yellow); }
 
 /* main */
-.main { min-width: 0; display: flex; flex-direction: column; }
+.main { min-width: 0; display: flex; flex-direction: column; min-height: 0; overflow: hidden; }
 
 /* ticker strip */
 .strip { display: flex; align-items: stretch; border-bottom: 1px solid var(--border); flex-wrap: wrap; }
@@ -58,7 +64,7 @@ a:hover { text-decoration: underline; text-underline-offset: 3px; }
 .fopt.p-rev.on { background: #1B1710; color: var(--yellow); }
 
 /* table */
-.twrap { overflow-x: auto; flex: 1; }
+.twrap { overflow: auto; flex: 1 1 0; min-height: 0; }
 table { width: 100%; border-collapse: collapse; font-size: 11.5px; min-width: 680px; }
 th { text-align: left; font-weight: 600; color: var(--dim); padding: 6px 10px; border-bottom: 1px solid var(--border); font-size: 10px; letter-spacing: .04em; position: sticky; top: 0; background: var(--bg); }
 th.r { text-align: right; }
@@ -136,7 +142,7 @@ th .dir { color: var(--blue); }
 .ctxbar .ok i { display: inline-block; width: 5px; height: 5px; background: var(--green); margin-right: 6px; }
 
 /* 키 힌트 바 (k9s/lazygit) */
-.keybar { display: flex; gap: 14px; padding: 6px 12px; border-top: 1px solid var(--border); color: var(--faint); font-size: 10px; flex-wrap: wrap; position: sticky; bottom: 0; background: var(--bg); }
+.keybar { display: flex; gap: 14px; padding: 6px 12px; border-top: 1px solid var(--border); color: var(--faint); font-size: 10px; flex-wrap: wrap; background: var(--bg); flex-shrink: 0; }
 .keybar .kbd { margin-right: 4px; }
 
 /* 커서 행 (j/k 이동) */
