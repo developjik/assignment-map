@@ -1,0 +1,19 @@
+export default function Method() {
+  return (
+    <div className="sec mth">
+      <h2>방법론</h2>
+      <h3>무엇을 수집하나</h3>
+      <p>AI로 만들어 제출하는 4유형: 채용 과제(AI 허용/요구), 해커톤, 대회·챌린지, 공모전. AI 사용 금지 대회는 기록만 하고 노출하지 않는다.</p>
+      <h3>AI 정책 분류</h3>
+      <p><code>필수</code> AI 활용·제작이 전형/주제의 일부 / <code>허용+채점</code> AI 허용 + 과정 제출·평가 / <code>허용</code> AI 사용 가능 언급 / <code>금지</code> / <code>미언급</code> 과제는 있으나 AI 언급 없음. 근거 문장 1개를 남기고 원문은 보관하지 않는다.</p>
+      <h3>어떻게 수집하나</h3>
+      <p>매일 03:00 KST 자동 수집. 소스: 원티드, 점핏, 잡코리아, 위비티, Devpost, lablab.ai, 뉴스 RSS. 방문 상한 80페이지/일. 진행 중 항목은 마감까지 재방문해 정책·마감 변경을 이력으로 남긴다.</p>
+      <h3>데이터 신뢰</h3>
+      <p>골든케이스 회귀(올리브영, 크래프톤, 무신사, 더게임AI, 코파톤, KIC)를 통과해야 커밋된다. 판정이 애매한 항목은 검토 필요 상태로 표시된다. 오탐은 <a href="https://github.com/developjik/assignment-map/issues" target="_blank" rel="noreferrer">이슈</a>로 제보.</p>
+      <h3>알려진 한계</h3>
+      <p>잡코리아 상세 본문 미렌더링 이슈로 제목 명시만 확정, full-text 히트는 검토 필요 처리. 교차 포스팅은 1개 소스로만 기록한다.</p>
+      <h3>라이선스</h3>
+      <p>데이터는 공개 페이지의 제목, URL, 근거 문장 1문장만 포함. 코드는 MIT.</p>
+    </div>
+  )
+}

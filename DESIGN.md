@@ -140,6 +140,7 @@ middle-dot 메타(→ 각진 구분자 |), 이모지·그라디언트·glow, 섹
 
 필수(크래프트 플로어): focus-visible, prefers-reduced-motion, 반응형(min-width 표+내부 스크롤), alt.
 
+스택: Rollup 3 + React 18 (순수 JS — esbuild 네이티브 바이너리가 샌드박스에서 차단되어 Vite 대체, 2026-10-24).
 구조: 좌측 레일(유형+카운트) + 상태 티커 스트립 + 필터 행 + dense 표 + 확장 행(history 타임라인) + 푸터(출처/갱신시각/commit hash).
 탭: 전체 기회 / 채용 과제 / 해커톤 / 대회·챌린지 / 공모전 / 플랫폼 / 트렌드·뉴스 / 변경로그 / 방법론.
 
