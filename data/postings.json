@@ -528,24 +528,30 @@
     "ai_policy": "unspecified",
     "evidence": [
       {
-        "quote": "***본 포지션은 직무 역량확인을 위한 사전과제 제출이 필수입니다.",
-        "field": "포지션 상세"
+        "quote": "마감일 2026-10-25 경과 — 원티드 검색 결과에서 노출 확인, 지원 마감으로 종결 처리",
+        "field": "status"
       }
     ],
     "url": "https://www.wanted.co.kr/wd/390319",
     "deadline": "2026-10-25",
-    "status": "open",
+    "status": "closed",
     "review": "auto",
     "note": "잡코리아 동일 공고(GI_Read/50055620) 교차확인 — 마감 10/25. AI 정책 언급 없음",
     "first_seen": "2026-10-24",
-    "last_seen": "2026-10-25",
-    "last_checked": "2026-10-25",
-    "check_cadence": "daily",
+    "last_seen": "2026-10-26",
+    "last_checked": "2026-10-26",
+    "check_cadence": "none",
     "history": [
       {
         "date": "2026-10-24",
         "event": "created",
         "ai_policy": "unspecified"
+      },
+      {
+        "date": "2026-10-26",
+        "event": "status_changed",
+        "from": "open",
+        "to": "closed"
       }
     ]
   },

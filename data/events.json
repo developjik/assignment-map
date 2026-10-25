@@ -228,7 +228,7 @@
     "source": "ai-radar/thinkyou/wevity",
     "first_seen": "2026-10-24",
     "last_checked": "2026-10-24",
-    "check_cadence": "weekly",
+    "check_cadence": "daily",
     "review": "confirmed",
     "history": [
       {
@@ -309,19 +309,25 @@
     "apply_deadline": "2026-10-25",
     "submit_deadline": "2026-10-25",
     "result_date": null,
-    "status": "open",
+    "status": "closed",
     "url": "https://www.wevity.com/?c=find&s=1&gbn=view&gp=1&ix=111674",
-    "evidence": "'본접수 2026. 9. 21. ~ 10. 25. *접수기간 7일 연장' — 시드 이전에 10/18→10/25 연장 발생(원문 확인). AI 숏폼/AI CF/AI CM송 3개 부문",
+    "evidence": "접수 마감 2026-10-25 경과 — 위비티 전체리스트 스윕에서 여전히 노출되나 지원 기간 종료",
     "source": "wevity",
     "first_seen": "2026-10-24",
-    "last_checked": "2026-10-24",
-    "check_cadence": "daily",
+    "last_checked": "2026-10-26",
+    "check_cadence": "none",
     "review": "confirmed",
     "history": [
       {
         "date": "2026-10-24",
         "event": "created",
         "status": "open"
+      },
+      {
+        "date": "2026-10-26",
+        "event": "status_changed",
+        "from": "open",
+        "to": "closed"
       }
     ]
   },
@@ -1353,19 +1359,25 @@
     "apply_deadline": "2026-10-25",
     "submit_deadline": "2026-10-25",
     "result_date": null,
-    "status": "open",
+    "status": "closed",
     "url": "https://www.wevity.com/?c=find&s=1&gbn=view&gp=1&ix=111588",
-    "evidence": "위비티 상세내용 비어 AI 사용 여부 미확인",
+    "evidence": "접수 마감 2026-10-25 경과 — 종결 처리",
     "source": "wevity",
     "review": "needs_review",
     "first_seen": "2026-10-24",
-    "last_checked": "2026-10-24",
-    "check_cadence": "daily",
+    "last_checked": "2026-10-26",
+    "check_cadence": "none",
     "history": [
       {
         "date": "2026-10-24",
         "event": "created",
         "status": "open"
+      },
+      {
+        "date": "2026-10-26",
+        "event": "status_changed",
+        "from": "open",
+        "to": "closed"
       }
     ]
   },
@@ -1946,6 +1958,209 @@
     "history": [
       {
         "date": "2026-10-25",
+        "event": "created",
+        "status": "open"
+      }
+    ]
+  },
+  {
+    "id": "wevity:111682-whitehat-2026",
+    "type": "competition",
+    "title": "화이트햇 2026 국방 사이버보안 콘테스트 (WHITEHAT 2026)",
+    "host": "국방부 / 사이버작전사령부",
+    "ai_usage": "unknown",
+    "format": "예선 온라인(11/7) / 본선 오프라인 서울 SETEC(11/30)",
+    "team": "학생 트랙(청소년부 만18세 이하·대학생부) / 국방 트랙(현역 군인·군무원·사관생도), 개인~4인 1팀",
+    "prize": "총상금 4,500만원, 각 부문 1위 국방부장관상",
+    "hiring_link": false,
+    "apply_deadline": "2026-11-02",
+    "submit_deadline": "2026-11-02",
+    "result_date": "2026-12-01",
+    "status": "open",
+    "url": "https://whitehat2026.kr/",
+    "evidence": "'AX시대 : 사이버 전장 주도권 확보'를 주제로… 문제 유형 : CTF 및 침해사고 대응(IR) — AI 사용 규정 미언급(unknown)",
+    "source": "wevity",
+    "review": "auto",
+    "first_seen": "2026-10-26",
+    "last_checked": "2026-10-26",
+    "check_cadence": "daily",
+    "history": [
+      {
+        "date": "2026-10-26",
+        "event": "created",
+        "status": "open"
+      }
+    ]
+  },
+  {
+    "id": "global-0029",
+    "type": "hackathon",
+    "title": "Learn AR with SPECS",
+    "host": "Devpost (SPECS)",
+    "ai_usage": "required",
+    "format": "online",
+    "team": "unknown",
+    "prize": "$2,500",
+    "hiring_link": false,
+    "apply_deadline": "2026-11-09",
+    "submit_deadline": "2026-11-09",
+    "result_date": null,
+    "status": "open",
+    "url": "https://learn-specs.devpost.com/",
+    "evidence": "Learn to design for glasses. Your coding agent builds the Lens, no SPECS required. — 코딩 에이전트 활용이 과제 전제(required)",
+    "source": "devpost",
+    "review": "auto",
+    "first_seen": "2026-10-26",
+    "last_checked": "2026-10-26",
+    "check_cadence": "daily",
+    "history": [
+      {
+        "date": "2026-10-26",
+        "event": "created",
+        "status": "open"
+      }
+    ]
+  },
+  {
+    "id": "global-0030",
+    "type": "hackathon",
+    "title": "Arbiter Hacks V1",
+    "host": "Arbiter",
+    "ai_usage": "allowed",
+    "format": "online",
+    "team": "unknown",
+    "prize": "$7,800",
+    "hiring_link": false,
+    "apply_deadline": "2026-12-21",
+    "submit_deadline": "2026-12-21",
+    "result_date": null,
+    "status": "open",
+    "url": "https://arbiter-hacks-v1.devpost.com/",
+    "evidence": "Devpost themes: Beginner Friendly, Machine Learning/AI, Open Ended — AI가 테마 중 하나(오픈엔디드, allowed)",
+    "source": "devpost",
+    "review": "auto",
+    "first_seen": "2026-10-26",
+    "last_checked": "2026-10-26",
+    "check_cadence": "weekly",
+    "history": [
+      {
+        "date": "2026-10-26",
+        "event": "created",
+        "status": "open"
+      }
+    ]
+  },
+  {
+    "id": "global-0031",
+    "type": "hackathon",
+    "title": "MineArena 1.0",
+    "host": "Code commit",
+    "ai_usage": "allowed",
+    "format": "offline",
+    "team": "unknown",
+    "prize": "₹75,000",
+    "hiring_link": false,
+    "apply_deadline": "2026-10-31",
+    "submit_deadline": "2026-10-31",
+    "result_date": null,
+    "status": "open",
+    "url": "https://minearena-1-0.devpost.com/",
+    "evidence": "Devpost themes: Machine Learning/AI, Fintech, Health — AI 테마 포함(allowed), 인도 SSM cultural centre 오프라인",
+    "source": "devpost",
+    "review": "auto",
+    "first_seen": "2026-10-26",
+    "last_checked": "2026-10-26",
+    "check_cadence": "daily",
+    "history": [
+      {
+        "date": "2026-10-26",
+        "event": "created",
+        "status": "open"
+      }
+    ]
+  },
+  {
+    "id": "global-0032",
+    "type": "hackathon",
+    "title": "HackFW: MADE Challenge",
+    "host": "Fort Worth DAO",
+    "ai_usage": "allowed",
+    "format": "offline",
+    "team": "unknown",
+    "prize": "$1,900",
+    "hiring_link": false,
+    "apply_deadline": "2026-10-30",
+    "submit_deadline": "2026-10-30",
+    "result_date": null,
+    "status": "open",
+    "url": "https://hackfw.devpost.com/",
+    "evidence": "The flagship hackathon of Fort Worth, Texas. — Devpost themes: IoT, Machine Learning/AI, Robotic Process Automation 포함",
+    "source": "devpost",
+    "review": "auto",
+    "first_seen": "2026-10-26",
+    "last_checked": "2026-10-26",
+    "check_cadence": "daily",
+    "history": [
+      {
+        "date": "2026-10-26",
+        "event": "created",
+        "status": "open"
+      }
+    ]
+  },
+  {
+    "id": "global-0033",
+    "type": "hackathon",
+    "title": "HackWithAditya",
+    "host": "Aditya University",
+    "ai_usage": "allowed",
+    "format": "online",
+    "team": "unknown",
+    "prize": "₹500,000",
+    "hiring_link": false,
+    "apply_deadline": "2026-11-25",
+    "submit_deadline": "2026-11-25",
+    "result_date": null,
+    "status": "open",
+    "url": "https://hackwithaditya.devpost.com/",
+    "evidence": "Devpost themes: Education, Health, Machine Learning/AI — AI 테마 포함(allowed), 인도 Aditya University 주최",
+    "source": "devpost",
+    "review": "auto",
+    "first_seen": "2026-10-26",
+    "last_checked": "2026-10-26",
+    "check_cadence": "weekly",
+    "history": [
+      {
+        "date": "2026-10-26",
+        "event": "created",
+        "status": "open"
+      }
+    ]
+  },
+  {
+    "id": "global-0034",
+    "type": "hackathon",
+    "title": "CreateAThon (graph-hacks)",
+    "host": "Hacker's Unity",
+    "ai_usage": "required",
+    "format": "online",
+    "team": "unknown",
+    "prize": "$0",
+    "hiring_link": false,
+    "apply_deadline": "2026-10-31",
+    "submit_deadline": "2026-10-31",
+    "result_date": null,
+    "status": "open",
+    "url": "https://graph-hacks.devpost.com/",
+    "evidence": "GIve Your AI Agent Real Context — AI 에이전트에 컨텍스트를 주는 것이 과제 자체(required), ML/AI 단일 테마",
+    "source": "devpost",
+    "review": "auto",
+    "first_seen": "2026-10-26",
+    "last_checked": "2026-10-26",
+    "check_cadence": "daily",
+    "history": [
+      {
+        "date": "2026-10-26",
         "event": "created",
         "status": "open"
       }

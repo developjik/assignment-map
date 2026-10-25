@@ -154,6 +154,89 @@
       ],
       "notes": "정상 1일 간격 런(어제 대비). [어제 우선 후보 처리] 9건 중 6건 상세 방문·기록 완료(배경데이터·스페이스 해커톤·현대차 차량앱·세라믹 AI 영상·나무엑스·Render), 3건(제2회 대한민국 AI 창조공모대전·산사람x AI-Kive AI MV 챌린지·2026 AI 플레이 콘텐츠 공모전)은 전체/접수중/접수예정/마감임박 전 탭에서 노출 소실 — 삭제 또는 비노출 전환 추정, 원인 불명. [위비티 파라미터 확정] 전체 리스트 = ?c=find&s=1&gub=1&cidx=N(진행중 총 10페이지 113건, 11p부터 빈 리스트), 탭 전환 = &gbn=list&mode=ing|future|soon, 키워드 검색(sp=contents)은 23건 상한 — 발견은 전체리스트 cidx 스윕이 우월. [잡코리아 제약 지속] 신규 상세 3건 본문 미렌더링(하트에이아이 바이브코딩 개발자 D-41·빅레그 바이브코딩 기획자/개발자 상시·이글루 UI 개발자 D-36) — 제목에 과제 언급 없어 미기록. [키워드 인사이트] '바이브코딩'/'AI 과제' 채용 검색은 '업무가 바이브코딩'(SK AX CursorAI 우대·엑스넥시·부스터스 AI-DLC·메드소프트·프롭핀테크) 매칭이 대부분 — 과제 전형 존재 기준 유지 시 채용 소스는 '사전과제' 키워드가 주력. [종결 0] 마감 경과 open 항목 없음 — wd390319 마감일 당일(D-0) 노출 유지 확인, 다음 런 종결 예정. [다음 우선순위 후보] ko-0001~0012 시드 이벤트 마감일 미기입 다수 — 위비티/주최사 검색으로 메꾸기(퓨리얼 AI 콘테스트 등), 마포구 청년 AI 창업 아이디어 경진대회·남양주 AI 자율주행 경진대회(9/28-29 보도)는 위비티 미노출 — 종료 추정.",
       "summary": "+5공고 +19이벤트 · 정책변경 0 · 상태변경 0 · 마감변경 1"
+    },
+    {
+      "date": "2026-10-26",
+      "new_postings": [],
+      "policy_changed": [],
+      "deadline_changed": [],
+      "status_changed": [
+        "wanted:wd390319"
+      ],
+      "new_events": [
+        "wevity:111682-whitehat-2026",
+        "global-0029",
+        "global-0030",
+        "global-0031",
+        "global-0032",
+        "global-0033",
+        "global-0034"
+      ],
+      "event_status_changed": [
+        "ko-0011",
+        "wevity:111588-narajangteo-hackathon"
+      ],
+      "event_deadline_changed": [],
+      "updated_postings": 1,
+      "updated_events": 2,
+      "sources": [
+        {
+          "name": "devpost-api",
+          "ok": true,
+          "visited": 0,
+          "note": "fetch 8페이지 진행중 61건 — 신규 후보 44건 중 AI 주제·잔여기간·상금 기준 6건 채택(SPECS $2.5k·Arbiter $7.8k·MineArena ₹75k·HackFW $1.9k·Aditya ₹500k·CreateAThon). D-0 종료 대학 해커톤 9건·비-AI/무상금 29건 제외"
+        },
+        {
+          "name": "hn-algolia",
+          "ok": true,
+          "visited": 0,
+          "note": "최신 스레드 10/1 그대로 — 신규 없음(다음 전체 파싱 11/1)"
+        },
+        {
+          "name": "github-hackathon",
+          "ok": true,
+          "visited": 0,
+          "note": "신규 레포 30건 전부 참가작(맥도날드 MCP 대회 참여작 다수) — 공고 0건. 2일 연속 참가작만 → T0 퇴출 후보"
+        },
+        {
+          "name": "gnews-kr (7피드)",
+          "ok": true,
+          "visited": 0,
+          "note": "kr-1~4·en 신규 2건(경기여성창업·Grand Rapids 워크샵) 전부 비-AI·노이즈 — 채택 0. kr-6(워크샵/교육) 피드는 교육정책 기사 90건이 대부분 — 이벤트 소스로서 노이즈, 쿼리 튜닝(+'모집') 필요"
+        },
+        {
+          "name": "wevity-cidx-sweep",
+          "ok": true,
+          "visited": 3,
+          "note": "전체리스트 cidx 1-10 스윕(149건, 진행중 113) — 신규 ix 중 화이트햇 2026(국방부, 총상금 4,500만원, D-7) 1건 채택. SK하이닉스 AI 해커톤(ix 111265) 재발견 — 지원마감(9/28)·본선 진행중(11/11 코엑스)이라 미기록"
+        },
+        {
+          "name": "hackhq",
+          "ok": true,
+          "visited": 0,
+          "note": "82행 파싱 — 전일 Devpost 완전중복 판정 유지, 신규 0"
+        },
+        {
+          "name": "wanted",
+          "ok": true,
+          "visited": 2,
+          "note": "'사전과제' 4건 = 기존 기록 3건 + 인터엑스(직무명 '정부과제' 오탐) → 신규 0. 'AI 과제' 20건 전부 '정부 R&D 과제' 직무명 오탐"
+        },
+        {
+          "name": "jumpit",
+          "ok": true,
+          "visited": 1,
+          "note": "'사전과제' 16건 전부 스택 태그 퍼지매칭(한솔테크닉스 등) — 기존 기록(데이터드리븐) 외 신규 0"
+        },
+        {
+          "name": "jobkorea-mobile",
+          "ok": true,
+          "visited": 5,
+          "note": "'사전과제' 33건·'바이브코딩' 37건 리스트 스윕 — 신규 후보 3건(문피아 웹툰PD·NC 배경컨셉 아티스트·스튜디오리코 웹툰작가) 전부 상세 본문 미렌더링(len 0, 기존 제약 재현)으로 evidence 확보 불가 → 미기록. '바이브코딩'은 전일과 동일 오탐 패턴(메드소프트·빅레그·프롭핀테크 등 '업무가 바이브코딩' 공고)"
+        }
+      ],
+      "notes": "정상 1일 간격 런(어제 db8354f). [종결 3건] wd390319 한국프리미엄카드마케팅(마감 10/25), ko-0011 화성 AI CF(10/25), wevity:111588 나라장터 해커톤(10/25). [시드 마감일] 전일 예고(ko-0001~0012 메꾸기)와 달리 데이터 확인 결과 전부 기입 완료 상태 — 추가 작업 불요(전일 런에서 이미 처리된 것으로 판단). [D-0 오늘마감 4건] ACDC·한림 동해 AI 해커톤·OpenCV AI Competition·Build With AI Basics — 다음 런 종결 후보. [D-1~D-2 5건] 대구정원박람회 AI 아트(D-1)·Engage 6.0(D-1)·GitLab Transcend(D-1)·AWS CDS(D-2)·CodeTheCure(D-2). [SK하이닉스 AI 해커톤] cidx 재발견 — 총상금 1억·채용 Fast Track(SKCT 면제)이나 지원마감 9/28로 참여 기회 없음, 미기록. [소스 성과] 이번 런 신규 이벤트 7건 중 6건 Devpost fetch·1건 위비티 cidx — fetch-우선 아키텍처 효과 지속. GitHub topic:hackathon 2일 연속 참가작만 → 다음 성과 리포트 퇴출 확정. [다음 우선순위] (1) D-0 4건 종결 확인, (2) needs_review 4건(씨어스·넷마블·Meta VR Start·Agéntico) 처리, (3) global-0012 Google Cloud Agents for Impact — 3단계 일정(오프라인 10~12월·디지털 해커톤 2027 1~3월) 공개 시 마감일 메꾸기.",
+      "summary": "+0공고 +7이벤트 · 정책변경 0 · 상태변경 3 · 마감변경 0"
     }
   ]
 }
