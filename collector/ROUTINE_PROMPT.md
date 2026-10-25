@@ -90,6 +90,8 @@
 | unspecified | 과제는 있으나 AI 언급 없음 |
 
 이벤트: ai_usage required(AI 주제)/allowed/banned/unknown. banned는 기록만.
+행사 유형: hackathon(빌드+제출) / competition(경쟁) / contest(공모) / **meetup(모임·네트워킹)** / **conference(컨퍼런스·발표)** / **workshop(워크샵·실습)**.
+행사는 과제 제출과 달리 '참여 기회'로 수집 — 무료 공개 행사 우선, 유료도 가격과 함께 기록.
 
 근거 문장 1개 evidence.quote로 필수. 애매하면 needs_review.
 

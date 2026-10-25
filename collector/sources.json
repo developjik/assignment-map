@@ -3,36 +3,270 @@
   "note": "fetch()는 브라우저 페이지 상한 미소모. 발견=fetch(0페이지), 상세=브라우저(80페이지 상한 내).",
   "tiers": {
     "T0_fetch_daily": [
-      { "id": "devpost-api", "kind": "api", "url": "https://devpost.com/api/hackathons?status=open&page=1", "target": "events", "cost": 0, "note": "JSON, ETag 304 지원, 진행 중 ~67건, 9건/페이지. 8페이지 스윕 = 0페이지", "status": "active" },
-      { "id": "hn-algolia-hiring", "kind": "api", "url": "https://hn.algolia.com/api/v1/search_by_date?tags=story,author_whoishiring&hitsPerPage=1", "target": "postings", "cost": 0, "note": "월 1회 스레드 파싱 + 일간 신규 체크. 댓글 266개 중 ~20% AI 정책 문구 포함", "status": "active" },
-      { "id": "github-hackathon", "kind": "api", "url": "https://api.github.com/search/repositories?q=topic:hackathon+created:>{7일전}&sort=created&per_page=30", "target": "events", "cost": 0, "note": "무인증 search 10회/분. 신규 해커톤 레포 ~76/일. 개최사 필터: README에 rules/register/prize 포함 여부", "status": "active" },
-      { "id": "gnews-kr-1", "kind": "rss", "url": "https://news.google.com/rss/search?q=%22AI+%EA%B3%BC%EC%A0%9C+%EC%A0%84%ED%98%95%22&hl=ko&gl=KR&ceid=KR:ko", "target": "postings", "cost": 0, "status": "active" },
-      { "id": "gnews-kr-2", "kind": "rss", "url": "https://news.google.com/rss/search?q=%22AI+%ED%95%B4%EC%BB%A4%ED%86%A4+%EB%AA%A8%EC%A7%91%22+OR+%22AI+%EA%B3%B5%EB%AA%A8%EC%A0%84+%EC%A0%91%EC%88%98%22&hl=ko&gl=KR&ceid=KR:ko", "target": "events", "cost": 0, "note": "OR 다중쿼리 100건 — 지자체·대학 해커톤 조기 포착", "status": "active" },
-      { "id": "gnews-kr-3", "kind": "rss", "url": "https://news.google.com/rss/search?q=%22%EC%82%AC%EC%A0%84%EA%B3%BC%EC%A0%9C+%EC%B1%84%EC%9A%A9%22+OR+%22%EB%B0%94%EC%9D%B4%EB%B8%8C%EC%BD%94%EB%94%A9+%EB%8C%80%ED%9A%8C%22&hl=ko&gl=KR&ceid=KR:ko", "target": "postings", "cost": 0, "status": "active" },
-      { "id": "gnews-kr-4", "kind": "rss", "url": "https://news.google.com/rss/search?q=%22%EA%B2%BD%EC%A7%84%EB%8C%80%ED%9A%8C+%EC%B0%B8%EA%B0%80%EC%9E%90+%EB%AA%A8%EC%A7%91%22+OR+%22%EC%83%9D%EC%84%B1%ED%98%95+AI+%EB%8C%80%ED%9A%8C%22&hl=ko&gl=KR&ceid=KR:ko", "target": "events", "cost": 0, "status": "active" },
-      { "id": "wevity-fetch", "kind": "ssr-fetch", "url": "https://www.wevity.com/?c=find&s=1&sp=contents&sw=AI", "target": "events", "cost": 0, "note": "SSR HTML에서 ix= 링크 50건 추출. 신규 ix만 브라우저 상세 방문", "status": "active" },
-      { "id": "hackhq", "kind": "api", "url": "https://raw.githubusercontent.com/Jose-Gael-Cruz-Lopez/hackhq/main/README.md", "target": "events", "cost": 0, "note": "자동업데이트 해커톤 DB ★123 활동 중, 테이블 83행", "status": "active" }
+      {
+        "id": "devpost-api",
+        "kind": "api",
+        "url": "https://devpost.com/api/hackathons?status=open&page=1",
+        "target": "events",
+        "cost": 0,
+        "note": "JSON, ETag 304 지원, 진행 중 ~67건, 9건/페이지. 8페이지 스윕 = 0페이지",
+        "status": "active"
+      },
+      {
+        "id": "hn-algolia-hiring",
+        "kind": "api",
+        "url": "https://hn.algolia.com/api/v1/search_by_date?tags=story,author_whoishiring&hitsPerPage=1",
+        "target": "postings",
+        "cost": 0,
+        "note": "월 1회 스레드 파싱 + 일간 신규 체크. 댓글 266개 중 ~20% AI 정책 문구 포함",
+        "status": "active"
+      },
+      {
+        "id": "github-hackathon",
+        "kind": "api",
+        "url": "https://api.github.com/search/repositories?q=topic:hackathon+created:>{7일전}&sort=created&per_page=30",
+        "target": "events",
+        "cost": 0,
+        "note": "무인증 search 10회/분. 신규 해커톤 레포 ~76/일. 개최사 필터: README에 rules/register/prize 포함 여부",
+        "status": "active"
+      },
+      {
+        "id": "gnews-kr-1",
+        "kind": "rss",
+        "url": "https://news.google.com/rss/search?q=%22AI+%EA%B3%BC%EC%A0%9C+%EC%A0%84%ED%98%95%22&hl=ko&gl=KR&ceid=KR:ko",
+        "target": "postings",
+        "cost": 0,
+        "status": "active"
+      },
+      {
+        "id": "gnews-kr-2",
+        "kind": "rss",
+        "url": "https://news.google.com/rss/search?q=%22AI+%ED%95%B4%EC%BB%A4%ED%86%A4+%EB%AA%A8%EC%A7%91%22+OR+%22AI+%EA%B3%B5%EB%AA%A8%EC%A0%84+%EC%A0%91%EC%88%98%22&hl=ko&gl=KR&ceid=KR:ko",
+        "target": "events",
+        "cost": 0,
+        "note": "OR 다중쿼리 100건 — 지자체·대학 해커톤 조기 포착",
+        "status": "active"
+      },
+      {
+        "id": "gnews-kr-3",
+        "kind": "rss",
+        "url": "https://news.google.com/rss/search?q=%22%EC%82%AC%EC%A0%84%EA%B3%BC%EC%A0%9C+%EC%B1%84%EC%9A%A9%22+OR+%22%EB%B0%94%EC%9D%B4%EB%B8%8C%EC%BD%94%EB%94%A9+%EB%8C%80%ED%9A%8C%22&hl=ko&gl=KR&ceid=KR:ko",
+        "target": "postings",
+        "cost": 0,
+        "status": "active"
+      },
+      {
+        "id": "gnews-kr-4",
+        "kind": "rss",
+        "url": "https://news.google.com/rss/search?q=%22%EA%B2%BD%EC%A7%84%EB%8C%80%ED%9A%8C+%EC%B0%B8%EA%B0%80%EC%9E%90+%EB%AA%A8%EC%A7%91%22+OR+%22%EC%83%9D%EC%84%B1%ED%98%95+AI+%EB%8C%80%ED%9A%8C%22&hl=ko&gl=KR&ceid=KR:ko",
+        "target": "events",
+        "cost": 0,
+        "status": "active"
+      },
+      {
+        "id": "wevity-fetch",
+        "kind": "ssr-fetch",
+        "url": "https://www.wevity.com/?c=find&s=1&sp=contents&sw=AI",
+        "target": "events",
+        "cost": 0,
+        "note": "SSR HTML에서 ix= 링크 50건 추출. 신규 ix만 브라우저 상세 방문",
+        "status": "active"
+      },
+      {
+        "id": "hackhq",
+        "kind": "api",
+        "url": "https://raw.githubusercontent.com/Jose-Gael-Cruz-Lopez/hackhq/main/README.md",
+        "target": "events",
+        "cost": 0,
+        "note": "자동업데이트 해커톤 DB ★123 활동 중, 테이블 83행",
+        "status": "active"
+      },
+      {
+        "id": "gnews-kr-5-meetup",
+        "kind": "rss",
+        "url": "https://news.google.com/rss/search?q=%22AI+%EC%84%B8%EB%AF%B8%EB%82%98%22+OR+%22AI+%EC%BB%A8%ED%8D%BC%EB%9F%B0%EC%8A%A4%22+OR+%22%EA%B0%9C%EB%B0%9C%EC%9E%90+%EB%B0%8B%EC%97%85%22&hl=ko&gl=KR&ceid=KR:ko",
+        "target": "events",
+        "cost": 0,
+        "note": "AI 세미나/컨퍼런스/개발자 밋업 뉴스",
+        "status": "active"
+      },
+      {
+        "id": "gnews-kr-6-workshop",
+        "kind": "rss",
+        "url": "https://news.google.com/rss/search?q=%22AI+%EC%9B%8C%ED%81%AC%EC%83%B5%22+OR+%22AI+%EA%B5%90%EC%9C%A1%22+OR+%22AI+%EC%97%90%EB%94%94%ED%86%A0%EB%A6%AC%EC%96%B8%22&hl=ko&gl=KR&ceid=KR:ko",
+        "target": "events",
+        "cost": 0,
+        "note": "AI 워크샵/교육/에디토리얼",
+        "status": "active"
+      },
+      {
+        "id": "gnews-en-meetup",
+        "kind": "rss",
+        "url": "https://news.google.com/rss/search?q=%22AI+meetup%22+OR+%22AI+workshop%22+OR+%22AI+conference%22+online+free&hl=en&gl=US&ceid=US:en",
+        "target": "events",
+        "cost": 0,
+        "note": "영어권 AI 밋업/워크샵",
+        "status": "active"
+      }
     ],
     "T1_browser_daily": [
-      { "id": "wanted", "kind": "search", "url": "https://www.wanted.co.kr/search?query=", "keywords": ["사전과제", "AI 과제"], "cost_pages": 6, "status": "active" },
-      { "id": "jumpit", "kind": "search", "url": "https://jumpit.saramin.co.kr/search?keyword=", "keywords": ["사전과제"], "cost_pages": 3, "status": "active" },
-      { "id": "jobkorea-mobile", "kind": "search+iframe", "url": "https://m.jobkorea.co.kr/Search/Adv?Keyword=", "keywords": ["사전과제", "바이브코딩"], "cost_pages": 8, "note": "모바일 GI_Read에서 전체보기 클릭 → iframe innerText로 상세요강 전문 확보 (데스크톱 미렌더링 해결)", "status": "active" },
-      { "id": "wevity-detail", "kind": "detail-visit", "url": "", "cost_pages": 8, "note": "T0 fetch에서 발견한 신규 ix만 상세 방문", "status": "active" },
-      { "id": "revisit-queue", "kind": "revisit", "url": "", "cost_pages": 15, "note": "active 항목 재방문 (D-7: daily, 일반: 2-3일, 상시: weekly)", "status": "active" }
+      {
+        "id": "wanted",
+        "kind": "search",
+        "url": "https://www.wanted.co.kr/search?query=",
+        "keywords": [
+          "사전과제",
+          "AI 과제"
+        ],
+        "cost_pages": 6,
+        "status": "active"
+      },
+      {
+        "id": "jumpit",
+        "kind": "search",
+        "url": "https://jumpit.saramin.co.kr/search?keyword=",
+        "keywords": [
+          "사전과제"
+        ],
+        "cost_pages": 3,
+        "status": "active"
+      },
+      {
+        "id": "jobkorea-mobile",
+        "kind": "search+iframe",
+        "url": "https://m.jobkorea.co.kr/Search/Adv?Keyword=",
+        "keywords": [
+          "사전과제",
+          "바이브코딩"
+        ],
+        "cost_pages": 8,
+        "note": "모바일 GI_Read에서 전체보기 클릭 → iframe innerText로 상세요강 전문 확보 (데스크톱 미렌더링 해결)",
+        "status": "active"
+      },
+      {
+        "id": "wevity-detail",
+        "kind": "detail-visit",
+        "url": "",
+        "cost_pages": 8,
+        "note": "T0 fetch에서 발견한 신규 ix만 상세 방문",
+        "status": "active"
+      },
+      {
+        "id": "revisit-queue",
+        "kind": "revisit",
+        "url": "",
+        "cost_pages": 15,
+        "note": "active 항목 재방문 (D-7: daily, 일반: 2-3일, 상시: weekly)",
+        "status": "active"
+      }
     ],
     "T2_weekly": [
-      { "id": "dorahacks", "kind": "browser", "url": "https://dorahacks.io/hackathon", "target": "events", "cost_pages": 2, "note": "AI 필터 + Virtual 명시. 총 839개", "status": "active" },
-      { "id": "encode-club", "kind": "browser", "url": "https://encodeclub.com/programmes", "target": "events", "cost_pages": 2, "note": "루트에서 Featured 5~10건, /programmes가 실제 목록", "status": "active" },
-      { "id": "mlh", "kind": "browser", "url": "https://mlh.io/seasons/2026/events", "target": "events", "cost_pages": 1, "status": "active" },
-      { "id": "kisti-aida", "kind": "browser", "url": "https://aida.kisti.re.kr/competition/", "target": "events", "cost_pages": 1, "status": "active" },
-      { "id": "thinkyou", "kind": "ssr-fetch", "url": "https://www.thinkyou.co.kr/contest/?serfield=5", "target": "events", "cost": 0, "note": "SSR, IT/SW 필터. 위비티 중복 70-85% + 지방·대학 유일 등재 5-15/주", "status": "active" },
-      { "id": "linkareer", "kind": "browser", "url": "https://linkareer.com/search?keyword=사전과제", "target": "both", "cost_pages": 2, "note": "공고 999+ / 커뮤니티 2,865건(사전과제 후기)", "status": "active" },
-      { "id": "greeting-ats", "kind": "fetch-diff", "url": "https://musinsa.career.greetinghr.com/,https://oliveyoung.career.greetinghr.com/,https://doodlin.co.kr/ko/career", "target": "postings", "cost": 0, "note": "SSR에서 공고 제목·ID 파싱. 신규만 상세 1페이지", "status": "active" }
+      {
+        "id": "dorahacks",
+        "kind": "browser",
+        "url": "https://dorahacks.io/hackathon",
+        "target": "events",
+        "cost_pages": 2,
+        "note": "AI 필터 + Virtual 명시. 총 839개",
+        "status": "active"
+      },
+      {
+        "id": "encode-club",
+        "kind": "browser",
+        "url": "https://encodeclub.com/programmes",
+        "target": "events",
+        "cost_pages": 2,
+        "note": "루트에서 Featured 5~10건, /programmes가 실제 목록",
+        "status": "active"
+      },
+      {
+        "id": "mlh",
+        "kind": "browser",
+        "url": "https://mlh.io/seasons/2026/events",
+        "target": "events",
+        "cost_pages": 1,
+        "status": "active"
+      },
+      {
+        "id": "kisti-aida",
+        "kind": "browser",
+        "url": "https://aida.kisti.re.kr/competition/",
+        "target": "events",
+        "cost_pages": 1,
+        "status": "active"
+      },
+      {
+        "id": "thinkyou",
+        "kind": "ssr-fetch",
+        "url": "https://www.thinkyou.co.kr/contest/?serfield=5",
+        "target": "events",
+        "cost": 0,
+        "note": "SSR, IT/SW 필터. 위비티 중복 70-85% + 지방·대학 유일 등재 5-15/주",
+        "status": "active"
+      },
+      {
+        "id": "linkareer",
+        "kind": "browser",
+        "url": "https://linkareer.com/search?keyword=사전과제",
+        "target": "both",
+        "cost_pages": 2,
+        "note": "공고 999+ / 커뮤니티 2,865건(사전과제 후기)",
+        "status": "active"
+      },
+      {
+        "id": "greeting-ats",
+        "kind": "fetch-diff",
+        "url": "https://musinsa.career.greetinghr.com/,https://oliveyoung.career.greetinghr.com/,https://doodlin.co.kr/ko/career",
+        "target": "postings",
+        "cost": 0,
+        "note": "SSR에서 공고 제목·ID 파싱. 신규만 상세 1페이지",
+        "status": "active"
+      },
+      {
+        "id": "meetup-com",
+        "kind": "browser",
+        "url": "https://www.meetup.com/find/?keywords=AI&source=EVENTS",
+        "target": "events",
+        "cost_pages": 2,
+        "note": "SSR 렌더 OK. AI 키워드 검색, 온라인 필터링 필요",
+        "status": "active"
+      },
+      {
+        "id": "festa-io",
+        "kind": "browser",
+        "url": "https://festa.io/events",
+        "target": "events",
+        "cost_pages": 1,
+        "note": "국내 테크 밋업 플랫폼, IT/개발 카테고리",
+        "status": "active"
+      }
     ],
     "T3_monthly": [
-      { "id": "hn-whoishiring-full", "kind": "api-batch", "url": "https://hn.algolia.com/api/v1/items/{thread-id}", "target": "postings", "cost": 0, "note": "월 1일 스레드 전체 파싱 (댓글 266+). AI 정책 문구 원문 ~20%", "status": "active" },
-      { "id": "source-discovery", "kind": "meta", "url": "", "cost": 0, "note": "새 소스 탐사: robots.txt/sitemap/feed 자동 탐지 → sources_candidates.json → 오너 승인", "status": "active" },
-      { "id": "source-performance", "kind": "meta", "url": "", "cost": 0, "note": "소스별 후보수·채택률 → 하위 소스 퇴출", "status": "active" }
+      {
+        "id": "hn-whoishiring-full",
+        "kind": "api-batch",
+        "url": "https://hn.algolia.com/api/v1/items/{thread-id}",
+        "target": "postings",
+        "cost": 0,
+        "note": "월 1일 스레드 전체 파싱 (댓글 266+). AI 정책 문구 원문 ~20%",
+        "status": "active"
+      },
+      {
+        "id": "source-discovery",
+        "kind": "meta",
+        "url": "",
+        "cost": 0,
+        "note": "새 소스 탐사: robots.txt/sitemap/feed 자동 탐지 → sources_candidates.json → 오너 승인",
+        "status": "active"
+      },
+      {
+        "id": "source-performance",
+        "kind": "meta",
+        "url": "",
+        "cost": 0,
+        "note": "소스별 후보수·채택률 → 하위 소스 퇴출",
+        "status": "active"
+      }
     ]
   },
   "budget": {

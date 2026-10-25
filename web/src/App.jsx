@@ -48,6 +48,7 @@ export default function App() {
     hackathon: rows.filter(r => r.type === '해커톤' && r.open).length,
     competition: rows.filter(r => r.type === '대회' && r.open).length,
     contest: rows.filter(r => r.type === '공모전' && r.open).length,
+    meetup: rows.filter(r => ['밋업','컨퍼런스','워크샵'].includes(r.type) && r.open).length,
     platforms: platforms.length, news: news.length, changelog: runs.length,
   }), [])
 

@@ -50,7 +50,7 @@ export const rows = [
   ...eventsRaw.map((e) => ({
     kind: 'event', id: e.id, name: e.title, title: e.title,
     sub: [e.host, e.team && e.team !== 'unknown' ? e.team : ''].filter(Boolean).join(' | '),
-    type: { hackathon: '해커톤', competition: '대회', contest: '공모전' }[e.type] || e.type, positions: [],
+    type: { hackathon: '해커톤', competition: '대회', contest: '공모전', meetup: '밋업', conference: '컨퍼런스', workshop: '워크샵' }[e.type] || e.type, positions: [],
     policy: EV_POLICY[e.ai_usage] || EV_POLICY.unknown,
     policyKey: e.ai_usage === 'required' ? 'required' : e.ai_usage === 'allowed' ? 'allowed' : e.ai_usage,
     evidence: e.evidence || '', source: e.source,

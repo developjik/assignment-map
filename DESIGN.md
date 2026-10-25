@@ -91,7 +91,7 @@ Aside를 주 수집기로 선택한 이유: ① 채용공고·대회는 지속�
 ```jsonc
 {
   "id": "ko-0001|global-0001",
-  "type": "hackathon|competition|contest",
+  "type": "hackathon|competition|contest|meetup|conference|workshop",
   "title": "", "host": "",
   "ai_usage": "required|allowed|banned|unknown",   // banned → 노출 제외
   "format": "online|offline|hybrid|unknown",

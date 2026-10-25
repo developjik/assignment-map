@@ -60,6 +60,7 @@ export default function Opportunities({ rows, type, q, setQ, onVisit }) {
   const typeMatch = useMemo(() => {
     if (type === 'all') return () => true
     if (type === 'postings') return (r) => r.kind === 'posting'
+    if (type === 'meetup') return (r) => ['밋업', '컨퍼런스', '워크샵'].includes(r.type)
     const label = { hackathon: '해커톤', competition: '대회', contest: '공모전' }[type]
     return (r) => r.type === label
   }, [type])
