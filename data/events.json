@@ -47,7 +47,7 @@
     "source": "thinkyou/gcontest/tomatodle",
     "first_seen": "2026-10-24",
     "last_checked": "2026-10-24",
-    "check_cadence": "weekly",
+    "check_cadence": "daily",
     "review": "confirmed",
     "history": [
       {
@@ -97,14 +97,14 @@
     "prize": "총 상금 500만 원",
     "hiring_link": false,
     "apply_deadline": "2026-11-03",
-    "submit_deadline": null,
+    "submit_deadline": "2026-11-03",
     "result_date": "2026-11-06",
     "status": "open",
     "url": "https://hackersground.kr",
-    "evidence": "대회명이 바이브코딩(AI 코딩 도구 활용) 해커톤, 11/5~6 청도신화랑풍류마을 개최",
+    "evidence": "접수 10/23~11/3(D-9) — 위비티 상세 재방문으로 마감일 확정",
     "source": "wevity",
     "first_seen": "2026-10-24",
-    "last_checked": "2026-10-24",
+    "last_checked": "2026-10-25",
     "check_cadence": "daily",
     "review": "confirmed",
     "history": [
@@ -112,6 +112,13 @@
         "date": "2026-10-24",
         "event": "created",
         "status": "open"
+      },
+      {
+        "date": "2026-10-25",
+        "event": "deadline_changed",
+        "field": "submit_deadline",
+        "from": null,
+        "to": "2026-11-03"
       }
     ]
   },
@@ -192,7 +199,7 @@
     "source": "ai-radar/wevity",
     "first_seen": "2026-10-24",
     "last_checked": "2026-10-24",
-    "check_cadence": "weekly",
+    "check_cadence": "daily",
     "review": "confirmed",
     "history": [
       {
@@ -1033,7 +1040,7 @@
     "source": "lablab",
     "first_seen": "2026-10-24",
     "last_checked": "2026-10-24",
-    "check_cadence": "weekly",
+    "check_cadence": "daily",
     "review": "confirmed",
     "history": [
       {
@@ -1149,7 +1156,7 @@
     "source": "devpost",
     "first_seen": "2026-10-24",
     "last_checked": "2026-10-24",
-    "check_cadence": "weekly",
+    "check_cadence": "daily",
     "review": "confirmed",
     "history": [
       {
@@ -1386,6 +1393,559 @@
     "history": [
       {
         "date": "2026-10-24",
+        "event": "created",
+        "status": "open"
+      }
+    ]
+  },
+  {
+    "id": "wevity:111885-bgdata-idea",
+    "type": "contest",
+    "title": "제1회 배경데이터 활용 콘텐츠개발 아이디어 공모전",
+    "host": "재단법인 광주정보문화산업진흥원",
+    "ai_usage": "unknown",
+    "format": "unknown",
+    "team": "일반인, 대학생, 기타",
+    "prize": "1천만원 이하(선정 4팀 각 100만원 + 멘토링·개발지원)",
+    "hiring_link": false,
+    "apply_deadline": "2026-10-30",
+    "submit_deadline": "2026-10-30",
+    "result_date": null,
+    "status": "upcoming",
+    "url": "https://www.wevity.com/?c=find&s=1&gbn=view&gp=1&ix=111885",
+    "evidence": "접수 10/28~10/30. '완성 콘텐츠가 아닌 배경데이터 활용 아이디어 기획안만 제출' — AI 언급 없음",
+    "source": "wevity",
+    "review": "auto",
+    "first_seen": "2026-10-25",
+    "last_checked": "2026-10-25",
+    "check_cadence": "daily",
+    "history": [
+      {
+        "date": "2026-10-25",
+        "event": "created",
+        "status": "upcoming"
+      }
+    ]
+  },
+  {
+    "id": "wevity:111009-space-hackathon",
+    "type": "hackathon",
+    "title": "2026 스페이스 해커톤",
+    "host": "우주항공청 / 한국항공우주연구원, 경상국립대학교, 진주시",
+    "ai_usage": "unknown",
+    "format": "unknown",
+    "team": "일반인, 대학생, 기타",
+    "prize": "3천만~5천만원",
+    "hiring_link": false,
+    "apply_deadline": "2026-11-05",
+    "submit_deadline": "2026-11-05",
+    "result_date": null,
+    "status": "open",
+    "url": "https://www.wevity.com/?c=find&s=1&gbn=view&gp=1&ix=111009",
+    "evidence": "'[부문 2] 위성활용 비즈니스 모델 개발(우주탐사 기술 또는 위성기반 서비스 모델)' 등 개발 부문 — AI 언급 없음. 접수 9/14~11/5",
+    "source": "wevity",
+    "review": "auto",
+    "first_seen": "2026-10-25",
+    "last_checked": "2026-10-25",
+    "check_cadence": "daily",
+    "history": [
+      {
+        "date": "2026-10-25",
+        "event": "created",
+        "status": "open"
+      }
+    ]
+  },
+  {
+    "id": "wevity:111802-hyundai-vehicle-app",
+    "type": "contest",
+    "title": "현대자동차그룹 차량용 앱 개발 공모전",
+    "host": "현대자동차그룹",
+    "ai_usage": "unknown",
+    "format": "unknown",
+    "team": "일반인, 대학생, 기타",
+    "prize": "5천만원 이상",
+    "hiring_link": false,
+    "apply_deadline": "2026-11-15",
+    "submit_deadline": "2026-11-15",
+    "result_date": null,
+    "status": "open",
+    "url": "https://www.wevity.com/?c=find&s=1&gbn=view&gp=1&ix=111802",
+    "evidence": "'차량 데이터와 기능, 이동 상황을 활용해 운전자와 탑승자에게 새로운 경험을 제공하는 앱 서비스를 발굴하고 개발하는 공모전' — 앱 개발 산출물, AI 정책 미언급",
+    "source": "wevity",
+    "review": "auto",
+    "first_seen": "2026-10-25",
+    "last_checked": "2026-10-25",
+    "check_cadence": "weekly",
+    "history": [
+      {
+        "date": "2026-10-25",
+        "event": "created",
+        "status": "open"
+      }
+    ]
+  },
+  {
+    "id": "wevity:111819-kicet-ai-video",
+    "type": "contest",
+    "title": "2026 한국세라믹기술원 AI 영상 공모전 (세라믹이 사라진 세상)",
+    "host": "한국세라믹기술원",
+    "ai_usage": "required",
+    "format": "unknown",
+    "team": "일반인, 대학생, 기타",
+    "prize": "1천만원 이하(1등 300만원)",
+    "hiring_link": false,
+    "apply_deadline": "2026-11-23",
+    "submit_deadline": "2026-11-23",
+    "result_date": null,
+    "status": "open",
+    "url": "https://www.wevity.com/?c=find&s=1&gbn=view&gp=1&ix=111819",
+    "evidence": "'공모 분야: 생성형 AI 활용 숏폼 영상' — 생성형 AI 사용이 참가 조건",
+    "source": "wevity",
+    "review": "auto",
+    "first_seen": "2026-10-25",
+    "last_checked": "2026-10-25",
+    "check_cadence": "weekly",
+    "history": [
+      {
+        "date": "2026-10-25",
+        "event": "created",
+        "status": "open"
+      }
+    ]
+  },
+  {
+    "id": "wevity:111804-namux-ai-shortform",
+    "type": "contest",
+    "title": "나무엑스 AI 숏폼 공모전",
+    "host": "SK인텔릭스(주)",
+    "ai_usage": "required",
+    "format": "unknown",
+    "team": "대학생, 일반인",
+    "prize": "1천만원 이하(1등 300만원)",
+    "hiring_link": false,
+    "apply_deadline": "2026-11-22",
+    "submit_deadline": "2026-11-22",
+    "result_date": null,
+    "status": "open",
+    "url": "https://www.wevity.com/?c=find&s=1&gbn=view&gp=1&ix=111804",
+    "evidence": "'출품작은 참가자가 직접 제작한 창작물이어야 하며 사용한 AI 툴을 명시합니다' — AI 툴 사용 필수",
+    "source": "wevity",
+    "review": "auto",
+    "first_seen": "2026-10-25",
+    "last_checked": "2026-10-25",
+    "check_cadence": "weekly",
+    "history": [
+      {
+        "date": "2026-10-25",
+        "event": "created",
+        "status": "open"
+      }
+    ]
+  },
+  {
+    "id": "wevity:111849-render-global-tech",
+    "type": "hackathon",
+    "title": "Render × XYZ × Tin Computer 글로벌 테크 후원 해커톤",
+    "host": "Extriver / Render",
+    "ai_usage": "unknown",
+    "format": "unknown",
+    "team": "일반인, 대학생, 기타",
+    "prize": "1천만~3천만원",
+    "hiring_link": false,
+    "apply_deadline": "2026-11-15",
+    "submit_deadline": "2026-11-15",
+    "result_date": null,
+    "status": "open",
+    "url": "https://www.wevity.com/?c=find&s=1&gbn=view&gp=1&ix=111849",
+    "evidence": "주최 Extriver는 'AI·소프트웨어 엔지니어링·시장 분석·DevOps' 스타트업 — 해커톤 과제의 AI 정책은 미언급. 접수 10/21~11/15",
+    "source": "wevity",
+    "review": "auto",
+    "first_seen": "2026-10-25",
+    "last_checked": "2026-10-25",
+    "check_cadence": "weekly",
+    "history": [
+      {
+        "date": "2026-10-25",
+        "event": "created",
+        "status": "open"
+      }
+    ]
+  },
+  {
+    "id": "wevity:111666-exwayco-ai-idea",
+    "type": "contest",
+    "title": "[한국도로공사] AI 활용 아이디어 공모전",
+    "host": "한국도로공사",
+    "ai_usage": "required",
+    "format": "unknown",
+    "team": "일반인, 대학생, 기타",
+    "prize": "1천만원 이하(1등 100만원)",
+    "hiring_link": false,
+    "apply_deadline": "2026-11-15",
+    "submit_deadline": "2026-11-15",
+    "result_date": null,
+    "status": "open",
+    "url": "https://www.wevity.com/?c=find&s=1&gbn=view&gp=1&ix=111666",
+    "evidence": "'AI를 활용하여 고속도로와 연계된 사회현안을 해결하거나 고속도로 서비스를 혁신할 수 있는 창의적인 아이디어 발굴' — AI 활용이 주제",
+    "source": "wevity",
+    "review": "auto",
+    "first_seen": "2026-10-25",
+    "last_checked": "2026-10-25",
+    "check_cadence": "weekly",
+    "history": [
+      {
+        "date": "2026-10-25",
+        "event": "created",
+        "status": "open"
+      }
+    ]
+  },
+  {
+    "id": "wevity:111752-acdc",
+    "type": "competition",
+    "title": "2026 AI 해킹 방어 대회(ACDC)",
+    "host": "과학기술정보통신부",
+    "ai_usage": "required",
+    "format": "unknown",
+    "team": "만 19세 이상 대한민국 국적 누구나",
+    "prize": "5천만원 이상(1등 5,000만원)",
+    "hiring_link": false,
+    "apply_deadline": "2026-10-26",
+    "submit_deadline": "2026-10-26",
+    "result_date": null,
+    "status": "open",
+    "url": "https://www.wevity.com/?c=find&s=1&gbn=view&gp=1&ix=111752",
+    "evidence": "'AI 기반 보안 위협에 대응할 수 있는 실전형 인재 발굴... AI 보안 핵심 3영역' — AI for Security 포함. D-1",
+    "source": "wevity",
+    "review": "auto",
+    "first_seen": "2026-10-25",
+    "last_checked": "2026-10-25",
+    "check_cadence": "daily",
+    "history": [
+      {
+        "date": "2026-10-25",
+        "event": "created",
+        "status": "open"
+      }
+    ]
+  },
+  {
+    "id": "wevity:110647-all-ai-s3",
+    "type": "contest",
+    "title": "전국민 AI활용 사례 공모전 시즌 3",
+    "host": "과학기술정보통신부, 한국과학창의재단",
+    "ai_usage": "required",
+    "format": "unknown",
+    "team": "전국민",
+    "prize": "3천만~5천만원",
+    "hiring_link": false,
+    "apply_deadline": "2026-10-31",
+    "submit_deadline": "2026-10-31",
+    "result_date": null,
+    "status": "open",
+    "url": "https://www.wevity.com/?c=find&s=1&gbn=view&gp=1&ix=110647",
+    "evidence": "'생활 속 AI 활용', '지역사회 문제해결을 위한 AI 활용' 부문 — AI 활용 사례가 주제. 접수 9/1~10/31",
+    "source": "wevity",
+    "review": "auto",
+    "first_seen": "2026-10-25",
+    "last_checked": "2026-10-25",
+    "check_cadence": "daily",
+    "history": [
+      {
+        "date": "2026-10-25",
+        "event": "created",
+        "status": "open"
+      }
+    ]
+  },
+  {
+    "id": "wevity:111787-sejongcyber-ai-video",
+    "type": "contest",
+    "title": "세종사이버대 국방융합학과 AI 영상 숏폼·광고 공모전",
+    "host": "세종사이버대학교 국방융합학과",
+    "ai_usage": "required",
+    "format": "unknown",
+    "team": "일반인, 대학생, 기타",
+    "prize": "1천만원 이하(1등 50만원)",
+    "hiring_link": false,
+    "apply_deadline": "2026-11-12",
+    "submit_deadline": "2026-11-12",
+    "result_date": null,
+    "status": "open",
+    "url": "https://www.wevity.com/?c=find&s=1&gbn=view&gp=1&ix=111787",
+    "evidence": "대회명 자체가 'AI 영상 숏폼·광고 공모전' — AI 영상이 주제",
+    "source": "wevity",
+    "review": "auto",
+    "first_seen": "2026-10-25",
+    "last_checked": "2026-10-25",
+    "check_cadence": "weekly",
+    "history": [
+      {
+        "date": "2026-10-25",
+        "event": "created",
+        "status": "open"
+      }
+    ]
+  },
+  {
+    "id": "global-0020",
+    "type": "hackathon",
+    "title": "Codex x TwitchCon Hackathon",
+    "host": "TwitchCon",
+    "ai_usage": "required",
+    "format": "online",
+    "team": "solo/team",
+    "prize": "$25,000",
+    "hiring_link": false,
+    "apply_deadline": null,
+    "submit_deadline": "2026-11-02",
+    "result_date": null,
+    "status": "open",
+    "url": "https://twitchcon-codex.devpost.com/",
+    "evidence": "Codex(AI 코딩 도구) 중심 해커톤 — 제출 10/23~11/2 Devpost 온라인",
+    "source": "devpost",
+    "review": "auto",
+    "first_seen": "2026-10-25",
+    "last_checked": "2026-10-25",
+    "check_cadence": "daily",
+    "history": [
+      {
+        "date": "2026-10-25",
+        "event": "created",
+        "status": "open"
+      }
+    ]
+  },
+  {
+    "id": "global-0021",
+    "type": "hackathon",
+    "title": "UGREEN Hackathon 2026 on AI NAS",
+    "host": "UGREEN",
+    "ai_usage": "required",
+    "format": "online",
+    "team": "solo/team",
+    "prize": "$46,000",
+    "hiring_link": false,
+    "apply_deadline": null,
+    "submit_deadline": "2026-11-16",
+    "result_date": null,
+    "status": "open",
+    "url": "https://ugreenhackathon.devpost.com/",
+    "evidence": "대회명 'on AI NAS' — AI NAS 앱 빌드가 주제. 제출 10/22~11/16",
+    "source": "devpost",
+    "review": "auto",
+    "first_seen": "2026-10-25",
+    "last_checked": "2026-10-25",
+    "check_cadence": "weekly",
+    "history": [
+      {
+        "date": "2026-10-25",
+        "event": "created",
+        "status": "open"
+      }
+    ]
+  },
+  {
+    "id": "global-0022",
+    "type": "hackathon",
+    "title": "Engage 6.0 – Code with AI Hackathon",
+    "host": "Engage",
+    "ai_usage": "required",
+    "format": "online",
+    "team": "solo/team",
+    "prize": "$45,000",
+    "hiring_link": false,
+    "apply_deadline": null,
+    "submit_deadline": "2026-10-27",
+    "result_date": null,
+    "status": "open",
+    "url": "https://engage6.devpost.com/",
+    "evidence": "대회명 'Code with AI Hackathon' — AI 코딩이 주제. 제출 10/21~10/27, D-2",
+    "source": "devpost",
+    "review": "auto",
+    "first_seen": "2026-10-25",
+    "last_checked": "2026-10-25",
+    "check_cadence": "daily",
+    "history": [
+      {
+        "date": "2026-10-25",
+        "event": "created",
+        "status": "open"
+      }
+    ]
+  },
+  {
+    "id": "global-0023",
+    "type": "hackathon",
+    "title": "STEM2Connect AI Hackathon",
+    "host": "STEM2Connect",
+    "ai_usage": "required",
+    "format": "online",
+    "team": "solo/team",
+    "prize": null,
+    "hiring_link": false,
+    "apply_deadline": null,
+    "submit_deadline": "2026-11-21",
+    "result_date": null,
+    "status": "open",
+    "url": "https://stem2connect-online-hackathon.devpost.com/",
+    "evidence": "대회명 'AI Hackathon' — AI가 주제. 제출 10/17~11/21",
+    "source": "devpost",
+    "review": "auto",
+    "first_seen": "2026-10-25",
+    "last_checked": "2026-10-25",
+    "check_cadence": "weekly",
+    "history": [
+      {
+        "date": "2026-10-25",
+        "event": "created",
+        "status": "open"
+      }
+    ]
+  },
+  {
+    "id": "global-0024",
+    "type": "hackathon",
+    "title": "2026 International CodeTheCure Hackathon",
+    "host": "CodeTheCure",
+    "ai_usage": "required",
+    "format": "online",
+    "team": "solo/team",
+    "prize": null,
+    "hiring_link": false,
+    "apply_deadline": null,
+    "submit_deadline": "2026-10-28",
+    "result_date": null,
+    "status": "open",
+    "url": "https://codethecure-hackathon-26.devpost.com/",
+    "evidence": "'Young builders turning frontier intelligence into free, accessible tools for cancer patients' — AI(프론티어 인텔리전스) 활용이 주제. 제출 10/10~10/28, D-3",
+    "source": "devpost",
+    "review": "auto",
+    "first_seen": "2026-10-25",
+    "last_checked": "2026-10-25",
+    "check_cadence": "daily",
+    "history": [
+      {
+        "date": "2026-10-25",
+        "event": "created",
+        "status": "open"
+      }
+    ]
+  },
+  {
+    "id": "global-0025",
+    "type": "hackathon",
+    "title": "DSH Hacks V2",
+    "host": "DSH",
+    "ai_usage": "required",
+    "format": "online",
+    "team": "solo/team",
+    "prize": "$100,000+",
+    "hiring_link": false,
+    "apply_deadline": null,
+    "submit_deadline": "2026-11-15",
+    "result_date": null,
+    "status": "open",
+    "url": "https://dsh-hacks-v2.devpost.com/",
+    "evidence": "'Building meaningful technical products in AI and healthcare that solve real-world problems' — AI가 주제. 제출 6/24~11/15",
+    "source": "devpost",
+    "review": "auto",
+    "first_seen": "2026-10-25",
+    "last_checked": "2026-10-25",
+    "check_cadence": "weekly",
+    "history": [
+      {
+        "date": "2026-10-25",
+        "event": "created",
+        "status": "open"
+      }
+    ]
+  },
+  {
+    "id": "global-0026",
+    "type": "contest",
+    "title": "Meta VR Start Developer Competition 2026",
+    "host": "Meta",
+    "ai_usage": "unknown",
+    "format": "online",
+    "team": "solo/team",
+    "prize": "$1,000,000",
+    "hiring_link": false,
+    "apply_deadline": null,
+    "submit_deadline": "2026-11-18",
+    "result_date": null,
+    "status": "open",
+    "url": "https://start-developer-competition-26.devpost.com/",
+    "evidence": "'Accelerate your VR development journey with Meta VR Start and compete for $1M' — VR 개발 대회, AI 정책 미언급. 제출 9/24~11/18",
+    "source": "devpost",
+    "review": "needs_review",
+    "note": "VR Start 프로그램 가입자 대상 여부 확인 필요",
+    "first_seen": "2026-10-25",
+    "last_checked": "2026-10-25",
+    "check_cadence": "weekly",
+    "history": [
+      {
+        "date": "2026-10-25",
+        "event": "created",
+        "status": "open"
+      }
+    ]
+  },
+  {
+    "id": "global-0027",
+    "type": "hackathon",
+    "title": "AI Build India (Sphinx 26)",
+    "host": "Sphinx",
+    "ai_usage": "required",
+    "format": "online",
+    "team": "solo/team",
+    "prize": null,
+    "hiring_link": false,
+    "apply_deadline": null,
+    "submit_deadline": "2026-10-31",
+    "result_date": null,
+    "status": "open",
+    "url": "https://sphinx-26.devpost.com/",
+    "evidence": "대회명 'AI Build India: Create. Build.' — AI 빌드가 주제. 인도 대상, 상금 없음. 제출 10/14~10/31",
+    "source": "devpost",
+    "review": "auto",
+    "first_seen": "2026-10-25",
+    "last_checked": "2026-10-25",
+    "check_cadence": "daily",
+    "history": [
+      {
+        "date": "2026-10-25",
+        "event": "created",
+        "status": "open"
+      }
+    ]
+  },
+  {
+    "id": "global-0028",
+    "type": "hackathon",
+    "title": "Hackathon Agéntico SoftwareChido 2026B",
+    "host": "SoftwareChido",
+    "ai_usage": "required",
+    "format": "online",
+    "team": "solo/team",
+    "prize": null,
+    "hiring_link": false,
+    "apply_deadline": null,
+    "submit_deadline": "2026-11-25",
+    "result_date": null,
+    "status": "open",
+    "url": "https://hackathon-agentico-2026b.devpost.com/",
+    "evidence": "대회명 'Agéntico'(에이전틱 AI) — 스페인어권. 제출 10/5~11/25",
+    "source": "devpost",
+    "review": "needs_review",
+    "note": "스페인어권 행사 — 상세 AI 요건 확인 필요",
+    "first_seen": "2026-10-25",
+    "last_checked": "2026-10-25",
+    "check_cadence": "weekly",
+    "history": [
+      {
+        "date": "2026-10-25",
         "event": "created",
         "status": "open"
       }

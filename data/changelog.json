@@ -50,6 +50,110 @@
       ],
       "notes": "P2 실증 런. [제약 발견] 잡코리아 신규 상세 UI 본문 미렌더링(SSR/iframe/POST 재시도 모두 실패) → 잡코리아는 제목 명시만 확정, full-text 히트는 needs_review. [키워드 평가] '과제 전형'(3,946건)은 국책/연구과제 오탐 다수로 폐기 예정, '사전과제'(788건)·'바이브코딩'(180건) 실효적. [위비티 파라미터] 검색은 sw=키워드&sp=contents (kwd 아님) — ROUTINE_PROMPT 반영. [교차포스팅] 한국프리미엄카드마케팅 원티드/잡코리아 동일 공고 → 원티드 레코드에 마감일 반영, 잡코리아 중복 미기록. [다음 런 우선순위 후보 — 위비티 상세 미방문] 제2회 대한민국 AI 창조공모대전(D-34), 한국세라믹기술원 AI 영상 공모전(D-30), 나무엑스 AI 숏폼 공모전(D-29), 산사람x AI-Kive AI MV 챌린지(D-18), 2026 AI 플레이 콘텐츠 공모전(D-68), 현대차그룹 차량용 앱 공모전(D-22), Render×XYZ×Tin Computer 글로벌 테크 해커톤(D-22), 2026 스페이스 해커톤(D-12), 배경데이터 콘텐츠 아이디어 공모전(D-6).",
       "summary": "+9공고 +3이벤트 · 정책변경 0 · 상태변경 0 · 마감변경 0"
+    },
+    {
+      "date": "2026-10-25",
+      "new_postings": [
+        "wanted:wd380935",
+        "jobkorea:50232412",
+        "jobkorea:50228417",
+        "jobkorea:50083974",
+        "jobkorea:50174914"
+      ],
+      "policy_changed": [],
+      "deadline_changed": [],
+      "status_changed": [],
+      "new_events": [
+        "wevity:111885-bgdata-idea",
+        "wevity:111009-space-hackathon",
+        "wevity:111802-hyundai-vehicle-app",
+        "wevity:111819-kicet-ai-video",
+        "wevity:111804-namux-ai-shortform",
+        "wevity:111849-render-global-tech",
+        "wevity:111666-exwayco-ai-idea",
+        "wevity:111752-acdc",
+        "wevity:110647-all-ai-s3",
+        "wevity:111787-sejongcyber-ai-video",
+        "global-0020",
+        "global-0021",
+        "global-0022",
+        "global-0023",
+        "global-0024",
+        "global-0025",
+        "global-0026",
+        "global-0027",
+        "global-0028"
+      ],
+      "event_status_changed": [],
+      "event_deadline_changed": [
+        "ko-0004"
+      ],
+      "updated_postings": 2,
+      "updated_events": 1,
+      "sources": [
+        {
+          "name": "devpost-api",
+          "ok": true,
+          "visited": 0,
+          "note": "fetch 8페이지 72건 — 신규 64후보 중 9건 채택(AI 주제 중심, D-0 대학 해커톤 제외)"
+        },
+        {
+          "name": "hn-algolia",
+          "ok": true,
+          "visited": 0,
+          "note": "최신 스레드 10/1 그대로 — 신규 없음(다음 전체 파싱 11/1)"
+        },
+        {
+          "name": "github-hackathon",
+          "ok": true,
+          "visited": 0,
+          "note": "신규 레포 15건 전부 해커톤 참가작(공고 아님) — 미채택"
+        },
+        {
+          "name": "gnews-kr",
+          "ok": true,
+          "visited": 0,
+          "note": "4쿼리 — 채택 0(올리브영 7월 구뉴스·대회 성료 보도·1개월 경과 모집 기사 등)"
+        },
+        {
+          "name": "wevity-fetch",
+          "ok": true,
+          "visited": 0,
+          "note": "SSR 전체리스트 cidx 1-10(113건)+mode ing/future/soon 스윕 — 어제 후보 6건 ix 확보 + 신규 AI 4건 발견"
+        },
+        {
+          "name": "hackhq",
+          "ok": true,
+          "visited": 0,
+          "note": "84행 중 AI·온라인 6건 전부 Devpost 중복 — 신규 0"
+        },
+        {
+          "name": "wanted",
+          "ok": true,
+          "visited": 5,
+          "note": "사전과제+AI과제 검색 — 신규 1(라프텔). 'AI 과제' 12건은 정부 R&D 과제 PM 오탐"
+        },
+        {
+          "name": "jumpit",
+          "ok": true,
+          "visited": 12,
+          "note": "사전과제 — 신규 0(정부과제 수행/스스로 과제 정의 등 오탐만)"
+        },
+        {
+          "name": "jobkorea",
+          "ok": true,
+          "visited": 21,
+          "note": "사전과제+바이브코딩 — 신규 4. 신규 공고 3건 본문 미렌더링(기존 제약 지속)"
+        },
+        {
+          "name": "wevity-detail",
+          "ok": true,
+          "visited": 12,
+          "note": "우선 후보 6건 + 신규 AI 4건 + 세종사이버대 + 청도(ko-0004 마감일 확정)"
+        }
+      ],
+      "notes": "정상 1일 간격 런(어제 대비). [어제 우선 후보 처리] 9건 중 6건 상세 방문·기록 완료(배경데이터·스페이스 해커톤·현대차 차량앱·세라믹 AI 영상·나무엑스·Render), 3건(제2회 대한민국 AI 창조공모대전·산사람x AI-Kive AI MV 챌린지·2026 AI 플레이 콘텐츠 공모전)은 전체/접수중/접수예정/마감임박 전 탭에서 노출 소실 — 삭제 또는 비노출 전환 추정, 원인 불명. [위비티 파라미터 확정] 전체 리스트 = ?c=find&s=1&gub=1&cidx=N(진행중 총 10페이지 113건, 11p부터 빈 리스트), 탭 전환 = &gbn=list&mode=ing|future|soon, 키워드 검색(sp=contents)은 23건 상한 — 발견은 전체리스트 cidx 스윕이 우월. [잡코리아 제약 지속] 신규 상세 3건 본문 미렌더링(하트에이아이 바이브코딩 개발자 D-41·빅레그 바이브코딩 기획자/개발자 상시·이글루 UI 개발자 D-36) — 제목에 과제 언급 없어 미기록. [키워드 인사이트] '바이브코딩'/'AI 과제' 채용 검색은 '업무가 바이브코딩'(SK AX CursorAI 우대·엑스넥시·부스터스 AI-DLC·메드소프트·프롭핀테크) 매칭이 대부분 — 과제 전형 존재 기준 유지 시 채용 소스는 '사전과제' 키워드가 주력. [종결 0] 마감 경과 open 항목 없음 — wd390319 마감일 당일(D-0) 노출 유지 확인, 다음 런 종결 예정. [다음 우선순위 후보] ko-0001~0012 시드 이벤트 마감일 미기입 다수 — 위비티/주최사 검색으로 메꾸기(퓨리얼 AI 콘테스트 등), 마포구 청년 AI 창업 아이디어 경진대회·남양주 AI 자율주행 경진대회(9/28-29 보도)는 위비티 미노출 — 종료 추정.",
+      "summary": "+5공고 +19이벤트 · 정책변경 0 · 상태변경 0 · 마감변경 1"
     }
   ]
 }

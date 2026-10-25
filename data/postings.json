@@ -538,8 +538,8 @@
     "review": "auto",
     "note": "잡코리아 동일 공고(GI_Read/50055620) 교차확인 — 마감 10/25. AI 정책 언급 없음",
     "first_seen": "2026-10-24",
-    "last_seen": "2026-10-24",
-    "last_checked": "2026-10-24",
+    "last_seen": "2026-10-25",
+    "last_checked": "2026-10-25",
     "check_cadence": "daily",
     "history": [
       {
@@ -710,8 +710,8 @@
     "review": "needs_review",
     "note": "본문 미렌더링",
     "first_seen": "2026-10-24",
-    "last_seen": "2026-10-24",
-    "last_checked": "2026-10-24",
+    "last_seen": "2026-10-25",
+    "last_checked": "2026-10-25",
     "check_cadence": "daily",
     "history": [
       {
@@ -785,6 +785,176 @@
     "history": [
       {
         "date": "2026-10-24",
+        "event": "created",
+        "ai_policy": "unspecified"
+      }
+    ]
+  },
+  {
+    "id": "wanted:wd380935",
+    "source": "wanted",
+    "company": "라프텔(Laftel)",
+    "title": "콘텐츠 디자이너(7년 이상)",
+    "positions": [
+      "etc"
+    ],
+    "positions_raw": "콘텐츠 디자이너 · 경력 7년 이상",
+    "assignment_type": "pre_assignment",
+    "ai_policy": "unspecified",
+    "evidence": [
+      {
+        "quote": "* 서류 합격시 사전과제 전형이 진행 됩니다.",
+        "field": "자격요건"
+      }
+    ],
+    "url": "https://www.wanted.co.kr/wd/380935",
+    "deadline": null,
+    "status": "open",
+    "review": "auto",
+    "note": "디자인 직군 사전과제 — 포트폴리오 필수. AI 정책 언급 없음",
+    "first_seen": "2026-10-25",
+    "last_seen": "2026-10-25",
+    "last_checked": "2026-10-25",
+    "check_cadence": "weekly",
+    "history": [
+      {
+        "date": "2026-10-25",
+        "event": "created",
+        "ai_policy": "unspecified"
+      }
+    ]
+  },
+  {
+    "id": "jobkorea:50232412",
+    "source": "jobkorea",
+    "company": "오픈서베이",
+    "title": "백엔드 엔지니어(경력1~3년)",
+    "positions": [
+      "backend"
+    ],
+    "positions_raw": "백엔드 · 경력 1-3년",
+    "assignment_type": "pre_assignment",
+    "ai_policy": "unspecified",
+    "evidence": [
+      {
+        "quote": "지원 > 서류 심사 > 사전과제 > 1차 인터뷰 > 2차 인터뷰 > 최종 합격 (전형 안내: 사전과제 — 백엔드 기능 구현)",
+        "field": "채용절차"
+      }
+    ],
+    "url": "https://www.jobkorea.co.kr/Recruit/GI_Read/50232412",
+    "deadline": "2026-12-22",
+    "status": "open",
+    "review": "auto",
+    "note": "신입 공고(50232251) 형제 공고 — 동일 사전과제 전형. AI 정책 언급 없음",
+    "first_seen": "2026-10-25",
+    "last_seen": "2026-10-25",
+    "last_checked": "2026-10-25",
+    "check_cadence": "weekly",
+    "history": [
+      {
+        "date": "2026-10-25",
+        "event": "created",
+        "ai_policy": "unspecified"
+      }
+    ]
+  },
+  {
+    "id": "jobkorea:50228417",
+    "source": "jobkorea",
+    "company": "씨어스",
+    "title": "[경력] AI Research Scientist",
+    "positions": [
+      "ai"
+    ],
+    "positions_raw": "AI 리서치 · 경력 10년+",
+    "assignment_type": "pre_assignment",
+    "ai_policy": "unspecified",
+    "evidence": [
+      {
+        "quote": "포지션의 특성에 따라 전형 과정 중 과제 전형 또는 추가 인터뷰 등이 진행될 수 있습니다.",
+        "field": "기타사항"
+      }
+    ],
+    "url": "https://www.jobkorea.co.kr/Recruit/GI_Read/50228417",
+    "deadline": "2026-11-22",
+    "status": "open",
+    "review": "needs_review",
+    "note": "조건부 과제 전형 — 플랫폼 엔지니어 형제 공고(50228434)와 동일 마감. AI 정책 언급 없음",
+    "first_seen": "2026-10-25",
+    "last_seen": "2026-10-25",
+    "last_checked": "2026-10-25",
+    "check_cadence": "weekly",
+    "history": [
+      {
+        "date": "2026-10-25",
+        "event": "created",
+        "ai_policy": "unspecified"
+      }
+    ]
+  },
+  {
+    "id": "jobkorea:50083974",
+    "source": "jobkorea",
+    "company": "넷마블",
+    "title": "AI엔지니어 모집 - 게임 에이전트(VLM)/음성AI (TTS, ASR)",
+    "positions": [
+      "ai"
+    ],
+    "positions_raw": "AI 엔지니어 · 경력 2년+",
+    "assignment_type": "pre_assignment",
+    "ai_policy": "unspecified",
+    "evidence": [
+      {
+        "quote": "서류전형 > AI 역량검사 > 1차면접 > 2차면접 > 검진/처우 > 최종합격 * 직무에 따라 코딩테스트, 사전과제가 있을 수 있으며 별도 안내 예정입니다.",
+        "field": "전형절차"
+      }
+    ],
+    "url": "https://www.jobkorea.co.kr/Recruit/GI_Read/50083974",
+    "deadline": "2026-11-29",
+    "status": "open",
+    "review": "needs_review",
+    "note": "조건부 코딩테스트/사전과제 + AI 역량검사 전형. 게임 에이전트(VLM)·음성 AI 포지션",
+    "first_seen": "2026-10-25",
+    "last_seen": "2026-10-25",
+    "last_checked": "2026-10-25",
+    "check_cadence": "weekly",
+    "history": [
+      {
+        "date": "2026-10-25",
+        "event": "created",
+        "ai_policy": "unspecified"
+      }
+    ]
+  },
+  {
+    "id": "jobkorea:50174914",
+    "source": "jobkorea",
+    "company": "웍스피어(유)",
+    "title": "[웍스피어] 프로젝트(PM) 인턴",
+    "positions": [
+      "etc"
+    ],
+    "positions_raw": "PM 인턴 · 경력무관",
+    "assignment_type": "pre_assignment",
+    "ai_policy": "unspecified",
+    "evidence": [
+      {
+        "quote": "7분 분량의 [WorxShift] 사업 개요 및 성장 전략 제안 과제 제출 가능하신 분 (전형절차: 서류전형 > 면접전형(과제발표 포함) > 최종입사)",
+        "field": "자격요건"
+      }
+    ],
+    "url": "https://www.jobkorea.co.kr/Recruit/GI_Read/50174914",
+    "deadline": "2026-10-31",
+    "status": "open",
+    "review": "auto",
+    "note": "사업전략 제안 과제 + 면접 과제발표 — 비개발 직군(PM). AI 정책 언급 없음",
+    "first_seen": "2026-10-25",
+    "last_seen": "2026-10-25",
+    "last_checked": "2026-10-25",
+    "check_cadence": "daily",
+    "history": [
+      {
+        "date": "2026-10-25",
         "event": "created",
         "ai_policy": "unspecified"
       }
