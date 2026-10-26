@@ -1,0 +1,52 @@
+{
+  "date": "2026-10-27",
+  "postings": [
+    {
+      "id": "wanted:wd390319",
+      "status": "open",
+      "deadline": "2026-11-08",
+      "evidence": [{"quote": "잡코리아 크로스포스트(Recruit/GI_Read/50236862) 리스트 카드 D-12 표시 — 마감 2026-11-08. 10/25 마감 경과 판정 후 마감 연장 재오픈, 원티드·잡코리아 양쪽 동시 노출 지속", "field": "deadline+status"}]
+    },
+    {
+      "id": "jobkorea:50228417",
+      "evidence": [{"quote": "씨어스 그리팅HR 공고(200631): 채용절차 서류전형→인성검사→실무자 면접→임원 면접, '포지션의 특성에 따라 전형 과정 중 과제 전형 또는 추가 인터뷰 등이 진행될 수 있습니다' — 조건부 과제 명시(unspecified), needs_review 해소", "field": "evidence"}]
+    },
+    {
+      "id": "jobkorea:50228434",
+      "evidence": [{"quote": "씨어스 그리팅HR 회사 공통 채용절차: '전형 과정 중 과제 전형 또는 추가 인터뷰 등이 진행될 수 있습니다' — 플랫폼 엔지니어 공고에 동일 적용(unspecified), needs_review 해소", "field": "evidence"}]
+    },
+    {
+      "id": "jobkorea:50083974",
+      "evidence": [{"quote": "인크루트 크로스포스트(2606300004688): VLM 게임 에이전트/음성 에이전트 직무, 홈페이지 지원, 접수 2026-05-30~12-31 — 전형절차 과제 미언급(unspecified), needs_review 해소", "field": "evidence"}]
+    }
+  ],
+  "events": [
+    {"id": "global-0006", "status": "closed", "evidence": "Devpost 제출기간 Sep 22 - Oct 26, 2026 종료 — 오픈 목록 이탈 확인, 마감 경과 종결"},
+    {"id": "wevity:111752-acdc", "status": "closed", "evidence": "접수 마감 2026-10-26 경과 — 위비티 전체리스트에서 여전히 노출되나 지원 기간 종료"},
+    {"id": "wevity:111843-hallym-donghae-ai-hackathon", "status": "closed", "evidence": "접수 마감 2026-10-26 경과 — 종결 처리"},
+    {"id": "global-0003", "submit_deadline": "2026-10-27", "evidence": "Devpost 제출기간 Aug 26 - Oct 27, 2026 — 기록(10/26)보다 1일 뒤, D-0 정정"},
+    {"id": "global-0026", "evidence": "Accelerate your VR development journey with Meta VR Start and compete for $1M in cash prizes — 가입자 한정 제약 미발견, 일반 오픈 대회 확정(마감 11/18), needs_review 해소"},
+    {"id": "global-0028", "evidence": "Hackathon Agéntico — 멕시코 ITESO 대학 주최 스페인어권 해커톤, 상금 $0, 11/25 마감 — 한국 오디언스 접근성 낮아 기록만 유지, needs_review 해소"},
+    {"id": "wevity:111837-ai-creation-competition", "type": "contest", "title": "제2회 2026 대한민국 AI 창조공모대전", "host": "한국창조미술협회", "ai_usage": "required", "format": "온라인 접수(koreaaiart.com)", "team": "대한민국 국민 누구나, 개인", "prize": "총 상금 1천만원 이하", "hiring_link": false, "apply_deadline": "2026-11-27", "submit_deadline": "2026-11-27", "result_date": null, "status": "upcoming", "url": "https://www.wevity.com/?c=find&s=1&gbn=view&gp=1&ix=111837", "evidence": "AI IMAGE ART/AI VIDEO ART 분야 — AI 생성 콘텐츠가 제출 양식 자체(required). 접수 2026-11-23~11-27, 10/25 런 노출 소실 후 재발견", "source": "wevity", "review": "auto"},
+    {"id": "wevity:111810-aikive-otaku-mv", "type": "contest", "title": "[산사람 x AI-Kive] 진짜 오타쿠 AI MV 챌린지", "host": "(주)과나(산사람) / (주)스튜디오프리윌루전(AI-Kive)", "ai_usage": "required", "format": "온라인(aikive.com)", "team": "만 14세 이상, 개인/팀 1인(팀)당 1편", "prize": "1등 100만원 (총 1천만원 이하)", "hiring_link": false, "apply_deadline": "2026-11-11", "submit_deadline": "2026-11-11", "result_date": null, "status": "open", "url": "https://www.wevity.com/?c=find&s=1&gbn=view&gp=1&ix=111810", "evidence": "산사람 '진짜 오타쿠' 원곡에 맞춘 AI 뮤지컬비디오 제작 챌린지 — AI MV가 제출 양식(required). 접수 10/14~11/11, 10/25 런 노출 소실 후 재발견", "source": "wevity", "review": "auto"},
+    {"id": "wevity:111800-ai-play-content", "type": "contest", "title": "2026 AI 플레이 콘텐츠 제작 공모전", "host": "중앙대학교 K-MOOC", "ai_usage": "required", "format": "온라인(웹 링크/HTML 배포)", "team": "중앙대 K-MOOC 강좌 이수자 누구나", "prize": "최우수 1명 30만원·우수 2명 각 20만원·장려 3명 각 10만원", "hiring_link": false, "apply_deadline": "2026-12-31", "submit_deadline": "2026-12-31", "result_date": null, "status": "open", "url": "https://www.wevity.com/?c=find&s=1&gbn=view&gp=1&ix=111800", "evidence": "필수 조건: 생성형 AI 툴(텍스트·이미지·코드 등) 1개 이상 필수 활용, 참여형 미니게임 제출(required). 모집 ~12/31, 10/25 런 노출 소실 후 재발견", "source": "wevity", "review": "auto"},
+    {"id": "wevity:111785-airsecure-ai-image", "type": "contest", "title": "2026 한국공항보안(주) AI 디지털 이미지 공모전", "host": "한국공항보안(주)", "ai_usage": "required", "format": "온라인 접수", "team": "대한민국 국민 누구나, 개인 1인 1작품", "prize": "미공개(위비티 미기재)", "hiring_link": false, "apply_deadline": "2026-11-13", "submit_deadline": "2026-11-13", "result_date": null, "status": "open", "url": "https://www.wevity.com/?c=find&s=1&gbn=view&gp=1&ix=111785", "evidence": "함께 지키는 하늘길 항공보안 문화 확산 대국민 AI콘텐츠 공모전 — 생성형 AI 기반 콘텐츠 제작이 응모 자격 전제(required). 공모 10/16~11/13", "source": "wevity", "review": "auto"},
+    {"id": "wevity:111726-yongsan-ai-smartcity", "type": "contest", "title": "용산국제업무지구 AI 스마트도시 아이디어 공모", "host": "서울특별시", "ai_usage": "allowed", "format": "온라인 참가 등록(project.seoul.go.kr)", "team": "서울시 청년(19~39세), 공동응모 5인까지", "prize": "대상 300만원 외 (서울특별시장상)", "hiring_link": false, "apply_deadline": "2026-11-20", "submit_deadline": "2026-11-20", "result_date": null, "status": "open", "url": "https://www.wevity.com/?c=find&s=1&gbn=view&gp=1&ix=111726", "evidence": "'첨단기술 활용한 해결방안 제안' — 공모명에 AI 명시, 첨단기술(AI 포함) 활용 아이디어 공모(allowed). 참가 등록 10/20~11/20", "source": "wevity", "review": "auto"},
+    {"id": "wevity:111797-sjcu-ai-character", "type": "contest", "title": "[세종사이버대 AI실무활용학과] K-빌런의 21세기 서울 상륙 작전 공모전", "host": "세종사이버대학교 AI실무활용학과", "ai_usage": "required", "format": "온라인 접수", "team": "전공생 및 일반인 누구나", "prize": "통합 대상 100만원·최우수 3팀 각 50만원·우수 3팀", "hiring_link": false, "apply_deadline": "2026-11-16", "submit_deadline": "2026-11-16", "result_date": "2026-12-01", "status": "open", "url": "https://www.wevity.com/?c=find&s=1&gbn=view&gp=1&ix=111797", "evidence": "접수 분야: AI 이미지·AI 영상·AI 컷툰 — AI 생성 콘텐츠가 제출 양식(required). 접수 10/19~11/16, 결과 발표 12월", "source": "wevity", "review": "auto"},
+    {"id": "wevity:111713-korea-culture-ai-video-12th", "type": "contest", "title": "제12회 한국문화 AI영상대전", "host": "한국미디어영상진흥원 (방송미디어통신위원회 후원)", "ai_usage": "required", "format": "구글폼 신청 + AI 영상 전문가 제작 교육 후 출품", "team": "전국 초(4~6년)·중·고등학생, 개인 또는 2인 이내", "prize": "총 21개 팀 상장·부상 (대상/최우수/우수/장려/특별, 서울시교육감상 포함)", "hiring_link": false, "apply_deadline": "2027-01-06", "submit_deadline": "2027-01-20", "result_date": null, "status": "open", "url": "https://www.wevity.com/?c=find&s=1&gbn=view&gp=1&ix=111713", "evidence": "한국의 역사·전통·생활문화를 인공지능(AI) 영상으로 재조명 — AI 영상 제작이 과제 자체(required). 신청 ~2027-01-06 18시, 출품 ~2027-01-20 18시 (인더스트리뉴스 10/22 보도)", "source": "wevity", "review": "auto"},
+    {"id": "global-0035", "type": "hackathon", "title": "Dakar Bitcoin Hack by BTrust", "host": "Dakar Bitcoin Days / BTrust", "ai_usage": "allowed", "format": "online", "team": "unknown", "prize": "$900", "hiring_link": false, "apply_deadline": "2026-11-20", "submit_deadline": "2026-11-20", "result_date": null, "status": "open", "url": "https://dakar-bitcoin-hack-2026.devpost.com/", "evidence": "Create tools that will enhance the life of African people, around or on top of the Bitcoin protocol, the lightning network, nostr and AI. — AI가 공식 스코프에 포함(allowed), 제출 10/26~11/20", "source": "devpost", "review": "auto"}
+  ],
+  "sources": [
+    {"name": "devpost-api", "ok": true, "visited": 0, "note": "fetch 7페이지 진행중 53건 — 신규 후보 30건 중 1건 채택(Dakar Bitcoin $900·AI 스코프 포함). DataNova $1,750·CodeForHumanity는 desc에 AI 미언급·무상금 제외, 나머지 27건 무상금 대학 해커톤 제외"},
+    {"name": "wevity-fetch", "ok": true, "visited": 0, "note": "cidx 전체리스트 fetch 스윕 298행(uniq 148 ix) → 신규 후보 11건 상세 fetch(SSR 본문) → 7건 채택. 10/25 노출 소실 3건(AI 창조공모대전·AI-Kive MV·AI 플레이 콘텐츠) 전부 재발견·기록 완료. 제외: AI 신과거제(초등 한정)·NIA 탄소중립(AI 옵션 트랙만)·장애인 해커톤(시민평가단 모집)·AI 달인 꿀팁 챌린지(AI 생성물 아닌 팁 콘텐츠)"},
+    {"name": "gnews-rss", "ok": true, "visited": 0, "note": "kr-1~6·en 7피드. kr-1 올리브영 AI과제 전형 = 7/21 보도 재노출(모집 7/20~8/9 종료, seed-kr-01 커버) — RSS 최신성 함정. kr-3/4 지자체 5건 전부 마감 경과(마포 10/6·데이터안심구역 10/22·인천대 10/19·경기도 5/29·강원랜드 8월 완료) 제외. en Anthropic Women in AI Hackathon 후보 발견했으나 상세 미확보로 미기록"},
+    {"name": "hn-algolia-hiring", "ok": true, "visited": 0, "note": "최신 스레드 10/1 (October 2026) — 신규 없음, 월 1일 전체 파싱 대기"},
+    {"name": "github-hackathon", "ok": true, "visited": 0, "note": "신규 레포 15개 전부 참가작(맥도날드 MCP 콘테스트 등) — 3일 연속 참가작만, 퇴출 확정 유지"},
+    {"name": "hackhq", "ok": true, "visited": 0, "note": "Devpost 전부 중복 유지 — 퇴출 후보"},
+    {"name": "wanted", "ok": true, "visited": 1, "note": "'사전과제' 검색 4건 고정 유지(한프카·인터엑스 오탐·크레바스·라프텔) — 신규 0"},
+    {"name": "jobkorea-mobile", "ok": true, "visited": 6, "note": "'사전과제'·'바이브코딩' 리스트: 신규 0(부트캠프 광고·퍼지 노이즈). 한프카 D-12 재개 포착(마감 11/8 연장). 상세 본문 미렌더링 제약 지속(한프카·씨어스·넷마블 모두 body 0, 전체보기 버튼 없음, PC판 404)"},
+    {"name": "websearch-보강", "ok": true, "visited": 0, "note": "씨어스 그리팅HR 원문(조건부 과제 명시 확보), 넷마블 인크루트 크로스포스트(과제 미언급), 한국문화AI영상대전 일정(1/6·1/20), 올리브영 7월 보도 확인, 지자체 5건 마감 확인"},
+    {"name": "google-cloud-afi", "ok": true, "visited": 0, "note": "global-0012 Agents for Impact — SSR에 마감일 여전히 미공개(날짜 문자열 0건), upcoming 유지"}
+  ],
+  "notes": "정상 1일 간격 런(어제 0ede838). [종결 3건] Build With AI Basics(global-0006, Devpost 제출종료 10/26)·ACDC(wevity:111752, 10/26)·한림 동해(wevity:111843, 10/26). [마감일 정정 1건] OpenCV AI Competition(global-0003) 10/26→10/27(D-0) — Devpost 제출기간 Aug 26-Oct 27 실측, 어제 D-0 종결 예고와 달리 하루 더 접수. [D-0 3건+정정1] GitLab Transcend(global-0004)·Engage 6.0(global-0022)·대구정원박람회(ko-0012) 오늘 마감 — 다음 런 종결 후보. [한프카 재오픈] wd390319 10/25 마감 판정에서 잡코리아 크로스포스트 D-12(11/8) 마감 연장 확인 — closed→open 복귀, 런 종결 판정은 노출+마감일 이중 확인 필요성 시사. [needs_review 4건 전량 해소] 씨어스 AI Research·플랫폼 엔지니어(그리팅HR '과제 전형 진행될 수 있음' = 조건부, unspecified), 넷마블(인크루트 과제 미언급, unspecified), Meta VR Start($1M 일반 오픈 확정), Agéntico(스페인어권 ITESO, 기록만 유지). [10/25 노출 소실 3건 재발견·기록 완료] AI 창조공모대전(11/23 개시 upcoming)·AI-Kive MV 챌린지·AI 플레이 콘텐츠 — 메모리 정리 해소. [gnews 최신성 함정] 올리브영 AI과제 전형 = 7월 보도 재노출, 지자체 5건 전부 마감 경과 — gnews 이벤트 후보는 원문 일정 확인 전까지 채택 금지 원칙 반영. [소스 성과] 신규 8건 중 7건 위비티 cidx·1건 Devpost — 위비티 전체리스트 스윕이 국내 발견 최상 경로 재확인. [다음 우선순위] (1) D-0 4건 종결 확인(OpenCV·GitLab·Engage·대구정원), (2) D-1 2건(AWS CDS·CodeTheCure 10/28), (3) D-3 5건(10/30: Nebius·Qloo·HackFW·충북게임센터·배경데이터), (4) global-0012 마감일 공개 시 메꾸기, (5) Anthropic Women in AI Hackathon 상세 확인."
+}

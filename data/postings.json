@@ -528,19 +528,19 @@
     "ai_policy": "unspecified",
     "evidence": [
       {
-        "quote": "마감일 2026-10-25 경과 — 원티드 검색 결과에서 노출 확인, 지원 마감으로 종결 처리",
-        "field": "status"
+        "quote": "잡코리아 크로스포스트(Recruit/GI_Read/50236862) 리스트 카드 D-12 표시 — 마감 2026-11-08. 10/25 마감 경과 판정 후 마감 연장 재오픈, 원티드·잡코리아 양쪽 동시 노출 지속",
+        "field": "deadline+status"
       }
     ],
     "url": "https://www.wanted.co.kr/wd/390319",
-    "deadline": "2026-10-25",
-    "status": "closed",
+    "deadline": "2026-11-08",
+    "status": "open",
     "review": "auto",
     "note": "잡코리아 동일 공고(GI_Read/50055620) 교차확인 — 마감 10/25. AI 정책 언급 없음",
     "first_seen": "2026-10-24",
-    "last_seen": "2026-10-26",
-    "last_checked": "2026-10-26",
-    "check_cadence": "none",
+    "last_seen": "2026-10-27",
+    "last_checked": "2026-10-27",
+    "check_cadence": "daily",
     "history": [
       {
         "date": "2026-10-24",
@@ -552,6 +552,18 @@
         "event": "status_changed",
         "from": "open",
         "to": "closed"
+      },
+      {
+        "date": "2026-10-27",
+        "event": "deadline_changed",
+        "from": "2026-10-25",
+        "to": "2026-11-08"
+      },
+      {
+        "date": "2026-10-27",
+        "event": "status_changed",
+        "from": "closed",
+        "to": "open"
       }
     ]
   },
@@ -775,8 +787,8 @@
     "ai_policy": "unspecified",
     "evidence": [
       {
-        "quote": "'사전과제'·'과제 전형' 두 검색 모두 히트 — 제목 미포함",
-        "field": "검색 인덱스"
+        "quote": "씨어스 그리팅HR 회사 공통 채용절차: '전형 과정 중 과제 전형 또는 추가 인터뷰 등이 진행될 수 있습니다' — 플랫폼 엔지니어 공고에 동일 적용(unspecified), needs_review 해소",
+        "field": "evidence"
       }
     ],
     "url": "https://www.jobkorea.co.kr/Recruit/GI_Read/50228434",
@@ -785,8 +797,8 @@
     "review": "needs_review",
     "note": "본문 미렌더링",
     "first_seen": "2026-10-24",
-    "last_seen": "2026-10-24",
-    "last_checked": "2026-10-24",
+    "last_seen": "2026-10-27",
+    "last_checked": "2026-10-27",
     "check_cadence": "weekly",
     "history": [
       {
@@ -877,8 +889,8 @@
     "ai_policy": "unspecified",
     "evidence": [
       {
-        "quote": "포지션의 특성에 따라 전형 과정 중 과제 전형 또는 추가 인터뷰 등이 진행될 수 있습니다.",
-        "field": "기타사항"
+        "quote": "씨어스 그리팅HR 공고(200631): 채용절차 서류전형→인성검사→실무자 면접→임원 면접, '포지션의 특성에 따라 전형 과정 중 과제 전형 또는 추가 인터뷰 등이 진행될 수 있습니다' — 조건부 과제 명시(unspecified), needs_review 해소",
+        "field": "evidence"
       }
     ],
     "url": "https://www.jobkorea.co.kr/Recruit/GI_Read/50228417",
@@ -887,8 +899,8 @@
     "review": "needs_review",
     "note": "조건부 과제 전형 — 플랫폼 엔지니어 형제 공고(50228434)와 동일 마감. AI 정책 언급 없음",
     "first_seen": "2026-10-25",
-    "last_seen": "2026-10-25",
-    "last_checked": "2026-10-25",
+    "last_seen": "2026-10-27",
+    "last_checked": "2026-10-27",
     "check_cadence": "weekly",
     "history": [
       {
@@ -911,8 +923,8 @@
     "ai_policy": "unspecified",
     "evidence": [
       {
-        "quote": "서류전형 > AI 역량검사 > 1차면접 > 2차면접 > 검진/처우 > 최종합격 * 직무에 따라 코딩테스트, 사전과제가 있을 수 있으며 별도 안내 예정입니다.",
-        "field": "전형절차"
+        "quote": "인크루트 크로스포스트(2606300004688): VLM 게임 에이전트/음성 에이전트 직무, 홈페이지 지원, 접수 2026-05-30~12-31 — 전형절차 과제 미언급(unspecified), needs_review 해소",
+        "field": "evidence"
       }
     ],
     "url": "https://www.jobkorea.co.kr/Recruit/GI_Read/50083974",
@@ -921,8 +933,8 @@
     "review": "needs_review",
     "note": "조건부 코딩테스트/사전과제 + AI 역량검사 전형. 게임 에이전트(VLM)·음성 AI 포지션",
     "first_seen": "2026-10-25",
-    "last_seen": "2026-10-25",
-    "last_checked": "2026-10-25",
+    "last_seen": "2026-10-27",
+    "last_checked": "2026-10-27",
     "check_cadence": "weekly",
     "history": [
       {
