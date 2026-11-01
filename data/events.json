@@ -1834,7 +1834,7 @@
     "review": "auto",
     "first_seen": "2026-10-25",
     "last_checked": "2026-10-25",
-    "check_cadence": "weekly",
+    "check_cadence": "daily",
     "history": [
       {
         "date": "2026-10-25",
@@ -2452,7 +2452,7 @@
     "review": "auto",
     "first_seen": "2026-10-27",
     "last_checked": "2026-10-27",
-    "check_cadence": "weekly",
+    "check_cadence": "daily",
     "history": [
       {
         "date": "2026-10-27",
@@ -2708,11 +2708,11 @@
     "result_date": "2026-12-16",
     "status": "upcoming",
     "url": "https://aimk.ai",
-    "evidence": "14개 브랜드의 실전 과제를 생성형 AI 영상으로 풀어내는 영상광고·숏폼 공모전 · 총 상금 5,300만원 · 11.2 브랜드 과제 공개 → 11.9~11.30 작품 접수",
+    "evidence": "주최측 재게시 공고(wevity ix 112073, D-29) 상세 직접 확인: 작품 접수 2026.11.9 ~ 11.30 자정, 11.2(월) 브랜드 과제 공개(aimk.ai) — 오늘 과제 공개 단계 진입, 접수 개시 전이라 upcoming 유지(11/9 open 전환 예정). 총상금 5,300만원·1등 500만원·기업부 참가비 20만원",
     "source": "wevity",
     "review": "confirmed",
     "first_seen": "2026-11-01",
-    "last_checked": "2026-11-01",
+    "last_checked": "2026-11-02",
     "check_cadence": "weekly",
     "history": [
       {
@@ -2761,22 +2761,36 @@
     "team": "같은 학교 3~4인 1팀 (만 34세 이하 대학·대학원생)",
     "prize": "총상금 950만원 (대상 500만원)",
     "hiring_link": false,
-    "apply_deadline": null,
-    "submit_deadline": null,
+    "apply_deadline": "2026-11-15",
+    "submit_deadline": "2026-11-15",
     "result_date": null,
     "status": "open",
     "url": "https://drafthon.ai.kr/",
-    "evidence": "AI 산업/AI 행정 트랙 · 무박 2일(11.25~11.26 대구 엑스코) 정책제안 발표 · 총상금 950만원 · 접수마감일 미확인(위비티 D-14 표시, 추정 11/15) — 다음 런 마감일 메꾸기",
+    "evidence": "위비티 전체리스트 카드 'D-14 접수중'(2026-11-02 확인) → 접수마감 2026-11-15 확정. 종전 needs_review(마감일 미확인, 추정 11/15) 해소",
     "source": "wevity",
-    "review": "needs_review",
+    "review": "confirmed",
     "first_seen": "2026-11-01",
-    "last_checked": "2026-11-01",
-    "check_cadence": "weekly",
+    "last_checked": "2026-11-02",
+    "check_cadence": "daily",
     "history": [
       {
         "date": "2026-11-01",
         "event": "created",
         "status": "open"
+      },
+      {
+        "date": "2026-11-02",
+        "event": "deadline_changed",
+        "field": "apply_deadline",
+        "from": null,
+        "to": "2026-11-15"
+      },
+      {
+        "date": "2026-11-02",
+        "event": "deadline_changed",
+        "field": "submit_deadline",
+        "from": null,
+        "to": "2026-11-15"
       }
     ]
   },
@@ -2793,19 +2807,25 @@
     "apply_deadline": "2026-11-20",
     "submit_deadline": "2026-11-20",
     "result_date": null,
-    "status": "upcoming",
+    "status": "open",
     "url": "https://www.mogefdatacontest.co.kr/index.jsp",
-    "evidence": "성평등 AI 안전성 벤치마크 데이터셋으로 주요 LLM 취약점 분석·프롬프트 개선 전략 발굴 · 접수 11/2~11/20 18시",
+    "evidence": "위비티 전체리스트 카드 'D-19 접수중'(2026-11-02) — 예정대로 11/2 접수 개시 확인, 접수마감 11-20 (성평등가족부)",
     "source": "wevity",
     "review": "confirmed",
     "first_seen": "2026-11-01",
-    "last_checked": "2026-11-01",
+    "last_checked": "2026-11-02",
     "check_cadence": "weekly",
     "history": [
       {
         "date": "2026-11-01",
         "event": "created",
         "status": "upcoming"
+      },
+      {
+        "date": "2026-11-02",
+        "event": "status_changed",
+        "from": "upcoming",
+        "to": "open"
       }
     ]
   },

@@ -1,0 +1,89 @@
+{
+  "date": "2026-11-02",
+  "postings": [
+    {
+      "id": "jobkorea:50214047",
+      "status": "closed",
+      "evidence": [
+        {
+          "quote": "잡코리아 모바일 GI_Read 직접 확인(2026-11-02): 제목 옆 '마감' 표시 + 지원정보 '마감되었습니다. 기간 2026.10.21(수) ~ 2026.11.01(일)' + 즉시지원/홈페이지지원 버튼 비활성 — 마감일 경과 + 카드 마감 문구 이중 확인으로 종결. 참고: 채용절차 '실무진 면접 전 사전 과제/테스트가 있을 수 있습니다'(조건부 사전과제)",
+          "field": "status"
+        }
+      ]
+    }
+  ],
+  "events": [
+    {
+      "id": "wevity:111981-daegu-drafthon",
+      "apply_deadline": "2026-11-15",
+      "submit_deadline": "2026-11-15",
+      "evidence": "위비티 전체리스트 카드 'D-14 접수중'(2026-11-02 확인) → 접수마감 2026-11-15 확정. 종전 needs_review(마감일 미확인, 추정 11/15) 해소",
+      "review": "confirmed"
+    },
+    {
+      "id": "wevity:112029-gender-equality-ai",
+      "status": "open",
+      "apply_deadline": "2026-11-20",
+      "submit_deadline": "2026-11-20",
+      "evidence": "위비티 전체리스트 카드 'D-19 접수중'(2026-11-02) — 예정대로 11/2 접수 개시 확인, 접수마감 11-20 (성평등가족부)"
+    },
+    {
+      "id": "wevity:111903-maekyung-ai-ad",
+      "status": "upcoming",
+      "apply_deadline": "2026-11-30",
+      "submit_deadline": "2026-11-30",
+      "evidence": "주최측 재게시 공고(wevity ix 112073, D-29) 상세 직접 확인: 작품 접수 2026.11.9 ~ 11.30 자정, 11.2(월) 브랜드 과제 공개(aimk.ai) — 오늘 과제 공개 단계 진입, 접수 개시 전이라 upcoming 유지(11/9 open 전환 예정). 총상금 5,300만원·1등 500만원·기업부 참가비 20만원"
+    }
+  ],
+  "sources": [
+    {
+      "name": "devpost-api",
+      "ok": true,
+      "visited": 0,
+      "note": "오픈 44건 전수(8p fetch). 기존 미채택 27 slug 재노출(평가 유지). 11/1 이후 등장 신규 5건 메타 확인 전부 미채택: YUNet AIgnite Buildathon(방글라데시 국가한정·상금 BDT 15,000 소액·11/5 마감), Remote Control AI(상금 미기재·커뮤니티형), ML Empowerment Build Challenge 4.0(학생 교육형·무현금), 305 Veterans(미국 재향군인 한정·AI 미언급), STEMergent Hacks(학생·AI 미언급·무상금). Devcon 2026 Global AI Hackathon(trick-or-build)은 11/1 종료로 미기록."
+    },
+    {
+      "name": "hn-algolia-hiring",
+      "ok": true,
+      "visited": 0,
+      "note": "11월 whoishiring 스레드 여전히 미개시(최신 10/1 스레드) — 2일째 게시 지연, 다음 런 재확인."
+    },
+    {
+      "name": "gnews",
+      "ok": true,
+      "visited": 0,
+      "note": "kr-1~5·en 6피드 10/31~ 신규 점검 채택 0. SK하이닉스 AI 해커톤 예선 시스템 장애 중단·전원 재시험 보도(11/1 연합 등 7건) — 지원 마감(9/28) 상태라 미기록 유지. LOTTE AX·데이콘 500회 등은 기존 기록 커버/비기회성. 올리브영 AI 과제 7월 보도 재노출 함정 재현."
+    },
+    {
+      "name": "wevity-fetch",
+      "ok": true,
+      "visited": 4,
+      "note": "전체리스트 13p fetch uniq 195 ix(기존 33 외 169 unseen 대부분 과거 비관련 항목). ⚠️ 신규 제약 발견: 상세 SSR fetch가 네이비 셸만 반환(10-27까지 정상 동작) — 상세 4건은 브라우저로 확인. 리스트 D-day·상태 파싱으로 드래프톤 D-14(11/15)·성평등 D-19 접수중(11/20)·매경 D-29(11/30)·화이트햇/해방촌 D-1·청도 D-2·LOTTE AX D-3·스페이스 D-4 확보. 신규 채택 0: 제주 청소년 AI 리터러시 영상 공모전(제주 거주 만 19세 미만 한정 — 상세 확인 후 미채택), 부여 솔버톤·6G 서비스 시나리오·2035 시민숙의 패널(AI 미언급·비빌드형·모집 유형 부적합)."
+    },
+    {
+      "name": "wanted",
+      "ok": true,
+      "visited": 1,
+      "note": "'사전과제' 4건 고정 유지(한프카 플랫폼 개발자·인터엑스 B2G·크레바스 인턴 서버·라프텔 디자이너), 신규 0."
+    },
+    {
+      "name": "jobkorea-mobile",
+      "ok": true,
+      "visited": 5,
+      "note": "'사전과제' 734건: 한프카 D-6(11/8) 유지·SOOP 서버개발 마감 직접 확인(종결 처리). '바이브코딩' 141건: 비오앰 AI Native/바이브코딩 풀스택(상시, 10/30 등록) 상세 확인 — 전형절차 과제 문구 없음(첨부 인적성·포트폴리오만) 미기록 유지. F&F 디지털본부 AI & SAP(11/15 마감, 10/22 등록) 자격요건 '코딩 도구(Claude, Cursor 등)와 바이브 코딩을 개발 업무에 적극 활용' 명시 확인 — 전형절차 과제 부재로 postings 미기록, 바이브코딩 실무역량 요구가 중견기업으로 확산되는 트렌드 신호."
+    },
+    {
+      "name": "jumpit",
+      "ok": true,
+      "visited": 1,
+      "note": "'사전과제' 78건 전부 퍼지 — 실체 신규 0. 데이터드리븐 풀스택 D-22 유지."
+    },
+    {
+      "name": "global-0012-watch",
+      "ok": true,
+      "visited": 0,
+      "note": "cloud.google.com/agents-for-impact-2026 SSR 재확인: Phase I 도시별 라이브 해커톤 일정 공개(Toronto 10/20·Atlanta 10/27·Sunnyvale 11/17), Phase III 디지털 해커톤 2027.1~3 — 제출 마감일은 여전히 미공개. 주간 감시 유지."
+    }
+  ],
+  "notes": "정상 런(last_run 11-01, 1일 갭). 신규 공고 0 · 신규 이벤트 0 — 조용한 날. [종결 1] SOOP LIVE 방송 서버 개발(jobkorea:50214047) — 마감일 경과 + GI_Read 카드 '마감'·기간 문구 이중 확인. [needs_review 해소 1] 대구 드래프톤 접수마감 11/15 확정(wevity D-14 카드) — events needs_review 전량 해소. [전환 1] 성평등 AI 벤치마크 챌린지 upcoming→open(11/2 접수 개시, 마감 11/20). [마감일 메꾸기 1] 매경 AI 광고 공모전 접수 11/9~11/30 확정 + 오늘 11/2 브랜드 과제 공개(aimk.ai, 재게시 ix 112073). [D-0 4건 종결 유보] 화이트햇 2026·해방촌 AI 콘텐츠(wevity D-1=당일 마감), YouCam·TwitchCon(Devpost 'ends Nov 02' 잔존) — 마감일 당일이라 종결 보류, 내일 런에서 확정 종결 예정. [위비티 상세 SSR 제약 신규] 상세 fetch가 셸만 반환(리스트는 정상) — T1 브라우저 전환으로 해소, 다음 런부터 상세는 브라우저 우선. [DATA·AI 경진대회 날짜 참고] wevity 접수기간 ~11/10 표기 vs KISTI 상세 '문제해결 9.15~11.6' — KISTI 원문 기준 11/6 유지. [다음 우선순위] (1) D-0 4건 종결(화이트햇·해방촌·YouCam·TwitchCon), (2) 청도 11/3·LOTTE AX 11/4·스페이스 해커톤 11/5 종결 감시, (3) HN 11월 whoishiring 스레드 재확인(2일째 지연), (4) 매경 11/9 upcoming→open 전환, (5) global-0012 마감일 공개 감시, (6) CJ올리브네트웍스류 바이브코딩 전형 신규 기업 감시(F&F는 자격요건 수준)."
+}
