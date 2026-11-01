@@ -1,6 +1,6 @@
 {
-  "version": "2026-10-25",
-  "note": "fetch()는 브라우저 페이지 상한 미소모. 발견=fetch(0페이지), 상세=브라우저(80페이지 상한 내).",
+  "version": "2026-11-01",
+  "note": "fetch()는 브라우저 페이지 상한 미소모. 발견=fetch(0페이지), 상세=브라우저(80페이지 상한 내). 2026-11-01 T3 월간: github-hackathon·hackhq·gnews-kr-6-workshop 퇴출(retired).",
   "tiers": {
     "T0_fetch_daily": [
       {
@@ -27,8 +27,8 @@
         "url": "https://api.github.com/search/repositories?q=topic:hackathon+created:>{7일전}&sort=created&per_page=30",
         "target": "events",
         "cost": 0,
-        "note": "무인증 search 10회/분. 신규 해커톤 레포 ~76/일. 개최사 필터: README에 rules/register/prize 포함 여부",
-        "status": "active"
+        "note": "2026-11-01 T3 성과 리포트: 3일 연속 참가작만 확인(10/25~27) + 10/25 이후 613레포 전수 참가작·스타터킷 — 개최사 레포 0건, 채택 0. 퇴출",
+        "status": "retired"
       },
       {
         "id": "gnews-kr-1",
@@ -78,8 +78,8 @@
         "url": "https://raw.githubusercontent.com/Jose-Gael-Cruz-Lopez/hackhq/main/README.md",
         "target": "events",
         "cost": 0,
-        "note": "자동업데이트 해커톤 DB ★123 활동 중, 테이블 83행",
-        "status": "active"
+        "note": "2026-11-01 T3 성과 리포트: Devpost 전량 중복 지속(10/25~27 확인 + 11/1 218행 재확인), 채택 0. 퇴출",
+        "status": "retired"
       },
       {
         "id": "gnews-kr-5-meetup",
@@ -96,8 +96,8 @@
         "url": "https://news.google.com/rss/search?q=%22AI+%EC%9B%8C%ED%81%AC%EC%83%B5%22+OR+%22AI+%EA%B5%90%EC%9C%A1%22+OR+%22AI+%EC%97%90%EB%94%94%ED%86%A0%EB%A6%AC%EC%96%B8%22&hl=ko&gl=KR&ceid=KR:ko",
         "target": "events",
         "cost": 0,
-        "note": "AI 워크샵/교육/에디토리얼",
-        "status": "active"
+        "note": "2026-11-01 T3 성과 리포트: 5일간 100건 전부 교육정책·광고성 노이즈, 채택 0 (10/25~27 채택 0에 이어 재확인). 퇴출",
+        "status": "retired"
       },
       {
         "id": "gnews-en-meetup",

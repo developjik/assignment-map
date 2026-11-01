@@ -332,6 +332,150 @@
       ],
       "notes": "정상 1일 간격 런(어제 0ede838). [종결 3건] Build With AI Basics(global-0006, Devpost 제출종료 10/26)·ACDC(wevity:111752, 10/26)·한림 동해(wevity:111843, 10/26). [마감일 정정 1건] OpenCV AI Competition(global-0003) 10/26→10/27(D-0) — Devpost 제출기간 Aug 26-Oct 27 실측, 어제 D-0 종결 예고와 달리 하루 더 접수. [D-0 3건+정정1] GitLab Transcend(global-0004)·Engage 6.0(global-0022)·대구정원박람회(ko-0012) 오늘 마감 — 다음 런 종결 후보. [한프카 재오픈] wd390319 10/25 마감 판정에서 잡코리아 크로스포스트 D-12(11/8) 마감 연장 확인 — closed→open 복귀, 런 종결 판정은 노출+마감일 이중 확인 필요성 시사. [needs_review 4건 전량 해소] 씨어스 AI Research·플랫폼 엔지니어(그리팅HR '과제 전형 진행될 수 있음' = 조건부, unspecified), 넷마블(인크루트 과제 미언급, unspecified), Meta VR Start($1M 일반 오픈 확정), Agéntico(스페인어권 ITESO, 기록만 유지). [10/25 노출 소실 3건 재발견·기록 완료] AI 창조공모대전(11/23 개시 upcoming)·AI-Kive MV 챌린지·AI 플레이 콘텐츠 — 메모리 정리 해소. [gnews 최신성 함정] 올리브영 AI과제 전형 = 7월 보도 재노출, 지자체 5건 전부 마감 경과 — gnews 이벤트 후보는 원문 일정 확인 전까지 채택 금지 원칙 반영. [소스 성과] 신규 8건 중 7건 위비티 cidx·1건 Devpost — 위비티 전체리스트 스윕이 국내 발견 최상 경로 재확인. [다음 우선순위] (1) D-0 4건 종결 확인(OpenCV·GitLab·Engage·대구정원), (2) D-1 2건(AWS CDS·CodeTheCure 10/28), (3) D-3 5건(10/30: Nebius·Qloo·HackFW·충북게임센터·배경데이터), (4) global-0012 마감일 공개 시 메꾸기, (5) Anthropic Women in AI Hackathon 상세 확인.",
       "summary": "+0공고 +8이벤트 · 정책변경 0 · 상태변경 4 · 마감변경 2"
+    },
+    {
+      "date": "2026-11-01",
+      "new_postings": [
+        "manual:cj-olivenetworks-2026h2"
+      ],
+      "policy_changed": [],
+      "deadline_changed": [],
+      "status_changed": [
+        "jobkorea:50174914"
+      ],
+      "new_events": [
+        "global-0039",
+        "global-0036",
+        "global-0037",
+        "global-0038",
+        "wevity:111915-elice-ai-challenge",
+        "wevity:111912-cj-hetbahn-ai",
+        "wevity:111903-maekyung-ai-ad",
+        "wevity:111965-ai-startup-hackathon",
+        "wevity:111981-daegu-drafthon",
+        "wevity:112029-gender-equality-ai",
+        "wevity:112065-sourcinginmarket-ai-ad",
+        "wevity:112027-lotte-ax-challenge",
+        "wevity:112022-gyeongsan-ai-media",
+        "wevity:112021-vivid-replay",
+        "wevity:111920-haebangchon-ai",
+        "wevity:111869-chuncheon-mbc-ai"
+      ],
+      "event_status_changed": [
+        "global-0001",
+        "global-0003",
+        "global-0004",
+        "global-0005",
+        "global-0007",
+        "global-0022",
+        "global-0024",
+        "global-0027",
+        "global-0031",
+        "global-0032",
+        "global-0034",
+        "ko-0006",
+        "ko-0010",
+        "ko-0012",
+        "wevity:111885-bgdata-idea",
+        "wevity:110647-all-ai-s3"
+      ],
+      "event_deadline_changed": [],
+      "updated_postings": 2,
+      "updated_events": 16,
+      "sources": [
+        {
+          "name": "devpost-api",
+          "ok": true,
+          "visited": 0,
+          "note": "fetch 5페이지 44건 전수 — 신규 31 후보 중 4건 채택(Codegeist $120k·Agentic·Scope-AI-Thon·GenHacks CAD1,050). DATANOVA는 상금 $1,750 갱신 확인되나 themes(E-commerce/Fintech/Health)·본문 AI 미언급 유지 → 계속 제외. global-0012는 cloud.google.com 페이지라 Devpost 스윕 대상 아님(미공개 지속)"
+        },
+        {
+          "name": "hn-algolia-hiring",
+          "ok": true,
+          "visited": 0,
+          "note": "11월 whoishiring 스레드 미개시(최신 10/1, 댓글 390) — 다음 런 재확인 후 전체 파싱"
+        },
+        {
+          "name": "github-hackathon",
+          "ok": true,
+          "visited": 0,
+          "note": "10/25 이후 613레포, 샘플 전수 참가작·스타터킷 — 개최사 레포 0건. [T3 성과 리포트] 3일 연속 검증 + 오늘 확인으로 퇴출 확정"
+        },
+        {
+          "name": "gnews-kr-1",
+          "ok": true,
+          "visited": 0,
+          "note": "최근 5일 신규 0건"
+        },
+        {
+          "name": "gnews-kr-2",
+          "ok": true,
+          "visited": 0,
+          "note": "최근 5일 신규 0건"
+        },
+        {
+          "name": "gnews-kr-3",
+          "ok": true,
+          "visited": 0,
+          "note": "최근 5일 신규 0건"
+        },
+        {
+          "name": "gnews-kr-4",
+          "ok": true,
+          "visited": 0,
+          "note": "최근 5일 신규 0건"
+        },
+        {
+          "name": "gnews-kr-5-meetup",
+          "ok": true,
+          "visited": 0,
+          "note": "1건(휴먼컨설팅그룹 컨퍼런스 '성료' 보도 — 참여 기회 아님) 채택 0"
+        },
+        {
+          "name": "gnews-kr-6-workshop",
+          "ok": true,
+          "visited": 0,
+          "note": "5일간 100건 전부 교육정책·광고성 노이즈, 채택 0. [T3 성과 리포트] 퇴출 확정"
+        },
+        {
+          "name": "gnews-en-meetup",
+          "ok": true,
+          "visited": 0,
+          "note": "최근 5일 0건"
+        },
+        {
+          "name": "wevity-fetch",
+          "ok": true,
+          "visited": 0,
+          "note": "전체리스트(gub=1) 12페이지 uniq 180 ix 스윕 — 미기록 AI 관련 12건 상세 SSR fetch로 채택. 종결 후보 3건 상세 D+ 표시로 이탈 확인. Anthropic WIA(gnews en 후보)는 websearch 결과 지원 마감(10/27, 행사 11/6 SF) — 미기록 유지로 후보 해소"
+        },
+        {
+          "name": "hackhq",
+          "ok": true,
+          "visited": 0,
+          "note": "218행 파싱 — Devpost 전량 중복 지속, 채택 0. [T3 성과 리포트] 퇴출 확정"
+        },
+        {
+          "name": "wanted",
+          "ok": true,
+          "visited": 2,
+          "note": "'사전과제' 4건 고정·신규 0. 'AI 과제'는 정부 R&D 과제 컨설팅/PM 노이즈(1000건 퍼지) — 검색 가치 없음, 키워드 유지 여부 검토 후보"
+        },
+        {
+          "name": "jumpit",
+          "ok": true,
+          "visited": 1,
+          "note": "관련도순 상위 18카드 전부 퍼지(AI 직무명 매칭) — 사전과제 실체 공고 0"
+        },
+        {
+          "name": "jobkorea-mobile",
+          "ok": true,
+          "visited": 3,
+          "note": "'사전과제' 756건 중 실체 1(한프카 D-7 유지)·SOOP 오늘마감(D-0) 확인·웍스피어 카드 마감 직접 확인. '바이브코딩' 173건에서 실체 공고 7건 발견(비오앰 AI Native/바이브코딩 풀스택 10/30 신규 외 빅레그·태화이노베이션·프롭핀테크 등) — 전형절차 과제 문구 미확인으로 postings 미기록, 감시 대상"
+        }
+      ],
+      "notes": "갭 복구 런(5일: last_run 10-27 → 11-01, lookback 확대 적용 — 위비티 169 unseen ix 전수 프리스크린, Devpost 31 신규 slug 스윕). [신규 이벤트 16] Devpost 4(Codegeist·Agentic·Scope-AI-Thon·GenHacks) + 위비티 12(엘리스 AI 챌린지·CJ 햇반·매경 AI 광고대상 5,300만원·AI 창업 해커톤·대구 드래프톤 950만원·성평등 AI 벤치마크·소싱인마켓·LOTTE AX 2천만원+채용전환형 인턴십(hiring_link)·경산·VIVID·해방촌 D-1·춘천MBC). [종결 17] Devpost 11 + 국내 5 + 웍스피어. [정책 기록] CJ올리브네트웍스 2026 하반기 신입 공채 closed 기록 — 코딩테스트 폐지·전 직무 AI 역량진단·개발직무 바이브코딩 테스트(9/17 보도자료). [T3 월간] 소스 성과 리포트: github-hackathon·hackhq·gnews-kr-6 퇴출(sources.json status 반영), gnews-kr-5 관찰 유지, 새 소스 탐사는 미실행(갭 복구로 예산 소진). HN 11월 스레드 미개시. [needs_review 1] 대구 드래프톤 접수마감일 미확인(추정 11/15). [다음 우선순위] (1) SOOP 종결(11-01 마감), (2) 11-02 마감 4종 결림 확인 후 종결(YouCam·TwitchCon·화이트햇·해방촌), 청도 바이브코딩 11-03, LOTTE AX·성평등 챌린지·매경 과제공개 11-02/04 상태 전환, (3) HN 11월 스레드 파싱, (4) 드래프톤 마감일 메꾸기, (5) global-0012 감시 지속, (6) 바이브코딩 직무 공고 과제 여부 감시(비오앰 GI_Read 50275870 크로스포스트 경로).",
+      "summary": "+1공고 +16이벤트 · 정책변경 0 · 상태변경 17 · 마감변경 0"
     }
   ]
 }

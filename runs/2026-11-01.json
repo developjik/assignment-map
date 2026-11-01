@@ -1,0 +1,534 @@
+{
+  "date": "2026-11-01",
+  "postings": [
+    {
+      "id": "jobkorea:50174914",
+      "status": "closed",
+      "evidence": [
+        {
+          "quote": "잡코리아 모바일 카드 직접 확인: 제목 옆 '마감' 표시 + 지원정보 '마감되었습니다. 기간 2026.10.15(목) ~ 2026.10.31(토)' — 마감일 경과 + 카드 마감 표시 이중 확인으로 종결",
+          "field": "status"
+        }
+      ]
+    },
+    {
+      "id": "jobkorea:50214047",
+      "status": "open",
+      "deadline": "2026-11-01",
+      "evidence": [
+        {
+          "quote": "잡코리아 모바일 사전과제 검색 리스트 '[SOOP] LIVE 방송 서버 개발' 카드 '오늘 마감! 놓치지 마세요!' 표시 — D-0(11-01), 다음 런 종결 처리 대상",
+          "field": "deadline"
+        }
+      ]
+    },
+    {
+      "id": "manual:cj-olivenetworks-2026h2",
+      "source": "websearch (CJ올리브네트웍스 공식 보도자료 2026-09-17)",
+      "company": "CJ올리브네트웍스",
+      "positions": [
+        "ai",
+        "data",
+        "frontend",
+        "backend",
+        "devops",
+        "security",
+        "planning"
+      ],
+      "positions_raw": "AI·Data·소프트웨어·DX·ERP·정보보안·인프라·클라우드·네트워크 등 엔지니어 11개 분야 + AI 영상 프로덕트 기획",
+      "assignment_type": "test",
+      "process_raw": "서류 → AI 역량진단 테스트(전 직무) → 1차 면접(온라인) → 2차 면접(오프라인) → 인턴십(3주) → 입사. 기존 코딩테스트 전면 개편",
+      "ai_policy": "required",
+      "policy_raw": "전 직무 AI 역량진단 테스트, 개발 직무는 '바이브 코딩 테스트', 비개발 직무는 'AI 활용역량 테스트'",
+      "evidence": [
+        {
+          "quote": "기존 코딩테스트 전형을 전면 개편해 전 직무에 'AI 역량진단 테스트'를 새롭게 도입했다. 개발 직무는 AI와 협업해 실제 결과물을 구현하는 '바이브 코딩(Vibe Coding) 테스트'를 치른다",
+          "field": "policy"
+        }
+      ],
+      "url": "https://www.cjolivenetworks.co.kr/news/press_release/detail/863",
+      "deadline": "2026-09-30",
+      "status": "closed",
+      "state_raw": "접수 마감(2026.9.16~9.30 17시). 현재 TEST~면접 단계, 2027년 1월 최종합격. 종료 상태로 정책 사례 기록"
+    }
+  ],
+  "events": [
+    {
+      "id": "global-0039",
+      "type": "hackathon",
+      "title": "Atlassian Codegeist 2026: Build with context. Ship with confidence",
+      "host": "Atlassian",
+      "ai_usage": "required",
+      "format": "online",
+      "team": "unknown",
+      "prize": "총 $120,000",
+      "hiring_link": false,
+      "apply_deadline": "2026-12-22",
+      "submit_deadline": "2026-12-22",
+      "result_date": null,
+      "status": "open",
+      "url": "https://codegeist2026.devpost.com/",
+      "evidence": "Build on Forge, extend Atlassian products, and turn connected context into powerful new apps for teams — win your share of $120K (제출기간 Oct 27 - Dec 22, 2026)",
+      "source": "devpost-api",
+      "review": "confirmed"
+    },
+    {
+      "id": "global-0036",
+      "type": "hackathon",
+      "title": "Agentic Hackathon (build useful AI products with Devin)",
+      "host": "Cognition (Devin)",
+      "ai_usage": "required",
+      "format": "online",
+      "team": "unknown",
+      "prize": "$480",
+      "hiring_link": false,
+      "apply_deadline": "2026-11-10",
+      "submit_deadline": "2026-11-10",
+      "result_date": null,
+      "status": "open",
+      "url": "https://agentic-hackathon.devpost.com/",
+      "evidence": "A nationwide hackathon to build useful AI products with Devin (Nov 01 - 10, 2026, prize $480)",
+      "source": "devpost-api",
+      "review": "confirmed"
+    },
+    {
+      "id": "global-0037",
+      "type": "competition",
+      "title": "Scope-AI-Thon 2026 - AI for Detection of Acute Patient Deterioration",
+      "host": "Scope AI (의료 AI)",
+      "ai_usage": "required",
+      "format": "online",
+      "team": "unknown",
+      "prize": "CAD 1,400",
+      "hiring_link": false,
+      "apply_deadline": "2026-11-14",
+      "submit_deadline": "2026-11-14",
+      "result_date": null,
+      "status": "open",
+      "url": "https://scope-ai-thon-2026.devpost.com/",
+      "evidence": "Designing AI-Enabled Systems for Early Detection of Acute Patient Deterioration (Nov 01 - 14, 2026, CAD 1,400)",
+      "source": "devpost-api",
+      "review": "confirmed"
+    },
+    {
+      "id": "global-0038",
+      "type": "hackathon",
+      "title": "GenHacks",
+      "host": "GenHacks 운영위",
+      "ai_usage": "allowed",
+      "format": "online",
+      "team": "unknown",
+      "prize": "CAD 1,050",
+      "hiring_link": false,
+      "apply_deadline": "2026-12-26",
+      "submit_deadline": "2026-12-26",
+      "result_date": null,
+      "status": "open",
+      "url": "https://genhacks-open.devpost.com/",
+      "evidence": "Themes: Beginner Friendly, IoT, Machine Learning/AI — CAD 1,050, Nov 01 - Dec 26, 2026 (Devpost API 구조화 데이터)",
+      "source": "devpost-api",
+      "review": "confirmed"
+    },
+    {
+      "id": "wevity:111915-elice-ai-challenge",
+      "type": "competition",
+      "title": "과기부 × 엘리스 AI 챌린지 - 일상 속 문제, AI로 해결하다 (전국민 AI 경진대회)",
+      "host": "과학기술정보통신부 / 엘리스",
+      "ai_usage": "required",
+      "format": "online",
+      "team": "개인 또는 팀(최대 4인)",
+      "prize": "미공개 (전원 Helpy Chat 500만 토큰 + 바이브코딩 교육 크레딧 제공)",
+      "hiring_link": false,
+      "apply_deadline": "2026-11-13",
+      "submit_deadline": "2026-11-22",
+      "result_date": "2026-12-11",
+      "status": "open",
+      "url": "https://ai-challenge.elice.page/home/main",
+      "evidence": "공모 주제 'AI를 활용한 범용·실생활 문제 해결' · 심사 기준 '② AI 활용의 적절성' · 참가자 모집 10.23~11.13, PoC 제출 11.14~11.22",
+      "source": "wevity",
+      "review": "confirmed"
+    },
+    {
+      "id": "wevity:111912-cj-hetbahn-ai",
+      "type": "contest",
+      "title": "[CJ제일제당] 햇반 30주년 AI 공모전 (갓 지은 AI디어)",
+      "host": "CJ제일제당",
+      "ai_usage": "required",
+      "format": "online",
+      "team": "unknown",
+      "prize": "미공개 (본선 TOP10 / 수상작 발표)",
+      "hiring_link": false,
+      "apply_deadline": "2026-11-13",
+      "submit_deadline": "2026-11-13",
+      "result_date": "2026-11-27",
+      "status": "open",
+      "url": "https://www.wevity.com/?c=find&s=1&gbn=view&gp=1&ix=111912",
+      "evidence": "두 가지 주제 중 하나를 선택해 AI 이미지 또는 영상을 제작 · 접수 10.26~11.13 23:59",
+      "source": "wevity",
+      "review": "confirmed"
+    },
+    {
+      "id": "wevity:111903-maekyung-ai-ad",
+      "type": "contest",
+      "title": "[제3회] 매경 AI 광고 공모전 대한민국 AI 광고대상",
+      "host": "매경미디어",
+      "ai_usage": "required",
+      "format": "online",
+      "team": "개인·팀 (학생부/일반부/기업부)",
+      "prize": "총 상금 5,300만원",
+      "hiring_link": false,
+      "apply_deadline": "2026-11-30",
+      "submit_deadline": "2026-11-30",
+      "result_date": "2026-12-16",
+      "status": "upcoming",
+      "url": "https://aimk.ai",
+      "evidence": "14개 브랜드의 실전 과제를 생성형 AI 영상으로 풀어내는 영상광고·숏폼 공모전 · 총 상금 5,300만원 · 11.2 브랜드 과제 공개 → 11.9~11.30 작품 접수",
+      "source": "wevity",
+      "review": "confirmed"
+    },
+    {
+      "id": "wevity:111965-ai-startup-hackathon",
+      "type": "hackathon",
+      "title": "2026 AI 활용 전국 대학생 창업 해커톤",
+      "host": "미확인 (한림대학교 개최)",
+      "ai_usage": "required",
+      "format": "offline",
+      "team": "팀당 2~4인 / 총 25팀",
+      "prize": "미공개 (사전 멘토링·식사·노트북 대여 지원)",
+      "hiring_link": false,
+      "apply_deadline": "2026-11-11",
+      "submit_deadline": "2026-11-11",
+      "result_date": null,
+      "status": "open",
+      "url": "https://www.wevity.com/?c=find&s=1&gbn=view&gp=1&ix=111965",
+      "evidence": "지역의 다양한 문제를 AI 기반 창업 아이디어로 발전 · 모집 10.27~11.11 17:00, 무박 2일 해커톤 11.19~11.20 한림대",
+      "source": "wevity",
+      "review": "auto"
+    },
+    {
+      "id": "wevity:111981-daegu-drafthon",
+      "type": "hackathon",
+      "title": "2026 대구 대학(원) AI 드래프톤",
+      "host": "대구광역시 / 대구테크노파크",
+      "ai_usage": "required",
+      "format": "offline",
+      "team": "같은 학교 3~4인 1팀 (만 34세 이하 대학·대학원생)",
+      "prize": "총상금 950만원 (대상 500만원)",
+      "hiring_link": false,
+      "apply_deadline": null,
+      "submit_deadline": null,
+      "result_date": null,
+      "status": "open",
+      "url": "https://drafthon.ai.kr/",
+      "evidence": "AI 산업/AI 행정 트랙 · 무박 2일(11.25~11.26 대구 엑스코) 정책제안 발표 · 총상금 950만원 · 접수마감일 미확인(위비티 D-14 표시, 추정 11/15) — 다음 런 마감일 메꾸기",
+      "source": "wevity",
+      "review": "needs_review"
+    },
+    {
+      "id": "wevity:112029-gender-equality-ai",
+      "type": "competition",
+      "title": "2026 성평등 AI 벤치마크 챌린지",
+      "host": "여성가족부",
+      "ai_usage": "required",
+      "format": "online",
+      "team": "개인 또는 팀(5인 이내)",
+      "prize": "순위권 상금 지급 (상장 없음)",
+      "hiring_link": false,
+      "apply_deadline": "2026-11-20",
+      "submit_deadline": "2026-11-20",
+      "result_date": null,
+      "status": "upcoming",
+      "url": "https://www.mogefdatacontest.co.kr/index.jsp",
+      "evidence": "성평등 AI 안전성 벤치마크 데이터셋으로 주요 LLM 취약점 분석·프롬프트 개선 전략 발굴 · 접수 11/2~11/20 18시",
+      "source": "wevity",
+      "review": "confirmed"
+    },
+    {
+      "id": "wevity:112065-sourcinginmarket-ai-ad",
+      "type": "contest",
+      "title": "소싱인마켓 급부상 AI광고제",
+      "host": "소싱인마켓 2026",
+      "ai_usage": "required",
+      "format": "online",
+      "team": "unknown",
+      "prize": "미공개 (최종작 발표 11/13)",
+      "hiring_link": false,
+      "apply_deadline": "2026-11-08",
+      "submit_deadline": "2026-11-08",
+      "result_date": "2026-11-13",
+      "status": "open",
+      "url": "https://www.wevity.com/?c=find&s=1&gbn=view&gp=1&ix=112065",
+      "evidence": "공식 AI 음원 5곡 중 지정 음원 3곡을 활용한 30초 이내 AI 광고 영상 제작 · 접수 10/21~11/08",
+      "source": "wevity",
+      "review": "confirmed"
+    },
+    {
+      "id": "wevity:112027-lotte-ax-challenge",
+      "type": "competition",
+      "title": "LOTTE AX CHALLENGE 2026",
+      "host": "롯데그룹 (롯데칠성음료·롯데웰푸드·롯데홈쇼핑 등 7개 계열사)",
+      "ai_usage": "required",
+      "format": "online",
+      "team": "unknown",
+      "prize": "상금 2천만원 + 채용 전환형 인턴십",
+      "hiring_link": true,
+      "apply_deadline": "2026-11-04",
+      "submit_deadline": "2026-11-04",
+      "result_date": null,
+      "status": "open",
+      "url": "https://www.wevity.com/?c=find&s=1&gbn=view&gp=1&ix=112027",
+      "evidence": "7개 계열사 과제 중 1개 선택해 AI 기반 해결책 제시 · '상금 2천만원, 채용 전환형 인턴십' · 접수 10.28~11.4 23:59",
+      "source": "wevity",
+      "review": "confirmed"
+    },
+    {
+      "id": "wevity:112022-gyeongsan-ai-media",
+      "type": "contest",
+      "title": "2026 경산시 AI 미디어 콘텐츠 공모전",
+      "host": "경산시",
+      "ai_usage": "required",
+      "format": "online",
+      "team": "개인·팀 (제한 없음)",
+      "prize": "미공개",
+      "hiring_link": false,
+      "apply_deadline": "2026-11-23",
+      "submit_deadline": "2026-11-23",
+      "result_date": null,
+      "status": "upcoming",
+      "url": "https://aiart.gbgs.art/",
+      "evidence": "출품 규격 '※AI활용필수' 명시 · AI 기술 활용 영상 콘텐츠 · 접수 2026.11.9~11.23",
+      "source": "wevity",
+      "review": "confirmed"
+    },
+    {
+      "id": "wevity:112021-vivid-replay",
+      "type": "contest",
+      "title": "VIVID RE:PLAY 6개 IP로 만드는 AI영상 공모전",
+      "host": "비비드(VIVID) — AI 엔터테인먼트 플랫폼",
+      "ai_usage": "required",
+      "format": "online",
+      "team": "unknown",
+      "prize": "미공개",
+      "hiring_link": false,
+      "apply_deadline": "2026-12-13",
+      "submit_deadline": "2026-12-13",
+      "result_date": null,
+      "status": "open",
+      "url": "https://vivid.ing",
+      "evidence": "제공되는 6개 정식 IP와 IP별 미션을 바탕으로 AI를 활용한 30초~120초 영상 제작 · 접수 10.30~12.13 23:59",
+      "source": "wevity",
+      "review": "confirmed"
+    },
+    {
+      "id": "wevity:111920-haebangchon-ai",
+      "type": "contest",
+      "title": "[하나온 청년온] 2026 해방촌 신흥시장 AI 콘텐츠 공모전",
+      "host": "하나온 청년온",
+      "ai_usage": "required",
+      "format": "online",
+      "team": "개인",
+      "prize": "총상금 100만원 (1등 50만원)",
+      "hiring_link": false,
+      "apply_deadline": "2026-11-02",
+      "submit_deadline": "2026-11-02",
+      "result_date": "2026-11-06",
+      "status": "open",
+      "url": "https://www.wevity.com/?c=find&s=1&gbn=view&gp=1&ix=111920",
+      "evidence": "AI 이미지·AI 영상·AI 결합 콘텐츠 등 자유 형식 · 접수 10.19~11.02 자정 (인스타 게시)",
+      "source": "wevity",
+      "review": "confirmed"
+    },
+    {
+      "id": "wevity:111869-chuncheon-mbc-ai",
+      "type": "contest",
+      "title": "2026 춘천MBC AI영상 공모전 [AI로 만드는 더 나은 세상]",
+      "host": "춘천MBC",
+      "ai_usage": "required",
+      "format": "online",
+      "team": "개인·팀 (누구나)",
+      "prize": "미공개",
+      "hiring_link": false,
+      "apply_deadline": "2026-12-10",
+      "submit_deadline": "2026-12-10",
+      "result_date": null,
+      "status": "open",
+      "url": "https://www.wevity.com/?c=find&s=1&gbn=view&gp=1&ix=111869",
+      "evidence": "AI영상 제작 공모 A/B/C 부문(관광홍보·지역상품 CF·프로그램 홍보) · 접수 2026.10.27~12.10",
+      "source": "wevity",
+      "review": "confirmed"
+    },
+    {
+      "id": "global-0001",
+      "status": "closed",
+      "evidence": "Devpost 오픈 목록 이탈 + 제출마감 2026-10-30 경과 이중 확인"
+    },
+    {
+      "id": "global-0003",
+      "status": "closed",
+      "evidence": "Devpost 오픈 목록 이탈 + 제출마감 2026-10-27(정정일) 경과 이중 확인"
+    },
+    {
+      "id": "global-0004",
+      "status": "closed",
+      "evidence": "Devpost 오픈 목록 이탈 + 제출마감 2026-10-27 경과 이중 확인"
+    },
+    {
+      "id": "global-0005",
+      "status": "closed",
+      "evidence": "Devpost 오픈 목록 이탈 + 제출마감 2026-10-30 경과 이중 확인"
+    },
+    {
+      "id": "global-0007",
+      "status": "closed",
+      "evidence": "Devpost 오픈 목록 이탈 + 제출마감 2026-10-28 경과 이중 확인"
+    },
+    {
+      "id": "global-0022",
+      "status": "closed",
+      "evidence": "Devpost 오픈 목록 이탈 + 제출마감 2026-10-27 경과 이중 확인"
+    },
+    {
+      "id": "global-0024",
+      "status": "closed",
+      "evidence": "Devpost 오픈 목록 이탈 + 제출마감 2026-10-28 경과 이중 확인"
+    },
+    {
+      "id": "global-0027",
+      "status": "closed",
+      "evidence": "Devpost 오픈 목록 이탈 + 제출마감 2026-10-31 경과 이중 확인"
+    },
+    {
+      "id": "global-0031",
+      "status": "closed",
+      "evidence": "Devpost 오픈 목록 이탈 + 제출마감 2026-10-31 경과 이중 확인"
+    },
+    {
+      "id": "global-0032",
+      "status": "closed",
+      "evidence": "Devpost 오픈 목록 이탈 + 제출마감 2026-10-30 경과 이중 확인"
+    },
+    {
+      "id": "global-0034",
+      "status": "closed",
+      "evidence": "Devpost 오픈 목록 이탈 + 제출마감 2026-10-31 경과 이중 확인"
+    },
+    {
+      "id": "ko-0006",
+      "status": "closed",
+      "evidence": "접수마감 2026-10-30 경과 + 위비티 진행중(gub=1) 전체리스트 이탈 이중 확인 (cbgame.org 원문은 JS 렌더로 마감 표시 미확인)"
+    },
+    {
+      "id": "ko-0010",
+      "status": "closed",
+      "evidence": "접수마감 2026-10-31 경과 + 위비티 진행중 전체리스트 이탈 이중 확인"
+    },
+    {
+      "id": "ko-0012",
+      "status": "closed",
+      "evidence": "접수마감 2026-10-27 경과 + 위비티 상세 D+5 표시 이중 확인"
+    },
+    {
+      "id": "wevity:111885-bgdata-idea",
+      "status": "closed",
+      "evidence": "접수마감 2026-10-30 경과 + 위비티 상세 D+2 표시 이중 확인"
+    },
+    {
+      "id": "wevity:110647-all-ai-s3",
+      "status": "closed",
+      "evidence": "접수마감 2026-10-31 경과 + 위비티 상세 D+1 표시 이중 확인"
+    }
+  ],
+  "sources": [
+    {
+      "name": "devpost-api",
+      "ok": true,
+      "visited": 0,
+      "note": "fetch 5페이지 44건 전수 — 신규 31 후보 중 4건 채택(Codegeist $120k·Agentic·Scope-AI-Thon·GenHacks CAD1,050). DATANOVA는 상금 $1,750 갱신 확인되나 themes(E-commerce/Fintech/Health)·본문 AI 미언급 유지 → 계속 제외. global-0012는 cloud.google.com 페이지라 Devpost 스윕 대상 아님(미공개 지속)"
+    },
+    {
+      "name": "hn-algolia-hiring",
+      "ok": true,
+      "visited": 0,
+      "note": "11월 whoishiring 스레드 미개시(최신 10/1, 댓글 390) — 다음 런 재확인 후 전체 파싱"
+    },
+    {
+      "name": "github-hackathon",
+      "ok": true,
+      "visited": 0,
+      "note": "10/25 이후 613레포, 샘플 전수 참가작·스타터킷 — 개최사 레포 0건. [T3 성과 리포트] 3일 연속 검증 + 오늘 확인으로 퇴출 확정"
+    },
+    {
+      "name": "gnews-kr-1",
+      "ok": true,
+      "visited": 0,
+      "note": "최근 5일 신규 0건"
+    },
+    {
+      "name": "gnews-kr-2",
+      "ok": true,
+      "visited": 0,
+      "note": "최근 5일 신규 0건"
+    },
+    {
+      "name": "gnews-kr-3",
+      "ok": true,
+      "visited": 0,
+      "note": "최근 5일 신규 0건"
+    },
+    {
+      "name": "gnews-kr-4",
+      "ok": true,
+      "visited": 0,
+      "note": "최근 5일 신규 0건"
+    },
+    {
+      "name": "gnews-kr-5-meetup",
+      "ok": true,
+      "visited": 0,
+      "note": "1건(휴먼컨설팅그룹 컨퍼런스 '성료' 보도 — 참여 기회 아님) 채택 0"
+    },
+    {
+      "name": "gnews-kr-6-workshop",
+      "ok": true,
+      "visited": 0,
+      "note": "5일간 100건 전부 교육정책·광고성 노이즈, 채택 0. [T3 성과 리포트] 퇴출 확정"
+    },
+    {
+      "name": "gnews-en-meetup",
+      "ok": true,
+      "visited": 0,
+      "note": "최근 5일 0건"
+    },
+    {
+      "name": "wevity-fetch",
+      "ok": true,
+      "visited": 0,
+      "note": "전체리스트(gub=1) 12페이지 uniq 180 ix 스윕 — 미기록 AI 관련 12건 상세 SSR fetch로 채택. 종결 후보 3건 상세 D+ 표시로 이탈 확인. Anthropic WIA(gnews en 후보)는 websearch 결과 지원 마감(10/27, 행사 11/6 SF) — 미기록 유지로 후보 해소"
+    },
+    {
+      "name": "hackhq",
+      "ok": true,
+      "visited": 0,
+      "note": "218행 파싱 — Devpost 전량 중복 지속, 채택 0. [T3 성과 리포트] 퇴출 확정"
+    },
+    {
+      "name": "wanted",
+      "ok": true,
+      "visited": 2,
+      "note": "'사전과제' 4건 고정·신규 0. 'AI 과제'는 정부 R&D 과제 컨설팅/PM 노이즈(1000건 퍼지) — 검색 가치 없음, 키워드 유지 여부 검토 후보"
+    },
+    {
+      "name": "jumpit",
+      "ok": true,
+      "visited": 1,
+      "note": "관련도순 상위 18카드 전부 퍼지(AI 직무명 매칭) — 사전과제 실체 공고 0"
+    },
+    {
+      "name": "jobkorea-mobile",
+      "ok": true,
+      "visited": 3,
+      "note": "'사전과제' 756건 중 실체 1(한프카 D-7 유지)·SOOP 오늘마감(D-0) 확인·웍스피어 카드 마감 직접 확인. '바이브코딩' 173건에서 실체 공고 7건 발견(비오앰 AI Native/바이브코딩 풀스택 10/30 신규 외 빅레그·태화이노베이션·프롭핀테크 등) — 전형절차 과제 문구 미확인으로 postings 미기록, 감시 대상"
+    }
+  ],
+  "notes": "갭 복구 런(5일: last_run 10-27 → 11-01, lookback 확대 적용 — 위비티 169 unseen ix 전수 프리스크린, Devpost 31 신규 slug 스윕). [신규 이벤트 16] Devpost 4(Codegeist·Agentic·Scope-AI-Thon·GenHacks) + 위비티 12(엘리스 AI 챌린지·CJ 햇반·매경 AI 광고대상 5,300만원·AI 창업 해커톤·대구 드래프톤 950만원·성평등 AI 벤치마크·소싱인마켓·LOTTE AX 2천만원+채용전환형 인턴십(hiring_link)·경산·VIVID·해방촌 D-1·춘천MBC). [종결 17] Devpost 11 + 국내 5 + 웍스피어. [정책 기록] CJ올리브네트웍스 2026 하반기 신입 공채 closed 기록 — 코딩테스트 폐지·전 직무 AI 역량진단·개발직무 바이브코딩 테스트(9/17 보도자료). [T3 월간] 소스 성과 리포트: github-hackathon·hackhq·gnews-kr-6 퇴출(sources.json status 반영), gnews-kr-5 관찰 유지, 새 소스 탐사는 미실행(갭 복구로 예산 소진). HN 11월 스레드 미개시. [needs_review 1] 대구 드래프톤 접수마감일 미확인(추정 11/15). [다음 우선순위] (1) SOOP 종결(11-01 마감), (2) 11-02 마감 4종 결림 확인 후 종결(YouCam·TwitchCon·화이트햇·해방촌), 청도 바이브코딩 11-03, LOTTE AX·성평등 챌린지·매경 과제공개 11-02/04 상태 전환, (3) HN 11월 스레드 파싱, (4) 드래프톤 마감일 메꾸기, (5) global-0012 감시 지속, (6) 바이브코딩 직무 공고 과제 여부 감시(비오앰 GI_Read 50275870 크로스포스트 경로)."
+}

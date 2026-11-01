@@ -718,8 +718,8 @@
     "ai_policy": "unspecified",
     "evidence": [
       {
-        "quote": "'사전과제' 전문(본문 포함) 검색 히트 — 제목 미포함",
-        "field": "검색 인덱스"
+        "quote": "잡코리아 모바일 사전과제 검색 리스트 '[SOOP] LIVE 방송 서버 개발' 카드 '오늘 마감! 놓치지 마세요!' 표시 — D-0(11-01), 다음 런 종결 처리 대상",
+        "field": "deadline"
       }
     ],
     "url": "https://www.jobkorea.co.kr/Recruit/GI_Read/50214047",
@@ -728,8 +728,8 @@
     "review": "needs_review",
     "note": "본문 미렌더링",
     "first_seen": "2026-10-24",
-    "last_seen": "2026-10-25",
-    "last_checked": "2026-10-25",
+    "last_seen": "2026-11-01",
+    "last_checked": "2026-11-01",
     "check_cadence": "daily",
     "history": [
       {
@@ -957,24 +957,71 @@
     "ai_policy": "unspecified",
     "evidence": [
       {
-        "quote": "7분 분량의 [WorxShift] 사업 개요 및 성장 전략 제안 과제 제출 가능하신 분 (전형절차: 서류전형 > 면접전형(과제발표 포함) > 최종입사)",
-        "field": "자격요건"
+        "quote": "잡코리아 모바일 카드 직접 확인: 제목 옆 '마감' 표시 + 지원정보 '마감되었습니다. 기간 2026.10.15(목) ~ 2026.10.31(토)' — 마감일 경과 + 카드 마감 표시 이중 확인으로 종결",
+        "field": "status"
       }
     ],
     "url": "https://www.jobkorea.co.kr/Recruit/GI_Read/50174914",
     "deadline": "2026-10-31",
-    "status": "open",
+    "status": "closed",
     "review": "auto",
     "note": "사업전략 제안 과제 + 면접 과제발표 — 비개발 직군(PM). AI 정책 언급 없음",
     "first_seen": "2026-10-25",
-    "last_seen": "2026-10-25",
-    "last_checked": "2026-10-25",
-    "check_cadence": "daily",
+    "last_seen": "2026-11-01",
+    "last_checked": "2026-11-01",
+    "check_cadence": "none",
     "history": [
       {
         "date": "2026-10-25",
         "event": "created",
         "ai_policy": "unspecified"
+      },
+      {
+        "date": "2026-11-01",
+        "event": "status_changed",
+        "from": "open",
+        "to": "closed"
+      }
+    ]
+  },
+  {
+    "id": "manual:cj-olivenetworks-2026h2",
+    "source": "websearch (CJ올리브네트웍스 공식 보도자료 2026-09-17)",
+    "company": "CJ올리브네트웍스",
+    "positions": [
+      "ai",
+      "data",
+      "frontend",
+      "backend",
+      "devops",
+      "security",
+      "planning"
+    ],
+    "positions_raw": "AI·Data·소프트웨어·DX·ERP·정보보안·인프라·클라우드·네트워크 등 엔지니어 11개 분야 + AI 영상 프로덕트 기획",
+    "assignment_type": "test",
+    "process_raw": "서류 → AI 역량진단 테스트(전 직무) → 1차 면접(온라인) → 2차 면접(오프라인) → 인턴십(3주) → 입사. 기존 코딩테스트 전면 개편",
+    "ai_policy": "required",
+    "policy_raw": "전 직무 AI 역량진단 테스트, 개발 직무는 '바이브 코딩 테스트', 비개발 직무는 'AI 활용역량 테스트'",
+    "evidence": [
+      {
+        "quote": "기존 코딩테스트 전형을 전면 개편해 전 직무에 'AI 역량진단 테스트'를 새롭게 도입했다. 개발 직무는 AI와 협업해 실제 결과물을 구현하는 '바이브 코딩(Vibe Coding) 테스트'를 치른다",
+        "field": "policy"
+      }
+    ],
+    "url": "https://www.cjolivenetworks.co.kr/news/press_release/detail/863",
+    "deadline": "2026-09-30",
+    "status": "closed",
+    "state_raw": "접수 마감(2026.9.16~9.30 17시). 현재 TEST~면접 단계, 2027년 1월 최종합격. 종료 상태로 정책 사례 기록",
+    "first_seen": "2026-11-01",
+    "last_seen": "2026-11-01",
+    "last_checked": "2026-11-01",
+    "check_cadence": "none",
+    "review": "auto",
+    "history": [
+      {
+        "date": "2026-11-01",
+        "event": "created",
+        "ai_policy": "required"
       }
     ]
   }
