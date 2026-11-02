@@ -2,9 +2,9 @@
   "version": "1.0.0",
   "updated_at": "2026-11-02T09:19:14.594193+09:00",
   "stats": {
-    "total_generated": 4,
+    "total_generated": 5,
     "published": 0,
-    "queued": 4
+    "queued": 5
   },
   "items": [
     {
@@ -30,6 +30,18 @@
       "prize": "상금 2천만원 + 채용 전환형 인턴십",
       "status": "queued",
       "script_path": "pipeline/shorts/output/2026-11-02-lunch-wevity_112027-lotte-ax-challenge.md"
+    },
+    {
+      "id": "ko-0003",
+      "slot": "2026-11-02-afternoon",
+      "scheduled_at": "2026-11-02T15:30:00+09:00",
+      "title": "D-4 마감! 대상 국회의장상 걸린 2026 DATA·AI 분석 경진대회 핵심 공략 #shorts",
+      "event_title": "2026 DATA·AI 분석 경진대회 (문제해결 부문)",
+      "host": "과기정통부 · 국회도서관 · KISTI",
+      "deadline": "2026-11-06",
+      "prize": "총 상금 1,300만 원(대상 국회의장상 300만), 우수자 학술대회 발표 기회",
+      "status": "queued",
+      "script_path": "documents/shorts-data-ai-analysis.md"
     },
     {
       "id": "global-0008",
