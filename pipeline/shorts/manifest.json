@@ -1,0 +1,59 @@
+{
+  "version": "1.0.0",
+  "updated_at": "2026-11-02T09:19:14.594193+09:00",
+  "stats": {
+    "total_generated": 4,
+    "published": 0,
+    "queued": 4
+  },
+  "items": [
+    {
+      "id": "ko-0001",
+      "slot": "2026-11-02-1830",
+      "scheduled_at": "2026-11-02T18:30:00+09:00",
+      "title": "상금 1,500만 원에 인턴 가산점까지? 국부펀드 KIC가 AI 에이전트 개발자를 찾습니다",
+      "event_title": "데이콘 국부펀드 KIC, AI 에이전트 공모전",
+      "host": "한국투자공사(KIC) / 데이콘",
+      "deadline": "2026-11-12",
+      "prize": "총 상금 1,500만 원(최우수 600만) + 최우수팀 청년인턴 필기전형 5% 가산",
+      "status": "queued",
+      "script_path": "documents/shorts-kic-ai-agent.md"
+    },
+    {
+      "id": "wevity:112027-lotte-ax-challenge",
+      "slot": "2026-11-02-lunch",
+      "scheduled_at": "2026-11-02T12:30:00+09:00",
+      "title": "D-2 마감! 상금 2천만원 + 채용 전환형 인턴십 LOTTE AX CHALLENGE 2026 #shorts",
+      "event_title": "LOTTE AX CHALLENGE 2026",
+      "host": "롯데그룹 (롯데칠성음료·롯데웰푸드·롯데홈쇼핑 등 7개 계열사)",
+      "deadline": "2026-11-04",
+      "prize": "상금 2천만원 + 채용 전환형 인턴십",
+      "status": "queued",
+      "script_path": "pipeline/shorts/output/2026-11-02-lunch-wevity_112027-lotte-ax-challenge.md"
+    },
+    {
+      "id": "global-0008",
+      "slot": "2026-11-02-evening",
+      "scheduled_at": "2026-11-02T18:30:00+09:00",
+      "title": "D-0 마감! 총 $6,000 YouCam API Skin AI & eCommerce VTO Hackathon #shorts",
+      "event_title": "YouCam API Skin AI & eCommerce VTO Hackathon",
+      "host": "Perfect Corp",
+      "deadline": "2026-11-02",
+      "prize": "총 $6,000 (1등 $2,500 + 블로그 노출), Women in Tech·학생 특별상 각 $1,000",
+      "status": "queued",
+      "script_path": "pipeline/shorts/output/2026-11-02-evening-global-0008.md"
+    },
+    {
+      "id": "global-0020",
+      "slot": "2026-11-02-night",
+      "scheduled_at": "2026-11-02T21:30:00+09:00",
+      "title": "D-0 마감! $25,000 Codex x TwitchCon Hackathon #shorts",
+      "event_title": "Codex x TwitchCon Hackathon",
+      "host": "TwitchCon",
+      "deadline": "2026-11-02",
+      "prize": "$25,000",
+      "status": "queued",
+      "script_path": "pipeline/shorts/output/2026-11-02-night-global-0020.md"
+    }
+  ]
+}
