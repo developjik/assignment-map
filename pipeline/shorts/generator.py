@@ -15,7 +15,7 @@ KST = timezone(timedelta(hours=9))
 
 def parse_args():
     args = sys.argv[1:]
-    count = 3
+    count = 4
     date_str = "2026-11-02"
     dry_run = False
     i = 0
@@ -127,9 +127,9 @@ def main():
 
     selected = candidates[:count]
     slots = [
-        {"name": "오전 (출근길)", "time": "08:30", "tag": "morning"},
         {"name": "점심 (휴식)", "time": "12:30", "tag": "lunch"},
-        {"name": "오후 (퇴근길)", "time": "18:30", "tag": "evening"},
+        {"name": "오후 (티타임)", "time": "15:30", "tag": "afternoon"},
+        {"name": "퇴근 (퇴근길)", "time": "18:30", "tag": "evening"},
         {"name": "야간 (취침 전)", "time": "21:30", "tag": "night"}
     ]
 
