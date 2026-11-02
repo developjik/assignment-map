@@ -1,10 +1,10 @@
 {
   "version": "1.0.0",
-  "updated_at": "2026-11-02T09:19:14.594193+09:00",
+  "updated_at": "2026-11-02T15:38:00+09:00",
   "stats": {
     "total_generated": 5,
-    "published": 0,
-    "queued": 5
+    "published": 2,
+    "queued": 3
   },
   "items": [
     {
@@ -28,7 +28,9 @@
       "host": "롯데그룹 (롯데칠성음료·롯데웰푸드·롯데홈쇼핑 등 7개 계열사)",
       "deadline": "2026-11-04",
       "prize": "상금 2천만원 + 채용 전환형 인턴십",
-      "status": "queued",
+      "status": "published",
+      "youtube_url": "https://youtube.com/shorts/MeEJCPq-TfE",
+      "published_at": "2026-11-02T14:11:00+09:00",
       "script_path": "pipeline/shorts/output/2026-11-02-lunch-wevity_112027-lotte-ax-challenge.md"
     },
     {
@@ -40,7 +42,9 @@
       "host": "과기정통부 · 국회도서관 · KISTI",
       "deadline": "2026-11-06",
       "prize": "총 상금 1,300만 원(대상 국회의장상 300만), 우수자 학술대회 발표 기회",
-      "status": "queued",
+      "status": "published",
+      "youtube_url": "https://youtube.com/shorts/2998bdPGNmE",
+      "published_at": "2026-11-02T15:37:00+09:00",
       "script_path": "documents/shorts-data-ai-analysis.md"
     },
     {
