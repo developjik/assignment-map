@@ -547,6 +547,70 @@
       ],
       "notes": "정상 런(last_run 11-01, 1일 갭). 신규 공고 0 · 신규 이벤트 0 — 조용한 날. [종결 1] SOOP LIVE 방송 서버 개발(jobkorea:50214047) — 마감일 경과 + GI_Read 카드 '마감'·기간 문구 이중 확인. [needs_review 해소 1] 대구 드래프톤 접수마감 11/15 확정(wevity D-14 카드) — events needs_review 전량 해소. [전환 1] 성평등 AI 벤치마크 챌린지 upcoming→open(11/2 접수 개시, 마감 11/20). [마감일 메꾸기 1] 매경 AI 광고 공모전 접수 11/9~11/30 확정 + 오늘 11/2 브랜드 과제 공개(aimk.ai, 재게시 ix 112073). [D-0 4건 종결 유보] 화이트햇 2026·해방촌 AI 콘텐츠(wevity D-1=당일 마감), YouCam·TwitchCon(Devpost 'ends Nov 02' 잔존) — 마감일 당일이라 종결 보류, 내일 런에서 확정 종결 예정. [위비티 상세 SSR 제약 신규] 상세 fetch가 셸만 반환(리스트는 정상) — T1 브라우저 전환으로 해소, 다음 런부터 상세는 브라우저 우선. [DATA·AI 경진대회 날짜 참고] wevity 접수기간 ~11/10 표기 vs KISTI 상세 '문제해결 9.15~11.6' — KISTI 원문 기준 11/6 유지. [다음 우선순위] (1) D-0 4건 종결(화이트햇·해방촌·YouCam·TwitchCon), (2) 청도 11/3·LOTTE AX 11/4·스페이스 해커톤 11/5 종결 감시, (3) HN 11월 whoishiring 스레드 재확인(2일째 지연), (4) 매경 11/9 upcoming→open 전환, (5) global-0012 마감일 공개 감시, (6) CJ올리브네트웍스류 바이브코딩 전형 신규 기업 감시(F&F는 자격요건 수준).",
       "summary": "+0공고 +0이벤트 · 정책변경 0 · 상태변경 2 · 마감변경 2"
+    },
+    {
+      "date": "2026-11-03",
+      "new_postings": [
+        "jobkorea:50283588"
+      ],
+      "policy_changed": [],
+      "deadline_changed": [],
+      "status_changed": [],
+      "new_events": [
+        "global-0040",
+        "global-0041",
+        "ko-0027",
+        "wevity:112066-storyleague-ai-trailer",
+        "wevity:112049-ai-master-tips-s4"
+      ],
+      "event_status_changed": [
+        "wevity:111682-whitehat-2026",
+        "wevity:111920-haebangchon-ai",
+        "global-0008"
+      ],
+      "event_deadline_changed": [],
+      "updated_postings": 0,
+      "updated_events": 4,
+      "sources": [
+        {
+          "name": "devpost-api",
+          "ok": true,
+          "visited": 0,
+          "note": "오픈 49건 전수(8p fetch) + closed 4p 교차. 신규 6건 메타 확인: QNX Global($50k, ML/AI 테마)·AWS MSP AI($64k, 파트너 한정) 채택 2, EthnoHack(공식 등록 10/31 마감)·Neural Storm(인도 학생 한정)·FSB AI Build-a-thon(미국 학생 한정·11/3 종료)·Redhawk Builds(미국 대학생 한정) 미채택 4. YouCam 오픈 리스트 이탈→종결. TwitchCon 잔존하나 time_left 'about 4 hours left'(마감 11/2 23:59 현지)로 당일 잔여 — 종결 유보, 내일 확정."
+        },
+        {
+          "name": "hn-algolia-hiring",
+          "ok": true,
+          "visited": 0,
+          "note": "11월 whoishiring 스레드 11/2 게시 확인(3일째 지연 끝에 개시) — T3 월간 파싱을 1일 늦게 실행: objectID 50338728, 62댓글 flatten, AI 정책 문구(take-home/assignment/AI-allowed/banned) 0건(5건 AI 언급은 전부 AI 직무 도메인). 스레드가 계속 누적 중(10월 390댓글 대비 16%)이라 부분 파싱으로 기록 — 정책 언급 발견 시를 대비 다음 런 재확인 후보."
+        },
+        {
+          "name": "gnews",
+          "ok": true,
+          "visited": 0,
+          "note": "kr-1~5·en 6피드. 채택 1: 부산 '2026 AI 컨퍼런스'(11/13, 바이브코딩+GitHub 배포 실습, 선착순 20명) — kr-5에서 발견 후 데브타임즈 원문으로 일정·신청 확정(ko-0027). 나머지 재노출·성료·마감경과: kr-1 올리브영 7월 보도 재노출, kr-3 호남 IS·잡코리아 바이브코딩 대회 성료 보도, kr-4 스마트 축산 AI 경진대회(6/23 보도, 마감 경과), en 로컬 무료 워크샵(관할 외)."
+        },
+        {
+          "name": "wevity-fetch",
+          "ok": true,
+          "visited": 3,
+          "note": "전체리스트 14p fetch uniq 205 ix. 신규 채택 2: 스토리리그 AI 영상 예고편 공모전(112066, 접수 11/30~1/30, upcoming)·AI 달인의 꿀팁 챌린지 시즌4(112049, 11/2~11/20, 과기부) — 상세는 브라우저 T1으로 확인. 제약 신규: 검색 SSR(sp=titl)도 셸만 반환(매경 양성대조 0건) — 상세에 이어 검색도 fetch 불가, 리스트(gub=1)만 정상. 카드 D-day로 종결 2건 확정(화이트햇·해방촌 리스트 이탈). 스페이스 해커톤(111009)은 리스트 파싱 누락(정규식 부분 커버)이었으나 브라우저 상세에서 정상 open 확인(접수 ~11/5 18:00, D-3)."
+        },
+        {
+          "name": "wanted",
+          "ok": true,
+          "visited": 2,
+          "note": "'사전과제' 포지션 5건(기존 4 + 신규 노출 1). 신규 노출 언어발전소 임상연구 PM(wd/356690) 상세 확인 결과 '연구 과제 기획 및 운영·R&D 과제 제안서' 업무 언급 오탐(전형절차 과제 아님, 전형절차 섹션 없음) — 미기록. 신규 채택 0."
+        },
+        {
+          "name": "jobkorea-mobile",
+          "ok": true,
+          "visited": 6,
+          "note": "'사전과제' 740건 스캔: 한프카 D-5(11/8 마감 정합). ★SOOP LIVE 방송 서버 개발 재등록 발견 — 어제(11/2) 종결한 50214047(10/21~11/1)가 11/2 재등록, 새 id 50283588(11/2~11/15, D-12) 신규 기록(needs_review, 본문 미렌더로 조건부 사전과제 문구 재확인 불가). '바이브코딩' 164건: 신규 채택 0, 에픽카 현대차 DIPS(10/26, 상시) 신규 노출은 직무요건 수준(F&F와 동일 취급) — 감시 목록."
+        }
+      ],
+      "notes": "정상 런(last_run 11-02, 1일 갭). 신규 공고 1(SOOP 재등록) · 신규 이벤트 5(QNX Global·AWS MSP AI·부산 AI 컨퍼런스·스토리리그·과기부 꿀팁 챌린지) · 정책 변경 0 · 종결 3(화이트햇·해방촌·YouCam) · D-3 임박 4(청도 11/3 당일·LOTTE AX 11/4·스페이스 11/5·DATA·AI 11/6). [종결 유보 2] TwitchCon(잔여 4시간)·청도(당일 마감) — 내일 런에서 확정. [HN 11월 스레드] 11/2 게시 확인, 62댓글 부분 파싱 AI 정책 0건 — 스레드 누적 중이므로 다음 런 재확인. [global-0012] NYC 12/8 신규 공개, 전체 제출마감 여전히 미공개. [위비티 제약 확장] 검색 SSR도 셸 반환(상세·검색 fetch 불가, 리스트만 정상) — T1 브라우저 의존 심화. [스페이스 해커톤] 전체리스트 파싱 누락 사례 — 감시 대상은 브라우저 상세 교차 필수. [다음 우선순위] (1) D-0 2건 종결(TwitchCon·청도), (2) LOTTE AX 11/4·스페이스 11/5·DATA·AI 11/6 종결 감시, (3) 매경 11/9 upcoming→open 전환, (4) SOOP 50283588 조건부 과제 문구 크로스확인(그리팅/인크루트), (5) HN 11월 스레드 재파싱(누적 댓글), (6) 위비티 리스트 정규식 보강(cidx 포함 형태) 또는 스페이스류 누락 방지 검증.",
+      "summary": "+1공고 +5이벤트 · 정책변경 0 · 상태변경 3 · 마감변경 0"
     }
   ]
 }

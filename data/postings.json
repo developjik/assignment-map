@@ -1030,5 +1030,39 @@
         "ai_policy": "required"
       }
     ]
+  },
+  {
+    "id": "jobkorea:50283588",
+    "source": "jobkorea",
+    "company": "숲(SOOP)",
+    "title": "[SOOP] LIVE 방송 서버 개발",
+    "positions": [
+      "backend"
+    ],
+    "positions_raw": "백엔드개발자",
+    "assignment_type": "unknown",
+    "ai_policy": "unspecified",
+    "evidence": [
+      {
+        "quote": "잡코리아 모바일 GI_Read 직접 확인(2026-11-03): 'D-12', 지원정보 '남은시간 12일 20:46', 기간 2026.11.02(월) ~ 2026.11.15(일) — 검색 리스트 카드 '15시간 전 등록'(11/2 재등록). 직전 공고 GI_Read/50214047(10/21~11/1, 11/2 종결 확정)의 재등록으로, 해당 공고 채용절차의 '실무진 면접 전 사전 과제/테스트가 있을 수 있습니다'(조건부 사전과제) 문구 동일 공고로 추정. 본문 미렌더(상세요강 전체보기 제약)로 신규 id에서의 재확인 불가",
+        "field": "deadline+status+assignment"
+      }
+    ],
+    "url": "https://www.jobkorea.co.kr/Recruit/GI_Read/50283588",
+    "deadline": "2026-11-15",
+    "status": "open",
+    "review": "needs_review",
+    "note": "50214047 재등록(11/2). 정규직, 경력 5년+, C/C++. 사전과제 문구 신규 id 미확정",
+    "first_seen": "2026-11-03",
+    "last_seen": "2026-11-03",
+    "last_checked": "2026-11-03",
+    "check_cadence": "daily",
+    "history": [
+      {
+        "date": "2026-11-03",
+        "event": "created",
+        "ai_policy": "unspecified"
+      }
+    ]
   }
 ]
