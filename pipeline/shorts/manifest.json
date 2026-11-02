@@ -2,11 +2,25 @@
   "version": "1.0.0",
   "updated_at": "2026-11-02T18:38:00+09:00",
   "stats": {
-    "total_generated": 5,
-    "published": 3,
+    "total_generated": 6,
+    "published": 4,
     "queued": 2
   },
   "items": [
+    {
+      "id": "global-paypal-ai-hackathon",
+      "slot": "2026-11-02-night",
+      "scheduled_at": "2026-11-02T21:30:00+09:00",
+      "title": "총 상금 $67,500! 글로벌 1위 페이팔(PayPal) AI 해커톤 핵심 공략 #shorts",
+      "event_title": "PayPal AI Hackathon",
+      "host": "PayPal",
+      "deadline": "2026-11-12",
+      "prize": "총 $67,500+ (1등 $12,000 + 부문별 특별상)",
+      "status": "published",
+      "youtube_url": "https://youtube.com/shorts/0seFq8wyKqE",
+      "published_at": "2026-11-02T21:36:00+09:00",
+      "script_path": "documents/shorts-paypal-ai-hackathon.md"
+    },
     {
       "id": "ko-0001",
       "slot": "2026-11-02-1830",
