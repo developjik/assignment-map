@@ -611,6 +611,77 @@
       ],
       "notes": "정상 런(last_run 11-02, 1일 갭). 신규 공고 1(SOOP 재등록) · 신규 이벤트 5(QNX Global·AWS MSP AI·부산 AI 컨퍼런스·스토리리그·과기부 꿀팁 챌린지) · 정책 변경 0 · 종결 3(화이트햇·해방촌·YouCam) · D-3 임박 4(청도 11/3 당일·LOTTE AX 11/4·스페이스 11/5·DATA·AI 11/6). [종결 유보 2] TwitchCon(잔여 4시간)·청도(당일 마감) — 내일 런에서 확정. [HN 11월 스레드] 11/2 게시 확인, 62댓글 부분 파싱 AI 정책 0건 — 스레드 누적 중이므로 다음 런 재확인. [global-0012] NYC 12/8 신규 공개, 전체 제출마감 여전히 미공개. [위비티 제약 확장] 검색 SSR도 셸 반환(상세·검색 fetch 불가, 리스트만 정상) — T1 브라우저 의존 심화. [스페이스 해커톤] 전체리스트 파싱 누락 사례 — 감시 대상은 브라우저 상세 교차 필수. [다음 우선순위] (1) D-0 2건 종결(TwitchCon·청도), (2) LOTTE AX 11/4·스페이스 11/5·DATA·AI 11/6 종결 감시, (3) 매경 11/9 upcoming→open 전환, (4) SOOP 50283588 조건부 과제 문구 크로스확인(그리팅/인크루트), (5) HN 11월 스레드 재파싱(누적 댓글), (6) 위비티 리스트 정규식 보강(cidx 포함 형태) 또는 스페이스류 누락 방지 검증.",
       "summary": "+1공고 +5이벤트 · 정책변경 0 · 상태변경 3 · 마감변경 0"
+    },
+    {
+      "date": "2026-11-04",
+      "new_postings": [],
+      "policy_changed": [],
+      "deadline_changed": [],
+      "status_changed": [],
+      "new_events": [
+        "wevity:112128-jeonbuk-ai-music-shorts",
+        "wevity:112122-busan-donggu-ai-shorts",
+        "ko-0028"
+      ],
+      "event_status_changed": [
+        "ko-0004",
+        "global-0020"
+      ],
+      "event_deadline_changed": [],
+      "updated_postings": 1,
+      "updated_events": 2,
+      "sources": [
+        {
+          "name": "devpost-api",
+          "ok": true,
+          "visited": 0,
+          "note": "오픈 48건 전수(8p fetch). 신규 노출 31건 메타+상세 규칙 확인 — 전부 미채택: DATANOVA $1,750 'Students only'·Herhack ₹200k 'Ages 17+ Students only'(상세 fetch로 자격 확인), EthnoHack 등록마감 경과(전일 판정 유지), Neural Storm·FSB·Redhawk·UXC NYU 등 학생/대학 한정(전일 판정 유지), 무상금 커뮤니티형 다수. TwitchCon 오픈리스트 이탈 → 종결. Learn SPECS time_left '6 days left' open 유지."
+        },
+        {
+          "name": "hn-algolia-hiring",
+          "ok": true,
+          "visited": 0,
+          "note": "11월 whoishiring(objectID 50338728) 62→208댓글 누적 재파싱 — AI 언급 41건은 전부 직무 요구사항('fluent with AI-assisted development', 'agent-first', 'AI coding agents 경험' 등)이고 과제 전형 AI 정책 문구(take-home/assignment+AI) 0건. 10월 386댓글 대비 54% — 누적 지속, 다음 런 재확인."
+        },
+        {
+          "name": "gnews",
+          "ok": true,
+          "visited": 1,
+          "note": "kr-1~5·en 6피드. 채택 1: '2026 관광업 AX 세미나'(11/13 코엑스+온라인 라이브, 모집 ~11/11, 누구나) — kr-5 발견, 구글뉴스 리다이렉트 fetch 불해결로 브라우저 경유 숙박매거진 원문 확정(ko-0028). 나머지: kr-1 올리브영 7월 재노출+코테 트렌드 기사(8/27), kr-2 전부 과거(2020~2026.9), kr-3 성료 보도 재노출, kr-4 마감경과·비AI 창업대회(화성 H-스타트업 11/2 — AI 명시 없음 미채택), en 미국 지역 소상공인 무료교육(관할 외)."
+        },
+        {
+          "name": "wevity-fetch",
+          "ok": true,
+          "visited": 5,
+          "note": "전체리스트 15p fetch uniq 225 ix(전일 205). ix>112066 신규 행 추출(중복행 제외 16종) — AI 관련 2건 채택: 전북 AI 뮤직쇼츠(112128, D-16)·부산동구 AI 숏폼(112122, D-19). 매경 재리스팅 112073(SPECIAL 배지)은 기존 111903과 동일 이벤트 중복 등록 — 접수 11/9~11/30·D-27(→11/30 마감 카운트) 기존 기록과 정합, 데이터 변경 없음. cidx 형태 행 0건(해당 형태 미출현 — 정규식 보강 불필요 판정). 111009(스페이스) 리스트 누락 지속 → 브라우저 상세 D-2(11/5 18:00 마감) open 확인. LOTTE AX 112027 D-1(당일 23:59 마감)."
+        },
+        {
+          "name": "wanted",
+          "ok": true,
+          "visited": 1,
+          "note": "'사전과제' 포지션 5건 고정(한프카 플랫폼 개발자·크레바스 인턴·인터엑스 B2G·라프텔 디자이너·언어발전소 PM) — 신규 0. 한프카(wd/390319) 여전 노출로 open, 마감 11/8(D-4)."
+        },
+        {
+          "name": "jobkorea-mobile",
+          "ok": true,
+          "visited": 2,
+          "note": "SOOP 키워드 재검색: LIVE 방송 서버 개발(50283588) 카드 D-11 → 마감 11/15 정합 open. ★SOOP needs_review 해소 — websearch 크로스체크 3중 확인(점핏 50182194 전신 '개발직군 1차 면접 전 사전테스트 또는 과제'·잡코리아 50214047 직전 동일 문구·공식 recruit.sooplive.com 상시채용) → 조건부 사전과제 확정, evidence 갱신. 신규 노출 [SOOP] AI 기반 개인화 추천 시스템 엔지니어(50293498, D-11)·데이터 분석가(50267332)는 AI 직무 공고(과제 전형 미확인) — 미기록, 감시 목록."
+        },
+        {
+          "name": "jumpit",
+          "ok": true,
+          "visited": 2,
+          "note": "'사전과제' 82건(전일 78). 기존 채택 데이터드리븐(55361658) D-17 → 마감 11/21 정합 open. 증가분 스크린: 셀키 AI(LLM RAG) 개발자 D-3(마감 11/7) 상세 확인 — 전형절차에 사전과제 없음(키워드는 본문 R&D 과제 언급), 미채택. 나머지 증가분은 직무 공고."
+        },
+        {
+          "name": "revisit-queue",
+          "ok": true,
+          "visited": 4,
+          "note": "D-3 임박 대상 재방문: LOTTE AX(위비티 상세 D-1, 11/4 23:59 마감 — 03:05 기준 잔여 21시간, 종결 유보)·스페이스 해커톤(위비티 상세 D-2, 11/5 18:00)·DATA·AI(aida.kisti.re.kr 직접, 대회일정 8/11~11/25 정상 노출 — submit 11/6 D-2)·청도(hackersground.kr 직접, 신청 11/3 23:59 경과 → 종결). 매경은 재리스팅 확인으로 대체(원문 정합)."
+        }
+      ],
+      "notes": "정상 런(last_run 11-03, 1일 갭). 신규 공고 0 · 신규 이벤트 3(전북 AI 뮤직쇼츠 11/19·부산동구 AI 숏폼 11/22·관광 AX 세미나 11/13) · 정책 변경 0 · 종결 2(청도·TwitchCon) · D-3 임박 3(LOTTE AX D-0 당일 23:59·스페이스 D-1·DATA·AI D-2) · 방문 14/80. [SOOP needs_review 해소] 크로스포스트 3중 확인으로 조건부 사전과제 확정 — postings.json review 필드는 merge 미지원으로 표기 유지(운영 인지), evidence로 확정 상태 기록. [매경 재리스팅] 112073 = 기존 111903 동일 이벤트 중복 등록, 일정 11/9~11/30 불변 — 데이터 변경 없음. [위비티] cidx 형태 미출현(보강 불필요), 111009 리스트 누락 지속(상세 정상). [다음 우선순위] (1) LOTTE AX 11/4 23:59 종결 확정, (2) 스페이스 11/5 18:00·DATA·AI 11/6 종결, (3) 매경 11/9 upcoming→open 전환, (4) 한프카 11/8·서울AI디지털배움터(ko-0002) 11/8·대한지방행정공제회(ko-0007) 11/8·퓨리얼(ko-0008) 11/9·소싱인마켓(112065) 11/8 D-3권 감시, (5) HN 11월 스레드 재파싱(208→계속 누적), (6) SOOP AI 추천 엔지니어(50293498) 감시.",
+      "summary": "+0공고 +3이벤트 · 정책변경 0 · 상태변경 2 · 마감변경 0"
     }
   ]
 }
