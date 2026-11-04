@@ -1,12 +1,26 @@
 {
   "version": "1.0.0",
-  "updated_at": "2026-11-02T18:38:00+09:00",
+  "updated_at": "2026-11-04T18:34:40.505345+09:00",
   "stats": {
-    "total_generated": 6,
-    "published": 4,
-    "queued": 2
+    "total_generated": 11,
+    "published": 5,
+    "queued": 6
   },
   "items": [
+    {
+      "id": "global-agentic-hackathon",
+      "slot": "2026-11-04-evening",
+      "scheduled_at": "2026-11-04T18:30:00+09:00",
+      "title": "Devin 쓰는 개발자 필수 참여! 글로벌 Agentic Hackathon 핵심 공략 #shorts",
+      "event_title": "Agentic Hackathon Powered by Devin",
+      "host": "Devpost / Devin",
+      "deadline": "2026-11-11",
+      "prize": "Devin 전용 트랙 + 상금 및 글로벌 쇼케이스",
+      "status": "published",
+      "youtube_url": "https://youtube.com/shorts/Ky4FalvoHrQ",
+      "published_at": "2026-11-04T18:33:00+09:00",
+      "script_path": "documents/shorts-agentic-hackathon.md"
+    },
     {
       "id": "global-paypal-ai-hackathon",
       "slot": "2026-11-02-night",
@@ -86,6 +100,54 @@
       "prize": "$25,000",
       "status": "queued",
       "script_path": "pipeline/shorts/output/2026-11-02-night-global-0020.md"
+    },
+    {
+      "id": "ko-0004",
+      "slot": "2026-11-02-afternoon",
+      "scheduled_at": "2026-11-02T15:30:00+09:00",
+      "title": "D-1 마감! 총 상금 500만 원 2026 청도 바이브코딩 해커톤 with 해커그라운드 #shorts",
+      "event_title": "2026 청도 바이브코딩 해커톤 with 해커그라운드",
+      "host": "해커그라운드 / 대구한의대학교 (후원: 마이크로소프트, 청도군)",
+      "deadline": "2026-11-03",
+      "prize": "총 상금 500만 원",
+      "status": "queued",
+      "script_path": "pipeline/shorts/output/2026-11-02-afternoon-ko-0004.md"
+    },
+    {
+      "id": "wevity:111009-space-hackathon",
+      "slot": "2026-11-02-evening",
+      "scheduled_at": "2026-11-02T18:30:00+09:00",
+      "title": "D-3 마감! 3천만~5천만원 2026 스페이스 해커톤 #shorts",
+      "event_title": "2026 스페이스 해커톤",
+      "host": "우주항공청 / 한국항공우주연구원, 경상국립대학교, 진주시",
+      "deadline": "2026-11-05",
+      "prize": "3천만~5천만원",
+      "status": "queued",
+      "script_path": "pipeline/shorts/output/2026-11-02-evening-wevity_111009-space-hackathon.md"
+    },
+    {
+      "id": "global-0029",
+      "slot": "2026-11-02-night",
+      "scheduled_at": "2026-11-02T21:30:00+09:00",
+      "title": "D-7 마감! $2,500 Learn AR with SPECS #shorts",
+      "event_title": "Learn AR with SPECS",
+      "host": "Devpost (SPECS)",
+      "deadline": "2026-11-09",
+      "prize": "$2,500",
+      "status": "queued",
+      "script_path": "pipeline/shorts/output/2026-11-02-night-global-0029.md"
+    },
+    {
+      "id": "ko-0002",
+      "slot": "2026-11-02-lunch",
+      "scheduled_at": "2026-11-02T12:30:00+09:00",
+      "title": "D-6 마감! 총 300만 원 상당 + 무료 바이브코딩 사전세미나 2026 서울AI디지털배움터 청년 AI 해커톤 #shorts",
+      "event_title": "2026 서울AI디지털배움터 청년 AI 해커톤",
+      "host": "서울특별시 / 서울AI디지털배움터(알럭스온라인)",
+      "deadline": "2026-11-08",
+      "prize": "총 300만 원 상당 + 무료 바이브코딩 사전세미나(11/14 구름스퀘어 강남)",
+      "status": "queued",
+      "script_path": "pipeline/shorts/output/2026-11-02-lunch-ko-0002.md"
     }
   ]
 }
