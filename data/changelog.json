@@ -682,6 +682,95 @@
       ],
       "notes": "정상 런(last_run 11-03, 1일 갭). 신규 공고 0 · 신규 이벤트 3(전북 AI 뮤직쇼츠 11/19·부산동구 AI 숏폼 11/22·관광 AX 세미나 11/13) · 정책 변경 0 · 종결 2(청도·TwitchCon) · D-3 임박 3(LOTTE AX D-0 당일 23:59·스페이스 D-1·DATA·AI D-2) · 방문 14/80. [SOOP needs_review 해소] 크로스포스트 3중 확인으로 조건부 사전과제 확정 — postings.json review 필드는 merge 미지원으로 표기 유지(운영 인지), evidence로 확정 상태 기록. [매경 재리스팅] 112073 = 기존 111903 동일 이벤트 중복 등록, 일정 11/9~11/30 불변 — 데이터 변경 없음. [위비티] cidx 형태 미출현(보강 불필요), 111009 리스트 누락 지속(상세 정상). [다음 우선순위] (1) LOTTE AX 11/4 23:59 종결 확정, (2) 스페이스 11/5 18:00·DATA·AI 11/6 종결, (3) 매경 11/9 upcoming→open 전환, (4) 한프카 11/8·서울AI디지털배움터(ko-0002) 11/8·대한지방행정공제회(ko-0007) 11/8·퓨리얼(ko-0008) 11/9·소싱인마켓(112065) 11/8 D-3권 감시, (5) HN 11월 스레드 재파싱(208→계속 누적), (6) SOOP AI 추천 엔지니어(50293498) 감시.",
       "summary": "+0공고 +3이벤트 · 정책변경 0 · 상태변경 2 · 마감변경 0"
+    },
+    {
+      "date": "2026-11-05",
+      "new_postings": [],
+      "policy_changed": [],
+      "deadline_changed": [],
+      "status_changed": [],
+      "new_events": [
+        "wevity:112142-cliip-ai-webtoon-video",
+        "wevity:112075-volunteering-ai-video",
+        "wevity:111665-gwangyang-maedoli-ai-video",
+        "wevity:111628-ppas-ai-game-contents",
+        "wevity:111567-daegu-climate-publicdata-ai",
+        "wevity:111449-ai-ebook-story-forest",
+        "wevity:111104-songpa-global-ai-film-music",
+        "wevity:111087-uiuc-ai-idea",
+        "wevity:111059-afpk-young-planner-ai-fp",
+        "wevity:111222-nexmuse-ai-mv-2027"
+      ],
+      "event_status_changed": [
+        "wevity:112027-lotte-ax-challenge",
+        "global-0010"
+      ],
+      "event_deadline_changed": [
+        "ko-0003"
+      ],
+      "updated_postings": 1,
+      "updated_events": 4,
+      "sources": [
+        {
+          "id": "devpost-api",
+          "method": "fetch",
+          "pages": 8,
+          "result": "open 51건 — 신규 슬러그 34 전수 스크리닝, 채택 0 (HETIC 대학생한정·Redhawk 마이애미대한정·HackOut 고등학생한정, 기타 기존 미채택 풀 재노출)"
+        },
+        {
+          "id": "hn-algolia-hiring",
+          "method": "fetch",
+          "result": "11월 스레드(50338728) 238댓글(+30) 재파싱 — 과제 전형 AI 정책 문구 0 (전부 직무 스택 언급)"
+        },
+        {
+          "id": "gnews-kr-1..5,en",
+          "method": "fetch",
+          "result": "6피드 — fresh 21건 중 채택 0 (영림원=초청형 B2D·제논=초청형 성료·AgentX=사우디 한정·SK하이닉스=예선 진행중 신청불가·기타 지역한정)"
+        },
+        {
+          "id": "wevity-fetch",
+          "method": "fetch",
+          "pages": 22,
+          "result": "⚠️ 페이지네이션 파라미터 gp(기존 pg 오용 발견)·ms-list DOM 파서로 22p 전수 330항목 — 미추적 AI 이벤트 10건 발견(16-22p 딥구간), 채택 10"
+        },
+        {
+          "id": "wevity-detail",
+          "method": "browser",
+          "pages": 14,
+          "result": "종결 1(LOTTE AX D+0)·마감연장 1(DATA·AI 11/6→11/10)·신규 상세 12(채택 10·미채택 2)"
+        },
+        {
+          "id": "wanted",
+          "method": "browser",
+          "pages": 2,
+          "result": "사전과제 5건(기추적 3·신규 0)·AI 과제 노이즈(정부과제 PM)"
+        },
+        {
+          "id": "jumpit",
+          "method": "browser",
+          "pages": 1,
+          "result": "사전과제 fuzzy 84건 — 실체 신규 0"
+        },
+        {
+          "id": "jobkorea",
+          "method": "browser",
+          "pages": 2,
+          "result": "사전과제 795건(한프카 D-3 정합)·바이브코딩 173건 전부 직무스킬형(비오앰·빅레그·태화 등 — 과제전형 아님, 확산 신호)"
+        },
+        {
+          "id": "jobkorea-soop-watch",
+          "method": "fetch",
+          "pages": 1,
+          "result": "SOOP AI 추천 엔지니어 50293498 생존(마감 11/15) — 사전과제 전형 근거 미확보로 미추적 유지"
+        },
+        {
+          "id": "lablab-vultr",
+          "method": "fetch+websearch",
+          "result": "fetch 차단 → websearch로 공식 일정 확인: 진행중(11/3-11/8), 제출 11/8 22:00 UTC, 등록은 킥오프 마감"
+        }
+      ],
+      "notes": "정상 런(last_run 11-04, 1일 갭). 신규 공고 0 · 신규 이벤트 10(위비티 딥스윕 효과) · 정책 변경 0 · 종결 1(LOTTE AX) · 마감 변경 1(DATA·AI 11/6→11/10 연장) · D-3 임박 9(스페이스 D-0·광양 D-1·ko-0002/ko-0007/소싱인마켓/자원봉사AI/의정부/Vultr/SinceAI 11/8 + 한프카 공고 11/8) · 방문 21/80. [위비티 파서 교훈] ①리스트 페이지네이션은 gp 파라미터(pg 아님) ②메인 리스트는 div.ms-list 내 텍스트 앵커 li(SPECIAL 캐러셀 img li와 별개) ③리스트 22p까지 존재 — 기존 14-15p 스윕이 16p+ 딥구간 놓쳐 옴 (오늘 10건 회수). [미채택] 제천 AI영상(제천시민 한정)·AI 신학 논문(위비티 본문 부재로 근거 문장 미확보)·Devpost 3(HETIC/Redhawk/HackOut 학생·학교 한정)·gnews 4(초청형·국가한정·신청마감). [다음 우선순위] (1) 스페이스 해커톤 11/5 18:00 종결 확정(내일 런), (2) 광양 매돌이 11/6 종결, (3) 11/8 D-3 대량 종결 감시: ko-0002·ko-0007·소싱인마켓(112065)·자원봉사AI(112075)·의정부(111087)·Vultr(global-0010)·SinceAI(global-0014)·한프카(wd390319), (4) 매경 11/9 upcoming→open 전환, (5) DATA·AI 11/10 연장마감 감시, (6) SOOP AI 추천 엔지니어(50293498) 11/15 감시, (7) HN 11월 스레드 누적 재파싱(238), (8) 위비티 리스트 22p 스윕 상시화.",
+      "summary": "+0공고 +10이벤트 · 정책변경 0 · 상태변경 2 · 마감변경 1"
     }
   ]
 }
