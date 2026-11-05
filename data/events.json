@@ -72,10 +72,10 @@
     "result_date": "2026-11-25",
     "status": "open",
     "url": "https://aida.kisti.re.kr/competition/main/competition/COMP_000000000000050/detail.do",
-    "evidence": "위비티 상세(2026-11-05): 접수기간 '2026-08-11 ~ 2026-11-10'(D-6)으로 마감 연장 표시 — 기존 11/6(문제해결 제출 마감)에서 11/10 연장. 본문 행사일정 '문제해결 : 9. 15. ∼ 11. 6.'와 리스트 접수기간 불일치 → 위비티 갱신값(11/10) 채택, 연장 근거. KISTI 공식페이지 fetch는 셸 반환(1,138자)으로 본문 확인 불가",
+    "evidence": "위비티 리스팅 110023(2026-11-06): D-5/soon — 연장 마감 11/10 정합(KISTI 원본 아닌 위비티 갱신값 기준 유지)",
     "source": "official/wevity/news",
     "first_seen": "2026-10-24",
-    "last_checked": "2026-11-05",
+    "last_checked": "2026-11-06",
     "check_cadence": "daily",
     "review": "confirmed",
     "history": [
@@ -1122,10 +1122,10 @@
     "result_date": null,
     "status": "open",
     "url": "https://lablab.ai/ai-hackathons/vultr-hackathon",
-    "evidence": "lablab.ai 공식·Vultr 커뮤니티(2026-11-05 확인): 'Online Build: 3-8 November 2026', 'You have until Nov 8, 2026, 22:00 UTC to submit' — 이벤트 진행 중, 제출 마감 11/8 22:00 UTC. Key milestone 'Registration closes' at kickoff(11/3 15:00 UTC)로 신규 등록은 킥오프 시점 마감, 등록 참가자 대상 제출 오픈. On-site 8일 솔트레이크(별도 승인)",
+    "evidence": "lablab.ai live 페이지 발췌(websearch, 2026-11-06): 'You have until Nov 8, 2026, 22:00 UTC to submit', 'Registration closes the moment the event starts'(11/3 킥오프 등록 마감 유지) — 제출 마감 11/8 22:00 UTC(=11/9 07:00 KST) 정합. KubeCon 연계 온사이트(Salt Lake City) SOLD OUT. 등록 1,567명(+67/24h)",
     "source": "lablab",
     "first_seen": "2026-10-24",
-    "last_checked": "2026-11-05",
+    "last_checked": "2026-11-06",
     "check_cadence": "daily",
     "review": "confirmed",
     "history": [
@@ -1244,10 +1244,10 @@
     "result_date": null,
     "status": "upcoming",
     "url": "https://sinceai2026.devpost.com/",
-    "evidence": "AI 태그 붙은 AI 테마 해커톤(핀란드 투르쿠 현장 11/6~8). 한국 거주자는 여행 필요",
+    "evidence": "Devpost 페이지(2026-11-06): 'Submissions open soon' — 제출 오픈 대기, 마감 11/8 유지. 11/9 런에서 open 전환·종결 동시 감시",
     "source": "devpost",
     "first_seen": "2026-10-24",
-    "last_checked": "2026-10-24",
+    "last_checked": "2026-11-06",
     "check_cadence": "daily",
     "review": "confirmed",
     "history": [
@@ -1493,7 +1493,7 @@
     "review": "auto",
     "first_seen": "2026-10-24",
     "last_checked": "2026-10-24",
-    "check_cadence": "weekly",
+    "check_cadence": "daily",
     "history": [
       {
         "date": "2026-10-24",
@@ -1550,19 +1550,25 @@
     "apply_deadline": "2026-11-05",
     "submit_deadline": "2026-11-05",
     "result_date": null,
-    "status": "open",
+    "status": "closed",
     "url": "https://www.wevity.com/?c=find&s=1&gbn=view&gp=1&ix=111009",
-    "evidence": "위비티 리스트 22p 전수 스윕(2026-11-05)에서도 여전히 미노출(111009 리스팅 누락 지속 — 위비티 측 데이터 이슈). 마감 11/5(목) 18:00 — D-0 당일, 런 시점(03:05) 기준 접수 유효. 다음 런 종결 대상",
+    "evidence": "위비티 상세(2026-11-06 브라우저): 접수기간 '2026-09-14 ~ 2026-11-05' + D+0 배지 — '접수기간 2026.9.14.(월) ~ 11.5.(목) 18:00' 마감 경과로 종결. 리스트 40p 전수(600항목)에서도 완전 이탈(111009 리스팅 누락 지속). 서류심사 11/11, 코칭 11/25, 본선·시상 11/26",
     "source": "wevity",
     "review": "auto",
     "first_seen": "2026-10-25",
-    "last_checked": "2026-11-05",
-    "check_cadence": "daily",
+    "last_checked": "2026-11-06",
+    "check_cadence": "none",
     "history": [
       {
         "date": "2026-10-25",
         "event": "created",
         "status": "open"
+      },
+      {
+        "date": "2026-11-06",
+        "event": "status_changed",
+        "from": "open",
+        "to": "closed"
       }
     ]
   },
@@ -2460,7 +2466,7 @@
     "review": "auto",
     "first_seen": "2026-10-27",
     "last_checked": "2026-10-27",
-    "check_cadence": "weekly",
+    "check_cadence": "daily",
     "history": [
       {
         "date": "2026-10-27",
@@ -2547,7 +2553,7 @@
     "review": "auto",
     "first_seen": "2026-10-27",
     "last_checked": "2026-10-27",
-    "check_cadence": "weekly",
+    "check_cadence": "daily",
     "history": [
       {
         "date": "2026-10-27",
@@ -2745,11 +2751,11 @@
     "result_date": "2026-12-16",
     "status": "upcoming",
     "url": "https://aimk.ai",
-    "evidence": "주최측 재게시 공고(wevity ix 112073, D-29) 상세 직접 확인: 작품 접수 2026.11.9 ~ 11.30 자정, 11.2(월) 브랜드 과제 공개(aimk.ai) — 오늘 과제 공개 단계 진입, 접수 개시 전이라 upcoming 유지(11/9 open 전환 예정). 총상금 5,300만원·1등 500만원·기업부 참가비 20만원",
+    "evidence": "위비티 이중 리스팅 재확인(2026-11-06): 원본 111903 + SPECIAL 재리스팅 112073(p1, D-25/future) — 11/9(월) 접수 개시·11/30 마감 불변. 다음 런 upcoming→open 전환 감시",
     "source": "wevity",
     "review": "confirmed",
     "first_seen": "2026-11-01",
-    "last_checked": "2026-11-02",
+    "last_checked": "2026-11-06",
     "check_cadence": "weekly",
     "history": [
       {
@@ -2851,7 +2857,7 @@
     "review": "confirmed",
     "first_seen": "2026-11-01",
     "last_checked": "2026-11-02",
-    "check_cadence": "weekly",
+    "check_cadence": "daily",
     "history": [
       {
         "date": "2026-11-01",
@@ -3192,7 +3198,7 @@
     "note": "위비티 상세 본문은 미기재(주최사 원문으로 보강). 응모대상 제한없음, 위비티 카드 D-18(마감 11/20 정합)",
     "first_seen": "2026-11-03",
     "last_checked": "2026-11-03",
-    "check_cadence": "weekly",
+    "check_cadence": "daily",
     "review": "auto",
     "history": [
       {
@@ -3365,10 +3371,10 @@
     "result_date": null,
     "status": "open",
     "url": "https://gwangyang.go.kr/board.es?mid=a11001000000&bid=0001&act=view&list_no=209772",
-    "evidence": "위비티 상세(2026-11-05): '공모주제: 광양시 SNS 캐릭터 매돌이와 생성형 AI를 활용한 광양시 홍보 숏폼 영상' · '참여대상: 매돌이와 광양시에 관심 있는 국민 누구나'. 마감일 18시(한국시간)까지 이메일 접수",
+    "evidence": "위비티 리스트(2026-11-06): D-1/soon(마감임박) — 마감 11/6(금) 18:00 당일. 런 시점(03:00) 접수 유효. 다음 런 종결 확정 대상",
     "source": "wevity",
     "first_seen": "2026-11-05",
-    "last_checked": "2026-11-05",
+    "last_checked": "2026-11-06",
     "check_cadence": "daily",
     "review": "auto",
     "history": [
@@ -3427,7 +3433,7 @@
     "source": "wevity",
     "first_seen": "2026-11-05",
     "last_checked": "2026-11-05",
-    "check_cadence": "weekly",
+    "check_cadence": "daily",
     "review": "auto",
     "history": [
       {
@@ -3577,6 +3583,96 @@
     "history": [
       {
         "date": "2026-11-05",
+        "event": "created",
+        "status": "open"
+      }
+    ]
+  },
+  {
+    "id": "wevity:112097-jinan-healing-alley-ai-shorts",
+    "type": "contest",
+    "title": "2026 진안고원 치유골목 AI 쇼츠영상 콘테스트",
+    "host": "진안군",
+    "ai_usage": "required",
+    "format": "online",
+    "team": "개인 (1인당 동영상 1개)",
+    "prize": "다양한 혜택 (시상 상세 미기재)",
+    "hiring_link": false,
+    "apply_deadline": "2026-11-15",
+    "submit_deadline": "2026-11-15",
+    "result_date": "2026-11-23",
+    "status": "upcoming",
+    "url": "https://www.wevity.com/?c=find&s=1&gbn=view&gp=4&ix=112097",
+    "evidence": "위비티 상세(2026-11-06): '공모기간 : 2026.11.09.(월) ~ 11.15.(일) 24:00시까지', '영상형식 : 60초 이상 120초 이내, 동영상(MP4) / 생성형 AI영상 시간 50%이상 사용/ 9:16 비율' — 생성형 AI 50% 이상 사용이 출품 요건. 제작주제 '진안고원 치유골목의 내일'(5년 후 치유골목 모습)",
+    "source": "wevity",
+    "note": "선정공고 11/23(월) 개별 연락. 신청서 첨부 e메일 접수. 리스트 p4 D-10/future(11/15 마감 정합). 진안군 홈페이지 원문 링크 있음",
+    "first_seen": "2026-11-06",
+    "last_checked": "2026-11-06",
+    "check_cadence": "daily",
+    "review": "auto",
+    "history": [
+      {
+        "date": "2026-11-06",
+        "event": "created",
+        "status": "upcoming"
+      }
+    ]
+  },
+  {
+    "id": "ko-0029",
+    "type": "conference",
+    "title": "AI 전문가 초청 세미나 '피지컬 AI와 월드 모델: 차세대 인공지능의 미래' (한국항공대)",
+    "host": "한국항공대 차세대통신 혁신융합대학사업단 (교육부 첨단분야 혁신융합대학사업)",
+    "ai_usage": "required",
+    "format": "offline",
+    "team": "개인",
+    "prize": "무료 (사전 신청 시 다과 제공)",
+    "hiring_link": false,
+    "apply_deadline": "2026-11-12",
+    "submit_deadline": null,
+    "result_date": null,
+    "status": "open",
+    "url": "https://www.djournal.co.kr/news/article.html?no=133347",
+    "evidence": "외교저널·스페셜타임스 원문(2026-11-05): '한국항공대 재학생뿐 아니라 AI 기술에 관심 있는 일반인도 참여할 수 있다' + 온라인 신청서(buly.kr/8Iz0tMS)·포스터 QR 사전 신청. 11/12(목) 09:30~11:30 항공우주센터 2층 비전홀, 강연 40분+Q&A 20분 2세션(딥엑스 김녹원 대표 'NVIDIA 이후의 피지컬 AI 생태계'·KAIST 안성진 교수 '월드 이론의 새로운 인공지능 모델')",
+    "source": "gnews-kr-5-meetup/websearch",
+    "note": "신청 마감 별도 고지 없음(행사일 11/12 기준 apply 설정). kr-5 세 번째 채택(부산 AI 컨퍼런스 ko-0027·관광 AX 세미나 ko-0028에 이어). 문의 gkdms8545@kau.ac.kr",
+    "first_seen": "2026-11-06",
+    "last_checked": "2026-11-06",
+    "check_cadence": "daily",
+    "review": "auto",
+    "history": [
+      {
+        "date": "2026-11-06",
+        "event": "created",
+        "status": "open"
+      }
+    ]
+  },
+  {
+    "id": "global-0042",
+    "type": "hackathon",
+    "title": "AI OpenBuild: Build anything with AI",
+    "host": "AI OpenBuild (Devpost)",
+    "ai_usage": "required",
+    "format": "online",
+    "team": "unknown",
+    "prize": "$150 in cash",
+    "hiring_link": false,
+    "apply_deadline": null,
+    "submit_deadline": "2026-12-11",
+    "result_date": null,
+    "status": "open",
+    "url": "https://ai-openbuild.devpost.com/",
+    "evidence": "Devpost 페이지(2026-11-06): 'Beginner Friendly Machine Learning/AI Open Ended', Online·Public, '$150 in cash', 'Deadline 2026년 12월 11일 @ 1:45pm GMT+9' — 11/5 개시 오픈 AI 해커톤(참가 15명 소규모)",
+    "source": "devpost-api",
+    "note": "참가 15명·$150 경품의 소규모 행사이나 공개·무료·AI 테마로 채택(Agentic $480·GenHacks CAD1,050 채택 라인). 모델·데이터·아이디어로 작동하는 무언가 만들기",
+    "first_seen": "2026-11-06",
+    "last_checked": "2026-11-06",
+    "check_cadence": "weekly",
+    "review": "auto",
+    "history": [
+      {
+        "date": "2026-11-06",
         "event": "created",
         "status": "open"
       }

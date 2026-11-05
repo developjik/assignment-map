@@ -538,8 +538,8 @@
     "review": "auto",
     "note": "잡코리아 동일 공고(GI_Read/50055620) 교차확인 — 마감 10/25. AI 정책 언급 없음",
     "first_seen": "2026-10-24",
-    "last_seen": "2026-11-05",
-    "last_checked": "2026-11-05",
+    "last_seen": "2026-11-06",
+    "last_checked": "2026-11-06",
     "check_cadence": "daily",
     "history": [
       {
@@ -1054,12 +1054,46 @@
     "review": "needs_review",
     "note": "50214047 재등록(11/2). 정규직, 경력 5년+, C/C++. 사전과제 문구 신규 id 미확정",
     "first_seen": "2026-11-03",
-    "last_seen": "2026-11-04",
-    "last_checked": "2026-11-04",
+    "last_seen": "2026-11-06",
+    "last_checked": "2026-11-06",
     "check_cadence": "daily",
     "history": [
       {
         "date": "2026-11-03",
+        "event": "created",
+        "ai_policy": "unspecified"
+      }
+    ]
+  },
+  {
+    "id": "jobkorea:50293498",
+    "source": "jobkorea",
+    "company": "숲(SOOP)",
+    "title": "[SOOP] AI 기반 개인화 추천 시스템 엔지니어",
+    "positions": [
+      "ai"
+    ],
+    "positions_raw": "AI 기반 개인화 추천 시스템 엔지니어 (모집부문명)",
+    "assignment_type": "unknown",
+    "ai_policy": "unspecified",
+    "evidence": [
+      {
+        "quote": "GI_Read_Comt_Ifrm 본문 프레임 직접 확인(2026-11-06): '실무진 면접 전 사전 과제/테스트가 있을 수 있습니다.' + '접수기간 : 2026년 11월 15일 까지' — SOOP 개발직군 계열 조건부 사전과제 템플릿(50214047·50283588과 동일 문구). 본문 2,070자 내 AI 정책 언급 없음",
+        "field": "assignment+deadline"
+      }
+    ],
+    "url": "https://www.jobkorea.co.kr/Recruit/GI_Read/50293498",
+    "deadline": "2026-11-15",
+    "status": "open",
+    "review": "confirmed",
+    "note": "Data Tech팀. 어제까지 '사전과제 근거 미확보로 미추적'이었으나 본문 프레임(GI_Read_Comt_Ifrm iframe) 직접 독취로 근거 확보·채택. 메인 문서는 셸이지만 iframe에 본문 전문 존재 — 잡코리아 신규 UI 파싱 경로 확립",
+    "first_seen": "2026-11-06",
+    "last_seen": "2026-11-06",
+    "last_checked": "2026-11-06",
+    "check_cadence": "daily",
+    "history": [
+      {
+        "date": "2026-11-06",
         "event": "created",
         "ai_policy": "unspecified"
       }

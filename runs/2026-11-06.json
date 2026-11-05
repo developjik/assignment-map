@@ -1,0 +1,183 @@
+{
+  "date": "2026-11-06",
+  "postings": [
+    {
+      "id": "jobkorea:50293498",
+      "source": "jobkorea",
+      "company": "숲(SOOP)",
+      "title": "[SOOP] AI 기반 개인화 추천 시스템 엔지니어",
+      "positions": [
+        "ai"
+      ],
+      "positions_raw": "AI 기반 개인화 추천 시스템 엔지니어 (모집부문명)",
+      "assignment_type": "unknown",
+      "ai_policy": "unspecified",
+      "evidence": [
+        {
+          "quote": "GI_Read_Comt_Ifrm 본문 프레임 직접 확인(2026-11-06): '실무진 면접 전 사전 과제/테스트가 있을 수 있습니다.' + '접수기간 : 2026년 11월 15일 까지' — SOOP 개발직군 계열 조건부 사전과제 템플릿(50214047·50283588과 동일 문구). 본문 2,070자 내 AI 정책 언급 없음",
+          "field": "assignment+deadline"
+        }
+      ],
+      "url": "https://www.jobkorea.co.kr/Recruit/GI_Read/50293498",
+      "deadline": "2026-11-15",
+      "status": "open",
+      "review": "confirmed",
+      "note": "Data Tech팀. 어제까지 '사전과제 근거 미확보로 미추적'이었으나 본문 프레임(GI_Read_Comt_Ifrm iframe) 직접 독취로 근거 확보·채택. 메인 문서는 셸이지만 iframe에 본문 전문 존재 — 잡코리아 신규 UI 파싱 경로 확립"
+    },
+    {
+      "id": "wanted:wd390319",
+      "note": "원티드 검색(2026-11-06): '사전과제' 검색 상위 고정 재확인(4건 동결 — 한프카·라프텔 추적, 언어발동소·인터엑스 정부과제/연구과제 노이즈). 한프카 마감 11/8 D-2"
+    },
+    {
+      "id": "jobkorea:50283588",
+      "note": "동일 계열 50293498 신규 채택으로 SOOP 조건부 사전과제 템플릿 3공고 체계(50214047 종결 · 50283588 · 50293498 open) 확인. 마감 11/15 D-9"
+    }
+  ],
+  "events": [
+    {
+      "id": "wevity:112097-jinan-healing-alley-ai-shorts",
+      "type": "contest",
+      "title": "2026 진안고원 치유골목 AI 쇼츠영상 콘테스트",
+      "host": "진안군",
+      "ai_usage": "required",
+      "format": "online",
+      "team": "개인 (1인당 동영상 1개)",
+      "prize": "다양한 혜택 (시상 상세 미기재)",
+      "hiring_link": false,
+      "apply_deadline": "2026-11-15",
+      "submit_deadline": "2026-11-15",
+      "result_date": "2026-11-23",
+      "status": "upcoming",
+      "url": "https://www.wevity.com/?c=find&s=1&gbn=view&gp=4&ix=112097",
+      "evidence": "위비티 상세(2026-11-06): '공모기간 : 2026.11.09.(월) ~ 11.15.(일) 24:00시까지', '영상형식 : 60초 이상 120초 이내, 동영상(MP4) / 생성형 AI영상 시간 50%이상 사용/ 9:16 비율' — 생성형 AI 50% 이상 사용이 출품 요건. 제작주제 '진안고원 치유골목의 내일'(5년 후 치유골목 모습)",
+      "source": "wevity",
+      "note": "선정공고 11/23(월) 개별 연락. 신청서 첨부 e메일 접수. 리스트 p4 D-10/future(11/15 마감 정합). 진안군 홈페이지 원문 링크 있음"
+    },
+    {
+      "id": "ko-0029",
+      "type": "conference",
+      "title": "AI 전문가 초청 세미나 '피지컬 AI와 월드 모델: 차세대 인공지능의 미래' (한국항공대)",
+      "host": "한국항공대 차세대통신 혁신융합대학사업단 (교육부 첨단분야 혁신융합대학사업)",
+      "ai_usage": "required",
+      "format": "offline",
+      "team": "개인",
+      "prize": "무료 (사전 신청 시 다과 제공)",
+      "hiring_link": false,
+      "apply_deadline": "2026-11-12",
+      "submit_deadline": null,
+      "result_date": null,
+      "status": "open",
+      "url": "https://www.djournal.co.kr/news/article.html?no=133347",
+      "evidence": "외교저널·스페셜타임스 원문(2026-11-05): '한국항공대 재학생뿐 아니라 AI 기술에 관심 있는 일반인도 참여할 수 있다' + 온라인 신청서(buly.kr/8Iz0tMS)·포스터 QR 사전 신청. 11/12(목) 09:30~11:30 항공우주센터 2층 비전홀, 강연 40분+Q&A 20분 2세션(딥엑스 김녹원 대표 'NVIDIA 이후의 피지컬 AI 생태계'·KAIST 안성진 교수 '월드 이론의 새로운 인공지능 모델')",
+      "source": "gnews-kr-5-meetup/websearch",
+      "note": "신청 마감 별도 고지 없음(행사일 11/12 기준 apply 설정). kr-5 세 번째 채택(부산 AI 컨퍼런스 ko-0027·관광 AX 세미나 ko-0028에 이어). 문의 gkdms8545@kau.ac.kr"
+    },
+    {
+      "id": "global-0042",
+      "type": "hackathon",
+      "title": "AI OpenBuild: Build anything with AI",
+      "host": "AI OpenBuild (Devpost)",
+      "ai_usage": "required",
+      "format": "online",
+      "team": "unknown",
+      "prize": "$150 in cash",
+      "hiring_link": false,
+      "apply_deadline": null,
+      "submit_deadline": "2026-12-11",
+      "result_date": null,
+      "status": "open",
+      "url": "https://ai-openbuild.devpost.com/",
+      "evidence": "Devpost 페이지(2026-11-06): 'Beginner Friendly Machine Learning/AI Open Ended', Online·Public, '$150 in cash', 'Deadline 2026년 12월 11일 @ 1:45pm GMT+9' — 11/5 개시 오픈 AI 해커톤(참가 15명 소규모)",
+      "source": "devpost-api",
+      "note": "참가 15명·$150 경품의 소규모 행사이나 공개·무료·AI 테마로 채택(Agentic $480·GenHacks CAD1,050 채택 라인). 모델·데이터·아이디어로 작동하는 무언가 만들기"
+    },
+    {
+      "id": "wevity:111009-space-hackathon",
+      "status": "closed",
+      "evidence": "위비티 상세(2026-11-06 브라우저): 접수기간 '2026-09-14 ~ 2026-11-05' + D+0 배지 — '접수기간 2026.9.14.(월) ~ 11.5.(목) 18:00' 마감 경과로 종결. 리스트 40p 전수(600항목)에서도 완전 이탈(111009 리스팅 누락 지속). 서류심사 11/11, 코칭 11/25, 본선·시상 11/26"
+    },
+    {
+      "id": "wevity:111665-gwangyang-maedoli-ai-video",
+      "status": "open",
+      "evidence": "위비티 리스트(2026-11-06): D-1/soon(마감임박) — 마감 11/6(금) 18:00 당일. 런 시점(03:00) 접수 유효. 다음 런 종결 확정 대상"
+    },
+    {
+      "id": "global-0010",
+      "status": "open",
+      "evidence": "lablab.ai live 페이지 발췌(websearch, 2026-11-06): 'You have until Nov 8, 2026, 22:00 UTC to submit', 'Registration closes the moment the event starts'(11/3 킥오프 등록 마감 유지) — 제출 마감 11/8 22:00 UTC(=11/9 07:00 KST) 정합. KubeCon 연계 온사이트(Salt Lake City) SOLD OUT. 등록 1,567명(+67/24h)"
+    },
+    {
+      "id": "global-0014",
+      "status": "upcoming",
+      "evidence": "Devpost 페이지(2026-11-06): 'Submissions open soon' — 제출 오픈 대기, 마감 11/8 유지. 11/9 런에서 open 전환·종결 동시 감시"
+    },
+    {
+      "id": "ko-0003",
+      "evidence": "위비티 리스팅 110023(2026-11-06): D-5/soon — 연장 마감 11/10 정합(KISTI 원본 아닌 위비티 갱신값 기준 유지)"
+    },
+    {
+      "id": "wevity:111903-maekyung-ai-ad",
+      "status": "upcoming",
+      "evidence": "위비티 이중 리스팅 재확인(2026-11-06): 원본 111903 + SPECIAL 재리스팅 112073(p1, D-25/future) — 11/9(월) 접수 개시·11/30 마감 불변. 다음 런 upcoming→open 전환 감시"
+    }
+  ],
+  "sources": [
+    {
+      "id": "devpost-api",
+      "method": "fetch",
+      "pages": 8,
+      "result": "open 53건 — 추적 33개 slug 이탈 0(종결 없음). 신규 미추적 36 스크리닝 → 채택 1(AI OpenBuild $150 12/11). 미채택: Inceptrix 'College students only'·EthnoHack 등록 10/31 마감·Herhack/DATANOVA/Redhawk/HackOut 기존 선례·$0 클럽형 다수. slug는 응답 url 서브도메인에서 추출(응답에 slug 필드 없음 재실증)"
+    },
+    {
+      "id": "hn-algolia-hiring",
+      "method": "fetch",
+      "result": "11월 스레드(50338728) 264댓글(+26) 3페이지 전수 재파싱 — 과제 전형 AI 정책 문구 0(전부 직무 스택 언급; Stratirus optional take-home 있으나 AI 정책 언급 없음)"
+    },
+    {
+      "id": "gnews-kr-1..5",
+      "method": "fetch",
+      "result": "5피드 11/4-6 fresh 3건(전부 kr-5) — 채택 1(한국항공대 피지컬AI 세미나 11/12 일반인 참여 가능), 미채택 2(영림원 법률AI 세미나=성료 보도 재노출·항공대 동일 이벤트 중복 기사). kr-1~4 fresh 0"
+    },
+    {
+      "id": "wevity-fetch",
+      "method": "fetch",
+      "pages": 40,
+      "result": "⚠️ 리스트 40p(600항목)까지 존재 — 22p 하드캡 폐기 필요: 23p+에 D+1~D+17 종결 잔존 270항목(마감 경과 항목이 리스트 잔존하는 구조). 이후 런은 빈 페이지까지 스윕. 미추적 AI 295건 중 신규 채택 1(진안 112097), 기존 추적 중복 4(매경112073·공제회111132·퓨리얼111483·DATA·AI 110023), 미채택: 네이밍 2·청소년/고교 한정 2·제천시민(선례)·서포터즈/패널모집 2·D+ 종결 다수. 추적 44개 항목 D-day 전수 정합(마감 변경 0)"
+    },
+    {
+      "id": "wanted",
+      "method": "browser",
+      "pages": 2,
+      "result": "'사전과제' 4건 동결(한프카 D-2·라프텔 추심, 언어발전소/인터엑스=연구·정부과제 노이즈). 'AI 과제' 1,000건=정부과제 컨설팅·R&D PM 노이즈(전형 과제 아님)"
+    },
+    {
+      "id": "jumpit",
+      "method": "browser",
+      "pages": 6,
+      "result": "jumpit.co.kr→jumpit.saramin.co.kr 리다이렉트로 URL 파라미터 유실(검색박스 경로로 우회). '사전과제' 85건 퍼지 — 셀키 AI/LLM RAG(D-1)·프로토타이·문그룹 상세 확인 전부 과제 전형 없음(셀키='면접 시 프로젝트 제출' 안내뿐). 데이터드리븐(55361658) 추심 D-15→11/21 정합"
+    },
+    {
+      "id": "jobkorea-mobile",
+      "method": "browser",
+      "pages": 2,
+      "result": "'사전과제' 상위 고정 카드 동일 세트(씨어스·펜타 추심, 나머지 디자인/CS/마케팅 노이즈). '바이브코딩' 178건(+5) 전부 직무스킬형 — 휴텍씨(11/3 등록) 신규 노출, F&F 선례 미채택"
+    },
+    {
+      "id": "jobkorea-detail",
+      "method": "browser",
+      "pages": 1,
+      "result": "SOOP 50293498(AI 추천 엔지니어) GI_Read 본문 프레임(GI_Read_Comt_Ifrm iframe) 직접 독취 성공 — '실무진 면접 전 사전 과제/테스트가 있을 수 있습니다' 확보 → 신규 채택. 잡코리아 신규 UI '본문 미렌더' 문제의 정식 우회 경로 확립(iframe src에 Gno 전달)"
+    },
+    {
+      "id": "lablab",
+      "method": "websearch",
+      "result": "lablab.ai 브라우저 직접 접속도 ERR_CONNECTION_CLOSED(fetch뿐 아니라 브라우저도 차단 확인) — websearch 발췌로 Vultr 일정 정합(제출 11/8 22:00 UTC·등록 마감·온사이트 SOLD OUT)"
+    },
+    {
+      "id": "websearch-kr",
+      "method": "websearch",
+      "result": "한국항공대 피지컬 AI 세미나 참가 자격 확인(외교저널·스페셜타임스 등 5개 기사 교차) — '일반인 누구나 참여 가능'+온라인 신청서 확인 → ko-0029 채택"
+    }
+  ],
+  "notes": "정상 런(last_run 11-05, 1일 갭). 신규 공고 1(SOOP 50293498 — 조건부 사전과제 문구 본문 프레임 직접 확보) · 신규 이벤트 3(진안 AI 쇼츠 11/9-15 upcoming·한국항공대 피지컬AI 세미나 11/12·AI OpenBuild 12/11) · 정책 변경 0 · 종결 1(스페이스 해커톤 D+0 확정) · 마감 변경 0 · D-3 임박 11(광양 D-1 당일 + 11/8 8건: ko-0002·ko-0007·소싱인마켓·자원봉사AI·의정부·한프카·Vultr(22:00 UTC)·SinceAI + 11/9 2건: 퓨리얼·SPECS + 매경 11/9 개시) · 방문 20/80 · 실패 소스 없음(lablab은 websearch 우회로 해소). [위비티 40p 발견] 23-40p에 종결 잔존 270항목 — 이후 런 빈 페이지까지 스윕(22p 하드캡 폐기), 종결 감지는 D+ 배지 우선. [잡코리아 파싱 경로 확립] GI_Read_Comt_Ifrm iframe이 본문 전문 보유 — needs_review 6건(본문 미렌더 방치) 해소 경로 열림. [다음 우선순위] (1) 광양 매돌이 11/6 18:00 종결 확정, (2) 11/8 대량 종결 7건+한프카 공고, (3) Vultr 11/8 22:00 UTC(11/9 07:00 KST) — 11/9 런에서도 접수 유효 가능, (4) SinceAI open 전환 감시(11/8), (5) 매경 11/9 upcoming→open, (6) 퓨리얼·SPECS 11/9 종결, (7) DATA·AI 11/10 종결, (8) SOOP 50293498·50283588 11/15 마감, (9) 스페이스 서류심사 11/11·시상 11/26(결시 감시), (10) HN 12월 스레드 12/1 개시 감시."
+}
