@@ -1,10 +1,10 @@
 {
   "version": "1.0.0",
-  "updated_at": "2026-11-05T12:36:00.000000+09:00",
+  "updated_at": "2026-11-05T15:35:00+09:00",
   "stats": {
     "total_generated": 12,
-    "published": 6,
-    "queued": 6
+    "published": 7,
+    "queued": 5
   },
   "items": [
     {
@@ -153,15 +153,17 @@
     },
     {
       "id": "ko-0002",
-      "slot": "2026-11-02-lunch",
-      "scheduled_at": "2026-11-02T12:30:00+09:00",
-      "title": "D-6 마감! 총 300만 원 상당 + 무료 바이브코딩 사전세미나 2026 서울AI디지털배움터 청년 AI 해커톤 #shorts",
+      "slot": "2026-11-05-afternoon",
+      "scheduled_at": "2026-11-05T15:30:00+09:00",
+      "title": "강남 세미나 전원 무료! 서울 청년 AI 바이브코딩 해커톤 핵심 공략 #shorts",
       "event_title": "2026 서울AI디지털배움터 청년 AI 해커톤",
       "host": "서울특별시 / 서울AI디지털배움터(알럭스온라인)",
       "deadline": "2026-11-08",
       "prize": "총 300만 원 상당 + 무료 바이브코딩 사전세미나(11/14 구름스퀘어 강남)",
-      "status": "queued",
-      "script_path": "pipeline/shorts/output/2026-11-02-lunch-ko-0002.md"
+      "status": "published",
+      "script_path": "documents/shorts-seoul-vibe-coding.md",
+      "youtube_url": "https://youtube.com/shorts/VlU2lT66k_A",
+      "published_at": "2026-11-05T15:34:00+09:00"
     }
   ]
 }
