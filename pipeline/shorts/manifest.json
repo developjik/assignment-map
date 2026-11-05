@@ -1,12 +1,26 @@
 {
   "version": "1.0.0",
-  "updated_at": "2026-11-04T18:34:40.505345+09:00",
+  "updated_at": "2026-11-05T12:36:00.000000+09:00",
   "stats": {
-    "total_generated": 11,
-    "published": 5,
+    "total_generated": 12,
+    "published": 6,
     "queued": 6
   },
   "items": [
+    {
+      "id": "global-0010",
+      "slot": "2026-11-05-lunch",
+      "scheduled_at": "2026-11-05T12:30:00+09:00",
+      "title": "참가만 해도 $200 클라우드 크레딧 전원 지급! Vultr AI 에이전트 해커톤 #shorts",
+      "event_title": "Vultr: Agent Rush Hackathon",
+      "host": "Vultr x lablab.ai",
+      "deadline": "2026-11-08",
+      "prize": "$9,000 + $5,000 크레딧 (참가자 전원 $200 Vultr 크레딧)",
+      "status": "published",
+      "youtube_url": "https://youtube.com/shorts/ahOMKRMgJ0A",
+      "published_at": "2026-11-05T12:35:00+09:00",
+      "script_path": "documents/shorts-vultr-agent-rush.md"
+    },
     {
       "id": "global-agentic-hackathon",
       "slot": "2026-11-04-evening",
