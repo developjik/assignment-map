@@ -130,8 +130,8 @@ def render_shorts(script_text, scene_images, out_mp4, voice="ko-KR-InJoonNeural"
         FFMPEG_BIN, "-f", "concat", "-safe", "0", "-i", concat_path,
         "-i", audio_path,
         "-vf", f"ass={ass_path},format=yuv420p",
-        "-c:v", "libx264", "-preset", "fast", "-crf", "22",
-        "-c:a", "aac", "-b:a", "192k",
+        "-c:v", "libx264", "-preset", "veryfast", "-threads", "1", "-crf", "23",
+        "-c:a", "aac", "-b:a", "160k",
         "-shortest", "-y", out_mp4
     ]
     subprocess.run(cmd, check=True)
