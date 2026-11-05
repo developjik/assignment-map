@@ -1,12 +1,26 @@
 {
   "version": "1.0.0",
-  "updated_at": "2026-11-05T18:35:00+09:00",
+  "updated_at": "2026-11-05T21:37:00+09:00",
   "stats": {
-    "total_generated": 12,
-    "published": 8,
+    "total_generated": 13,
+    "published": 9,
     "queued": 4
   },
   "items": [
+    {
+      "id": "global-0028",
+      "slot": "2026-11-05-night",
+      "scheduled_at": "2026-11-05T21:30:00+09:00",
+      "title": "$100 GPU 크레딧 전원 지급! AMD 글로벌 AI 리그 핵심 공략 #shorts",
+      "event_title": "AMD AI League",
+      "host": "AMD x lablab.ai",
+      "deadline": "2026-12-01",
+      "prize": "$10,000+ (참가자 전원 $100 GPU 크레딧 + ROCm 자격증)",
+      "status": "published",
+      "youtube_url": "https://youtube.com/shorts/1JPIFSLN6WY",
+      "published_at": "2026-11-05T21:37:00+09:00",
+      "script_path": "documents/shorts-amd-ai-league.md"
+    },
     {
       "id": "global-0010",
       "slot": "2026-11-05-lunch",
