@@ -1,10 +1,10 @@
 {
   "version": "1.0.0",
-  "updated_at": "2026-11-05T15:35:00+09:00",
+  "updated_at": "2026-11-05T18:35:00+09:00",
   "stats": {
     "total_generated": 12,
-    "published": 7,
-    "queued": 5
+    "published": 8,
+    "queued": 4
   },
   "items": [
     {
@@ -141,15 +141,17 @@
     },
     {
       "id": "global-0029",
-      "slot": "2026-11-02-night",
-      "scheduled_at": "2026-11-02T21:30:00+09:00",
-      "title": "D-7 마감! $2,500 Learn AR with SPECS #shorts",
+      "slot": "2026-11-05-evening",
+      "scheduled_at": "2026-11-05T18:30:00+09:00",
+      "title": "AR 안경 없이 참가 가능! Devpost 글로벌 AI 해커톤 핵심 공략 #shorts",
       "event_title": "Learn AR with SPECS",
-      "host": "Devpost (SPECS)",
+      "host": "Devpost x SPECS (글로벌 해커톤)",
       "deadline": "2026-11-09",
-      "prize": "$2,500",
-      "status": "queued",
-      "script_path": "pipeline/shorts/output/2026-11-02-night-global-0029.md"
+      "prize": "$2,500 (우수작 글로벌 쇼케이스)",
+      "status": "published",
+      "youtube_url": "https://youtube.com/shorts/gjYbytjk0Lg",
+      "published_at": "2026-11-05T18:34:00+09:00",
+      "script_path": "documents/shorts-specs-ar.md"
     },
     {
       "id": "ko-0002",
