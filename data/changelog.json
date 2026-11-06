@@ -851,6 +851,93 @@
       ],
       "notes": "정상 런(last_run 11-05, 1일 갭). 신규 공고 1(SOOP 50293498 — 조건부 사전과제 문구 본문 프레임 직접 확보) · 신규 이벤트 3(진안 AI 쇼츠 11/9-15 upcoming·한국항공대 피지컬AI 세미나 11/12·AI OpenBuild 12/11) · 정책 변경 0 · 종결 1(스페이스 해커톤 D+0 확정) · 마감 변경 0 · D-3 임박 11(광양 D-1 당일 + 11/8 8건: ko-0002·ko-0007·소싱인마켓·자원봉사AI·의정부·한프카·Vultr(22:00 UTC)·SinceAI + 11/9 2건: 퓨리얼·SPECS + 매경 11/9 개시) · 방문 20/80 · 실패 소스 없음(lablab은 websearch 우회로 해소). [위비티 40p 발견] 23-40p에 종결 잔존 270항목 — 이후 런 빈 페이지까지 스윕(22p 하드캡 폐기), 종결 감지는 D+ 배지 우선. [잡코리아 파싱 경로 확립] GI_Read_Comt_Ifrm iframe이 본문 전문 보유 — needs_review 6건(본문 미렌더 방치) 해소 경로 열림. [다음 우선순위] (1) 광양 매돌이 11/6 18:00 종결 확정, (2) 11/8 대량 종결 7건+한프카 공고, (3) Vultr 11/8 22:00 UTC(11/9 07:00 KST) — 11/9 런에서도 접수 유효 가능, (4) SinceAI open 전환 감시(11/8), (5) 매경 11/9 upcoming→open, (6) 퓨리얼·SPECS 11/9 종결, (7) DATA·AI 11/10 종결, (8) SOOP 50293498·50283588 11/15 마감, (9) 스페이스 서류심사 11/11·시상 11/26(결시 감시), (10) HN 12월 스레드 12/1 개시 감시.",
       "summary": "+1공고 +3이벤트 · 정책변경 0 · 상태변경 1 · 마감변경 0"
+    },
+    {
+      "date": "2026-11-07",
+      "new_postings": [
+        "jobkorea:50251589",
+        "jobkorea:50213617",
+        "jobkorea:50317339",
+        "jobkorea:50317329",
+        "jobkorea:50185931"
+      ],
+      "policy_changed": [
+        "jobkorea:50228434"
+      ],
+      "deadline_changed": [],
+      "status_changed": [],
+      "new_events": [
+        "wevity:112221-gimcheon-saeksaek-ai",
+        "wevity:112212-daum-ai-shortdrama",
+        "wevity:112204-pyeongtaek-genai-character",
+        "wevity:111490-jecheon-ai-video",
+        "wevity:111021-youth-safety-ai-video",
+        "ko-0030",
+        "ko-0031",
+        "global-0043",
+        "global-0044",
+        "ko-0032",
+        "ko-0033"
+      ],
+      "event_status_changed": [
+        "wevity:111665-gwangyang-maedoli-ai-video",
+        "global-0014"
+      ],
+      "event_deadline_changed": [
+        "ko-0003"
+      ],
+      "updated_postings": 7,
+      "updated_events": 3,
+      "sources": [
+        {
+          "id": "devpost-api",
+          "method": "fetch",
+          "pages": 7,
+          "result": "open 59건(어제 53 대비 +6) — 미추적 40 스크리닝 → 채택 1(AI Support Bot $750 11/12, 전 세계 공개). 미채택: hackthefashion·ctrl-v 'Students only', health-hack-3 특정국가한정+팀필수, 기존 선례(Herhack·DATANOVA·Inceptrix·Redhawk·305Veterans·HackOut·EthnoHack)·$0 클럽형 다수"
+        },
+        {
+          "id": "hn-algolia-hiring",
+          "method": "fetch",
+          "result": "최신 스레드 50338728(11월, 11/2 생성) 유지 — 12월 스레드 미개시. 월 1일 전체 파싱 대기"
+        },
+        {
+          "id": "gnews-kr-1..5",
+          "method": "fetch",
+          "result": "5피드 — 11-06 런(11/5 18:00 UTC) 이후 발행 fresh 0건 (새벽 시간대 정상)"
+        },
+        {
+          "id": "wevity-fetch",
+          "method": "fetch+browser",
+          "pages": "60p 스윕(fetch) + 상세 13(브라우저)",
+          "result": "gp=1..60 전수 900항목(유니크 ix 900) — 미추적 854 중 AI 관련 63, 진행 중 신규 채택 5(김천 삼색이수·다음 숫드라마·평택·제천·청소년안전) + 종결 신호 1(광양 end 배지). 110023=ko-0003·111132=ko-0007·111483=ko-0008·112073=매경 재리스팅 동일대회 확인. 미채택: 네이밍류 2(AI 생성물 제출 아님)·LG어나더캠퍼스·KAIST 허위정보·AI신학·제주청소년(AI 활용 조건 부재)"
+        },
+        {
+          "id": "jobkorea-mobile",
+          "method": "browser+fetch",
+          "pages": 2,
+          "result": "'사전과제' 10건+'바이브코딩' 4건 — 신규 채택 5(펜타 웹보안·오로라월드·룩캐스트×2·메디씨앤씨 required) + needs_review 7건 GI_Read_Comt_Ifrm 본문 직접 독취로 전건 해소(씨어스 50228434 required 정책변경 포함). 미채택: 퍼플아카데미·이스트시큐리티·워로브라더스·컨쿼·부스터스(사전과제 문구 없음)"
+        },
+        {
+          "id": "wanted",
+          "method": "browser",
+          "pages": 2,
+          "result": "'사전과제' 검색 4건 — 기존 추적 wd390319·wd380935만 노출, 신규 0"
+        },
+        {
+          "id": "jumpit",
+          "method": "browser",
+          "pages": 3,
+          "result": "'사전과제' 16건 퍼지 매칭 — 마감 임박 2건(셀키 D-day·쿤텍 D-5) 상세 확인 결과 전부 R&D 사업 과제 언급뿐, 사전과제 아님. 신규 0"
+        },
+        {
+          "id": "T2-saturday-rotation",
+          "method": "fetch+browser",
+          "pages": 9,
+          "result": "토요일 로테이션: 씽유 48건 중 AI 11 → 채택 2(문경·옥외광고; 대구 드래프톤·CLIIP·부산동구·전북·네이밍은 기존·미채택, MBC·솔데스크 교육광고 제외) / DoraHacks 채택 1(Anna AI $6,000 12/1; Binance 초청형 비밀번호) / KISTI AIDA 신규 0(ko-0003 submit 11/25 보강) / MLH SSR 파싱 실패(타이틀 3개뿐) / meetup.com 채택 2(AWSKRUG 11/26·Venture Park 11/12) / festa.io 사이트 점검중(under construction) / linkareer '사전과제' 노이즈만"
+        }
+      ],
+      "notes": "정상 런(last_run 11-06, 1일 갭). 신규 공고 5(펜타 웹보안 50251589 unspecified 11/26 · 오로라월드 50213617 조건부 unspecified 11/20 · 룩캐스트 팀장급 50317339·과장급 50317329 unspecified 12/7 · 메디씨앤씨 50185931 required 11/15 — 포트폴리오 생성형 AI 작업물 필수+과정설명) · 신규 이벤트 11(위비티 5: 김천 112221 11/30·다음 AI 숏드라마 112212 11/26·평택 112204 11/15·제천 111490 11/20·청소년안전 111021 11/8 / 씽유 2: 문경 ko-0030 11/30·옥외광고 ko-0031 11/13 / 글로벌 2: AI Support Bot global-0043 $750 11/12·Anna AI global-0044 $6,000 12/1 / meetup 2: AWSKRUG ko-0032 11/26·Venture Park ko-0033 11/12) · 정책 변경 1(씨어스 50228434 unspecified→required — '사전 과제는 AI를 이용한 개발역량을 평가하며, AI 활용 방식 자체를 평가에 반영'+Claude Code/Cursor/Copilot 명시) · 종결 1(광양 매돌이 111665 end 배지) · 상태 전환 1(SinceAI global-0014 upcoming→open, 제출 11/6-8) · 마감 보강 1(DATA·AI ko-0003 submit_deadline 11/25) · D-3 임박 12(11/8 9건: ko-0002·ko-0007·소싱인마켓·자원봉사AI·의정부·청소년안전 111021·Vultr 22:00UTC·SinceAI·한프카 wd390319 / 11/9 2건: 퓨리얼·SPECS / 11/10 1건: DATA·AI apply) · 방문 38/80 · 실패 소스: festa.io(사이트 점검중 under construction — 재접속 대기). [needs_review 7건 전량 해소] GI_Read_Comt_Ifrm 본문 독취로 오픈서베이×2·우아한형제들·펜타·씨어스×2·넷마블 전건 evidence 확보 — review 필드는 신규 생성 시에만 지정 가능(merge 제약)하나 실질 해소. [다음 우선순위] (1) 11/8 대량 종결 8+한프카 공고, (2) 11/9 퓨리얼·SPECS 종결 + 매경 111903 upcoming→open 전환, (3) 11/10 DATA·AI apply 종결, (4) 11/12 ko-0028 관광 AX 세미나·Venture Park·AI Support Bot 제출마감, (5) 11/13 옥외괴고 간판 ko-0031 종결, (6) 11/15 평택·메디씨앤씨·SOOP 50293498·50283588 마감, (7) 스페이스 서류심사 11/11·시상 11/26 결시 감시, (8) HN 12월 스레드 12/1 감시, (9) festa.io 재접속, (10) Devpost 어제 53→오늘 59 증가세 지속 모니터.",
+      "summary": "+5공고 +11이벤트 · 정책변경 1 · 상태변경 2 · 마감변경 1"
     }
   ]
 }
