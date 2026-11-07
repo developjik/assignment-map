@@ -805,7 +805,7 @@
     "first_seen": "2026-10-24",
     "last_seen": "2026-11-07",
     "last_checked": "2026-11-07",
-    "check_cadence": "weekly",
+    "check_cadence": "daily",
     "history": [
       {
         "date": "2026-10-24",
@@ -914,7 +914,7 @@
     "first_seen": "2026-10-25",
     "last_seen": "2026-11-07",
     "last_checked": "2026-11-07",
-    "check_cadence": "weekly",
+    "check_cadence": "daily",
     "history": [
       {
         "date": "2026-10-25",
@@ -1276,6 +1276,278 @@
         "date": "2026-11-07",
         "event": "created",
         "ai_policy": "required"
+      }
+    ]
+  },
+  {
+    "id": "jobkorea:50193361",
+    "source": "jobkorea",
+    "company": "문피아",
+    "title": "웹툰 PD",
+    "positions": [
+      "planning"
+    ],
+    "positions_raw": "웹툰 PD",
+    "assignment_type": "pre_assignment",
+    "ai_policy": "unspecified",
+    "evidence": [
+      {
+        "quote": "GI_Read_Comt_Ifrm 본문(2026-11-08): '서류 전형 합격 후 사전과제가 진행됩니다. 합격자 대상으로 제공된 원고에 피드백을 작성하여 제출해주세요.' + 전형절차 '서류전형 > 사전 과제 > 1차면접(기업문화적합도 검사) > 2차면접 > 최종합격' — 사전과제 전형 명시. AI 정책 언급 없음. 오늘마감(2026-11-08)",
+        "field": "assignment+deadline"
+      }
+    ],
+    "url": "https://www.jobkorea.co.kr/Recruit/GI_Read/50193361",
+    "deadline": "2026-11-08",
+    "status": "open",
+    "review": "confirmed",
+    "note": "잡코리아 '사전과제' 검색 히트, 오늘(11/8) 마감 — 다음 런 종결 예정",
+    "first_seen": "2026-11-08",
+    "last_seen": "2026-11-08",
+    "last_checked": "2026-11-08",
+    "check_cadence": "daily",
+    "history": [
+      {
+        "date": "2026-11-08",
+        "event": "created",
+        "ai_policy": "unspecified"
+      }
+    ]
+  },
+  {
+    "id": "jobkorea:50256313",
+    "source": "jobkorea",
+    "company": "프리컷(SOOP 자회사)",
+    "title": "영상 콘텐츠 편집",
+    "positions": [
+      "etc"
+    ],
+    "positions_raw": "영상 콘텐츠 편집(계약직 12개월)",
+    "assignment_type": "pre_assignment",
+    "ai_policy": "allowed",
+    "evidence": [
+      {
+        "quote": "GI_Read_Comt_Ifrm 본문(2026-11-08): '채용절차 LIVE(비대면) 면접으로 진행 될 수도 있습니다. 실무진 면접 전 사전 과제/테스트가 있을 수 있습니다.'(조건부 사전과제) + 우대사항 'AI 툴을 적극적으로 활용하여 영상 제작 공정 효율화가 가능하신 분' — AI 활용 역량 우대 명시. '접수기간 : 2026년 11월 15일 까지'",
+        "field": "assignment+ai_policy+deadline"
+      }
+    ],
+    "url": "https://www.jobkorea.co.kr/Recruit/GI_Read/50256313",
+    "deadline": "2026-11-15",
+    "status": "open",
+    "review": "confirmed",
+    "note": "SOOP 생태계 자회사. 조건부 사전과제 + AI 툴 활용 우대(allowed 판정)",
+    "first_seen": "2026-11-08",
+    "last_seen": "2026-11-08",
+    "last_checked": "2026-11-08",
+    "check_cadence": "daily",
+    "history": [
+      {
+        "date": "2026-11-08",
+        "event": "created",
+        "ai_policy": "allowed"
+      }
+    ]
+  },
+  {
+    "id": "jobkorea:50257784",
+    "source": "jobkorea",
+    "company": "에스디바이오센서",
+    "title": "기구설계 개발자(신입/경력)",
+    "positions": [
+      "etc"
+    ],
+    "positions_raw": "기구설계 개발자",
+    "assignment_type": "pre_assignment",
+    "ai_policy": "unspecified",
+    "evidence": [
+      {
+        "quote": "GI_Read_Comt_Ifrm 본문(2026-11-08): '* 포트폴리오(PPT 발표자료) 필수 첨부 * 서류 전형 진행 시 별도 사전 과제 진행 (대상자에 한해 개인 메일로 전달 예정)' — 조건부 사전과제 명시. AI 정책 언급 없음. 오늘마감(2026-11-08)",
+        "field": "assignment+deadline"
+      }
+    ],
+    "url": "https://www.jobkorea.co.kr/Recruit/GI_Read/50257784",
+    "deadline": "2026-11-08",
+    "status": "open",
+    "review": "confirmed",
+    "note": "오늘(11/8) 마감 — 다음 런 종결 예정",
+    "first_seen": "2026-11-08",
+    "last_seen": "2026-11-08",
+    "last_checked": "2026-11-08",
+    "check_cadence": "daily",
+    "history": [
+      {
+        "date": "2026-11-08",
+        "event": "created",
+        "ai_policy": "unspecified"
+      }
+    ]
+  },
+  {
+    "id": "jobkorea:50292966",
+    "source": "jobkorea",
+    "company": "넷마블",
+    "title": "보안정책 담당자",
+    "positions": [
+      "security"
+    ],
+    "positions_raw": "보안정책 담당자 모집",
+    "assignment_type": "pre_assignment",
+    "ai_policy": "unspecified",
+    "evidence": [
+      {
+        "quote": "GI_Read_Comt_Ifrm 본문(2026-11-08): '전형절차 서류전형 ＞ AI역량검사 ＞ 1차면접 ＞ 2차면접 ＞ 채용검진 및 처우협의 ＞ 최종합격 * 직무에 따라 코딩테스트, 사전과제가 있을 수 있으며 별도 안내 예정입니다.' — AI역량검사 전형 단계 포함(기추적 50083974 unspecified 선례와 동일 분류) + 조건부 사전과제. 상시채용",
+        "field": "assignment+ai_policy"
+      }
+    ],
+    "url": "https://www.jobkorea.co.kr/Recruit/GI_Read/50292966",
+    "deadline": null,
+    "status": "open",
+    "review": "confirmed",
+    "note": "넷마블 보안직군 5건 동시 채용(11/3 등록, 상시) — 동일 전형 보일러플레이트",
+    "first_seen": "2026-11-08",
+    "last_seen": "2026-11-08",
+    "last_checked": "2026-11-08",
+    "check_cadence": "weekly",
+    "history": [
+      {
+        "date": "2026-11-08",
+        "event": "created",
+        "ai_policy": "unspecified"
+      }
+    ]
+  },
+  {
+    "id": "jobkorea:50292919",
+    "source": "jobkorea",
+    "company": "넷마블",
+    "title": "개인정보 관리체계 운영 담당자",
+    "positions": [
+      "security"
+    ],
+    "positions_raw": "개인정보 관리체계 운영 담당자 모집",
+    "assignment_type": "pre_assignment",
+    "ai_policy": "unspecified",
+    "evidence": [
+      {
+        "quote": "GI_Read_Comt_Ifrm 본문(2026-11-08): '전형절차 서류전형 ＞ AI역량검사 ＞ 1차면접 ＞ 2차면접 ＞ 채용검진 및 처우협의 ＞ 최종합격 * 직무에 따라 코딩테스트, 사전과제가 있을 수 있으며 별도 안내 예정입니다.' — 조건부 사전과제 + AI역량검사 전형 단계 포함. 상시채용",
+        "field": "assignment+ai_policy"
+      }
+    ],
+    "url": "https://www.jobkorea.co.kr/Recruit/GI_Read/50292919",
+    "deadline": null,
+    "status": "open",
+    "review": "confirmed",
+    "note": "넷마블 보안직군 5건 동시 채용(11/3 등록, 상시)",
+    "first_seen": "2026-11-08",
+    "last_seen": "2026-11-08",
+    "last_checked": "2026-11-08",
+    "check_cadence": "weekly",
+    "history": [
+      {
+        "date": "2026-11-08",
+        "event": "created",
+        "ai_policy": "unspecified"
+      }
+    ]
+  },
+  {
+    "id": "jobkorea:50292765",
+    "source": "jobkorea",
+    "company": "넷마블",
+    "title": "취약점 진단 및 모의해킹 담당자",
+    "positions": [
+      "security"
+    ],
+    "positions_raw": "취약점 진단 및 모의해킹 담당자 모집",
+    "assignment_type": "pre_assignment",
+    "ai_policy": "unspecified",
+    "evidence": [
+      {
+        "quote": "GI_Read_Comt_Ifrm 본문(2026-11-08): '전형절차 서류전형 ＞ AI역량검사 ＞ 1차면접 ＞ 2차면접 ＞ 채용검진 및 처우협의 ＞ 최종합격 * 직무에 따라 코딩테스트, 사전과제가 있을 수 있으며 별도 안내 예정입니다.' + 우대사항 'AI 기반 분석 스킬 또는 자동화 기술을 보유하신 분' — 조건부 사전과제. 상시채용",
+        "field": "assignment+ai_policy"
+      }
+    ],
+    "url": "https://www.jobkorea.co.kr/Recruit/GI_Read/50292765",
+    "deadline": null,
+    "status": "open",
+    "review": "confirmed",
+    "note": "넷마블 보안직군 5건 동시 채용(11/3 등록, 상시)",
+    "first_seen": "2026-11-08",
+    "last_seen": "2026-11-08",
+    "last_checked": "2026-11-08",
+    "check_cadence": "weekly",
+    "history": [
+      {
+        "date": "2026-11-08",
+        "event": "created",
+        "ai_policy": "unspecified"
+      }
+    ]
+  },
+  {
+    "id": "jobkorea:50292866",
+    "source": "jobkorea",
+    "company": "넷마블",
+    "title": "침해대응 CERT 담당자",
+    "positions": [
+      "security"
+    ],
+    "positions_raw": "침해대응 CERT 담당자 모집",
+    "assignment_type": "pre_assignment",
+    "ai_policy": "unspecified",
+    "evidence": [
+      {
+        "quote": "GI_Read_Comt_Ifrm 본문(2026-11-08): '전형절차 서류전형 ＞ AI역량검사 ＞ 1차면접 ＞ 2차면접 ＞ 채용검진 및 처우협의 ＞ 최종합격 * 직무에 따라 코딩테스트, 사전과제가 있을 수 있으며 별도 안내 예정입니다.' — 조건부 사전과제 + AI역량검사 전형 단계 포함. 상시채용",
+        "field": "assignment+ai_policy"
+      }
+    ],
+    "url": "https://www.jobkorea.co.kr/Recruit/GI_Read/50292866",
+    "deadline": null,
+    "status": "open",
+    "review": "confirmed",
+    "note": "넷마블 보안직군 5건 동시 채용(11/3 등록, 상시)",
+    "first_seen": "2026-11-08",
+    "last_seen": "2026-11-08",
+    "last_checked": "2026-11-08",
+    "check_cadence": "weekly",
+    "history": [
+      {
+        "date": "2026-11-08",
+        "event": "created",
+        "ai_policy": "unspecified"
+      }
+    ]
+  },
+  {
+    "id": "jobkorea:50293072",
+    "source": "jobkorea",
+    "company": "넷마블",
+    "title": "기술 보안 담당자",
+    "positions": [
+      "security"
+    ],
+    "positions_raw": "기술 보안 담당자 모집",
+    "assignment_type": "pre_assignment",
+    "ai_policy": "unspecified",
+    "evidence": [
+      {
+        "quote": "GI_Read_Comt_Ifrm 본문(2026-11-08): '전형절차 서류전형 ＞ AI역량검사 ＞ 1차면접 ＞ 2차면접 ＞ 채용검진 및 처우협의 ＞ 최종합격 * 직무에 따라 코딩테스트, 사전과제가 있을 수 있으며 별도 안내 예정입니다.' — 조건부 사전과제 + AI역량검사 전형 단계 포함. 상시채용",
+        "field": "assignment+ai_policy"
+      }
+    ],
+    "url": "https://www.jobkorea.co.kr/Recruit/GI_Read/50293072",
+    "deadline": null,
+    "status": "open",
+    "review": "confirmed",
+    "note": "넷마블 보안직군 5건 동시 채용(11/3 등록, 상시)",
+    "first_seen": "2026-11-08",
+    "last_seen": "2026-11-08",
+    "last_checked": "2026-11-08",
+    "check_cadence": "weekly",
+    "history": [
+      {
+        "date": "2026-11-08",
+        "event": "created",
+        "ai_policy": "unspecified"
       }
     ]
   }

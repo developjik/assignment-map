@@ -2,17 +2,17 @@
   "schema_version": "0.1",
   "seed_date": "2026-10-24",
   "research_date": "2026-10-11",
-  "last_run": "2026-11-07",
+  "last_run": "2026-11-08",
   "counts": {
     "platforms": 29,
-    "postings": 35,
+    "postings": 43,
     "news": 16,
-    "events": 130
+    "events": 131
   },
   "note": "P1 seed. daily routine not started (P3).",
   "events_breakdown": {
     "status": {
-      "open": 74,
+      "open": 75,
       "closed": 42,
       "judging": 6,
       "upcoming": 8
