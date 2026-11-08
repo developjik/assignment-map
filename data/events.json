@@ -41,19 +41,25 @@
     "apply_deadline": "2026-11-08",
     "submit_deadline": null,
     "result_date": "2026-11-21",
-    "status": "open",
+    "status": "judging",
     "url": "https://forms.gle/HNx9CiyYZS3sXuwj9",
-    "evidence": "'AI 코딩 도구로 6시간 내 서비스 개발·배포' 바이브코딩 당일형 해커톤(본선 11/21 아키스케치 성수)",
+    "evidence": "접수 마감 2026-11-08 경과(2026-11-09 기준 D+1) — 결과발표 2026-11-21 예정, 심사 단계 전환",
     "source": "thinkyou/gcontest/tomatodle",
     "first_seen": "2026-10-24",
-    "last_checked": "2026-10-24",
-    "check_cadence": "daily",
+    "last_checked": "2026-11-09",
+    "check_cadence": "archive_candidate",
     "review": "confirmed",
     "history": [
       {
         "date": "2026-10-24",
         "event": "created",
         "status": "open"
+      },
+      {
+        "date": "2026-11-09",
+        "event": "status_changed",
+        "from": "open",
+        "to": "judging"
       }
     ]
   },
@@ -219,19 +225,25 @@
     "apply_deadline": "2026-11-08",
     "submit_deadline": "2026-11-08",
     "result_date": null,
-    "status": "open",
+    "status": "closed",
     "url": "https://ai-radar.kr/contests/2026-%EB%8C%80%ED%95%9C%EC%A7%80%EB%B0%A9%ED%96%89%EC%A0%95%EA%B3%B5%EC%A0%9C%ED%9A%8C-%EC%83%9D%EC%84%B1%ED%98%95-AI-%EC%BD%98%ED%85%90%EC%B8%A0-%EA%B3%B5%EB%AA%A8%EC%A0%84-22181f.html",
-    "evidence": "생성형 AI 콘텐츠 제작이 대회 주제(영상/UCC/사진 분류)",
+    "evidence": "접수·제출 마감 2026-11-08 경과(D+1), 별도 결과발표일 미공개 — 종결",
     "source": "ai-radar/wevity",
     "first_seen": "2026-10-24",
-    "last_checked": "2026-10-24",
-    "check_cadence": "daily",
+    "last_checked": "2026-11-09",
+    "check_cadence": "none",
     "review": "confirmed",
     "history": [
       {
         "date": "2026-10-24",
         "event": "created",
         "status": "open"
+      },
+      {
+        "date": "2026-11-09",
+        "event": "status_changed",
+        "from": "open",
+        "to": "closed"
       }
     ]
   },
@@ -250,10 +262,10 @@
     "result_date": null,
     "status": "open",
     "url": "https://ai-radar.kr/contests/2026-%EC%A0%9C-2%ED%9A%8C-%ED%93%A8%EB%A6%AC%EC%96%BC-AI-%EC%98%81%EC%83%81-%EC%BD%98%ED%85%8C%EC%8A%A4%ED%8A%B8-91ef6d.html",
-    "evidence": "AI영상/AI사운드 부문 자체가 생성형 AI 제작물 공모",
+    "evidence": "위비티 111483 리스팅·상세(2026-11-09): '접수기간 2026-10-06 ~ 2026-11-09 D-1' — 오늘 당일 진행중(위비티 D-1=당일 규칙), 다음 런 종결 예정. 11-08 런 노트의 '11-09 종결' 계획은 D-0 당일 종결 오류로 정정",
     "source": "ai-radar/thinkyou/wevity",
     "first_seen": "2026-10-24",
-    "last_checked": "2026-10-24",
+    "last_checked": "2026-11-09",
     "check_cadence": "daily",
     "review": "confirmed",
     "history": [
@@ -854,10 +866,10 @@
     "result_date": null,
     "status": "open",
     "url": "https://paypalaihackathon.devpost.com/",
-    "evidence": "'PayPal과 AI를 의미있게 함께 사용'이 유일한 핵심 요건(공식 문구), 개인/팀 참가 명시, 글로벌 온라인",
+    "evidence": "Devpost 규정 재확인(2026-11-09, last_checked 10-24 갱신): 'Above legal age of majority in country of residence, All countries/territories, excluding standard exceptions' · 'Deadline: Nov 12, 2026 @ 12:00pm PST' · $67,500 in cash · 31,251 participants — D-3 임박",
     "source": "devpost",
     "first_seen": "2026-10-24",
-    "last_checked": "2026-10-24",
+    "last_checked": "2026-11-09",
     "check_cadence": "daily",
     "review": "confirmed",
     "history": [
@@ -1133,7 +1145,7 @@
     "source": "lablab",
     "first_seen": "2026-10-24",
     "last_checked": "2026-11-06",
-    "check_cadence": "daily",
+    "check_cadence": "archive_candidate",
     "review": "confirmed",
     "history": [
       {
@@ -1249,13 +1261,13 @@
     "apply_deadline": null,
     "submit_deadline": "2026-11-08",
     "result_date": null,
-    "status": "open",
+    "status": "closed",
     "url": "https://sinceai2026.devpost.com/",
-    "evidence": "Devpost API(2026-11-07): sinceai2026 open_state 'open', submission_period 'Nov 06 - 08, 2026', time_left '1 day left' — 11/6 제출 개시로 upcoming→open 전환 (제출 마감 11/8)",
+    "evidence": "Devpost API(2026-11-09): status=open 리스트에서 이탈 — submission period Nov 06-08 종료 확인(11-07 open 전환 이력과 정합)",
     "source": "devpost",
     "first_seen": "2026-10-24",
-    "last_checked": "2026-11-07",
-    "check_cadence": "daily",
+    "last_checked": "2026-11-09",
+    "check_cadence": "none",
     "review": "confirmed",
     "history": [
       {
@@ -1268,6 +1280,12 @@
         "event": "status_changed",
         "from": "upcoming",
         "to": "open"
+      },
+      {
+        "date": "2026-11-09",
+        "event": "status_changed",
+        "from": "open",
+        "to": "closed"
       }
     ]
   },
@@ -1634,7 +1652,7 @@
     "review": "auto",
     "first_seen": "2026-10-25",
     "last_checked": "2026-10-25",
-    "check_cadence": "weekly",
+    "check_cadence": "daily",
     "history": [
       {
         "date": "2026-10-25",
@@ -1687,11 +1705,11 @@
     "result_date": null,
     "status": "open",
     "url": "https://www.wevity.com/?c=find&s=1&gbn=view&gp=1&ix=111849",
-    "evidence": "주최 Extriver는 'AI·소프트웨어 엔지니어링·시장 분석·DevOps' 스타트업 — 해커톤 과제의 AI 정책은 미언급. 접수 10/21~11/15",
+    "evidence": "위비티 상세(2026-11-09): '접수기간 2026-10-21 ~ 2026-11-15 D-7' 생존 — sw=AI 리스트 이탈은 재매칭 아티팩트(11-06·11-08 확인 패턴 동일)",
     "source": "wevity",
     "review": "auto",
     "first_seen": "2026-10-25",
-    "last_checked": "2026-10-25",
+    "last_checked": "2026-11-09",
     "check_cadence": "daily",
     "history": [
       {
@@ -2166,11 +2184,11 @@
     "result_date": null,
     "status": "open",
     "url": "https://learn-specs.devpost.com/",
-    "evidence": "Learn to design for glasses. Your coding agent builds the Lens, no SPECS required. — 코딩 에이전트 활용이 과제 전제(required)",
+    "evidence": "Devpost API(2026-11-09): time_left '1 day left' — 제출 마감 Nov 09(당일 진행중), 다음 런 종결 예정(11-08 런 노트의 '11-09 종결' 계획 정정)",
     "source": "devpost",
     "review": "auto",
     "first_seen": "2026-10-26",
-    "last_checked": "2026-10-26",
+    "last_checked": "2026-11-09",
     "check_cadence": "daily",
     "history": [
       {
@@ -2619,11 +2637,11 @@
     "result_date": null,
     "status": "open",
     "url": "https://agentic-hackathon.devpost.com/",
-    "evidence": "A nationwide hackathon to build useful AI products with Devin (Nov 01 - 10, 2026, prize $480)",
+    "evidence": "Devpost API(2026-11-09): '2 days left' — 제출 마감 Nov 10(D-1)",
     "source": "devpost-api",
     "review": "confirmed",
     "first_seen": "2026-11-01",
-    "last_checked": "2026-11-01",
+    "last_checked": "2026-11-09",
     "check_cadence": "daily",
     "history": [
       {
@@ -2762,19 +2780,25 @@
     "apply_deadline": "2026-11-30",
     "submit_deadline": "2026-11-30",
     "result_date": "2026-12-16",
-    "status": "upcoming",
+    "status": "open",
     "url": "https://aimk.ai",
-    "evidence": "위비티 이중 리스팅 재확인(2026-11-06): 원본 111903 + SPECIAL 재리스팅 112073(p1, D-25/future) — 11/9(월) 접수 개시·11/30 마감 불변. 다음 런 upcoming→open 전환 감시",
+    "evidence": "위비티 리스팅(2026-11-09): D-22 배지(=11-30 마감 산술 일치) — 접수기간 2026-11-09~11-30, 오늘 접수 개시로 upcoming→open 전환(11-08 런 예고대로)",
     "source": "wevity",
     "review": "confirmed",
     "first_seen": "2026-11-01",
-    "last_checked": "2026-11-06",
+    "last_checked": "2026-11-09",
     "check_cadence": "weekly",
     "history": [
       {
         "date": "2026-11-01",
         "event": "created",
         "status": "upcoming"
+      },
+      {
+        "date": "2026-11-09",
+        "event": "status_changed",
+        "from": "upcoming",
+        "to": "open"
       }
     ]
   },
@@ -2898,19 +2922,25 @@
     "apply_deadline": "2026-11-08",
     "submit_deadline": "2026-11-08",
     "result_date": "2026-11-13",
-    "status": "open",
+    "status": "judging",
     "url": "https://www.wevity.com/?c=find&s=1&gbn=view&gp=1&ix=112065",
-    "evidence": "공식 AI 음원 5곡 중 지정 음원 3곡을 활용한 30초 이내 AI 광고 영상 제작 · 접수 10/21~11/08",
+    "evidence": "위비티 60p 스윕(2026-11-09): D+0 배지 — 접수마감 11-08 경과, 시상결과 2026-11-13 발표 예정",
     "source": "wevity",
     "review": "confirmed",
     "first_seen": "2026-11-01",
-    "last_checked": "2026-11-01",
-    "check_cadence": "daily",
+    "last_checked": "2026-11-09",
+    "check_cadence": "archive_candidate",
     "history": [
       {
         "date": "2026-11-01",
         "event": "created",
         "status": "open"
+      },
+      {
+        "date": "2026-11-09",
+        "event": "status_changed",
+        "from": "open",
+        "to": "judging"
       }
     ]
   },
@@ -2969,7 +2999,7 @@
     "review": "confirmed",
     "first_seen": "2026-11-01",
     "last_checked": "2026-11-01",
-    "check_cadence": "weekly",
+    "check_cadence": "daily",
     "history": [
       {
         "date": "2026-11-01",
@@ -3353,19 +3383,25 @@
     "apply_deadline": "2026-11-08",
     "submit_deadline": "2026-11-08",
     "result_date": null,
-    "status": "open",
+    "status": "closed",
     "url": "https://www.v1365.or.kr/board/notice/read/6989",
-    "evidence": "위비티 상세(2026-11-05): '공모분야 : 생성형 AI를 활용한 자원봉사 홍보 영상' · '참가자격 : 자원봉사와 AI 콘텐츠 제작에 관심 있는 누구나'. 접수마감 2026.11.8.(일) 24:00",
+    "evidence": "위비티 60p 스윕(2026-11-09): D+0 배지 — 접수마감 11-08 경과, 별도 결과발표일 없음",
     "source": "wevity",
     "first_seen": "2026-11-05",
-    "last_checked": "2026-11-05",
-    "check_cadence": "daily",
+    "last_checked": "2026-11-09",
+    "check_cadence": "none",
     "review": "auto",
     "history": [
       {
         "date": "2026-11-05",
         "event": "created",
         "status": "open"
+      },
+      {
+        "date": "2026-11-09",
+        "event": "status_changed",
+        "from": "open",
+        "to": "closed"
       }
     ]
   },
@@ -3533,19 +3569,25 @@
     "apply_deadline": "2026-11-08",
     "submit_deadline": "2026-11-08",
     "result_date": "2026-12-31",
-    "status": "open",
+    "status": "judging",
     "url": "https://www.uiuc.or.kr/companyNotice/noticePage/notice/view.do?bbsId=BBSMSTR_000000000001&nttId=5514",
-    "evidence": "위비티 상세(2026-11-05): '공모주제: 공사 업무 전반에서 AI를 활용할 수 있는 아이디어' · '참가자격: 의정부도시공사에 관심 있는 누구나'. 접수 ~11/8, 결과발표 12월 말",
+    "evidence": "위비티 60p 스윕(2026-11-09): D+0 배지 — 접수마감 11-08 경과, 결과발표 2026-12-31 예정",
     "source": "wevity",
     "first_seen": "2026-11-05",
-    "last_checked": "2026-11-05",
-    "check_cadence": "daily",
+    "last_checked": "2026-11-09",
+    "check_cadence": "archive_candidate",
     "review": "auto",
     "history": [
       {
         "date": "2026-11-05",
         "event": "created",
         "status": "open"
+      },
+      {
+        "date": "2026-11-09",
+        "event": "status_changed",
+        "from": "open",
+        "to": "judging"
       }
     ]
   },
@@ -3620,13 +3662,13 @@
     "apply_deadline": "2026-11-15",
     "submit_deadline": "2026-11-15",
     "result_date": "2026-11-23",
-    "status": "upcoming",
+    "status": "open",
     "url": "https://www.wevity.com/?c=find&s=1&gbn=view&gp=4&ix=112097",
-    "evidence": "위비티 상세(2026-11-06): '공모기간 : 2026.11.09.(월) ~ 11.15.(일) 24:00시까지', '영상형식 : 60초 이상 120초 이내, 동영상(MP4) / 생성형 AI영상 시간 50%이상 사용/ 9:16 비율' — 생성형 AI 50% 이상 사용이 출품 요건. 제작주제 '진안고원 치유골목의 내일'(5년 후 치유골목 모습)",
+    "evidence": "위비티 리스팅(2026-11-09): D-7 배지(=11-15 마감 산술 일치) — 접수 11-09~11-15(11-06 채택 공고 기준) 오늘 개시, 생성형 AI 50% 이상 활용 필수 조건 유지",
     "source": "wevity",
     "note": "선정공고 11/23(월) 개별 연락. 신청서 첨부 e메일 접수. 리스트 p4 D-10/future(11/15 마감 정합). 진안군 홈페이지 원문 링크 있음",
     "first_seen": "2026-11-06",
-    "last_checked": "2026-11-06",
+    "last_checked": "2026-11-09",
     "check_cadence": "daily",
     "review": "auto",
     "history": [
@@ -3634,6 +3676,12 @@
         "date": "2026-11-06",
         "event": "created",
         "status": "upcoming"
+      },
+      {
+        "date": "2026-11-09",
+        "event": "status_changed",
+        "from": "upcoming",
+        "to": "open"
       }
     ]
   },
@@ -3826,19 +3874,25 @@
     "apply_deadline": "2026-11-08",
     "submit_deadline": null,
     "result_date": null,
-    "status": "open",
+    "status": "closed",
     "url": "https://www.wevity.com/?c=find&s=1&gbn=view&gp=1&ix=111021",
-    "evidence": "위비티 상세(2026-11-07): 접수 2026-09-03~11-08(D-2 일치, 마감 임박), ''1분(60초) 미만'의 AI 기술 활용한 영상·이미지·음성·음악·캐릭터·스토리 등 다양한 제작 방식 가능' — AI 활용 제작 전제",
+    "evidence": "위비티 60p 스윕(2026-11-09): D+0 배지 — 접수마감 11-08 경과",
     "source": "wevity-fetch",
     "first_seen": "2026-11-07",
-    "last_checked": "2026-11-07",
-    "check_cadence": "daily",
+    "last_checked": "2026-11-09",
+    "check_cadence": "none",
     "review": "auto",
     "history": [
       {
         "date": "2026-11-07",
         "event": "created",
         "status": "open"
+      },
+      {
+        "date": "2026-11-09",
+        "event": "status_changed",
+        "from": "open",
+        "to": "closed"
       }
     ]
   },
@@ -3915,10 +3969,10 @@
     "result_date": null,
     "status": "open",
     "url": "https://build-a-working-ai-support-bot.devpost.com/",
-    "evidence": "Devpost 상세(2026-11-07): eligibility 'Above legal age of majority in country of residence | All countries/territories, excluding standard exceptions' — 전 세계 공개. submission period 'Nov 06 - 12, 2026', 상금 $750+$300+$200+$100+$150, themes Beginner Friendly/ML·AI/Productivity",
+    "evidence": "Devpost API(2026-11-09): '5 days left' — 제출 마감 Nov 12(D-3)",
     "source": "devpost-api",
     "first_seen": "2026-11-07",
-    "last_checked": "2026-11-07",
+    "last_checked": "2026-11-09",
     "check_cadence": "daily",
     "review": "auto",
     "history": [

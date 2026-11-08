@@ -528,19 +528,19 @@
     "ai_policy": "unspecified",
     "evidence": [
       {
-        "quote": "잡코리아 크로스포스트(Recruit/GI_Read/50236862) 리스트 카드 D-12 표시 — 마감 2026-11-08. 10/25 마감 경과 판정 후 마감 연장 재오픈, 원티드·잡코리아 양쪽 동시 노출 지속",
-        "field": "deadline+status"
+        "quote": "원티드 상세(2026-11-09): 마감일 '상시채용' 표시로 전환(기존 데이터 2026-11-08) + '본 포지션은 직무 역량확인을 위한 사전과제 제출이 필수입니다'(사전과제 상세 bit.ly/4is1IJx 유지), 지원하기 버튼 활성 — 마감 연장(상시), 종결 아님",
+        "field": "deadline"
       }
     ],
     "url": "https://www.wanted.co.kr/wd/390319",
-    "deadline": "2026-11-08",
+    "deadline": null,
     "status": "open",
     "review": "auto",
     "note": "잡코리아 동일 공고(GI_Read/50055620) 교차확인 — 마감 10/25. AI 정책 언급 없음",
     "first_seen": "2026-10-24",
-    "last_seen": "2026-11-06",
-    "last_checked": "2026-11-06",
-    "check_cadence": "daily",
+    "last_seen": "2026-11-09",
+    "last_checked": "2026-11-09",
+    "check_cadence": "weekly",
     "history": [
       {
         "date": "2026-10-24",
@@ -564,6 +564,13 @@
         "event": "status_changed",
         "from": "closed",
         "to": "open"
+      },
+      {
+        "date": "2026-11-09",
+        "event": "deadline_changed",
+        "from": "2026-11-08",
+        "to": null,
+        "note": "원티드 상세 마감일 상시채용 전환 (수동 패치: merge.mjs null 미지원)"
       }
     ]
   },
@@ -834,8 +841,8 @@
     "ai_policy": "unspecified",
     "evidence": [
       {
-        "quote": "* 서류 합격시 사전과제 전형이 진행 됩니다.",
-        "field": "자격요건"
+        "quote": "원티드 상세(2026-11-09): '* 서류 합격시 사전과제 전형이 진행 됩니다' + 마감일 '상시채용' — 사전과제 전형 생존 재확인(10-25 시드 이후 지속 추적, 신규 아님)",
+        "field": "assignment"
       }
     ],
     "url": "https://www.wanted.co.kr/wd/380935",
@@ -844,8 +851,8 @@
     "review": "auto",
     "note": "디자인 직군 사전과제 — 포트폴리오 필수. AI 정책 언급 없음",
     "first_seen": "2026-10-25",
-    "last_seen": "2026-10-25",
-    "last_checked": "2026-10-25",
+    "last_seen": "2026-11-09",
+    "last_checked": "2026-11-09",
     "check_cadence": "weekly",
     "history": [
       {
@@ -1292,24 +1299,30 @@
     "ai_policy": "unspecified",
     "evidence": [
       {
-        "quote": "GI_Read_Comt_Ifrm 본문(2026-11-08): '서류 전형 합격 후 사전과제가 진행됩니다. 합격자 대상으로 제공된 원고에 피드백을 작성하여 제출해주세요.' + 전형절차 '서류전형 > 사전 과제 > 1차면접(기업문화적합도 검사) > 2차면접 > 최종합격' — 사전과제 전형 명시. AI 정책 언급 없음. 오늘마감(2026-11-08)",
-        "field": "assignment+deadline"
+        "quote": "GI_Read(2026-11-09): '마감되었' 배지 확인 — 접수기간 2026-10-19~2026-11-08 종료. 서류 합격 후 사전과제 전형 공고였음",
+        "field": "status"
       }
     ],
     "url": "https://www.jobkorea.co.kr/Recruit/GI_Read/50193361",
     "deadline": "2026-11-08",
-    "status": "open",
+    "status": "closed",
     "review": "confirmed",
     "note": "잡코리아 '사전과제' 검색 히트, 오늘(11/8) 마감 — 다음 런 종결 예정",
     "first_seen": "2026-11-08",
-    "last_seen": "2026-11-08",
-    "last_checked": "2026-11-08",
-    "check_cadence": "daily",
+    "last_seen": "2026-11-09",
+    "last_checked": "2026-11-09",
+    "check_cadence": "none",
     "history": [
       {
         "date": "2026-11-08",
         "event": "created",
         "ai_policy": "unspecified"
+      },
+      {
+        "date": "2026-11-09",
+        "event": "status_changed",
+        "from": "open",
+        "to": "closed"
       }
     ]
   },
@@ -1360,24 +1373,30 @@
     "ai_policy": "unspecified",
     "evidence": [
       {
-        "quote": "GI_Read_Comt_Ifrm 본문(2026-11-08): '* 포트폴리오(PPT 발표자료) 필수 첨부 * 서류 전형 진행 시 별도 사전 과제 진행 (대상자에 한해 개인 메일로 전달 예정)' — 조건부 사전과제 명시. AI 정책 언급 없음. 오늘마감(2026-11-08)",
-        "field": "assignment+deadline"
+        "quote": "GI_Read(2026-11-09): '마감되었' 배지 확인 — 접수마감 2026-11-08 경과. 조건부 사전과제 공고였음",
+        "field": "status"
       }
     ],
     "url": "https://www.jobkorea.co.kr/Recruit/GI_Read/50257784",
     "deadline": "2026-11-08",
-    "status": "open",
+    "status": "closed",
     "review": "confirmed",
     "note": "오늘(11/8) 마감 — 다음 런 종결 예정",
     "first_seen": "2026-11-08",
-    "last_seen": "2026-11-08",
-    "last_checked": "2026-11-08",
-    "check_cadence": "daily",
+    "last_seen": "2026-11-09",
+    "last_checked": "2026-11-09",
+    "check_cadence": "none",
     "history": [
       {
         "date": "2026-11-08",
         "event": "created",
         "ai_policy": "unspecified"
+      },
+      {
+        "date": "2026-11-09",
+        "event": "status_changed",
+        "from": "open",
+        "to": "closed"
       }
     ]
   },
@@ -1546,6 +1565,245 @@
     "history": [
       {
         "date": "2026-11-08",
+        "event": "created",
+        "ai_policy": "unspecified"
+      }
+    ]
+  },
+  {
+    "id": "jobkorea:50275870",
+    "source": "jobkorea",
+    "company": "비오앰",
+    "title": "AI Native / 바이브 코딩 기반 풀스택 개발자",
+    "positions": [
+      "fullstack"
+    ],
+    "positions_raw": "AI Native / 바이브 코딩 기반 풀스택 개발자",
+    "assignment_type": "pre_assignment",
+    "ai_policy": "required",
+    "evidence": [
+      {
+        "quote": "GI_Read_Comt_Ifrm 본문(2026-11-09): 포지션 'AI Native / 바이브 코딩 기반 개발 — AI 기반 웹·앱 서비스 기획 및 개발, 바이브 코딩을 활용한 신속한 프로토타입 및 MVP 제작' + 지원 시 제출 자료 '실제 개발 및 배포한 프로젝트 포트폴리오', '사용한 AI 개발 도구와 본인의 담당 역할' — AI 도구 활용 산출물·역할 설명 제출 의무(메디씨앤씨 50185931 required 선례와 동일 구조). 상시채용(2026-10-30~2027-10-29)",
+        "field": "assignment+ai_policy"
+      }
+    ],
+    "url": "https://www.jobkorea.co.kr/Recruit/GI_Read/50275870",
+    "deadline": null,
+    "status": "open",
+    "review": "confirmed",
+    "note": "잡코리아 '바이브코딩' 검색 히트 — 전형절차 자체 과제 단계는 없으나 AI 산출물 포트폴리오 제출이 지원 필수요건",
+    "first_seen": "2026-11-09",
+    "last_seen": "2026-11-09",
+    "last_checked": "2026-11-09",
+    "check_cadence": "weekly",
+    "history": [
+      {
+        "date": "2026-11-09",
+        "event": "created",
+        "ai_policy": "required"
+      }
+    ]
+  },
+  {
+    "id": "jobkorea:50222686",
+    "source": "jobkorea",
+    "company": "에스에스알",
+    "title": "AI활용 전문가 (사업기획·분석·자동화)",
+    "positions": [
+      "planning",
+      "ai"
+    ],
+    "positions_raw": "AI활용 전문가",
+    "assignment_type": "pre_assignment",
+    "ai_policy": "required",
+    "evidence": [
+      {
+        "quote": "GI_Read_Comt_Ifrm 본문(2026-11-09): '경력 연차보다 AI 활용 실적·포트폴리오 중심 평가' + 제출자료 'AI 활용 실적서: 업무(사업 기획, 분석, 자동화 등)별 사용 도구, 본인 기여도, 적용 전후 효과', '포트폴리오: 바이브코딩 산출물(저장소·배포 링크, 시연 영상 등), 생성형 AI를 활용한 사업 기획·분석 산출물 등' — AI 실적서·바이브코딩 산출물 제출이 전형 평가의 핵심. 접수 2026-10-22~11-21(D-12)",
+        "field": "assignment+ai_policy"
+      }
+    ],
+    "url": "https://www.jobkorea.co.kr/Recruit/GI_Read/50222686",
+    "deadline": "2026-11-21",
+    "status": "open",
+    "review": "confirmed",
+    "note": "잡코리아 '바이브코딩' 검색 히트, 광주 광산구 — 바이브코딩 산출물·AI 실적서 중심 채용",
+    "first_seen": "2026-11-09",
+    "last_seen": "2026-11-09",
+    "last_checked": "2026-11-09",
+    "check_cadence": "daily",
+    "history": [
+      {
+        "date": "2026-11-09",
+        "event": "created",
+        "ai_policy": "required"
+      }
+    ]
+  },
+  {
+    "id": "jobkorea:50262160",
+    "source": "jobkorea",
+    "company": "엔씨소프트(NC)",
+    "title": "[리니지 클래식] 서버 프로그래머",
+    "positions": [
+      "backend"
+    ],
+    "positions_raw": "[리니지 클래식] 서버 프로그래머 모집",
+    "assignment_type": "pre_assignment",
+    "ai_policy": "unspecified",
+    "evidence": [
+      {
+        "quote": "GI_Read_Comt_Ifrm 본문(2026-11-09): '전형절차는 변동될 수 있으며 전형별 결과에 따라 절차(코딩테스트, 사전과제, 평판조회, HR 인터뷰 등)가 추가될 수 있습니다' + '제출서류 간단한 포트폴리오(필수)' — 조건부 사전과제(넷마블 50083974·에스디바이오센서 50257784 선례와 동일 구조). 접수 2026-10-27~12-26, 정규직",
+        "field": "assignment"
+      }
+    ],
+    "url": "https://www.jobkorea.co.kr/Recruit/GI_Read/50262160",
+    "deadline": "2026-12-26",
+    "status": "open",
+    "review": "confirmed",
+    "note": "잡코리아 '사전과제' 검색 히트 — 정규직 개발직군 기준 채택, NC 단기계약 아티스트군(11-08 노이즈 판정)과 구분",
+    "first_seen": "2026-11-09",
+    "last_seen": "2026-11-09",
+    "last_checked": "2026-11-09",
+    "check_cadence": "weekly",
+    "history": [
+      {
+        "date": "2026-11-09",
+        "event": "created",
+        "ai_policy": "unspecified"
+      }
+    ]
+  },
+  {
+    "id": "jobkorea:50062816",
+    "source": "jobkorea",
+    "company": "넥스트증권",
+    "title": "FP&A Manager",
+    "positions": [
+      "etc"
+    ],
+    "positions_raw": "FP&A Manager",
+    "assignment_type": "pre_assignment",
+    "ai_policy": "allowed",
+    "evidence": [
+      {
+        "quote": "GI_Read_Comt_Ifrm 본문(2026-11-09): '※ 본 포지션은 서류전형 합격자를 대상으로 사전 과제가 진행됩니다. 제출해주신 과제를 바탕으로 1차 인터뷰에서 내용을 공유하고 함께 논의할 예정' + 우대 'AI 도구를 실무에 적용하여 업무 효율 또는 결과물 품질을 개선한 경험' — 사전과제 명시 + AI 도구 활용 경험 우대. 접수 2026-09-28~11-27(D-18)",
+        "field": "assignment+ai_policy"
+      }
+    ],
+    "url": "https://www.jobkorea.co.kr/Recruit/GI_Read/50062816",
+    "deadline": "2026-11-27",
+    "status": "open",
+    "review": "confirmed",
+    "note": "잡코리아 '사전과제' 검색 히트 — 재무직군이나 사전과제 명시 공고",
+    "first_seen": "2026-11-09",
+    "last_seen": "2026-11-09",
+    "last_checked": "2026-11-09",
+    "check_cadence": "weekly",
+    "history": [
+      {
+        "date": "2026-11-09",
+        "event": "created",
+        "ai_policy": "allowed"
+      }
+    ]
+  },
+  {
+    "id": "jobkorea:50035351",
+    "source": "jobkorea",
+    "company": "클라우드네트웍스",
+    "title": "B2B 마케터 채용 (경력 3년 이상)",
+    "positions": [
+      "etc"
+    ],
+    "positions_raw": "B2B 마케터 채용 (경력 3년 이상)",
+    "assignment_type": "pre_assignment",
+    "ai_policy": "unspecified",
+    "evidence": [
+      {
+        "quote": "GI_Read_Comt_Ifrm 본문(2026-11-09): '전형절차 ㆍ서류전형 > 사전과제 > 1차면접 > 인적성검사 > 2차면접 > 최종합격 * 사전 과제는 서류 전형 합격자에 한해 안내드리며, 1차 면접에서 과제 내용에 대해 함께 이야기를 나눕니다' + '포트폴리오 제출 필수' — 전형절차에 사전과제 단계 명시. AI는 회사 소개(AI·클라우드 솔루션 기업) 문맥만. 상시채용",
+        "field": "assignment"
+      }
+    ],
+    "url": "https://www.jobkorea.co.kr/Recruit/GI_Read/50035351",
+    "deadline": null,
+    "status": "open",
+    "review": "confirmed",
+    "note": "잡코리아 '사전과제' 검색 히트 — 사전과제 단계가 전형절차에 명시된 마케팅 포지션",
+    "first_seen": "2026-11-09",
+    "last_seen": "2026-11-09",
+    "last_checked": "2026-11-09",
+    "check_cadence": "weekly",
+    "history": [
+      {
+        "date": "2026-11-09",
+        "event": "created",
+        "ai_policy": "unspecified"
+      }
+    ]
+  },
+  {
+    "id": "jobkorea:50035273",
+    "source": "jobkorea",
+    "company": "클라우드네트웍스",
+    "title": "B2B 신입 마케터 채용 (전환형 인턴)",
+    "positions": [
+      "etc"
+    ],
+    "positions_raw": "B2B 신입 마케터 채용 (전환형 인턴)",
+    "assignment_type": "pre_assignment",
+    "ai_policy": "allowed",
+    "evidence": [
+      {
+        "quote": "GI_Read_Comt_Ifrm 본문(2026-11-09): '전형절차 ㆍ서류전형 > 사전과제 > 1차면접 > 인적성검사 > 2차면접 > 최종합격 * 사전 과제는 서류 전형 합격자에 한해 안내' + 지원자격 'IT 기술 학습력 및 AI 툴 활용 역량' — 사전과제 단계 명시 + AI 툴 활용 역량 요구. 상시채용",
+        "field": "assignment+ai_policy"
+      }
+    ],
+    "url": "https://www.jobkorea.co.kr/Recruit/GI_Read/50035273",
+    "deadline": null,
+    "status": "open",
+    "review": "confirmed",
+    "note": "잡코리아 '사전과제' 검색 히트 — 신입(전환형 인턴) 포지션, AI 툴 활용 역량 자격요건",
+    "first_seen": "2026-11-09",
+    "last_seen": "2026-11-09",
+    "last_checked": "2026-11-09",
+    "check_cadence": "weekly",
+    "history": [
+      {
+        "date": "2026-11-09",
+        "event": "created",
+        "ai_policy": "allowed"
+      }
+    ]
+  },
+  {
+    "id": "jobkorea:50184128",
+    "source": "jobkorea",
+    "company": "스튜디오리코(STUDIO LICO)",
+    "title": "남성향 판타지 웹툰 - 전공정, 선화 작가 구인(프리랜서)",
+    "positions": [
+      "design"
+    ],
+    "positions_raw": "남성향 판타지 웹툰 - 전공정, 선화 작가 구인(프리랜서)",
+    "assignment_type": "pre_assignment",
+    "ai_policy": "unspecified",
+    "evidence": [
+      {
+        "quote": "GI_Read_Comt_Ifrm 본문(2026-11-09): '전형절차: 서류전형 > 샘플 테스트(1차, 2차) > 최종 계약여부 논의' + '사전과제는 1차/2차로 구분되며, 이전 단계 합격자에 한하여 각 절차 진행됩니다. (1차과제: 캐릭터디자인, 2차과제: 원고 테스트)' — 2단계 사전과제 명시. AI 언급 없음. 접수 2026-10-16~11-15(D-6)",
+        "field": "assignment"
+      }
+    ],
+    "url": "https://www.jobkorea.co.kr/Recruit/GI_Read/50184128",
+    "deadline": "2026-11-15",
+    "status": "open",
+    "review": "confirmed",
+    "note": "잡코리아 '사전과제' 검색 히트 — 프리랜서 웹툰 제작 실무과제(문피아 웹툰PD 50193361과 유사 도메인)",
+    "first_seen": "2026-11-09",
+    "last_seen": "2026-11-09",
+    "last_checked": "2026-11-09",
+    "check_cadence": "daily",
+    "history": [
+      {
+        "date": "2026-11-09",
         "event": "created",
         "ai_policy": "unspecified"
       }
