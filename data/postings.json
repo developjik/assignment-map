@@ -538,8 +538,8 @@
     "review": "auto",
     "note": "잡코리아 동일 공고(GI_Read/50055620) 교차확인 — 마감 10/25. AI 정책 언급 없음",
     "first_seen": "2026-10-24",
-    "last_seen": "2026-11-09",
-    "last_checked": "2026-11-09",
+    "last_seen": "2026-11-12",
+    "last_checked": "2026-11-12",
     "check_cadence": "weekly",
     "history": [
       {
@@ -1068,8 +1068,8 @@
     "review": "needs_review",
     "note": "50214047 재등록(11/2). 정규직, 경력 5년+, C/C++. 사전과제 문구 신규 id 미확정",
     "first_seen": "2026-11-03",
-    "last_seen": "2026-11-06",
-    "last_checked": "2026-11-06",
+    "last_seen": "2026-11-12",
+    "last_checked": "2026-11-12",
     "check_cadence": "daily",
     "history": [
       {
@@ -1102,8 +1102,8 @@
     "review": "confirmed",
     "note": "Data Tech팀. 어제까지 '사전과제 근거 미확보로 미추적'이었으나 본문 프레임(GI_Read_Comt_Ifrm iframe) 직접 독취로 근거 확보·채택. 메인 문서는 셸이지만 iframe에 본문 전문 존재 — 잡코리아 신규 UI 파싱 경로 확립",
     "first_seen": "2026-11-06",
-    "last_seen": "2026-11-06",
-    "last_checked": "2026-11-06",
+    "last_seen": "2026-11-12",
+    "last_checked": "2026-11-12",
     "check_cadence": "daily",
     "history": [
       {
@@ -1139,7 +1139,7 @@
     "first_seen": "2026-11-07",
     "last_seen": "2026-11-07",
     "last_checked": "2026-11-07",
-    "check_cadence": "weekly",
+    "check_cadence": "daily",
     "history": [
       {
         "date": "2026-11-07",
@@ -1275,8 +1275,8 @@
     "review": "confirmed",
     "note": "'바이브코딩' 검색 발견. AI 작업물 필수 포함이므로 required로 판정 — 포트폴리오 과정 설명(어느 단계에서 AI를 썼는지) 평가 요소 병존",
     "first_seen": "2026-11-07",
-    "last_seen": "2026-11-07",
-    "last_checked": "2026-11-07",
+    "last_seen": "2026-11-12",
+    "last_checked": "2026-11-12",
     "check_cadence": "daily",
     "history": [
       {
@@ -1349,8 +1349,8 @@
     "review": "confirmed",
     "note": "SOOP 생태계 자회사. 조건부 사전과제 + AI 툴 활용 우대(allowed 판정)",
     "first_seen": "2026-11-08",
-    "last_seen": "2026-11-08",
-    "last_checked": "2026-11-08",
+    "last_seen": "2026-11-12",
+    "last_checked": "2026-11-12",
     "check_cadence": "daily",
     "history": [
       {
@@ -1798,12 +1798,81 @@
     "review": "confirmed",
     "note": "잡코리아 '사전과제' 검색 히트 — 프리랜서 웹툰 제작 실무과제(문피아 웹툰PD 50193361과 유사 도메인)",
     "first_seen": "2026-11-09",
-    "last_seen": "2026-11-09",
-    "last_checked": "2026-11-09",
+    "last_seen": "2026-11-12",
+    "last_checked": "2026-11-12",
     "check_cadence": "daily",
     "history": [
       {
         "date": "2026-11-09",
+        "event": "created",
+        "ai_policy": "unspecified"
+      }
+    ]
+  },
+  {
+    "id": "jobkorea:50328375",
+    "source": "jobkorea",
+    "company": "문피아(MUNPIA)",
+    "title": "웹툰 PD",
+    "positions": [
+      "planning"
+    ],
+    "positions_raw": "웹툰 PD",
+    "assignment_type": "pre_assignment",
+    "ai_policy": "unspecified",
+    "evidence": [
+      {
+        "quote": "GI_Read_Comt_Ifrm 본문(2026-11-12): 전형절차 '서류전형 > 사전 과제 > 1차면접(기업문화적합도 검사) > 2차면접 > 최종합격' + '사전과제 서류 전형 합격 후 사전과제가 진행됩니다' — 사전과제 단계 명시, AI 언급 없음. 접수 ~2026-11-29(D-17)",
+        "field": "assignment"
+      }
+    ],
+    "url": "https://www.jobkorea.co.kr/Recruit/GI_Read/50328375",
+    "deadline": "2026-11-29",
+    "status": "open",
+    "review": "confirmed",
+    "note": "잡코리아 '사전과제' 검색 히트 — 마감 종결된 문피아 50193361의 후속 신규 공고",
+    "first_seen": "2026-11-12",
+    "last_seen": "2026-11-12",
+    "last_checked": "2026-11-12",
+    "check_cadence": "weekly",
+    "history": [
+      {
+        "date": "2026-11-12",
+        "event": "created",
+        "ai_policy": "unspecified"
+      }
+    ]
+  },
+  {
+    "id": "jobkorea:50326430",
+    "source": "jobkorea",
+    "company": "한국프리미엄카드마케팅(한프카)",
+    "title": "플랫폼 개발자 경력 채용(사전과제 제출 필수)",
+    "positions": [
+      "backend",
+      "mobile"
+    ],
+    "positions_raw": "플랫폼 개발자 경력 채용",
+    "assignment_type": "pre_assignment",
+    "ai_policy": "unspecified",
+    "evidence": [
+      {
+        "quote": "GI_Read(2026-11-12): 공고 제목 '[한국프리미엄카드마케팅] 플랫폼 개발자 경력 채용(사전과제 제출 필수)' + 접수기간 '2026-11-22T23:59' — 사전과제 제출 필수가 제목에 명시. 본문 AI 언급 없음(Comt_Ifrm 빈값, GI_Read 페이지 JSON으로 확인)",
+        "field": "assignment"
+      }
+    ],
+    "url": "https://www.jobkorea.co.kr/Recruit/GI_Read/50326430",
+    "deadline": "2026-11-22",
+    "status": "open",
+    "review": "confirmed",
+    "note": "원티드 wd390319(상시, 사전과제 필수 동일)의 잡코리아 채널 재공고 — 채널별 마감 상이(원티드 API 11-12 확인 상시 active 유지 vs 잡코리아 11-22)",
+    "first_seen": "2026-11-12",
+    "last_seen": "2026-11-12",
+    "last_checked": "2026-11-12",
+    "check_cadence": "daily",
+    "history": [
+      {
+        "date": "2026-11-12",
         "event": "created",
         "ai_policy": "unspecified"
       }
