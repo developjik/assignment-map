@@ -197,7 +197,20 @@ td.c-sub { max-width: 210px; overflow: hidden; text-overflow: ellipsis; white-sp
 
 /* 모바일: 부차 컬럼 숨김 (우선순위 컬럼만) */
 @media (max-width: 760px) {
-  [data-col="evidence"], [data-col="checked"], [data-col="sub"] { display: none; }
+  [data-col="evidence"], [data-col="checked"], [data-col="sub"], [data-col="type"] { display: none; }
+  /* 남은 컬럼이 찌그러지지 않게 auto 레이아웃 + 마감 폭 고정, 행 .ics는 상세 안 버튼으로 대체 */
+  .tscroll { overflow-x: auto; }
+  .tscroll table { table-layout: auto; }
+  col[data-col="type"], col[data-col="sub"], col[data-col="evidence"], col[data-col="checked"] { width: 0; }
+  col[data-col="name"] { width: auto; }
+  col[data-col="policy"] { width: 70px; }
+  col[data-col="deadline"] { width: 96px; }
+  td[data-col="deadline"], th[data-col="deadline"] { padding-left: 6px; padding-right: 6px; }
+  .rowics { display: none; }
+  .qfin { flex-basis: 100%; }
+  /* 좁은 화면: 이름 셀이 260px를 고집하지 않게 (가로 잘림 방지) */
+  td.c-name { min-width: 0; }
+  .co { max-width: 140px; }
 }
 
 /* 뉴스 태그 라벨 */

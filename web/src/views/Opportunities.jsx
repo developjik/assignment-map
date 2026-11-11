@@ -208,8 +208,8 @@ export default function Opportunities({ rows, type, q, setQ, onVisit }) {
       <div className="twrap tscroll">
         <table>
           <colgroup>
-            <col style={{ width: '20%' }} /><col style={{ width: '6%' }} /><col style={{ width: '17%' }} />
-            <col style={{ width: '11%' }} /><col style={{ width: '23%' }} /><col style={{ width: '13%' }} /><col style={{ width: '10%' }} />
+            <col data-col="name" style={{ width: '20%' }} /><col data-col="type" style={{ width: '6%' }} /><col data-col="sub" style={{ width: '17%' }} />
+            <col data-col="policy" style={{ width: '11%' }} /><col data-col="evidence" style={{ width: '23%' }} /><col data-col="deadline" style={{ width: '13%' }} /><col data-col="checked" style={{ width: '10%' }} />
           </colgroup>
           <thead>
             <tr>
