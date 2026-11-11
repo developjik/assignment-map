@@ -1,15 +1,119 @@
 # 과제 지도 (assignment-map)
 
-AI로 만들어 제출하는 모든 기회를 매일 추적하는 데이터 리포 + 정적 사이트.
+채용 과제·해커톤·대회·공모전·밋업을 매일 03:00 KST에 수집해, **AI로 만들어 제출할 수 있는 기회**만 남겨 공개하는 데이터 리포 + 정적 사이트.
 
-대상 4유형: 채용 과제(AI 허용/요구) / 해커톤 / 대회·챌린지 / 공모전.
-빌더 중심: 개발자로 출발, 전 직군 기회를 수용 (정체성 결정 B, 2026-10-25 — DESIGN.md 참조).
-AI 사용 금지 대회는 기록만 하고 노출에서 제외.
+- 사이트: https://developjik.github.io/assignment-map/
+- 피드: [RSS](https://developjik.github.io/assignment-map/feed.xml) · [JSON Feed](https://developjik.github.io/assignment-map/feed.json)
+- 데이터 API: `data/*.json` (JSON만, 원문 미보관. 헤드라인과 근거 1문장만)
 
-- 설계 전체: [DESIGN.md](DESIGN.md)
-- 디자인 원칙(anti-slop): [docs/design/anti-slop.md](docs/design/anti-slop.md)
-- 데이터: `data/*.json` (JSON만, 원문 미보관. 헤드라인·근거 1문장만)
-- 갱신: Aside 루틴이 매일 03:00 KST 수집·분류·커밋 (P3~)
-- 사이트: https://developjik.github.io/assignment-map/ (dark-terminal, 매일 03:10 갱신)
+기획·설계 배경은 [DESIGN.md](DESIGN.md), 디자인 금지 목록은 [docs/design/anti-slop.md](docs/design/anti-slop.md).
 
-운영비 ₩0. GitHub Actions + Pages 무료 쿼터.
+## 무엇을 추적하나
+
+| 유형 | 예 | 판별 기준 |
+|---|---|---|
+| 채용 과제 | 사전 과제·과제 전형이 있는 공고 | 상세 본문의 전형 절차와 AI 정책 문구 |
+| 해커톤 | 국내외 AI 해커톤 | 주제·상금·채용 연계 |
+| 대회 | 경진대회·챌린지 | AI 활용 정책 |
+| 공모전 | AI 영상·광고·아이디어 공모 | 제출물에 AI 사용 가능 여부 |
+| 밋업 | 세미나·컨퍼런스·워크샵 | 개발자 대상 여부 |
+
+AI 사용을 금지하는 기회는 기록만 하고 화면에서 뺀다. 각 레코드는 **정책 근거 문장(evidence)** 과 **확인일(last_checked)** 을 함께 갖는다 — 정책은 광고 문구가 아니라 원문에서만 판정한다.
+
+## 아키텍처: 사람이 손대지 않는 데이터 흐름
+
+```
+        ┌──────────────────────── 매일 03:00 KST ────────────────────────┐
+        │                                                                │
+  Aside 루틴 (에이전트 세션)                              Browser AI Agent
+  · T0 fetch 스윕 (JSON·RSS·SSR, 0페이지)                 · T1 상세 판독 (JS 렌더)
+  · 후보 프리스크린 → 회색대역만 LLM 판정                  · T2 주간 소스 로테이션
+        │                                                                │
+        └───────────────┬────────────────────────────────────────────────┘
+                        ▼
+             JSON Merge & Golden Cases
+             · merge.mjs  : 신규/변경/종결 diff, history 기록
+             · validate.mjs: 스키마 무결성 + 골든케이스 6/6 (실패 시 커밋 잠금)
+                        │
+                        ▼
+         GitHub Actions (push → build → Pages)
+         · slop-lint 16체크 → rollup + terser → feed.xml / feed.json / sitemap
+                        │
+                        ▼
+        Anti-Slop Terminal Web (React 18, 정적)
+        · 키보드 우선 표, 정책 배지, 마감 D-day, .ics 내보내기
+        · watchdog 워크플로가 26시간 무갱신 시 이슈로 경보
+```
+
+수집은 **fetch 우선**이다. 발견은 fetch로 하고(브라우저 페이지 상한을 쓰지 않는다), 브라우저는 JS 렌더가 필요한 상세와 재방문에만 쓴다. 소스의 URL·비용·상태는 `collector/sources.json` 한 곳에 모으고, 성과 없는 소스는 T3 월간 리포트에서 `retired`로 내린다.
+
+## 숫자 (2026-11-12 기준)
+
+| 항목 | 값 |
+|---|---|
+| 추적 레코드 | 192건 (채용 공고 52 · 이벤트 140) |
+| 지금 열려 있는 기회 | 123건 |
+| AI 정책을 명시한 진행중 항목 | 92건 (그중 AI 필수 77건) |
+| 피드 발행 항목 | 114건 (RSS + JSON Feed 동일 목록) |
+| 골든케이스 | 6/6 (정책 판정 회귀 방지) |
+| 안티-슬롭 검사 | 16체크, 빌드 실패 시 배포 중단 |
+| 운영비 | ₩0 (GitHub Actions + Pages 무료 쿼터, 외부 DB·서버 없음) |
+
+숫자는 데이터가 아니라 `data/meta.json`과 빌드가 계산한다. 이 표는 마지막 갱신 시점의 스냅샷이다.
+
+## 웹 (web/)
+
+React 18 + Rollup 3, 순수 JS 툴체인(네이티브 바이너리 없음). 빌드 타임에 `data/*.json`을 번들하므로 런타임 API 호출이 없다.
+
+- **표가 주인공**: j/k 행 이동, Enter 확장, `/` 검색, Esc 해제. 모든 컬럼 정렬 가능.
+- **검색**: 제목·기업/주최·상금·직군/기술 키워드를 한 인덱스에서 찾고, 공백으로 여러 단어를 넣으면 AND로 좁힌다.
+- **조건**: AI 정책(필수/허용+채점/허용/미언급), 상태, 직군(FE), 채용연계만, 정책변경만.
+- **정렬**: 마감 임박(지난 마감과 상시는 뒤로) / 최신 등록, 또는 컬럼 헤더 클릭.
+- **캘린더**: 행 상세의 `.ics` 버튼은 그 공고의 마감일을 종일 일정으로, 상단 `.ics 내보내기`는 지금 보이는 목록 전체를 VCALENDAR로 내려받는다(마감 3일 전 알람 포함).
+- **피드**: `feed.xml`(RSS 2.0)과 `feed.json`(JSON Feed)을 빌드마다 생성한다.
+
+```bash
+cd web
+npm ci
+npm run build      # slop-lint 16체크 → rollup + terser → dist/
+npm run lint:slop  # 디자인 규칙만 검사
+npm run feeds      # 현재 데이터로 피드만 다시 생성
+npm run preview    # dist/ 정적 서버 (127.0.0.1:4173)
+```
+
+### 안티-슬롭 게이트
+
+`web/scripts/slop-lint.mjs`가 그라디언트, 그라디언트 텍스트, Inter/Roboto/Geist, glass·glow, 외부 drop-shadow, 이모지, 자간 0.1em 이상 라벨, 스톡 카피, fade-up, 중앙 정렬, 4px 초과 라운드, ` · ` 구분자, card/hero 클래스명을 막고, `:focus-visible`·`prefers-reduced-motion`·viewport·`img alt`를 요구한다. 검사는 `src/`와 `index.html`을 대상으로 하고, 하나라도 걸리면 `npm run build`가 멈춘다.
+
+## 데이터 파이프라인
+
+```
+data/       postings.json · events.json · platforms.json · news.json · changelog.json · meta.json
+runs/       런별 실행 기록 (소스별 방문 수·실패·판단)
+collector/  sources.json(소스 레지스트리) · merge.mjs · validate.mjs · golden_cases.json · ROUTINE_PROMPT.md
+pipeline/   shorts/ (이벤트 → 쇼츠 대본 파이프라인)
+```
+
+- `node collector/validate.mjs` — 스키마 무결성, 중복 id, meta 카운트 일치, 골든케이스 6/6. 실패하면 커밋하지 않는다.
+- `data/changelog.json` — 날마다 신규·정책 변경·마감 변경·상태 변경을 남긴다. 웹의 "AI 정책 변경 기업" 뷰가 이 기록과 각 레코드 history를 함께 읽는다.
+- `runs/*.json` — 그날 무엇을 몇 페이지로 확인했고 무엇을 못 했는지. 다음 런의 우선순위가 여기서 이어진다.
+
+## 쇼츠 파이프라인 (pipeline/shorts/)
+
+`data/events.json`에서 마감·채용연계·AI 정책·상금으로 점수를 매겨 대본을 만든다. 큐는 `manifest.json`이 관리하고, 마감이 지난 queued 항목은 `--prune-only`로 정리한다.
+
+```bash
+python3 pipeline/shorts/generator.py --count 4 --date 2026-11-12 --dry-run   # 후보만 확인
+python3 pipeline/shorts/generator.py --prune-only                            # 지난 큐 정리
+```
+
+## 기술 스택
+
+React 18 · Rollup 3 · Babel · Terser · Node.js 20 (ESM) · Python 3 (쇼츠 파이프라인) · GitHub Actions + Pages · 자체 안티-슬롭 린터(slop-lint 16체크) · 자체 데이터 검증기(validate + golden cases)
+
+## 문서
+
+- [DESIGN.md](DESIGN.md) — 제품 설계, 정책 판정 규칙, 소스 철학
+- [docs/design/anti-slop.md](docs/design/anti-slop.md) — AI 티 나는 UI 패턴 조사와 금지 목록
+- [collector/ROUTINE_PROMPT.md](collector/ROUTINE_PROMPT.md) — 매일 수집 세션 프롬프트
+- [web/README.md](web/README.md) — 웹 빌드 세부
