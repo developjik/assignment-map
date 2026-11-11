@@ -208,8 +208,8 @@ export default function Opportunities({ rows, type, q, setQ, onVisit }) {
       <div className="twrap tscroll">
         <table>
           <colgroup>
-            <col style={{ width: '21%' }} /><col style={{ width: '6%' }} /><col style={{ width: '17%' }} />
-            <col style={{ width: '11%' }} /><col style={{ width: '26%' }} /><col style={{ width: '10%' }} /><col style={{ width: '9%' }} />
+            <col style={{ width: '20%' }} /><col style={{ width: '6%' }} /><col style={{ width: '17%' }} />
+            <col style={{ width: '11%' }} /><col style={{ width: '23%' }} /><col style={{ width: '13%' }} /><col style={{ width: '10%' }} />
           </colgroup>
           <thead>
             <tr>
@@ -282,7 +282,14 @@ function Row({ r, q, zebra, idx, curIdx, setCur, curRef, expanded, onToggle }) {
         <td className="typ" data-col="evidence" title={r.evidence} style={{ maxWidth: 240, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
           {disp(r.evidence)}
         </td>
-        <td className={ddCls} data-col="deadline">{ddText}</td>
+        <td className={ddCls} data-col="deadline">
+          <span className="ddt">{ddText}</span>
+          {r.deadline && (
+            <button className="rowics" title={`${r.deadline} 마감을 캘린더(.ics)로 내려받기`}
+              aria-label={`${r.name} 마감일을 캘린더 파일로 내려받기`}
+              onClick={(e) => { e.stopPropagation(); downloadIcs([r]) }}>ics</button>
+          )}
+        </td>
         <td className="chk" data-col="checked">{r.checked ? `${r.checked.slice(5)} (${relDays(r.checked)})` : ''}</td>
       </tr>
       {expanded && (

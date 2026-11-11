@@ -258,5 +258,9 @@ td.c-sub { max-width: 210px; overflow: hidden; text-overflow: ellipsis; white-sp
 .ics.act { background: none; border: 1px solid var(--border); color: var(--blue); font: 10.5px var(--mono); padding: 2px 7px; margin-left: 12px; cursor: pointer; }
 .ics.act:hover { border-color: var(--blue); color: var(--fg-hi); }
 
+/* 행 안 단건 .ics — 마감 셀에 붙는다 */
+.rowics { background: none; border: 1px solid var(--border); color: var(--faint); font: 9.5px var(--mono); padding: 0 3px; margin-left: 6px; cursor: pointer; vertical-align: 1px; }
+.rowics:hover { color: var(--blue); border-color: var(--blue); }
+
 /* 좁은 화면: 검색 안내문은 숨긴다 */
 @media (max-width: 760px) { .qhint { display: none; } }
