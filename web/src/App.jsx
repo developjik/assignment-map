@@ -60,7 +60,7 @@ export default function App() {
         <span className="tagline">AI로 만들어 제출하는 모든 기회 | 매일 03:00 수집</span>
         <span className="right">
           <span className="sbox">
-            <input id="q" value={q} onChange={(e) => setQ(e.target.value)} placeholder="기업, 대회명, 키워드 검색" aria-label="검색" />
+            <input id="q" value={q} onChange={(e) => setQ(e.target.value)} placeholder="기업, 대회명, 기술 스택 검색" aria-label="검색" />
             <span className="kbd">/</span>
           </span>
           <span className="live"><i aria-hidden="true"></i>{stats.lastRun ? `수집 ${stats.lastRun}` : '미실행'}</span>
@@ -79,7 +79,7 @@ export default function App() {
         ) : tab === 'news' ? (
           <News q={q} />
         ) : tab === 'changelog' ? (
-          <Changelog />
+          <Changelog onPick={(name) => { setTab('all'); setQ(name) }} />
         ) : tab === 'method' ? (
           <Method />
         ) : (
@@ -96,7 +96,7 @@ export default function App() {
         )}
         <footer className="ft">
           <span>데이터: <a href="https://www.wanted.co.kr" target="_blank" rel="noreferrer">원티드</a> <a href="https://jumpit.saramin.co.kr" target="_blank" rel="noreferrer">점핏</a> <a href="https://www.jobkorea.co.kr" target="_blank" rel="noreferrer">잡코리아</a> <a href="https://www.wevity.com" target="_blank" rel="noreferrer">위비티</a> <a href="https://devpost.com" target="_blank" rel="noreferrer">Devpost</a> <a href="https://lablab.ai" target="_blank" rel="noreferrer">lablab</a> | 규칙 v3</span>
-          <span>마지막 수집 {stats.lastRun || '-'} 03:00 KST | commit {commit} | <a href="https://github.com/developjik/assignment-map" target="_blank" rel="noreferrer">리포</a> | <a href="https://github.com/developjik/assignment-map/issues" target="_blank" rel="noreferrer">오탐 신고</a></span>
+          <span>마지막 수집 {stats.lastRun || '-'} 03:00 KST | commit {commit} | <a href="./feed.xml">RSS</a> <a href="./feed.json">JSON 피드</a> | <a href="https://github.com/developjik/assignment-map" target="_blank" rel="noreferrer">리포</a> | <a href="https://github.com/developjik/assignment-map/issues" target="_blank" rel="noreferrer">오탐 신고</a></span>
         </footer>
       </main>
     </div>

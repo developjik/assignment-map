@@ -33,7 +33,19 @@ export const EV_POLICY = {
   unknown: { cls: 'p-rev', label: '확인필요' },
 }
 
+const EVENT_TYPE = { hackathon: '해커톤', competition: '대회', contest: '공모전', meetup: '밋업', conference: '컨퍼런스', workshop: '워크샵' }
 const isOpen = (s) => ['open', 'upcoming', 'judging'].includes(s)
+
+// 검색 인덱스: 제목·기업/주최·키워드·기술 스택을 한 문자열로 (소문자)
+const hay = (...parts) =>
+  parts
+    .flat(2)
+    .filter((p) => p !== null && p !== undefined && p !== '')
+    .map((p) => (Array.isArray(p) ? p.join(' ') : String(p)))
+    .join(' ')
+    .toLowerCase()
+
+const evidenceText = (evidence) => (Array.isArray(evidence) ? evidence.map((e) => e?.quote || '').join(' ') : evidence || '')
 
 export const rows = [
   ...postingsRaw.map((p) => ({
@@ -46,17 +58,25 @@ export const rows = [
     checked: p.last_checked, history: p.history || [], review: p.review || '',
     url: p.url, hiring: false,
     first: p.first_seen,
+    stack: p.positions_raw || (p.positions || []).join(' '),
+    hay: hay(
+      p.company, p.title, p.positions_raw, p.positions, p.assignment_type, p.process_raw,
+      p.policy_raw, p.note, evidenceText(p.evidence), p.source,
+    ),
   })),
   ...eventsRaw.map((e) => ({
     kind: 'event', id: e.id, name: e.title, title: e.title,
     sub: [e.host, e.team && e.team !== 'unknown' ? e.team : ''].filter(Boolean).join(' | '),
-    type: { hackathon: '해커톤', competition: '대회', contest: '공모전', meetup: '밋업', conference: '컨퍼런스', workshop: '워크샵' }[e.type] || e.type, positions: [],
+    type: EVENT_TYPE[e.type] || e.type, positions: [],
     policy: EV_POLICY[e.ai_usage] || EV_POLICY.unknown,
     policyKey: e.ai_usage === 'required' ? 'required' : e.ai_usage === 'allowed' ? 'allowed' : e.ai_usage,
     evidence: e.evidence || '', source: e.source,
     deadline: e.apply_deadline || e.submit_deadline, status: e.status, open: isOpen(e.status),
     checked: e.last_checked, history: e.history || [], review: e.review || '',
     url: e.url, hiring: !!e.hiring_link, first: e.first_seen,
+    stack: [EVENT_TYPE[e.type] || e.type, e.format].filter(Boolean).join(' '),
+    prize: e.prize || '',
+    hay: hay(e.title, e.host, e.prize, e.evidence, e.note, e.source, EVENT_TYPE[e.type] || e.type, e.format),
   })),
 ]
   .filter((r) => r.kind === 'posting' || r.policyKey !== 'banned') // banned 이벤트 노출 제외
@@ -83,10 +103,55 @@ export const meta = metaRaw
 import commitHash from './commit.js'
 export const commit = commitHash
 
+// ==== AI 정책 변경 추적 ====
+// 두 출처를 합친다: (1) changelog.json 일별 런의 policy_changed id 목록,
+// (2) 각 레코드 history의 policy_changed 이벤트(from → to + evidence).
+// changelog만으로는 id만 남아 기업명·변경 방향을 알 수 없어 (2)로 보강한다.
+export const policyChanges = (() => {
+  const byId = new Map(rows.map((r) => [r.id, r]))
+  const labelDate = (r, date) => (r?.history || []).find((h) => h.event === 'policy_changed' && h.date === date)
+  const out = []
+  const seen = new Set()
+  const push = (c) => {
+    const key = c.id + '@' + c.date
+    if (seen.has(key)) return
+    seen.add(key)
+    out.push(c)
+  }
+  for (const run of changelogRaw.events || []) {
+    for (const id of run.policy_changed || []) {
+      const r = byId.get(id)
+      const h = labelDate(r, run.date)
+      push({
+        id, date: run.date, name: r?.name || id, title: r?.title || '',
+        kind: r?.kind || 'posting', url: r?.url || '',
+        from: h?.from ?? null, to: h?.to ?? r?.policyKey ?? null,
+        evidence: h?.evidence || r?.evidence || '',
+      })
+    }
+  }
+  for (const r of rows) {
+    for (const h of r.history || []) {
+      if (h.event !== 'policy_changed') continue
+      push({
+        id: r.id, date: h.date, name: r.name, title: r.title,
+        kind: r.kind, url: r.url,
+        from: h.from ?? null, to: h.to ?? r.policyKey,
+        evidence: h.evidence || r.evidence || '',
+      })
+    }
+  }
+  return out.sort((a, b) => (a.date < b.date ? 1 : -1))
+})()
+
+export const policyChangedIds = new Set(policyChanges.map((c) => c.id))
+export const policyChangeByID = new Map(policyChanges.map((c) => [c.id, c]))
+
 export const stats = {
   tracked: rows.filter((r) => r.open).length,
   aiExplicit: rows.filter((r) => r.open && !['unspecified', 'unknown', 'banned'].includes(r.policyKey)).length,
   policyChanged7d: runs.slice(0, 7).reduce((s, r) => s + (r.policy_changed || []).length, 0),
+  policyChangedTracked: rows.filter((r) => r.open && policyChangedIds.has(r.id)).length,
   d7: rows.filter((r) => r.open && r.dd !== null && r.dd >= 0 && r.dd <= 7).length,
   hiring: rows.filter((r) => r.open && r.hiring).length,
   review: rows.filter((r) => r.review === 'needs_review').length,
