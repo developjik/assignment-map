@@ -18,6 +18,7 @@ def parse_args():
     count = 4
     date_str = "2026-11-02"
     dry_run = False
+    prune_only = False
     i = 0
     while i < len(args):
         if args[i] == "--count" and i + 1 < len(args):
@@ -28,8 +29,31 @@ def parse_args():
             i += 1
         elif args[i] == "--dry-run":
             dry_run = True
+        elif args[i] == "--prune-only":
+            prune_only = True
         i += 1
-    return count, date_str, dry_run
+    return count, date_str, dry_run, prune_only
+
+
+def prune_stale(manifest, today_str):
+    """마감이 지난 queued 항목을 expired로 내린다 (큐가 죽은 소재로 차지 않게)."""
+    expired = []
+    for item in manifest.get("items", []):
+        if item.get("status") != "queued":
+            continue
+        days = get_days_remaining(today_str, item.get("deadline"))
+        if days < 0:
+            item["status"] = "expired"
+            item["expired_at"] = today_str
+            item["expired_reason"] = "마감 경과 (D%+d)" % days
+            expired.append(item.get("id"))
+    if expired:
+        manifest["stats"]["queued"] = len([i for i in manifest["items"] if i.get("status") == "queued"])
+        manifest["stats"]["published"] = len([i for i in manifest["items"] if i.get("status") == "published"])
+        manifest["stats"]["expired"] = len([i for i in manifest["items"] if i.get("status") == "expired"])
+        manifest["stats"]["expired"] = len([i for i in manifest["items"] if i.get("status") == "expired"])
+        manifest["stats"]["published"] = len([i for i in manifest["items"] if i.get("status") == "published"])
+    return expired
 
 def get_days_remaining(today_str, deadline_str):
     if not deadline_str:
@@ -42,7 +66,8 @@ def get_days_remaining(today_str, deadline_str):
         return 999
 
 def score_event(event, today_str):
-    if event.get("status") != "open":
+    # upcoming(접수 예정)도 곧 후보가 되므로 같은 공식으로 점수화한다.
+    if event.get("status") not in ("open", "upcoming"):
         return -999
     deadline = event.get("submit_deadline") or event.get("apply_deadline")
     days = get_days_remaining(today_str, deadline)
@@ -93,7 +118,7 @@ def main():
 
     os.makedirs(output_dir, exist_ok=True)
 
-    count, target_date, dry_run = parse_args()
+    count, target_date, dry_run, prune_only = parse_args()
 
     with open(events_path, "r", encoding="utf-8") as f:
         events = json.load(f)
@@ -108,6 +133,18 @@ def main():
             "stats": {"total_generated": 0, "published": 0, "queued": 0},
             "items": []
         }
+
+    expired = prune_stale(manifest, target_date)
+    if expired:
+        print(f"[Shorts Generator] 마감 지난 queued {len(expired)}건을 expired로 정리: {', '.join(expired)}")
+
+    if prune_only:
+        if not dry_run:
+            manifest["updated_at"] = datetime.now(KST).isoformat()
+            with open(manifest_path, "w", encoding="utf-8") as f:
+                json.dump(manifest, f, ensure_ascii=False, indent=2)
+            print("[Shorts Generator] manifest 저장 완료 (생성 없음)")
+        return
 
     existing_ids = {item["id"] for item in manifest.get("items", [])}
 
@@ -265,10 +302,15 @@ def main():
         manifest["updated_at"] = datetime.now(KST).isoformat()
         manifest["stats"]["total_generated"] = len(manifest["items"])
         manifest["stats"]["queued"] = len([i for i in manifest["items"] if i.get("status") == "queued"])
+        manifest["stats"]["published"] = len([i for i in manifest["items"] if i.get("status") == "published"])
+        manifest["stats"]["expired"] = len([i for i in manifest["items"] if i.get("status") == "expired"])
         with open(manifest_path, "w", encoding="utf-8") as f:
             json.dump(manifest, f, ensure_ascii=False, indent=2)
 
-    print(f"\n✅ 성공적으로 {len(generated_items)}편의 쇼츠 스크립트가 생성 및 큐에 등록되었습니다!")
+    if dry_run:
+        print(f"\n[드라이런] {len(generated_items)}편이 생성 대상입니다 (파일·manifest 변경 없음)")
+    else:
+        print(f"\n✅ 성공적으로 {len(generated_items)}편의 쇼츠 스크립트가 생성 및 큐에 등록되었습니다!")
     for item in generated_items:
         print(f"- [{item['slot']}] {item['title']} -> {item['file']}")
 

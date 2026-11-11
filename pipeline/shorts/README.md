@@ -24,11 +24,28 @@ python3 pipeline/shorts/generator.py --count 3
 # 특정 날짜 기준 5편 생성
 python3 pipeline/shorts/generator.py --count 5 --date 2026-11-03
 
-# 생성 결과 시뮬레이션 (파일 미생성)
+# 생성 결과 시뮬레이션 (파일·manifest 미변경)
 python3 pipeline/shorts/generator.py --count 3 --dry-run
+
+# 마감 지난 queued 항목만 expired로 정리 (생성 없음)
+python3 pipeline/shorts/generator.py --prune-only --date 2026-11-12
 ```
 
-## 4. 디렉터리 구조
+## 4. 큐 상태
+
+`manifest.json`의 항목 상태는 세 가지다.
+
+| status | 의미 |
+|---|---|
+| queued | 대본 준비됨, 발행 대기 |
+| published | 발행 완료 (`youtube_url`·`published_at` 기록) |
+| expired | 마감이 지나 발행 의미가 없어진 항목 (`expired_at`·`expired_reason`) |
+
+생성기는 실행할 때마다 마감이 지난 queued를 자동으로 `expired`로 내린다. 별도 정리만 하려면 `--prune-only`. 후보 점수는 `open`과 `upcoming`을 모두 받고, 마감일이 지난 항목은 제외한다.
+
+2026-11-12 정리 결과: 11-02~11-05 마감 queued 4건(YouCam·Codex·청도·스페이스 해커톤)을 expired로 내리고, 남은 published 9건만 유지했다. 같은 날 기준 후보 74건(open+upcoming, 마감 미경과).
+
+## 5. 디렉터리 구조
 
 - `generator.py`: 파이프라인 메인 실행 스크립트
 - `manifest.json`: 생성 및 예약 발행 상태 추적 레지스트리
