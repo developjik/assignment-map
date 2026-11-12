@@ -73,7 +73,7 @@ fs.writeFileSync(cwd + '/dist/robots.txt', `User-agent: *\nAllow: /\nSitemap: ${
 
 // ==== C. OG 메타 이미지 (1200x630) — 수집 지표를 그대로 그린다 ====
 try {
-  const og = execSync('python3 scripts/generate-og.py', { cwd, stdio: ['ignore', 'pipe', 'pipe'] }).toString().trim()
+  const og = execSync('python3 scripts/generate-og.py 2>&1', { cwd, stdio: ['ignore', 'pipe', 'pipe'] }).toString().trim()
   if (og) console.log(og)
 } catch (e) {
   const why = (e.stderr || e.stdout || '').toString().trim().split('\n').pop()
