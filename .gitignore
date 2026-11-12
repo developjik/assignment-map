@@ -5,3 +5,5 @@ dist/
 .env
 web/dist/
 __pycache__/
+pipeline/shorts/renders/
+pipeline/shorts/.work/
