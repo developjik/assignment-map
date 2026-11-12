@@ -18,7 +18,6 @@ export default function Rail({ tab, setTab, counts, review }) {
         <button
           key={it.id}
           className={'ritem' + (tab === it.id ? ' on' : '') + (i === 5 ? ' rail-gap' : '')}
-          style={i === 5 ? { marginTop: 10 } : undefined}
           onClick={() => setTab(it.id)}
           aria-current={tab === it.id ? 'page' : undefined}
         >

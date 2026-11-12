@@ -347,3 +347,78 @@ td.c-sub { max-width: 210px; overflow: hidden; text-overflow: ellipsis; white-sp
 .kh-ft { padding: 8px 14px; color: var(--faint); font-size: 10px; }
 .kh-sep { color: #39445A; }
 .kh:focus, .kh:focus-visible { outline: none; }
+
+/* ===== 모바일 편의성 (2026-11-13) ===== */
+/* 390px 화면 기준: 레일을 40px 칩 바로 눕혀 첫 화면에 티커와 공고가 바로 보이게 한다. */
+.ritem.rail-gap { margin-top: 10px; }
+@media (max-width: 760px) {
+  /* 그리드 auto 행이 min-height 만큼 늘어나던 문제 — 행을 내용 높이에 붙인다 */
+  .app { align-content: start; }
+
+  /* A. 레일 → 가로 스크롤 칩 바 */
+  .rail { display: flex; flex-wrap: nowrap; align-items: stretch; gap: 6px; padding: 6px 10px; border-right: 0; border-bottom: 1px solid var(--border); overflow-x: auto; overflow-y: hidden; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
+  .rail::-webkit-scrollbar { display: none; }
+  .ritem { flex: 0 0 auto; width: auto; white-space: nowrap; padding: 8px 12px; border: 1px solid var(--border); border-radius: 2px; font-size: 11.5px; line-height: 1.3; }
+  .ritem:hover { background: #11151C; }
+  .ritem.on { background: #11151C; box-shadow: inset 0 -2px 0 var(--blue); }
+  .ritem.rail-gap { margin-top: 0; margin-left: 6px; }
+  .ritem .n { font-size: 10px; }
+
+  /* B. 통계·수집 바 → 한 줄 가로 스크롤 */
+  .strip, .ctxbar { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; }
+  .strip::-webkit-scrollbar, .ctxbar::-webkit-scrollbar { display: none; }
+  .sq, .ctxbar span { flex: 0 0 auto; }
+
+  /* B. 검색·필터 → 각각 한 줄 가로 스크롤, 터치 높이 38px */
+  .fsearch { flex-wrap: nowrap; align-items: center; }
+  .fsearch .fl { flex: 0 0 auto; }
+  .qfin { flex: 1 1 auto; min-width: 0; height: 38px; font-size: 12px; margin: 6px 8px; }
+  .fr { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; }
+  .fr::-webkit-scrollbar { display: none; }
+  .fr .fl, .fr .fopt, .fr .dens, .fr .match-n { flex: 0 0 auto; }
+  .fr .fl { display: inline-flex; align-items: center; min-height: 38px; }
+  .fr .fopt { display: inline-flex; align-items: center; min-height: 38px; padding: 0 12px; font-size: 11.5px; }
+  .fr .dens { align-self: stretch; }
+  .fr .dens button { padding: 0 10px; }
+  .match-n { margin-left: 0; }
+
+  /* C. 헤더 한 줄 — 태그라인·버전은 모바일에선 뺀다 */
+  .hd { flex-wrap: nowrap; gap: 8px; padding: 7px 10px; }
+  .logo { flex: 0 0 auto; white-space: nowrap; }
+  .tagline, .ver { display: none; }
+  .hd .right { margin-left: auto; flex: 0 1 auto; gap: 8px; min-width: 0; }
+  .sbox { flex: 1 1 auto; min-width: 0; height: 34px; }
+  .live { flex: 0 0 auto; font-size: 10px; }
+  .recent { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; }
+  .recent::-webkit-scrollbar { display: none; }
+
+  /* D. 표 — 행 높이 46px, 이름은 두 줄까지 */
+  /* 표가 flex-basis 0 에 눌려 사라지지 않게: 본문·표는 내용 높이로 흐르게 둔다 */
+  .main { overflow: visible; }
+  .twrap { flex: 0 0 auto; overflow: visible; min-height: 0; }
+  .tscroll td { padding: 8px 10px; }
+  tr.row td { height: 46px; }
+  td.c-name { min-width: 0; padding-left: 6px; }
+  .co { display: -webkit-box; max-width: none; white-space: normal; word-break: keep-all; line-height: 1.35; overflow: hidden; -webkit-line-clamp: 2; -webkit-box-orient: vertical; }
+  .star { padding: 11px; margin: -11px 2px -11px -4px; }
+  .badge { font-size: 9.5px; }
+  .dd { font-size: 11px; }
+
+  /* E. 상세 아코디언 — 링크·버튼 터치 영역 38px */
+  .hx .in { padding: 10px 10px 12px; margin: 2px 6px 8px; }
+  .hx .ln { font-size: 11px; line-height: 1.7; }
+  .hx .in > .ln:last-child { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-top: 4px; }
+  .hx .in > .ln:last-child a { display: inline-flex; align-items: center; min-height: 38px; padding: 0 12px; border: 1px solid var(--border); }
+  .ics.act { margin-left: 0; min-height: 38px; padding: 0 12px; }
+
+  /* F. 모바일에서 쓸모없는 키보드 안내는 감춘다 */
+  .keybar, .khint { display: none; }
+
+  /* 플랫폼 표: 900px 최소폭은 페이지가 아니라 표 안에서 가로 스크롤 */
+  .twrap.pwrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+
+  /* 티커 터치 보강 */
+  .dl-it { padding: 8px 10px; }
+  .dl-btn { padding: 0 13px; }
+  .dl-badge { padding: 0 8px; }
+}
