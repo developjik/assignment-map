@@ -79,6 +79,12 @@ try {
   const why = (e.stderr || e.stdout || '').toString().trim().split('\n').pop()
   console.warn(`OG SKIP — python3/generate-og.py 실행 실패${why ? ` (${why})` : ''}`)
 }
+// 생성이 건너뛰어진 환경(폰트·Pillow 없음)에서는 저장된 스냅샷으로 채운다 — 미리보기 404를 막는다
+const distOg = cwd + '/dist/og-image.png'
+if (!fs.existsSync(distOg) && fs.existsSync(cwd + '/og-image.png')) {
+  fs.copyFileSync(cwd + '/og-image.png', distOg)
+  console.log('OG FALLBACK — 저장된 og-image.png 스냅샷 사용(수치가 마지막 커밋 시점)')
+}
 
 const kb = (fs.statSync(cwd + '/dist/assets/app.js').size / 1024).toFixed(1)
 const ogKb = fs.existsSync(cwd + '/dist/og-image.png') ? (fs.statSync(cwd + '/dist/og-image.png').size / 1024).toFixed(0) + 'KB' : 'none'
