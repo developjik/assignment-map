@@ -181,6 +181,21 @@ def dday_text(script):
     return "일정"
 
 
+def status_text(script):
+    """D-day와 짝을 이루는 상태 라벨 — 마감이 지난 대본에 '모집중'을 붙이지 않는다."""
+    days = script.get("days_left")
+    if isinstance(days, int):
+        return "모집중" if days >= 0 else "마감 지남"
+    deadline = script.get("deadline")
+    if deadline:
+        try:
+            left = (datetime.strptime(deadline, "%Y-%m-%d").date() - datetime.now(KST).date()).days
+            return "모집중" if left >= 0 else "마감 지남"
+        except ValueError:
+            return "일정 확인"
+    return "상시"
+
+
 def build_facts(script):
     """핵심 팩트 3줄 — 대본 중간 장면의 자막에서 뽑고, 부족하면 마감·혜택·정책으로 채운다."""
     scenes = script.get("scenes") or []
@@ -345,6 +360,7 @@ def build_model(script):
         "title": strip_glyphs(script.get("event_title") or script.get("title") or "과제 지도"),
         "host": strip_glyphs(script.get("host") or ""),
         "dday": dday_text(script),
+        "status": status_text(script),
         "policy": policy,
         "policy_label": POLICY_LABEL[policy],
         "policy_color": POLICY_COLOR[policy],
@@ -371,7 +387,7 @@ def draw_static(model, total):
     y = 212
     d.text((MARGIN, y), model["dday"], font=font(46), fill=YELLOW)
     dw = d.textlength(model["dday"], font=font(46))
-    d.text((MARGIN + dw + 18, y + 12), "모집중", font=kfont(28), fill=MUT)
+    d.text((MARGIN + dw + 18, y + 12), model["status"], font=kfont(28), fill=MUT)
 
     # 제목 — 폭에 맞춰 폰트를 줄이며 최대 4줄
     y += 82
