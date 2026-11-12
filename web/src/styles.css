@@ -300,3 +300,50 @@ td.c-sub { max-width: 210px; overflow: hidden; text-overflow: ellipsis; white-sp
 
 /* 관심 빈 상태 첫 줄의 별표가 글자와 나란히 서게 */
 .empty-id .l1 .star-ico { vertical-align: -1px; margin-right: 4px; }
+
+/* ===== 마감 임박 롤링 티커 (2026-11-13) ===== */
+/* 표 위 한 줄 — 진행중이면서 D-3 이내인 건을 일정 주기로 넘긴다. */
+.dl { display: flex; align-items: stretch; border-bottom: 1px solid var(--border); background: var(--panel2); font-size: 11.5px; flex-shrink: 0; }
+.dl-badge { display: flex; align-items: center; padding: 0 10px; color: var(--red); border-right: 1px solid var(--border); font-size: 10.5px; white-space: nowrap; }
+.dl-badge.quiet { color: var(--faint); }
+.dl-cnt { display: flex; align-items: center; padding: 0 10px; color: var(--faint); font-size: 10px; border-right: 1px solid var(--border2); white-space: nowrap; font-variant-numeric: tabular-nums; }
+.dl-cnt b { color: var(--mut); font-weight: 600; }
+.dl-empty { display: flex; align-items: center; padding: 7px 12px; color: var(--faint); font-size: 11px; }
+.dl-it { flex: 1 1 auto; min-width: 0; display: flex; align-items: center; gap: 10px; padding: 6px 12px; background: none; border: 0; color: inherit; font: inherit; text-align: left; cursor: pointer; animation: dl-in 300ms ease-out; }
+.dl-it:hover { background: #111726; }
+.dl-it:hover .dl-nm { color: #fff; }
+.dl-nm { color: var(--fg-hi); font-weight: 600; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; max-width: 52%; }
+.dl-typ { color: var(--faint); font-size: 10px; white-space: nowrap; }
+.dl-dd { color: var(--red); font-weight: 700; font-variant-numeric: tabular-nums; margin-left: auto; white-space: nowrap; }
+.dl-pos { display: flex; align-items: center; padding: 0 10px; color: var(--faint); font-size: 10px; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.dl-nav { display: flex; align-items: stretch; border-left: 1px solid var(--border2); }
+.dl-btn { display: flex; align-items: center; background: none; border: 0; border-left: 1px solid var(--border2); color: var(--faint); padding: 0 9px; cursor: pointer; }
+.dl-btn:first-child { border-left: 0; }
+.dl-btn:hover { color: var(--fg-hi); background: #111726; }
+@keyframes dl-in { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: none; } }
+@media (max-width: 760px) { .dl-typ, .dl-cnt { display: none; } .dl-nm { max-width: 58%; } }
+
+/* 단축키 힌트 줄 — 표 위 (가벼운 한 줄) */
+.khint { display: flex; align-items: center; gap: 14px; padding: 4px 12px; border-bottom: 1px solid var(--border2); color: var(--faint); font-size: 10px; flex-wrap: wrap; flex-shrink: 0; }
+.kh-l { color: #5A6577; }
+.kh-g { display: inline-flex; align-items: center; gap: 4px; }
+.kh-open { display: inline-flex; align-items: center; gap: 4px; background: none; border: 0; color: var(--faint); font: 10px var(--mono); padding: 0; cursor: pointer; }
+.kh-open:hover { color: var(--fg-hi); }
+.kh-open:hover .kbd { color: var(--blue); border-color: var(--blue); }
+
+/* 키보드 단축키 도움말 (? 키) */
+.kh-back { position: fixed; inset: 0; z-index: 60; display: flex; align-items: center; justify-content: center; padding: 20px; background: rgba(4, 6, 10, .78); }
+.kh { width: 460px; max-width: 94vw; max-height: 84vh; overflow: auto; background: #0B0E14; border: 1px solid #1E232F; }
+.kh-hd { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 10px 14px; border-bottom: 1px solid var(--border); }
+.kh-title { color: var(--fg-hi); font-weight: 700; font-size: 12.5px; }
+.kh-x { background: none; border: 1px solid var(--border); color: var(--mut); font: 10px var(--mono); padding: 2px 7px; cursor: pointer; }
+.kh-x:hover { color: var(--fg-hi); border-color: var(--blue); }
+.kh-tb { width: 100%; border-collapse: collapse; }
+.kh-tb td { padding: 7px 14px; border-bottom: 1px solid var(--border2); vertical-align: middle; }
+.kh-k { width: 104px; white-space: nowrap; }
+.kh-k .kbd { margin-right: 4px; }
+.kh-alt { color: var(--faint); font-size: 10px; margin-right: 4px; }
+.kh-d { color: var(--mut); font-size: 11px; }
+.kh-ft { padding: 8px 14px; color: var(--faint); font-size: 10px; }
+.kh-sep { color: #39445A; }
+.kh:focus, .kh:focus-visible { outline: none; }

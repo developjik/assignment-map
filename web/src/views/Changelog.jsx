@@ -1,7 +1,8 @@
 import { policyChanges, runs } from '../lib/data'
-import { POLICY_LABEL } from './Opportunities'
+import { POLICY_LABEL } from '../lib/labels'
 
 const SITELOG = [
+  { date: '2026-11-13', text: '표 위에 마감 티커를 올렸다 — D-3로 굴러들어온 건이 3.8초마다 한 칸씩 흐르고, 누르면 그 건만 남는다. 키보드는 o로 원문, ↑↓까지 받고 ?로 단축키 전체를 편다.' },
   { date: '2026-11-12', text: '검색을 표 안으로 끌어내렸다 — 기업, 주최, 상금, 기술 스택이 한 인덱스에서 걸린다. 조건 두 개(채용연계만, 정책변경만)와 마감/최신 정렬, .ics 내보내기, RSS·JSON 피드까지 이번 패스에 붙였다.' },
   { date: '2026-10-24', text: '카드를 죽이고 표를 주인으로 앉혔다. 이제 모든 컬럼이 정렬을 듣는다. j/k로 행을 걷는 것도 된다 — k9s에서 훔쳤다.' },
   { date: '2026-10-24', text: 'NEW와 채용연계 배지를 amber로 옮겼다. 빨강은 정책 이야기에만 쓴다 — 블룸버그가 그렇게 산 지 40년쯤 됐다.' },

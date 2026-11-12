@@ -1,12 +1,11 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
 import { commit, meta, policyChangeByID, policyChanges } from '../lib/data'
+import { POLICY_LABEL, STATUS_LABEL } from '../lib/labels'
 import { downloadIcs, downloadStarredIcs } from '../lib/ics'
 import { filtersFromHash, readHash, writeHash, filterPatch } from '../lib/hash'
 import { useStarred } from '../lib/starred'
-
-// 단일 어휘 맵 — 버튼·표시·정렬·방법론이 여기서만 나간다 (이슈 #3)
-export const POLICY_LABEL = { required: '필수', allowed_graded: '허용+채점', allowed: '허용', banned: '금지', unspecified: '미언급', unknown: '확인필요' }
-export const STATUS_LABEL = { open: '모집중', upcoming: '예정', judging: '심사중', closed: '종결', gone: '소멸', no_hiring: '미실시' }
+import DeadlineTicker from '../components/DeadlineTicker'
+import ShortcutsHelp from '../components/ShortcutsHelp'
 const POLICY_FILTERS = [
   { id: 'all', label: '전체 정책' },
   { id: 'required', label: 'AI 필수', cls: 'p-req' },
@@ -81,7 +80,10 @@ export default function Opportunities({ rows, type, q, setQ, onVisit }) {
   const [sort, setSort] = useState(null)
   const [cur, setCur] = useState(0)
   const [density, setDensity] = useState(() => localStorage.getItem('am-density') || 'standard')
+  const [help, setHelp] = useState(false)
+  const [notice, setNotice] = useState('')
   const curRef = useRef(null)
+  const noticeTimer = useRef(null)
 
   useEffect(() => { document.documentElement.dataset.density = density }, [density])
   useEffect(() => { localStorage.setItem('am-density', density) }, [density])
@@ -154,23 +156,74 @@ export default function Opportunities({ rows, type, q, setQ, onVisit }) {
     ? `${COLS.find(c => c.id === sort.key)?.label} ${sort.dir === 1 ? '오름차순' : '내림차순'} 정렬, ${filtered.length}건`
     : `${SORT_MODES.find(s => s.id === sortMode)?.label} 정렬, ${filtered.length}건`
 
+  // 잠깐 뜨는 안내 (원문 링크가 없는 행에서 o 를 눌렀을 때 등) — 스크린리더에도 읽힌다
+  const flash = (msg) => {
+    setNotice(msg)
+    clearTimeout(noticeTimer.current)
+    noticeTimer.current = setTimeout(() => setNotice(''), 2600)
+  }
+
+  const pickDeadline = (r) => {
+    setQ(r.name)
+    setOpenRow(r.id)
+    setCur(0)
+    onVisit && onVisit(r)
+  }
+
   useEffect(() => {
     const onKey = (e) => {
-      if (['INPUT', 'TEXTAREA'].includes(document.activeElement.tagName)) return
-      if (e.key === 'j') setCur(c => Math.min(c + 1, filtered.length - 1))
-      else if (e.key === 'k') setCur(c => Math.max(c - 1, 0))
-      else if (e.key === 'Enter') {
+      const el = document.activeElement
+      const typing = el && ['INPUT', 'TEXTAREA', 'SELECT'].includes(el.tagName)
+
+      // 도움말이 열려 있으면 닫기 키만 받는다
+      if (help) {
+        if (e.key === 'Escape' || e.key === '?') { e.preventDefault(); setHelp(false) }
+        return
+      }
+      if (e.key === 'Escape') {
+        if (typing) { el.blur(); return }
+        if (openRow !== null) { setOpenRow(null); return }
+        return
+      }
+      if (typing) return
+      if (e.key === '?' || (e.key === '/' && e.shiftKey)) {
+        e.preventDefault()
+        if (el && el.blur) el.blur()
+        setHelp(true)
+        return
+      }
+      if (e.key === 'j' || e.key === 'ArrowDown') {
+        if (e.key === 'ArrowDown') e.preventDefault()
+        setCur(c => Math.min(c + 1, filtered.length - 1))
+        return
+      }
+      if (e.key === 'k' || e.key === 'ArrowUp') {
+        if (e.key === 'ArrowUp') e.preventDefault()
+        setCur(c => Math.max(c - 1, 0))
+        return
+      }
+      if (e.key === 'Enter') {
         const r = filtered[cur]
         if (r) { setOpenRow(o => (o === r.id ? null : r.id)); onVisit && onVisit(r) }
+        return
       }
-      else if (e.key === 's') {
+      if (e.key === 's') {
         const r = filtered[cur]
         if (r) toggleStar(r.id)
+        return
+      }
+      if (e.key === 'o') {
+        const r = filtered[cur]
+        if (!r) return
+        if (r.url) window.open(r.url, '_blank', 'noopener')
+        else flash('원문 링크가 없는 행이다 | 상세에서 수집 출처를 확인한다')
       }
     }
     window.addEventListener('keydown', onKey)
     return () => window.removeEventListener('keydown', onKey)
-  }, [filtered, cur, onVisit, toggleStar])
+  }, [filtered, cur, onVisit, toggleStar, help, openRow])
+
+  useEffect(() => () => clearTimeout(noticeTimer.current), [])
 
   // 커서 추적 — 뷰포트 벗어나면 스크롤 (이슈 #2)
   useEffect(() => { curRef.current?.scrollIntoView({ block: 'nearest' }) }, [cur, filtered])
@@ -194,6 +247,7 @@ export default function Opportunities({ rows, type, q, setQ, onVisit }) {
 
   return (
     <>
+      <DeadlineTicker rows={rows} onPick={pickDeadline} />
       <div className="ctxbar" role="status">
         <span className="ok"><i aria-hidden="true"></i>수집 <b>{meta.last_run || '-'}</b> 03:00 KST</span>
         <span>commit <b>{commit}</b></span>
@@ -258,6 +312,18 @@ export default function Opportunities({ rows, type, q, setQ, onVisit }) {
           : <>매칭 <b>{filtered.length}</b>건</>}</span>
         <div className="sr" aria-live="polite">{sortMsg}</div>
       </div>
+      <div className="khint">
+        <span className="kh-l">단축키</span>
+        <span className="kh-g"><span className="kbd">j</span><span className="kbd">k</span>이동</span>
+        <span className="kh-sep" aria-hidden="true">|</span>
+        <span className="kh-g"><span className="kbd">o</span>원문</span>
+        <span className="kh-sep" aria-hidden="true">|</span>
+        <span className="kh-g"><span className="kbd">s</span>관심</span>
+        <span className="kh-sep" aria-hidden="true">|</span>
+        <button type="button" className="kh-open" onClick={() => setHelp(true)} aria-label="키보드 단축키 도움말 열기">
+          <span className="kbd">?</span>도움말
+        </button>
+      </div>
       <div className="twrap tscroll">
         <table>
           <colgroup>
@@ -305,11 +371,16 @@ export default function Opportunities({ rows, type, q, setQ, onVisit }) {
       </div>
       <div className="keybar" aria-hidden="true">
         <span><span className="kbd">j</span><span className="kbd">k</span>행 이동</span>
+        <span><span className="kbd">↑</span><span className="kbd">↓</span>행 이동</span>
         <span><span className="kbd">Enter</span>상세 확장</span>
+        <span><span className="kbd">o</span>원문 열기</span>
         <span><span className="kbd">s</span>관심 등록</span>
         <span><span className="kbd">/</span>검색</span>
-        <span><span className="kbd">Esc</span>검색 해제</span>
+        <span><span className="kbd">Esc</span>닫기</span>
+        <span><span className="kbd">?</span>도움말</span>
       </div>
+      <div className="sr" role="status">{notice}</div>
+      {help && <ShortcutsHelp onClose={() => setHelp(false)} />}
     </>
   )
 }
