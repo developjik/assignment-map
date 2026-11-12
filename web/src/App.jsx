@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from 'react'
 import { rows, platforms, news, runs, stats, sparkPoints, commit, meta, ddayText } from './lib/data'
+import { readHash, writeHash } from './lib/hash'
 import Rail from './components/Rail'
 import Ticker from './components/Ticker'
 import Opportunities from './views/Opportunities'
@@ -11,8 +12,20 @@ import Method from './views/Method'
 const TABS = ['all', 'postings', 'hackathon', 'competition', 'contest', 'platforms', 'news', 'changelog', 'method']
 
 export default function App() {
-  const [tab, setTab] = useState(() => (location.hash.match(/t=(\w+)/) || [])[1] || 'all')
-  const [q, setQ] = useState(() => decodeURIComponent((location.hash.match(/q=([^&]+)/) || [])[1] || ''))
+  const [tab, setTab] = useState(() => {
+    const t = readHash().t
+    return TABS.includes(t) ? t : 'all'
+  })
+  const [q, setQ] = useState(() => readHash().q || '')
+  // 해시의 t= 가 바뀌면(링크 붙여넣기, 뒤로/앞으로) 탭도 따라간다
+  useEffect(() => {
+    const onHash = () => {
+      const t = readHash().t
+      setTab(TABS.includes(t) ? t : 'all')
+    }
+    window.addEventListener('hashchange', onHash)
+    return () => window.removeEventListener('hashchange', onHash)
+  }, [])
   const [recent, setRecent] = useState(() => {
     try { return JSON.parse(localStorage.getItem('am-recent') || '[]') } catch { return [] }
   })
@@ -36,10 +49,9 @@ export default function App() {
     return () => window.removeEventListener('keydown', onKey)
   }, [])
 
-  // 뷰 상태를 URL 해시로 (공유/복원) — 탭과 검색어
+  // 탭·검색어를 URL 해시에 병합한다 — 필터 키(policy 등)는 Opportunities가 쓴다
   useEffect(() => {
-    const h = tab === 'all' && !q ? '' : `#t=${tab}${q ? '&q=' + encodeURIComponent(q) : ''}`
-    history.replaceState(null, '', location.pathname + h)
+    writeHash({ t: tab === 'all' ? null : tab, q: q || null })
   }, [tab, q])
 
   const counts = useMemo(() => ({
