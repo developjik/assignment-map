@@ -71,5 +71,15 @@ fs.writeFileSync(cwd + '/dist/sitemap.xml', sitemap)
 // ==== B. robots.txt ====
 fs.writeFileSync(cwd + '/dist/robots.txt', `User-agent: *\nAllow: /\nSitemap: ${SITE}/sitemap.xml\n`)
 
+// ==== C. OG 메타 이미지 (1200x630) — 수집 지표를 그대로 그린다 ====
+try {
+  const og = execSync('python3 scripts/generate-og.py', { cwd, stdio: ['ignore', 'pipe', 'pipe'] }).toString().trim()
+  if (og) console.log(og)
+} catch (e) {
+  const why = (e.stderr || e.stdout || '').toString().trim().split('\n').pop()
+  console.warn(`OG SKIP — python3/generate-og.py 실행 실패${why ? ` (${why})` : ''}`)
+}
+
 const kb = (fs.statSync(cwd + '/dist/assets/app.js').size / 1024).toFixed(1)
-console.log(`BUILD OK — app.js ${kb}KB (terser) | feed.xml + feed.json ${feeds.count} items | sitemap+robots+data/*.json OK | commit ${commit}`)
+const ogKb = fs.existsSync(cwd + '/dist/og-image.png') ? (fs.statSync(cwd + '/dist/og-image.png').size / 1024).toFixed(0) + 'KB' : 'none'
+console.log(`BUILD OK — app.js ${kb}KB (terser) | feed.xml + feed.json ${feeds.count} items | sitemap+robots+data/*.json OK | og-image.png ${ogKb} | commit ${commit}`)
