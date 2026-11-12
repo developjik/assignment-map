@@ -277,3 +277,26 @@ td.c-sub { max-width: 210px; overflow: hidden; text-overflow: ellipsis; white-sp
 
 /* 좁은 화면: 검색 안내문은 숨긴다 */
 @media (max-width: 760px) { .qhint { display: none; } }
+
+/* ===== 관심(북마크) — 2026-11-12 ===== */
+/* 행 이름 앞 별표: 기본은 테두리만, 담으면 채운다 (노랑 = 관심) */
+.star { background: none; border: 0; padding: 0; margin: 0 6px 0 0; color: #66738A; cursor: pointer; line-height: 0; vertical-align: -1px; }
+.star .star-ico { display: block; }
+.star:hover { color: var(--yellow); }
+.star.on { color: var(--yellow); }
+
+/* 필터 줄의 관심 토글 */
+.fopt.star-f { display: inline-flex; align-items: center; gap: 5px; }
+.fopt.star-f .star-ico { display: block; }
+.fopt.star-f.on { color: var(--yellow); background: #1B1710; }
+.fopt.star-f b { color: var(--faint); font-weight: 600; font-variant-numeric: tabular-nums; }
+.fopt.star-f.on b { color: var(--yellow); }
+
+/* 관심만 .ics 일괄 내보내기 */
+.fopt.ics-star { color: var(--yellow); }
+
+/* 상세 안 관심 버튼 */
+.ics.act.starbtn.on { color: var(--yellow); border-color: var(--yellow); }
+
+/* 관심 빈 상태 첫 줄의 별표가 글자와 나란히 서게 */
+.empty-id .l1 .star-ico { vertical-align: -1px; margin-right: 4px; }

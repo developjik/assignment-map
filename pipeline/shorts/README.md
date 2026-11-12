@@ -96,6 +96,57 @@ manifest 항목에는 `type`(`posting`/`event`), `track`, `template`(`28s-v1`), 
 ## 6. 디렉터리 구조
 
 - `generator.py`: 파이프라인 메인 실행 스크립트
-- `renderer.py`: TTS(edge-tts) + 씬 이미지 + 자막 → 1080x1920 mp4 렌더러
+- `renderer.py`: TTS(edge-tts) + 터미널 프레임(Pillow) + ffmpeg → 1080x1920 mp4 렌더러
 - `manifest.json`: 생성 및 예약 발행 상태 추적 레지스트리
 - `output/`: 생성된 슬롯별 마크다운 대본(`*.md`) 및 렌더링용 JSON(`*.json`)
+- `renders/`: 렌더링된 mp4 (git 미추적, `.gitignore`)
+
+## 7. 영상 렌더러 (`renderer.py`) — 대본에서 ₩0 mp4까지
+
+대본 JSON(`output/*.json`) 하나를 받아 **외부 유료 API 없이** 세로 쇼츠를 끝낸다. TTS는 `edge-tts`(무료), 화면은 Pillow, 합성은 `ffmpeg`만 쓴다. AI 생성 이미지·스톡 그래픽·영상 템플릿을 쓰지 않는다.
+
+```bash
+# 3~5초 샘플로 파이프라인 무결성 점검 (TTS 실패 시 무음으로 대체)
+python3 pipeline/shorts/renderer.py --test
+
+# output/에서 최신(대기 중) 대본 자동 선택
+python3 pipeline/shorts/renderer.py --latest
+
+# 특정 대본 지정
+python3 pipeline/shorts/renderer.py --script pipeline/shorts/output/2026-11-12-lunch-ko-0002.json
+```
+
+| 인자 | 의미 | 기본값 |
+|---|---|---|
+| `--script PATH` | 대본 JSON 경로 | - |
+| `--latest` | `output/`에서 최신 대본(manifest의 queued 우선) | - |
+| `--test` | 더미 대본으로 3~5초 샘플 mp4 | - |
+| `--out PATH` | 출력 mp4 경로 | `renders/<대본이름>.mp4` |
+| `--voice NAME` | edge-tts 음성 | `ko-KR-InJoonNeural` (`ko-KR-SunHiNeural` 가능) |
+| `--fps N` | 프레임 레이트 | 30 |
+| `--silent` | TTS 없이 무음 렌더 (오프라인 점검) | 꺼짐 |
+| `--keep-temp` | `renders/.work` 작업 폴더 보존 | 꺼짐 |
+
+### 화면 구성 (안티-슬롭)
+
+1080x1920 세로, 배경 `#0B0E14`, 전부 텍스트와 규칙선이다.
+
+1. 상단: `$ assignment-map run --shorts` 프롬프트가 글자 단위로 찍히고 커서가 깜빡인다.
+2. D-day(`D-8`)와 상태, 대상 기업/대회명(공백 단위 줄바꿈, 최대 4줄), 주최.
+3. AI 정책 배지 — 필수(빨강)/허용+채점(파랑)/허용(초록)/미언급(노랑) 테두리 박스.
+4. `$ facts --top 3` 아래 핵심 팩트 3줄 — 대본 중간 장면의 자막에서 뽑고, 부족하면 마감·혜택·정책으로 채운다. 발화 진행에 맞춰 한 줄씩 찍히고 마지막 줄이 가장 밝다.
+5. 하단: `$ open developjik.github.io/assignment-map` CTA 박스와 진행 바.
+
+한글 본문은 비례 폰트(Noto Sans CJK KR), 프롬프트·수치·코드 라인은 모노 폰트(Noto Sans Mono CJK KR)를 쓴다. 이모지와 원문자(①)는 렌더 전에 걷어낸다.
+
+### 길이 맞춤과 오디오
+
+- TTS 속도를 **+15%에서 시작해 0%까지 내려가며** 26~28초 구간에 드는 첫 값을 쓴다(대본이 짧으면 늦춰서 맞춘다).
+- edge-tts가 앞뒤에 붙이는 무음만 잘라내고, 문장 사이 쉼은 그대로 둔다.
+- +15%로도 28.6초를 넘으면 대본이 긴 것이므로 그대로 렌더링하고 경고를 남긴다. `generator.py`가 만드는 28s-v1 대본(130~145자)은 26~28초에 들어온다.
+- 진행 바와 팩트 공개 시점은 실제 오디오 길이를 기준으로 계산하므로 자막 싱크가 어긋나지 않는다.
+
+### 산출물
+
+`renders/<대본이름>.mp4` — H.264(yuv420p) + AAC 128k, `+faststart`, 1080x1920. 예: `--test` 결과 `renders/test-YYYYmmdd-HHMMSS.mp4`.
+

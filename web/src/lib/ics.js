@@ -92,7 +92,7 @@ function descriptionFor(r) {
   ].filter(Boolean).join('\n')
 }
 
-export function buildIcs(list, { now = new Date() } = {}) {
+export function buildIcs(list, { now = new Date(), calName = '과제지도 마감' } = {}) {
   const events = (list || []).filter((r) => icsDate(r.deadline))
   const lines = [
     'BEGIN:VCALENDAR',
@@ -100,7 +100,7 @@ export function buildIcs(list, { now = new Date() } = {}) {
     `PRODID:${PRODID}`,
     'CALSCALE:GREGORIAN',
     'METHOD:PUBLISH',
-    'X-WR-CALNAME:과제지도 마감',
+    `X-WR-CALNAME:${icsText(calName)}`,
     'X-WR-TIMEZONE:Asia/Seoul',
   ]
   for (const r of events) {
@@ -142,17 +142,31 @@ export function icsFileName(list) {
 }
 
 // 브라우저 다운로드 (테스트 환경에서 document가 없으면 문자열만 만든다)
-export function downloadIcs(list) {
-  const text = buildIcs(list)
+export function saveText(text, filename) {
   if (typeof document === 'undefined') return text
   const blob = new Blob([text], { type: 'text/calendar;charset=utf-8' })
   const url = URL.createObjectURL(blob)
   const a = document.createElement('a')
   a.href = url
-  a.download = icsFileName(list)
+  a.download = filename
   document.body.appendChild(a)
   a.click()
   a.remove()
   setTimeout(() => URL.revokeObjectURL(url), 1000)
   return text
+}
+
+export function downloadIcs(list) {
+  return saveText(buildIcs(list), icsFileName(list))
+}
+
+// 관심 등록한 건만 모아 하나의 .ics로 일괄 저장 (파일명 고정)
+export const STARRED_ICS_FILE = 'assignment-map-starred.ics'
+
+export function buildStarredIcs(starredRows, { now = new Date() } = {}) {
+  return buildIcs(starredRows, { now, calName: '과제지도 관심' })
+}
+
+export function downloadStarredIcs(starredRows) {
+  return saveText(buildStarredIcs(starredRows), STARRED_ICS_FILE)
 }

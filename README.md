@@ -67,7 +67,9 @@ React 18 + Rollup 3, 순수 JS 툴체인(네이티브 바이너리 없음). 빌�
 
 - **표가 주인공**: j/k 행 이동, Enter 확장, `/` 검색, Esc 해제. 모든 컬럼 정렬 가능.
 - **검색**: 제목·기업/주최·상금·직군/기술 키워드를 한 인덱스에서 찾고, 공백으로 여러 단어를 넣으면 AND로 좁힌다.
-- **조건**: AI 정책(필수/허용+채점/허용/미언급), 상태, 직군(FE), 채용연계만, 정책변경만.
+- **조건**: AI 정책(필수/허용+채점/허용/미언급), 상태, 직군(FE), 채용연계만, 정책변경만, 관심(별표)만.
+- **관심(별표)**: 행 이름 앞 별표 또는 `s` 키로 담고 뺀다. `localStorage['am-starred']`에 ID 배열로 남아 새로고침·재방문에도 유지되고, `관심 (N)` 필터로 별표한 것만 볼 수 있다. `관심 .ics`는 별표한 건의 마감만 모아 `assignment-map-starred.ics` 하나로 내려받는다.
+- **딥링크**: 탭·검색어와 모든 필터 상태가 URL 해시에 남는다. `#t=postings&policy=required&jobfam=fe`로 들어가면 '채용 과제 + AI 필수 + FE'가 켜진 화면이 바로 뜨고, 조건을 바꿀 때마다 `history.replaceState`로 조용히 갱신된다(뒤로가기 기록을 더럽히지 않는다).
 - **정렬**: 마감 임박(지난 마감과 상시는 뒤로) / 최신 등록, 또는 컬럼 헤더 클릭.
 - **캘린더**: 행 상세의 `.ics` 버튼은 그 공고의 마감일을 종일 일정으로, 상단 `.ics 내보내기`는 지금 보이는 목록 전체를 VCALENDAR로 내려받는다(마감 3일 전 알람 포함).
 - **피드**: `feed.xml`(RSS 2.0)과 `feed.json`(JSON Feed)을 빌드마다 생성한다.
@@ -106,7 +108,11 @@ pipeline/   shorts/ (이벤트 → 쇼츠 대본 파이프라인)
 python3 pipeline/shorts/generator.py --track mixed --count 4 --date 2026-11-12 --dry-run   # 후보만 확인
 python3 pipeline/shorts/generator.py --track posting --count 1                              # 기업 채용 과제 1편
 python3 pipeline/shorts/generator.py --prune-only                                           # 지난 큐 정리
+python3 pipeline/shorts/renderer.py --test                                                  # 3~5초 샘플 mp4 (파이프라인 점검)
+python3 pipeline/shorts/renderer.py --latest --out pipeline/shorts/renders/today.mp4        # 최신 대본 → mp4
 ```
+
+`renderer.py`는 대본을 TTS(edge-tts)와 터미널 프레임(Pillow), ffmpeg만으로 1080x1920 mp4로 끝낸다 — 외주 편집도, 유료 영상 API도, AI 생성 이미지도 쓰지 않는다(운영비 ₩0). 세부 옵션은 [pipeline/shorts/README.md](pipeline/shorts/README.md) 참고.
 
 ## 기술 스택
 

@@ -1,6 +1,8 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
 import { commit, meta, policyChangeByID, policyChanges } from '../lib/data'
-import { downloadIcs } from '../lib/ics'
+import { downloadIcs, downloadStarredIcs } from '../lib/ics'
+import { filtersFromHash, readHash, writeHash, filterPatch } from '../lib/hash'
+import { useStarred } from '../lib/starred'
 
 // 단일 어휘 맵 — 버튼·표시·정렬·방법론이 여기서만 나간다 (이슈 #3)
 export const POLICY_LABEL = { required: '필수', allowed_graded: '허용+채점', allowed: '허용', banned: '금지', unspecified: '미언급', unknown: '확인필요' }
@@ -40,6 +42,21 @@ const relDays = (dateStr) => {
   return d + '일 전'
 }
 
+// 별표 아이콘 — 이모지 문자 대신 인라인 SVG (모노크롬 유지, 폰트 의존 없음)
+function StarIcon({ filled }) {
+  return (
+    <svg className="star-ico" width="12" height="12" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+      <path
+        d="M12 2.6l2.95 6.1 6.7.9-4.85 4.7 1.2 6.65L12 17.8l-6 3.15 1.2-6.65L2.35 9.6l6.7-.9z"
+        fill={filled ? 'currentColor' : 'none'}
+        stroke="currentColor"
+        strokeWidth="1.7"
+        strokeLinejoin="round"
+      />
+    </svg>
+  )
+}
+
 function Hl({ text, q }) {
   const t = text || ''
   const ql = (q || '').trim().toLowerCase()
@@ -50,11 +67,15 @@ function Hl({ text, q }) {
 }
 
 export default function Opportunities({ rows, type, q, setQ, onVisit }) {
-  const [policy, setPolicy] = useState('all')
-  const [jobfam, setJobfam] = useState('all')
-  const [status, setStatus] = useState('open')
-  const [hiringOnly, setHiringOnly] = useState(false)
-  const [changedOnly, setChangedOnly] = useState(false)
+  // 첫 진입 필터는 URL 해시에서 (딥링크: #t=postings&policy=required&jobfam=fe)
+  const initial = useMemo(() => filtersFromHash(readHash()), [])
+  const [policy, setPolicy] = useState(initial.policy)
+  const [jobfam, setJobfam] = useState(initial.jobfam)
+  const [status, setStatus] = useState(initial.status)
+  const [hiringOnly, setHiringOnly] = useState(initial.hiringOnly)
+  const [changedOnly, setChangedOnly] = useState(initial.changedOnly)
+  const [starredOnly, setStarredOnly] = useState(initial.starredOnly)
+  const [starredIds, toggleStar] = useStarred()
   const [sortMode, setSortMode] = useState('dday')
   const [openRow, setOpenRow] = useState(null)
   const [sort, setSort] = useState(null)
@@ -65,6 +86,22 @@ export default function Opportunities({ rows, type, q, setQ, onVisit }) {
   useEffect(() => { document.documentElement.dataset.density = density }, [density])
   useEffect(() => { localStorage.setItem('am-density', density) }, [density])
 
+  // 필터 상태를 URL 해시에 반영 (탭·검색어 키는 App이 쓰므로 건드리지 않는다)
+  useEffect(() => {
+    writeHash(filterPatch({ policy, jobfam, status, hiringOnly, changedOnly, starredOnly }))
+  }, [policy, jobfam, status, hiringOnly, changedOnly, starredOnly])
+
+  // 같은 탭에서 해시만 바뀌면(링크 붙여넣기, 뒤로/앞으로) 상태를 다시 맞춘다
+  useEffect(() => {
+    const onHash = () => {
+      const f = filtersFromHash(readHash())
+      setPolicy(f.policy); setJobfam(f.jobfam); setStatus(f.status)
+      setHiringOnly(f.hiringOnly); setChangedOnly(f.changedOnly); setStarredOnly(f.starredOnly)
+    }
+    window.addEventListener('hashchange', onHash)
+    return () => window.removeEventListener('hashchange', onHash)
+  }, [])
+
   const typeMatch = useMemo(() => {
     if (type === 'all') return () => true
     if (type === 'postings') return (r) => r.kind === 'posting'
@@ -73,10 +110,14 @@ export default function Opportunities({ rows, type, q, setQ, onVisit }) {
     return (r) => r.type === label
   }, [type])
 
+  const starredSet = useMemo(() => new Set(starredIds), [starredIds])
+  const starredRows = useMemo(() => rows.filter((r) => starredSet.has(r.id)), [rows, starredSet])
+
   const { filtered, totalNoStatus } = useMemo(() => {
     const tokens = (q || '').trim().toLowerCase().split(/\s+/).filter(Boolean)
     const base = (r) => {
       if (!typeMatch(r)) return false
+      if (starredOnly && !starredSet.has(r.id)) return false
       if (jobfam === 'fe' && r.kind === 'posting' && !(r.positions || []).includes('frontend')) return false
       if (policy === 'required' && r.policyKey !== 'required') return false
       if (policy === 'allowed_graded' && r.policyKey !== 'allowed_graded') return false
@@ -107,7 +148,7 @@ export default function Opportunities({ rows, type, q, setQ, onVisit }) {
     else if (sortMode === 'latest') out.sort((a, b) => openFirst(a, b) || byLatest(a, b) || byDday(a, b))
     else out.sort((a, b) => openFirst(a, b) || byDday(a, b))
     return { filtered: out, totalNoStatus: noStatus.length }
-  }, [rows, typeMatch, jobfam, policy, status, hiringOnly, changedOnly, q, sort, sortMode])
+  }, [rows, typeMatch, jobfam, policy, status, hiringOnly, changedOnly, starredOnly, starredSet, q, sort, sortMode])
 
   const sortMsg = sort
     ? `${COLS.find(c => c.id === sort.key)?.label} ${sort.dir === 1 ? '오름차순' : '내림차순'} 정렬, ${filtered.length}건`
@@ -122,19 +163,23 @@ export default function Opportunities({ rows, type, q, setQ, onVisit }) {
         const r = filtered[cur]
         if (r) { setOpenRow(o => (o === r.id ? null : r.id)); onVisit && onVisit(r) }
       }
+      else if (e.key === 's') {
+        const r = filtered[cur]
+        if (r) toggleStar(r.id)
+      }
     }
     window.addEventListener('keydown', onKey)
     return () => window.removeEventListener('keydown', onKey)
-  }, [filtered, cur, onVisit])
+  }, [filtered, cur, onVisit, toggleStar])
 
   // 커서 추적 — 뷰포트 벗어나면 스크롤 (이슈 #2)
   useEffect(() => { curRef.current?.scrollIntoView({ block: 'nearest' }) }, [cur, filtered])
 
-  useEffect(() => { setCur(0) }, [type, jobfam, policy, status, hiringOnly, changedOnly, q, sortMode])
+  useEffect(() => { setCur(0) }, [type, jobfam, policy, status, hiringOnly, changedOnly, starredOnly, q, sortMode])
 
   const resetFilters = () => {
     setPolicy('all'); setStatus('open'); setSort(null); setSortMode('dday')
-    setJobfam('all'); setHiringOnly(false); setChangedOnly(false); setQ('')
+    setJobfam('all'); setHiringOnly(false); setChangedOnly(false); setStarredOnly(false); setQ('')
   }
   const clickSort = (key) => {
     if (!sort || sort.key !== key) setSort({ key, dir: 1 })
@@ -144,6 +189,8 @@ export default function Opportunities({ rows, type, q, setQ, onVisit }) {
 
   const exportable = filtered.filter((r) => r.deadline)
   const exportAll = () => { if (exportable.length) downloadIcs(exportable) }
+  const starredExportable = starredRows.filter((r) => r.deadline)
+  const exportStarred = () => { if (starredExportable.length) downloadStarredIcs(starredExportable) }
 
   return (
     <>
@@ -187,6 +234,10 @@ export default function Opportunities({ rows, type, q, setQ, onVisit }) {
           onClick={() => setHiringOnly(v => !v)} title="채용 연계 혜택이 있는 이벤트만">채용연계만</button>
         <button className={'fopt tog tog-chg' + (changedOnly ? ' on' : '')} aria-pressed={changedOnly}
           onClick={() => setChangedOnly(v => !v)} title="AI 정책이 도입되거나 바뀐 기록이 있는 건만">정책변경만</button>
+        <button className={'fopt star-f' + (starredOnly ? ' on' : '')} aria-pressed={starredOnly}
+          onClick={() => setStarredOnly(v => !v)} title="별표한 공고·이벤트만 보기">
+          <StarIcon filled={starredOnly} />관심 <b>{starredRows.length}</b>
+        </button>
         <span className="fl">정렬</span>
         {SORT_MODES.map((s) => (
           <button key={s.id} className={'fopt' + (sortMode === s.id && !sort ? ' on' : '')}
@@ -195,6 +246,8 @@ export default function Opportunities({ rows, type, q, setQ, onVisit }) {
         ))}
         <button className="fopt ics" onClick={exportAll} disabled={!exportable.length}
           title="현재 조건에 보이는 건의 마감일을 iCalendar 파일로 내려받는다">.ics 내보내기 {exportable.length > 0 ? exportable.length : ''}</button>
+        <button className="fopt ics ics-star" onClick={exportStarred} disabled={!starredExportable.length}
+          title="관심 등록한 건의 마감일만 모아 assignment-map-starred.ics 하나로 내려받는다">관심 .ics {starredExportable.length > 0 ? starredExportable.length : ''}</button>
         <span className="dens" role="group" aria-label="행 밀도">
           <button className={density === 'compact' ? 'on' : ''} onClick={() => setDensity('compact')} title="컴팩트">compact</button>
           <button className={density === 'standard' ? 'on' : ''} onClick={() => setDensity('standard')} title="표준">standard</button>
@@ -229,15 +282,22 @@ export default function Opportunities({ rows, type, q, setQ, onVisit }) {
           <tbody>
             {filtered.length === 0 && (
               <tr><td colSpan={7}>
-                <div className="empty-id">
-                  <div className="l1">지금 이 조건에 걸리는 기회가 없을 뿐이다.</div>
-                  <div className="l2">Esc 또는 초기화로 조건을 풀고, 매일 03:00 KST에 다시 수집한다.</div>
-                </div>
+                {starredOnly && starredRows.length === 0 ? (
+                  <div className="empty-id">
+                    <div className="l1"><StarIcon filled={false} /> 관심 등록된 공고가 없습니다</div>
+                    <div className="l2">행 왼쪽 별표를 누르면 여기 모인다. 모은 건은 '관심 .ics'로 한 번에 내려받는다.</div>
+                  </div>
+                ) : (
+                  <div className="empty-id">
+                    <div className="l1">지금 이 조건에 걸리는 기회가 없을 뿐이다.</div>
+                    <div className="l2">Esc 또는 초기화로 조건을 풀고, 매일 03:00 KST에 다시 수집한다.</div>
+                  </div>
+                )}
               </td></tr>
             )}
             {filtered.map((r, i) => (
               <Row key={r.id} r={r} q={q} zebra={i % 2 === 1} idx={i} curIdx={cur} setCur={setCur} curRef={curRef}
-                expanded={openRow === r.id}
+                expanded={openRow === r.id} starred={starredSet.has(r.id)} onStar={toggleStar}
                 onToggle={() => { setOpenRow(openRow === r.id ? null : r.id); onVisit && onVisit(r) }} />
             ))}
           </tbody>
@@ -246,6 +306,7 @@ export default function Opportunities({ rows, type, q, setQ, onVisit }) {
       <div className="keybar" aria-hidden="true">
         <span><span className="kbd">j</span><span className="kbd">k</span>행 이동</span>
         <span><span className="kbd">Enter</span>상세 확장</span>
+        <span><span className="kbd">s</span>관심 등록</span>
         <span><span className="kbd">/</span>검색</span>
         <span><span className="kbd">Esc</span>검색 해제</span>
       </div>
@@ -259,7 +320,7 @@ function nextRun(last) {
   return d.toISOString().slice(0, 10)
 }
 
-function Row({ r, q, zebra, idx, curIdx, setCur, curRef, expanded, onToggle }) {
+function Row({ r, q, zebra, idx, curIdx, setCur, curRef, expanded, starred, onStar, onToggle }) {
   const isNew = r.first && r.first >= new Date(Date.now() - 2 * 864e5).toISOString().slice(0, 10)
   const hot = r.open && r.dd !== null && r.dd >= 0 && r.dd <= 3
   const ddCls = r.dd === null ? 'dd pass' : r.dd < 0 ? 'dd pass' : r.dd <= 3 ? 'dd hot' : 'dd'
@@ -271,6 +332,12 @@ function Row({ r, q, zebra, idx, curIdx, setCur, curRef, expanded, onToggle }) {
       <tr className={cls} ref={idx === curIdx ? curRef : undefined} aria-selected={idx === curIdx}
         onClick={(e) => { setCur(idx); onToggle() }}>
         <td className="c-name" data-col="name">
+          <button type="button" className={'star' + (starred ? ' on' : '')} aria-pressed={starred}
+            aria-label={starred ? `${r.name} 관심 해제` : `${r.name} 관심 등록`}
+            title={starred ? '관심 해제' : '관심 등록 - 모아서 .ics로 내려받는다'}
+            onClick={(e) => { e.stopPropagation(); onStar(r.id) }}>
+            <StarIcon filled={starred} />
+          </button>
           <span className="co" title={r.name}><Hl text={r.name} q={q} /></span>
           {r.hiring && <span className="badge">채용연계</span>}
           {isNew && <span className="badge">NEW</span>}
@@ -311,6 +378,11 @@ function Row({ r, q, zebra, idx, curIdx, setCur, curRef, expanded, onToggle }) {
                 {r.url
                   ? <a href={r.url} target="_blank" rel="noreferrer" onClick={(e) => e.stopPropagation()}>원문 열기</a>
                   : <span className="src">원문 미확보 (수집 {r.first || r.checked || '-'})</span>}
+                <button className={'ics act starbtn' + (starred ? ' on' : '')}
+                  title={starred ? '관심 목록에서 뺀다' : '관심 목록에 담는다 (s)'}
+                  onClick={(e) => { e.stopPropagation(); onStar(r.id) }}>
+                  {starred ? '관심 해제' : '관심 등록'}
+                </button>
                 {r.deadline && (
                   <button className="ics act" title={`${r.deadline} 종일 일정으로 캘린더에 넣는다`}
                     onClick={(e) => { e.stopPropagation(); downloadIcs([r]) }}>.ics 마감 일정 내려받기</button>
