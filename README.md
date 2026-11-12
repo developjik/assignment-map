@@ -100,11 +100,12 @@ pipeline/   shorts/ (이벤트 → 쇼츠 대본 파이프라인)
 
 ## 쇼츠 파이프라인 (pipeline/shorts/)
 
-`data/events.json`에서 마감·채용연계·AI 정책·상금으로 점수를 매겨 대본을 만든다. 큐는 `manifest.json`이 관리하고, 마감이 지난 queued 항목은 `--prune-only`로 정리한다.
+`data/events.json`(해커톤·공모전)과 `data/postings.json`(기업 채용 과제)에서 마감·채용연계·AI 정책·상금/직무로 점수를 매겨 28초 대본을 만든다. `--track posting|event|mixed`로 소재 트랙을 고르고(기본 mixed), 큐는 `manifest.json`이 관리하며 마감이 지난 queued 항목은 `--prune-only`로 정리한다.
 
 ```bash
-python3 pipeline/shorts/generator.py --count 4 --date 2026-11-12 --dry-run   # 후보만 확인
-python3 pipeline/shorts/generator.py --prune-only                            # 지난 큐 정리
+python3 pipeline/shorts/generator.py --track mixed --count 4 --date 2026-11-12 --dry-run   # 후보만 확인
+python3 pipeline/shorts/generator.py --track posting --count 1                              # 기업 채용 과제 1편
+python3 pipeline/shorts/generator.py --prune-only                                           # 지난 큐 정리
 ```
 
 ## 기술 스택
