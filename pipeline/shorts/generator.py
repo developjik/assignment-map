@@ -541,12 +541,12 @@ def posting_visuals(posting):
     company = clean_fragment(posting.get("company")) or "채용 공고"
     return [
         # 안티-슬롭: AI 일러스트 대신 실제 공고 화면과 터미널 UI
-        f"9:16 screenshot of a real Korean job posting page, the line asking for an assignment "
-        f"highlighted in a thin accent box, company logo area blurred, no illustration, flat UI, "
-        f"crisp browser chrome, dark surroundings",
-        f"9:16 dark IDE terminal split view: left side code diff, right side three flat data cards "
-        f"labeled 전형, AI 기준, 마감 in Korean, monospace numerals, one accent color, no glow, "
-        f"no cyberpunk effects, real product UI look",
+        "9:16 screenshot of a real Korean job posting page, the line asking for an assignment "
+        "highlighted in a thin accent box, company logo area blurred, no illustration, flat UI, "
+        "crisp browser chrome, dark surroundings",
+        "9:16 dark IDE terminal split view: left side code diff, right side three flat data cards "
+        "labeled 전형, AI 기준, 마감 in Korean, monospace numerals, one accent color, no glow, "
+        "no cyberpunk effects, real product UI look",
         f"9:16 dark dashboard of assignment-map.dev filtered to {company}, list rows of AI assignment "
         f"postings with D-day badges, cursor pointing at the profile link, minimal bento layout, "
         f"no neon, no 3D",
