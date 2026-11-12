@@ -197,7 +197,20 @@ td.c-sub { max-width: 210px; overflow: hidden; text-overflow: ellipsis; white-sp
 
 /* 모바일: 부차 컬럼 숨김 (우선순위 컬럼만) */
 @media (max-width: 760px) {
-  [data-col="evidence"], [data-col="checked"], [data-col="sub"] { display: none; }
+  [data-col="evidence"], [data-col="checked"], [data-col="sub"], [data-col="type"] { display: none; }
+  /* 남은 컬럼이 찌그러지지 않게 auto 레이아웃 + 마감 폭 고정, 행 .ics는 상세 안 버튼으로 대체 */
+  .tscroll { overflow-x: auto; }
+  .tscroll table { table-layout: auto; }
+  col[data-col="type"], col[data-col="sub"], col[data-col="evidence"], col[data-col="checked"] { width: 0; }
+  col[data-col="name"] { width: auto; }
+  col[data-col="policy"] { width: 70px; }
+  col[data-col="deadline"] { width: 96px; }
+  td[data-col="deadline"], th[data-col="deadline"] { padding-left: 6px; padding-right: 6px; }
+  .rowics { display: none; }
+  .qfin { flex-basis: 100%; }
+  /* 좁은 화면: 이름 셀이 260px를 고집하지 않게 (가로 잘림 방지) */
+  td.c-name { min-width: 0; }
+  .co { max-width: 140px; }
 }
 
 /* 뉴스 태그 라벨 */
@@ -218,3 +231,49 @@ td.c-sub { max-width: 210px; overflow: hidden; text-overflow: ellipsis; white-sp
 /* 방법론 범례 */
 .legend { display: flex; gap: 18px; flex-wrap: wrap; margin: 6px 0 10px; }
 .legend span { font-size: 11px; }
+
+/* ===== 검색과 조건 (2026-11-12 패스) ===== */
+/* 표 위 검색 줄 — 헤더 검색과 같은 상태를 공유한다 */
+.fsearch { display: flex; align-items: center; gap: 0; border-bottom: 1px solid var(--border); flex-wrap: wrap; }
+.fsearch .fl { border-right: 1px solid var(--border); }
+.qfin { flex: 1 1 240px; min-width: 0; background: var(--panel); border: 1px solid var(--border); color: var(--fg-hi); font: 11.5px var(--mono); padding: 5px 9px; margin: 4px 8px; }
+.qfin::placeholder { color: var(--faint); }
+.qfin:focus-visible { outline: 1px solid var(--blue); outline-offset: 0; }
+.qclr { background: none; border: 1px solid var(--border); color: var(--mut); font: 10.5px var(--mono); padding: 4px 8px; margin-right: 8px; cursor: pointer; }
+.qclr:hover { color: var(--fg-hi); }
+.qhint { padding: 5px 12px; color: var(--faint); font-size: 10px; white-space: nowrap; }
+
+/* 조건 토글 on — 채용연계는 green, 정책변경은 red (색 역할 고정) */
+.fopt.tog-hire.on { color: var(--green); background: #0F1A15; }
+.fopt.tog-chg.on { color: var(--red); background: #1C1113; }
+.fopt.ics { color: var(--blue); border-right: 1px solid var(--border); }
+.fopt.ics:hover { color: var(--fg-hi); }
+.fopt:disabled { color: #46505F; cursor: default; }
+.fopt:disabled:hover { color: #46505F; }
+
+/* 정책 변경 배지 — 정책 이야기는 빨강 */
+.badge.chg { color: var(--red); }
+
+/* 정책 변경 뷰 (changelog) */
+.lede { color: var(--mut); font-size: 11px; margin: 0 0 10px; max-width: 780px; line-height: 1.6; }
+.cl-none { color: var(--faint); font-size: 11px; padding: 10px 0; border-bottom: 1px solid var(--border2); }
+.polchg { border-top: 1px solid var(--border2); }
+.pc-it { display: flex; gap: 12px; align-items: baseline; flex-wrap: wrap; padding: 7px 0; border-bottom: 1px solid var(--border2); font-size: 11px; }
+.pc-it .d { color: var(--blue); font-variant-numeric: tabular-nums; }
+.pc-name { background: none; border: 0; padding: 0; color: var(--fg-hi); font: 600 11.5px var(--mono); cursor: pointer; text-decoration: underline; text-underline-offset: 3px; }
+.pc-name:hover { color: var(--blue); }
+.pc-kind { color: var(--faint); font-size: 10px; margin-left: 7px; }
+.pc-dir { color: var(--yellow); white-space: nowrap; }
+.pc-dir b { color: var(--red); font-weight: 600; }
+.pc-ev { color: var(--mut); flex: 1 1 320px; min-width: 0; line-height: 1.5; }
+
+/* 확장 행 안의 .ics 버튼 */
+.ics.act { background: none; border: 1px solid var(--border); color: var(--blue); font: 10.5px var(--mono); padding: 2px 7px; margin-left: 12px; cursor: pointer; }
+.ics.act:hover { border-color: var(--blue); color: var(--fg-hi); }
+
+/* 행 안 단건 .ics — 마감 셀에 붙는다 */
+.rowics { background: none; border: 1px solid var(--border); color: var(--faint); font: 9.5px var(--mono); padding: 0 3px; margin-left: 6px; cursor: pointer; vertical-align: 1px; }
+.rowics:hover { color: var(--blue); border-color: var(--blue); }
+
+/* 좁은 화면: 검색 안내문은 숨긴다 */
+@media (max-width: 760px) { .qhint { display: none; } }

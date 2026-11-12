@@ -1,10 +1,11 @@
 {
   "version": "1.0.0",
-  "updated_at": "2026-11-05T21:37:00+09:00",
+  "updated_at": "2026-11-12T08:28:32.041343+09:00",
   "stats": {
     "total_generated": 13,
     "published": 9,
-    "queued": 4
+    "queued": 0,
+    "expired": 4
   },
   "items": [
     {
@@ -114,8 +115,10 @@
       "host": "Perfect Corp",
       "deadline": "2026-11-02",
       "prize": "총 $6,000 (1등 $2,500 + 블로그 노출), Women in Tech·학생 특별상 각 $1,000",
-      "status": "queued",
-      "script_path": "pipeline/shorts/output/2026-11-02-evening-global-0008.md"
+      "status": "expired",
+      "script_path": "pipeline/shorts/output/2026-11-02-evening-global-0008.md",
+      "expired_at": "2026-11-12",
+      "expired_reason": "마감 경과 (D-10)"
     },
     {
       "id": "global-0020",
@@ -126,8 +129,10 @@
       "host": "TwitchCon",
       "deadline": "2026-11-02",
       "prize": "$25,000",
-      "status": "queued",
-      "script_path": "pipeline/shorts/output/2026-11-02-night-global-0020.md"
+      "status": "expired",
+      "script_path": "pipeline/shorts/output/2026-11-02-night-global-0020.md",
+      "expired_at": "2026-11-12",
+      "expired_reason": "마감 경과 (D-10)"
     },
     {
       "id": "ko-0004",
@@ -138,8 +143,10 @@
       "host": "해커그라운드 / 대구한의대학교 (후원: 마이크로소프트, 청도군)",
       "deadline": "2026-11-03",
       "prize": "총 상금 500만 원",
-      "status": "queued",
-      "script_path": "pipeline/shorts/output/2026-11-02-afternoon-ko-0004.md"
+      "status": "expired",
+      "script_path": "pipeline/shorts/output/2026-11-02-afternoon-ko-0004.md",
+      "expired_at": "2026-11-12",
+      "expired_reason": "마감 경과 (D-9)"
     },
     {
       "id": "wevity:111009-space-hackathon",
@@ -150,8 +157,10 @@
       "host": "우주항공청 / 한국항공우주연구원, 경상국립대학교, 진주시",
       "deadline": "2026-11-05",
       "prize": "3천만~5천만원",
-      "status": "queued",
-      "script_path": "pipeline/shorts/output/2026-11-02-evening-wevity_111009-space-hackathon.md"
+      "status": "expired",
+      "script_path": "pipeline/shorts/output/2026-11-02-evening-wevity_111009-space-hackathon.md",
+      "expired_at": "2026-11-12",
+      "expired_reason": "마감 경과 (D-7)"
     },
     {
       "id": "global-0029",

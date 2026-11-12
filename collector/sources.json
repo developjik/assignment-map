@@ -1,6 +1,6 @@
 {
-  "version": "2026-11-01",
-  "note": "fetch()는 브라우저 페이지 상한 미소모. 발견=fetch(0페이지), 상세=브라우저(80페이지 상한 내). 2026-11-01 T3 월간: github-hackathon·hackhq·gnews-kr-6-workshop 퇴출(retired).",
+  "version": "2026-11-12",
+  "note": "fetch()는 브라우저 페이지 상한 미소모. 발견=fetch(0페이지), 상세=브라우저(80페이지 상한 내). 2026-11-01 T3 월간: github-hackathon·hackhq·gnews-kr-6-workshop 퇴출(retired). 2026-11-12 소스 확장: daker-api(T0, 데이콘 계열 해커톤 JSON 실측), dacon-competitions·programmers-competitions·programmers-assignments(T2, 주 1회), lablab→starfield 리브랜드 확인. status 의미: active=매일/주간 자동 수집, watch=상태만 추적(차단·이벤트 없음·참고용), retired=퇴출.",
   "tiers": {
     "T0_fetch_daily": [
       {
@@ -10,6 +10,15 @@
         "target": "events",
         "cost": 0,
         "note": "JSON, ETag 304 지원, 진행 중 ~67건, 9건/페이지. 8페이지 스윕 = 0페이지",
+        "status": "active"
+      },
+      {
+        "id": "daker-api",
+        "kind": "api",
+        "url": "https://daker.ai/api/hackathons/public-list?limit=50",
+        "target": "events",
+        "cost": 0,
+        "note": "2026-11-12 실측: GET 200 JSON 24건(limit=50, 그 이상 상한). 필드 title/organizerName/totalPrize/registrationDeadline/startDate/endDate/status(published·closed)/taskCategory/tagline/participantCount. 데이콘(DACON)이 운영하는 AI 바이브코딩 해커톤 플랫폼(daker.ai, 로그인 /api/auth/dacon). 오늘 기준 접수 가능 3건 중 제주 AI·빅데이터 AI Agent 챌린지(접수 11-20, 500만원)·소재연구데이터 AI 해커톤(11-13)은 기존 data/events.json에 없음 — 신규 채택 기대. 데이콘 자체 경진대회 페이지(dacon.io)는 자동 접근 차단이라 이 API가 데이콘 계열의 실질 수집 경로.",
         "status": "active"
       },
       {
@@ -196,6 +205,33 @@
         "status": "active"
       },
       {
+        "id": "dacon-competitions",
+        "kind": "browser",
+        "url": "https://dacon.io/competitions/official",
+        "target": "events",
+        "cost_pages": 2,
+        "note": "2026-11-12 접근 실측: fetch 202 + 0바이트(빈 응답), 원격 브라우저 10초 로드 후 백지 — 자동 접근 차단. 데이콘 계열 일일 수집은 T0 daker-api가 담당. 이 소스는 데이콘 자체 경진대회(정형데이터·알고리즘) 확인용 주 1회 시도이며, 실패하면 daker-api 결과로 대체하고 런 노트에 '차단' 기록.",
+        "status": "watch"
+      },
+      {
+        "id": "programmers-competitions",
+        "kind": "browser",
+        "url": "https://programmers.co.kr/competitions",
+        "target": "events",
+        "cost_pages": 2,
+        "note": "2026-11-12 실측: SSR HTML(86KB)에 목록 없음(JS 렌더, /api/v1/competitions 류 404) — 원격 브라우저에서 '채용 프로그램' 카드 정상 렌더 확인(접수/테스트 기간·언어 태그). 이날 확인된 최신 항목(2025 코드챌린지)까지 전부 '종료' — 신규 Dev-Matching·채용 연계 챌린지 개설 포착용 주 1회. 로그인 불필요.",
+        "status": "active"
+      },
+      {
+        "id": "programmers-assignments",
+        "kind": "ssr-fetch",
+        "url": "https://school.programmers.co.kr/skill_check_assignments",
+        "target": "postings",
+        "cost": 0,
+        "note": "2026-11-12 실측: SSR 108KB에 과제 목록(제목·직무·기술 태그 JavaScript/Python/Java/ReactJS 등) 확인, 로그인 없이 목록 열람(응시는 로그인 필요). 단 '연습 과제 카탈로그'로 기업 공고가 아니다 — 기업 과제 전형의 유형·기술 스택 참고용. 신규 공고 채택원으로 쓰지 않는다(watch).",
+        "status": "watch"
+      },
+      {
         "id": "thinkyou",
         "kind": "ssr-fetch",
         "url": "https://www.thinkyou.co.kr/contest/?serfield=5",
@@ -239,6 +275,15 @@
         "cost_pages": 1,
         "note": "국내 테크 밋업 플랫폼, IT/개발 카테고리",
         "status": "active"
+      },
+      {
+        "id": "starfield-lablab-events",
+        "kind": "browser",
+        "url": "https://starfieldlabs.ai/events",
+        "target": "events",
+        "cost_pages": 2,
+        "note": "2026-11-12 실측: lablab.ai/event 는 starfieldlabs.ai 로 리다이렉트(LabLab AI → Starfield Labs 리브랜드). /events SSR 문구 'No events yet. Check back soon.' — 현재 진행/예정 이벤트 0건. RSS·JSON 피드 없음(모든 경로가 SPA 셸 반환, robots.txt만 200). 재개 시 경로: https://starfieldlabs.ai/mcp 의 find_events MCP 툴(T0 후보). 그때까지 기존 lablab 이벤트(global-0009 등)는 상세 URL 생존만 확인.",
+        "status": "watch"
       }
     ],
     "T3_monthly": [
@@ -272,7 +317,7 @@
   "budget": {
     "fetch_daily": "~25 요청, 0 브라우저 페이지, 2-3분",
     "browser_daily": "~40페이지 (T1 검색+상세+재방문)",
-    "browser_weekly": "토요일 +8페이지 (T2 로테이션)",
+    "browser_weekly": "토요일 +12페이지 (T2 로테이션, 2026-11-12 소스 4종 추가)",
     "total_daily_estimate": "40/80 페이지 + fetch 후보 400-500건"
   }
 }
