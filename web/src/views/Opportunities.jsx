@@ -7,6 +7,7 @@ import { useStarred } from '../lib/starred'
 import Ticker from '../components/Ticker'
 import DeadlineTicker from '../components/DeadlineTicker'
 import DetailPane from '../components/DetailPane'
+import GuidePane from '../components/GuidePane'
 import ShortcutsHelp from '../components/ShortcutsHelp'
 const POLICY_FILTERS = [
   { id: 'all', label: '전체 정책' },
@@ -481,6 +482,8 @@ function Row({ r, q, zebra, idx, curIdx, curRef, expanded, starred, onStar, onPi
                     onClick={(e) => { e.stopPropagation(); downloadIcs([r]) }}>.ics 마감 일정 내려받기</button>
                 )}
               </div>
+              {/* 좁은 화면에서는 2-Pane 대신 아코디언 맨 아래에 같은 공략 섹션이 붙는다 */}
+              <GuidePane r={r} inline />
             </div>
           </td>
         </tr>

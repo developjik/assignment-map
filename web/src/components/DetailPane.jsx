@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { POLICY_LABEL, STATUS_LABEL, disp } from '../lib/labels'
 import { downloadIcs } from '../lib/ics'
 import { policyChangeByID } from '../lib/data'
+import GuidePane from './GuidePane'
 
 // 데스크톱 우측 고정 상세 패널 (k9s describe / Linear 우측 패널).
 // 행을 고르면 표를 밀어내지 않고 이 패널이 붙는다. j/k 로 행을 옮기면 내용이 따라온다.
@@ -118,6 +119,9 @@ export default function DetailPane({ r, starred, onStar, onClose }) {
           <KV k="결과 발표" v={r.resultDate || ''} />
         </dl>
       </section>
+
+      {/* 공략 — 행의 직군/유형/키워드로 가장 맞는 아키타입이 기본 노출된다 */}
+      <GuidePane r={r} />
 
       <section className="dp-sec">
         <h3>추적</h3>

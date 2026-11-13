@@ -6,6 +6,7 @@
   "scripts": {
     "build": "node scripts/slop-lint.mjs && node scripts/build.mjs",
     "lint:slop": "node scripts/slop-lint.mjs",
+    "guides": "node scripts/build-guides.mjs",
     "feeds": "node scripts/generate-feeds.mjs",
     "preview": "python3 -m http.server 4173 -d dist"
   },
