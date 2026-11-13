@@ -17,3 +17,6 @@ export const STATUS_LABEL = {
   gone: '소멸',
   no_hiring: '미실시',
 }
+
+// em dash → 구분자 치환 (AI티 문안 이슈 #15). 표·상세 패널·로그가 같은 규칙을 쓴다.
+export const disp = (s) => (s || '').replace(/—/g, '-').replace(/\s+·\s+/g, ' | ')
