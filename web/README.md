@@ -11,6 +11,8 @@ React 18 + Rollup 3 (순수 JS 툴체인, 네이티브 바이너리 없음 — �
 - 딥링크: `src/lib/hash.js`가 해시를 읽고 **병합해서** 쓴다(`history.replaceState`). 탭·검색어는 App이, 필터는 Opportunities가 자기 키만 갱신한다
 - 검색: `src/lib/data.js`가 행마다 `hay`(제목·기업/주최·상금·직군/기술 키워드 소문자 인덱스)를 만들어 두고, 표는 공백 AND로 좁힌다
 - 정책 변경: `data/changelog.json`의 policy_changed와 각 레코드 history를 합쳐 `policyChanges`로 노출 (표 배지 + 변경 로그 뷰)
-- 미니파이: terser 적용 (dist assets/app.js 약 720KB)
+- 이모지 대신 인라인 SVG, `border-radius` 4px 이하, 중앙정렬 없음
+- 2-Pane: `views/Opportunities.jsx`가 `matchMedia('(min-width: 1200px)')`를 구독해 넓은 화면에서만 우측 패널(`components/DetailPane.jsx`)을 붙인다. 패널이 열리면 `.workspace.pane-on`이 되어 유형·확인 컬럼을 패널에 넘기고 근거 폭을 35%까지 늘린다. 좁은 화면은 같은 상태(`openRow`)로 아코디언을 그린다
+- 미니파이: terser 적용 (dist assets/app.js 약 740KB)
 - 렌더: ReactDOM.render 동기 렌더 사용 (임베디드 브라우저에서 createRoot 동시성 커밋 무음 스톨 관측, 2026-10-24. 재전환 검토 필요)
 - 확인: `npm run preview` → http://127.0.0.1:4173

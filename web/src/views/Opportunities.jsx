@@ -1,12 +1,13 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
-import { commit, meta, policyChangeByID, policyChanges } from '../lib/data'
+import { meta, policyChangeByID, stats, sparkPoints } from '../lib/data'
+import { POLICY_LABEL, STATUS_LABEL, disp } from '../lib/labels'
 import { downloadIcs, downloadStarredIcs } from '../lib/ics'
 import { filtersFromHash, readHash, writeHash, filterPatch } from '../lib/hash'
 import { useStarred } from '../lib/starred'
-
-// 단일 어휘 맵 — 버튼·표시·정렬·방법론이 여기서만 나간다 (이슈 #3)
-export const POLICY_LABEL = { required: '필수', allowed_graded: '허용+채점', allowed: '허용', banned: '금지', unspecified: '미언급', unknown: '확인필요' }
-export const STATUS_LABEL = { open: '모집중', upcoming: '예정', judging: '심사중', closed: '종결', gone: '소멸', no_hiring: '미실시' }
+import Ticker from '../components/Ticker'
+import DeadlineTicker from '../components/DeadlineTicker'
+import DetailPane from '../components/DetailPane'
+import ShortcutsHelp from '../components/ShortcutsHelp'
 const POLICY_FILTERS = [
   { id: 'all', label: '전체 정책' },
   { id: 'required', label: 'AI 필수', cls: 'p-req' },
@@ -32,8 +33,8 @@ const COLS = [
   { id: 'deadline', label: '마감 (D-day)' },
   { id: 'checked', label: '확인' },
 ]
-// em dash → 구분자 치환 (AI티 문안 이슈 #15)
-const disp = (s) => (s || '').replace(/—/g, '-').replace(/\s+·\s+/g, ' | ')
+// 우측 상세 패널을 붙이는 폭 — 7컬럼 표와 384px 패널이 같이 설 수 있는 최소 데스크톱
+const WIDE_QUERY = '(min-width: 1200px)'
 
 const relDays = (dateStr) => {
   if (!dateStr) return null
@@ -66,6 +67,25 @@ function Hl({ text, q }) {
   return <>{t.slice(0, i)}<span className="hl">{t.slice(i, i + ql.length)}</span>{t.slice(i + ql.length)}</>
 }
 
+// 미디어 쿼리 구독 — 좁은 화면은 아코디언, 넓은 화면은 2-Pane 으로 갈린다
+function useWide(query) {
+  const [wide, setWide] = useState(() =>
+    typeof window !== 'undefined' && window.matchMedia ? window.matchMedia(query).matches : false)
+  useEffect(() => {
+    if (typeof window === 'undefined' || !window.matchMedia) return
+    const mq = window.matchMedia(query)
+    const on = () => setWide(mq.matches)
+    on()
+    if (mq.addEventListener) mq.addEventListener('change', on)
+    else if (mq.addListener) mq.addListener(on)
+    return () => {
+      if (mq.removeEventListener) mq.removeEventListener('change', on)
+      else if (mq.removeListener) mq.removeListener(on)
+    }
+  }, [query])
+  return wide
+}
+
 export default function Opportunities({ rows, type, q, setQ, onVisit }) {
   // 첫 진입 필터는 URL 해시에서 (딥링크: #t=postings&policy=required&jobfam=fe)
   const initial = useMemo(() => filtersFromHash(readHash()), [])
@@ -78,10 +98,17 @@ export default function Opportunities({ rows, type, q, setQ, onVisit }) {
   const [starredIds, toggleStar] = useStarred()
   const [sortMode, setSortMode] = useState('dday')
   const [openRow, setOpenRow] = useState(null)
+  const [pane, setPane] = useState(false)
   const [sort, setSort] = useState(null)
   const [cur, setCur] = useState(0)
   const [density, setDensity] = useState(() => localStorage.getItem('am-density') || 'standard')
+  const [help, setHelp] = useState(false)
+  const [notice, setNotice] = useState('')
   const curRef = useRef(null)
+  const noticeTimer = useRef(null)
+  // Esc 로 패널을 닫은 뒤에는 j/k 만으로 다시 열지 않는다 (Enter·클릭은 다시 연다)
+  const paneMuted = useRef(false)
+  const wide = useWide(WIDE_QUERY)
 
   useEffect(() => { document.documentElement.dataset.density = density }, [density])
   useEffect(() => { localStorage.setItem('am-density', density) }, [density])
@@ -154,23 +181,89 @@ export default function Opportunities({ rows, type, q, setQ, onVisit }) {
     ? `${COLS.find(c => c.id === sort.key)?.label} ${sort.dir === 1 ? '오름차순' : '내림차순'} 정렬, ${filtered.length}건`
     : `${SORT_MODES.find(s => s.id === sortMode)?.label} 정렬, ${filtered.length}건`
 
+  // 잠깐 뜨는 안내 (원문 링크가 없는 행에서 o 를 눌렀을 때 등) — 스크린리더에도 읽힌다
+  const flash = (msg) => {
+    setNotice(msg)
+    clearTimeout(noticeTimer.current)
+    noticeTimer.current = setTimeout(() => setNotice(''), 2600)
+  }
+
+  // 행 선택 — 넓은 화면은 우측 패널, 좁은 화면은 아코디언
+  const pickRow = (i, r) => {
+    setCur(i)
+    onVisit && onVisit(r)
+    if (wide) {
+      paneMuted.current = false
+      setPane((open) => (open && i === cur ? false : true))
+    } else {
+      setOpenRow((o) => (o === r.id ? null : r.id))
+    }
+  }
+
+  const pickDeadline = (r) => {
+    setQ(r.name)
+    setCur(0)
+    onVisit && onVisit(r)
+    if (wide) { paneMuted.current = false; setPane(true) }
+    else setOpenRow(r.id)
+  }
+
   useEffect(() => {
     const onKey = (e) => {
-      if (['INPUT', 'TEXTAREA'].includes(document.activeElement.tagName)) return
-      if (e.key === 'j') setCur(c => Math.min(c + 1, filtered.length - 1))
-      else if (e.key === 'k') setCur(c => Math.max(c - 1, 0))
-      else if (e.key === 'Enter') {
-        const r = filtered[cur]
-        if (r) { setOpenRow(o => (o === r.id ? null : r.id)); onVisit && onVisit(r) }
+      const el = document.activeElement
+      const typing = el && ['INPUT', 'TEXTAREA', 'SELECT'].includes(el.tagName)
+
+      // 도움말이 열려 있으면 닫기 키만 받는다
+      if (help) {
+        if (e.key === 'Escape' || e.key === '?') { e.preventDefault(); setHelp(false) }
+        return
       }
-      else if (e.key === 's') {
+      if (e.key === 'Escape') {
+        if (typing) { el.blur(); return }
+        if (wide && pane) { setPane(false); paneMuted.current = true; return }
+        if (openRow !== null) { setOpenRow(null); return }
+        return
+      }
+      if (typing) return
+      if (e.key === '?' || (e.key === '/' && e.shiftKey)) {
+        e.preventDefault()
+        if (el && el.blur) el.blur()
+        setHelp(true)
+        return
+      }
+      if (e.key === 'j' || e.key === 'ArrowDown' || e.key === 'k' || e.key === 'ArrowUp') {
+        if (e.key === 'ArrowDown' || e.key === 'ArrowUp') e.preventDefault()
+        const step = e.key === 'j' || e.key === 'ArrowDown' ? 1 : -1
+        setCur((c) => Math.max(0, Math.min(c + step, filtered.length - 1)))
+        // 넓은 화면: 이동만으로 패널이 따라온다 (Esc 로 닫아 둔 뒤에는 열지 않는다)
+        if (wide && !paneMuted.current && filtered.length) setPane(true)
+        return
+      }
+      if (e.key === 'Enter') {
+        const r = filtered[cur]
+        if (!r) return
+        onVisit && onVisit(r)
+        if (wide) { paneMuted.current = false; setPane((open) => !open) }
+        else setOpenRow((o) => (o === r.id ? null : r.id))
+        return
+      }
+      if (e.key === 's') {
         const r = filtered[cur]
         if (r) toggleStar(r.id)
+        return
+      }
+      if (e.key === 'o') {
+        const r = filtered[cur]
+        if (!r) return
+        if (r.url) window.open(r.url, '_blank', 'noopener')
+        else flash('원문 링크가 없는 행이다 | 상세에서 수집 출처를 확인한다')
       }
     }
     window.addEventListener('keydown', onKey)
     return () => window.removeEventListener('keydown', onKey)
-  }, [filtered, cur, onVisit, toggleStar])
+  }, [filtered, cur, onVisit, toggleStar, help, openRow, wide, pane])
+
+  useEffect(() => () => clearTimeout(noticeTimer.current), [])
 
   // 커서 추적 — 뷰포트 벗어나면 스크롤 (이슈 #2)
   useEffect(() => { curRef.current?.scrollIntoView({ block: 'nearest' }) }, [cur, filtered])
@@ -192,28 +285,18 @@ export default function Opportunities({ rows, type, q, setQ, onVisit }) {
   const starredExportable = starredRows.filter((r) => r.deadline)
   const exportStarred = () => { if (starredExportable.length) downloadStarredIcs(starredExportable) }
 
+  const paneOpen = wide && pane && filtered.length > 0
+  const activeRow = paneOpen ? filtered[Math.min(cur, filtered.length - 1)] : null
+
   return (
     <>
-      <div className="ctxbar" role="status">
-        <span className="ok"><i aria-hidden="true"></i>수집 <b>{meta.last_run || '-'}</b> 03:00 KST</span>
-        <span>commit <b>{commit}</b></span>
-        <span>골든케이스 <b>6/6</b></span>
-        <span>정책 변경 <b>{policyChanges.length}</b></span>
-        <span>다음 수집 <b>{meta.last_run ? nextRun(meta.last_run) : '예정'}</b></span>
-      </div>
-      <div className="fsearch">
-        <label className="fl" htmlFor="qf">검색</label>
-        <input
-          id="qf"
-          className="qfin"
-          value={q}
-          onChange={(e) => setQ(e.target.value)}
-          placeholder="기업, 주최, 대회명, 상금, 직군/기술"
-          aria-label="공고 검색 — 기업, 주최, 제목, 상금, 기술 스택"
-          autoComplete="off"
-        />
-        {q && <button className="qclr" onClick={() => setQ('')} aria-label="검색어 지우기">지우기</button>}
-        <span className="qhint">공백으로 여러 단어를 넣으면 모두 포함하는 행만 남는다</span>
+      {/* 압축 밴드 — 통계 | 수집 메타 | 마감 티커를 한 줄에 묶는다 (예전 3줄 → 1줄) */}
+      <div className="band">
+        <Ticker stats={stats} spark={sparkPoints} />
+        <span className="band-meta">
+          수집 <b>{meta.last_run || '-'}</b> 03:00 | 다음 <b>{meta.last_run ? nextRun(meta.last_run) : '예정'}</b>
+        </span>
+        <DeadlineTicker rows={rows} onPick={pickDeadline} />
       </div>
       <div className="fr">
         <span className="fl">직군</span>
@@ -245,71 +328,83 @@ export default function Opportunities({ rows, type, q, setQ, onVisit }) {
             onClick={() => { setSort(null); setSortMode(s.id) }}>{s.label}</button>
         ))}
         <button className="fopt ics" onClick={exportAll} disabled={!exportable.length}
-          title="현재 조건에 보이는 건의 마감일을 iCalendar 파일로 내려받는다">.ics 내보내기 {exportable.length > 0 ? exportable.length : ''}</button>
+          title="현재 조건에 보이는 건의 마감일을 iCalendar 파일로 내려받는다">.ics {exportable.length > 0 ? exportable.length : ''}</button>
         <button className="fopt ics ics-star" onClick={exportStarred} disabled={!starredExportable.length}
           title="관심 등록한 건의 마감일만 모아 assignment-map-starred.ics 하나로 내려받는다">관심 .ics {starredExportable.length > 0 ? starredExportable.length : ''}</button>
         <span className="dens" role="group" aria-label="행 밀도">
           <button className={density === 'compact' ? 'on' : ''} onClick={() => setDensity('compact')} title="컴팩트">compact</button>
           <button className={density === 'standard' ? 'on' : ''} onClick={() => setDensity('standard')} title="표준">standard</button>
         </span>
-        <button className="fopt" onClick={resetFilters} style={{ marginLeft: 8, textDecoration: 'underline', textUnderlineOffset: 3 }}>초기화</button>
+        <button className="fopt fopt-reset" onClick={resetFilters}>초기화</button>
         <span className="match-n">{status === 'open'
           ? <>진행중 <b>{filtered.length}</b> / 전체 <b>{totalNoStatus}</b></>
           : <>매칭 <b>{filtered.length}</b>건</>}</span>
         <div className="sr" aria-live="polite">{sortMsg}</div>
       </div>
-      <div className="twrap tscroll">
-        <table>
-          <colgroup>
-            <col data-col="name" style={{ width: '20%' }} /><col data-col="type" style={{ width: '6%' }} /><col data-col="sub" style={{ width: '17%' }} />
-            <col data-col="policy" style={{ width: '11%' }} /><col data-col="evidence" style={{ width: '23%' }} /><col data-col="deadline" style={{ width: '13%' }} /><col data-col="checked" style={{ width: '10%' }} />
-          </colgroup>
-          <thead>
-            <tr>
-              {COLS.map((c) => (
-                <th key={c.id} data-col={c.id} className={c.id === 'deadline' || c.id === 'checked' ? 'r' : ''}
-                  aria-sort={sort && sort.key === c.id ? (sort.dir === 1 ? 'ascending' : 'descending') : undefined}>
-                  {c.nosort ? c.label : (
-                    <button className="sort" onClick={() => clickSort(c.id)}>
-                      {c.label}
-                      {sort && sort.key === c.id && <span className="dir" aria-hidden="true">{sort.dir === 1 ? '▴' : '▾'}</span>}
-                    </button>
+      <div className={'workspace' + (paneOpen ? ' pane-on' : '')}>
+        <div className="twrap tscroll">
+          <table>
+            <colgroup>
+              <col data-col="name" /><col data-col="type" /><col data-col="sub" />
+              <col data-col="policy" /><col data-col="evidence" /><col data-col="deadline" /><col data-col="checked" />
+            </colgroup>
+            <thead>
+              <tr>
+                {COLS.map((c) => (
+                  <th key={c.id} data-col={c.id} className={c.id === 'deadline' || c.id === 'checked' ? 'r' : ''}
+                    aria-sort={sort && sort.key === c.id ? (sort.dir === 1 ? 'ascending' : 'descending') : undefined}>
+                    {c.nosort ? c.label : (
+                      <button className="sort" onClick={() => clickSort(c.id)}>
+                        {c.label}
+                        {sort && sort.key === c.id && <span className="dir" aria-hidden="true">{sort.dir === 1 ? '▴' : '▾'}</span>}
+                      </button>
+                    )}
+                  </th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              {filtered.length === 0 && (
+                <tr><td colSpan={7}>
+                  {starredOnly && starredRows.length === 0 ? (
+                    <div className="empty-id">
+                      <div className="l1"><StarIcon filled={false} /> 관심 등록된 공고가 없습니다</div>
+                      <div className="l2">행 왼쪽 별표를 누르면 여기 모인다. 모은 건은 '관심 .ics'로 한 번에 내려받는다.</div>
+                    </div>
+                  ) : (
+                    <div className="empty-id">
+                      <div className="l1">지금 이 조건에 걸리는 기회가 없을 뿐이다.</div>
+                      <div className="l2">Esc 또는 초기화로 조건을 풀고, 매일 03:00 KST에 다시 수집한다.</div>
+                    </div>
                   )}
-                </th>
+                </td></tr>
+              )}
+              {filtered.map((r, i) => (
+                <Row key={r.id} r={r} q={q} zebra={i % 2 === 1} idx={i} curIdx={cur} curRef={curRef}
+                  expanded={!wide && openRow === r.id} starred={starredSet.has(r.id)} onStar={toggleStar}
+                  onPick={() => pickRow(i, r)} />
               ))}
-            </tr>
-          </thead>
-          <tbody>
-            {filtered.length === 0 && (
-              <tr><td colSpan={7}>
-                {starredOnly && starredRows.length === 0 ? (
-                  <div className="empty-id">
-                    <div className="l1"><StarIcon filled={false} /> 관심 등록된 공고가 없습니다</div>
-                    <div className="l2">행 왼쪽 별표를 누르면 여기 모인다. 모은 건은 '관심 .ics'로 한 번에 내려받는다.</div>
-                  </div>
-                ) : (
-                  <div className="empty-id">
-                    <div className="l1">지금 이 조건에 걸리는 기회가 없을 뿐이다.</div>
-                    <div className="l2">Esc 또는 초기화로 조건을 풀고, 매일 03:00 KST에 다시 수집한다.</div>
-                  </div>
-                )}
-              </td></tr>
-            )}
-            {filtered.map((r, i) => (
-              <Row key={r.id} r={r} q={q} zebra={i % 2 === 1} idx={i} curIdx={cur} setCur={setCur} curRef={curRef}
-                expanded={openRow === r.id} starred={starredSet.has(r.id)} onStar={toggleStar}
-                onToggle={() => { setOpenRow(openRow === r.id ? null : r.id); onVisit && onVisit(r) }} />
-            ))}
-          </tbody>
-        </table>
+            </tbody>
+          </table>
+        </div>
+        {activeRow && (
+          <DetailPane r={activeRow} starred={starredSet.has(activeRow.id)} onStar={toggleStar}
+            onClose={() => { setPane(false); paneMuted.current = true }} />
+        )}
       </div>
-      <div className="keybar" aria-hidden="true">
+      <div className="keybar">
         <span><span className="kbd">j</span><span className="kbd">k</span>행 이동</span>
-        <span><span className="kbd">Enter</span>상세 확장</span>
+        <span><span className="kbd">Enter</span>상세 {wide ? '패널' : '확장'}</span>
+        <span><span className="kbd">o</span>원문 열기</span>
         <span><span className="kbd">s</span>관심 등록</span>
         <span><span className="kbd">/</span>검색</span>
-        <span><span className="kbd">Esc</span>검색 해제</span>
+        <span><span className="kbd">Esc</span>{wide ? '패널 닫기' : '닫기'}</span>
+        <button type="button" className="kb-open" onClick={() => setHelp(true)} aria-label="키보드 단축키 도움말 열기">
+          <span className="kbd">?</span>도움말
+        </button>
       </div>
+      <div className="sr" role="status">{notice}</div>
+      {help && <ShortcutsHelp onClose={() => setHelp(false)} />}
     </>
   )
 }
@@ -320,7 +415,7 @@ function nextRun(last) {
   return d.toISOString().slice(0, 10)
 }
 
-function Row({ r, q, zebra, idx, curIdx, setCur, curRef, expanded, starred, onStar, onToggle }) {
+function Row({ r, q, zebra, idx, curIdx, curRef, expanded, starred, onStar, onPick }) {
   const isNew = r.first && r.first >= new Date(Date.now() - 2 * 864e5).toISOString().slice(0, 10)
   const hot = r.open && r.dd !== null && r.dd >= 0 && r.dd <= 3
   const ddCls = r.dd === null ? 'dd pass' : r.dd < 0 ? 'dd pass' : r.dd <= 3 ? 'dd hot' : 'dd'
@@ -330,7 +425,7 @@ function Row({ r, q, zebra, idx, curIdx, setCur, curRef, expanded, starred, onSt
   return (
     <>
       <tr className={cls} ref={idx === curIdx ? curRef : undefined} aria-selected={idx === curIdx}
-        onClick={(e) => { setCur(idx); onToggle() }}>
+        onClick={onPick}>
         <td className="c-name" data-col="name">
           <button type="button" className={'star' + (starred ? ' on' : '')} aria-pressed={starred}
             aria-label={starred ? `${r.name} 관심 해제` : `${r.name} 관심 등록`}
@@ -346,9 +441,7 @@ function Row({ r, q, zebra, idx, curIdx, setCur, curRef, expanded, starred, onSt
         <td className="typ" data-col="type"><Hl text={r.type} q={q} /></td>
         <td className="typ c-sub" data-col="sub" title={r.sub}><Hl text={r.sub} q={q} /></td>
         <td data-col="policy"><span className={`pol ${r.policy.cls}`}><i aria-hidden="true"></i>{POLICY_LABEL[r.policyKey] || r.policy.label}</span></td>
-        <td className="typ" data-col="evidence" title={r.evidence} style={{ maxWidth: 240, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
-          {disp(r.evidence)}
-        </td>
+        <td className="ev" data-col="evidence" title={r.evidence}>{disp(r.evidence)}</td>
         <td className={ddCls} data-col="deadline">
           <span className="ddt">{ddText}</span>
           {r.deadline && (

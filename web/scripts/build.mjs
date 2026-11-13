@@ -71,5 +71,21 @@ fs.writeFileSync(cwd + '/dist/sitemap.xml', sitemap)
 // ==== B. robots.txt ====
 fs.writeFileSync(cwd + '/dist/robots.txt', `User-agent: *\nAllow: /\nSitemap: ${SITE}/sitemap.xml\n`)
 
+// ==== C. OG 메타 이미지 (1200x630) — 수집 지표를 그대로 그린다 ====
+try {
+  const og = execSync('python3 scripts/generate-og.py 2>&1', { cwd, stdio: ['ignore', 'pipe', 'pipe'] }).toString().trim()
+  if (og) console.log(og)
+} catch (e) {
+  const why = (e.stderr || e.stdout || '').toString().trim().split('\n').pop()
+  console.warn(`OG SKIP — python3/generate-og.py 실행 실패${why ? ` (${why})` : ''}`)
+}
+// 생성이 건너뛰어진 환경(폰트·Pillow 없음)에서는 저장된 스냅샷으로 채운다 — 미리보기 404를 막는다
+const distOg = cwd + '/dist/og-image.png'
+if (!fs.existsSync(distOg) && fs.existsSync(cwd + '/og-image.png')) {
+  fs.copyFileSync(cwd + '/og-image.png', distOg)
+  console.log('OG FALLBACK — 저장된 og-image.png 스냅샷 사용(수치가 마지막 커밋 시점)')
+}
+
 const kb = (fs.statSync(cwd + '/dist/assets/app.js').size / 1024).toFixed(1)
-console.log(`BUILD OK — app.js ${kb}KB (terser) | feed.xml + feed.json ${feeds.count} items | sitemap+robots+data/*.json OK | commit ${commit}`)
+const ogKb = fs.existsSync(cwd + '/dist/og-image.png') ? (fs.statSync(cwd + '/dist/og-image.png').size / 1024).toFixed(0) + 'KB' : 'none'
+console.log(`BUILD OK — app.js ${kb}KB (terser) | feed.xml + feed.json ${feeds.count} items | sitemap+robots+data/*.json OK | og-image.png ${ogKb} | commit ${commit}`)
