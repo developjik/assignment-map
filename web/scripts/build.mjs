@@ -6,6 +6,7 @@ import { execSync } from 'node:child_process'
 import { rollup } from 'rollup'
 import { createRequire } from 'node:module'
 import { generateFeeds, SITE } from './generate-feeds.mjs'
+import { buildGuides } from './build-guides.mjs'
 
 const require = createRequire(import.meta.url)
 const cwd = process.cwd()
@@ -30,6 +31,11 @@ const plugins = [
   }),
 ]
 
+// ==== A. AI 실전 과제 공략 가이드 (data/guides/*.md -> src/data/guides.generated.json) ====
+// 런타임 파서 없이 번들에 실린다. 마크다운이 깨지면 빌드가 여기서 멈춘다.
+const guidesOut = cwd + '/src/data/guides.generated.json'
+const guideStats = buildGuides({ repoRoot: path.resolve(cwd, '..'), outFile: guidesOut })
+
 const bundle = await rollup({ input: cwd + '/src/main.jsx', plugins, external: [] })
 const ver = `${commit}-${Date.now().toString(36)}`
 await bundle.write({
@@ -52,6 +58,8 @@ fs.mkdirSync(distData, { recursive: true })
 for (const f of ['postings.json', 'events.json', 'platforms.json', 'news.json', 'changelog.json', 'meta.json']) {
   try { fs.copyFileSync(path.join(dataDir, f), path.join(distData, f)) } catch {}
 }
+// 공략 가이드도 공개 JSON API 로 함께 내보낸다 (다른 도구가 같은 문구를 읽게)
+fs.writeFileSync(path.join(distData, 'guides.json'), fs.readFileSync(guidesOut))
 
 // ==== A. 피드 (RSS 2.0 + JSON Feed 1.1) ====
 const feeds = generateFeeds({ dataDir, distDir: cwd + '/dist' })
@@ -63,6 +71,7 @@ const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
   <url><loc>${SITE}/</loc><lastmod>${now.toISOString().slice(0,10)}</lastmod><changefreq>daily</changefreq><priority>1.0</priority></url>
   <url><loc>${SITE}/data/postings.json</loc><lastmod>${now.toISOString().slice(0,10)}</lastmod></url>
   <url><loc>${SITE}/data/events.json</loc><lastmod>${now.toISOString().slice(0,10)}</lastmod></url>
+  <url><loc>${SITE}/data/guides.json</loc><lastmod>${now.toISOString().slice(0,10)}</lastmod></url>
   <url><loc>${SITE}/feed.xml</loc><lastmod>${now.toISOString().slice(0,10)}</lastmod></url>
   <url><loc>${SITE}/feed.json</loc><lastmod>${now.toISOString().slice(0,10)}</lastmod></url>
 </urlset>`
@@ -88,4 +97,4 @@ if (!fs.existsSync(distOg) && fs.existsSync(cwd + '/og-image.png')) {
 
 const kb = (fs.statSync(cwd + '/dist/assets/app.js').size / 1024).toFixed(1)
 const ogKb = fs.existsSync(cwd + '/dist/og-image.png') ? (fs.statSync(cwd + '/dist/og-image.png').size / 1024).toFixed(0) + 'KB' : 'none'
-console.log(`BUILD OK — app.js ${kb}KB (terser) | feed.xml + feed.json ${feeds.count} items | sitemap+robots+data/*.json OK | og-image.png ${ogKb} | commit ${commit}`)
+console.log(`BUILD OK — app.js ${kb}KB (terser) | guides ${guideStats.count}종/단계 ${guideStats.steps}/프롬프트 ${guideStats.prompts}/체크 ${guideStats.checks} | feed.xml + feed.json ${feeds.count} items | sitemap+robots+data/*.json OK | og-image.png ${ogKb} | commit ${commit}`)

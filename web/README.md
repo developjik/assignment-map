@@ -13,6 +13,8 @@ React 18 + Rollup 3 (순수 JS 툴체인, 네이티브 바이너리 없음 — �
 - 정책 변경: `data/changelog.json`의 policy_changed와 각 레코드 history를 합쳐 `policyChanges`로 노출 (표 배지 + 변경 로그 뷰)
 - 이모지 대신 인라인 SVG, `border-radius` 4px 이하, 중앙정렬 없음
 - 2-Pane: `views/Opportunities.jsx`가 `matchMedia('(min-width: 1200px)')`를 구독해 넓은 화면에서만 우측 패널(`components/DetailPane.jsx`)을 붙인다. 패널이 열리면 `.workspace.pane-on`이 되어 유형·확인 컬럼을 패널에 넘기고 근거 폭을 35%까지 늘린다. 좁은 화면은 같은 상태(`openRow`)로 아코디언을 그린다
+- 공략 가이드: 원본은 `../data/guides/*.md`(front matter + 본질/워크플로/프롬프트/체크리스트 섹션), 컴파일은 `scripts/build-guides.mjs`가 `src/data/guides.generated.json`으로 만든다(front matter·섹션 누락은 빌드 실패). 매핑은 `src/lib/guides.js`가 행의 position·type·키워드에 점수를 매겨 고르고 근거 문장을 같이 돌려준다. 화면은 `components/GuidePane.jsx` 하나로 패널(`DetailPane`)과 아코디언(`Row`의 `.hx`)이 같이 쓴다. 프롬프트 복사는 클립보드 API 실패 시 textarea 폴백, 체크는 `localStorage['am-guide-checks']`
+- 가이드 JSON은 `dist/data/guides.json`으로도 나가 사이트맵에 포함된다(다른 도구가 같은 문구를 읽을 수 있게)
 - 미니파이: terser 적용 (dist assets/app.js 약 740KB)
 - 렌더: ReactDOM.render 동기 렌더 사용 (임베디드 브라우저에서 createRoot 동시성 커밋 무음 스톨 관측, 2026-10-24. 재전환 검토 필요)
 - 확인: `npm run preview` → http://127.0.0.1:4173

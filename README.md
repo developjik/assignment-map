@@ -78,12 +78,14 @@ React 18 + Rollup 3, 순수 JS 툴체인(네이티브 바이너리 없음). 빌�
 - **피드**: `feed.xml`(RSS 2.0)과 `feed.json`(JSON Feed)을 빌드마다 생성한다.
 - **모바일(760px 이하)**: 레일은 가로 스크롤 칩 바(높이 46px)로 눕고, 통계·필터 줄도 한 줄 스크롤이 된다. 표는 행 높이 46px에 이름 두 줄까지 보이고, 상세 안 '원문 열기'와 `.ics` 버튼은 38px 터치 영역을 갖는다. 물리 키보드가 없는 화면이라 하단 키 안내는 감춘다.
 - **공유 카드**: `python3 scripts/generate-og.py`가 `data/*.json`의 실제 지표를 읽어 1200x630 다크 터미널 `og-image.png`를 그린다. `npm run build`가 피드·사이트맵 뒤에 자동 실행하므로 링크드인·X 미리보기가 수집 결과를 따라간다(Pillow나 한글 폰트가 없는 환경에서는 건너뛴다).
+- **AI 실전 과제 공략**: 상세 패널(모바일 아코디언) 안에 공고별 공략 섹션이 붙는다. `data/guides/*.md` 4종(React SPA, AI 에이전트, 풀스택 API, 데이터 시각화)이 각각 과제 본질 3문단, 4단계 AI 워크플로, 실전 프롬프트 4개(복사 버튼), 탈락 방지 체크리스트 10~11개를 담고 있고, 공고의 직군(position)·유형(type)·키워드로 가장 맞는 아키타입이 기본 노출된다(매핑 근거를 `매핑: FE 포지션 + 키워드 react`처럼 같이 보여준다). 상단 칩으로 다른 아키타입을 직접 골라 볼 수 있고, 체크 상태는 `localStorage['am-guide-checks']`에 남는다. 가이드는 빌드 타임에 `web/scripts/build-guides.mjs`가 파싱해 `src/data/guides.generated.json`으로 컴파일하고 `dist/data/guides.json`으로도 내보낸다(런타임 마크다운 파서 없음).
 
 ```bash
 cd web
 npm ci
-npm run build      # slop-lint 16체크 → rollup + terser → dist/
+npm run build      # slop-lint 16체크 → 가이드 컴파일 → rollup + terser → dist/
 npm run lint:slop  # 디자인 규칙만 검사
+npm run guides     # data/guides/*.md → src/data/guides.generated.json 만 다시 생성
 npm run feeds      # 현재 데이터로 피드만 다시 생성
 npm run preview    # dist/ 정적 서버 (127.0.0.1:4173)
 ```
@@ -96,6 +98,7 @@ npm run preview    # dist/ 정적 서버 (127.0.0.1:4173)
 
 ```
 data/       postings.json · events.json · platforms.json · news.json · changelog.json · meta.json
+            guides/ (AI 실전 과제 공략 마크다운 4종 — 빌드 타임에 JSON으로 컴파일)
 runs/       런별 실행 기록 (소스별 방문 수·실패·판단)
 collector/  sources.json(소스 레지스트리) · merge.mjs · validate.mjs · golden_cases.json · ROUTINE_PROMPT.md
 pipeline/   shorts/ (이벤트 → 쇼츠 대본 파이프라인)
