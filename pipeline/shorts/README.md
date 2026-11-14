@@ -19,7 +19,7 @@
 | 구간 | 채용 과제(`posting`) | 해커톤·공모전(`event`) |
 |---|---|---|
 | 00~04초 후킹 | "AI 써서 과제 내라는 기업이 있습니다. 바로 {회사} {직무} 전형입니다." | "D-{n}! 상금 {상금}. {공모전명}. 아직 안 늦었습니다." |
-| 04~20초 핵심 팩트 3줄 | ① 전형 방식(`process_raw`/`assignment_type`) ② AI 평가 기준(`policy_raw`/근거 인용) ③ 직무·마감 | ① 주최·마감 ② AI 활용 승부처 ③ 채용 연계 혜택 |
+| 04~20초 핵심 팩트 3줄 | "전형: {과제유형}" / "AI 활용: {정책}" / "{직무} | {마감일, D-n}" | "주최: {주최}" / "AI 활용: {정책}" / "{마감일, D-n}" |
 | 20~28초 CTA | "…프로필 링크 과제 지도에서 확인하세요." | "…프로필 링크 과제 지도에서 확인하세요." |
 
 **길이 맞춤**: 대본은 문장 조각(piece) 단위로 조립하고, 생성기가 전체 글자 수를 130~145자(목표 138자)에 맞춰 조각의 길이를 늘리거나 줄입니다.
@@ -28,6 +28,9 @@
 - 문장 단위 조각은 중간에 잘리지 않고 통째로 빠지며, 잘라야 할 때는 쉼표·어절 경계에서 끊고 조사만 남는 꼬리를 정리합니다.
 - 미달이면 근거 인용·부가 문장으로 채우고, 그래도 부족하면 짧은 안내 문장을 덧붙입니다.
 - JSON에 `char_count`, `est_seconds`(글자 수 ÷ 5.2)를 기록합니다.
+- 중간 장면 자막은 **그 행의 실제 값**으로 채웁니다. 렌더러가 이 세 줄을 화면 팩트로 뽑기 때문에, 템플릿 라벨(`전형 방식` 같은 것)을 화면에 띄우지 않습니다.
+
+**속도 실측(2026-11-14)**: 위 글자 수 가정(5.2자/초)은 실제보다 느립니다. `ko-KR-InJoonNeural` 은 131자 대본을 rate 0%에서 21.5초에 읽었습니다(약 6.1자/초). 28초 창에 맞추려면 대본이 150자 이상이어야 하며, 렌더러가 24초 미만이면 그 사실을 경고로 남깁니다.
 
 **비주얼 프롬프트**는 안티-슬롭 원칙을 따릅니다: AI 일러스트 대신 실제 공고 화면 하이라이트, 다크 IDE/터미널 코드 뷰, 벤토 데이터 카드. 네온·3D·글로우 금지 문구를 프롬프트에 고정합니다.
 
@@ -62,6 +65,9 @@ python3 pipeline/shorts/generator.py --track posting --count 2
 python3 pipeline/shorts/generator.py --track event   --count 2
 python3 pipeline/shorts/generator.py --track mixed   --count 2 --date 2026-11-12
 
+# 점수 1위 대신 지정한 공고 하나만 (마감·상태 검증은 그대로)
+python3 pipeline/shorts/generator.py --track posting --count 1 --pick "jobkorea:50228434"
+
 # 생성 결과 시뮬레이션 (파일·manifest 미변경)
 python3 pipeline/shorts/generator.py --track mixed --count 2 --date 2026-11-12 --dry-run
 
@@ -74,6 +80,7 @@ python3 pipeline/shorts/generator.py --prune-only --date 2026-11-12
 | `--count N` | 생성 편수 (기본 4) |
 | `--date YYYY-MM-DD` | 기준일 (기본: 오늘, KST) |
 | `--track mixed\|posting\|event` | 소재 트랙 (기본 mixed) |
+| `--pick ID` | 점수 순위를 무시하고 해당 id 하나만 생성 (마감·status 검증은 동일) |
 | `--dry-run` | 후보와 글자 수만 확인 |
 | `--prune-only` | 마감 지난 queued 정리만 |
 
@@ -90,6 +97,21 @@ python3 pipeline/shorts/generator.py --prune-only --date 2026-11-12
 | expired | 마감이 지나 발행 의미가 없어진 항목 (`expired_at`·`expired_reason`) |
 
 생성기는 실행할 때마다 마감이 지난 queued를 자동으로 `expired`로 내린다. 별도 정리만 하려면 `--prune-only`.
+
+## 5-1. 신선도 방어 (2026-11-14)
+
+대본에 적힌 `days_left` 는 **만든 날의 값**이라 보관해 두면 며칠 뒤에는 거짓이 된다. 그래서 판단은
+언제나 `deadline` 으로 다시 한다.
+
+- `generator.is_live(record, today)`: `status: closed` 이거나 마감일이 지났으면 생성하지 않는다 (마감일 없는 상시는 통과).
+- `generator.build_script(...)`: 마감이 지난 소재면 `SystemExit` 으로 멈춘다 (점수 필터를 우회한 `--pick` 포함).
+- `renderer.pick_latest()`: manifest 의 queued 를 우선하지만 **대본 JSON 의 마감일이 지난 것은 건너뛴다**. 살아 있는 대본이 하나도 없으면 낡은 것을 집지 않고 종료한다.
+- `renderer.render(...)`: 마감이 지난 대본은 거부한다. 정말 찍어야 할 때만 `--allow-expired`.
+- `renderer.status_text()/dday_text()`: 화면의 `모집중`/`D-n` 은 대본의 `days_left` 가 아니라 오늘 날짜로 다시 센다.
+
+```bash
+python3 -m unittest discover -s pipeline/shorts/tests -v    # 12개 회귀 테스트
+```
 
 manifest 항목에는 `type`(`posting`/`event`), `track`, `template`(`28s-v1`), `char_count`, `score`가 함께 기록된다.
 
@@ -126,6 +148,7 @@ python3 pipeline/shorts/renderer.py --script pipeline/shorts/output/2026-11-12-l
 | `--fps N` | 프레임 레이트 | 30 |
 | `--silent` | TTS 없이 무음 렌더 (오프라인 점검) | 꺼짐 |
 | `--keep-temp` | `renders/.work` 작업 폴더 보존 | 꺼짐 |
+| `--allow-expired` | 마감 지난 대본도 렌더 (기본은 거부) | 꺼짐 |
 
 ### 화면 구성 (안티-슬롭)
 

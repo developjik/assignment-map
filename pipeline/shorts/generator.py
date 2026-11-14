@@ -77,6 +77,7 @@ def parse_args():
         "track": "mixed",
         "dry_run": False,
         "prune_only": False,
+        "pick": None,
     }
     i = 0
     while i < len(args):
@@ -98,6 +99,9 @@ def parse_args():
             opts["dry_run"] = True
         elif a == "--prune-only":
             opts["prune_only"] = True
+        elif a == "--pick" and i + 1 < len(args):
+            opts["pick"] = args[i + 1].strip()
+            i += 1
         else:
             print(f"[Shorts Generator] 무시한 인자: {a}")
         i += 1
@@ -117,6 +121,24 @@ def get_days_remaining(today_str, deadline_str):
         return (d - t).days
     except Exception:
         return 999
+
+
+def is_live(record, today_str):
+    """지금 렌더링·생성해도 되는 소재인가.
+
+    status 가 closed 이거나 마감일이 지났으면 False. 마감일이 없는 상시 채용은 True.
+    대본에 박히는 days_left 는 만든 날의 값이라 며칠 뒤에는 거짓이 된다 — 판단은 마감일로만 한다.
+    """
+    if record.get("status") == "closed":
+        return False
+    deadline = record.get("deadline") or record.get("submit_deadline") or record.get("apply_deadline")
+    if not deadline:
+        return True
+    return get_days_remaining(today_str, deadline) >= 0
+
+
+def record_deadline(record):
+    return record.get("deadline") or record.get("submit_deadline") or record.get("apply_deadline")
 
 
 def score_event(event, today_str):
@@ -611,18 +633,36 @@ def event_visuals(event):
 # --------------------------------------------------------------------------
 
 def build_script(kind, record, days, slot, target_date, score):
+    if not is_live(record, target_date):
+        raise SystemExit(
+            "[Shorts Generator] 마감이 지난 소재라 대본을 만들지 않습니다: %s (%s)"
+            % (record.get("id"), record_deadline(record)))
     scenes = posting_scenes(record, days, target_date) if kind == "posting" else event_scenes(record, days, target_date)
     visuals = posting_visuals(record) if kind == "posting" else event_visuals(record)
 
     times = ["00~04초 (후킹)", "04~20초 (핵심 팩트 3줄)", "20~28초 (CTA)"]
+    # 중간 장면 자막은 그 행의 실제 값으로 채운다 — 렌더러가 이 세 줄을 화면 팩트로 뽑는다.
+    # 템플릿의 '전형 방식 / AI 평가 기준 / 직무·마감'이라는 빈 라벨을 화면에 띄우지 않는다.
+    if kind == "posting":
+        mid_sub = "\n".join([
+            "전형: " + trim_kr(ASSIGNMENT_KO.get(record.get("assignment_type") or "unknown", "자체 과제"), 12),
+            "AI 활용: " + trim_kr(AI_POLICY_KO.get(record.get("ai_policy") or "unspecified", "공고에 명시 없음"), 14),
+            trim_kr(f"{position_label(record)} | {deadline_phrase(record.get('deadline'), days, with_word=False)}", 22),
+        ])
+    else:
+        mid_sub = "\n".join([
+            "주최: " + trim_kr(clean_fragment(record.get("host")) or "주최사", 18),
+            "AI 활용: " + trim_kr(AI_POLICY_KO.get(record.get("ai_usage") or "unspecified", "공고에 명시 없음"), 14),
+            trim_kr(deadline_phrase(record.get("submit_deadline") or record.get("apply_deadline"), days, with_word=False), 18),
+        ])
     subtitles_posting = [
         "AI 과제 전형\n지금 열려 있습니다",
-        "① 전형 방식\n② AI 평가 기준\n③ 직무·마감",
+        mid_sub,
         "프로필 링크\n'과제 지도'",
     ]
     subtitles_event = [
         "마감 임박\n아직 지원 가능",
-        "① 주최·마감\n② AI 활용 승부처\n③ 채용 연계",
+        mid_sub,
         "프로필 링크\n'과제 지도'",
     ]
     subs = subtitles_posting if kind == "posting" else subtitles_event
@@ -911,6 +951,18 @@ def main():
     n_event = len([c for c in candidates if c["kind"] == "event"])
     print(f"[Shorts Generator] 트랙={track} · 후보 posting {n_posting}건 / event {n_event}건 "
           f"· 오늘 생성 목표: {count}편 (기준일: {target_date})")
+
+    # --pick ID: 점수 최상위 대신 지정한 소재 하나만 만든다 (마감·상태 검증은 그대로)
+    if opts.get("pick"):
+        wanted = opts["pick"]
+        picked = [c for c in candidates if c["record"].get("id") == wanted]
+        if not picked:
+            raise SystemExit(
+                "[Shorts Generator] --pick %s 는 지금 만들 수 없는 소재입니다 "
+                "(이미 생성됐거나, 마감이 지났거나, status 가 closed). 데이터에서 id 와 마감일을 확인하세요." % wanted)
+        candidates = picked
+        count = 1
+        print(f"[Shorts Generator] --pick 으로 1건만 생성: {wanted}")
 
     selected = select_candidates(candidates, count, track)
 
