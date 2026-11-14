@@ -76,21 +76,24 @@ export default function App() {
         <span className="logo"><span className="mk" aria-hidden="true"></span>과제지도</span>
         <span className="ver">v0.1.0</span>
         <span className="tagline">AI로 만들어 제출하는 모든 기회 | 매일 03:00 수집</span>
-        <span className="right">
-          <span className="sbox">
-            <input id="q" value={q} onChange={(e) => setQ(e.target.value)}
-              placeholder="기업, 대회명, 기술 스택 검색" aria-label="검색"
-              title="공백으로 여러 단어를 넣으면 모두 포함하는 행만 남는다" autoComplete="off" />
-            {q && <button type="button" className="sclr" onClick={() => setQ('')} aria-label="검색어 지우기">×</button>}
-            <span className="kbd">/</span>
-          </span>
-          <span className="live"><i aria-hidden="true"></i>{stats.lastRun ? `수집 ${stats.lastRun}` : '미실행'}</span>
+        {/* 검색은 모바일에서 자기 줄을 쓴다 — 로고 옆에 끼면 18px 로 찌그러진다 */}
+        <span className="sbox">
+          <input id="q" value={q} onChange={(e) => setQ(e.target.value)}
+            placeholder="기업, 대회명, 기술 스택 검색" aria-label="검색"
+            title="공백으로 여러 단어를 넣으면 모두 포함하는 행만 남는다" autoComplete="off" />
+          {q && <button type="button" className="sclr" onClick={() => setQ('')} aria-label="검색어 지우기">×</button>}
+          <span className="kbd">/</span>
         </span>
-        {stale.stale && (
-          <span className="stale" role="status" title="마지막 수집 이후 오래 지났다. 수집이 재개되면 이 배지는 저절로 사라진다">
-            <i aria-hidden="true"></i>수집 지연 (마지막: {meta.last_run} | {stale.days}일 전)
-          </span>
-        )}
+        {/* 수집 상태는 한 곳에만 — 지연 배지가 뜨면 날짜 라벨은 감춘다 (같은 날짜를 두 번 쓰지 않는다) */}
+        <span className="hstatus">
+          {stale.stale ? (
+            <span className="stale" role="status" title="마지막 수집 이후 오래 지났다. 수집이 재개되면 이 배지는 저절로 사라진다">
+              <i aria-hidden="true"></i>수집 지연 (마지막: {meta.last_run} | {stale.days}일 전)
+            </span>
+          ) : (
+            <span className="live"><i aria-hidden="true"></i>{stats.lastRun ? `수집 ${stats.lastRun}` : '미실행'}</span>
+          )}
+        </span>
         {recent.length > 0 && (
           <div className="recent">
             <span>최근 조회</span>

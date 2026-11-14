@@ -81,11 +81,6 @@ export default function DetailPane({ r, starred, onStar, onClose }) {
       {r.title && r.title !== r.name && <div className="dp-title">{disp(r.title)}</div>}
       <div className="dp-sub">{disp(r.sub) || '대상/주최 미상'}</div>
 
-      <div className="dp-status">
-        <span className="dp-status-k">지원 상태</span>
-        <StatusPicker id={r.id} />
-      </div>
-
       <div className="dp-ddwrap">
         <span className={ddCls}>{ddBig(r)}</span>
         <span className="dp-ddmeta">
@@ -93,10 +88,26 @@ export default function DetailPane({ r, starred, onStar, onClose }) {
             ? <>{r.deadline} 마감{cd ? <> | {cd.text}</> : null}</>
             : <>마감일 미정 | 원문에서 확인</>}
         </span>
+      </div>
+
+      {/* 핵심 동작은 제목·마감 바로 아래 — 공략·이력을 다 스크롤하지 않아도 보인다 */}
+      <div className="dp-acts dp-acts-top">
+        {r.url
+          ? <a className="ics act primary" href={r.url} target="_blank" rel="noreferrer" title="원문 공고를 새 탭으로 연다 (o)">원문 열기</a>
+          : <span className="dp-none">원문 미확보 (수집 {r.first || r.checked || '-'})</span>}
+        <button type="button" className={'ics act starbtn' + (starred ? ' on' : '')} onClick={() => onStar(r.id)}
+          title={starred ? '관심 목록에서 뺀다 (s)' : '관심 목록에 담는다 (s)'}>
+          {starred ? '관심 해제' : '관심 등록'}
+        </button>
         {r.deadline && (
           <button type="button" className="ics act" title={`${r.deadline} 종일 일정으로 캘린더에 넣는다`}
             onClick={() => downloadIcs([r])}>.ics</button>
         )}
+      </div>
+
+      <div className="dp-status">
+        <span className="dp-status-k">지원 상태</span>
+        <StatusPicker id={r.id} />
       </div>
 
       <section className="dp-sec">
@@ -159,14 +170,7 @@ export default function DetailPane({ r, starred, onStar, onClose }) {
         </section>
       )}
 
-      <div className="dp-acts">
-        {r.url
-          ? <a className="ics act" href={r.url} target="_blank" rel="noreferrer" title="원문 공고를 새 탭으로 연다 (o)">원문 열기</a>
-          : <span className="dp-none">원문 미확보 (수집 {r.first || r.checked || '-'})</span>}
-        <button type="button" className={'ics act starbtn' + (starred ? ' on' : '')} onClick={() => onStar(r.id)}
-          title={starred ? '관심 목록에서 뺀다 (s)' : '관심 목록에 담는다 (s)'}>
-          {starred ? '관심 해제' : '관심 등록'}
-        </button>
+      <div className="dp-acts dp-acts-bottom">
         <a className="ics act rep" href={reportIssueUrl(r)} target="_blank" rel="noreferrer"
           title="정보가 틀렸거나 AI 정책이 바뀌었을 때 GitHub 이슈에 미리 채워 보낸다">정보 수정·AI 정책 제보</a>
       </div>
