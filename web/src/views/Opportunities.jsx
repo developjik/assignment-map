@@ -333,6 +333,9 @@ export default function Opportunities({ rows, type, q, setQ, setTab, onVisit }) 
   }
 
   const exportable = filtered.filter((r) => r.deadline)
+  // 초기화는 실제로 조건이 걸렸을 때만 보인다 — 기본 상태에선 할 일이 없는 버튼이다
+  const dirty = policy !== 'all' || jobfam !== 'all' || status !== 'open' || !!prog
+    || hiringOnly || changedOnly || starredOnly || !!(q || '').trim() || !!sort || sortMode !== 'dday'
   const exportAll = () => { if (exportable.length) downloadIcs(exportable) }
   const starredExportable = starredRows.filter((r) => r.deadline)
   const exportStarred = () => { if (starredExportable.length) downloadStarredIcs(starredExportable) }
@@ -351,51 +354,57 @@ export default function Opportunities({ rows, type, q, setQ, setTab, onVisit }) 
         <DeadlineTicker rows={rows} onPick={pickDeadline} />
       </div>
       <div className="fr">
-        <span className="fl">직군</span>
-        <button className={'fopt' + (jobfam === 'all' ? ' on' : '')} aria-pressed={jobfam === 'all'} onClick={() => setJobfam('all')}>전체</button>
-        <button className={'fopt' + (jobfam === 'fe' ? ' on' : '')} aria-pressed={jobfam === 'fe'} onClick={() => setJobfam('fe')} title="FE 포지션 공고 + 직군 무관 행사">FE</button>
-        <span className="fl">AI 정책</span>
-        {POLICY_FILTERS.map((f) => (
-          <button key={f.id} className={`fopt ${f.cls || ''}` + (policy === f.id ? ' on' : '')} aria-pressed={policy === f.id}
-            onClick={() => setPolicy(f.id)}>{f.label}</button>
-        ))}
-        <span className="fl">상태</span>
-        {STATUS_FILTERS.map((f) => (
-          <button key={f.id} className={'fopt' + (status === f.id ? ' on' : '')} aria-pressed={status === f.id}
-            onClick={() => setStatus(f.id)}>{f.label}</button>
-        ))}
-        <span className="fl" title="내가 표시한 지원 진행 상태">내 진행</span>
-        {PROG_FILTERS.map((f) => (
-          <button key={f.id || 'none'} className={'fopt prog-f ' + (f.cls || '') + (prog === f.id ? ' on' : '')}
-            aria-pressed={prog === f.id} onClick={() => setProg(f.id)}>{f.label}</button>
-        ))}
-        <span className="fl">조건</span>
-        <button className={'fopt tog tog-hire' + (hiringOnly ? ' on' : '')} aria-pressed={hiringOnly}
-          onClick={() => setHiringOnly(v => !v)} title="채용 연계 혜택이 있는 이벤트만">채용연계만</button>
-        <button className={'fopt tog tog-chg' + (changedOnly ? ' on' : '')} aria-pressed={changedOnly}
-          onClick={() => setChangedOnly(v => !v)} title="AI 정책이 도입되거나 바뀐 기록이 있는 건만">정책변경만</button>
-        <button className={'fopt star-f' + (starredOnly ? ' on' : '')} aria-pressed={starredOnly}
-          onClick={() => setStarredOnly(v => !v)} title="별표한 공고·이벤트만 보기">
-          <StarIcon filled={starredOnly} />관심 <b>{starredRows.length}</b>
-        </button>
-        <span className="fl">정렬</span>
-        {SORT_MODES.map((s) => (
-          <button key={s.id} className={'fopt' + (sortMode === s.id && !sort ? ' on' : '')}
-            aria-pressed={sortMode === s.id && !sort}
-            onClick={() => { setSort(null); setSortMode(s.id) }}>{s.label}</button>
-        ))}
-        <button className="fopt ics" onClick={exportAll} disabled={!exportable.length}
-          title="현재 조건에 보이는 건의 마감일을 iCalendar 파일로 내려받는다">.ics {exportable.length > 0 ? exportable.length : ''}</button>
-        <button className="fopt ics ics-star" onClick={exportStarred} disabled={!starredExportable.length}
-          title="관심 등록한 건의 마감일만 모아 assignment-map-starred.ics 하나로 내려받는다">관심 .ics {starredExportable.length > 0 ? starredExportable.length : ''}</button>
-        <span className="dens" role="group" aria-label="행 밀도">
-          <button className={density === 'compact' ? 'on' : ''} onClick={() => setDensity('compact')} title="컴팩트">compact</button>
-          <button className={density === 'standard' ? 'on' : ''} onClick={() => setDensity('standard')} title="표준">standard</button>
-        </span>
-        <button className="fopt fopt-reset" onClick={resetFilters}>초기화</button>
-        <span className="match-n">{status === 'open'
-          ? <>진행중 <b>{filtered.length}</b> / 전체 <b>{totalNoStatus}</b></>
-          : <>매칭 <b>{filtered.length}</b>건</>}</span>
+        {/* 조건 — 지금 목록을 좁힌다 (걸린 것은 색으로 채운다) */}
+        <div className="fr-q">
+          <span className="fl">직군</span>
+          <button className={'fopt' + (jobfam === 'all' ? ' on' : '')} aria-pressed={jobfam === 'all'} onClick={() => setJobfam('all')}>전체</button>
+          <button className={'fopt' + (jobfam === 'fe' ? ' on' : '')} aria-pressed={jobfam === 'fe'} onClick={() => setJobfam('fe')} title="FE 포지션 공고 + 직군 무관 행사">FE</button>
+          <span className="fl">AI 정책</span>
+          {POLICY_FILTERS.map((f) => (
+            <button key={f.id} className={`fopt ${f.cls || ''}` + (policy === f.id ? ' on' : '')} aria-pressed={policy === f.id}
+              onClick={() => setPolicy(f.id)}>{f.label}</button>
+          ))}
+          <span className="fl">상태</span>
+          {STATUS_FILTERS.map((f) => (
+            <button key={f.id} className={'fopt' + (status === f.id ? ' on' : '')} aria-pressed={status === f.id}
+              onClick={() => setStatus(f.id)}>{f.label}</button>
+          ))}
+          <span className="fl" title="내가 표시한 지원 진행 상태">내 진행</span>
+          {PROG_FILTERS.map((f) => (
+            <button key={f.id || 'none'} className={'fopt prog-f ' + (f.cls || '') + (prog === f.id ? ' on' : '')}
+              aria-pressed={prog === f.id} onClick={() => setProg(f.id)}>{f.label}</button>
+          ))}
+          <span className="fl">조건</span>
+          <button className={'fopt tog tog-hire' + (hiringOnly ? ' on' : '')} aria-pressed={hiringOnly}
+            onClick={() => setHiringOnly(v => !v)} title="채용 연계 혜택이 있는 이벤트만">채용연계만</button>
+          <button className={'fopt tog tog-chg' + (changedOnly ? ' on' : '')} aria-pressed={changedOnly}
+            onClick={() => setChangedOnly(v => !v)} title="AI 정책이 도입되거나 바뀐 기록이 있는 건만">정책변경만</button>
+          <button className={'fopt star-f' + (starredOnly ? ' on' : '')} aria-pressed={starredOnly}
+            onClick={() => setStarredOnly(v => !v)} title="별표한 공고·이벤트만 보기">
+            <StarIcon filled={starredOnly} />관심 <b>{starredRows.length}</b>
+          </button>
+        </div>
+        {/* 도구 — 목록을 줄이지 않는 보조 조작. 조건과 분리해 옅게, 오른쪽 정렬 */}
+        <div className="fr-t">
+          <span className="fl">정렬</span>
+          {SORT_MODES.map((s) => (
+            <button key={s.id} className={'fopt' + (sortMode === s.id && !sort ? ' on' : '')}
+              aria-pressed={sortMode === s.id && !sort}
+              onClick={() => { setSort(null); setSortMode(s.id) }}>{s.label}</button>
+          ))}
+          <button className="fopt ics" onClick={exportAll} disabled={!exportable.length}
+            title="현재 조건에 보이는 건의 마감일을 iCalendar 파일로 내려받는다">.ics {exportable.length > 0 ? exportable.length : ''}</button>
+          <button className="fopt ics ics-star" onClick={exportStarred} disabled={!starredExportable.length}
+            title="관심 등록한 건의 마감일만 모아 assignment-map-starred.ics 하나로 내려받는다">관심 .ics {starredExportable.length > 0 ? starredExportable.length : ''}</button>
+          <span className="dens" role="group" aria-label="행 밀도">
+            <button className={density === 'compact' ? 'on' : ''} onClick={() => setDensity('compact')} title="컴팩트">compact</button>
+            <button className={density === 'standard' ? 'on' : ''} onClick={() => setDensity('standard')} title="표준">standard</button>
+          </span>
+          {dirty && <button className="fopt fopt-reset" onClick={resetFilters} title="모든 조건·정렬·검색을 기본값으로 되돌린다">초기화</button>}
+          <span className="match-n">{status === 'open'
+            ? <>진행중 <b>{filtered.length}</b> / 전체 <b>{totalNoStatus}</b></>
+            : <>매칭 <b>{filtered.length}</b>건</>}</span>
+        </div>
         <div className="sr" aria-live="polite">{sortMsg}</div>
       </div>
       <div className={'workspace' + (paneOpen ? ' pane-on' : '')}>
@@ -521,6 +530,24 @@ function Row({ r, q, zebra, idx, curIdx, curRef, expanded, starred, onStar, st, 
               <div className="ln"><span className="d">{r.first || ''}</span>발견 | <span className="q">{disp(r.evidence)}</span></div>
               <div className="ln">대상/주최: <span className="q">{r.sub || '-'}</span></div>
               <div className="ln">마감: <span className="q">{r.deadline ? `${r.deadline} (${ddText})` : '상시/미정'}</span> | 유형: <span className="q">{r.type}</span>{r.prize ? <> | 상금: <span className="q">{r.prize}</span></> : null}</div>
+              {/* 핵심 동작은 제목·마감 바로 아래 — 공략·이력 끝까지 스크롤하지 않아도 된다 */}
+              <div className="ln hx-acts">
+                {r.url
+                  ? <a className="hx-a primary" href={r.url} target="_blank" rel="noreferrer" onClick={(e) => e.stopPropagation()}>원문 열기</a>
+                  : <span className="src">원문 미확보 (수집 {r.first || r.checked || '-'})</span>}
+                <button className={'hx-a starbtn' + (starred ? ' on' : '')}
+                  title={starred ? '관심 목록에서 뺀다' : '관심 목록에 담는다 (s)'}
+                  onClick={(e) => { e.stopPropagation(); onStar(r.id) }}>
+                  {starred ? '관심 해제' : '관심 등록'}
+                </button>
+                {r.deadline && (
+                  <button className="hx-a" title={`${r.deadline} 종일 일정으로 캘린더에 넣는다`}
+                    onClick={(e) => { e.stopPropagation(); downloadIcs([r]) }}>.ics 마감 일정</button>
+                )}
+                <a className="rep" href={reportIssueUrl(r)} target="_blank" rel="noreferrer"
+                  title="정보가 틀렸거나 AI 정책이 바뀌었을 때 GitHub 이슈로 보낸다"
+                  onClick={(e) => e.stopPropagation()}>정보 수정·AI 정책 제보</a>
+              </div>
               <div className="ln sp-ln">지원 상태: <StatusPicker id={r.id} /><GuideProgressBadge r={r} full /></div>
               {(r.history || []).filter(h => h.event !== 'created').map((h, i) => (
                 <div className="ln" key={i}>
@@ -530,23 +557,6 @@ function Row({ r, q, zebra, idx, curIdx, curRef, expanded, starred, onStar, st, 
                   {h.evidence ? <span className="q"> | "{disp(h.evidence)}"</span> : ''}
                 </div>
               ))}
-              <div className="ln">
-                {r.url
-                  ? <a href={r.url} target="_blank" rel="noreferrer" onClick={(e) => e.stopPropagation()}>원문 열기</a>
-                  : <span className="src">원문 미확보 (수집 {r.first || r.checked || '-'})</span>}
-                <button className={'ics act starbtn' + (starred ? ' on' : '')}
-                  title={starred ? '관심 목록에서 뺀다' : '관심 목록에 담는다 (s)'}
-                  onClick={(e) => { e.stopPropagation(); onStar(r.id) }}>
-                  {starred ? '관심 해제' : '관심 등록'}
-                </button>
-                {r.deadline && (
-                  <button className="ics act" title={`${r.deadline} 종일 일정으로 캘린더에 넣는다`}
-                    onClick={(e) => { e.stopPropagation(); downloadIcs([r]) }}>.ics 마감 일정 내려받기</button>
-                )}
-                <a className="rep" href={reportIssueUrl(r)} target="_blank" rel="noreferrer"
-                  title="정보가 틀렸거나 AI 정책이 바뀌었을 때 GitHub 이슈로 보낸다"
-                  onClick={(e) => e.stopPropagation()}>정보 수정·AI 정책 제보</a>
-              </div>
               {/* 좁은 화면에서는 2-Pane 대신 아코디언 맨 아래에 같은 공략 섹션이 붙는다 */}
               <GuidePane r={r} inline />
             </div>

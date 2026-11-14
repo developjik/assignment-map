@@ -3,6 +3,8 @@
   --fg: #C9D4E3; --fg-hi: #E8EEF6; --mut: #8B98AD; --dim: #82909F; --faint: #6E7B90;
   --red: #FF5C5C; --blue: #5CA8FF; --green: #34D399; --yellow: #E5C07B;
   --mono: "JetBrains Mono", "SF Mono", Menlo, monospace;
+  /* 한글 산문용 — 숫자·D-Day·단축키·터미널 메타는 --mono 그대로 */
+  --sans: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Noto Sans KR", "Noto Sans CJK KR", "Malgun Gothic", "Nanum Gothic", sans-serif;
 }
 * { box-sizing: border-box; }
 html, body { margin: 0; background: var(--bg); }
@@ -27,8 +29,8 @@ a:hover { text-decoration: underline; text-underline-offset: 3px; }
 .mk { width: 13px; height: 13px; background: var(--blue); border-radius: 1px; position: relative; }
 .mk::after { content: ""; position: absolute; inset: 4px; background: var(--bg); }
 .ver { color: var(--faint); font-size: 10px; }
-.hd .right { margin-left: auto; display: flex; align-items: center; gap: 10px; min-width: 0; }
-.sbox { display: flex; align-items: center; gap: 6px; border: 1px solid var(--border); background: var(--panel); color: var(--mut); padding: 3px 8px; font: 11px var(--mono); flex: 0 1 380px; min-width: 200px; }
+.hstatus { display: flex; align-items: center; gap: 10px; min-width: 0; }
+.sbox { display: flex; align-items: center; gap: 6px; border: 1px solid var(--border); background: var(--panel); color: var(--mut); padding: 3px 8px; font: 11px var(--mono); flex: 0 1 380px; min-width: 200px; margin-left: auto; }
 .sbox input { background: none; border: 0; color: var(--fg-hi); font: inherit; width: 100%; min-width: 0; outline: none; }
 .sclr { background: none; border: 0; color: var(--faint); font: 11px var(--mono); padding: 0 1px; cursor: pointer; line-height: 1; }
 .sclr:hover { color: var(--fg-hi); }
@@ -65,11 +67,23 @@ a:hover { text-decoration: underline; text-underline-offset: 3px; }
 .band .dl-btn { padding: 0 7px; }
 .band .dl-empty { padding: 3px 10px; }
 
-/* filter row — 압축: 4px 패딩 (높이 24px) */
+/* filter row — 압축: 4px 패딩 (높이 24px). 두 계층: 조건(fr-q) + 도구(fr-t) */
 .fr { display: flex; border-bottom: 1px solid var(--border); flex-wrap: wrap; align-items: stretch; }
+.fr-q { display: flex; flex-wrap: wrap; align-items: stretch; min-width: 0; }
+.fr-t { display: flex; flex-wrap: wrap; align-items: stretch; margin-left: auto; border-left: 1px solid var(--border2); }
 .fl { display: flex; align-items: center; padding: 0 9px; font-size: 10.5px; color: var(--faint); border-right: 1px solid var(--border); }
-.fopt { display: inline-flex; align-items: center; padding: 4px 9px; font-size: 11px; color: var(--mut); background: none; border: 0; border-right: 1px solid var(--border2); cursor: pointer; font-family: inherit; }
-.fopt-reset { margin-left: 8px; text-decoration: underline; text-underline-offset: 3px; }
+.fopt { display: inline-flex; align-items: center; padding: 4px 8px; font-size: 11px; color: var(--mut); background: none; border: 0; border-right: 1px solid var(--border2); cursor: pointer; font-family: inherit; }
+.fr-q .fl { padding: 0 8px; }
+/* 도구 줄 — 조건과 같은 버튼이 아니라 보조 도구로 읽히게: 옅은 글자 + 밑줄 선택 표시 */
+.fr-t .fl { border-right: 0; padding: 0 8px 0 12px; }
+.fr-t .fl:first-child { padding-left: 10px; }
+.fr-t .fopt { color: var(--faint); font-size: 10.5px; padding: 4px 8px; }
+.fr-t .fopt:hover { color: var(--fg-hi); }
+.fr-t .fopt.on { color: var(--fg-hi); background: none; box-shadow: inset 0 -2px 0 var(--blue); }
+.fr-t .fopt.ics { color: var(--blue); }
+.fr-t .fopt.ics:disabled { color: #46505F; }
+.fopt-reset { margin: 4px 8px; align-self: center; padding: 1px 8px; border: 1px solid var(--border); color: var(--mut); }
+.fopt-reset:hover { color: var(--fg-hi); border-color: var(--blue); }
 .fopt:hover { color: var(--fg-hi); }
 .fopt.on { color: var(--fg-hi); background: #11151C; }
 .fopt.p-req.on { background: #1C1113; color: var(--red); }
@@ -105,6 +119,13 @@ tr.row:hover td { background: #111726; }
 /* history expansion */
 .hx td { padding: 0; }
 .hx .in { padding: 8px 10px 10px 30px; border-left: 2px solid #232C3E; margin: 2px 10px 6px 20px; background: var(--panel2); }
+/* 아코디언 상단 동작줄 (2026-11-14) — 마감 아래, 공략 위 */
+.hx-acts { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin: 3px 0 6px; }
+.hx-a { display: inline-flex; align-items: center; min-height: 24px; padding: 2px 9px; border: 1px solid var(--border); background: none; color: var(--blue); font: 10.5px var(--mono); cursor: pointer; }
+.hx-a:hover { color: var(--fg-hi); border-color: var(--blue); }
+.hx-a.primary { color: #DCE9FF; border-color: #2A4A73; background: #101826; font-weight: 700; }
+.hx-a.primary:hover { color: #fff; background: #14203A; }
+.hx-a.starbtn.on { color: var(--yellow); border-color: var(--yellow); }
 .ln { font-size: 11px; line-height: 1.75; color: var(--mut); }
 .ln .d { color: var(--faint); margin-right: 10px; }
 .ln .ev { color: var(--yellow); }
@@ -270,6 +291,12 @@ td.ev { white-space: nowrap; color: var(--mut); }
 .dp-hist .d { color: var(--faint); margin-right: 8px; }
 .dp-hist .ev { color: var(--yellow); margin-right: 4px; }
 .dp-acts { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; padding: 11px 12px 2px; border-top: 1px solid var(--border2); margin-top: 9px; }
+/* 상단 동작줄 — 마감 바로 아래. 원문 열기가 이 패널의 주 행동이라 배경으로 도드라진다 */
+.dp-acts-top { padding: 9px 12px 5px; margin-top: 0; border-top: 0; gap: 6px; }
+.dp-acts-bottom { padding: 7px 12px 10px; margin-top: 6px; }
+.ics.act.primary { color: #DCE9FF; border-color: #2A4A73; background: #101826; font-weight: 700; padding: 4px 12px; }
+.ics.act.primary:hover { color: #fff; border-color: var(--blue); background: #14203A; }
+.dp-acts-top .ics.act { padding-top: 4px; padding-bottom: 4px; }
 .dp-foot { padding: 7px 12px 0; color: #5A6577; font-size: 10px; }
 
 /* AI 실전 과제 공략 — 우측 패널(.dpane)과 모바일 아코디언(.gp-in)이 같은 규칙을 쓴다 */
@@ -496,9 +523,12 @@ td.ev { white-space: nowrap; color: var(--mut); }
   /* 표 영역은 flex 가 아닌 일반 흐름으로 (모바일은 페이지 스크롤) */
   .workspace { display: block; flex: 0 0 auto; }
 
-  /* B. 필터 → 한 줄 가로 스크롤, 터치 높이 38px */
+  /* B. 필터 → 한 줄 가로 스크롤, 터치 높이 38px (조건·도구 두 묶음이 이어서 스크롤된다) */
   .fr { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; }
   .fr::-webkit-scrollbar { display: none; }
+  .fr-q, .fr-t { flex: 0 0 auto; flex-wrap: nowrap; }
+  .fr-t { margin-left: 0; border-left: 1px solid var(--border); }
+  .fr-t .fl:first-child { padding-left: 12px; }
   .fr .fl, .fr .fopt, .fr .dens, .fr .match-n { flex: 0 0 auto; }
   .fr .fl { display: inline-flex; align-items: center; min-height: 38px; }
   .fr .fopt { display: inline-flex; align-items: center; min-height: 38px; padding: 0 12px; font-size: 11.5px; }
@@ -510,9 +540,9 @@ td.ev { white-space: nowrap; color: var(--mut); }
   .hd { flex-wrap: wrap; gap: 8px; padding: 7px 10px; }
   .logo { flex: 0 0 auto; white-space: nowrap; }
   .tagline, .ver { display: none; }
-  .hd .right { margin-left: auto; flex: 1 1 0; gap: 8px; min-width: 0; }
-  .sbox { flex: 1 1 0; min-width: 0; height: 34px; }
+  .hstatus { margin-left: auto; flex: 0 0 auto; gap: 6px; }
   .live { flex: 0 0 auto; font-size: 10px; }
+  .hd .stale { font-size: 9.5px; padding: 2px 7px; }
   .recent { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; }
   .recent::-webkit-scrollbar { display: none; }
 
@@ -531,8 +561,8 @@ td.ev { white-space: nowrap; color: var(--mut); }
   /* E. 상세 아코디언 — 링크·버튼 터치 영역 38px */
   .hx .in { padding: 10px 10px 12px; margin: 2px 6px 8px; }
   .hx .ln { font-size: 11px; line-height: 1.7; }
-  .hx .in > .ln:last-child { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-top: 4px; }
-  .hx .in > .ln:last-child a { display: inline-flex; align-items: center; min-height: 38px; padding: 0 12px; border: 1px solid var(--border); }
+  .hx-acts { gap: 8px; margin: 4px 0 8px; }
+  .hx-acts .hx-a, .hx-acts a.rep { display: inline-flex; align-items: center; min-height: 38px; padding: 0 12px; font-size: 11px; }
   .ics.act { margin-left: 0; min-height: 38px; padding: 0 12px; }
 
   /* F. 모바일에서 쓸모없는 키보드 안내는 감춘다 */
@@ -545,6 +575,26 @@ td.ev { white-space: nowrap; color: var(--mut); }
   .dl-it { padding: 8px 10px; }
   .dl-btn { padding: 0 13px; }
   .dl-badge { padding: 0 8px; }
+}
+
+/* ===== 한글 본문 가독성 분리 (2026-11-14) ===== */
+/* 표·패널의 숫자·D-Day·단축키·배지는 모노에 남기고, 문장으로 읽는 한글만 산세리프로 옮긴다 */
+.dp-name, .dp-title, .dp-sub, .dp-proc, .dp-q, .dp-none,
+.ev, .gp-sum, .gp-ess, .gp-st, .gp-sb p, .gp-cki .tx,
+.empty-id .l1, .empty-id .l2, .lede, .pc-ev, .news-it .c, .mth { font-family: var(--sans); }
+.dp-name { letter-spacing: -0.005em; }
+.dp-title, .dp-sub, .dp-proc, .dp-q { font-size: 11.5px; }
+.gp-ess, .gp-sb p, .gp-cki .tx { font-size: 11px; }
+
+/* ===== 모바일 헤더 두 줄 (2026-11-14) ===== */
+/* 390px: 로고·수집 상태가 첫 줄, 검색창은 둘째 줄 풀폭. 수집 지연 배지가 뜨면 날짜 라벨은 감춘다. */
+@media (max-width: 640px) {
+  .hd { gap: 6px 8px; padding: 7px 10px; }
+  .hd .sbox { order: 9; flex: 1 1 100%; min-width: 0; height: 36px; margin-left: 0; padding: 0 9px; font-size: 11.5px; }
+  .hd .sbox input { font-size: 12px; }
+  .hd .recent { order: 10; }
+  .hstatus { min-width: 0; }
+  .hd .stale { font-size: 9.5px; padding: 2px 7px; }
 }
 
 /* ===== 수집 지연 배지 (2026-11-14) ===== */
