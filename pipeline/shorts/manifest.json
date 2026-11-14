@@ -1,10 +1,10 @@
 {
   "version": "1.0.0",
-  "updated_at": "2026-11-12T08:28:32.041343+09:00",
+  "updated_at": "2026-11-14T11:20:46.460791+09:00",
   "stats": {
-    "total_generated": 13,
+    "total_generated": 14,
     "published": 9,
-    "queued": 0,
+    "queued": 1,
     "expired": 4
   },
   "items": [
@@ -189,6 +189,24 @@
       "script_path": "documents/shorts-seoul-vibe-coding.md",
       "youtube_url": "https://youtube.com/shorts/VlU2lT66k_A",
       "published_at": "2026-11-05T15:34:00+09:00"
+    },
+    {
+      "id": "jobkorea:50228434",
+      "type": "posting",
+      "track": "posting",
+      "template": "28s-v1",
+      "slot": "2026-11-14-lunch",
+      "scheduled_at": "2026-11-14T12:30:00+09:00",
+      "title": "AI로 과제 내는 씨어스 DevOps 전형, 이렇게 뚫습니다 #shorts",
+      "event_title": "씨어스 DevOps 채용 과제 전형",
+      "host": "씨어스",
+      "company": "씨어스",
+      "deadline": "2026-11-22",
+      "prize": null,
+      "char_count": 131,
+      "score": 160,
+      "status": "queued",
+      "script_path": "pipeline/shorts/output/2026-11-14-lunch-jobkorea_50228434.md"
     }
   ]
 }

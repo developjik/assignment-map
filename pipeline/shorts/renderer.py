@@ -166,33 +166,47 @@ def infer_policy(script):
     return "unspecified"
 
 
-def dday_text(script):
+def days_left_now(script, today=None):
+    """지금(KST) 기준 남은 날수 — 대본에 적힌 days_left 가 아니라 마감일로 다시 센다.
+
+    대본은 만들어진 날의 days_left 를 들고 있으므로, 며칠 뒤에 렌더링하면
+    그 숫자는 거짓말이 된다 (PR #2 리뷰: 마감 지난 대본이 '모집중'으로 나감).
+    마감일이 없으면 상시 채용이라 None 을 돌려준다.
+    """
+    deadline = script.get("deadline")
+    if not deadline:
+        return None
+    try:
+        d = datetime.strptime(str(deadline), "%Y-%m-%d").date()
+    except ValueError:
+        return None
+    base = today or datetime.now(KST).date()
+    return (d - base).days
+
+
+def script_is_live(script, today=None):
+    """이 대본을 지금 렌더링해도 되는가. 마감일이 지났으면 False, 상시(마감 없음)는 True."""
+    left = days_left_now(script, today)
+    return left is None or left >= 0
+
+
+def dday_text(script, today=None):
+    left = days_left_now(script, today)
+    if left is not None:
+        return "D-%d" % left if left >= 0 else "마감"
     days = script.get("days_left")
     if isinstance(days, int):
         return "D-%d" % days if days >= 0 else "마감"
-    deadline = script.get("deadline")
-    if deadline:
-        try:
-            d = datetime.strptime(deadline, "%Y-%m-%d").date()
-            left = (d - datetime.now(KST).date()).days
-            return "D-%d" % left if left >= 0 else "마감"
-        except ValueError:
-            return "마감일"
     return "일정"
 
 
-def status_text(script):
+def status_text(script, today=None):
     """D-day와 짝을 이루는 상태 라벨 — 마감이 지난 대본에 '모집중'을 붙이지 않는다."""
-    days = script.get("days_left")
-    if isinstance(days, int):
-        return "모집중" if days >= 0 else "마감 지남"
-    deadline = script.get("deadline")
-    if deadline:
-        try:
-            left = (datetime.strptime(deadline, "%Y-%m-%d").date() - datetime.now(KST).date()).days
-            return "모집중" if left >= 0 else "마감 지남"
-        except ValueError:
-            return "일정 확인"
+    left = days_left_now(script, today)
+    if left is not None:
+        return "모집중" if left >= 0 else "마감 지남"
+    if script.get("deadline"):
+        return "일정 확인"
     return "상시"
 
 
@@ -208,8 +222,8 @@ def build_facts(script):
                 facts.append(t)
     deadline = script.get("deadline")
     if deadline:
-        days = script.get("days_left")
-        line = "마감 %s" % deadline + (" (D-%d)" % days if isinstance(days, int) and days >= 0 else "")
+        left = days_left_now(script)
+        line = "마감 %s" % deadline + (" (D-%d)" % left if isinstance(left, int) and left >= 0 else "")
         if line not in facts:
             facts.append(line)
     prize = script.get("prize")
@@ -531,10 +545,21 @@ def load_script(path):
     return data
 
 
-def pick_latest():
+def pick_latest(today=None):
+    """output/에서 지금 렌더링할 대본을 찾는다.
+
+    manifest 의 queued 를 우선하지만, 그 항목의 마감이 지났으면 건너뛴다.
+    대본 JSON의 deadline 으로 직접 판단하고(대본에 박힌 days_left 는 믿지 않는다),
+    살아 있는 대본이 하나도 없으면 SystemExit 으로 멈춰서 낡은 소재가
+    '모집중' 영상으로 나가는 일을 막는다 (PR #2 리뷰 P2).
+    """
     files = sorted(OUTPUT_DIR.glob("*.json"), key=lambda p: (p.stat().st_mtime, p.name), reverse=True)
     if not files:
         raise SystemExit("output/에 대본 JSON이 없습니다. 먼저 generator.py를 실행하세요.")
+    base_day = today or datetime.now(KST).date()
+    by_name = {f: json.loads(f.read_text(encoding="utf-8")) for f in files}
+    skipped = []
+
     manifest = ROOT / "manifest.json"
     if manifest.exists():
         try:
@@ -542,14 +567,27 @@ def pick_latest():
         except (ValueError, OSError):
             items = []
         queued = [i for i in items if i.get("status") == "queued"]
+        queued.sort(key=lambda i: str(i.get("scheduled_at") or ""), reverse=True)
         for item in queued:
             slot = item.get("slot") or ""
             if not slot:
                 continue
-            for f in files:
-                if f.stem.startswith(slot):
+            for f, data in by_name.items():
+                if not f.stem.startswith(slot):
+                    continue
+                if script_is_live(data, base_day):
                     return f
-    return files[0]
+                skipped.append(f.name)
+
+    for f, data in by_name.items():
+        if script_is_live(data, base_day):
+            return f
+        skipped.append(f.name)
+
+    detail = ", ".join(sorted(set(skipped))[:4]) or "없음"
+    raise SystemExit(
+        "마감이 지나지 않은 대본이 output/에 없습니다 (건너뜀: %s). "
+        "generator.py 로 새 대본을 만들거나 --script 로 직접 지정하세요." % detail)
 
 
 def narration_text(script):
@@ -579,7 +617,14 @@ def test_script():
 
 
 def render(script, out_path, voice="ko-KR-InJoonNeural", fps=FPS, silent=False, keep_temp=False,
-           tts_fallback=False, rates=RATES):
+           tts_fallback=False, rates=RATES, allow_expired=False):
+    if not allow_expired and not script_is_live(script):
+        left = days_left_now(script)
+        raise SystemExit(
+            "마감이 지난 대본입니다 (마감 %s, %s일 전). "
+            "낡은 소재가 '모집중'으로 나가지 않게 렌더를 중단했습니다. "
+            "정말 찍으려면 --allow-expired 를 붙이세요."
+            % (script.get("deadline"), abs(left or 0)))
     RENDER_DIR.mkdir(parents=True, exist_ok=True)
     out_path = Path(out_path)
     out_path.parent.mkdir(parents=True, exist_ok=True)
@@ -613,6 +658,11 @@ def render(script, out_path, voice="ko-KR-InJoonNeural", fps=FPS, silent=False, 
     print("      %.2fs @ %+d%%  → %d 프레임 (%.1fs)" % (dur, rate, n_frames, total))
     if dur > 30.0:
         print("      경고: 대본이 28초 템플릿보다 길다 (%.1fs). 28s-v1 대본(130~145자)이면 26~28초에 맞는다." % dur)
+    elif script.get("template") == "28s-v1" and dur < 24.0:
+        # 실측 발화 속도가 대본의 글자 수 가정(5.2자/초)보다 빠를 때 생기는 짧은 영상 — 거짓은 아니지만 알린다
+        print("      경고: 28초 템플릿 대본이 %.1fs로 창(26~28초)보다 짧다. "
+              "글자 수를 150자 이상으로 늘리면 맞는다 (지금 대본 %s자)."
+              % (dur, script.get("char_count") or len(text)))
 
     print("[2/4] 프레임  %s | 팩트 %d줄 | 정책 %s" % (model["title"][:32], len(model["facts"]), model["policy_label"]))
     static, facts_top = draw_static(model, total)
@@ -642,6 +692,8 @@ def main(argv=None):
     ap.add_argument("--fps", type=int, default=FPS, help="프레임 레이트 (기본 30)")
     ap.add_argument("--silent", action="store_true", help="TTS 없이 무음으로 렌더 (오프라인 점검용)")
     ap.add_argument("--keep-temp", action="store_true", help="작업 폴더(renders/.work)를 남긴다")
+    ap.add_argument("--allow-expired", action="store_true",
+                    help="마감이 지난 대본도 렌더링한다 (기본은 거부)")
     args = ap.parse_args(argv)
 
     if args.test:
@@ -656,7 +708,7 @@ def main(argv=None):
     out = Path(args.out) if args.out else RENDER_DIR / (stem + ".mp4")
     info = render(script, out, voice=args.voice, fps=args.fps, silent=args.silent,
                   keep_temp=args.keep_temp, tts_fallback=args.test,
-                  rates=(15,) if args.test else RATES)
+                  rates=(15,) if args.test else RATES, allow_expired=args.allow_expired)
     print(json.dumps(info, ensure_ascii=False))
     return 0
 

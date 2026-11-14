@@ -1,17 +1,11 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
 import { guideById, guides, matchGuide } from '../lib/guides'
+import { readChecks, writeChecks } from '../lib/guideProgress'
 
 // AI 실전 과제 공략 — 우측 2-Pane 패널과 모바일 아코디언이 같은 컴포넌트를 쓴다.
 // 데이터는 빌드 타임에 data/guides/*.md 에서 컴파일된 JSON 이고, 여기서는 고른 행에
 // 어떤 아키타입을 붙일지(lib/guides.js)와 체크 상태/복사 피드백만 다룬다.
-const CHECK_KEY = 'am-guide-checks'
-
-function readChecks() {
-  try {
-    const v = JSON.parse(localStorage.getItem(CHECK_KEY) || '{}')
-    return v && typeof v === 'object' ? v : {}
-  } catch { return {} }
-}
+// 체크는 lib/guideProgress 를 거쳐 저장한다 — 행 배지가 같은 변경 신호를 받는다.
 
 function copyText(text) {
   if (navigator.clipboard && navigator.clipboard.writeText) {
@@ -48,7 +42,7 @@ export default function GuidePane({ r, inline = false }) {
   useEffect(() => { setPickedId(null) }, [r.id])
   useEffect(() => () => clearTimeout(timer.current), [])
 
-  useEffect(() => { localStorage.setItem(CHECK_KEY, JSON.stringify(checks)) }, [checks])
+  useEffect(() => { writeChecks(checks) }, [checks])
 
   const picked = pickedId ? guideById(pickedId) : null
   const g = picked || auto.guide

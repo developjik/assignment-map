@@ -1,0 +1,43 @@
+{
+  "event_id": "jobkorea:50228434",
+  "type": "posting",
+  "track": "posting",
+  "template": "28s-v1",
+  "duration_target_sec": 28,
+  "slot_id": "2026-11-14-lunch",
+  "scheduled_at": "2026-11-14T12:30:00+09:00",
+  "score": 160,
+  "char_count": 131,
+  "est_seconds": 25.2,
+  "event_title": "씨어스 DevOps 채용 과제 전형",
+  "host": "씨어스",
+  "deadline": "2026-11-22",
+  "days_left": 8,
+  "url": "https://www.jobkorea.co.kr/Recruit/GI_Read/50228434",
+  "narration_full": "AI 써서 과제 내라는 기업이 있습니다. 바로 씨어스 DevOps 전형입니다. 전형은 자체 과제. AI 활용은 필수. DevOps 직무, 11월 22일 마감, D-8. 더 많은 기업별 AI 과제는 프로필 링크 과제 지도에서 확인하세요.",
+  "scenes": [
+    {
+      "time": "00~04초 (후킹)",
+      "subtitle": "AI 과제 전형\n지금 열려 있습니다",
+      "narration": "AI 써서 과제 내라는 기업이 있습니다. 바로 씨어스 DevOps 전형입니다.",
+      "visual_prompt": "9:16 screenshot of a real Korean job posting page, the line asking for an assignment highlighted in a thin accent box, company logo area blurred, no illustration, flat UI, crisp browser chrome, dark surroundings"
+    },
+    {
+      "time": "04~20초 (핵심 팩트 3줄)",
+      "subtitle": "전형: 자체 과제\nAI 활용: 필수\nDevOps | 11월 22일, D-8",
+      "narration": "전형은 자체 과제. AI 활용은 필수. DevOps 직무, 11월 22일 마감, D-8.",
+      "visual_prompt": "9:16 dark IDE terminal split view: left side code diff, right side three flat data cards labeled 전형, AI 기준, 마감 in Korean, monospace numerals, one accent color, no glow, no cyberpunk effects, real product UI look"
+    },
+    {
+      "time": "20~28초 (CTA)",
+      "subtitle": "프로필 링크\n'과제 지도'",
+      "narration": "더 많은 기업별 AI 과제는 프로필 링크 과제 지도에서 확인하세요.",
+      "visual_prompt": "9:16 dark dashboard of assignment-map.dev filtered to 씨어스, list rows of AI assignment postings with D-day badges, cursor pointing at the profile link, minimal bento layout, no neon, no 3D"
+    }
+  ],
+  "metadata": {
+    "youtube_title": "AI로 과제 내는 씨어스 DevOps 전형, 이렇게 뚫습니다 #shorts",
+    "description": "씨어스 DevOps 채용 과제 핵심만 28초에 정리했습니다.\n- AI 활용: 필수\n- 마감: 11월 22일 마감, D-8\n- 원문: https://www.jobkorea.co.kr/Recruit/GI_Read/50228434\n\nAI 과제 전형과 AI 공모전을 한눈에 보는 지도:\nhttps://developjik.github.io/assignment-map/\n\n#개발자 #취업 #AI코딩 #채용과제 #이직",
+    "pinned_comment": "마감과 AI 정책은 계속 바뀝니다. 최신 목록은 '과제 지도'에서 확인하세요 👇\nhttps://developjik.github.io/assignment-map/"
+  }
+}

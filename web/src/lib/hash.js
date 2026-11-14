@@ -32,11 +32,14 @@ export function writeHash(patch) {
 }
 
 // 필터 → 해시 파라미터 (기본값은 지운다). 딥링크로 공유할 수 있는 최소 집합.
+const PROG_IDS = ['interested', 'in_progress', 'submitted']
+
 export function filterPatch(s) {
   return {
     policy: s.policy === 'all' ? null : s.policy,
     jobfam: s.jobfam === 'fe' ? 'fe' : null,
     status: s.status === 'open' ? null : s.status,
+    prog: PROG_IDS.includes(s.prog) ? s.prog : null,
     hiring: s.hiringOnly ? '1' : null,
     changed: s.changedOnly ? '1' : null,
     starred: s.starredOnly ? '1' : null,
@@ -50,6 +53,7 @@ export function filtersFromHash(h) {
     policy: policySet.includes(h.policy) ? h.policy : 'all',
     jobfam: h.jobfam === 'fe' ? 'fe' : 'all',
     status: h.status === 'all' ? 'all' : 'open',
+    prog: PROG_IDS.includes(h.prog) ? h.prog : '',
     hiringOnly: h.hiring === '1',
     changedOnly: h.changed === '1',
     starredOnly: h.starred === '1',
