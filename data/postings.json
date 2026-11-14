@@ -955,7 +955,7 @@
     "first_seen": "2026-10-25",
     "last_seen": "2026-11-07",
     "last_checked": "2026-11-07",
-    "check_cadence": "weekly",
+    "check_cadence": "daily",
     "history": [
       {
         "date": "2026-10-25",
@@ -1698,7 +1698,7 @@
     "first_seen": "2026-11-09",
     "last_seen": "2026-11-09",
     "last_checked": "2026-11-09",
-    "check_cadence": "weekly",
+    "check_cadence": "daily",
     "history": [
       {
         "date": "2026-11-09",
@@ -1834,7 +1834,7 @@
     "first_seen": "2026-11-12",
     "last_seen": "2026-11-12",
     "last_checked": "2026-11-12",
-    "check_cadence": "weekly",
+    "check_cadence": "daily",
     "history": [
       {
         "date": "2026-11-12",
@@ -1875,6 +1875,74 @@
         "date": "2026-11-12",
         "event": "created",
         "ai_policy": "unspecified"
+      }
+    ]
+  },
+  {
+    "id": "jobkorea:50359977",
+    "source": "jobkorea",
+    "company": "교육콘텐츠 기업(잡코리아 비공개)",
+    "title": "글로벌 콘텐츠 디벨로퍼(일본)",
+    "positions": [
+      "planning"
+    ],
+    "positions_raw": "[국내기업]교육콘텐츠업계 글로벌 콘텐츠 디벨로퍼(일본)(경력1년이상)",
+    "assignment_type": "pre_assignment",
+    "ai_policy": "unspecified",
+    "evidence": [
+      {
+        "quote": "GI_Read_Comt_Ifrm 본문(2026-11-15): 전형절차 '서류전형 > 1차면접 > 2차면접+사전과제 > 평판조회 > 최종합격' — 2차면접 단계에 사전과제 병행 명시, AI 언급 없음. 접수마감 2026-12-13(D-28)",
+        "field": "assignment"
+      }
+    ],
+    "url": "https://www.jobkorea.co.kr/Recruit/GI_Read/50359977",
+    "deadline": "2026-12-13",
+    "status": "open",
+    "review": "confirmed",
+    "note": "잡코리아 '사전과제' 검색 히트(신규) — 3일 갭(11-13~14) 복구 스윕에서 발견",
+    "first_seen": "2026-11-15",
+    "last_seen": "2026-11-15",
+    "last_checked": "2026-11-15",
+    "check_cadence": "weekly",
+    "history": [
+      {
+        "date": "2026-11-15",
+        "event": "created",
+        "ai_policy": "unspecified"
+      }
+    ]
+  },
+  {
+    "id": "jobkorea:50359571",
+    "source": "jobkorea",
+    "company": "오로라월드(AURORA WORLD)",
+    "title": "PI오퍼레이션 컨설턴트 (재공고)",
+    "positions": [
+      "pm"
+    ],
+    "positions_raw": "PI오퍼레이션 컨설턴트",
+    "assignment_type": "pre_assignment",
+    "ai_policy": "required",
+    "evidence": [
+      {
+        "quote": "GI_Read_Comt_Ifrm 본문(2026-11-15): '서류 합격하신 분에 한해 사전 과제(바이브 코딩)가 주어질 수 있습니다' + 기술스택 'Claude code' 명시 — 사전과제가 바이브 코딩(AI 활용) 그 자체. 접수마감 2026-12-13(D-28)",
+        "field": "assignment"
+      }
+    ],
+    "url": "https://www.jobkorea.co.kr/Recruit/GI_Read/50359571",
+    "deadline": "2026-12-13",
+    "status": "open",
+    "review": "confirmed",
+    "note": "추적 중 50213617(11-20 마감, unspecified)의 재공고 — 사전과제가 '바이브 코딩'으로 명시화되어 required 판정. 구공고는 11-21 런 종결 예정",
+    "first_seen": "2026-11-15",
+    "last_seen": "2026-11-15",
+    "last_checked": "2026-11-15",
+    "check_cadence": "weekly",
+    "history": [
+      {
+        "date": "2026-11-15",
+        "event": "created",
+        "ai_policy": "required"
       }
     ]
   }

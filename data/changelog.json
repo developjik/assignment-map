@@ -1193,6 +1193,107 @@
       ],
       "notes": "갭 복구 런(last_run 11-09, 2일 갭 — 11-10·11-11 런 미실행, ROUTINE_PROMPT 1절 lookback 확대로 적체 종결 큐 일괄 처리). 신규 공고 2(문피아 50328375 사전과제 전형 명시 11-29 unspecified · 한프카 50326430 '사전과제 제출 필수' 제목 명시 11-22 unspecified, 원티드 상시와 채널별 상이) · 신규 이벤트 9(위비티 8: 포항 AI솔루션 11-25 · 귀뚜라미 AI숏폼 11-30 · 부산 직업평생교육 AI영상 12-23 · 세종사이버 AI불씨 upcoming 11-23 개시·12-20 마감 · 광명역 AI영상 11-24 · 대구 로컬AI그라운드 11-30 · 저상버스 사진·AI이미지 12-04 · 수원 AI동영상 11-30(11-09 스윕 누락 복구) + Devpost Deck the Pixels global-0045 $25k Nano Banana 12-07) · 정책 변경 0 · 종결 7(퓨리얼 D+2 · 송파 D+0 · 오타쿠MV D+0 · 대학생창업해커톤 D+0 — 위비티 배지 · Vultr 마감경과 · Agentic Devpost 이탈 · 관광AX 모집마감) · 마감변경 1(SPECS global-0029 11-09→12-07 연장, 11-09 종결 계획 취소) · upcoming→open 2(경산 112022 11-09 접수개시 누락분 · Kiroween global-0011 10-30 제출개시) · D-3 임박 16(공고 5: SOOP 50283588·50293498·메디씨앤씨·프리컷·스튜디오리코 11-15 · 이벤트 11: 세종사이버 D-0 · PayPal global-0002 D-0(11-13 05:00 KST) · AI Support Bot global-0043 D-0 · Venture Park ko-0033 D-0(금일 17시) · 공항보안·엘리스 접수·CJ햇반 11-13 · Scope-AI-Thon 11-14 · Render·진안·평택 11-15) · needs_review 0 · 방문 3/80(위비티 앵커·원티드·점핏 — 상세 전부 fetch 처리) · 실패 소스: festa.io(점검 4일+, 12/1 T3 퇴출 확정) · modu 홈 200 회복(KEIT 비주제 미채택, 영향 없음). [다음 우선순위] (1) 11-14 런 종결 8: 세종사이버 111787(11-12 D-0 생존) · Venture Park ko-0033(11-12 17-20시 행사) · AI Support Bot global-0043(11-12) · PayPal global-0002(11-13 05:00 KST — 11-13 03:00 런 시점엔 생존, 11-14 런 종결) · 관광AX 본행사 11-13 · 공항보안 111785·엘리스 111915·CJ 111912(11-13 마감 D-2) · 옥외괴고 ko-0031(11-13) + Scope-AI-Thon global-0037(11-14, 11-15 런 종결), (2) 11-16 런 종결 8: 평택 112204·메디씨앤씨 50185931·SOOP 50293498·50283588·프리컷 50256313·스튜디오리코 50184128·진안 112097·Render 111849(11-15 마감), (3) 11-21~22 마감: 에스에스알 50222686·데이터드리븐 55361658 11-21 · 한프카 50326430·씨어스 50228434·50228417 11-22, (4) 세종사이버 AI불씨 112285 접수 11-23 개시 감시(upcoming→open), (5) 한프카 wd390319(원티드 상시) — 잡코리아 채널 11-22 마감 후 원티드 마감 여부 재확인, (6) Comt_Ifrm 접근불가 2건 재방문(50298512·50259826), (7) festa.io 12/1 T3 퇴출 + HN 12월 스레드 12/1 감시, (8) 운영: 위비티 본리스트 파서(ul.list>li) 메모리 유지 — 캐러셀 정규식은 13건 무작위만 반환.",
       "summary": "+2공고 +9이벤트 · 정책변경 0 · 상태변경 9 · 마감변경 2"
+    },
+    {
+      "date": "2026-11-15",
+      "new_postings": [
+        "jobkorea:50359977",
+        "jobkorea:50359571"
+      ],
+      "policy_changed": [],
+      "deadline_changed": [],
+      "status_changed": [],
+      "new_events": [
+        "global-0046",
+        "global-0047",
+        "global-0048",
+        "ko-0034",
+        "ko-0035",
+        "wevity:112319-scene-ai-shortdrama",
+        "wevity:112294-seoul-tourism-prompton",
+        "wevity:112277-saaskr-ai-webgame-awards",
+        "wevity:112280-pipc-ai-shorts",
+        "wevity:111924-jeju-ai-literacy"
+      ],
+      "event_status_changed": [
+        "wevity:111787-sejongcyber-ai-video",
+        "global-0002",
+        "global-0043",
+        "ko-0027",
+        "ko-0029",
+        "ko-0033",
+        "wevity:111785-airsecure-ai-image",
+        "ko-0031",
+        "ko-0001",
+        "wevity:111912-cj-hetbahn-ai"
+      ],
+      "event_deadline_changed": [],
+      "updated_postings": 0,
+      "updated_events": 12,
+      "sources": [
+        {
+          "id": "devpost-api",
+          "method": "fetch",
+          "pages": 0,
+          "result": "open 72건(11-12 56건 대비 +16 — 주말 학교 해커톤 다수 개시). 기추적 상태확인: PayPal global-0002·AI Support Bot global-0043 이탈=종결 · Scope-AI-Thon global-0037 'about 4 hours left' 생존(D-0 종결 금지, 11-16 런 종결) · Codegeist 31572 'Atlassian' 표기 삭제 후에도 리스트 잔존(12-22 마감 유지, 매칭 키워드 주의) · AMD AI League는 lablab 소스로 Devpost 부재 정상. 신규 채택 3: Open Agentic Web Challenge(32026 Cognizant·MIT NANDA $10k 11-11 개시, 갭 기간) · SLAY HACKS(31972 $4.5k 11-07 개시, 11-09 런 미커버 의심 — 제목 키워드 미스로 스크리닝 누락 추정) · Silicon Valley Buildathon(32060 $500 11-08 개시). 미채택: Kearney PERLab×Velocity(UIUC 재학생 한정 'Who can participate: UIUC students' 실측) · GT SGA 캠퍼스 챌린지(대면 캠퍼스) · HackPrinceton·HackUMass·Imperial·DurHack·BUHACK·HackDécouverte($0·대면 학교·마감임박) · Ground Truth Live Agents($900이나 1일 행사 마감 3시간 전) · Neo4j Relate·ML Empowerment·IdeaLab·AI for Medicine·Build Your First AI App·ESE1110·Inceptrix·DataJam($0 승계)."
+        },
+        {
+          "id": "daker-api",
+          "method": "fetch",
+          "pages": 0,
+          "result": "첫 실측 전수 스윕(24건 — API에 registrationDeadline·lastStageEndDate·상금·참가자수 포함 확인). 신규 채택 1: 제주 AI·빅데이터 AI Agent 개발 챌린지(ko-0035, 등록마감 11-20, 총 500만원, 최종 12-07, 583명). ko-0001 국부펀드 KIC: registrationDeadline 11-12 경과 + lastStageEndDate 2027-01-11 → closed 아닌 judging 전환(판정 정밀화). 미채택(등록마감 경과·참가 불가): AI 플랫폼 구축 경진대회(10-25)·소재연구데이터 AI 해커톤(11-13)·신약개발 본선(본선 진출자 한정)·K-Health(최종 11-13 종료)·JB금융 Fin:AI·금융 AI Challenge·Quantum Reframing·AGENT:24·월간 해커톤 시리즈·프롬프트 경진대회(전부 마감 경과). 상세 URL 패턴 /public/hackathons/{slug} 실증."
+        },
+        {
+          "id": "hn-algolia-hiring",
+          "method": "fetch",
+          "pages": 0,
+          "result": "최신 스레드 50338728(11월, 11-02 개시) 유지 — 12월 스레드 미개시, 12/1 T3 감시 계속"
+        },
+        {
+          "id": "gnews-kr-1..5+en",
+          "method": "fetch",
+          "pages": 0,
+          "result": "5피드 활성 스윕(84h fresh — 3일 갭 보정): fresh 8건. 채택 1: 패션비즈 '에이전트-F' AI 세미나(ko-0034, 12/3 섬유센터, 구글폼 공개 신청 — '신청 오픈' 명시로 공개 행사 판정). 미채택 7: 아침간편식 경진대회 ×3·농촌창업 경진대회 ×3(AI·과제 무관) + 한국항공대 차세대 AI 세미나(시경Today 시황 컬럼 언급 — 공개 신청 증거 없음, kr-5 내부행사 원칙 승계)"
+        },
+        {
+          "id": "wevity-fetch",
+          "method": "fetch",
+          "pages": 0,
+          "result": "검증 파서(ul.list>li, ix/d/day/organ)로 60p 전수 스윕 — unique ix 900(11-12와 동일 규모), 최대 ix 112365. 미추적 ix≥111900 225건 중 AI/빌드 관련 12건 상세 확인 → 채택 5(112319 SCENE AI 숏드라마·112294 서울관광 프롬프톤·112277 saaskr AI 웹게임·112280 개인정보 숏폼 'AI 활용 가능'·111924 제주 AI 리터러시) · 미채택 2(112183 차세대통신 X 융합 창업 — AI 미언급·대학 한정 / 112206 LG 어나더 캠퍼스 — 4개 대학 재학생 한정·AI 미언급). 종결 배지 실측: 111787 D+2·111785 D+1·111912 D+1·111915 D+1(제출 진행로 open 유지). 11-15 마감 D-1 생존 6건 확인(112204·111849·111666·111981·112097·111802). VIVID RE:PLAY 112021·112343 더블 리스팅 확인(데이터 이상 없음)."
+        },
+        {
+          "id": "jobkorea-mobile",
+          "method": "fetch+browser",
+          "pages": 8,
+          "result": "'사전과제'(71건)+'바이브코딩'(68건) m검색 — 파서 함정 발견: section-item 속성 순서 변경으로 split 실패, data-gno 기준 재파싱으로 해결(스니펫 갱신 필요). 신규 채택 2: 50359977 글로벌 콘텐츠 디벨로퍼('2차면접+사전과제' 명시, unspecified, 12-13) · 50359571 오로라월드 PI오퍼레이션 재공고('사전 과제(바이브 코딩)'+Claude code 명시, required, 12-13 — 50213617 후속). D-day 생존 확인: 한프카 50326430 D-7·문피아 50328375 D-14·씨어스 50228434 D-7·오픈서베이 D-37. GI_Read+브라우저 iframe 판정 5건: 50318545 메타빌드 바이브코딩(과제 단계 없음 미채택)·50294314 휴텍씨(없음)·50199561 글로벌비전 아파트톡(없음)·50298512 뷰스컴퍼니(iframe 4자 빈값 지속 — 미추적 유지)·50259826 이글루(11자 빈값 지속)."
+        },
+        {
+          "id": "wanted",
+          "method": "browser",
+          "pages": 2,
+          "result": "'사전과제'+'AI 과제' 검색 — '사전과제' 3포지션(한프카 wd390319·인터엑스 노이즈·라프텔 wd380935) 11-12와 동일 신규 0, 'AI 과제' 20건 전부 정부과제/R&D 노이즈. wd390319 생존(상시 유지, 11-22 잡코리아 마감 후 재확인 예정). API v4 응답이 HTML로 변환됨(헤더 이슈 추정) — 검색 페이지 브라우저 경로 유지."
+        },
+        {
+          "id": "jumpit",
+          "method": "skipped",
+          "pages": 0,
+          "result": "이번 런 미실행 — 11-07~12 '사전과제' 98건 전량 퍼지 노이즈 일관, D-N 임박건 잡코리아 교차확인 정책 유지(데이터드리븐 55361658 등 잡코리아·GI_Read 경로로 커버)"
+        },
+        {
+          "id": "thinkyou",
+          "method": "fetch",
+          "pages": 0,
+          "result": "ko-0031 옥외괴고 종결 확인용 상세 1회 — '마감' 배지 실측. 전체 리스트 스윕은 T2 토요일 로테이션(11-14 미실행으로 이번 주 T2 공백 — 다음 토 11-21 실행, programmers-competitions fetch 시도는 JS 렌더로 파싱 불가 확인)"
+        },
+        {
+          "id": "festa-io",
+          "method": "fetch",
+          "pages": 0,
+          "result": "200 응답 3KB 스텁(이벤트 마커 0) — 관측 실패 7일째, 12/1 T3 퇴출 확정 유지"
+        }
+      ],
+      "notes": "갭 복구 런(last_run 11-12, 3일 갭 — 11-13·11-14 런 미실행, ROUTINE_PROMPT 1절 lookback 확대: gnews fresh 임계 84h 확대 + 적체 종결 큐 일괄 처리). 신규 공고 2(마이나비 50359977 '2차면접+사전과제' 12-13 unspecified · 오로라월드 50359571 재공고 '사전 과제(바이브 코딩)'+Claude code 12-13 required — 50213617 unspecified의 사전과제 명시화) · 신규 이벤트 10(Devpost 3: Open Agentic Web Challenge global-0046 Cognizant·MIT NANDA $10k 2027-01-11 · SLAY HACKS global-0047 $4.5k 12-07 · Silicon Valley Buildathon global-0048 $500 12-15 / 위비티 5: SCENE AI 숏드라마 112319 12-31 · 서울관광 프롬프톤 112294 11-29 · saaskr AI 웹게임 어워드 112277 12-20 · 개인정보 숏폼 112280 11-30 allowed · 제주 AI 리터러시 111924 11-20 / 뉴스 1: 에이전트-F 세미나 ko-0034 12-03 / daker 1: 제주 AI Agent 챌린지 ko-0035 11-20·최종 12-07) · 정책 변경 0 · 종결 8(세종사이버 111787 D+2 · PayPal global-0002 Devpost 이탈 · AI Support Bot global-0043 이탈 · 부산 AI 컨퍼런스 ko-0027 · 항공대 세미나 ko-0029 · Venture Park ko-0033 · 공항보안 111785 D+1 · 옥외괴고 ko-0031 씽유 마감) · judging 전환 2(국부펀드 ko-0001 daker lastStageEndDate 2027-01-11 판정 정밀화 · CJ햇반 111912 발표 11-27) · 마감변경 0 · D-3 임박 19(공고 5 전부 11-15 D-0: SOOP 50293498·50283588·메디씨앤씨·프리컷·스튜디오리코 / 이벤트 14: 11-15 마감 8[평택 112204·Render 111849·도로공사 111666·대구 드래프톤 111981·진안 112097·현대차 111802·Meta 페스티벌 ko-0009·DSH global-0025] + 11-16 마감 4[세종사이버 K-빌런 111797·AI전자그림책 111449·AFPK 111059·UGREEN global-0021] + 11-18 마감 2[Meta VR global-0026·융합교육 네이밍 112155]) · Scope-AI-Thon global-0037 'about 4 hours left' 생존 실측으로 오늘 종결 보류 · 엘리스 111915 접수마감·제출 11-22 진행으로 open 유지 · needs_review 0 · 방문 10/80(GI_Read iframe 브라우저 8 + 원티드 검색 2 — 나머지 전부 fetch) · 실패 소스: festa.io(7일째 스텁) · 잡코리아 m검색 section-item 파서 파라미터 변경(data-gno 기준으로 해결, 메모리 갱신). [다음 우선순위] (1) 11-16 런 종결 14: Scope-AI-Thon global-0037(11-14 마감·생존 실측됨) + 11-15 마감 공고 5(SOOP 50293498·50283588·메디씨앤씨 50185931·프리컷 50256313·스튜디오리코 50184128) + 11-15 마감 이벤트 8(평택 112204·Render 111849·도로공사 111666·대구 드래프톤 111981·진안 112097·현대차 111802·Meta 페스티벌 ko-0009·DSH Hacks global-0025), (2) 11-17 런 종결 4(11-16 마감): 세종사이버 K-빌런 111797·AI전자그림책 111449·AFPK 111059·UGREEN global-0021, (3) 11-21 런 종결: 오로라 50213617(11-20 마감 — 재공고 50359571 승계 완료)·제주 AI Agent ko-0035·제주 AI 리터러시 111924(11-20), (4) 11-19 런: Meta VR global-0026·네이밍 112155(11-18), (5) 11-23 런 종결: 엘리스 111915(제출 11-22 마감)·경산 112022·KICET 111819(11-23), (6) 세종사이버 AI불씨 112285 접수 11-23 개시 감시(upcoming→open), (7) 한프카 wd390319 원티드 — 잡코리아 50326430 11-22 마감 후 재확인, (8) 11-21(토) T2 로테이션 실행(이번 주 11-14 공백 — 씽유·링커리어·DoraHacks·MLH 등), (9) 12/1 T3: festa.io 퇴출 + HN 12월 스레드 + 소스 성과 리포, (10) 운영: 잡코리아 m검색 파서 data-gno 기준으로 갱신(wvice 메모리 반영).",
+      "summary": "+2공고 +10이벤트 · 정책변경 0 · 상태변경 10 · 마감변경 0"
     }
   ]
 }

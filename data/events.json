@@ -11,20 +11,26 @@
     "hiring_link": true,
     "apply_deadline": "2026-11-12",
     "submit_deadline": "2026-11-12",
-    "result_date": null,
-    "status": "open",
+    "result_date": "2027-01-11",
+    "status": "judging",
     "url": "https://daker.ai/public/hackathons/kic-ai-agent-competition",
-    "evidence": "공모주제 자체가 '투자·금융 업무 혁신을 위한 AI Agent 개발'",
+    "evidence": "daker API(2026-11-15): registrationDeadline 2026-11-12 경과(접수 마감) + lastStageEndDate 2027-01-11 — 최종 단계 진행 중으로 judging 전환(발표 ~2027-01-11)",
     "source": "thinkyou/dev-event/official",
     "first_seen": "2026-10-24",
-    "last_checked": "2026-10-24",
-    "check_cadence": "daily",
+    "last_checked": "2026-11-15",
+    "check_cadence": "archive_candidate",
     "review": "confirmed",
     "history": [
       {
         "date": "2026-10-24",
         "event": "created",
         "status": "open"
+      },
+      {
+        "date": "2026-11-15",
+        "event": "status_changed",
+        "from": "open",
+        "to": "judging"
       }
     ]
   },
@@ -870,19 +876,25 @@
     "apply_deadline": null,
     "submit_deadline": "2026-11-12",
     "result_date": null,
-    "status": "open",
+    "status": "closed",
     "url": "https://paypalaihackathon.devpost.com/",
-    "evidence": "Devpost 규정 재확인(2026-11-09, last_checked 10-24 갱신): 'Above legal age of majority in country of residence, All countries/territories, excluding standard exceptions' · 'Deadline: Nov 12, 2026 @ 12:00pm PST' · $67,500 in cash · 31,251 participants — D-3 임박",
+    "evidence": "Devpost open 72건 스윕(2026-11-15)에서 이탈 — 제출 마감 Nov 12(11-13 05:00 KST) 경과 실측, 11-12 런 큐 승계 종결",
     "source": "devpost",
     "first_seen": "2026-10-24",
-    "last_checked": "2026-11-09",
-    "check_cadence": "daily",
+    "last_checked": "2026-11-15",
+    "check_cadence": "none",
     "review": "confirmed",
     "history": [
       {
         "date": "2026-10-24",
         "event": "created",
         "status": "open"
+      },
+      {
+        "date": "2026-11-15",
+        "event": "status_changed",
+        "from": "open",
+        "to": "closed"
       }
     ]
   },
@@ -1849,19 +1861,25 @@
     "apply_deadline": "2026-11-12",
     "submit_deadline": "2026-11-12",
     "result_date": null,
-    "status": "open",
+    "status": "closed",
     "url": "https://www.wevity.com/?c=find&s=1&gbn=view&gp=1&ix=111787",
-    "evidence": "대회명 자체가 'AI 영상 숏폼·광고 공모전' — AI 영상이 주제",
+    "evidence": "위비티 D+2 '마감' 배지(2026-11-15 실측): 접수기간 ~2026-11-12 종료 — 11-12 런 D-0 생존 확인 후 3일 갭 경과 종결",
     "source": "wevity",
     "review": "auto",
     "first_seen": "2026-10-25",
-    "last_checked": "2026-10-25",
-    "check_cadence": "daily",
+    "last_checked": "2026-11-15",
+    "check_cadence": "none",
     "history": [
       {
         "date": "2026-10-25",
         "event": "created",
         "status": "open"
+      },
+      {
+        "date": "2026-11-15",
+        "event": "status_changed",
+        "from": "open",
+        "to": "closed"
       }
     ]
   },
@@ -2413,7 +2431,7 @@
     "review": "auto",
     "first_seen": "2026-10-27",
     "last_checked": "2026-10-27",
-    "check_cadence": "weekly",
+    "check_cadence": "daily",
     "history": [
       {
         "date": "2026-10-27",
@@ -2499,19 +2517,25 @@
     "apply_deadline": "2026-11-13",
     "submit_deadline": "2026-11-13",
     "result_date": null,
-    "status": "open",
+    "status": "closed",
     "url": "https://www.wevity.com/?c=find&s=1&gbn=view&gp=1&ix=111785",
-    "evidence": "함께 지키는 하늘길 항공보안 문화 확산 대국민 AI콘텐츠 공모전 — 생성형 AI 기반 콘텐츠 제작이 응모 자격 전제(required). 공모 10/16~11/13",
+    "evidence": "위비티 D+1 '마감' 배지(2026-11-15 실측): 접수기간 ~2026-11-13 종료 — 11-12 런 큐 승계 종결",
     "source": "wevity",
     "review": "auto",
     "first_seen": "2026-10-27",
-    "last_checked": "2026-10-27",
-    "check_cadence": "daily",
+    "last_checked": "2026-11-15",
+    "check_cadence": "none",
     "history": [
       {
         "date": "2026-10-27",
         "event": "created",
         "status": "open"
+      },
+      {
+        "date": "2026-11-15",
+        "event": "status_changed",
+        "from": "open",
+        "to": "closed"
       }
     ]
   },
@@ -2710,12 +2734,12 @@
     "result_date": null,
     "status": "open",
     "url": "https://scope-ai-thon-2026.devpost.com/",
-    "evidence": "Designing AI-Enabled Systems for Early Detection of Acute Patient Deterioration (Nov 01 - 14, 2026, CAD 1,400)",
+    "evidence": "Devpost API(2026-11-15 03:05 KST): 'Nov 01 - 14, 2026 · about 4 hours left' — 마감 직전 생존 실측. D-0 당일 종결 금지 원칙으로 11-16 런 종결 예정",
     "source": "devpost-api",
     "review": "confirmed",
     "first_seen": "2026-11-01",
-    "last_checked": "2026-11-01",
-    "check_cadence": "daily",
+    "last_checked": "2026-11-15",
+    "check_cadence": "archive_candidate",
     "history": [
       {
         "date": "2026-11-01",
@@ -2768,12 +2792,12 @@
     "result_date": "2026-12-11",
     "status": "open",
     "url": "https://ai-challenge.elice.page/home/main",
-    "evidence": "공모 주제 'AI를 활용한 범용·실생활 문제 해결' · 심사 기준 '② AI 활용의 적절성' · 참가자 모집 10.23~11.13, PoC 제출 11.14~11.22",
+    "evidence": "위비티 D+1 배지(2026-11-15 실측): 참가자 모집 10-23~11-13 마감 — PoC 제출 11-14~11-22 진행 중이므로 open 유지, 11-23 런 종결 예정",
     "source": "wevity",
     "review": "confirmed",
     "first_seen": "2026-11-01",
-    "last_checked": "2026-11-01",
-    "check_cadence": "daily",
+    "last_checked": "2026-11-15",
+    "check_cadence": "archive_candidate",
     "history": [
       {
         "date": "2026-11-01",
@@ -2795,19 +2819,25 @@
     "apply_deadline": "2026-11-13",
     "submit_deadline": "2026-11-13",
     "result_date": "2026-11-27",
-    "status": "open",
+    "status": "judging",
     "url": "https://www.wevity.com/?c=find&s=1&gbn=view&gp=1&ix=111912",
-    "evidence": "두 가지 주제 중 하나를 선택해 AI 이미지 또는 영상을 제작 · 접수 10.26~11.13 23:59",
+    "evidence": "위비티 D+1 '마감' 배지(2026-11-15 실측): 접수 ~2026-11-13 종료, 발표 2026-11-27 예정 — 심사 단계 전환(judging)",
     "source": "wevity",
     "review": "confirmed",
     "first_seen": "2026-11-01",
-    "last_checked": "2026-11-01",
-    "check_cadence": "daily",
+    "last_checked": "2026-11-15",
+    "check_cadence": "archive_candidate",
     "history": [
       {
         "date": "2026-11-01",
         "event": "created",
         "status": "open"
+      },
+      {
+        "date": "2026-11-15",
+        "event": "status_changed",
+        "from": "open",
+        "to": "judging"
       }
     ]
   },
@@ -3230,20 +3260,26 @@
     "apply_deadline": "2026-11-12",
     "submit_deadline": "2026-11-12",
     "result_date": null,
-    "status": "open",
+    "status": "closed",
     "url": "https://www.devtimes.co.kr/news/545952",
-    "evidence": "데브타임즈 원문(2026-11-02 작성): '바이브코딩부터 GitHub 활용 서비스 배포까지 실무 경험 제공', '11월 13일 부산 패스파인더 초량점서 개최…선착순 20명 모집', '신청 마감은 11월 12일 낮 12시' — 1부 AI 웹서비스 제작·2부 GitHub 배포 실습, 참여 제한 없음",
+    "evidence": "행사 2026-11-13 부산 패스파인더 초량점 개최 종료(신청마감 11-12 낮 12시 경과, 데브타임즈 원문 일정 승계) — 11-12 런 큐 승계 종결",
     "source": "gnews-kr-5-meetup/devtimes",
     "note": "행사일 11/13(금) 14:30-17:00, 부산 동구 중앙대로 319 패스파인더 초량점 2층. 선착순 20명. 참가비 미기재(무료 AI 도구 사용자도 참여 가능)",
     "first_seen": "2026-11-03",
-    "last_checked": "2026-11-03",
-    "check_cadence": "daily",
+    "last_checked": "2026-11-15",
+    "check_cadence": "none",
     "review": "auto",
     "history": [
       {
         "date": "2026-11-03",
         "event": "created",
         "status": "open"
+      },
+      {
+        "date": "2026-11-15",
+        "event": "status_changed",
+        "from": "open",
+        "to": "closed"
       }
     ]
   },
@@ -3766,20 +3802,26 @@
     "apply_deadline": "2026-11-12",
     "submit_deadline": null,
     "result_date": null,
-    "status": "open",
+    "status": "closed",
     "url": "https://www.djournal.co.kr/news/article.html?no=133347",
-    "evidence": "외교저널·스페셜타임스 원문(2026-11-05): '한국항공대 재학생뿐 아니라 AI 기술에 관심 있는 일반인도 참여할 수 있다' + 온라인 신청서(buly.kr/8Iz0tMS)·포스터 QR 사전 신청. 11/12(목) 09:30~11:30 항공우주센터 2층 비전홀, 강연 40분+Q&A 20분 2세션(딥엑스 김녹원 대표 'NVIDIA 이후의 피지컬 AI 생태계'·KAIST 안성진 교수 '월드 이론의 새로운 인공지능 모델')",
+    "evidence": "행사 2026-11-12(목) 09:30~11:30 한국항공대 항공우주센터 종료(외교저널·스페셜타임스 원문 일정 승계) — 11-12 런 큐 승계 종결",
     "source": "gnews-kr-5-meetup/websearch",
     "note": "신청 마감 별도 고지 없음(행사일 11/12 기준 apply 설정). kr-5 세 번째 채택(부산 AI 컨퍼런스 ko-0027·관광 AX 세미나 ko-0028에 이어). 문의 gkdms8545@kau.ac.kr",
     "first_seen": "2026-11-06",
-    "last_checked": "2026-11-06",
-    "check_cadence": "daily",
+    "last_checked": "2026-11-15",
+    "check_cadence": "none",
     "review": "auto",
     "history": [
       {
         "date": "2026-11-06",
         "event": "created",
         "status": "open"
+      },
+      {
+        "date": "2026-11-15",
+        "event": "status_changed",
+        "from": "open",
+        "to": "closed"
       }
     ]
   },
@@ -4006,19 +4048,25 @@
     "apply_deadline": "2026-11-13",
     "submit_deadline": null,
     "result_date": null,
-    "status": "open",
+    "status": "closed",
     "url": "https://www.thinkyou.co.kr/contest/66692/",
-    "evidence": "씽유 상세(2026-11-07): 접수 2026-09-14~11-13, 주제 'AI와 함께 그리는 내일의 거리(실무에 바로 쓰는 간판 디자인)', 참가대상 '신기술 활용에 관심 있는 모든 국민(개인/팀, 국내 거주자 한정)' — AI 활용 간판 디자인 공모",
+    "evidence": "씽유 66692 상세(2026-11-15 실측): 제목 배지 '마감' 표기 — 접수기간 2026-09-14~11-13 종료 확인",
     "source": "thinkyou",
     "first_seen": "2026-11-07",
-    "last_checked": "2026-11-07",
-    "check_cadence": "daily",
+    "last_checked": "2026-11-15",
+    "check_cadence": "none",
     "review": "auto",
     "history": [
       {
         "date": "2026-11-07",
         "event": "created",
         "status": "open"
+      },
+      {
+        "date": "2026-11-15",
+        "event": "status_changed",
+        "from": "open",
+        "to": "closed"
       }
     ]
   },
@@ -4035,19 +4083,25 @@
     "apply_deadline": null,
     "submit_deadline": "2026-11-12",
     "result_date": null,
-    "status": "open",
+    "status": "closed",
     "url": "https://build-a-working-ai-support-bot.devpost.com/",
-    "evidence": "Devpost API(2026-11-09): '5 days left' — 제출 마감 Nov 12(D-3)",
+    "evidence": "Devpost open 72건 스윕(2026-11-15)에서 이탈 — 제출 마감 Nov 12 경과 실측, 11-12 런 큐 승계 종결",
     "source": "devpost-api",
     "first_seen": "2026-11-07",
-    "last_checked": "2026-11-09",
-    "check_cadence": "daily",
+    "last_checked": "2026-11-15",
+    "check_cadence": "none",
     "review": "auto",
     "history": [
       {
         "date": "2026-11-07",
         "event": "created",
         "status": "open"
+      },
+      {
+        "date": "2026-11-15",
+        "event": "status_changed",
+        "from": "open",
+        "to": "closed"
       }
     ]
   },
@@ -4122,19 +4176,25 @@
     "apply_deadline": "2026-11-12",
     "submit_deadline": null,
     "result_date": null,
-    "status": "open",
+    "status": "closed",
     "url": "https://www.meetup.com/svc-seoul-global-team/events/317250777/",
-    "evidence": "meetup 상세(2026-11-07): 'This session will be conducted in Korean · Real-time Korean-English Translation · Registration luma.com/venturepark' — AI 비즈니스 세션, 11/12(목) 서울",
+    "evidence": "행사 2026-11-12 17:00~20:00 종료(meetup JSON-LD startDate 실측 승계) — 11-12 런 큐 승계 종결",
     "source": "meetup-com",
     "first_seen": "2026-11-07",
-    "last_checked": "2026-11-07",
-    "check_cadence": "daily",
+    "last_checked": "2026-11-15",
+    "check_cadence": "none",
     "review": "auto",
     "history": [
       {
         "date": "2026-11-07",
         "event": "created",
         "status": "open"
+      },
+      {
+        "date": "2026-11-15",
+        "event": "status_changed",
+        "from": "open",
+        "to": "closed"
       }
     ]
   },
@@ -4424,6 +4484,296 @@
     "history": [
       {
         "date": "2026-11-12",
+        "event": "created",
+        "status": "open"
+      }
+    ]
+  },
+  {
+    "id": "global-0046",
+    "type": "hackathon",
+    "title": "Open Agentic Web Challenge",
+    "host": "Cognizant (Cognizant AI Lab × MIT NANDA)",
+    "ai_usage": "required",
+    "format": "online",
+    "team": "unknown",
+    "prize": "$10,000 (현금)",
+    "hiring_link": false,
+    "apply_deadline": null,
+    "submit_deadline": "2027-01-11",
+    "result_date": null,
+    "status": "open",
+    "url": "https://cognizant-agenticweb.devpost.com/",
+    "evidence": "Devpost 상세(2026-11-15): 'The Open Agentic Web Challenge, hosted by Cognizant with technology contributions from Cognizant AI Lab, MIT Lab's NANDA program' + '$ 10,000 in cash' + 'Deadline: Jan 11, 2027 @ 8:00am PST' + themes Machine Learning/AI·Web, All countries/territories 참여 가능(579명 등록) — 오픈 에이전틱 웹 인프라·페이지 구축이 과제",
+    "source": "devpost-api",
+    "review": "confirmed",
+    "first_seen": "2026-11-15",
+    "last_checked": "2026-11-15",
+    "check_cadence": "weekly",
+    "history": [
+      {
+        "date": "2026-11-15",
+        "event": "created",
+        "status": "open"
+      }
+    ]
+  },
+  {
+    "id": "global-0047",
+    "type": "hackathon",
+    "title": "SLAY HACKS",
+    "host": "cite & slayy",
+    "ai_usage": "unknown",
+    "format": "online",
+    "team": "unknown",
+    "prize": "$4,500",
+    "hiring_link": false,
+    "apply_deadline": null,
+    "submit_deadline": "2026-12-07",
+    "result_date": null,
+    "status": "open",
+    "url": "https://slayy-hacks.devpost.com/",
+    "evidence": "Devpost API·상세(2026-11-15): 'Nov 07 - Dec 07, 2026 · $4,500 · Online' + 'Build bold. Code creatively. Slay real-world challenges. A hackathon for curious beginners and passionate builders to turn fresh ideas into working projects' — AI 테마 미명시(unknown)",
+    "source": "devpost-api",
+    "review": "confirmed",
+    "first_seen": "2026-11-15",
+    "last_checked": "2026-11-15",
+    "check_cadence": "weekly",
+    "history": [
+      {
+        "date": "2026-11-15",
+        "event": "created",
+        "status": "open"
+      }
+    ]
+  },
+  {
+    "id": "global-0048",
+    "type": "hackathon",
+    "title": "Silicon Valley Buildathon",
+    "host": "Silicon Hacks Team",
+    "ai_usage": "unknown",
+    "format": "online",
+    "team": "unknown",
+    "prize": "$500",
+    "hiring_link": false,
+    "apply_deadline": null,
+    "submit_deadline": "2026-12-15",
+    "result_date": null,
+    "status": "open",
+    "url": "https://silicon-valley-buildathon.devpost.com/",
+    "evidence": "Devpost API·상세(2026-11-15): 'Nov 08 - Dec 15, 2026 · $500 · Online' + 'Take a rough idea off the workbench, turn it into a working prototype, and show what it can do' — 프로토타입 빌드·제출 해커톤, AI 테마 미명시(unknown)",
+    "source": "devpost-api",
+    "review": "confirmed",
+    "first_seen": "2026-11-15",
+    "last_checked": "2026-11-15",
+    "check_cadence": "weekly",
+    "history": [
+      {
+        "date": "2026-11-15",
+        "event": "created",
+        "status": "open"
+      }
+    ]
+  },
+  {
+    "id": "ko-0034",
+    "type": "conference",
+    "title": "에이전트-F 사업설명회 (패션기업 AI 에이전트 세미나)",
+    "host": "온아웃 × 에이아이모스트",
+    "ai_usage": "required",
+    "format": "offline",
+    "team": null,
+    "prize": null,
+    "hiring_link": false,
+    "apply_deadline": "2026-12-03",
+    "submit_deadline": null,
+    "result_date": null,
+    "status": "open",
+    "url": "https://fashionbiz.co.kr/article/230975",
+    "evidence": "패션비즈 기사(2026-11-12, gnews kr-5 히트): '2026년 12월3일(목) 10:00~11:30 서울 대치동 삼성역 섬유센터' 개최 + '패션비즈 웹사이트와 기사, 인스타그램 프로필 링크를 통해 신청할 수 있다'(구글폼 공개) — 패션 업무 자율수행 AI 에이전트 '에이전트-F' 최초 공식 소개 세미나. 신청 마감일 미표기(행사일 기준)",
+    "source": "gnews-kr-5-meetup",
+    "review": "confirmed",
+    "first_seen": "2026-11-15",
+    "last_checked": "2026-11-15",
+    "check_cadence": "weekly",
+    "history": [
+      {
+        "date": "2026-11-15",
+        "event": "created",
+        "status": "open"
+      }
+    ]
+  },
+  {
+    "id": "ko-0035",
+    "type": "hackathon",
+    "title": "제주 AI·빅데이터 활용 AI Agent 개발 챌린지",
+    "host": "제주테크노파크 (제주빅데이터센터·제주데이터허브)",
+    "ai_usage": "required",
+    "format": "online",
+    "team": "unknown",
+    "prize": "총 500만원",
+    "hiring_link": false,
+    "apply_deadline": "2026-11-20",
+    "submit_deadline": "2026-11-20",
+    "result_date": "2026-12-07",
+    "status": "open",
+    "url": "https://daker.ai/public/hackathons/jeju-ai-bigdata-agent-challenge",
+    "evidence": "daker API(2026-11-15): '제주빅데이터센터 및 제주데이터허브의 데이터를 활용한 AI Agent 개발' + registrationDeadline 2026-11-20 + 총 상금 500만원 + 최종단계 종료 2026-12-07, 583명 참여 중 — AI Agent 개발이 주제 자체",
+    "source": "daker-api",
+    "review": "confirmed",
+    "first_seen": "2026-11-15",
+    "last_checked": "2026-11-15",
+    "check_cadence": "daily",
+    "history": [
+      {
+        "date": "2026-11-15",
+        "event": "created",
+        "status": "open"
+      }
+    ]
+  },
+  {
+    "id": "wevity:112319-scene-ai-shortdrama",
+    "type": "contest",
+    "title": "2026 SCENE AI·실사 숏드라마 공모전",
+    "host": "씬(SCENE)",
+    "ai_usage": "required",
+    "format": "online",
+    "team": "unknown",
+    "prize": null,
+    "hiring_link": false,
+    "apply_deadline": "2026-12-31",
+    "submit_deadline": "2026-12-31",
+    "result_date": null,
+    "status": "open",
+    "url": "https://www.wevity.com/?c=find&s=1&gbn=view&gp=1&ix=112319",
+    "evidence": "위비티 112319 리스팅·상세(2026-11-15): '접수기간 2026-11-01 ~ 2026-12-31 D-47' + 제목 '2026 SCENE AI·실사 숏드라마 공모전' — AI 숏드라마 부문이 주제 자체",
+    "source": "wevity",
+    "review": "confirmed",
+    "first_seen": "2026-11-15",
+    "last_checked": "2026-11-15",
+    "check_cadence": "weekly",
+    "history": [
+      {
+        "date": "2026-11-15",
+        "event": "created",
+        "status": "open"
+      }
+    ]
+  },
+  {
+    "id": "wevity:112294-seoul-tourism-prompton",
+    "type": "contest",
+    "title": "2026 서울관광 프롬프톤",
+    "host": "서울관광재단 (AI혁신팀)",
+    "ai_usage": "required",
+    "format": "online",
+    "team": "unknown",
+    "prize": "총 상금 3천만원 이하(1등 500만원, 위비티 표기)",
+    "hiring_link": false,
+    "apply_deadline": "2026-11-29",
+    "submit_deadline": "2026-11-29",
+    "result_date": null,
+    "status": "open",
+    "url": "https://www.wevity.com/?c=find&s=1&gbn=view&gp=1&ix=112294",
+    "evidence": "위비티 112294 리스팅·상세(2026-11-15): '접수기간 2026-11-10 ~ 2026-11-29 D-15' + '2026 서울관광 프롬프톤' + 홈페이지 sto.or.kr AI혁신팀 참가자 모집 공고 링크 — 프롬프트 활용 관광 콘텐츠 공모",
+    "source": "wevity",
+    "review": "confirmed",
+    "first_seen": "2026-11-15",
+    "last_checked": "2026-11-15",
+    "check_cadence": "daily",
+    "history": [
+      {
+        "date": "2026-11-15",
+        "event": "created",
+        "status": "open"
+      }
+    ]
+  },
+  {
+    "id": "wevity:112277-saaskr-ai-webgame-awards",
+    "type": "contest",
+    "title": "2026 saaskr 게임 어워드 - AI로 만든 웹게임 연말 시상",
+    "host": "saaskr",
+    "ai_usage": "required",
+    "format": "online",
+    "team": "unknown",
+    "prize": null,
+    "hiring_link": false,
+    "apply_deadline": "2026-12-20",
+    "submit_deadline": "2026-12-20",
+    "result_date": null,
+    "status": "open",
+    "url": "https://www.wevity.com/?c=find&s=1&gbn=view&gp=1&ix=112277",
+    "evidence": "위비티 112277 리스팅·상세(2026-11-15): '접수기간 2026-10-20 ~ 2026-12-20 D-36' + 제목 'AI로 만든 웹게임 연말 시상' — AI 제작 웹게임만을 대상으로 한 시상",
+    "source": "wevity",
+    "review": "confirmed",
+    "first_seen": "2026-11-15",
+    "last_checked": "2026-11-15",
+    "check_cadence": "weekly",
+    "history": [
+      {
+        "date": "2026-11-15",
+        "event": "created",
+        "status": "open"
+      }
+    ]
+  },
+  {
+    "id": "wevity:112280-pipc-ai-shorts",
+    "type": "contest",
+    "title": "2026년 개인정보 보호 숏폼 콘텐츠 공모전",
+    "host": "개인정보보호위원회",
+    "ai_usage": "allowed",
+    "format": "online",
+    "team": "unknown",
+    "prize": null,
+    "hiring_link": false,
+    "apply_deadline": "2026-11-30",
+    "submit_deadline": "2026-11-30",
+    "result_date": null,
+    "status": "open",
+    "url": "https://www.wevity.com/?c=find&s=1&gbn=view&gp=1&ix=112280",
+    "evidence": "위비티 112280 상세(2026-11-15): '접수기간 2026-11-11 ~ 2026-11-30 D-16' + '공모분야: 60초 내외 숏폼 영상(AI 활용 가능)' — AI 활용 명시적 허용",
+    "source": "wevity",
+    "review": "confirmed",
+    "first_seen": "2026-11-15",
+    "last_checked": "2026-11-15",
+    "check_cadence": "weekly",
+    "history": [
+      {
+        "date": "2026-11-15",
+        "event": "created",
+        "status": "open"
+      }
+    ]
+  },
+  {
+    "id": "wevity:111924-jeju-ai-literacy",
+    "type": "contest",
+    "title": "2026 제주 청소년 AI 리터러시 영상 공모전",
+    "host": "제주콘텐츠진흥원",
+    "ai_usage": "required",
+    "format": "online",
+    "team": "unknown",
+    "prize": null,
+    "hiring_link": false,
+    "apply_deadline": "2026-11-20",
+    "submit_deadline": "2026-11-20",
+    "result_date": null,
+    "status": "open",
+    "url": "https://www.wevity.com/?c=find&s=1&gbn=view&gp=1&ix=111924",
+    "evidence": "위비티 111924 리스팅·상세(2026-11-15): '접수기간 2026-11-02 ~ 2026-11-20 D-6' + 제목 '2026 제주 청소년 AI 리터러시 영상 공모전' — AI 리터러시가 주제인 영상 공모(청소년 대상, 청소년 AI 공모 채택 선례 승계)",
+    "source": "wevity",
+    "review": "confirmed",
+    "first_seen": "2026-11-15",
+    "last_checked": "2026-11-15",
+    "check_cadence": "daily",
+    "history": [
+      {
+        "date": "2026-11-15",
         "event": "created",
         "status": "open"
       }
