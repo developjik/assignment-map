@@ -2,7 +2,10 @@ import { useEffect, useState } from 'react'
 import { POLICY_LABEL, STATUS_LABEL, disp } from '../lib/labels'
 import { downloadIcs } from '../lib/ics'
 import { policyChangeByID } from '../lib/data'
+import { reportIssueUrl } from '../lib/report'
 import GuidePane from './GuidePane'
+import GuideProgressBadge from './GuideProgressBadge'
+import StatusPicker from './StatusPicker'
 
 // 데스크톱 우측 고정 상세 패널 (k9s describe / Linear 우측 패널).
 // 행을 고르면 표를 밀어내지 않고 이 패널이 붙는다. j/k 로 행을 옮기면 내용이 따라온다.
@@ -70,12 +73,18 @@ export default function DetailPane({ r, starred, onStar, onClose }) {
         <span className="dp-kicker">{r.kind === 'posting' ? '채용 과제' : r.type}</span>
         {r.hiring && <span className="badge">채용연계</span>}
         {change && <span className="badge chg">정책변경</span>}
+        <GuideProgressBadge r={r} full />
         <button type="button" className="dp-x" onClick={onClose} aria-label="상세 패널 닫기 (Esc)">닫기 Esc</button>
       </div>
 
       <h2 className="dp-name">{disp(r.name)}</h2>
       {r.title && r.title !== r.name && <div className="dp-title">{disp(r.title)}</div>}
       <div className="dp-sub">{disp(r.sub) || '대상/주최 미상'}</div>
+
+      <div className="dp-status">
+        <span className="dp-status-k">지원 상태</span>
+        <StatusPicker id={r.id} />
+      </div>
 
       <div className="dp-ddwrap">
         <span className={ddCls}>{ddBig(r)}</span>
@@ -158,6 +167,8 @@ export default function DetailPane({ r, starred, onStar, onClose }) {
           title={starred ? '관심 목록에서 뺀다 (s)' : '관심 목록에 담는다 (s)'}>
           {starred ? '관심 해제' : '관심 등록'}
         </button>
+        <a className="ics act rep" href={reportIssueUrl(r)} target="_blank" rel="noreferrer"
+          title="정보가 틀렸거나 AI 정책이 바뀌었을 때 GitHub 이슈에 미리 채워 보낸다">정보 수정·AI 정책 제보</a>
       </div>
       <div className="dp-foot">j k 로 행을 옮기면 이 패널이 따라온다 | Esc 닫기</div>
     </aside>

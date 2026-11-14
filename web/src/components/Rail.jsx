@@ -5,6 +5,7 @@ const ITEMS = [
   { id: 'competition', label: '대회·챌린지' },
   { id: 'contest', label: '공모전' },
   { id: 'meetup', label: '밋업·행사' },
+  { id: 'calendar', label: '마감 캘린더' },
   { id: 'platforms', label: '플랫폼' },
   { id: 'news', label: '트렌드·뉴스' },
   { id: 'changelog', label: '변경로그' },

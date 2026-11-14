@@ -1,14 +1,17 @@
 import { useEffect, useMemo, useState } from 'react'
-import { rows, platforms, news, runs, stats, commit } from './lib/data'
+import { meta, rows, platforms, news, runs, stats, commit } from './lib/data'
 import { readHash, writeHash } from './lib/hash'
+import { useStaleness } from './lib/freshness'
 import Rail from './components/Rail'
 import Opportunities from './views/Opportunities'
+import Calendar from './views/Calendar'
 import Platforms from './views/Platforms'
 import News from './views/News'
 import Changelog from './views/Changelog'
 import Method from './views/Method'
 
-const TABS = ['all', 'postings', 'hackathon', 'competition', 'contest', 'platforms', 'news', 'changelog', 'method']
+// meetup 을 빼면 #t=meetup 딥링크가 'all' 로 떨어진다 (PR #3 리뷰 지적)
+const TABS = ['all', 'postings', 'hackathon', 'competition', 'contest', 'meetup', 'calendar', 'platforms', 'news', 'changelog', 'method']
 
 export default function App() {
   const [tab, setTab] = useState(() => {
@@ -16,6 +19,8 @@ export default function App() {
     return TABS.includes(t) ? t : 'all'
   })
   const [q, setQ] = useState(() => readHash().q || '')
+  // 수집이 2일 이상 멈췄는지는 브라우저에서 매번 다시 센다 (빌드 시점에 굳히지 않는다)
+  const stale = useStaleness(meta.last_run)
   // 해시의 t= 가 바뀌면(링크 붙여넣기, 뒤로/앞으로) 탭도 따라간다
   useEffect(() => {
     const onHash = () => {
@@ -60,6 +65,7 @@ export default function App() {
     competition: rows.filter(r => r.type === '대회' && r.open).length,
     contest: rows.filter(r => r.type === '공모전' && r.open).length,
     meetup: rows.filter(r => ['밋업','컨퍼런스','워크샵'].includes(r.type) && r.open).length,
+    calendar: rows.filter(r => r.open && r.deadline).length,
     platforms: platforms.length, news: news.length, changelog: runs.length,
   }), [])
 
@@ -80,6 +86,11 @@ export default function App() {
           </span>
           <span className="live"><i aria-hidden="true"></i>{stats.lastRun ? `수집 ${stats.lastRun}` : '미실행'}</span>
         </span>
+        {stale.stale && (
+          <span className="stale" role="status" title="마지막 수집 이후 오래 지났다. 수집이 재개되면 이 배지는 저절로 사라진다">
+            <i aria-hidden="true"></i>수집 지연 (마지막: {meta.last_run} | {stale.days}일 전)
+          </span>
+        )}
         {recent.length > 0 && (
           <div className="recent">
             <span>최근 조회</span>
@@ -89,7 +100,9 @@ export default function App() {
       </header>
       <Rail tab={tab} setTab={setTab} counts={counts} review={stats.review} />
       <main className="main">
-        {tab === 'platforms' ? (
+        {tab === 'calendar' ? (
+          <Calendar rows={rows} onVisit={onVisit} />
+        ) : tab === 'platforms' ? (
           <Platforms />
         ) : tab === 'news' ? (
           <News q={q} />
@@ -103,6 +116,7 @@ export default function App() {
             type={tab}
             q={q}
             setQ={setQ}
+            setTab={setTab}
             onVisit={onVisit}
           />
         )}

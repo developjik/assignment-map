@@ -546,3 +546,143 @@ td.ev { white-space: nowrap; color: var(--mut); }
   .dl-btn { padding: 0 13px; }
   .dl-badge { padding: 0 8px; }
 }
+
+/* ===== 수집 지연 배지 (2026-11-14) ===== */
+/* 브라우저 시간으로만 판정한다 — 수집이 재개되면 meta.last_run 이 갱신되어 저절로 사라진다 */
+.stale { display: inline-flex; align-items: center; gap: 6px; padding: 3px 9px; border: 1px solid #4A1D1D; background: #1C1113; color: var(--red); font-size: 10px; white-space: nowrap; }
+.stale i { width: 6px; height: 6px; background: var(--red); display: inline-block; }
+
+/* ===== 지원 상태 트래커 (2026-11-14) ===== */
+/* 상태 = 내가 어디까지 갔나. 별표(관심)와 같은 사실은 한 곳에만 둔다 (lib/statuses.js) */
+.stg { margin-left: 6px; background: none; border: 1px solid var(--border); color: var(--faint); font: 9.5px var(--mono); padding: 0 4px; cursor: pointer; vertical-align: 1px; }
+.stg:hover { color: var(--fg-hi); border-color: var(--blue); }
+.stg.w-int { color: var(--yellow); border-color: #3A2F1C; }
+.stg.w-prog { color: var(--blue); border-color: #1F2E44; }
+.stg.w-done { color: var(--green); border-color: #1B3A2C; }
+
+.sp { display: inline-flex; align-items: center; }
+.sp-b { background: none; border: 1px solid var(--border); color: var(--mut); font: 10px var(--mono); padding: 1px 7px; margin-right: -1px; cursor: pointer; }
+.sp-b:hover { color: var(--fg-hi); border-color: var(--blue); }
+.sp-b.on.w-int { color: var(--yellow); border-color: var(--yellow); background: #1B1710; }
+.sp-b.on.w-prog { color: var(--blue); border-color: var(--blue); background: #101826; }
+.sp-b.on.w-done { color: var(--green); border-color: var(--green); background: #0F1A15; }
+.sp-cur { margin-left: 7px; color: var(--faint); font-size: 9.5px; }
+.dp-status { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; margin: 0 12px 8px; padding: 6px 0; border-top: 1px solid var(--border2); }
+.dp-status-k { color: var(--faint); font-size: 10px; }
+.sp-ln { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
+
+/* 공략 체크 진행률 — 행·아코디언·상세 헤더가 같은 값을 본다 */
+.gp-prog { display: inline-flex; align-items: center; gap: 6px; color: var(--faint); font-size: 9.5px; white-space: nowrap; font-variant-numeric: tabular-nums; }
+.gp-prog-bar { display: inline-block; width: 42px; height: 3px; background: #1A2130; }
+.gp-prog-bar i { display: block; height: 3px; background: var(--green); }
+.badge.gpb { color: var(--green); font-weight: 500; }
+.dp-hd .gp-prog { margin-left: 2px; }
+
+/* 제보 링크 — 파괴적 동작(이슈 생성)이 아니라 조용한 텍스트 링크로 둔다 */
+.ics.act.rep, a.rep { color: var(--mut); }
+a.rep { display: inline-flex; align-items: center; min-height: 22px; padding: 2px 7px; border: 1px solid var(--border); font-size: 10.5px; }
+a.rep:hover { color: var(--fg-hi); border-color: var(--blue); text-decoration: none; }
+
+/* ===== 마감 캘린더 (2026-11-14) ===== */
+.cal { flex: 1 1 0; min-height: 0; display: flex; flex-direction: column; overflow: hidden; }
+.cal-bar { display: flex; align-items: center; gap: 8px; padding: 6px 12px; border-bottom: 1px solid var(--border); flex-wrap: wrap; flex-shrink: 0; }
+.cal-title { color: var(--fg-hi); font-weight: 700; font-size: 12px; font-variant-numeric: tabular-nums; }
+.cal-nav { display: flex; }
+.cal-nav button, .cal-today, .cal-view button { background: none; border: 1px solid var(--border); color: var(--mut); font: 10.5px var(--mono); padding: 1px 7px; cursor: pointer; }
+.cal-nav button { margin-left: -1px; font-size: 12px; line-height: 1.2; }
+.cal-nav button:hover, .cal-today:hover, .cal-view button:hover { color: var(--fg-hi); border-color: var(--blue); }
+.cal-view { display: inline-flex; margin-left: 2px; }
+.cal-view button + button { margin-left: -1px; }
+.cal-view button.on { color: var(--fg-hi); background: #11151C; box-shadow: inset 0 -2px 0 var(--blue); }
+.cal-legend { display: flex; gap: 9px; align-items: center; flex-wrap: wrap; color: var(--faint); font-size: 9.5px; }
+.cal-legend .lg { display: inline-flex; align-items: center; gap: 4px; }
+.cal-legend i { width: 7px; height: 7px; display: inline-block; background: var(--mut); }
+.cal-legend .posting i { background: var(--blue); }
+.cal-legend .hackathon i { background: var(--red); }
+.cal-legend .competition i { background: var(--yellow); }
+.cal-legend .contest i { background: var(--green); }
+.cal-cnt { margin-left: auto; color: var(--dim); font-size: 10.5px; white-space: nowrap; }
+.cal-cnt b { color: var(--mut); font-variant-numeric: tabular-nums; }
+.cal-ics { background: none; border: 1px solid var(--border); color: var(--blue); font: 10.5px var(--mono); padding: 1px 8px; cursor: pointer; }
+.cal-ics:hover { color: var(--fg-hi); border-color: var(--blue); }
+.cal-ics:disabled { color: #46505F; border-color: var(--border2); cursor: default; }
+
+.cal-main { flex: 1 1 0; min-height: 0; display: flex; align-items: stretch; }
+.cal-gridwrap { flex: 1 1 0; min-width: 0; display: flex; flex-direction: column; overflow: auto; }
+.cal-dow { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); border-bottom: 1px solid var(--border); position: sticky; top: 0; background: var(--bg); z-index: 1; }
+.cal-dow span { padding: 4px 6px; font-size: 10px; color: var(--dim); border-right: 1px solid var(--border2); }
+.cal-dow span.sun { color: var(--red); }
+.cal-dow span.sat { color: var(--blue); }
+.cal-grid { flex: 1 1 auto; display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); grid-auto-rows: minmax(96px, auto); align-content: start; }
+.cal-grid.wk { grid-auto-rows: minmax(200px, auto); }
+.cal-cell { display: flex; flex-direction: column; gap: 2px; min-width: 0; overflow: hidden; padding: 3px 4px 5px; border-right: 1px solid var(--border2); border-bottom: 1px solid var(--border2); }
+.cal-cell.out { background: #0A0D12; }
+.cal-cell.today { box-shadow: inset 0 0 0 1px #26364F; }
+.cal-cell.sel { background: #11151C; }
+.cal-dn { display: flex; align-items: baseline; gap: 5px; width: 100%; background: none; border: 0; color: var(--mut); font: 10.5px var(--mono); padding: 0 2px; cursor: pointer; }
+.cal-dn:hover { color: var(--fg-hi); }
+.cal-dn.today { color: var(--blue); font-weight: 700; }
+.cal-dn .n { font-variant-numeric: tabular-nums; }
+.cal-dn .c { margin-left: auto; color: var(--faint); font-size: 9.5px; font-variant-numeric: tabular-nums; }
+.cal-it { display: block; width: 100%; background: none; border: 0; border-left: 2px solid #2A3A55; color: var(--mut); font: 10.5px var(--mono); line-height: 1.5; padding: 1px 5px; cursor: pointer; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.cal-it:hover { color: var(--fg-hi); background: #111726; }
+.cal-it.on { color: var(--fg-hi); background: #111726; }
+.cal-it.posting { border-left-color: var(--blue); }
+.cal-it.hackathon { border-left-color: var(--red); }
+.cal-it.competition { border-left-color: var(--yellow); }
+.cal-it.contest { border-left-color: var(--green); }
+.cal-more { background: none; border: 0; color: var(--faint); font: 9.5px var(--mono); padding: 0 5px; cursor: pointer; text-align: left; }
+.cal-more:hover { color: var(--blue); }
+.cal-dots { display: none; gap: 2px; padding: 0 2px; flex-wrap: wrap; }
+.cal-dots .dot { width: 5px; height: 5px; display: inline-block; background: var(--mut); }
+.cal-dots .dot.posting { background: var(--blue); }
+.cal-dots .dot.hackathon { background: var(--red); }
+.cal-dots .dot.competition { background: var(--yellow); }
+.cal-dots .dot.contest { background: var(--green); }
+
+.cal-side { flex: 0 0 clamp(320px, 23vw, 400px); min-width: 0; border-left: 1px solid var(--border); background: var(--panel2); overflow-y: auto; }
+.cal-side .dpane { flex: 1 1 auto; border-left: 0; overflow: visible; }
+.dayc { padding: 10px 12px 16px; }
+.dayc-hd { display: flex; align-items: baseline; gap: 8px; padding-bottom: 7px; border-bottom: 1px solid var(--border2); }
+.dayc-d { color: var(--fg-hi); font-weight: 700; font-size: 12px; font-variant-numeric: tabular-nums; }
+.dayc-n { color: var(--faint); font-size: 10.5px; }
+.dayc-hd .dp-x { margin-left: auto; }
+.dayc-list { list-style: none; margin: 0; padding: 0; }
+.dayc-it { display: grid; grid-template-columns: 58px minmax(0, 1fr); gap: 2px 8px; width: 100%; background: none; border: 0; border-bottom: 1px solid var(--border2); padding: 6px 0; cursor: pointer; text-align: left; }
+.dayc-it:hover { background: #11151C; }
+.dayc-k { color: var(--faint); font-size: 9.5px; }
+.dayc-k.posting { color: var(--blue); }
+.dayc-k.hackathon { color: var(--red); }
+.dayc-k.competition { color: var(--yellow); }
+.dayc-k.contest { color: var(--green); }
+.dayc-nm { color: var(--fg-hi); font-size: 11px; line-height: 1.45; word-break: keep-all; }
+.dayc-pol { grid-column: 2; font-size: 10px; }
+.dayc-acts { margin-top: 8px; }
+.cal-sum { display: grid; grid-template-columns: 84px minmax(0, 1fr); gap: 2px 8px; margin: 9px 0 10px; font-size: 10.5px; }
+.cal-sum dt { color: var(--faint); }
+.cal-sum dd { margin: 0; color: var(--mut); font-variant-numeric: tabular-nums; }
+
+@media (max-width: 760px) {
+  /* 390px: 격자는 날짜와 점만, 항목 목록은 아래 선택 카드가 맡는다 */
+  /* .main 이 flex column 이라 flex:1 1 0 을 그대로 두면 높이가 0으로 줄어 위 요소와 겹친다 */
+  .cal { display: block; flex: none; overflow: visible; }
+  .cal-bar { padding: 7px 10px; gap: 6px; }
+  .cal-cnt { margin-left: 0; }
+  .cal-legend { display: none; }
+  .cal-main { display: block; }
+  .cal-gridwrap { overflow: visible; }
+  .cal-grid { grid-auto-rows: minmax(56px, auto); }
+  .cal-grid.wk { grid-auto-rows: minmax(60px, auto); }
+  .cal-cell { padding: 3px 3px 4px; min-height: 56px; }
+  .cal-it, .cal-more { display: none; }
+  .cal-dots { display: flex; }
+  .cal-dots .dot { width: 6px; height: 6px; }
+  .cal-dn { font-size: 11px; padding: 0 1px; }
+  .cal-side { border-left: 0; border-top: 1px solid var(--border); }
+  .cal-side .dpane { flex: none; }
+  .dayc-it { display: flex; flex-wrap: wrap; align-items: baseline; gap: 2px 7px; padding: 9px 0; }
+  .dayc-k { flex: 0 0 auto; }
+  .dayc-nm { flex: 1 1 200px; min-width: 0; font-size: 11.5px; }
+  .dayc-pol { flex: 1 1 100%; }
+  .cal-dow span { padding: 5px 4px; }
+}

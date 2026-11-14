@@ -4,10 +4,14 @@ import { POLICY_LABEL, STATUS_LABEL, disp } from '../lib/labels'
 import { downloadIcs, downloadStarredIcs } from '../lib/ics'
 import { filtersFromHash, readHash, writeHash, filterPatch } from '../lib/hash'
 import { useStarred } from '../lib/starred'
+import { WORKFLOW, WORKFLOW_CLS, WORKFLOW_LABEL, nextStatus, useStatuses } from '../lib/statuses'
+import { reportIssueUrl } from '../lib/report'
 import Ticker from '../components/Ticker'
 import DeadlineTicker from '../components/DeadlineTicker'
 import DetailPane from '../components/DetailPane'
 import GuidePane from '../components/GuidePane'
+import GuideProgressBadge from '../components/GuideProgressBadge'
+import StatusPicker from '../components/StatusPicker'
 import ShortcutsHelp from '../components/ShortcutsHelp'
 const POLICY_FILTERS = [
   { id: 'all', label: '전체 정책' },
@@ -20,11 +24,25 @@ const STATUS_FILTERS = [
   { id: 'open', label: '진행중' },
   { id: 'all', label: '전체 상태' },
 ]
+// 내 진행 상황(트래커) 필터 — 기본은 전체, 나머지는 상태 하나씩
+const PROG_FILTERS = [
+  { id: '', label: '전체' },
+  ...WORKFLOW.map((w) => ({ id: w.id, label: w.label, cls: w.cls })),
+]
 const SORT_MODES = [
   { id: 'dday', label: '마감 임박' },
   { id: 'latest', label: '최신 등록' },
 ]
 const POLICY_RANK = { required: 4, allowed_graded: 3, allowed: 2, banned: 1, unspecified: 0, unknown: 0 }
+// 정책 필터 판정 — 기본 필터와 티커 필터 완화가 같은 규칙을 써야 한다
+const policyMatch = (p, r) => p === 'all' ? true
+  : p === 'unspecified' ? ['unspecified', 'unknown'].includes(r.policyKey)
+  : r.policyKey === p
+
+// Enter 단축키를 양보해야 하는 포소스인가 — 버튼·링크·탭·폼 요소와 상세 영역 안쪽
+const INTERACTIVE = 'button, a[href], input, select, textarea, summary, [role="button"], [role="tab"], [role="link"], [role="switch"], [role="checkbox"], [contenteditable="true"]'
+const takesEnter = (el) => !!el && typeof el.closest === 'function' && !!el.closest(INTERACTIVE)
+const inPane = (el) => !!el && typeof el.closest === 'function' && !!el.closest('.dpane, .hx, .cal-side')
 const COLS = [
   { id: 'name', label: '기업 / 이벤트명' },
   { id: 'type', label: '유형' },
@@ -87,16 +105,18 @@ function useWide(query) {
   return wide
 }
 
-export default function Opportunities({ rows, type, q, setQ, onVisit }) {
+export default function Opportunities({ rows, type, q, setQ, setTab, onVisit }) {
   // 첫 진입 필터는 URL 해시에서 (딥링크: #t=postings&policy=required&jobfam=fe)
   const initial = useMemo(() => filtersFromHash(readHash()), [])
   const [policy, setPolicy] = useState(initial.policy)
   const [jobfam, setJobfam] = useState(initial.jobfam)
   const [status, setStatus] = useState(initial.status)
+  const [prog, setProg] = useState(initial.prog)
   const [hiringOnly, setHiringOnly] = useState(initial.hiringOnly)
   const [changedOnly, setChangedOnly] = useState(initial.changedOnly)
   const [starredOnly, setStarredOnly] = useState(initial.starredOnly)
   const [starredIds, toggleStar] = useStarred()
+  const { statuses, statusOf, setStatus: setWorkflow } = useStatuses()
   const [sortMode, setSortMode] = useState('dday')
   const [openRow, setOpenRow] = useState(null)
   const [pane, setPane] = useState(false)
@@ -105,6 +125,8 @@ export default function Opportunities({ rows, type, q, setQ, onVisit }) {
   const [density, setDensity] = useState(() => localStorage.getItem('am-density') || 'standard')
   const [help, setHelp] = useState(false)
   const [notice, setNotice] = useState('')
+  // 티커에서 고른 행 — 필터가 끝난 뒤 그 행을 찾아 열기 위한 대기표
+  const [pendingPick, setPendingPick] = useState(null)
   const curRef = useRef(null)
   const noticeTimer = useRef(null)
   // Esc 로 패널을 닫은 뒤에는 j/k 만으로 다시 열지 않는다 (Enter·클릭은 다시 연다)
@@ -116,14 +138,14 @@ export default function Opportunities({ rows, type, q, setQ, onVisit }) {
 
   // 필터 상태를 URL 해시에 반영 (탭·검색어 키는 App이 쓰므로 건드리지 않는다)
   useEffect(() => {
-    writeHash(filterPatch({ policy, jobfam, status, hiringOnly, changedOnly, starredOnly }))
-  }, [policy, jobfam, status, hiringOnly, changedOnly, starredOnly])
+    writeHash(filterPatch({ policy, jobfam, status, prog, hiringOnly, changedOnly, starredOnly }))
+  }, [policy, jobfam, status, prog, hiringOnly, changedOnly, starredOnly])
 
   // 같은 탭에서 해시만 바뀌면(링크 붙여넣기, 뒤로/앞으로) 상태를 다시 맞춘다
   useEffect(() => {
     const onHash = () => {
       const f = filtersFromHash(readHash())
-      setPolicy(f.policy); setJobfam(f.jobfam); setStatus(f.status)
+      setPolicy(f.policy); setJobfam(f.jobfam); setStatus(f.status); setProg(f.prog)
       setHiringOnly(f.hiringOnly); setChangedOnly(f.changedOnly); setStarredOnly(f.starredOnly)
     }
     window.addEventListener('hashchange', onHash)
@@ -146,11 +168,9 @@ export default function Opportunities({ rows, type, q, setQ, onVisit }) {
     const base = (r) => {
       if (!typeMatch(r)) return false
       if (starredOnly && !starredSet.has(r.id)) return false
+      if (prog && statuses[r.id] !== prog) return false
       if (jobfam === 'fe' && r.kind === 'posting' && !(r.positions || []).includes('frontend')) return false
-      if (policy === 'required' && r.policyKey !== 'required') return false
-      if (policy === 'allowed_graded' && r.policyKey !== 'allowed_graded') return false
-      if (policy === 'allowed' && r.policyKey !== 'allowed') return false
-      if (policy === 'unspecified' && !['unspecified', 'unknown'].includes(r.policyKey)) return false
+      if (!policyMatch(policy, r)) return false
       if (hiringOnly && !r.hiring) return false
       if (changedOnly && !policyChangeByID.has(r.id)) return false
       // 공백으로 나눈 토큰 AND — 제목·기업/주최·상금·기술 스택을 한 인덱스에서 찾는다
@@ -176,7 +196,7 @@ export default function Opportunities({ rows, type, q, setQ, onVisit }) {
     else if (sortMode === 'latest') out.sort((a, b) => openFirst(a, b) || byLatest(a, b) || byDday(a, b))
     else out.sort((a, b) => openFirst(a, b) || byDday(a, b))
     return { filtered: out, totalNoStatus: noStatus.length }
-  }, [rows, typeMatch, jobfam, policy, status, hiringOnly, changedOnly, starredOnly, starredSet, q, sort, sortMode])
+  }, [rows, typeMatch, jobfam, policy, status, prog, hiringOnly, changedOnly, starredOnly, starredSet, statuses, q, sort, sortMode])
 
   const sortMsg = sort
     ? `${COLS.find(c => c.id === sort.key)?.label} ${sort.dir === 1 ? '오름차순' : '내림차순'} 정렬, ${filtered.length}건`
@@ -201,13 +221,41 @@ export default function Opportunities({ rows, type, q, setQ, onVisit }) {
     }
   }
 
+  // 상단 마감 티커에서 항목을 고르면 지금 걸린 필터를 먼저 풀어 그 행이 실제로 보이게 한다.
+  // (PR #3 리뷰: 탭·정책·검색이 살아 있으면 표가 비고 상세도 열리지 않았다)
+  // 열기는 폴더가 끝난 뒤 pendingPick 으로 한다 — 인덱스는 그때의 filtered 에서 찾는다.
   const pickDeadline = (r) => {
-    setQ(r.name)
-    setCur(0)
+    const relaxed = []
+    if (!typeMatch(r)) { setTab && setTab('all'); relaxed.push('탭') }
+    if (starredOnly && !starredSet.has(r.id)) { setStarredOnly(false); relaxed.push('관심') }
+    if (jobfam === 'fe' && r.kind === 'posting' && !(r.positions || []).includes('frontend')) {
+      setJobfam('all'); relaxed.push('FE')
+    }
+    if (!policyMatch(policy, r)) { setPolicy('all'); relaxed.push('정책') }
+    if (prog && statusOf(r.id) !== prog) { setProg(''); relaxed.push('진행 상태') }
+    if (hiringOnly && !r.hiring) { setHiringOnly(false); relaxed.push('채용연계') }
+    if (changedOnly && !policyChangeByID.has(r.id)) { setChangedOnly(false); relaxed.push('정책변경') }
+    if (status === 'open' && !r.open) { setStatus('all'); relaxed.push('진행중') }
+    const tokens = (q || '').trim().toLowerCase().split(/\s+/).filter(Boolean)
+    if (tokens.length && !tokens.every((t) => r.hay.includes(t))) { setQ(''); relaxed.push('검색어') }
+
     onVisit && onVisit(r)
-    if (wide) { paneMuted.current = false; setPane(true) }
-    else setOpenRow(r.id)
+    setPendingPick({ id: r.id, name: r.name, relaxed })
   }
+
+  // 필터가 자리잡은 다음에 호출된다 — 그때 목록에서 행을 찾아 선택·상세를 연다
+  useEffect(() => {
+    if (!pendingPick) return
+    const idx = filtered.findIndex((r) => r.id === pendingPick.id)
+    if (idx < 0) return
+    setCur(idx)
+    if (wide) { paneMuted.current = false; setPane(true) }
+    else setOpenRow(pendingPick.id)
+    if (pendingPick.relaxed.length) {
+      flash(`${pendingPick.name} | ${pendingPick.relaxed.join(', ')} 조건을 풀고 이 행을 열었다`)
+    }
+    setPendingPick(null)
+  }, [pendingPick, filtered, wide])
 
   useEffect(() => {
     const onKey = (e) => {
@@ -241,6 +289,9 @@ export default function Opportunities({ rows, type, q, setQ, onVisit }) {
         return
       }
       if (e.key === 'Enter') {
+        // 포소스가 상세 안 버튼·링크·탭 위에 있으면 그 요소의 Enter 를 살린다 (PR #4 P2)
+        const focus = document.activeElement
+        if (takesEnter(e.target) || takesEnter(focus) || inPane(focus) || inPane(e.target)) return
         const r = filtered[cur]
         if (!r) return
         onVisit && onVisit(r)
@@ -269,10 +320,10 @@ export default function Opportunities({ rows, type, q, setQ, onVisit }) {
   // 커서 추적 — 뷰포트 벗어나면 스크롤 (이슈 #2)
   useEffect(() => { curRef.current?.scrollIntoView({ block: 'nearest' }) }, [cur, filtered])
 
-  useEffect(() => { setCur(0) }, [type, jobfam, policy, status, hiringOnly, changedOnly, starredOnly, q, sortMode])
+  useEffect(() => { setCur(0) }, [type, jobfam, policy, status, prog, hiringOnly, changedOnly, starredOnly, q, sortMode])
 
   const resetFilters = () => {
-    setPolicy('all'); setStatus('open'); setSort(null); setSortMode('dday')
+    setPolicy('all'); setStatus('open'); setSort(null); setSortMode('dday'); setProg('')
     setJobfam('all'); setHiringOnly(false); setChangedOnly(false); setStarredOnly(false); setQ('')
   }
   const clickSort = (key) => {
@@ -312,6 +363,11 @@ export default function Opportunities({ rows, type, q, setQ, onVisit }) {
         {STATUS_FILTERS.map((f) => (
           <button key={f.id} className={'fopt' + (status === f.id ? ' on' : '')} aria-pressed={status === f.id}
             onClick={() => setStatus(f.id)}>{f.label}</button>
+        ))}
+        <span className="fl" title="내가 표시한 지원 진행 상태">내 진행</span>
+        {PROG_FILTERS.map((f) => (
+          <button key={f.id || 'none'} className={'fopt prog-f ' + (f.cls || '') + (prog === f.id ? ' on' : '')}
+            aria-pressed={prog === f.id} onClick={() => setProg(f.id)}>{f.label}</button>
         ))}
         <span className="fl">조건</span>
         <button className={'fopt tog tog-hire' + (hiringOnly ? ' on' : '')} aria-pressed={hiringOnly}
@@ -383,6 +439,7 @@ export default function Opportunities({ rows, type, q, setQ, onVisit }) {
               {filtered.map((r, i) => (
                 <Row key={r.id} r={r} q={q} zebra={i % 2 === 1} idx={i} curIdx={cur} curRef={curRef}
                   expanded={!wide && openRow === r.id} starred={starredSet.has(r.id)} onStar={toggleStar}
+                  st={statuses[r.id] || ''} onCycle={() => setWorkflow(r.id, nextStatus(statuses[r.id] || ''))}
                   onPick={() => pickRow(i, r)} />
               ))}
             </tbody>
@@ -416,7 +473,7 @@ function nextRun(last) {
   return d.toISOString().slice(0, 10)
 }
 
-function Row({ r, q, zebra, idx, curIdx, curRef, expanded, starred, onStar, onPick }) {
+function Row({ r, q, zebra, idx, curIdx, curRef, expanded, starred, onStar, st, onCycle, onPick }) {
   const isNew = r.first && r.first >= new Date(Date.now() - 2 * 864e5).toISOString().slice(0, 10)
   const hot = r.open && r.dd !== null && r.dd >= 0 && r.dd <= 3
   const ddCls = r.dd === null ? 'dd pass' : r.dd < 0 ? 'dd pass' : r.dd <= 3 ? 'dd hot' : 'dd'
@@ -438,6 +495,10 @@ function Row({ r, q, zebra, idx, curIdx, curRef, expanded, starred, onStar, onPi
           {r.hiring && <span className="badge">채용연계</span>}
           {isNew && <span className="badge">NEW</span>}
           {change && <span className="badge chg" title={`정책 변경 ${change.date}: ${POLICY_LABEL[change.from] || change.from || '-'} → ${POLICY_LABEL[change.to] || change.to || '-'}`}>정책변경</span>}
+          {st && (
+            <button type="button" className={'stg ' + WORKFLOW_CLS[st]} title={`${WORKFLOW_LABEL[st]} | 누를 때마다 다음 단계 (관심 → 과제중 → 제출완료 → 해제)`}
+              onClick={(e) => { e.stopPropagation(); onCycle && onCycle() }}>{WORKFLOW_LABEL[st]}</button>
+          )}
         </td>
         <td className="typ" data-col="type"><Hl text={r.type} q={q} /></td>
         <td className="typ c-sub" data-col="sub" title={r.sub}><Hl text={r.sub} q={q} /></td>
@@ -460,6 +521,7 @@ function Row({ r, q, zebra, idx, curIdx, curRef, expanded, starred, onStar, onPi
               <div className="ln"><span className="d">{r.first || ''}</span>발견 | <span className="q">{disp(r.evidence)}</span></div>
               <div className="ln">대상/주최: <span className="q">{r.sub || '-'}</span></div>
               <div className="ln">마감: <span className="q">{r.deadline ? `${r.deadline} (${ddText})` : '상시/미정'}</span> | 유형: <span className="q">{r.type}</span>{r.prize ? <> | 상금: <span className="q">{r.prize}</span></> : null}</div>
+              <div className="ln sp-ln">지원 상태: <StatusPicker id={r.id} /><GuideProgressBadge r={r} full /></div>
               {(r.history || []).filter(h => h.event !== 'created').map((h, i) => (
                 <div className="ln" key={i}>
                   <span className="d">{h.date}</span>
@@ -481,6 +543,9 @@ function Row({ r, q, zebra, idx, curIdx, curRef, expanded, starred, onStar, onPi
                   <button className="ics act" title={`${r.deadline} 종일 일정으로 캘린더에 넣는다`}
                     onClick={(e) => { e.stopPropagation(); downloadIcs([r]) }}>.ics 마감 일정 내려받기</button>
                 )}
+                <a className="rep" href={reportIssueUrl(r)} target="_blank" rel="noreferrer"
+                  title="정보가 틀렸거나 AI 정책이 바뀌었을 때 GitHub 이슈로 보낸다"
+                  onClick={(e) => e.stopPropagation()}>정보 수정·AI 정책 제보</a>
               </div>
               {/* 좁은 화면에서는 2-Pane 대신 아코디언 맨 아래에 같은 공략 섹션이 붙는다 */}
               <GuidePane r={r} inline />
