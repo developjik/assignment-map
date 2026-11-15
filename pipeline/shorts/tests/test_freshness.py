@@ -77,8 +77,29 @@ class TestGeneratorFreshness(unittest.TestCase):
         slot = {"name": "점심", "time": "12:30", "tag": "lunch"}
         data = gen.build_script("posting", posting(), 6, slot, TODAY, 120)
         self.assertEqual(data["template"], "28s-v1")
-        self.assertTrue(gen.SCRIPT_MIN - 8 <= data["char_count"] <= gen.SCRIPT_MAX + 8, data["char_count"])
+        self.assertTrue(gen.SCRIPT_MIN <= data["char_count"] <= gen.SCRIPT_MAX,
+                        "%d자 (목표 %d~%d자)" % (data["char_count"], gen.SCRIPT_MIN, gen.SCRIPT_MAX))
         self.assertGreaterEqual(data["days_left"], 0)
+
+    def test_char_budget_matches_measured_tts_rate(self):
+        # 131자 대본이 edge-tts 실측 21.5초였다 → 26~28초에는 155~175자가 필요하다
+        self.assertGreaterEqual(gen.SCRIPT_MIN, 155)
+        self.assertLessEqual(gen.SCRIPT_MAX, 180)
+        self.assertTrue(gen.SCRIPT_MIN < gen.SCRIPT_TARGET < gen.SCRIPT_MAX)
+        lo = gen.SCRIPT_MIN / gen.CHARS_PER_SEC
+        hi = gen.SCRIPT_MAX / gen.CHARS_PER_SEC
+        self.assertGreaterEqual(lo, 24.0)
+        self.assertLessEqual(hi, 29.0)
+
+    def test_evidence_sentence_skips_collector_noise(self):
+        row = posting(evidence=[{
+            "quote": "GI_Read_Comt_Ifrm 본문(2026-11-07): '[AI 진단] 서류전형 → 면접, 최종합격 ※ AI 활용 방식 자체를 평가에 반영합니다', "
+                     "접수 2026-11-20(D-4)",
+            "field": "assignment+ai_policy"}])
+        sentence = gen.evidence_sentence(row)
+        self.assertIn("AI", sentence)
+        for junk in ("GI_Read", "2026-11-20", "최종합격", "서류전형"):
+            self.assertNotIn(junk, sentence)
 
 
 class TestRendererFreshness(unittest.TestCase):
@@ -104,8 +125,9 @@ class TestRendererFreshness(unittest.TestCase):
         self.assertEqual(ren.dday_text(s, date(2026, 11, 14)), "D-7")
 
     def test_script_is_live(self):
-        self.assertFalse(ren.script_is_live(self.script("2026-11-13")))
-        self.assertTrue(ren.script_is_live(self.script("2026-11-14")))
+        # 기준일을 명시해야 한다 — 실제 오늘 날짜에 기대면 테스트가 시간이 지나며 깨진다
+        self.assertFalse(ren.script_is_live(self.script("2026-11-13"), date(2026, 11, 14)))
+        self.assertTrue(ren.script_is_live(self.script("2026-11-14"), date(2026, 11, 14)))
         self.assertTrue(ren.script_is_live(self.script(None)), "마감 없음(상시)은 살아 있다")
 
     def test_pick_latest_skips_expired(self):
@@ -159,6 +181,91 @@ class TestRendererFreshness(unittest.TestCase):
         with tempfile.TemporaryDirectory() as td:
             with self.assertRaises(SystemExit):
                 ren.render(self.script("2026-11-02"), Path(td) / "x.mp4", silent=True)
+
+
+class TestCountdownRefresh(unittest.TestCase):
+    """PR #5 P2 — 생성일 이후에 렌더링해도 배지·자막·나레이션이 같은 D-n 을 말해야 한다."""
+
+    TODAY = date(2026, 11, 16)          # 대본은 D-8(11-14)에 만들어졌고 오늘은 D-6
+
+    def queued_script(self, **kw):
+        data = {
+            "event_id": "jobkorea:test", "slot_id": "2026-11-14-lunch-test",
+            "event_title": "테스트기업 DevOps 채용 과제 전형", "host": "테스트기업",
+            "deadline": "2026-11-22", "days_left": 8, "template": "28s-v1",
+            "scenes": [
+                {"time": "00~04초", "subtitle": "AI 과제 전형\n지금 열려 있습니다",
+                 "narration": "AI 써서 과제 내라는 기업이 있습니다. 바로 테스트기업 DevOps 전형입니다."},
+                {"time": "04~20초", "subtitle": "전형: 자체 과제\nAI 활용: 필수\nDevOps | 11월 22일, D-8",
+                 "narration": "전형은 자체 과제. AI 활용은 필수. DevOps 직무, 11월 22일 마감, D-8."},
+                {"time": "20~28초", "subtitle": "프로필 링크\n'과제 지도'",
+                 "narration": "더 많은 기업별 AI 과제는 프로필 링크 과제 지도에서 확인하세요."},
+            ],
+            "narration_full": "AI 써서 과제 내라는 기업이 있습니다. 바로 테스트기업 DevOps 전형입니다. "
+                              "전형은 자체 과제. AI 활용은 필수. DevOps 직무, 11월 22일 마감, D-8. "
+                              "더 많은 기업별 AI 과제는 프로필 링크 과제 지도에서 확인하세요.",
+            "metadata": {"youtube_title": "D-8 테스트기업 DevOps 전형 #shorts",
+                         "description": "- 마감: 11월 22일 마감, D-8"},
+        }
+        data.update(kw)
+        return data
+
+    def test_refresh_rewrites_subtitle_narration_and_metadata(self):
+        out = ren.refresh_countdowns(self.queued_script(), self.TODAY)
+        self.assertEqual(ren.dday_text(out, self.TODAY), "D-6")
+        mid = out["scenes"][1]["subtitle"]
+        self.assertIn("11월 22일, D-6", mid)
+        self.assertNotIn("D-8", mid)
+        self.assertIn("11월 22일 마감, D-6", out["scenes"][1]["narration"])
+        self.assertNotIn("D-8", out["narration_full"])
+        self.assertIn("D-6", out["metadata"]["youtube_title"])
+        self.assertIn("D-6", out["metadata"]["description"])
+        self.assertEqual(out["days_left"], 6)
+
+    def test_refresh_does_not_mutate_original_script(self):
+        original = self.queued_script()
+        ren.refresh_countdowns(original, self.TODAY)
+        self.assertIn("D-8", original["scenes"][1]["subtitle"], "원본 대본 파일을 건드리지 않는다")
+
+    def test_build_facts_uses_rendered_day_and_keeps_it_in_three_lines(self):
+        facts = ren.build_facts(self.queued_script(), self.TODAY)
+        self.assertEqual(len(facts), 3)
+        self.assertTrue(any("D-6" in f for f in facts), facts)
+        self.assertFalse(any("D-8" in f for f in facts), facts)
+
+    def test_build_facts_inserts_fresh_deadline_when_subtitle_has_none(self):
+        script = self.queued_script(scenes=[
+            {"time": "00~04초", "subtitle": "AI 과제 전형", "narration": "가"},
+            {"time": "04~20초", "subtitle": "전형: 사전 과제\nAI 활용: 필수\n직무 무관", "narration": "나"},
+            {"time": "20~28초", "subtitle": "프로필 링크", "narration": "다"},
+        ])
+        facts = ren.build_facts(script, self.TODAY)
+        self.assertEqual(len(facts), 3, facts)
+        self.assertIn("마감 2026-11-22 (D-6)", facts, facts)
+
+    def test_narration_text_refreshes_saved_countdown(self):
+        text = ren.narration_text(self.queued_script(), self.TODAY)
+        self.assertIn("11월 22일 마감, D-6", text)
+        self.assertNotIn("D-8", text)
+
+    def test_build_model_matches_badge_and_facts(self):
+        model = ren.build_model(self.queued_script(), self.TODAY)
+        self.assertEqual(model["dday"], "D-6")
+        self.assertEqual(model["status"], "모집중")
+        self.assertTrue(any("D-6" in f for f in model["facts"]), model["facts"])
+
+    def test_dday_text_today_is_dday(self):
+        self.assertEqual(ren.dday_text(self.queued_script(deadline="2026-11-16"), self.TODAY), "D-DAY")
+        out = ren.refresh_countdowns(self.queued_script(deadline="2026-11-16"), self.TODAY)
+        self.assertIn("D-DAY", out["scenes"][1]["subtitle"])
+        self.assertNotIn("D-8", out["narration_full"])
+
+    def test_rolling_record_without_deadline_is_left_alone(self):
+        script = self.queued_script(deadline=None, days_left=999,
+                                    scenes=[{"time": "00~04초", "subtitle": "상시 모집", "narration": "상시 채용입니다."}])
+        out = ren.refresh_countdowns(script, self.TODAY)
+        self.assertEqual(out["scenes"][0]["narration"], "상시 채용입니다.")
+        self.assertEqual(ren.dday_text(out, self.TODAY), "상시")
 
 
 if __name__ == "__main__":

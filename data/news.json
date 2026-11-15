@@ -1,5 +1,131 @@
 [
   {
+    "id": "news-feed-01",
+    "topic": "AI 코딩 도구",
+    "tag": "업계",
+    "content": "스페이스X, 영상 AI '그록 이매진' 개발팀 사실상 해체…AI 코딩에 승부수",
+    "date": "2026-11-16",
+    "source": "알파경제",
+    "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTE5DMjFXMzBkSDdHdlU0dzN1dng5WUFXSHlxZm5QVmRCcWUydW83RDZjdGRENTh5a1ZMU0RfNWZHQm5DbmhtV0N4QU1DenM2Ujl0MXBDalVfUVR3N3VjOVd4N0ljc0lEWnBnaktmeUxB?oc=5"
+  },
+  {
+    "id": "news-feed-02",
+    "topic": "LG유플러스",
+    "tag": "통계",
+    "content": "LG유플러스 \"AI 코딩 비용 90% 절감\"…내년 토큰 사업 추진",
+    "date": "2026-11-15",
+    "source": "머니투데이",
+    "url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTFBEY3R4eHlRQVRMY0hIYTNJU0ZLbzRIZWdiM01TcWliYl96RHRGSW9BY3UwZVdPS1lRV3pGeXdKdTlEcjkwckdfVjdRNkVoY1ZSNzgwZnFTSnNvSW52cTY5a1Bhbi1kRG_SAWxBVV95cUxPd3hyQzc4V2x6bFA3UGlyV0lWVUoyVEQ3cEx2R2x5RE9TXzR6SG9PNmVwTENlVFRxQ1FmeDRxaDZlMkg4aTByaWs4TGpydzAzZ3ZvUGxCdnF3X1QxLTVuUHp4S1M1alQ5eDdmT2g?oc=5"
+  },
+  {
+    "id": "news-feed-03",
+    "topic": "AI 면접",
+    "tag": "통계",
+    "content": "영국 노동자 다수, AI 채용 면접에 불편함 느낀다는 조사 결과",
+    "date": "2026-11-15",
+    "source": "Mezha.net",
+    "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxPcHRqXzRUbFhDbzZJSlpkcDFSakpCYzFDS25MTWYyMWJ6M1FMX2VvVmlRM2phZTVSLXhQQmUxcmFYd2xfTVNucG9yV3VJbnRiZWRnRTVQZG5MLVVhalI5Qk9LaWI3ZF9qcVd2azRUOHc1SDV0YVY5eUp2RnJORWVDSVZBLU9OVy1ESjhlQ3VxYWZuN2ZHR2FYN0l6bw?oc=5"
+  },
+  {
+    "id": "news-feed-04",
+    "topic": "AI 업계 동향",
+    "tag": "업계",
+    "content": "Cisco’s 4 pillars for achieving agentic AI transformation",
+    "date": "2026-11-13",
+    "source": "CIO",
+    "url": "https://www.cio.com/article/4247042/ciscos-4-pillars-to-achieve-agentic-ai-transformation.html"
+  },
+  {
+    "id": "news-feed-05",
+    "topic": "AI 코딩 도구",
+    "tag": "업계",
+    "content": "2857억 차세대 지방행정, AI 코딩 공식 도입…공공SW 개발체계 전환 주목",
+    "date": "2026-11-13",
+    "source": "지디넷코리아",
+    "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE04S3FHLXZmVEFUbENBMXU1c0ZmMnJ6S1Q0cFhRZzQzTWdoRUxMUHp5RktMWk9iUjg5SkROZGx2cE5abVhZZU8xajhsdFF3aUhabDJVMzdB?oc=5"
+  },
+  {
+    "id": "news-feed-06",
+    "topic": "AI 면접",
+    "tag": "정책",
+    "content": "면접 연습은 AI, 실전은 사람과…Z세대 취준생이 원하는 채용 면접은?",
+    "date": "2026-11-13",
+    "source": "피앤피뉴스",
+    "url": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE9fUTNCUF9vaVZFRUZiS1htWjF2LVZTWWRsY2xCbktpeHNUYkFqbEFuVkw2d19KRXBsZEFzaTFEMDJFMVl0aTUwMXhkZDhkM2NEMWN4QkZnYzhkWDQ2Z2c?oc=5"
+  },
+  {
+    "id": "news-feed-07",
+    "topic": "OpenAI",
+    "tag": "업계",
+    "content": "How Amplitude ships product improvements in 1–2 days with OpenAI",
+    "date": "2026-11-13",
+    "source": "OpenAI",
+    "url": "https://openai.com/business/customer-stories/amplitude"
+  },
+  {
+    "id": "news-feed-08",
+    "topic": "엔비디아",
+    "tag": "업계",
+    "content": "패스트캠퍼스·엔비디아 공동 Agentic AI 해커톤 성료…AI Day 서울서 최종 성과 공개",
+    "date": "2026-11-11",
+    "source": "헬로티",
+    "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE9JbUF5RG9EU0dNV1pWNHd5OWF3NlExd3FsMFByV0tabkY0WlF1Z0FqYURSLXF6enpmTHZSOElFNUxmMnBDeXR3cU5fYUlkWWUtbk16YmJCR3hPVXFwQTAw?oc=5"
+  },
+  {
+    "id": "news-feed-09",
+    "topic": "AI 면접",
+    "tag": "정책",
+    "content": "인천시, 2027년 청년 취업·주거 지원 확대… AI 면접·진로탐색 사업 신설",
+    "date": "2026-11-10",
+    "source": "livesnews.com",
+    "url": "https://news.google.com/rss/articles/CBMiXEFVX3lxTE1HRGZERE5wNmJBVXhUY1Y0dnFiLUE5alBwZ2NQakRRaHZvdy1WUU5ZUFdhQ1RVd0lPbTlsVlhSNmhqaTN6a1NHWE5reWcyT25XUXd4M1RWSmUzRjhL?oc=5"
+  },
+  {
+    "id": "news-feed-10",
+    "topic": "AI 경진대회",
+    "tag": "정책",
+    "content": "국립부경대, AI 채용 환경 맞춤 ‘교내 모의면접 경진대회’ 개최",
+    "date": "2026-11-10",
+    "source": "아시아경제",
+    "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE9CaDBYVndUallLZ0dSb21hczUxQXNhRUxhSTRHTmlRUllJU3hNUlJsOS15VThaU1E4czlQY2JRazdqNzZCdktQX0o1ZXU3Sy1xakFpX0QwN3pCM2IzbjZJRA?oc=5"
+  },
+  {
+    "id": "news-feed-11",
+    "topic": "AI 코딩 도구",
+    "tag": "정책",
+    "content": "AI 코딩 일상화됐지만 신뢰는 낮아… 기업 과제는 ‘결과물 관리’",
+    "date": "2026-11-09",
+    "source": "동아일보",
+    "url": "https://news.google.com/rss/articles/CBMidkFVX3lxTFBUS3lEN0dTNmhnTjVlMlIzQTE0alQyOUJtQTM2MkxsUjNHR0JpQVdWZ0tkZXB2aVA3Q0R6MXVnRlpDT0lvam84SHBwOEU4cVhPSTJmeFFhSGhwWE5kU05teDkwXzRfSS1idVJpNUtwR3p5T3FVMkHSAWZBVV95cUxOeG15TkRSSS1kdWlrTnRSWE9haVNVQlJSbl9tZVFodXQ3dmVEMDhtbUhYRHUxYTA3NmxRTUJsY3p1VXlma2t0azFKbDhxMnJtUzhpUVRGX0p2dU1TMUJpc1FCS1FsZ0E?oc=5"
+  },
+  {
+    "id": "news-feed-12",
+    "topic": "AI 업계 동향",
+    "tag": "업계",
+    "content": "Qodo builds context into AI code review with Codex",
+    "date": "2026-11-02",
+    "source": "OpenAI",
+    "url": "https://openai.com/index/qodo-codex-plugin"
+  },
+  {
+    "id": "news-feed-13",
+    "topic": "SK",
+    "tag": "정책",
+    "content": "채용혜택 내건 SK하이닉스 AI해커톤, 시스템 장애에 예선 중단",
+    "date": "2026-11-01",
+    "source": "연합뉴스TV",
+    "url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE1HZDNFTUhORTJNNThjYzA2bjRGcENyaUJBTXhFbjVzcGZtdTVsN2U0RUgxc0VLNzZ0NUV6c0Yyclk2RjhxYWpfaVFkVmpBdjRhdWNHYlNzV3BZSlM0dDVQOHBaanREUHM?oc=5"
+  },
+  {
+    "id": "news-feed-14",
+    "topic": "AI 경진대회",
+    "tag": "정책",
+    "content": "롯데, 채용 연계 AI 경진대회 첫 개최…오픈AI 심사 참여",
+    "date": "2026-10-27",
+    "source": "KB Think",
+    "url": "https://news.google.com/rss/articles/CBMickFVX3lxTE94TUJYUmdzZHgxWnJha2gwTExSb0R2cFNPaU1DVkRBeGZVM05jSUtkUnQzTURZTzA5cTc0bVZDY2Nud2otMm5kYll5RnFkUVVhX2lsYS1MV3BETHh2U3FJNklQSHdXN3RacUVNT2RPZnJpUQ?oc=5"
+  },
+  {
     "id": "news-policy-01",
     "topic": "구글",
     "tag": "허용",

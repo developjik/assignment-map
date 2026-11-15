@@ -22,11 +22,13 @@ KST = timezone(timedelta(hours=9))
 
 SITE_URL = "https://developjik.github.io/assignment-map/"
 
-# 28초 압축 템플릿: ko-KR-InJoonNeural rate=+10% 기준 초당 약 5.2자
-SCRIPT_MIN = 130
-SCRIPT_TARGET = 138
-SCRIPT_MAX = 145
-CHARS_PER_SEC = 5.2
+# 28초 압축 템플릿: ko-KR-InJoonNeural 실측 6.1~7.0자/초 (rate 0% ~ +15%)
+# 131자 대본이 edge-tts 실측 21.5초로 나와 28초 창에 못 미쳤으므로 목표를 167자로 올렸다.
+# 158~175자 구간이면 rate +4~+7%에서 26~28초에 안정적으로 들어온다.
+SCRIPT_MIN = 158
+SCRIPT_TARGET = 167
+SCRIPT_MAX = 175
+CHARS_PER_SEC = 6.3
 TEMPLATE_ID = "28s-v1"
 
 POSTING_ALLOWED_STATUS = {"open", "active", "rolling", "hiring"}
@@ -263,6 +265,8 @@ def clean_fragment(text):
     for arrow in ("→", "＞", "->", ">", "—", "–"):
         t = t.replace(arrow, ", ")
     t = t.replace("ㆍ", ", ").replace("·", " ").replace("+", " ")
+    for bullet in ("※", "•", "*", "■", "□", "▶"):
+        t = t.replace(bullet, ", ")
     t = re.sub(r"\[[^\]]{1,16}\]", " ", t)
     t = re.sub(r"['\"“”‘’]", " ", t)
     t = re.sub(r"\s*:\s*", ", ", t)
@@ -303,8 +307,11 @@ def trim_kr(text, limit):
                 "고", "서", "각", "건", "분")
     for suffix in dangling:
         if cut.endswith(suffix) and len(cut) - len(suffix) >= max(6, limit // 2):
-            cut = cut[: -len(suffix)].rstrip(" ,")
+            cut = cut[:-len(suffix)].rstrip(" ,")
             break
+    # 어절 경계로 자르다 괄호가 열린 채 끝났으면 괄호 앞에서 끝낸다
+    if cut.count("(") > cut.count(")"):
+        cut = cut[: cut.rfind("(")].rstrip(" ,")
     return cut
 
 
@@ -339,6 +346,19 @@ def whole_piece(prefix, source, suffix, optional=False, rank=2):
     cap = len(source)
     return {"prefix": prefix, "source": source, "suffix": suffix,
             "cap": cap, "min_cap": cap, "optional": optional, "rank": rank, "whole": True}
+
+
+def raw_whole_piece(prefix, text, suffix, optional=True, rank=4):
+    """이미 다듬은 문장 조각을 그대로 쓰는 whole 조각.
+
+    whole_piece()는 clean_fragment()를 한 번 더 거치며 끝의 '합니다/입니다'를 덜어내는데,
+    evidence_sentence()가 뽑은 문장은 완결된 문장이라 그 처리를 다시 받으면 "...평가에 반영."
+    처럼 매달린 문장이 된다. 그래서 다듬기를 건너뛰는 자리를 둔다.
+    """
+    if not text:
+        return None
+    return {"prefix": prefix, "source": text, "suffix": suffix, "cap": len(text),
+            "min_cap": len(text), "optional": optional, "rank": rank, "whole": True}
 
 
 def piece_text(p):
@@ -503,6 +523,49 @@ def pick_evidence_quote(record, prefer=("ai", "assignment")):
     return quotes[0][1]
 
 
+# 나레이션에 넣으면 뜻이 없는 조각 — 날짜 원문·내부 id·"언급 없음" 메타 문구
+JUNK_EVIDENCE_RE = re.compile(r"\d{4}[-.]\d{1,2}[-.]\d{1,2}|\d{5,}|언급\s*없|미언급|확인\s*필요")
+# 문장이 끝난 조각 — 중간에 끊긴 "~하며"로 마무리하지 않으려고 먼저 찾는다
+SENTENCE_END = ("다", "요", "함", "음", "임")
+
+
+def evidence_sentence(record, prefer=("ai", "assignment+ai"), limit=60):
+    """근거 인용에서 AI 정책을 말하는 구절만 뽑는다 — 날짜·id·메타 문구는 버린다.
+
+    인용문은 수집기가 붙인 꼬리가 많아 그대로 읽으면 "최종합격 ※ ..." 같은 조각이 나간다.
+    AI 를 말하는 조각이 없으면 빈 문자열 — 근거 없는 문장을 지어내지 않는다.
+    """
+    quote = clean_fragment(pick_evidence_quote(record, prefer=prefer))
+    if not quote:
+        return ""
+    # 쉼표와 문장 끝(다/요) 양쪽에서 끊는다 — 수집기가 문장 두 개를 한 줄로 붙여 두기도 한다
+    parts = []
+    for chunk in quote.split(", "):
+        for piece in re.split(r"(?<=다)\s+|(?<=요)\s+", chunk):
+            piece = piece.strip(" ,")
+            if piece:
+                parts.append(piece)
+    parts = [p for p in parts if len(p) >= 8 and not JUNK_EVIDENCE_RE.search(p)]
+    start = None
+    for idx, part in enumerate(parts):
+        if "AI" in part and len(part) >= 12:
+            start = idx
+            break
+    if start is None:
+        return ""
+    # 문장이 끝난 조각이 있으면 그것만 쓴다 ("...평가하며." 처럼 매달린 문장을 내보내지 않는다)
+    for part in parts[start:]:
+        if len(part) >= 12 and part.endswith(SENTENCE_END):
+            return trim_kr(part, limit)
+    chosen = ""
+    for part in parts[start:]:
+        trial = part if not chosen else chosen + ", " + part
+        if len(trial) > limit:
+            break
+        chosen = trial
+    return trim_kr(chosen, limit) if chosen else trim_kr(parts[start], limit)
+
+
 def dday_label(days):
     if days in (999, None):
         return "상시 모집"
@@ -526,7 +589,11 @@ def posting_scenes(posting, days, today_str):
     if len(process_detail) < 8:
         # 원문에 전형 설명이 없으면 과제 유형만 짧게 부른다 (긴 인용문을 잘라 쓰면 문장이 깨진다)
         process_detail = ""
-    policy_detail = pick_evidence_quote(posting, prefer=("ai", "assignment+ai"))
+    policy_detail = evidence_sentence(posting, prefer=("ai", "assignment+ai"))
+    # "P", "전형절차" 같은 조각 제목은 읽어도 정보가 없다 — 여덟 자 이상일 때만 부른다
+    title_detail = trim_kr(clean_fragment(posting.get("title")), 26)
+    if len(title_detail) < 8:
+        title_detail = ""
 
     # Scene 1 (00~04초) 후킹
     hook = [
@@ -542,7 +609,9 @@ def posting_scenes(posting, days, today_str):
     facts = [
         fact_process,
         fixed_piece(f"AI 활용은 {policy_label}."),
-        whole_piece("평가 기준은 ", policy_detail, ".", optional=True, rank=4),
+        # 원문 인용과 공고명은 예산에 들어갈 때만 통째로 붙는다 (중간에 잘린 구실 없는 조각을 만들지 않는다)
+        raw_whole_piece("", policy_detail, ".", optional=True, rank=4),
+        whole_piece("공고명은 ", title_detail, ".", optional=True, rank=6),
         fixed_piece(f"{pos} 직무, {deadline_txt}."),
     ]
 
@@ -550,11 +619,13 @@ def posting_scenes(posting, days, today_str):
     cta = [
         whole_piece("", "더 많은 기업별 AI 과제는", "", optional=True, rank=3),
         fixed_piece("프로필 링크 과제 지도에서 확인하세요."),
-        whole_piece("", "회사별 전형과 마감일까지 정리해 뒀습니다", ".", optional=True, rank=5),
+        whole_piece("", "회사별 전형과 마감일까지 정리해 뒀습니다", ".", optional=True, rank=7),
     ]
 
     scenes = [hook, facts, cta]
-    extras = [fixed_piece("지원 전에 공고 원문을 꼭 확인하세요."), fixed_piece("원문 확인은 필수입니다.")]
+    extras = [fixed_piece("지원 전에 공고 원문을 꼭 확인하세요."),
+              fixed_piece("새 공고는 매일 아침 새로 올라옵니다."),
+              fixed_piece("AI 정책은 공고마다 다릅니다.")]
     fit_scenes(scenes, extras)
     return scenes
 
@@ -599,7 +670,7 @@ def event_scenes(event, days, today_str):
     facts = [
         fixed_piece(f"주최는 {host}, 마감은 {deadline_txt}."),
         fixed_piece(f"AI 활용은 {policy_label}."),
-        whole_piece("공모 주제는 ", ai_detail, ".", optional=True, rank=5),
+        grow_piece("공모 주제는 ", ai_detail, ".", min_cap=0, optional=True, rank=5),
         whole_piece("", "채용 연계는 인턴십과 서류 우대까지 붙습니다" if event.get("hiring_link")
                    else "채용 연계는 공고상 별도 혜택이 없습니다", ".", optional=True, rank=4),
     ]
@@ -739,8 +810,11 @@ def build_script(kind, record, days, slot, target_date, score):
 
 
 def script_markdown(kind, record, script_data, slot):
+    # 표 셀 안의 ' | '(예: "DevOps | 11월 22일, D-6")가 열을 쪼개지 않게 이스케이프한다
+    def cell(text):
+        return str(text).replace("|", "\\|").replace(chr(10), "<br>")
     scenes_table = "\n".join([
-        f"| **{s['time']}** | {s['subtitle'].replace(chr(10), '<br>')} | \"{s['narration']}\" | `{s['visual_prompt']}` |"
+        f"| **{s['time']}** | {cell(s['subtitle'])} | \"{cell(s['narration'])}\" | `{s['visual_prompt']}` |"
         for s in script_data["scenes"]
     ])
     label = "기업 채용 과제" if kind == "posting" else "해커톤·공모전"

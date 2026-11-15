@@ -5,6 +5,7 @@ import { policyChangeByID } from '../lib/data'
 import { reportIssueUrl } from '../lib/report'
 import GuidePane from './GuidePane'
 import GuideProgressBadge from './GuideProgressBadge'
+import RelatedList from './RelatedList'
 import StatusPicker from './StatusPicker'
 
 // 데스크톱 우측 고정 상세 패널 (k9s describe / Linear 우측 패널).
@@ -60,7 +61,7 @@ function KV({ k, v }) {
   )
 }
 
-export default function DetailPane({ r, starred, onStar, onClose }) {
+export default function DetailPane({ r, rows = [], starred, onStar, onClose, onPickRelated }) {
   const cd = useCountdown(r.deadline)
   const change = policyChangeByID.get(r.id)
   const hist = (r.history || []).filter((h) => h.event !== 'created')
@@ -169,6 +170,8 @@ export default function DetailPane({ r, starred, onStar, onClose }) {
           ))}
         </section>
       )}
+
+      <RelatedList r={r} rows={rows} onPick={onPickRelated} />
 
       <div className="dp-acts dp-acts-bottom">
         <a className="ics act rep" href={reportIssueUrl(r)} target="_blank" rel="noreferrer"

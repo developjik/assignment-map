@@ -101,7 +101,8 @@
 
 ## 9. 하지 않는 것
 
-- platforms.json / news.json 수정 금지 (사람 큐레이션)
+- platforms.json 수정 금지 (사람 큐레이션)
+- news.json 수정 금지 (뉴스는 `collector/fetch_news.py` 가 따로 수집한다 — 이 일일 루틴은 건드리지 않는다)
 - history 편집/삭제 금지 (append만)
 - golden_cases.json 임의 수정 금지
 - 원문 전문 저장 금지

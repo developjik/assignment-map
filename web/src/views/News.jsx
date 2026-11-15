@@ -15,7 +15,12 @@ export default function News({ q }) {
       {items.map((n, i) => (
         <div className="news-it" key={n.id || i}>
           <div><span className={`tag-l ${tagCls(n.tag)}`}>{n.tag}</span><span className="t">{n.topic}</span></div>
-          <div className="c">{n.content}</div>
+          {/* 수집 항목(fetch_news.py)은 원문 링크를 들고 있다 — 제목을 누르면 기사로 바로 간다 */}
+          <div className="c">
+            {n.url
+              ? <a className="art" href={n.url} target="_blank" rel="noreferrer" title="기사 원문 열기">{n.content}</a>
+              : n.content}
+          </div>
           <div className="m">
             {normDate(n.date)}
             {' | '}

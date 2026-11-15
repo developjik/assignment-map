@@ -1,6 +1,6 @@
 {
-  "version": "2026-11-12",
-  "note": "fetch()는 브라우저 페이지 상한 미소모. 발견=fetch(0페이지), 상세=브라우저(80페이지 상한 내). 2026-11-01 T3 월간: github-hackathon·hackhq·gnews-kr-6-workshop 퇴출(retired). 2026-11-12 소스 확장: daker-api(T0, 데이콘 계열 해커톤 JSON 실측), dacon-competitions·programmers-competitions·programmers-assignments(T2, 주 1회), lablab→starfield 리브랜드 확인. status 의미: active=매일/주간 자동 수집, watch=상태만 추적(차단·이벤트 없음·참고용), retired=퇴출.",
+  "version": "2026-11-16",
+  "note": "fetch()는 브라우저 페이지 상한 미소모. 발견=fetch(0페이지), 상세=브라우저(80페이지 상한 내). 2026-11-01 T3 월간: github-hackathon·hackhq·gnews-kr-6-workshop 퇴출(retired). 2026-11-12 소스 확장: daker-api(T0, 데이콘 계열 해커톤 JSON 실측), dacon-competitions·programmers-competitions·programmers-assignments(T2, 주 1회), lablab→starfield 리브랜드 확인. status 의미: active=매일/주간 자동 수집, watch=상태만 추적(차단·이벤트 없음·참고용), retired=퇴출. 2026-11-16 news_feeds 티어 추가: collector/fetch_news.py 가 트렌드 뉴스(data/news.json)를 수집한다.",
   "tiers": {
     "T0_fetch_daily": [
       {
@@ -311,6 +311,74 @@
         "cost": 0,
         "note": "소스별 후보수·채택률 → 하위 소스 퇴출",
         "status": "active"
+      }
+    ],
+    "news_feeds": [
+      {
+        "id": "gnews-kr-hiring",
+        "kind": "rss",
+        "target": "news",
+        "cost": 0,
+        "status": "active",
+        "url": "https://news.google.com/rss/search?q=\"AI 채용\" OR \"AI 면접\" OR \"AI 과제\"&hl=ko&gl=KR&ceid=KR:ko",
+        "note": "collector/fetch_news.py 가 소비한다(일일 루틴은 news.json 을 건드리지 않는다)."
+      },
+      {
+        "id": "gnews-kr-vibe",
+        "kind": "rss",
+        "target": "news",
+        "cost": 0,
+        "status": "active",
+        "url": "https://news.google.com/rss/search?q=\"바이브코딩\" OR \"AI 코딩\" OR \"AI 개발자\"&hl=ko&gl=KR&ceid=KR:ko"
+      },
+      {
+        "id": "gnews-kr-contest",
+        "kind": "rss",
+        "target": "news",
+        "cost": 0,
+        "status": "active",
+        "url": "https://news.google.com/rss/search?q=\"AI 해커톤\" OR \"AI 공모전\" OR \"AI 경진대회\"&hl=ko&gl=KR&ceid=KR:ko"
+      },
+      {
+        "id": "geeknews",
+        "kind": "rss",
+        "target": "news",
+        "cost": 0,
+        "status": "active",
+        "url": "https://news.hada.io/rss",
+        "note": "국내 개발 뉴스. AI 낱말 점수로 걸러낸다."
+      },
+      {
+        "id": "hn-ai-hiring",
+        "kind": "api",
+        "target": "news",
+        "cost": 0,
+        "status": "active",
+        "url": "https://hn.algolia.com/api/v1/search_by_date?query=AI interview hiring&tags=story&hitsPerPage=30"
+      },
+      {
+        "id": "openai-news",
+        "kind": "rss",
+        "target": "news",
+        "cost": 0,
+        "status": "active",
+        "url": "https://openai.com/news/rss.xml"
+      },
+      {
+        "id": "google-ai-blog",
+        "kind": "rss",
+        "target": "news",
+        "cost": 0,
+        "status": "active",
+        "url": "https://blog.google/technology/ai/rss/"
+      },
+      {
+        "id": "cio",
+        "kind": "rss",
+        "target": "news",
+        "cost": 0,
+        "status": "active",
+        "url": "https://www.cio.com/feed/"
       }
     ]
   },

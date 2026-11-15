@@ -1,2 +1,2 @@
 // build.mjs가 생성
-export default '8857d7f'
+export default '8d28ab3'
