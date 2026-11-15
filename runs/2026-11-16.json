@@ -1,0 +1,172 @@
+{
+ "date": "2026-11-16",
+ "postings": [
+  {
+   "id": "jobkorea:50293498",
+   "status": "closed",
+   "evidence": "잡코리아 GI_Read 브라우저 실측(2026-11-16): 지원정보 '마감되었습니다. 기간 2026.11.03(화) ~ 2026.11.15(일)' — SOOP AI 기반 개인화 추천 시스템 엔지니어"
+  },
+  {
+   "id": "jobkorea:50283588",
+   "status": "closed",
+   "evidence": "잡코리아 GI_Read 브라우저 실측(2026-11-16): '마감되었습니다' 표시 — SOOP LIVE 방송 서버 개발, 마감일 11-15 경과"
+  },
+  {
+   "id": "jobkorea:50185931",
+   "status": "closed",
+   "evidence": "잡코리아 GI_Read 브라우저 실측(2026-11-16): 제목 옆 '마감' 배지 + 본문 모집기간 '~ 2026.11.15(일)' 경과 — 메디씨앤씨 운영 콘텐츠 디자이너"
+  },
+  {
+   "id": "jobkorea:50256313",
+   "status": "closed",
+   "evidence": "잡코리아 GI_Read 브라우저 실측(2026-11-16): '마감되었습니다' 표시 — 프리컷(SOOP 자회사) 영상 콘텐츠 편집, 마감일 11-15 경과"
+  },
+  {
+   "id": "jobkorea:50184128",
+   "status": "closed",
+   "evidence": "잡코리아 GI_Read 브라우저 실측(2026-11-16): '마감되었습니다' 표시 — 스튜디오리코 웹툰 작가 구인, 마감일 11-15 경과"
+  }
+ ],
+ "events": [
+  {
+   "id": "global-0049",
+   "type": "hackathon",
+   "title": "#BuildHybridAI 2026",
+   "host": "Firebase (Google)",
+   "ai_usage": "required",
+   "format": "online",
+   "team": "solo/team",
+   "prize": "$30,000",
+   "hiring_link": false,
+   "apply_deadline": null,
+   "submit_deadline": "2026-11-30",
+   "result_date": null,
+   "status": "open",
+   "url": "https://firebasehybridaihackathon.devpost.com/",
+   "evidence": "Devpost 상세(2026-11-16): 'Who can participate: Above legal age of majority in country of residence' + 제외국 명단에 'Korea Democratic People's Republic of'(북한만 제외, 한국 참여 가능) + '$30,000' + Nov 11-30, 2026 — Firebase 하이브리드 AI(온디바이스+클라우드 Gemini) 앱 빌드 해커톤, themes Machine Learning/AI·Mobile·Web",
+   "source": "devpost-api",
+   "review": "confirmed"
+  },
+  {
+   "id": "global-0050",
+   "type": "hackathon",
+   "title": "Reddit's Game of the Day Hackathon",
+   "host": "Reddit",
+   "ai_usage": "unknown",
+   "format": "online",
+   "team": "solo/team",
+   "prize": "$35,000 in cash",
+   "hiring_link": false,
+   "apply_deadline": null,
+   "submit_deadline": "2026-12-08",
+   "result_date": null,
+   "status": "open",
+   "url": "https://redditgameofday2026.devpost.com/",
+   "evidence": "Devpost 상세(2026-11-16): 'All countries/territories, excluding standard exceptions' + 'Online Public' + '$ 35,000 in cash' + 'Deadline: Dec 8, 2026 @ 6:00pm PST' — 하루 플레이 웹게임(게임 오브 더 데이) 해커톤, themes Beginner Friendly/Gaming으로 AI 테마 아님(ai_usage unknown)",
+   "source": "devpost-api",
+   "review": "confirmed"
+  },
+  {
+   "id": "global-0037",
+   "status": "closed",
+   "evidence": "Devpost 오픈 리스트 이탈(2026-11-16 실측, open 72건 스윕) — 11-15 런 'about 4 hours left' 생존 확인 후 익일 이탈 + 제출마감 11-14 경과 이중 확인"
+  },
+  {
+   "id": "global-0025",
+   "status": "closed",
+   "evidence": "Devpost 오픈 리스트 이탈(2026-11-16 실측) + 제출마감 2026-11-15 경과 — DSH Hacks V2"
+  },
+  {
+   "id": "ko-0009",
+   "status": "closed",
+   "evidence": "ai-radar.kr 페이지 실측(2026-11-16): '마감' 표시 + '접수 마감 2026-10-31' — 데이터상 11-15 마감보다 조기 종료, Meta AI 페스티벌"
+  },
+  {
+   "id": "wevity:112204-pyeongtaek-genai-character",
+   "status": "closed",
+   "evidence": "위비티 본리스트 D+0 배지(2026-11-16 실측) — 평택시청소년재단 생성형 AI 캐릭터 공모전, 접수마감 11-15 경과"
+  },
+  {
+   "id": "wevity:111849-render-global-tech",
+   "status": "closed",
+   "evidence": "위비티 본리스트 D+0 배지(2026-11-16 실측) — Render×XYZ×Tin Computer 글로벌 테크 후원 해커톤, 접수마감 11-15 경과"
+  },
+  {
+   "id": "wevity:111666-exwayco-ai-idea",
+   "status": "closed",
+   "evidence": "위비티 본리스트 D+0 배지(2026-11-16 실측) — 한국도로공사 AI 활용 아이디어 공모전, 접수마감 11-15 경과"
+  },
+  {
+   "id": "wevity:111981-daegu-drafthon",
+   "status": "closed",
+   "evidence": "위비티 본리스트 D+0 배지(2026-11-16 실측) — 2026 대구 대학(원) AI 드래프톤, 접수마감 11-15 경과"
+  },
+  {
+   "id": "wevity:112097-jinan-healing-alley-ai-shorts",
+   "status": "closed",
+   "evidence": "위비티 본리스트 D+0 배지(2026-11-16 실측) — 진안고원 치유골목 AI 쇼츠영상 콘테스트, 접수마감 11-15 경과"
+  },
+  {
+   "id": "wevity:111802-hyundai-vehicle-app",
+   "status": "closed",
+   "evidence": "위비티 본리스트 D+0 배지(2026-11-16 실측) — 현대자동차그룹 차량용 앱 개발 공모전, 접수마감 11-15 경과"
+  }
+ ],
+ "sources": [
+  {
+   "id": "devpost-api",
+   "method": "fetch",
+   "pages": 0,
+   "result": "open 72건 스윕 — 이탈 종결 2(Scope-AI-Thon global-0037·DSH Hacks V2 global-0025, 11-15 마감) · 신규 채택 2: #BuildHybridAI 2026(31808 Firebase $30k 11-30 마감, 제외국에 북한만 있어 한국 참여 가능) · Reddit's Game of the Day(31644 $35k 12-08, Online Public 전세계) · 미채택: UBC Blockchain(캠퍼스 전용)·HETIC AI Agents Founders(대학생 한정 €1k)·HackOut(13-18세)·KUK(말레이시아 학생 한정)·IceHacks/AI@USC/sunhacks 등 11-15 마감경과·$0·campampus 다수"
+  },
+  {
+   "id": "daker-api",
+   "method": "fetch",
+   "pages": 0,
+   "result": "24건 — 신규 0: 미트래킹 published 3건(4th JUMP AI 본선 end 11-16·소재연구데이터 reg 11-13·AI 플랫폼 구축 reg 10-25) 전부 등록마감 경과로 채택 제외 · ko-0035 제주(등록 11-20 진행 617명)·ko-0001 KIC(lastStage 2027-01-11 judging) 추적 확인"
+  },
+  {
+   "id": "hn-algolia-hiring",
+   "method": "fetch",
+   "pages": 0,
+   "result": "최신 스레드 50338728(11월, 이미 파싱) 유지 — 12월 스레드 12/1 T3 감시"
+  },
+  {
+   "id": "gnews-kr-1..5+en",
+   "method": "fetch",
+   "pages": 0,
+   "result": "6피드 fresh(49h) 2건 — 경남교육청 아침간편식 경진대회(비AI)만, 미채택. kr-5-meetup 신규 히트 0"
+  },
+  {
+   "id": "wevity-fetch",
+   "method": "fetch",
+   "pages": 0,
+   "result": "본리스트 60p 전수 900 ix 파싱 + AI/개발 키워드 스크리닝 70건 → 트래킹 69 ix(id+url 이중 대조) 재대조 후 신규 채택 0 — 매경 AI광고 111903·조달청 AI게임 111628·대구 공공데이터 111567·AI 달인 s4 112049·스토리리그 112066·엘리스 111915 전부 기존 추적 확인 · 신규 그레이 'AI와 신학 논문 공모전'(111065 D-46) 미채택(종교 논문 특화·창작 빌드 아님) · 종결 검증 6건 전부 D+0"
+  },
+  {
+   "id": "jobkorea",
+   "method": "fetch+browser",
+   "pages": 26,
+   "result": "m검색 사전과제 30·바이브코딩 30건 파싱(파서 갱신: data-gno는 항목당 2회 등장 — 컨테이너 div 속성 청크만 corp/title/dday 포함, a 태그 청크는 짝수 노이즈) · 신규 후보 7건 GI_Read 전형절차 실측 전부 과제 없음: 뷰스컴퍼니 50364473(지원서검토>1차면접>최종)·SK증권 50362367(서류>1차면접>Internship)·미림미디어랩 50367740(서류>온라인면접>위촉)·누리아이 50342590(서류>1차면접>평가)·유탑소프트 50266697(서류>1차>임원면접) 명시, 크림 50363946·비상교육 50262209 이미지 공고로 전형절차 미기재(과제 근거 없음) · 종결 5건 '마감되었' 실측"
+  },
+  {
+   "id": "wanted",
+   "method": "browser",
+   "pages": 3,
+   "result": "'사전과제' 검색 포지션 3건 — 한프카 wd390319(추적 중, 11-22 잡코리아 마감 후 재확인 예정)·인터엑스(정부과제 노이즈)·라프텔 wd380935(기존 추적 확인 — '서류 합격시 사전과제 전형 진행'+생성형 AI 활용 우대, 재검증으로 정합 확인, 신규 아님) · 'AI 과제' 검색은 정부과제 컨설팅 노이즈 — 신규 0"
+  },
+  {
+   "id": "festa.io",
+   "method": "fetch",
+   "pages": 0,
+   "result": "200 'Coming Soon' 3KB 스텁 8일째 — 12/1 T3 퇴출 확정"
+  },
+  {
+   "id": "ai-radar.kr",
+   "method": "fetch",
+   "pages": 0,
+   "result": "ko-0009 종결 검증 전용 방문 — '마감'+접수마감 2026-10-31 실측"
+  }
+ ],
+ "notes": "정상 런(last_run 11-15, 1일 갭). 신규 공고 0 · 신규 이벤트 2(global-0049 #BuildHybridAI Firebase $30k 11-30 — 제외국 명단 북한만, 한국 참여 가능 · global-0050 Reddit Game of the Day $35k 12-08) · 정책 변경 0 · D-3 임박 7(공고 0 + 이벤트 7: D-0 4[세종사이버 K-빌런 111797·AI전자그림책 111449·AFPK 111059·UGREEN global-0021 — D-0 당일 종결 금지, 11-17 런 종결] + D-2 2[Meta VR global-0026·네이밍 112155 11-18] + D-3 1[전북 AI 뮤직쇼츠 112128 11-19]) · 종결 14(공고 5: SOOP 50293498·50283588·메디씨앤씨 50185931·프리컷 50256313·스튜디오리코 50184128 전부 '마감되었' 실측 + 이벤트 9: global-0037·global-0025 Devpost 이탈 · ko-0009 ai-radar 마감 · 위비티 6 D+0[평택·Render·도로공사·대구 드래프톤·진안·현대차]) · needs_review 0 · 방문 29/80(GI_Read 26 + 원티드 3, 발견 전부 fetch) · 실패 소스 festa.io(8일째 스텁). 잡코리아 신규 후보 7건 전부 과제 없음 미채택. 엘리스 111915 D+2(접수마감·제출 11-22 진행) open 유지. [다음 우선순위] (1) 11-17 런 종결 4(D-0 11-16 마감): 세종사이버 K-빌런 111797·AI전자그림책 111449·AFPK 111059·UGREEN global-0021, (2) 11-19 런 종결 2(11-18): Meta VR global-0026·네이밍 112155, (3) 11-20 런 종결 1: 전북 뮤직쇼츠 112128(11-19), (4) 11-21 런 종결: 오로라 50213617(11-20 마감 — 재공고 50359571 승계 완료)·제주 AI Agent ko-0035·제주 AI 리터러시 111924(11-20) + T2 로테이션 실행(11-14 공백 — 씽유·링커리어·DoraHacks·MLH·programmers 등), (5) 11-23 런 종결: 엘리스 111915(제출 11-22)·경산 112022·KICET 111819 + 세종사이버 AI불씨 112285 접수 11-23 개시 감시(upcoming→open), (6) 한프카 wd390319 원티드 — 잡코리아 50326430 11-22 마감 후 재확인, (7) #BuildHybridAI global-0049 11-30 마감 D-7 감시, (8) 12/1 T3: festa.io 퇴출 + HN 12월 스레드 + 소스 성과 리포, (9) 운영 메모: 잡코리아 m검색 파서 data-gno 이중 등장 패턴 갱신(wvice 메모리 반영)."
+}

@@ -301,19 +301,25 @@
     "apply_deadline": "2026-11-15",
     "submit_deadline": "2026-11-15",
     "result_date": null,
-    "status": "open",
+    "status": "closed",
     "url": "https://ai-radar.kr/contests/Meta%EC%99%80-%ED%95%A8%EA%BB%98%ED%95%98%EB%8A%94-AI-%ED%8E%98%EC%8A%A4%ED%8B%B0%EB%B2%8C-AI%EB%A1%9C-%EA%B7%B8%EB%A0%A4%EB%82%B8-%EA%B0%80%EC%A1%B1-%EC%9D%B4%EC%95%BC%EA%B8%B0-ec5f15.html",
-    "evidence": "AI 이미지 생성으로 가족 이야기를 그려내는 콘텐츠 공모",
+    "evidence": "ai-radar.kr 페이지 실측(2026-11-16): '마감' 표시 + '접수 마감 2026-10-31' — 데이터상 11-15 마감보다 조기 종료, Meta AI 페스티벌",
     "source": "ai-radar/aichallenge4all/wevity",
     "first_seen": "2026-10-24",
-    "last_checked": "2026-10-24",
-    "check_cadence": "daily",
+    "last_checked": "2026-11-16",
+    "check_cadence": "none",
     "review": "confirmed",
     "history": [
       {
         "date": "2026-10-24",
         "event": "created",
         "status": "open"
+      },
+      {
+        "date": "2026-11-16",
+        "event": "status_changed",
+        "from": "open",
+        "to": "closed"
       }
     ]
   },
@@ -1646,19 +1652,25 @@
     "apply_deadline": "2026-11-15",
     "submit_deadline": "2026-11-15",
     "result_date": null,
-    "status": "open",
+    "status": "closed",
     "url": "https://www.wevity.com/?c=find&s=1&gbn=view&gp=1&ix=111802",
-    "evidence": "'차량 데이터와 기능, 이동 상황을 활용해 운전자와 탑승자에게 새로운 경험을 제공하는 앱 서비스를 발굴하고 개발하는 공모전' — 앱 개발 산출물, AI 정책 미언급",
+    "evidence": "위비티 본리스트 D+0 배지(2026-11-16 실측) — 현대자동차그룹 차량용 앱 개발 공모전, 접수마감 11-15 경과",
     "source": "wevity",
     "review": "auto",
     "first_seen": "2026-10-25",
-    "last_checked": "2026-10-25",
-    "check_cadence": "daily",
+    "last_checked": "2026-11-16",
+    "check_cadence": "none",
     "history": [
       {
         "date": "2026-10-25",
         "event": "created",
         "status": "open"
+      },
+      {
+        "date": "2026-11-16",
+        "event": "status_changed",
+        "from": "open",
+        "to": "closed"
       }
     ]
   },
@@ -1733,19 +1745,25 @@
     "apply_deadline": "2026-11-15",
     "submit_deadline": "2026-11-15",
     "result_date": null,
-    "status": "open",
+    "status": "closed",
     "url": "https://www.wevity.com/?c=find&s=1&gbn=view&gp=1&ix=111849",
-    "evidence": "위비티 상세(2026-11-09): '접수기간 2026-10-21 ~ 2026-11-15 D-7' 생존 — sw=AI 리스트 이탈은 재매칭 아티팩트(11-06·11-08 확인 패턴 동일)",
+    "evidence": "위비티 본리스트 D+0 배지(2026-11-16 실측) — Render×XYZ×Tin Computer 글로벌 테크 후원 해커톤, 접수마감 11-15 경과",
     "source": "wevity",
     "review": "auto",
     "first_seen": "2026-10-25",
-    "last_checked": "2026-11-09",
-    "check_cadence": "daily",
+    "last_checked": "2026-11-16",
+    "check_cadence": "none",
     "history": [
       {
         "date": "2026-10-25",
         "event": "created",
         "status": "open"
+      },
+      {
+        "date": "2026-11-16",
+        "event": "status_changed",
+        "from": "open",
+        "to": "closed"
       }
     ]
   },
@@ -1762,19 +1780,25 @@
     "apply_deadline": "2026-11-15",
     "submit_deadline": "2026-11-15",
     "result_date": null,
-    "status": "open",
+    "status": "closed",
     "url": "https://www.wevity.com/?c=find&s=1&gbn=view&gp=1&ix=111666",
-    "evidence": "'AI를 활용하여 고속도로와 연계된 사회현안을 해결하거나 고속도로 서비스를 혁신할 수 있는 창의적인 아이디어 발굴' — AI 활용이 주제",
+    "evidence": "위비티 본리스트 D+0 배지(2026-11-16 실측) — 한국도로공사 AI 활용 아이디어 공모전, 접수마감 11-15 경과",
     "source": "wevity",
     "review": "auto",
     "first_seen": "2026-10-25",
-    "last_checked": "2026-10-25",
-    "check_cadence": "daily",
+    "last_checked": "2026-11-16",
+    "check_cadence": "none",
     "history": [
       {
         "date": "2026-10-25",
         "event": "created",
         "status": "open"
+      },
+      {
+        "date": "2026-11-16",
+        "event": "status_changed",
+        "from": "open",
+        "to": "closed"
       }
     ]
   },
@@ -2059,19 +2083,25 @@
     "apply_deadline": null,
     "submit_deadline": "2026-11-15",
     "result_date": null,
-    "status": "open",
+    "status": "closed",
     "url": "https://dsh-hacks-v2.devpost.com/",
-    "evidence": "'Building meaningful technical products in AI and healthcare that solve real-world problems' — AI가 주제. 제출 6/24~11/15",
+    "evidence": "Devpost 오픈 리스트 이탈(2026-11-16 실측) + 제출마감 2026-11-15 경과 — DSH Hacks V2",
     "source": "devpost",
     "review": "auto",
     "first_seen": "2026-10-25",
-    "last_checked": "2026-10-25",
-    "check_cadence": "daily",
+    "last_checked": "2026-11-16",
+    "check_cadence": "none",
     "history": [
       {
         "date": "2026-10-25",
         "event": "created",
         "status": "open"
+      },
+      {
+        "date": "2026-11-16",
+        "event": "status_changed",
+        "from": "open",
+        "to": "closed"
       }
     ]
   },
@@ -2732,19 +2762,25 @@
     "apply_deadline": "2026-11-14",
     "submit_deadline": "2026-11-14",
     "result_date": null,
-    "status": "open",
+    "status": "closed",
     "url": "https://scope-ai-thon-2026.devpost.com/",
-    "evidence": "Devpost API(2026-11-15 03:05 KST): 'Nov 01 - 14, 2026 · about 4 hours left' — 마감 직전 생존 실측. D-0 당일 종결 금지 원칙으로 11-16 런 종결 예정",
+    "evidence": "Devpost 오픈 리스트 이탈(2026-11-16 실측, open 72건 스윕) — 11-15 런 'about 4 hours left' 생존 확인 후 익일 이탈 + 제출마감 11-14 경과 이중 확인",
     "source": "devpost-api",
     "review": "confirmed",
     "first_seen": "2026-11-01",
-    "last_checked": "2026-11-15",
-    "check_cadence": "archive_candidate",
+    "last_checked": "2026-11-16",
+    "check_cadence": "none",
     "history": [
       {
         "date": "2026-11-01",
         "event": "created",
         "status": "open"
+      },
+      {
+        "date": "2026-11-16",
+        "event": "status_changed",
+        "from": "open",
+        "to": "closed"
       }
     ]
   },
@@ -2861,7 +2897,7 @@
     "review": "confirmed",
     "first_seen": "2026-11-01",
     "last_checked": "2026-11-09",
-    "check_cadence": "weekly",
+    "check_cadence": "daily",
     "history": [
       {
         "date": "2026-11-01",
@@ -2924,14 +2960,14 @@
     "apply_deadline": "2026-11-15",
     "submit_deadline": "2026-11-15",
     "result_date": null,
-    "status": "open",
+    "status": "closed",
     "url": "https://drafthon.ai.kr/",
-    "evidence": "위비티 전체리스트 카드 'D-14 접수중'(2026-11-02 확인) → 접수마감 2026-11-15 확정. 종전 needs_review(마감일 미확인, 추정 11/15) 해소",
+    "evidence": "위비티 본리스트 D+0 배지(2026-11-16 실측) — 2026 대구 대학(원) AI 드래프톤, 접수마감 11-15 경과",
     "source": "wevity",
     "review": "confirmed",
     "first_seen": "2026-11-01",
-    "last_checked": "2026-11-02",
-    "check_cadence": "daily",
+    "last_checked": "2026-11-16",
+    "check_cadence": "none",
     "history": [
       {
         "date": "2026-11-01",
@@ -2951,6 +2987,12 @@
         "field": "submit_deadline",
         "from": null,
         "to": "2026-11-15"
+      },
+      {
+        "date": "2026-11-16",
+        "event": "status_changed",
+        "from": "open",
+        "to": "closed"
       }
     ]
   },
@@ -3458,7 +3500,7 @@
     "source": "wevity",
     "first_seen": "2026-11-05",
     "last_checked": "2026-11-05",
-    "check_cadence": "weekly",
+    "check_cadence": "daily",
     "review": "auto",
     "history": [
       {
@@ -3766,14 +3808,14 @@
     "apply_deadline": "2026-11-15",
     "submit_deadline": "2026-11-15",
     "result_date": "2026-11-23",
-    "status": "open",
+    "status": "closed",
     "url": "https://www.wevity.com/?c=find&s=1&gbn=view&gp=4&ix=112097",
-    "evidence": "위비티 리스팅(2026-11-09): D-7 배지(=11-15 마감 산술 일치) — 접수 11-09~11-15(11-06 채택 공고 기준) 오늘 개시, 생성형 AI 50% 이상 활용 필수 조건 유지",
+    "evidence": "위비티 본리스트 D+0 배지(2026-11-16 실측) — 진안고원 치유골목 AI 쇼츠영상 콘테스트, 접수마감 11-15 경과",
     "source": "wevity",
     "note": "선정공고 11/23(월) 개별 연락. 신청서 첨부 e메일 접수. 리스트 p4 D-10/future(11/15 마감 정합). 진안군 홈페이지 원문 링크 있음",
     "first_seen": "2026-11-06",
-    "last_checked": "2026-11-09",
-    "check_cadence": "daily",
+    "last_checked": "2026-11-16",
+    "check_cadence": "none",
     "review": "auto",
     "history": [
       {
@@ -3786,6 +3828,12 @@
         "event": "status_changed",
         "from": "upcoming",
         "to": "open"
+      },
+      {
+        "date": "2026-11-16",
+        "event": "status_changed",
+        "from": "open",
+        "to": "closed"
       }
     ]
   },
@@ -3874,7 +3922,7 @@
     "source": "wevity-fetch",
     "first_seen": "2026-11-07",
     "last_checked": "2026-11-07",
-    "check_cadence": "weekly",
+    "check_cadence": "daily",
     "review": "auto",
     "history": [
       {
@@ -3926,19 +3974,25 @@
     "apply_deadline": "2026-11-15",
     "submit_deadline": null,
     "result_date": null,
-    "status": "open",
+    "status": "closed",
     "url": "https://www.wevity.com/?c=find&s=1&gbn=view&gp=1&ix=112204",
-    "evidence": "위비티 상세(2026-11-07): 접수 2026-11-06~11-15(D-9 일치), 제목 자체가 '생성형 AI를 활용한' 캐릭터 공모 — '생성형 AI로 만드는 평택시청소년재단의 새로운 얼굴!'",
+    "evidence": "위비티 본리스트 D+0 배지(2026-11-16 실측) — 평택시청소년재단 생성형 AI 캐릭터 공모전, 접수마감 11-15 경과",
     "source": "wevity-fetch",
     "first_seen": "2026-11-07",
-    "last_checked": "2026-11-07",
-    "check_cadence": "daily",
+    "last_checked": "2026-11-16",
+    "check_cadence": "none",
     "review": "auto",
     "history": [
       {
         "date": "2026-11-07",
         "event": "created",
         "status": "open"
+      },
+      {
+        "date": "2026-11-16",
+        "event": "status_changed",
+        "from": "open",
+        "to": "closed"
       }
     ]
   },
@@ -4025,7 +4079,7 @@
     "source": "thinkyou",
     "first_seen": "2026-11-07",
     "last_checked": "2026-11-07",
-    "check_cadence": "weekly",
+    "check_cadence": "daily",
     "review": "auto",
     "history": [
       {
@@ -4276,7 +4330,7 @@
     "review": "confirmed",
     "first_seen": "2026-11-12",
     "last_checked": "2026-11-12",
-    "check_cadence": "weekly",
+    "check_cadence": "daily",
     "history": [
       {
         "date": "2026-11-12",
@@ -4392,7 +4446,7 @@
     "review": "confirmed",
     "first_seen": "2026-11-12",
     "last_checked": "2026-11-12",
-    "check_cadence": "weekly",
+    "check_cadence": "daily",
     "history": [
       {
         "date": "2026-11-12",
@@ -4451,7 +4505,7 @@
     "note": "ix 112184가 추적 max 112221보다 낮은 활성 AI 공모전 — 11-07~09 스윕 누락 추정, 금일 갭복구 전수 스윕으로 발견·편입",
     "first_seen": "2026-11-12",
     "last_checked": "2026-11-12",
-    "check_cadence": "weekly",
+    "check_cadence": "daily",
     "history": [
       {
         "date": "2026-11-12",
@@ -4741,7 +4795,7 @@
     "review": "confirmed",
     "first_seen": "2026-11-15",
     "last_checked": "2026-11-15",
-    "check_cadence": "weekly",
+    "check_cadence": "daily",
     "history": [
       {
         "date": "2026-11-15",
@@ -4774,6 +4828,64 @@
     "history": [
       {
         "date": "2026-11-15",
+        "event": "created",
+        "status": "open"
+      }
+    ]
+  },
+  {
+    "id": "global-0049",
+    "type": "hackathon",
+    "title": "#BuildHybridAI 2026",
+    "host": "Firebase (Google)",
+    "ai_usage": "required",
+    "format": "online",
+    "team": "solo/team",
+    "prize": "$30,000",
+    "hiring_link": false,
+    "apply_deadline": null,
+    "submit_deadline": "2026-11-30",
+    "result_date": null,
+    "status": "open",
+    "url": "https://firebasehybridaihackathon.devpost.com/",
+    "evidence": "Devpost 상세(2026-11-16): 'Who can participate: Above legal age of majority in country of residence' + 제외국 명단에 'Korea Democratic People's Republic of'(북한만 제외, 한국 참여 가능) + '$30,000' + Nov 11-30, 2026 — Firebase 하이브리드 AI(온디바이스+클라우드 Gemini) 앱 빌드 해커톤, themes Machine Learning/AI·Mobile·Web",
+    "source": "devpost-api",
+    "review": "confirmed",
+    "first_seen": "2026-11-16",
+    "last_checked": "2026-11-16",
+    "check_cadence": "daily",
+    "history": [
+      {
+        "date": "2026-11-16",
+        "event": "created",
+        "status": "open"
+      }
+    ]
+  },
+  {
+    "id": "global-0050",
+    "type": "hackathon",
+    "title": "Reddit's Game of the Day Hackathon",
+    "host": "Reddit",
+    "ai_usage": "unknown",
+    "format": "online",
+    "team": "solo/team",
+    "prize": "$35,000 in cash",
+    "hiring_link": false,
+    "apply_deadline": null,
+    "submit_deadline": "2026-12-08",
+    "result_date": null,
+    "status": "open",
+    "url": "https://redditgameofday2026.devpost.com/",
+    "evidence": "Devpost 상세(2026-11-16): 'All countries/territories, excluding standard exceptions' + 'Online Public' + '$ 35,000 in cash' + 'Deadline: Dec 8, 2026 @ 6:00pm PST' — 하루 플레이 웹게임(게임 오브 더 데이) 해커톤, themes Beginner Friendly/Gaming으로 AI 테마 아님(ai_usage unknown)",
+    "source": "devpost-api",
+    "review": "confirmed",
+    "first_seen": "2026-11-16",
+    "last_checked": "2026-11-16",
+    "check_cadence": "weekly",
+    "history": [
+      {
+        "date": "2026-11-16",
         "event": "created",
         "status": "open"
       }
