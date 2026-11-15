@@ -11,6 +11,7 @@ import DeadlineTicker from '../components/DeadlineTicker'
 import DetailPane from '../components/DetailPane'
 import GuidePane from '../components/GuidePane'
 import GuideProgressBadge from '../components/GuideProgressBadge'
+import RelatedList from '../components/RelatedList'
 import StatusPicker from '../components/StatusPicker'
 import ShortcutsHelp from '../components/ShortcutsHelp'
 const POLICY_FILTERS = [
@@ -224,6 +225,7 @@ export default function Opportunities({ rows, type, q, setQ, setTab, onVisit }) 
   // 상단 마감 티커에서 항목을 고르면 지금 걸린 필터를 먼저 풀어 그 행이 실제로 보이게 한다.
   // (PR #3 리뷰: 탭·정책·검색이 살아 있으면 표가 비고 상세도 열리지 않았다)
   // 열기는 폴더가 끝난 뒤 pendingPick 으로 한다 — 인덱스는 그때의 filtered 에서 찾는다.
+  // 관련 공고 클릭도 같은 길로 들어온다(지금 걸린 조건 밖의 행일 수 있으니 조건을 먼저 푼다).
   const pickDeadline = (r) => {
     const relaxed = []
     if (!typeMatch(r)) { setTab && setTab('all'); relaxed.push('탭') }
@@ -342,7 +344,6 @@ export default function Opportunities({ rows, type, q, setQ, setTab, onVisit }) 
 
   const paneOpen = wide && pane && filtered.length > 0
   const activeRow = paneOpen ? filtered[Math.min(cur, filtered.length - 1)] : null
-
   return (
     <>
       {/* 압축 밴드 — 통계 | 수집 메타 | 마감 티커를 한 줄에 묶는다 (예전 3줄 → 1줄) */}
@@ -449,14 +450,14 @@ export default function Opportunities({ rows, type, q, setQ, setTab, onVisit }) 
                 <Row key={r.id} r={r} q={q} zebra={i % 2 === 1} idx={i} curIdx={cur} curRef={curRef}
                   expanded={!wide && openRow === r.id} starred={starredSet.has(r.id)} onStar={toggleStar}
                   st={statuses[r.id] || ''} onCycle={() => setWorkflow(r.id, nextStatus(statuses[r.id] || ''))}
-                  onPick={() => pickRow(i, r)} />
+                  onPick={() => pickRow(i, r)} rows={rows} onPickRelated={pickDeadline} />
               ))}
             </tbody>
           </table>
         </div>
         {activeRow && (
-          <DetailPane r={activeRow} starred={starredSet.has(activeRow.id)} onStar={toggleStar}
-            onClose={() => { setPane(false); paneMuted.current = true }} />
+          <DetailPane r={activeRow} rows={rows} starred={starredSet.has(activeRow.id)} onStar={toggleStar}
+            onClose={() => { setPane(false); paneMuted.current = true }} onPickRelated={pickDeadline} />
         )}
       </div>
       <div className="keybar">
@@ -482,7 +483,7 @@ function nextRun(last) {
   return d.toISOString().slice(0, 10)
 }
 
-function Row({ r, q, zebra, idx, curIdx, curRef, expanded, starred, onStar, st, onCycle, onPick }) {
+function Row({ r, q, zebra, idx, curIdx, curRef, expanded, starred, onStar, st, onCycle, onPick, rows, onPickRelated }) {
   const isNew = r.first && r.first >= new Date(Date.now() - 2 * 864e5).toISOString().slice(0, 10)
   const hot = r.open && r.dd !== null && r.dd >= 0 && r.dd <= 3
   const ddCls = r.dd === null ? 'dd pass' : r.dd < 0 ? 'dd pass' : r.dd <= 3 ? 'dd hot' : 'dd'
@@ -557,8 +558,9 @@ function Row({ r, q, zebra, idx, curIdx, curRef, expanded, starred, onStar, st, 
                   {h.evidence ? <span className="q"> | "{disp(h.evidence)}"</span> : ''}
                 </div>
               ))}
-              {/* 좁은 화면에서는 2-Pane 대신 아코디언 맨 아래에 같은 공략 섹션이 붙는다 */}
+              {/* 좁은 화면에서는 2-Pane 대신 아코디언 맨 아래에 같은 공략 섹션과 관련 공고가 붙는다 */}
               <GuidePane r={r} inline />
+              <RelatedList r={r} rows={rows} onPick={onPickRelated} inline />
             </div>
           </td>
         </tr>

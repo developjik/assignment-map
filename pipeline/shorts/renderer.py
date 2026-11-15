@@ -166,6 +166,20 @@ def infer_policy(script):
     return "unspecified"
 
 
+COUNTDOWN_RE = re.compile(r"D\s*-\s*(?:\d+|DAY)")
+
+
+def countdown_label(days):
+    """배지·자막·나레이션이 함께 써야 하는 D-day 표기 한 벌."""
+    if days is None or days >= 999:      # 999 = 마감일 없음(상시 모집) 센티넬
+        return "상시"
+    if days > 0:
+        return "D-%d" % days
+    if days == 0:
+        return "D-DAY"
+    return "마감"
+
+
 def days_left_now(script, today=None):
     """지금(KST) 기준 남은 날수 — 대본에 적힌 days_left 가 아니라 마감일로 다시 센다.
 
@@ -193,11 +207,48 @@ def script_is_live(script, today=None):
 def dday_text(script, today=None):
     left = days_left_now(script, today)
     if left is not None:
-        return "D-%d" % left if left >= 0 else "마감"
+        return countdown_label(left)
     days = script.get("days_left")
-    if isinstance(days, int):
-        return "D-%d" % days if days >= 0 else "마감"
-    return "일정"
+    if isinstance(days, int) and days < 999:
+        return countdown_label(days)
+    return "상시"
+
+
+def refresh_countdowns(script, today=None):
+    """저장된 대본의 D-n 표기를 렌더링 시점(KST) 기준으로 다시 쓴다.
+
+    대본은 만들어진 날의 D-n 을 자막·나레이션·제목에 그대로 싣고 큐에 남는다. 며칠 뒤에
+    렌더링하면 화면 배지만 새로 세고 자막·음성은 옛 숫자를 말하는 불일치가 생겼다(PR #5 P2).
+    여기서 한 번 갈아끼워 배지·자막·나레이션·발행 메타데이터가 같은 숫자를 쓰게 한다.
+    반환값은 복사본이라 원본 대본 파일은 건드리지 않는다.
+    """
+    days = days_left_now(script, today)
+    if days is None:            # 마감 없는 상시 모집 — 다시 셀 숫자가 없다
+        return dict(script)
+    label = countdown_label(days)
+
+    def fix(text):
+        if text is None:
+            return text
+        return COUNTDOWN_RE.sub(label, str(text))
+
+    out = dict(script)
+    scenes = []
+    for sc in script.get("scenes") or []:
+        item = dict(sc)
+        for key in ("subtitle", "narration"):
+            if key in item:
+                item[key] = fix(item[key])
+        scenes.append(item)
+    out["scenes"] = scenes
+    if script.get("narration_full") is not None:
+        out["narration_full"] = fix(script.get("narration_full"))
+    meta = script.get("metadata")
+    if isinstance(meta, dict):
+        out["metadata"] = {k: (fix(v) if isinstance(v, str) else v) for k, v in meta.items()}
+    out["days_left"] = days
+    out["countdown"] = label
+    return out
 
 
 def status_text(script, today=None):
@@ -210,8 +261,13 @@ def status_text(script, today=None):
     return "상시"
 
 
-def build_facts(script):
-    """핵심 팩트 3줄 — 대본 중간 장면의 자막에서 뽑고, 부족하면 마감·혜택·정책으로 채운다."""
+def build_facts(script, today=None):
+    """핵심 팩트 3줄 — 대본 중간 장면의 자막에서 뽑고, 부족하면 마감·혜택·정책으로 채운다.
+
+    저장된 자막의 D-n 은 렌더링 시점 기준으로 갈아끼운 뒤 읽는다. 그래야 옛 카운트다운이
+    셋째 줄에 남고 새 카운트다운이 넷째 줄로 밀려 잘리는 일이 없다.
+    """
+    script = refresh_countdowns(script, today)
     scenes = script.get("scenes") or []
     mid = scenes[1:-1] if len(scenes) > 2 else scenes[:1]
     facts = []
@@ -222,9 +278,15 @@ def build_facts(script):
                 facts.append(t)
     deadline = script.get("deadline")
     if deadline:
-        left = days_left_now(script)
-        line = "마감 %s" % deadline + (" (D-%d)" % left if isinstance(left, int) and left >= 0 else "")
-        if line not in facts:
+        left = days_left_now(script, today)
+        line = "마감 %s" % deadline + (" (%s)" % countdown_label(left) if isinstance(left, int) and left >= 0 else "")
+        if not any(COUNTDOWN_RE.search(f) for f in facts):
+            # 자막 줄에 카운트다운이 없을 때만 넣는다 — 셋째 줄과 자리를 바꿔 4번째로 밀려 잘리지 않게
+            if len(facts) >= 3:
+                facts[2] = line
+            elif line not in facts:
+                facts.append(line)
+        elif line not in facts and len(facts) < 3:
             facts.append(line)
     prize = script.get("prize")
     if prize:
@@ -366,19 +428,20 @@ def silent_audio(out_path, dur):
 # 화면
 # --------------------------------------------------------------------------
 
-def build_model(script):
+def build_model(script, today=None):
+    script = refresh_countdowns(script, today)
     scenes = script.get("scenes") or []
     narration = script.get("narration_full") or " ".join(str(s.get("narration") or "") for s in scenes)
     policy = infer_policy(script)
     return {
         "title": strip_glyphs(script.get("event_title") or script.get("title") or "과제 지도"),
         "host": strip_glyphs(script.get("host") or ""),
-        "dday": dday_text(script),
-        "status": status_text(script),
+        "dday": dday_text(script, today),
+        "status": status_text(script, today),
         "policy": policy,
         "policy_label": POLICY_LABEL[policy],
         "policy_color": POLICY_COLOR[policy],
-        "facts": build_facts(script),
+        "facts": build_facts(script, today),
         "narration": narration,
     }
 
@@ -508,6 +571,7 @@ def encode(frames_iter, audio_path, out_path):
         "-af", "apad=pad_dur=%.2f" % PAD_TAIL,
         "-map", "0:v:0", "-map", "1:a:0",
         "-c:v", "libx264", "-preset", "veryfast", "-crf", "22", "-pix_fmt", "yuv420p",
+        "-threads", "1",            # 2GB 컨테이너에서 x264 멀티스레드가 OOM으로 죽는다
         "-c:a", "aac", "-b:a", "128k",
         "-shortest", "-movflags", "+faststart",
         str(out_path),
@@ -525,7 +589,10 @@ def encode(frames_iter, audio_path, out_path):
             pass
     err = proc.stderr.read().decode("utf-8", "replace") if proc.stderr else ""
     if proc.wait() != 0:
-        raise RuntimeError("ffmpeg 인코딩 실패:\n" + err[-1200:])
+        # 진행률("frame=... \r")만 남은 경우 원인이 가려진다 — 진행률 줄을 걷어내고 보여준다
+        lines = [ln.strip() for ln in err.replace("\r", "\n").splitlines()
+                 if ln.strip() and not ln.strip().startswith("frame=")]
+        raise RuntimeError("ffmpeg 인코딩 실패:\n" + "\n".join(lines[-12:]))
 
 
 # --------------------------------------------------------------------------
@@ -590,7 +657,9 @@ def pick_latest(today=None):
         "generator.py 로 새 대본을 만들거나 --script 로 직접 지정하세요." % detail)
 
 
-def narration_text(script):
+def narration_text(script, today=None):
+    """음성으로 읽을 나레이션 — 저장된 옛 카운트다운을 오늘 기준으로 갈아끼운 뒤 읽는다."""
+    script = refresh_countdowns(script, today)
     text = script.get("narration_full")
     if not text:
         text = " ".join(str(s.get("narration") or "") for s in script.get("scenes") or [])

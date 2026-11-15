@@ -182,8 +182,8 @@ export default function Calendar({ rows, onVisit }) {
 
         <aside className="cal-side" aria-label="캘린더 선택">
           {selected ? (
-            <DetailPane r={selected} starred={starredIds.includes(selected.id)} onStar={toggleStar}
-              onClose={() => setSelId(null)} />
+            <DetailPane r={selected} rows={rows} starred={starredIds.includes(selected.id)} onStar={toggleStar}
+              onClose={() => setSelId(null)} onPickRelated={(it) => setSelId(it.id)} />
           ) : day ? (
             <div className="dayc">
               <div className="dayc-hd">

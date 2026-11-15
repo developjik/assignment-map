@@ -143,6 +143,8 @@ tr.row:hover td { background: #111726; }
 .news-it .tag { color: var(--yellow); font-size: 10.5px; margin-right: 8px; }
 .news-it .c { color: var(--mut); margin-top: 2px; }
 .news-it .m { color: var(--faint); font-size: 10.5px; margin-top: 2px; }
+.news-it .c a.art { color: inherit; text-decoration: none; border-bottom: 1px solid var(--border); }
+.news-it .c a.art:hover { color: var(--fg-hi); border-bottom-color: var(--blue); }
 .cl-it { padding: 8px 0; border-bottom: 1px solid var(--border2); }
 .cl-it .d { color: var(--blue); margin-right: 10px; }
 .cl-it .s { color: var(--mut); }
@@ -298,6 +300,20 @@ td.ev { white-space: nowrap; color: var(--mut); }
 .ics.act.primary:hover { color: #fff; border-color: var(--blue); background: #14203A; }
 .dp-acts-top .ics.act { padding-top: 4px; padding-bottom: 4px; }
 .dp-foot { padding: 7px 12px 0; color: #5A6577; font-size: 10px; }
+
+/* 관련 공고 — 패널(.rel .dp-sec)과 모바일 아코디언(.rel-in)이 같은 목록을 쓴다 */
+.rel-list { list-style: none; margin: 2px 0 4px; padding: 0; }
+.rel-list li + li { border-top: 1px solid var(--border2); }
+.rel-it { display: flex; align-items: baseline; gap: 8px; width: 100%; background: none; border: 0; padding: 5px 0; text-align: left; cursor: pointer; color: var(--fg); }
+.rel-it:hover .rel-n { color: var(--fg-hi); text-decoration: underline; }
+.rel-n { flex: 1 1 auto; min-width: 0; font-size: 11px; line-height: 1.45; color: #B4C0D2; word-break: keep-all; }
+.rel-t { display: block; color: var(--faint); font-size: 10px; line-height: 1.45; }
+.rel-m { flex: 0 0 auto; display: flex; align-items: baseline; gap: 6px; font: 10px var(--mono); color: var(--faint); font-variant-numeric: tabular-nums; }
+.rel-dd.hot { color: var(--red); }
+.rel-in { margin-top: 10px; padding-top: 10px; border-top: 1px solid var(--border); }
+.rel-h { font-size: 10.5px; font-weight: 600; color: var(--dim); letter-spacing: .04em; margin: 0 0 4px; }
+.rel-in .rel-n { font-size: 11.5px; }
+.rel-in .rel-it { padding: 8px 0; }
 
 /* AI 실전 과제 공략 — 우측 패널(.dpane)과 모바일 아코디언(.gp-in)이 같은 규칙을 쓴다 */
 .gp-head { display: flex; align-items: center; gap: 8px; margin: 0 0 5px; }
