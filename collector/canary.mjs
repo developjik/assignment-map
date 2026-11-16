@@ -20,7 +20,12 @@ const repo = path.resolve(import.meta.dirname, '..')
 export function checkCanaries(counts, bands) {
   const lines = []
   const violations = []
-  for (const [name, value] of Object.entries(counts)) {
+  const names = Object.keys(counts)
+  if (names.length === 0) {
+    const line = 'CANARY VIOLATION  (입력 지표 0건) — 수집이 전부 실패했거나 counts를 못 모았다. 조용한 OK로 넘기지 않는다'
+    return { lines: [line], violations: [line] }
+  }
+  for (const name of names) {
     const band = bands[name]
     if (!band) {
       lines.push(`CANARY NO-BAND  ${name} = ${value} — canaries.json에 밴드 정의 추가 고려`)

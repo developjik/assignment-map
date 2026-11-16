@@ -54,7 +54,10 @@ jobs:
           cache: npm
           cache-dependency-path: web/package-lock.json
       - name: Collector + shorts 테스트 (파서 fixture 회귀 포함)
-        run: npm test
+        run: |
+          python3 -m venv /tmp/tv
+          /tmp/tv/bin/pip install --quiet pillow
+          PATH=/tmp/tv/bin:$PATH npm test
       - name: Install
         run: npm ci
         working-directory: web

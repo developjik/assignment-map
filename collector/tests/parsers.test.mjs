@@ -153,6 +153,12 @@ test('hn: 최신 Who is hiring 스레드 제목/월 파싱', () => {
 
 // ─── canary ────────────────────────────────────────────────────────
 
+test('canary: 빈 입력은 VIOLATION — 조용한 OK 금지(전멸 수집 감지)', () => {
+  const r = checkCanaries({}, {})
+  assert.equal(r.violations.length, 1)
+  assert.match(r.lines[0], /지표 0건/)
+})
+
 test('canary: 밴드 내 지표는 OK, 밖은 VIOLATION, 미정의는 NO-BAND(위반 아님)', () => {
   const bands = {
     'wevity-list-per-page': { min: 10, max: 20 },
