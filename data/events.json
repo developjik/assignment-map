@@ -14,7 +14,9 @@
     "result_date": "2027-01-11",
     "status": "judging",
     "url": "https://daker.ai/public/hackathons/kic-ai-agent-competition",
-    "evidence": "daker API(2026-11-15): registrationDeadline 2026-11-12 경과(접수 마감) + lastStageEndDate 2027-01-11 — 최종 단계 진행 중으로 judging 전환(발표 ~2027-01-11)",
+    "evidence": [
+      "daker API(2026-11-15): registrationDeadline 2026-11-12 경과(접수 마감) + lastStageEndDate 2027-01-11 — 최종 단계 진행 중으로 judging 전환(발표 ~2027-01-11)"
+    ],
     "source": "thinkyou/dev-event/official",
     "first_seen": "2026-10-24",
     "last_checked": "2026-11-15",
@@ -49,7 +51,9 @@
     "result_date": "2026-11-21",
     "status": "judging",
     "url": "https://forms.gle/HNx9CiyYZS3sXuwj9",
-    "evidence": "접수 마감 2026-11-08 경과(2026-11-09 기준 D+1) — 결과발표 2026-11-21 예정, 심사 단계 전환",
+    "evidence": [
+      "접수 마감 2026-11-08 경과(2026-11-09 기준 D+1) — 결과발표 2026-11-21 예정, 심사 단계 전환"
+    ],
     "source": "thinkyou/gcontest/tomatodle",
     "first_seen": "2026-10-24",
     "last_checked": "2026-11-09",
@@ -84,7 +88,9 @@
     "result_date": "2026-11-25",
     "status": "open",
     "url": "https://aida.kisti.re.kr/competition/main/competition/COMP_000000000000050/detail.do",
-    "evidence": "KISTI AIDA 직접 확인(2026-11-07): '진행중 경진대회 2026 DATA·AI 분석 경진대회 문제해결 `26.08.11~`26.11.25 총1300만원' — 참가신청(apply) 마감 11/10 유지, 최종 결과물 제출 마감 11/25 보강",
+    "evidence": [
+      "KISTI AIDA 직접 확인(2026-11-07): '진행중 경진대회 2026 DATA·AI 분석 경진대회 문제해결 `26.08.11~`26.11.25 총1300만원' — 참가신청(apply) 마감 11/10 유지, 최종 결과물 제출 마감 11/25 보강"
+    ],
     "source": "official/wevity/news",
     "first_seen": "2026-10-24",
     "last_checked": "2026-11-07",
@@ -127,7 +133,9 @@
     "result_date": "2026-11-06",
     "status": "closed",
     "url": "https://hackersground.kr",
-    "evidence": "해커그라운드 홈(2026-11-04 브라우저 확인): 신청 기간 '2026년 11월 3일(화) 23:59까지' 경과 — APPLY '~ 2026. 11. 03 (화)' 명시. 홈 배너는 '참가 신청 접수 중'으로 미갱신이나 신청 마감일 명시 경과 + 전일 위비티 카드 D-1(당일) 이중 확인으로 종결. 본행사(해커톤 11/5~6, 청도) 진행은 별개",
+    "evidence": [
+      "해커그라운드 홈(2026-11-04 브라우저 확인): 신청 기간 '2026년 11월 3일(화) 23:59까지' 경과 — APPLY '~ 2026. 11. 03 (화)' 명시. 홈 배너는 '참가 신청 접수 중'으로 미갱신이나 신청 마감일 명시 경과 + 전일 위비티 카드 D-1(당일) 이중 확인으로 종결. 본행사(해커톤 11/5~6, 청도) 진행은 별개"
+    ],
     "source": "wevity",
     "first_seen": "2026-10-24",
     "last_checked": "2026-11-04",
@@ -169,7 +177,9 @@
     "result_date": null,
     "status": "open",
     "url": "https://blog.naver.com/ppspr/224439199284",
-    "evidence": "공모주제가 '조달청 소재 AI 게임·콘텐츠' 제작",
+    "evidence": [
+      "공모주제가 '조달청 소재 AI 게임·콘텐츠' 제작"
+    ],
     "source": "wevity",
     "first_seen": "2026-10-24",
     "last_checked": "2026-10-24",
@@ -198,7 +208,9 @@
     "result_date": null,
     "status": "closed",
     "url": "https://cbgame.org/sub.php?code=8&mode=view&no=204&category=&page=1&search=&keyword=",
-    "evidence": "접수마감 2026-10-30 경과 + 위비티 진행중(gub=1) 전체리스트 이탈 이중 확인 (cbgame.org 원문은 JS 렌더로 마감 표시 미확인)",
+    "evidence": [
+      "접수마감 2026-10-30 경과 + 위비티 진행중(gub=1) 전체리스트 이탈 이중 확인 (cbgame.org 원문은 JS 렌더로 마감 표시 미확인)"
+    ],
     "source": "wevity",
     "first_seen": "2026-10-24",
     "last_checked": "2026-11-01",
@@ -233,7 +245,9 @@
     "result_date": null,
     "status": "closed",
     "url": "https://ai-radar.kr/contests/2026-%EB%8C%80%ED%95%9C%EC%A7%80%EB%B0%A9%ED%96%89%EC%A0%95%EA%B3%B5%EC%A0%9C%ED%9A%8C-%EC%83%9D%EC%84%B1%ED%98%95-AI-%EC%BD%98%ED%85%90%EC%B8%A0-%EA%B3%B5%EB%AA%A8%EC%A0%84-22181f.html",
-    "evidence": "접수·제출 마감 2026-11-08 경과(D+1), 별도 결과발표일 미공개 — 종결",
+    "evidence": [
+      "접수·제출 마감 2026-11-08 경과(D+1), 별도 결과발표일 미공개 — 종결"
+    ],
     "source": "ai-radar/wevity",
     "first_seen": "2026-10-24",
     "last_checked": "2026-11-09",
@@ -268,7 +282,9 @@
     "result_date": null,
     "status": "closed",
     "url": "https://ai-radar.kr/contests/2026-%EC%A0%9C-2%ED%9A%8C-%ED%93%A8%EB%A6%AC%EC%96%BC-AI-%EC%98%81%EC%83%81-%EC%BD%98%ED%85%8C%EC%8A%A4%ED%8A%B8-91ef6d.html",
-    "evidence": "위비티 111483 상세(2026-11-12): '접수기간 2026-10-06 ~ 2026-11-09 D+2' — 마감 3일 경과 D+2 배지로 종결(11-09 D-1 당일 생존 확인 → 11-10·11 런 미실행 → 금일 종결)",
+    "evidence": [
+      "위비티 111483 상세(2026-11-12): '접수기간 2026-10-06 ~ 2026-11-09 D+2' — 마감 3일 경과 D+2 배지로 종결(11-09 D-1 당일 생존 확인 → 11-10·11 런 미실행 → 금일 종결)"
+    ],
     "source": "ai-radar/thinkyou/wevity",
     "first_seen": "2026-10-24",
     "last_checked": "2026-11-12",
@@ -303,7 +319,9 @@
     "result_date": null,
     "status": "closed",
     "url": "https://ai-radar.kr/contests/Meta%EC%99%80-%ED%95%A8%EA%BB%98%ED%95%98%EB%8A%94-AI-%ED%8E%98%EC%8A%A4%ED%8B%B0%EB%B2%8C-AI%EB%A1%9C-%EA%B7%B8%EB%A0%A4%EB%82%B8-%EA%B0%80%EC%A1%B1-%EC%9D%B4%EC%95%BC%EA%B8%B0-ec5f15.html",
-    "evidence": "ai-radar.kr 페이지 실측(2026-11-16): '마감' 표시 + '접수 마감 2026-10-31' — 데이터상 11-15 마감보다 조기 종료, Meta AI 페스티벌",
+    "evidence": [
+      "ai-radar.kr 페이지 실측(2026-11-16): '마감' 표시 + '접수 마감 2026-10-31' — 데이터상 11-15 마감보다 조기 종료, Meta AI 페스티벌"
+    ],
     "source": "ai-radar/aichallenge4all/wevity",
     "first_seen": "2026-10-24",
     "last_checked": "2026-11-16",
@@ -338,7 +356,9 @@
     "result_date": "2026-11-20",
     "status": "closed",
     "url": "https://aichallenge4all.or.kr/competitions",
-    "evidence": "접수마감 2026-10-31 경과 + 위비티 진행중 전체리스트 이탈 이중 확인",
+    "evidence": [
+      "접수마감 2026-10-31 경과 + 위비티 진행중 전체리스트 이탈 이중 확인"
+    ],
     "source": "aichallenge4all",
     "first_seen": "2026-10-24",
     "last_checked": "2026-11-01",
@@ -373,7 +393,9 @@
     "result_date": null,
     "status": "closed",
     "url": "https://www.wevity.com/?c=find&s=1&gbn=view&gp=1&ix=111674",
-    "evidence": "접수 마감 2026-10-25 경과 — 위비티 전체리스트 스윕에서 여전히 노출되나 지원 기간 종료",
+    "evidence": [
+      "접수 마감 2026-10-25 경과 — 위비티 전체리스트 스윕에서 여전히 노출되나 지원 기간 종료"
+    ],
     "source": "wevity",
     "first_seen": "2026-10-24",
     "last_checked": "2026-10-26",
@@ -408,7 +430,9 @@
     "result_date": "2026-11-03",
     "status": "closed",
     "url": "https://www.wevity.com/?c=find&s=1&gbn=view&gp=1&ix=110908",
-    "evidence": "접수마감 2026-10-27 경과 + 위비티 상세 D+5 표시 이중 확인",
+    "evidence": [
+      "접수마감 2026-10-27 경과 + 위비티 상세 D+5 표시 이중 확인"
+    ],
     "source": "ai-radar/wevity",
     "first_seen": "2026-10-24",
     "last_checked": "2026-11-01",
@@ -443,7 +467,9 @@
     "result_date": "2026-12-31",
     "status": "judging",
     "url": "https://devcontest-digitalsolveup.kr/summary?c=1",
-    "evidence": "디지털 사회혁신 서비스 개발 공모, 상세기획서 11/3 · 본선 결과물 12월 초 제출",
+    "evidence": [
+      "디지털 사회혁신 서비스 개발 공모, 상세기획서 11/3 · 본선 결과물 12월 초 제출"
+    ],
     "source": "official",
     "first_seen": "2026-10-24",
     "last_checked": "2026-10-24",
@@ -472,7 +498,9 @@
     "result_date": "2026-11-24",
     "status": "judging",
     "url": "https://aichallenge4all.or.kr/competitions",
-    "evidence": "AI·SW 작품 공모전, 신청 마감 후 11/24 본선 진행 단계",
+    "evidence": [
+      "AI·SW 작품 공모전, 신청 마감 후 11/24 본선 진행 단계"
+    ],
     "source": "aichallenge4all",
     "first_seen": "2026-10-24",
     "last_checked": "2026-10-24",
@@ -501,7 +529,9 @@
     "result_date": null,
     "status": "judging",
     "url": "https://www.thelec.kr/news/articleView.html?idxno=58211",
-    "evidence": "카카오 PlayMCP 기반 AI 에이전트 서비스 개발 경진대회, 본선 20팀 사용자투표·심사 후 10월 시상",
+    "evidence": [
+      "카카오 PlayMCP 기반 AI 에이전트 서비스 개발 경진대회, 본선 20팀 사용자투표·심사 후 10월 시상"
+    ],
     "source": "news",
     "first_seen": "2026-10-24",
     "last_checked": "2026-10-24",
@@ -530,7 +560,9 @@
     "result_date": "2026-10-23",
     "status": "judging",
     "url": "https://aichallenge4all.or.kr/competitions",
-    "evidence": "금융 AI 챌린지(참가대상 누구나), 결과발표 10/23 공지 기준",
+    "evidence": [
+      "금융 AI 챌린지(참가대상 누구나), 결과발표 10/23 공지 기준"
+    ],
     "source": "aichallenge4all",
     "first_seen": "2026-10-24",
     "last_checked": "2026-10-24",
@@ -559,7 +591,9 @@
     "result_date": "2026-07-30",
     "status": "closed",
     "url": "https://cofathon.getcofa.com/",
-    "evidence": "'AI를 활용해 결과물 구현'이 참가 자격 요건, Cofa-Probe로 AI 활용 과정까지 평가(7/30 펍지 성수 개최)",
+    "evidence": [
+      "'AI를 활용해 결과물 구현'이 참가 자격 요건, Cofa-Probe로 AI 활용 과정까지 평가(7/30 펍지 성수 개최)"
+    ],
     "source": "official/news",
     "first_seen": "2026-10-24",
     "last_checked": "2026-10-24",
@@ -588,7 +622,9 @@
     "result_date": "2026-09-20",
     "status": "closed",
     "url": "https://www.etnews.com/20260920000062",
-    "evidence": "주제 '투수 제구 성공 확률 예측 AI 모델 개발', 9/19~20 이천 LG인화원 결선(연 2회, 만 19~29세)",
+    "evidence": [
+      "주제 '투수 제구 성공 확률 예측 AI 모델 개발', 9/19~20 이천 LG인화원 결선(연 2회, 만 19~29세)"
+    ],
     "source": "news",
     "first_seen": "2026-10-24",
     "last_checked": "2026-10-24",
@@ -617,7 +653,9 @@
     "result_date": null,
     "status": "closed",
     "url": "https://ai4scikorea.org/#competition",
-    "evidence": "주제 '연구의 모든 순간에 AI 에이전트를 심다', 본선 9/30~10/1 AI4Sci Korea 2026(서울드래곤시티) 연계",
+    "evidence": [
+      "주제 '연구의 모든 순간에 AI 에이전트를 심다', 본선 9/30~10/1 AI4Sci Korea 2026(서울드래곤시티) 연계"
+    ],
     "source": "official/blog",
     "first_seen": "2026-10-24",
     "last_checked": "2026-10-24",
@@ -646,7 +684,9 @@
     "result_date": "2026-06-14",
     "status": "closed",
     "url": "https://www.thelec.kr/news/articleView.html?idxno=58075",
-    "evidence": "'AI 민생 10대 프로젝트'를 AI 기술로 해결하는 프로토타입 구현(6/13~14 카카오 AI캠퍼스, KDT 교육생 대상)",
+    "evidence": [
+      "'AI 민생 10대 프로젝트'를 AI 기술로 해결하는 프로토타입 구현(6/13~14 카카오 AI캠퍼스, KDT 교육생 대상)"
+    ],
     "source": "news",
     "first_seen": "2026-10-24",
     "last_checked": "2026-10-24",
@@ -675,7 +715,9 @@
     "result_date": "2026-09-19",
     "status": "closed",
     "url": "https://upstage.ai/ko/mabc-2026",
-    "evidence": "전국민 AI 에이전트 챌린지, 참가신청 7/8~8/31 · 최종 발표회 9/19 종료",
+    "evidence": [
+      "전국민 AI 에이전트 챌린지, 참가신청 7/8~8/31 · 최종 발표회 9/19 종료"
+    ],
     "source": "official/thinkyou/aichallenge4all",
     "first_seen": "2026-10-24",
     "last_checked": "2026-10-24",
@@ -704,7 +746,9 @@
     "result_date": "2026-08-14",
     "status": "closed",
     "url": "https://aichallenge4all.or.kr/competitions",
-    "evidence": "AI 콘텐츠 제작 공모, 작품접수 7/1~7/15 · 8월 2주 시상",
+    "evidence": [
+      "AI 콘텐츠 제작 공모, 작품접수 7/1~7/15 · 8월 2주 시상"
+    ],
     "source": "aichallenge4all",
     "first_seen": "2026-10-24",
     "last_checked": "2026-10-24",
@@ -733,7 +777,9 @@
     "result_date": null,
     "status": "closed",
     "url": "https://aichallenge4all.or.kr/competitions",
-    "evidence": "기상·기후 데이터 AI 해커톤, 접수 6/8~7/3 종료",
+    "evidence": [
+      "기상·기후 데이터 AI 해커톤, 접수 6/8~7/3 종료"
+    ],
     "source": "aichallenge4all",
     "first_seen": "2026-10-24",
     "last_checked": "2026-10-24",
@@ -762,7 +808,9 @@
     "result_date": null,
     "status": "closed",
     "url": "https://www.wevity.com/?c=find&s=1&gub=1&cidx=21",
-    "evidence": "AI·SW 작품 경진대회, 위비티 D+25(9/29 마감)",
+    "evidence": [
+      "AI·SW 작품 경진대회, 위비티 D+25(9/29 마감)"
+    ],
     "source": "wevity",
     "first_seen": "2026-10-24",
     "last_checked": "2026-10-24",
@@ -791,7 +839,9 @@
     "result_date": null,
     "status": "closed",
     "url": "https://www.wevity.com/?c=find&s=1&gub=1&cidx=21",
-    "evidence": "AI·SW 경진대회, 위비티 D+1(10/23 마감, 10/24 기준 최근 종료)",
+    "evidence": [
+      "AI·SW 경진대회, 위비티 D+1(10/23 마감, 10/24 기준 최근 종료)"
+    ],
     "source": "wevity",
     "first_seen": "2026-10-24",
     "last_checked": "2026-10-24",
@@ -820,7 +870,9 @@
     "result_date": null,
     "status": "closed",
     "url": "https://www.wevity.com/?c=find&s=1&gub=1&cidx=21",
-    "evidence": "알고리즘 경시대회(코딩테스트 순위전 성격, AI 규정 미공개) — 노출 제외 후보로 기록",
+    "evidence": [
+      "알고리즘 경시대회(코딩테스트 순위전 성격, AI 규정 미공개) — 노출 제외 후보로 기록"
+    ],
     "source": "wevity",
     "first_seen": "2026-10-24",
     "last_checked": "2026-10-24",
@@ -849,7 +901,9 @@
     "result_date": null,
     "status": "closed",
     "url": "https://nebiusglobalaihackathon.devpost.com/",
-    "evidence": "Devpost 오픈 목록 이탈 + 제출마감 2026-10-30 경과 이중 확인",
+    "evidence": [
+      "Devpost 오픈 목록 이탈 + 제출마감 2026-10-30 경과 이중 확인"
+    ],
     "source": "devpost",
     "first_seen": "2026-10-24",
     "last_checked": "2026-11-01",
@@ -884,7 +938,9 @@
     "result_date": null,
     "status": "closed",
     "url": "https://paypalaihackathon.devpost.com/",
-    "evidence": "Devpost open 72건 스윕(2026-11-15)에서 이탈 — 제출 마감 Nov 12(11-13 05:00 KST) 경과 실측, 11-12 런 큐 승계 종결",
+    "evidence": [
+      "Devpost open 72건 스윕(2026-11-15)에서 이탈 — 제출 마감 Nov 12(11-13 05:00 KST) 경과 실측, 11-12 런 큐 승계 종결"
+    ],
     "source": "devpost",
     "first_seen": "2026-10-24",
     "last_checked": "2026-11-15",
@@ -919,7 +975,9 @@
     "result_date": "2026-11-10",
     "status": "closed",
     "url": "https://opencv26.devpost.com/",
-    "evidence": "Devpost 오픈 목록 이탈 + 제출마감 2026-10-27(정정일) 경과 이중 확인",
+    "evidence": [
+      "Devpost 오픈 목록 이탈 + 제출마감 2026-10-27(정정일) 경과 이중 확인"
+    ],
     "source": "devpost",
     "first_seen": "2026-10-24",
     "last_checked": "2026-11-01",
@@ -961,7 +1019,9 @@
     "result_date": "2026-11-16",
     "status": "closed",
     "url": "https://gitlab-transcend.devpost.com/",
-    "evidence": "Devpost 오픈 목록 이탈 + 제출마감 2026-10-27 경과 이중 확인",
+    "evidence": [
+      "Devpost 오픈 목록 이탈 + 제출마감 2026-10-27 경과 이중 확인"
+    ],
     "source": "devpost",
     "first_seen": "2026-10-24",
     "last_checked": "2026-11-01",
@@ -996,7 +1056,9 @@
     "result_date": "2026-11-05",
     "status": "closed",
     "url": "https://qloo.devpost.com/",
-    "evidence": "Devpost 오픈 목록 이탈 + 제출마감 2026-10-30 경과 이중 확인",
+    "evidence": [
+      "Devpost 오픈 목록 이탈 + 제출마감 2026-10-30 경과 이중 확인"
+    ],
     "source": "devpost",
     "first_seen": "2026-10-24",
     "last_checked": "2026-11-01",
@@ -1031,7 +1093,9 @@
     "result_date": null,
     "status": "closed",
     "url": "https://learn-ai-basics.devpost.com/",
-    "evidence": "Devpost 제출기간 Sep 22 - Oct 26, 2026 종료 — 오픈 목록 이탈 확인, 마감 경과 종결",
+    "evidence": [
+      "Devpost 제출기간 Sep 22 - Oct 26, 2026 종료 — 오픈 목록 이탈 확인, 마감 경과 종결"
+    ],
     "source": "devpost",
     "first_seen": "2026-10-24",
     "last_checked": "2026-10-27",
@@ -1066,7 +1130,9 @@
     "result_date": null,
     "status": "closed",
     "url": "https://aws-cds-partner.devpost.com/",
-    "evidence": "Devpost 오픈 목록 이탈 + 제출마감 2026-10-28 경과 이중 확인",
+    "evidence": [
+      "Devpost 오픈 목록 이탈 + 제출마감 2026-10-28 경과 이중 확인"
+    ],
     "source": "devpost",
     "first_seen": "2026-10-24",
     "last_checked": "2026-11-01",
@@ -1101,7 +1167,9 @@
     "result_date": null,
     "status": "closed",
     "url": "https://youcam-api-skin-ai-ecommerce.devpost.com/",
-    "evidence": "Devpost API 오픈 리스트(2026-11-03, 49건 전수)에서 이탈 + submission_period 마감일 2026-11-02 경과 — 이중 확인으로 종결 확정",
+    "evidence": [
+      "Devpost API 오픈 리스트(2026-11-03, 49건 전수)에서 이탈 + submission_period 마감일 2026-11-02 경과 — 이중 확인으로 종결 확정"
+    ],
     "source": "devpost",
     "first_seen": "2026-10-24",
     "last_checked": "2026-11-03",
@@ -1136,7 +1204,9 @@
     "result_date": null,
     "status": "open",
     "url": "https://lablab.ai/ai-hackathons/amd-lablab-ai-academy-challenge",
-    "evidence": "AMD GPU 인프라에서 AI를 빌드하는 6개 매치 리그전(개인 참가만 허용). 현재 Match 4 '웹 정보 검색 에이전트' 진행 중(10/13~27)",
+    "evidence": [
+      "AMD GPU 인프라에서 AI를 빌드하는 6개 매치 리그전(개인 참가만 허용). 현재 Match 4 '웹 정보 검색 에이전트' 진행 중(10/13~27)"
+    ],
     "source": "lablab",
     "first_seen": "2026-10-24",
     "last_checked": "2026-10-24",
@@ -1165,7 +1235,9 @@
     "result_date": null,
     "status": "closed",
     "url": "https://lablab.ai/ai-hackathons/vultr-hackathon",
-    "evidence": "제출 마감 2026-11-09 07:00 KST 경과(11-09 런 실측 'Vultr global-0010(11-09 07:00 KST 마감 경과)') — lablab 페이지는 JS 렌더로 정적 종결 마커 부재, 11-09 런 종결 계획 승계 처리",
+    "evidence": [
+      "제출 마감 2026-11-09 07:00 KST 경과(11-09 런 실측 'Vultr global-0010(11-09 07:00 KST 마감 경과)') — lablab 페이지는 JS 렌더로 정적 종결 마커 부재, 11-09 런 종결 계획 승계 처리"
+    ],
     "source": "lablab",
     "first_seen": "2026-10-24",
     "last_checked": "2026-11-12",
@@ -1206,7 +1278,9 @@
     "result_date": null,
     "status": "open",
     "url": "https://kiroween.devpost.com/",
-    "evidence": "Devpost open 리스트(2026-11-12): 'Kiroween 2026' submission_period_dates 'Oct 30 - Dec 04, 2026' — 제출 접수 진행중, upcoming→open 전환",
+    "evidence": [
+      "Devpost open 리스트(2026-11-12): 'Kiroween 2026' submission_period_dates 'Oct 30 - Dec 04, 2026' — 제출 접수 진행중, upcoming→open 전환"
+    ],
     "source": "devpost",
     "first_seen": "2026-10-24",
     "last_checked": "2026-11-12",
@@ -1241,7 +1315,9 @@
     "result_date": null,
     "status": "upcoming",
     "url": "https://cloud.google.com/resources/agents-for-impact-2026",
-    "evidence": "Google Cloud AFI 페이지 직접 확인(2026-11-03): Phase I 도시 일정에 New York Dec 8, 2026 신규 공개(기존 Toronto 10/20·Atlanta 10/27·Sunnyvale 11/17), Phase II AI Arena 2027-01, Phase III Digital Hackathon 2027-01~03 rolling — 전체 제출마감일은 여전히 미공개",
+    "evidence": [
+      "Google Cloud AFI 페이지 직접 확인(2026-11-03): Phase I 도시 일정에 New York Dec 8, 2026 신규 공개(기존 Toronto 10/20·Atlanta 10/27·Sunnyvale 11/17), Phase II AI Arena 2027-01, Phase III Digital Hackathon 2027-01~03 rolling — 전체 제출마감일은 여전히 미공개"
+    ],
     "source": "google-cloud",
     "first_seen": "2026-10-24",
     "last_checked": "2026-11-03",
@@ -1270,7 +1346,9 @@
     "result_date": null,
     "status": "upcoming",
     "url": "https://developerweek-2027-hackathon.devpost.com/",
-    "evidence": "ML/AI 트랙 포함 일반 해커톤(Devpost Machine Learning/AI 태그), AI 필수 요건은 아님. 산타클라라 현장+온라인 병행",
+    "evidence": [
+      "ML/AI 트랙 포함 일반 해커톤(Devpost Machine Learning/AI 태그), AI 필수 요건은 아님. 산타클라라 현장+온라인 병행"
+    ],
     "source": "devpost",
     "first_seen": "2026-10-24",
     "last_checked": "2026-10-24",
@@ -1299,7 +1377,9 @@
     "result_date": null,
     "status": "closed",
     "url": "https://sinceai2026.devpost.com/",
-    "evidence": "Devpost API(2026-11-09): status=open 리스트에서 이탈 — submission period Nov 06-08 종료 확인(11-07 open 전환 이력과 정합)",
+    "evidence": [
+      "Devpost API(2026-11-09): status=open 리스트에서 이탈 — submission period Nov 06-08 종료 확인(11-07 open 전환 이력과 정합)"
+    ],
     "source": "devpost",
     "first_seen": "2026-10-24",
     "last_checked": "2026-11-09",
@@ -1340,7 +1420,9 @@
     "result_date": "2026-12-04",
     "status": "judging",
     "url": "https://hack2skill.com/event/aibuildercup2026",
-    "evidence": "Google Cloud AI 스택으로 실무 문제 프로토타입을 만들어 제출(한국 포함 JAPAC 21세 이상 직장인·창업가, 2~4인 팀). 현재 평가 단계(10/19~11/6), 파이널리스트 11/7 발표",
+    "evidence": [
+      "Google Cloud AI 스택으로 실무 문제 프로토타입을 만들어 제출(한국 포함 JAPAC 21세 이상 직장인·창업가, 2~4인 팀). 현재 평가 단계(10/19~11/6), 파이널리스트 11/7 발표"
+    ],
     "source": "google-cloud",
     "first_seen": "2026-10-24",
     "last_checked": "2026-10-24",
@@ -1369,7 +1451,9 @@
     "result_date": null,
     "status": "judging",
     "url": "https://lablab.ai/ai-hackathons/amd-developer-hackathon-act-iii",
-    "evidence": "AMD 인프라로 AI 앱을 만드는 lablab 해커톤 시리즈 3막. 온라인 빌드 10/12~17 종료, 현지 10/17~18. 결과 집계 중",
+    "evidence": [
+      "AMD 인프라로 AI 앱을 만드는 lablab 해커톤 시리즈 3막. 온라인 빌드 10/12~17 종료, 현지 10/17~18. 결과 집계 중"
+    ],
     "source": "lablab",
     "first_seen": "2026-10-24",
     "last_checked": "2026-10-24",
@@ -1398,7 +1482,9 @@
     "result_date": null,
     "status": "closed",
     "url": "https://lablab.ai/ai-hackathons/assemblyai-voice-agent-hackathon",
-    "evidence": "AssemblyAI API로 음성 AI 에이전트를 만들어 제출하는 한 달짜리 온라인 챌린지(9월 종료)",
+    "evidence": [
+      "AssemblyAI API로 음성 AI 에이전트를 만들어 제출하는 한 달짜리 온라인 챌린지(9월 종료)"
+    ],
     "source": "lablab",
     "first_seen": "2026-10-24",
     "last_checked": "2026-10-24",
@@ -1427,7 +1513,9 @@
     "result_date": null,
     "status": "closed",
     "url": "https://lablab.ai/ai-hackathons/ibm-bob-2-hackathon",
-    "evidence": "AI 보조 개발(AI-assisted development) 주제 공식 IBM 해커톤, 48시간 온라인 빌드(9/25~27, 15,727명 참가)",
+    "evidence": [
+      "AI 보조 개발(AI-assisted development) 주제 공식 IBM 해커톤, 48시간 온라인 빌드(9/25~27, 15,727명 참가)"
+    ],
     "source": "lablab",
     "first_seen": "2026-10-24",
     "last_checked": "2026-10-24",
@@ -1456,7 +1544,9 @@
     "result_date": null,
     "status": "closed",
     "url": "https://mlh.io/seasons/2026/events",
-    "evidence": "MLH 완전 온라인 해커톤 주간의 GenAI 테마 에디션(5/8~14 종료). 차기 GHW 일정은 아직 미공개",
+    "evidence": [
+      "MLH 완전 온라인 해커톤 주간의 GenAI 테마 에디션(5/8~14 종료). 차기 GHW 일정은 아직 미공개"
+    ],
     "source": "mlh",
     "first_seen": "2026-10-24",
     "last_checked": "2026-10-24",
@@ -1485,7 +1575,9 @@
     "result_date": null,
     "status": "closed",
     "url": "https://www.wevity.com/?c=find&s=1&gbn=view&gp=1&ix=111843",
-    "evidence": "접수 마감 2026-10-26 경과 — 종결 처리",
+    "evidence": [
+      "접수 마감 2026-10-26 경과 — 종결 처리"
+    ],
     "source": "wevity",
     "review": "auto",
     "first_seen": "2026-10-24",
@@ -1520,7 +1612,9 @@
     "result_date": null,
     "status": "closed",
     "url": "https://www.wevity.com/?c=find&s=1&gbn=view&gp=1&ix=111588",
-    "evidence": "접수 마감 2026-10-25 경과 — 종결 처리",
+    "evidence": [
+      "접수 마감 2026-10-25 경과 — 종결 처리"
+    ],
     "source": "wevity",
     "review": "needs_review",
     "first_seen": "2026-10-24",
@@ -1555,7 +1649,9 @@
     "result_date": "2026-12-03",
     "status": "open",
     "url": "https://www.wevity.com/?c=find&s=1&gbn=view&gp=1&ix=111847",
-    "evidence": "공모주제: '사회보장 데이터·AI를 활용하여 공공성을 추구하는 아이디어 발굴'",
+    "evidence": [
+      "공모주제: '사회보장 데이터·AI를 활용하여 공공성을 추구하는 아이디어 발굴'"
+    ],
     "source": "wevity",
     "review": "auto",
     "first_seen": "2026-10-24",
@@ -1584,7 +1680,9 @@
     "result_date": null,
     "status": "closed",
     "url": "https://www.wevity.com/?c=find&s=1&gbn=view&gp=1&ix=111885",
-    "evidence": "접수마감 2026-10-30 경과 + 위비티 상세 D+2 표시 이중 확인",
+    "evidence": [
+      "접수마감 2026-10-30 경과 + 위비티 상세 D+2 표시 이중 확인"
+    ],
     "source": "wevity",
     "review": "auto",
     "first_seen": "2026-10-25",
@@ -1619,7 +1717,9 @@
     "result_date": null,
     "status": "closed",
     "url": "https://www.wevity.com/?c=find&s=1&gbn=view&gp=1&ix=111009",
-    "evidence": "위비티 상세(2026-11-06 브라우저): 접수기간 '2026-09-14 ~ 2026-11-05' + D+0 배지 — '접수기간 2026.9.14.(월) ~ 11.5.(목) 18:00' 마감 경과로 종결. 리스트 40p 전수(600항목)에서도 완전 이탈(111009 리스팅 누락 지속). 서류심사 11/11, 코칭 11/25, 본선·시상 11/26",
+    "evidence": [
+      "위비티 상세(2026-11-06 브라우저): 접수기간 '2026-09-14 ~ 2026-11-05' + D+0 배지 — '접수기간 2026.9.14.(월) ~ 11.5.(목) 18:00' 마감 경과로 종결. 리스트 40p 전수(600항목)에서도 완전 이탈(111009 리스팅 누락 지속). 서류심사 11/11, 코칭 11/25, 본선·시상 11/26"
+    ],
     "source": "wevity",
     "review": "auto",
     "first_seen": "2026-10-25",
@@ -1654,7 +1754,9 @@
     "result_date": null,
     "status": "closed",
     "url": "https://www.wevity.com/?c=find&s=1&gbn=view&gp=1&ix=111802",
-    "evidence": "위비티 본리스트 D+0 배지(2026-11-16 실측) — 현대자동차그룹 차량용 앱 개발 공모전, 접수마감 11-15 경과",
+    "evidence": [
+      "위비티 본리스트 D+0 배지(2026-11-16 실측) — 현대자동차그룹 차량용 앱 개발 공모전, 접수마감 11-15 경과"
+    ],
     "source": "wevity",
     "review": "auto",
     "first_seen": "2026-10-25",
@@ -1689,7 +1791,9 @@
     "result_date": null,
     "status": "open",
     "url": "https://www.wevity.com/?c=find&s=1&gbn=view&gp=1&ix=111819",
-    "evidence": "'공모 분야: 생성형 AI 활용 숏폼 영상' — 생성형 AI 사용이 참가 조건",
+    "evidence": [
+      "'공모 분야: 생성형 AI 활용 숏폼 영상' — 생성형 AI 사용이 참가 조건"
+    ],
     "source": "wevity",
     "review": "auto",
     "first_seen": "2026-10-25",
@@ -1718,7 +1822,9 @@
     "result_date": null,
     "status": "open",
     "url": "https://www.wevity.com/?c=find&s=1&gbn=view&gp=1&ix=111804",
-    "evidence": "'출품작은 참가자가 직접 제작한 창작물이어야 하며 사용한 AI 툴을 명시합니다' — AI 툴 사용 필수",
+    "evidence": [
+      "'출품작은 참가자가 직접 제작한 창작물이어야 하며 사용한 AI 툴을 명시합니다' — AI 툴 사용 필수"
+    ],
     "source": "wevity",
     "review": "auto",
     "first_seen": "2026-10-25",
@@ -1747,7 +1853,9 @@
     "result_date": null,
     "status": "closed",
     "url": "https://www.wevity.com/?c=find&s=1&gbn=view&gp=1&ix=111849",
-    "evidence": "위비티 본리스트 D+0 배지(2026-11-16 실측) — Render×XYZ×Tin Computer 글로벌 테크 후원 해커톤, 접수마감 11-15 경과",
+    "evidence": [
+      "위비티 본리스트 D+0 배지(2026-11-16 실측) — Render×XYZ×Tin Computer 글로벌 테크 후원 해커톤, 접수마감 11-15 경과"
+    ],
     "source": "wevity",
     "review": "auto",
     "first_seen": "2026-10-25",
@@ -1782,7 +1890,9 @@
     "result_date": null,
     "status": "closed",
     "url": "https://www.wevity.com/?c=find&s=1&gbn=view&gp=1&ix=111666",
-    "evidence": "위비티 본리스트 D+0 배지(2026-11-16 실측) — 한국도로공사 AI 활용 아이디어 공모전, 접수마감 11-15 경과",
+    "evidence": [
+      "위비티 본리스트 D+0 배지(2026-11-16 실측) — 한국도로공사 AI 활용 아이디어 공모전, 접수마감 11-15 경과"
+    ],
     "source": "wevity",
     "review": "auto",
     "first_seen": "2026-10-25",
@@ -1817,7 +1927,9 @@
     "result_date": null,
     "status": "closed",
     "url": "https://www.wevity.com/?c=find&s=1&gbn=view&gp=1&ix=111752",
-    "evidence": "접수 마감 2026-10-26 경과 — 위비티 전체리스트에서 여전히 노출되나 지원 기간 종료",
+    "evidence": [
+      "접수 마감 2026-10-26 경과 — 위비티 전체리스트에서 여전히 노출되나 지원 기간 종료"
+    ],
     "source": "wevity",
     "review": "auto",
     "first_seen": "2026-10-25",
@@ -1852,7 +1964,9 @@
     "result_date": null,
     "status": "closed",
     "url": "https://www.wevity.com/?c=find&s=1&gbn=view&gp=1&ix=110647",
-    "evidence": "접수마감 2026-10-31 경과 + 위비티 상세 D+1 표시 이중 확인",
+    "evidence": [
+      "접수마감 2026-10-31 경과 + 위비티 상세 D+1 표시 이중 확인"
+    ],
     "source": "wevity",
     "review": "auto",
     "first_seen": "2026-10-25",
@@ -1887,7 +2001,9 @@
     "result_date": null,
     "status": "closed",
     "url": "https://www.wevity.com/?c=find&s=1&gbn=view&gp=1&ix=111787",
-    "evidence": "위비티 D+2 '마감' 배지(2026-11-15 실측): 접수기간 ~2026-11-12 종료 — 11-12 런 D-0 생존 확인 후 3일 갭 경과 종결",
+    "evidence": [
+      "위비티 D+2 '마감' 배지(2026-11-15 실측): 접수기간 ~2026-11-12 종료 — 11-12 런 D-0 생존 확인 후 3일 갭 경과 종결"
+    ],
     "source": "wevity",
     "review": "auto",
     "first_seen": "2026-10-25",
@@ -1922,7 +2038,9 @@
     "result_date": null,
     "status": "closed",
     "url": "https://twitchcon-codex.devpost.com/",
-    "evidence": "Devpost API 오픈 리스트 이탈(2026-11-04 재확인, 8p 전수에 부재) + submission period 'Oct 7 - Nov 2, 2026' 종료 — 전일 time_left 'about 4 hours left' 잔여 판정(11/3 오전) 후 마감 경과 확정",
+    "evidence": [
+      "Devpost API 오픈 리스트 이탈(2026-11-04 재확인, 8p 전수에 부재) + submission period 'Oct 7 - Nov 2, 2026' 종료 — 전일 time_left 'about 4 hours left' 잔여 판정(11/3 오전) 후 마감 경과 확정"
+    ],
     "source": "devpost",
     "review": "auto",
     "first_seen": "2026-10-25",
@@ -1957,7 +2075,9 @@
     "result_date": null,
     "status": "open",
     "url": "https://ugreenhackathon.devpost.com/",
-    "evidence": "대회명 'on AI NAS' — AI NAS 앱 빌드가 주제. 제출 10/22~11/16",
+    "evidence": [
+      "대회명 'on AI NAS' — AI NAS 앱 빌드가 주제. 제출 10/22~11/16"
+    ],
     "source": "devpost",
     "review": "auto",
     "first_seen": "2026-10-25",
@@ -1986,7 +2106,9 @@
     "result_date": null,
     "status": "closed",
     "url": "https://engage6.devpost.com/",
-    "evidence": "Devpost 오픈 목록 이탈 + 제출마감 2026-10-27 경과 이중 확인",
+    "evidence": [
+      "Devpost 오픈 목록 이탈 + 제출마감 2026-10-27 경과 이중 확인"
+    ],
     "source": "devpost",
     "review": "auto",
     "first_seen": "2026-10-25",
@@ -2021,7 +2143,9 @@
     "result_date": null,
     "status": "open",
     "url": "https://stem2connect-online-hackathon.devpost.com/",
-    "evidence": "대회명 'AI Hackathon' — AI가 주제. 제출 10/17~11/21",
+    "evidence": [
+      "대회명 'AI Hackathon' — AI가 주제. 제출 10/17~11/21"
+    ],
     "source": "devpost",
     "review": "auto",
     "first_seen": "2026-10-25",
@@ -2050,7 +2174,9 @@
     "result_date": null,
     "status": "closed",
     "url": "https://codethecure-hackathon-26.devpost.com/",
-    "evidence": "Devpost 오픈 목록 이탈 + 제출마감 2026-10-28 경과 이중 확인",
+    "evidence": [
+      "Devpost 오픈 목록 이탈 + 제출마감 2026-10-28 경과 이중 확인"
+    ],
     "source": "devpost",
     "review": "auto",
     "first_seen": "2026-10-25",
@@ -2085,7 +2211,9 @@
     "result_date": null,
     "status": "closed",
     "url": "https://dsh-hacks-v2.devpost.com/",
-    "evidence": "Devpost 오픈 리스트 이탈(2026-11-16 실측) + 제출마감 2026-11-15 경과 — DSH Hacks V2",
+    "evidence": [
+      "Devpost 오픈 리스트 이탈(2026-11-16 실측) + 제출마감 2026-11-15 경과 — DSH Hacks V2"
+    ],
     "source": "devpost",
     "review": "auto",
     "first_seen": "2026-10-25",
@@ -2120,7 +2248,9 @@
     "result_date": null,
     "status": "open",
     "url": "https://start-developer-competition-26.devpost.com/",
-    "evidence": "Accelerate your VR development journey with Meta VR Start and compete for $1M in cash prizes — 가입자 한정 제약 미발견, 일반 오픈 대회 확정(마감 11/18), needs_review 해소",
+    "evidence": [
+      "Accelerate your VR development journey with Meta VR Start and compete for $1M in cash prizes — 가입자 한정 제약 미발견, 일반 오픈 대회 확정(마감 11/18), needs_review 해소"
+    ],
     "source": "devpost",
     "review": "needs_review",
     "note": "VR Start 프로그램 가입자 대상 여부 확인 필요",
@@ -2150,7 +2280,9 @@
     "result_date": null,
     "status": "closed",
     "url": "https://sphinx-26.devpost.com/",
-    "evidence": "Devpost 오픈 목록 이탈 + 제출마감 2026-10-31 경과 이중 확인",
+    "evidence": [
+      "Devpost 오픈 목록 이탈 + 제출마감 2026-10-31 경과 이중 확인"
+    ],
     "source": "devpost",
     "review": "auto",
     "first_seen": "2026-10-25",
@@ -2185,7 +2317,9 @@
     "result_date": null,
     "status": "open",
     "url": "https://hackathon-agentico-2026b.devpost.com/",
-    "evidence": "Hackathon Agéntico — 멕시코 ITESO 대학 주최 스페인어권 해커톤, 상금 $0, 11/25 마감 — 한국 오디언스 접근성 낮아 기록만 유지, needs_review 해소",
+    "evidence": [
+      "Hackathon Agéntico — 멕시코 ITESO 대학 주최 스페인어권 해커톤, 상금 $0, 11/25 마감 — 한국 오디언스 접근성 낮아 기록만 유지, needs_review 해소"
+    ],
     "source": "devpost",
     "review": "needs_review",
     "note": "스페인어권 행사 — 상세 AI 요건 확인 필요",
@@ -2215,7 +2349,9 @@
     "result_date": "2026-12-01",
     "status": "closed",
     "url": "https://whitehat2026.kr/",
-    "evidence": "마감일 2026-11-02 경과 + 11/3 전체리스트(14p, uniq 205) 이탈 이중 확인 — 어제 D-1(당일 마감) 카드에 이어 리스트 완전 이탈로 종결 확정",
+    "evidence": [
+      "마감일 2026-11-02 경과 + 11/3 전체리스트(14p, uniq 205) 이탈 이중 확인 — 어제 D-1(당일 마감) 카드에 이어 리스트 완전 이탈로 종결 확정"
+    ],
     "source": "wevity",
     "review": "auto",
     "first_seen": "2026-10-26",
@@ -2250,7 +2386,9 @@
     "result_date": null,
     "status": "open",
     "url": "https://learn-specs.devpost.com/",
-    "evidence": "Devpost open 리스트(2026-11-12): 'Learn AR with SPECS' submission_period_dates 'Nov 10 - Dec 07, 2026' — 11-09 마감 예정이던 제출기간이 12-07로 연장·변경(마감변경, 종결 계획 취소)",
+    "evidence": [
+      "Devpost open 리스트(2026-11-12): 'Learn AR with SPECS' submission_period_dates 'Nov 10 - Dec 07, 2026' — 11-09 마감 예정이던 제출기간이 12-07로 연장·변경(마감변경, 종결 계획 취소)"
+    ],
     "source": "devpost",
     "review": "auto",
     "first_seen": "2026-10-26",
@@ -2293,7 +2431,9 @@
     "result_date": null,
     "status": "open",
     "url": "https://arbiter-hacks-v1.devpost.com/",
-    "evidence": "Devpost themes: Beginner Friendly, Machine Learning/AI, Open Ended — AI가 테마 중 하나(오픈엔디드, allowed)",
+    "evidence": [
+      "Devpost themes: Beginner Friendly, Machine Learning/AI, Open Ended — AI가 테마 중 하나(오픈엔디드, allowed)"
+    ],
     "source": "devpost",
     "review": "auto",
     "first_seen": "2026-10-26",
@@ -2322,7 +2462,9 @@
     "result_date": null,
     "status": "closed",
     "url": "https://minearena-1-0.devpost.com/",
-    "evidence": "Devpost 오픈 목록 이탈 + 제출마감 2026-10-31 경과 이중 확인",
+    "evidence": [
+      "Devpost 오픈 목록 이탈 + 제출마감 2026-10-31 경과 이중 확인"
+    ],
     "source": "devpost",
     "review": "auto",
     "first_seen": "2026-10-26",
@@ -2357,7 +2499,9 @@
     "result_date": null,
     "status": "closed",
     "url": "https://hackfw.devpost.com/",
-    "evidence": "Devpost 오픈 목록 이탈 + 제출마감 2026-10-30 경과 이중 확인",
+    "evidence": [
+      "Devpost 오픈 목록 이탈 + 제출마감 2026-10-30 경과 이중 확인"
+    ],
     "source": "devpost",
     "review": "auto",
     "first_seen": "2026-10-26",
@@ -2392,7 +2536,9 @@
     "result_date": null,
     "status": "open",
     "url": "https://hackwithaditya.devpost.com/",
-    "evidence": "Devpost themes: Education, Health, Machine Learning/AI — AI 테마 포함(allowed), 인도 Aditya University 주최",
+    "evidence": [
+      "Devpost themes: Education, Health, Machine Learning/AI — AI 테마 포함(allowed), 인도 Aditya University 주최"
+    ],
     "source": "devpost",
     "review": "auto",
     "first_seen": "2026-10-26",
@@ -2421,7 +2567,9 @@
     "result_date": null,
     "status": "closed",
     "url": "https://graph-hacks.devpost.com/",
-    "evidence": "Devpost 오픈 목록 이탈 + 제출마감 2026-10-31 경과 이중 확인",
+    "evidence": [
+      "Devpost 오픈 목록 이탈 + 제출마감 2026-10-31 경과 이중 확인"
+    ],
     "source": "devpost",
     "review": "auto",
     "first_seen": "2026-10-26",
@@ -2456,7 +2604,9 @@
     "result_date": null,
     "status": "upcoming",
     "url": "https://www.wevity.com/?c=find&s=1&gbn=view&gp=1&ix=111837",
-    "evidence": "AI IMAGE ART/AI VIDEO ART 분야 — AI 생성 콘텐츠가 제출 양식 자체(required). 접수 2026-11-23~11-27, 10/25 런 노출 소실 후 재발견",
+    "evidence": [
+      "AI IMAGE ART/AI VIDEO ART 분야 — AI 생성 콘텐츠가 제출 양식 자체(required). 접수 2026-11-23~11-27, 10/25 런 노출 소실 후 재발견"
+    ],
     "source": "wevity",
     "review": "auto",
     "first_seen": "2026-10-27",
@@ -2485,7 +2635,9 @@
     "result_date": null,
     "status": "closed",
     "url": "https://www.wevity.com/?c=find&s=1&gbn=view&gp=1&ix=111810",
-    "evidence": "위비티 상세(2026-11-12): '접수기간 2026-10-14 ~ 2026-11-11 D+0' — 종결(관객평가 집계 '작품 공개 시점부터 접수 마감까지' 종료)",
+    "evidence": [
+      "위비티 상세(2026-11-12): '접수기간 2026-10-14 ~ 2026-11-11 D+0' — 종결(관객평가 집계 '작품 공개 시점부터 접수 마감까지' 종료)"
+    ],
     "source": "wevity",
     "review": "auto",
     "first_seen": "2026-10-27",
@@ -2520,7 +2672,9 @@
     "result_date": null,
     "status": "open",
     "url": "https://www.wevity.com/?c=find&s=1&gbn=view&gp=1&ix=111800",
-    "evidence": "필수 조건: 생성형 AI 툴(텍스트·이미지·코드 등) 1개 이상 필수 활용, 참여형 미니게임 제출(required). 모집 ~12/31, 10/25 런 노출 소실 후 재발견",
+    "evidence": [
+      "필수 조건: 생성형 AI 툴(텍스트·이미지·코드 등) 1개 이상 필수 활용, 참여형 미니게임 제출(required). 모집 ~12/31, 10/25 런 노출 소실 후 재발견"
+    ],
     "source": "wevity",
     "review": "auto",
     "first_seen": "2026-10-27",
@@ -2549,7 +2703,9 @@
     "result_date": null,
     "status": "closed",
     "url": "https://www.wevity.com/?c=find&s=1&gbn=view&gp=1&ix=111785",
-    "evidence": "위비티 D+1 '마감' 배지(2026-11-15 실측): 접수기간 ~2026-11-13 종료 — 11-12 런 큐 승계 종결",
+    "evidence": [
+      "위비티 D+1 '마감' 배지(2026-11-15 실측): 접수기간 ~2026-11-13 종료 — 11-12 런 큐 승계 종결"
+    ],
     "source": "wevity",
     "review": "auto",
     "first_seen": "2026-10-27",
@@ -2584,7 +2740,9 @@
     "result_date": null,
     "status": "open",
     "url": "https://www.wevity.com/?c=find&s=1&gbn=view&gp=1&ix=111726",
-    "evidence": "'첨단기술 활용한 해결방안 제안' — 공모명에 AI 명시, 첨단기술(AI 포함) 활용 아이디어 공모(allowed). 참가 등록 10/20~11/20",
+    "evidence": [
+      "'첨단기술 활용한 해결방안 제안' — 공모명에 AI 명시, 첨단기술(AI 포함) 활용 아이디어 공모(allowed). 참가 등록 10/20~11/20"
+    ],
     "source": "wevity",
     "review": "auto",
     "first_seen": "2026-10-27",
@@ -2613,7 +2771,9 @@
     "result_date": "2026-12-01",
     "status": "open",
     "url": "https://www.wevity.com/?c=find&s=1&gbn=view&gp=1&ix=111797",
-    "evidence": "접수 분야: AI 이미지·AI 영상·AI 컷툰 — AI 생성 콘텐츠가 제출 양식(required). 접수 10/19~11/16, 결과 발표 12월",
+    "evidence": [
+      "접수 분야: AI 이미지·AI 영상·AI 컷툰 — AI 생성 콘텐츠가 제출 양식(required). 접수 10/19~11/16, 결과 발표 12월"
+    ],
     "source": "wevity",
     "review": "auto",
     "first_seen": "2026-10-27",
@@ -2642,7 +2802,9 @@
     "result_date": null,
     "status": "open",
     "url": "https://www.wevity.com/?c=find&s=1&gbn=view&gp=1&ix=111713",
-    "evidence": "한국의 역사·전통·생활문화를 인공지능(AI) 영상으로 재조명 — AI 영상 제작이 과제 자체(required). 신청 ~2027-01-06 18시, 출품 ~2027-01-20 18시 (인더스트리뉴스 10/22 보도)",
+    "evidence": [
+      "한국의 역사·전통·생활문화를 인공지능(AI) 영상으로 재조명 — AI 영상 제작이 과제 자체(required). 신청 ~2027-01-06 18시, 출품 ~2027-01-20 18시 (인더스트리뉴스 10/22 보도)"
+    ],
     "source": "wevity",
     "review": "auto",
     "first_seen": "2026-10-27",
@@ -2671,7 +2833,9 @@
     "result_date": null,
     "status": "open",
     "url": "https://dakar-bitcoin-hack-2026.devpost.com/",
-    "evidence": "Create tools that will enhance the life of African people, around or on top of the Bitcoin protocol, the lightning network, nostr and AI. — AI가 공식 스코프에 포함(allowed), 제출 10/26~11/20",
+    "evidence": [
+      "Create tools that will enhance the life of African people, around or on top of the Bitcoin protocol, the lightning network, nostr and AI. — AI가 공식 스코프에 포함(allowed), 제출 10/26~11/20"
+    ],
     "source": "devpost",
     "review": "auto",
     "first_seen": "2026-10-27",
@@ -2700,7 +2864,9 @@
     "result_date": null,
     "status": "open",
     "url": "https://codegeist2026.devpost.com/",
-    "evidence": "Build on Forge, extend Atlassian products, and turn connected context into powerful new apps for teams — win your share of $120K (제출기간 Oct 27 - Dec 22, 2026)",
+    "evidence": [
+      "Build on Forge, extend Atlassian products, and turn connected context into powerful new apps for teams — win your share of $120K (제출기간 Oct 27 - Dec 22, 2026)"
+    ],
     "source": "devpost-api",
     "review": "confirmed",
     "first_seen": "2026-11-01",
@@ -2729,7 +2895,9 @@
     "result_date": null,
     "status": "closed",
     "url": "https://agentic-hackathon.devpost.com/",
-    "evidence": "Devpost open 리스트 이탈(2026-11-12 8p 스윕 56건에서 부재) — 제출마감 11-10 경과(agentic-hackathon.devpost.com)",
+    "evidence": [
+      "Devpost open 리스트 이탈(2026-11-12 8p 스윕 56건에서 부재) — 제출마감 11-10 경과(agentic-hackathon.devpost.com)"
+    ],
     "source": "devpost-api",
     "review": "confirmed",
     "first_seen": "2026-11-01",
@@ -2764,7 +2932,9 @@
     "result_date": null,
     "status": "closed",
     "url": "https://scope-ai-thon-2026.devpost.com/",
-    "evidence": "Devpost 오픈 리스트 이탈(2026-11-16 실측, open 72건 스윕) — 11-15 런 'about 4 hours left' 생존 확인 후 익일 이탈 + 제출마감 11-14 경과 이중 확인",
+    "evidence": [
+      "Devpost 오픈 리스트 이탈(2026-11-16 실측, open 72건 스윕) — 11-15 런 'about 4 hours left' 생존 확인 후 익일 이탈 + 제출마감 11-14 경과 이중 확인"
+    ],
     "source": "devpost-api",
     "review": "confirmed",
     "first_seen": "2026-11-01",
@@ -2799,7 +2969,9 @@
     "result_date": null,
     "status": "open",
     "url": "https://genhacks-open.devpost.com/",
-    "evidence": "Themes: Beginner Friendly, IoT, Machine Learning/AI — CAD 1,050, Nov 01 - Dec 26, 2026 (Devpost API 구조화 데이터)",
+    "evidence": [
+      "Themes: Beginner Friendly, IoT, Machine Learning/AI — CAD 1,050, Nov 01 - Dec 26, 2026 (Devpost API 구조화 데이터)"
+    ],
     "source": "devpost-api",
     "review": "confirmed",
     "first_seen": "2026-11-01",
@@ -2828,7 +3000,9 @@
     "result_date": "2026-12-11",
     "status": "open",
     "url": "https://ai-challenge.elice.page/home/main",
-    "evidence": "위비티 D+1 배지(2026-11-15 실측): 참가자 모집 10-23~11-13 마감 — PoC 제출 11-14~11-22 진행 중이므로 open 유지, 11-23 런 종결 예정",
+    "evidence": [
+      "위비티 D+1 배지(2026-11-15 실측): 참가자 모집 10-23~11-13 마감 — PoC 제출 11-14~11-22 진행 중이므로 open 유지, 11-23 런 종결 예정"
+    ],
     "source": "wevity",
     "review": "confirmed",
     "first_seen": "2026-11-01",
@@ -2857,7 +3031,9 @@
     "result_date": "2026-11-27",
     "status": "judging",
     "url": "https://www.wevity.com/?c=find&s=1&gbn=view&gp=1&ix=111912",
-    "evidence": "위비티 D+1 '마감' 배지(2026-11-15 실측): 접수 ~2026-11-13 종료, 발표 2026-11-27 예정 — 심사 단계 전환(judging)",
+    "evidence": [
+      "위비티 D+1 '마감' 배지(2026-11-15 실측): 접수 ~2026-11-13 종료, 발표 2026-11-27 예정 — 심사 단계 전환(judging)"
+    ],
     "source": "wevity",
     "review": "confirmed",
     "first_seen": "2026-11-01",
@@ -2892,7 +3068,9 @@
     "result_date": "2026-12-16",
     "status": "open",
     "url": "https://aimk.ai",
-    "evidence": "위비티 리스팅(2026-11-09): D-22 배지(=11-30 마감 산술 일치) — 접수기간 2026-11-09~11-30, 오늘 접수 개시로 upcoming→open 전환(11-08 런 예고대로)",
+    "evidence": [
+      "위비티 리스팅(2026-11-09): D-22 배지(=11-30 마감 산술 일치) — 접수기간 2026-11-09~11-30, 오늘 접수 개시로 upcoming→open 전환(11-08 런 예고대로)"
+    ],
     "source": "wevity",
     "review": "confirmed",
     "first_seen": "2026-11-01",
@@ -2927,7 +3105,9 @@
     "result_date": null,
     "status": "closed",
     "url": "https://www.wevity.com/?c=find&s=1&gbn=view&gp=1&ix=111965",
-    "evidence": "위비티 상세(2026-11-12): '접수기간 2026-10-27 ~ 2026-11-11 D+0' — 마감 익일 D+0 배지로 종결",
+    "evidence": [
+      "위비티 상세(2026-11-12): '접수기간 2026-10-27 ~ 2026-11-11 D+0' — 마감 익일 D+0 배지로 종결"
+    ],
     "source": "wevity",
     "review": "auto",
     "first_seen": "2026-11-01",
@@ -2962,7 +3142,9 @@
     "result_date": null,
     "status": "closed",
     "url": "https://drafthon.ai.kr/",
-    "evidence": "위비티 본리스트 D+0 배지(2026-11-16 실측) — 2026 대구 대학(원) AI 드래프톤, 접수마감 11-15 경과",
+    "evidence": [
+      "위비티 본리스트 D+0 배지(2026-11-16 실측) — 2026 대구 대학(원) AI 드래프톤, 접수마감 11-15 경과"
+    ],
     "source": "wevity",
     "review": "confirmed",
     "first_seen": "2026-11-01",
@@ -3011,7 +3193,9 @@
     "result_date": null,
     "status": "open",
     "url": "https://www.mogefdatacontest.co.kr/index.jsp",
-    "evidence": "위비티 전체리스트 카드 'D-19 접수중'(2026-11-02) — 예정대로 11/2 접수 개시 확인, 접수마감 11-20 (성평등가족부)",
+    "evidence": [
+      "위비티 전체리스트 카드 'D-19 접수중'(2026-11-02) — 예정대로 11/2 접수 개시 확인, 접수마감 11-20 (성평등가족부)"
+    ],
     "source": "wevity",
     "review": "confirmed",
     "first_seen": "2026-11-01",
@@ -3046,7 +3230,9 @@
     "result_date": "2026-11-13",
     "status": "judging",
     "url": "https://www.wevity.com/?c=find&s=1&gbn=view&gp=1&ix=112065",
-    "evidence": "위비티 60p 스윕(2026-11-09): D+0 배지 — 접수마감 11-08 경과, 시상결과 2026-11-13 발표 예정",
+    "evidence": [
+      "위비티 60p 스윕(2026-11-09): D+0 배지 — 접수마감 11-08 경과, 시상결과 2026-11-13 발표 예정"
+    ],
     "source": "wevity",
     "review": "confirmed",
     "first_seen": "2026-11-01",
@@ -3081,7 +3267,9 @@
     "result_date": null,
     "status": "closed",
     "url": "https://www.wevity.com/?c=find&s=1&gbn=view&gp=1&ix=112027",
-    "evidence": "위비티 상세(2026-11-05 브라우저): 접수기간 '2026-10-28 ~ 2026-11-04' + D+0 배지 표시 — '참가 접수 : 2026년 10월 28일(수) ~ 11월 4일(수) 23:59까지' 마감 경과로 종결. 위비티 리스트(22p 전수)에서도 이탈 확인",
+    "evidence": [
+      "위비티 상세(2026-11-05 브라우저): 접수기간 '2026-10-28 ~ 2026-11-04' + D+0 배지 표시 — '참가 접수 : 2026년 10월 28일(수) ~ 11월 4일(수) 23:59까지' 마감 경과로 종결. 위비티 리스트(22p 전수)에서도 이탈 확인"
+    ],
     "source": "wevity",
     "review": "confirmed",
     "first_seen": "2026-11-01",
@@ -3116,7 +3304,9 @@
     "result_date": null,
     "status": "open",
     "url": "https://aiart.gbgs.art/",
-    "evidence": "위비티 상세(2026-11-12): '접수기간 2026-11-09 ~ 2026-11-23 D-12' — 접수 11-09 개시로 upcoming→open 전환(11-09 런 매경·진안 전환 시 누락)",
+    "evidence": [
+      "위비티 상세(2026-11-12): '접수기간 2026-11-09 ~ 2026-11-23 D-12' — 접수 11-09 개시로 upcoming→open 전환(11-09 런 매경·진안 전환 시 누락)"
+    ],
     "source": "wevity",
     "review": "confirmed",
     "first_seen": "2026-11-01",
@@ -3151,7 +3341,9 @@
     "result_date": null,
     "status": "open",
     "url": "https://vivid.ing",
-    "evidence": "제공되는 6개 정식 IP와 IP별 미션을 바탕으로 AI를 활용한 30초~120초 영상 제작 · 접수 10.30~12.13 23:59",
+    "evidence": [
+      "제공되는 6개 정식 IP와 IP별 미션을 바탕으로 AI를 활용한 30초~120초 영상 제작 · 접수 10.30~12.13 23:59"
+    ],
     "source": "wevity",
     "review": "confirmed",
     "first_seen": "2026-11-01",
@@ -3180,7 +3372,9 @@
     "result_date": "2026-11-06",
     "status": "closed",
     "url": "https://www.wevity.com/?c=find&s=1&gbn=view&gp=1&ix=111920",
-    "evidence": "마감일 2026-11-02 경과 + 11/3 전체리스트 이탈 이중 확인 — 종결 확정",
+    "evidence": [
+      "마감일 2026-11-02 경과 + 11/3 전체리스트 이탈 이중 확인 — 종결 확정"
+    ],
     "source": "wevity",
     "review": "confirmed",
     "first_seen": "2026-11-01",
@@ -3215,7 +3409,9 @@
     "result_date": null,
     "status": "open",
     "url": "https://www.wevity.com/?c=find&s=1&gbn=view&gp=1&ix=111869",
-    "evidence": "AI영상 제작 공모 A/B/C 부문(관광홍보·지역상품 CF·프로그램 홍보) · 접수 2026.10.27~12.10",
+    "evidence": [
+      "AI영상 제작 공모 A/B/C 부문(관광홍보·지역상품 CF·프로그램 홍보) · 접수 2026.10.27~12.10"
+    ],
     "source": "wevity",
     "review": "confirmed",
     "first_seen": "2026-11-01",
@@ -3244,7 +3440,9 @@
     "result_date": null,
     "status": "open",
     "url": "https://qnx.devpost.com/",
-    "evidence": "Devpost API 오픈 리스트(2026-11-03): 'Nov 02 - Dec 15, 2026 | $ 50,000 in cash | IoT Machine Learning/AI Open Ended' + 심사기준 'Innovation & AI Creativity' — AI/ML이 명시 테마이며 참가국 제외 목록만 존재(국가·연령·소속 한정 없음)",
+    "evidence": [
+      "Devpost API 오픈 리스트(2026-11-03): 'Nov 02 - Dec 15, 2026 | $ 50,000 in cash | IoT Machine Learning/AI Open Ended' + 심사기준 'Innovation & AI Creativity' — AI/ML이 명시 테마이며 참가국 제외 목록만 존재(국가·연령·소속 한정 없음)"
+    ],
     "source": "devpost-api",
     "note": "11/2 개시. 참가자 54명(수집 시점)",
     "first_seen": "2026-11-03",
@@ -3274,7 +3472,9 @@
     "result_date": null,
     "status": "open",
     "url": "https://aws-agentic-msp.devpost.com/",
-    "evidence": "Devpost 메타(2026-11-03): 'Build the AI-First MSP: Run smarter, Deliver more' — AI-first가 주제. 자격요건 eligibility-list 'MSP Partner or AWS Partner Network Registrants only'",
+    "evidence": [
+      "Devpost 메타(2026-11-03): 'Build the AI-First MSP: Run smarter, Deliver more' — AI-first가 주제. 자격요건 eligibility-list 'MSP Partner or AWS Partner Network Registrants only'"
+    ],
     "source": "devpost-api",
     "note": "AWS CDS 파트너형(global-0007)과 동일 유형의 파트너 한정 해커톤. 11/2 개시",
     "first_seen": "2026-11-03",
@@ -3304,7 +3504,9 @@
     "result_date": null,
     "status": "closed",
     "url": "https://www.devtimes.co.kr/news/545952",
-    "evidence": "행사 2026-11-13 부산 패스파인더 초량점 개최 종료(신청마감 11-12 낮 12시 경과, 데브타임즈 원문 일정 승계) — 11-12 런 큐 승계 종결",
+    "evidence": [
+      "행사 2026-11-13 부산 패스파인더 초량점 개최 종료(신청마감 11-12 낮 12시 경과, 데브타임즈 원문 일정 승계) — 11-12 런 큐 승계 종결"
+    ],
     "source": "gnews-kr-5-meetup/devtimes",
     "note": "행사일 11/13(금) 14:30-17:00, 부산 동구 중앙대로 319 패스파인더 초량점 2층. 선착순 20명. 참가비 미기재(무료 AI 도구 사용자도 참여 가능)",
     "first_seen": "2026-11-03",
@@ -3340,7 +3542,9 @@
     "result_date": "2027-03-31",
     "status": "upcoming",
     "url": "https://storyleague.co.kr/",
-    "evidence": "위비티 상세(2026-11-03 브라우저 확인): '당신만의 오리지널 스토리를 2분 이내의 AI 영상 예고편으로 표현해 주세요', 'AI 활용: 제작 과정의 일부 또는 전체에 생성형 AI 사용 가능' — 접수 2026-11-30 ~ 2027-01-30 23:59, 신청 링크는 11/30 공개 예정. 만 14세 이상, 국적·거주지 제한 없음",
+    "evidence": [
+      "위비티 상세(2026-11-03 브라우저 확인): '당신만의 오리지널 스토리를 2분 이내의 AI 영상 예고편으로 표현해 주세요', 'AI 활용: 제작 과정의 일부 또는 전체에 생성형 AI 사용 가능' — 접수 2026-11-30 ~ 2027-01-30 23:59, 신청 링크는 11/30 공개 예정. 만 14세 이상, 국적·거주지 제한 없음"
+    ],
     "source": "wevity",
     "note": "채택 사유: AI 생성 영상이 출품 조건인 콘텐츠 공모전(KICET·나뮥스·AI-Kive 계열). 카드 D-89(마감 2027-01-30 정합)",
     "first_seen": "2026-11-03",
@@ -3370,7 +3574,9 @@
     "result_date": "2026-12-04",
     "status": "open",
     "url": "https://aichallenge4all.or.kr/competitions/master100_s4",
-    "evidence": "주최사 페이지 직접 확인(2026-11-03): 'AI 활용 과정과 결과를 담은 60초 이내 세로형 숏폼 영상으로 누구나 참여할 수 있습니다' — 작품 접수 2026.11.02 ~ 11.20, 대국민 투표 12.3, 수상자 발표 12.4",
+    "evidence": [
+      "주최사 페이지 직접 확인(2026-11-03): 'AI 활용 과정과 결과를 담은 60초 이내 세로형 숏폼 영상으로 누구나 참여할 수 있습니다' — 작품 접수 2026.11.02 ~ 11.20, 대국민 투표 12.3, 수상자 발표 12.4"
+    ],
     "source": "wevity",
     "note": "위비티 상세 본문은 미기재(주최사 원문으로 보강). 응모대상 제한없음, 위비티 카드 D-18(마감 11/20 정합)",
     "first_seen": "2026-11-03",
@@ -3400,7 +3606,9 @@
     "result_date": null,
     "status": "open",
     "url": "https://www.wevity.com/?c=find&s=1&gbn=view&gp=1&ix=112128",
-    "evidence": "위비티 상세(2026-11-04): '우리 지역(전북 14개 시·군)을 소재로 AI로 만든 음악에 영상·사진·자막을 결합한 30초~60초 세로형 쇼츠 뮤직비디오' — AI 생성 음악이 출품의 핵심 요건. 모집 기간 2026.11.2(월)~11.19(목) 24:00, 지원 자격 '전북에 빠진 누구나'",
+    "evidence": [
+      "위비티 상세(2026-11-04): '우리 지역(전북 14개 시·군)을 소재로 AI로 만든 음악에 영상·사진·자막을 결합한 30초~60초 세로형 쇼츠 뮤직비디오' — AI 생성 음악이 출품의 핵심 요건. 모집 기간 2026.11.2(월)~11.19(목) 24:00, 지원 자격 '전북에 빠진 누구나'"
+    ],
     "source": "wevity",
     "note": "홈페이지 https://jb-ai.kr/2026-song. 주제: 전북의 매력·맛·문화·활력·사람·내일 등 6분야+자유. 11/2 개시 신규(ix 112128)",
     "first_seen": "2026-11-04",
@@ -3430,7 +3638,9 @@
     "result_date": "2026-12-21",
     "status": "open",
     "url": "https://www.wevity.com/?c=find&s=1&gbn=view&gp=1&ix=112122",
-    "evidence": "위비티 상세(2026-11-04): 'AI로 만드는 부산 동구!' — 'AI를 활용하여 숏폼 형식의 영상으로 표현' + '영상에 사용된 AI 활용 프로그램 및 활용 범위를 신청서에 기재' (AI 활용 고지 필수). 모집 기간 2026.11.3~11.22 자정, 지원 자격 '대한민국 국민 누구나'",
+    "evidence": [
+      "위비티 상세(2026-11-04): 'AI로 만드는 부산 동구!' — 'AI를 활용하여 숏폼 형식의 영상으로 표현' + '영상에 사용된 AI 활용 프로그램 및 활용 범위를 신청서에 기재' (AI 활용 고지 필수). 모집 기간 2026.11.3~11.22 자정, 지원 자격 '대한민국 국민 누구나'"
+    ],
     "source": "wevity",
     "note": "수상작 발표 12/21. 공고처: blog.naver.com/bsdonggublog/224463183087. 11/3 개시 신규(ix 112122)",
     "first_seen": "2026-11-04",
@@ -3460,7 +3670,9 @@
     "result_date": null,
     "status": "closed",
     "url": "https://www.sukbakmagazine.com/news/articleView.html?idxno=69850",
-    "evidence": "숙박매거진 기사(2026-11-12 재확인): '11월 13일 서울 삼성 코엑스 2층 아셈볼룸에서 열리는 2026 관광업 AX 세미나 참가자를 11일까지 모집한다' — 참가 모집 11-11 마감으로 종결(본행사 11-13 코엑스)",
+    "evidence": [
+      "숙박매거진 기사(2026-11-12 재확인): '11월 13일 서울 삼성 코엑스 2층 아셈볼룸에서 열리는 2026 관광업 AX 세미나 참가자를 11일까지 모집한다' — 참가 모집 11-11 마감으로 종결(본행사 11-13 코엑스)"
+    ],
     "source": "gnews-kr-5",
     "note": "신청처: 관광e배움터 누리집. 발표: 네이버클라우드 오정식 이사·한국마이크로소프트 이건복 상무·온다 오현석 대표·여행유튜버 또떠남(구독자 70만). kr-5 두 번째 채택(부산 AI 컨퍼런스 ko-0027에 이어)",
     "first_seen": "2026-11-04",
@@ -3496,7 +3708,9 @@
     "result_date": "2026-12-31",
     "status": "open",
     "url": "https://www.wevity.com/?c=find&s=1&gbn=view&gp=1&ix=112142",
-    "evidence": "위비티 상세(2026-11-05): '자신이 창작했거나 영상화 권리를 확보한 웹툰 원작을 AI 기술을 활용해 30초~3분 분량의 애니메이션, 모션코믹, 뮤직비디오 또는 숏폼 드라마로 제작하여 출품' · '제작 도구 제한 없음 (CLIIP, Veo, Kling, Seedance 등 모두 가능)'. 접수 11/3~11/30, 수상작 발표 12월 말",
+    "evidence": [
+      "위비티 상세(2026-11-05): '자신이 창작했거나 영상화 권리를 확보한 웹툰 원작을 AI 기술을 활용해 30초~3분 분량의 애니메이션, 모션코믹, 뮤직비디오 또는 숏폼 드라마로 제작하여 출품' · '제작 도구 제한 없음 (CLIIP, Veo, Kling, Seedance 등 모두 가능)'. 접수 11/3~11/30, 수상작 발표 12월 말"
+    ],
     "source": "wevity",
     "first_seen": "2026-11-05",
     "last_checked": "2026-11-05",
@@ -3525,7 +3739,9 @@
     "result_date": null,
     "status": "closed",
     "url": "https://www.v1365.or.kr/board/notice/read/6989",
-    "evidence": "위비티 60p 스윕(2026-11-09): D+0 배지 — 접수마감 11-08 경과, 별도 결과발표일 없음",
+    "evidence": [
+      "위비티 60p 스윕(2026-11-09): D+0 배지 — 접수마감 11-08 경과, 별도 결과발표일 없음"
+    ],
     "source": "wevity",
     "first_seen": "2026-11-05",
     "last_checked": "2026-11-09",
@@ -3560,7 +3776,9 @@
     "result_date": null,
     "status": "closed",
     "url": "https://gwangyang.go.kr/board.es?mid=a11001000000&bid=0001&act=view&list_no=209772",
-    "evidence": "위비티 리스트 재스윕(2026-11-07): ix 111665 배지 'end 마감' 확인 — 11/6 18:00 마감 경과 종결 확정(D+ 배지 우선 규칙 적용)",
+    "evidence": [
+      "위비티 리스트 재스윕(2026-11-07): ix 111665 배지 'end 마감' 확인 — 11/6 18:00 마감 경과 종결 확정(D+ 배지 우선 규칙 적용)"
+    ],
     "source": "wevity",
     "first_seen": "2026-11-05",
     "last_checked": "2026-11-07",
@@ -3595,7 +3813,9 @@
     "result_date": null,
     "status": "open",
     "url": "https://blog.naver.com/ppspr/224439199284",
-    "evidence": "위비티 상세(2026-11-05): '공모대상 - 대한민국 국민 누구나' · 시상 AI 게임/AI 시나리오/AI 영상 부문 (AI 시나리오 주제 「2050년 미래의 조달청」). 접수 10/12~11/22",
+    "evidence": [
+      "위비티 상세(2026-11-05): '공모대상 - 대한민국 국민 누구나' · 시상 AI 게임/AI 시나리오/AI 영상 부문 (AI 시나리오 주제 「2050년 미래의 조달청」). 접수 10/12~11/22"
+    ],
     "source": "wevity",
     "first_seen": "2026-11-05",
     "last_checked": "2026-11-05",
@@ -3624,7 +3844,9 @@
     "result_date": null,
     "status": "open",
     "url": "https://dcnc.or.kr/bbs/board.php?bo_table=notice&wr_id=193",
-    "evidence": "위비티 상세(2026-11-05): '공모주제 : 공공데이터 및 AI 기술을 활용한 대구광역시 기후·환경·탄소중립 문제 해결' · '대한민국 국민 누구나(개인)'. 접수 10/12~11/20 17:00",
+    "evidence": [
+      "위비티 상세(2026-11-05): '공모주제 : 공공데이터 및 AI 기술을 활용한 대구광역시 기후·환경·탄소중립 문제 해결' · '대한민국 국민 누구나(개인)'. 접수 10/12~11/20 17:00"
+    ],
     "source": "wevity",
     "first_seen": "2026-11-05",
     "last_checked": "2026-11-05",
@@ -3653,7 +3875,9 @@
     "result_date": "2026-12-11",
     "status": "open",
     "url": "https://www.gulnara.net/index.php?zsect=cscenter&zapp=board&zact=viewboard&pknv=65&cbrd=3&uid=135024",
-    "evidence": "위비티 상세(2026-11-05): '스토리와 AI 활용 삽화를 포함한 전자그림책, PDF 또는 ePub' · '생성형 AI 활용 시 사용한 도구·모델명 및 주요 활용 방식을 명시하여야 함'. 대상: 교사·예비교사, 학부모, 작가, 디자이너, AI 활용 창작자 및 일반 시민. 접수 11/2~11/16 18:00 이메일",
+    "evidence": [
+      "위비티 상세(2026-11-05): '스토리와 AI 활용 삽화를 포함한 전자그림책, PDF 또는 ePub' · '생성형 AI 활용 시 사용한 도구·모델명 및 주요 활용 방식을 명시하여야 함'. 대상: 교사·예비교사, 학부모, 작가, 디자이너, AI 활용 창작자 및 일반 시민. 접수 11/2~11/16 18:00 이메일"
+    ],
     "source": "wevity",
     "first_seen": "2026-11-05",
     "last_checked": "2026-11-05",
@@ -3682,7 +3906,9 @@
     "result_date": null,
     "status": "closed",
     "url": "http://ai-film.kr/",
-    "evidence": "위비티 상세(2026-11-12): '접수기간 2026-09-15 ~ 2026-11-11 D+0' — 마감 익일 D+0 배지로 종결",
+    "evidence": [
+      "위비티 상세(2026-11-12): '접수기간 2026-09-15 ~ 2026-11-11 D+0' — 마감 익일 D+0 배지로 종결"
+    ],
     "source": "wevity",
     "first_seen": "2026-11-05",
     "last_checked": "2026-11-12",
@@ -3717,7 +3943,9 @@
     "result_date": "2026-12-31",
     "status": "judging",
     "url": "https://www.uiuc.or.kr/companyNotice/noticePage/notice/view.do?bbsId=BBSMSTR_000000000001&nttId=5514",
-    "evidence": "위비티 60p 스윕(2026-11-09): D+0 배지 — 접수마감 11-08 경과, 결과발표 2026-12-31 예정",
+    "evidence": [
+      "위비티 60p 스윕(2026-11-09): D+0 배지 — 접수마감 11-08 경과, 결과발표 2026-12-31 예정"
+    ],
     "source": "wevity",
     "first_seen": "2026-11-05",
     "last_checked": "2026-11-09",
@@ -3752,7 +3980,9 @@
     "result_date": null,
     "status": "open",
     "url": "https://www.ifpk.org/?mnu_usn=67&mode=view&page_no=1&data_usn=181814",
-    "evidence": "위비티 상세(2026-11-05): '표준 재무설계 6단계 프로세스를 따라 세상에 하나뿐인 재무설계 사례를 완성하고, 그 과정에서 AI를 어떻게 활용하고 검증했는지 보여 주세요' — AI 활용·검증 과정 제출 요구. 지원자격 전국 대학 재학생(휴학생 포함) 전공 무관",
+    "evidence": [
+      "위비티 상세(2026-11-05): '표준 재무설계 6단계 프로세스를 따라 세상에 하나뿐인 재무설계 사례를 완성하고, 그 과정에서 AI를 어떻게 활용하고 검증했는지 보여 주세요' — AI 활용·검증 과정 제출 요구. 지원자격 전국 대학 재학생(휴학생 포함) 전공 무관"
+    ],
     "source": "wevity",
     "first_seen": "2026-11-05",
     "last_checked": "2026-11-05",
@@ -3781,7 +4011,9 @@
     "result_date": null,
     "status": "open",
     "url": "https://nexmuse.kr/",
-    "evidence": "위비티 상세(2026-11-05): '공모 분야 : AI 음원 및 AI 뮤직비디오 제작' · '전 세계 음악과 AI 콘텐츠 제작에 관심 있는 누구나 참여 가능(일반부문 성인 남녀)'. 접수 9/21~12/28",
+    "evidence": [
+      "위비티 상세(2026-11-05): '공모 분야 : AI 음원 및 AI 뮤직비디오 제작' · '전 세계 음악과 AI 콘텐츠 제작에 관심 있는 누구나 참여 가능(일반부문 성인 남녀)'. 접수 9/21~12/28"
+    ],
     "source": "wevity",
     "first_seen": "2026-11-05",
     "last_checked": "2026-11-05",
@@ -3810,7 +4042,9 @@
     "result_date": "2026-11-23",
     "status": "closed",
     "url": "https://www.wevity.com/?c=find&s=1&gbn=view&gp=4&ix=112097",
-    "evidence": "위비티 본리스트 D+0 배지(2026-11-16 실측) — 진안고원 치유골목 AI 쇼츠영상 콘테스트, 접수마감 11-15 경과",
+    "evidence": [
+      "위비티 본리스트 D+0 배지(2026-11-16 실측) — 진안고원 치유골목 AI 쇼츠영상 콘테스트, 접수마감 11-15 경과"
+    ],
     "source": "wevity",
     "note": "선정공고 11/23(월) 개별 연락. 신청서 첨부 e메일 접수. 리스트 p4 D-10/future(11/15 마감 정합). 진안군 홈페이지 원문 링크 있음",
     "first_seen": "2026-11-06",
@@ -3852,7 +4086,9 @@
     "result_date": null,
     "status": "closed",
     "url": "https://www.djournal.co.kr/news/article.html?no=133347",
-    "evidence": "행사 2026-11-12(목) 09:30~11:30 한국항공대 항공우주센터 종료(외교저널·스페셜타임스 원문 일정 승계) — 11-12 런 큐 승계 종결",
+    "evidence": [
+      "행사 2026-11-12(목) 09:30~11:30 한국항공대 항공우주센터 종료(외교저널·스페셜타임스 원문 일정 승계) — 11-12 런 큐 승계 종결"
+    ],
     "source": "gnews-kr-5-meetup/websearch",
     "note": "신청 마감 별도 고지 없음(행사일 11/12 기준 apply 설정). kr-5 세 번째 채택(부산 AI 컨퍼런스 ko-0027·관광 AX 세미나 ko-0028에 이어). 문의 gkdms8545@kau.ac.kr",
     "first_seen": "2026-11-06",
@@ -3888,7 +4124,9 @@
     "result_date": null,
     "status": "open",
     "url": "https://ai-openbuild.devpost.com/",
-    "evidence": "Devpost 페이지(2026-11-06): 'Beginner Friendly Machine Learning/AI Open Ended', Online·Public, '$150 in cash', 'Deadline 2026년 12월 11일 @ 1:45pm GMT+9' — 11/5 개시 오픈 AI 해커톤(참가 15명 소규모)",
+    "evidence": [
+      "Devpost 페이지(2026-11-06): 'Beginner Friendly Machine Learning/AI Open Ended', Online·Public, '$150 in cash', 'Deadline 2026년 12월 11일 @ 1:45pm GMT+9' — 11/5 개시 오픈 AI 해커톤(참가 15명 소규모)"
+    ],
     "source": "devpost-api",
     "note": "참가 15명·$150 경품의 소규모 행사이나 공개·무료·AI 테마로 채택(Agentic $480·GenHacks CAD1,050 채택 라인). 모델·데이터·아이디어로 작동하는 무언가 만들기",
     "first_seen": "2026-11-06",
@@ -3918,7 +4156,9 @@
     "result_date": null,
     "status": "open",
     "url": "https://www.wevity.com/?c=find&s=1&gbn=view&gp=1&ix=112221",
-    "evidence": "위비티 상세(2026-11-07): 접수 2026-11-06~11-30(D-24 산술 검증 일치), '당신의 상상, AI로 펼치다!' — AI 영상·웹툰 분야 공모. 씽유 크로스포스트(contest/67988)",
+    "evidence": [
+      "위비티 상세(2026-11-07): 접수 2026-11-06~11-30(D-24 산술 검증 일치), '당신의 상상, AI로 펼치다!' — AI 영상·웹툰 분야 공모. 씽유 크로스포스트(contest/67988)"
+    ],
     "source": "wevity-fetch",
     "first_seen": "2026-11-07",
     "last_checked": "2026-11-07",
@@ -3947,7 +4187,9 @@
     "result_date": null,
     "status": "open",
     "url": "https://www.wevity.com/?c=find&s=1&gbn=view&gp=1&ix=112212",
-    "evidence": "위비티 상세(2026-11-07): 접수 2026-11-05~11-26(D-20 일치), '간직하고 있던 시나리오를 AI 영상으로 만들 수 있는 기회' — 시나리오의 AI 영상화 공모. 씽유 크로스포스트(contest/67984)",
+    "evidence": [
+      "위비티 상세(2026-11-07): 접수 2026-11-05~11-26(D-20 일치), '간직하고 있던 시나리오를 AI 영상으로 만들 수 있는 기회' — 시나리오의 AI 영상화 공모. 씽유 크로스포스트(contest/67984)"
+    ],
     "source": "wevity-fetch",
     "first_seen": "2026-11-07",
     "last_checked": "2026-11-07",
@@ -3976,7 +4218,9 @@
     "result_date": null,
     "status": "closed",
     "url": "https://www.wevity.com/?c=find&s=1&gbn=view&gp=1&ix=112204",
-    "evidence": "위비티 본리스트 D+0 배지(2026-11-16 실측) — 평택시청소년재단 생성형 AI 캐릭터 공모전, 접수마감 11-15 경과",
+    "evidence": [
+      "위비티 본리스트 D+0 배지(2026-11-16 실측) — 평택시청소년재단 생성형 AI 캐릭터 공모전, 접수마감 11-15 경과"
+    ],
     "source": "wevity-fetch",
     "first_seen": "2026-11-07",
     "last_checked": "2026-11-16",
@@ -4011,7 +4255,9 @@
     "result_date": null,
     "status": "open",
     "url": "https://www.wevity.com/?c=find&s=1&gbn=view&gp=1&ix=111490",
-    "evidence": "위비티 상세(2026-11-07): 접수 2026-09-28~11-20(D-14 일치), '공모분야: AI영상 콘텐츠 ※ 30초~3분 이내 영상' — AI 생성 영상 공모",
+    "evidence": [
+      "위비티 상세(2026-11-07): 접수 2026-09-28~11-20(D-14 일치), '공모분야: AI영상 콘텐츠 ※ 30초~3분 이내 영상' — AI 생성 영상 공모"
+    ],
     "source": "wevity-fetch",
     "first_seen": "2026-11-07",
     "last_checked": "2026-11-07",
@@ -4040,7 +4286,9 @@
     "result_date": null,
     "status": "closed",
     "url": "https://www.wevity.com/?c=find&s=1&gbn=view&gp=1&ix=111021",
-    "evidence": "위비티 60p 스윕(2026-11-09): D+0 배지 — 접수마감 11-08 경과",
+    "evidence": [
+      "위비티 60p 스윕(2026-11-09): D+0 배지 — 접수마감 11-08 경과"
+    ],
     "source": "wevity-fetch",
     "first_seen": "2026-11-07",
     "last_checked": "2026-11-09",
@@ -4075,7 +4323,9 @@
     "result_date": null,
     "status": "open",
     "url": "https://www.thinkyou.co.kr/contest/67930/",
-    "evidence": "씽유 상세(2026-11-07): 접수 2026-10-30~11-30, 'AI 활용기준 - 영상·이미지·나레이션·특수효과 등 작품의 주요요소에 생성형 AI 기술을 활용하여야 함. 단순 자막·보정·편집 등 보조 기능에만 활용한 작품은 인정하지 않음' + '수상 후보자는 생성형 AI 사용 내역 등 관련 자료를 제출' — 매경·전북급 명시적 AI 기준",
+    "evidence": [
+      "씽유 상세(2026-11-07): 접수 2026-10-30~11-30, 'AI 활용기준 - 영상·이미지·나레이션·특수효과 등 작품의 주요요소에 생성형 AI 기술을 활용하여야 함. 단순 자막·보정·편집 등 보조 기능에만 활용한 작품은 인정하지 않음' + '수상 후보자는 생성형 AI 사용 내역 등 관련 자료를 제출' — 매경·전북급 명시적 AI 기준"
+    ],
     "source": "thinkyou",
     "first_seen": "2026-11-07",
     "last_checked": "2026-11-07",
@@ -4104,7 +4354,9 @@
     "result_date": null,
     "status": "closed",
     "url": "https://www.thinkyou.co.kr/contest/66692/",
-    "evidence": "씽유 66692 상세(2026-11-15 실측): 제목 배지 '마감' 표기 — 접수기간 2026-09-14~11-13 종료 확인",
+    "evidence": [
+      "씽유 66692 상세(2026-11-15 실측): 제목 배지 '마감' 표기 — 접수기간 2026-09-14~11-13 종료 확인"
+    ],
     "source": "thinkyou",
     "first_seen": "2026-11-07",
     "last_checked": "2026-11-15",
@@ -4139,7 +4391,9 @@
     "result_date": null,
     "status": "closed",
     "url": "https://build-a-working-ai-support-bot.devpost.com/",
-    "evidence": "Devpost open 72건 스윕(2026-11-15)에서 이탈 — 제출 마감 Nov 12 경과 실측, 11-12 런 큐 승계 종결",
+    "evidence": [
+      "Devpost open 72건 스윕(2026-11-15)에서 이탈 — 제출 마감 Nov 12 경과 실측, 11-12 런 큐 승계 종결"
+    ],
     "source": "devpost-api",
     "first_seen": "2026-11-07",
     "last_checked": "2026-11-15",
@@ -4174,7 +4428,9 @@
     "result_date": null,
     "status": "open",
     "url": "https://dorahacks.io/hackathon/2349",
-    "evidence": "DoraHacks 상세(2026-11-07): 'PRIZE POOL 6,000 USD', 'Submission deadline extended', 타임라인 2026/08/01~2026/12/01 00:59(UTC+9) — AI 앱 빌더 해커톤(Extended 23 days left)",
+    "evidence": [
+      "DoraHacks 상세(2026-11-07): 'PRIZE POOL 6,000 USD', 'Submission deadline extended', 타임라인 2026/08/01~2026/12/01 00:59(UTC+9) — AI 앱 빌더 해커톤(Extended 23 days left)"
+    ],
     "source": "dorahacks",
     "first_seen": "2026-11-07",
     "last_checked": "2026-11-07",
@@ -4203,7 +4459,9 @@
     "result_date": null,
     "status": "open",
     "url": "https://www.meetup.com/awskrug/events/317199460/",
-    "evidence": "meetup 상세(2026-11-07): '2026년 11월 26일 목요일 오후 7시 스파크플러스 강남 4호점 IR룸 11B' — 소버린 AI·AI 에이전트 K8s 플랫폼 엔지니어링 세션. 무료 커뮤니티 밋업",
+    "evidence": [
+      "meetup 상세(2026-11-07): '2026년 11월 26일 목요일 오후 7시 스파크플러스 강남 4호점 IR룸 11B' — 소버린 AI·AI 에이전트 K8s 플랫폼 엔지니어링 세션. 무료 커뮤니티 밋업"
+    ],
     "source": "meetup-com",
     "first_seen": "2026-11-07",
     "last_checked": "2026-11-07",
@@ -4232,7 +4490,9 @@
     "result_date": null,
     "status": "closed",
     "url": "https://www.meetup.com/svc-seoul-global-team/events/317250777/",
-    "evidence": "행사 2026-11-12 17:00~20:00 종료(meetup JSON-LD startDate 실측 승계) — 11-12 런 큐 승계 종결",
+    "evidence": [
+      "행사 2026-11-12 17:00~20:00 종료(meetup JSON-LD startDate 실측 승계) — 11-12 런 큐 승계 종결"
+    ],
     "source": "meetup-com",
     "first_seen": "2026-11-07",
     "last_checked": "2026-11-15",
@@ -4267,7 +4527,9 @@
     "result_date": null,
     "status": "open",
     "url": "https://sai.software.kr/notification/notice/0371b425-0f8d-4226-a73e-c5e6167cb5c1",
-    "evidence": "SAI 공지 원문(2026-11-08 브라우저 확인, 2026-11-04 게시): '두 사이트를 통합한 신규 플랫폼의 가치와 핵심 기능을 학생, 교사, 일반인 등 누구나 쉽고 친근하게 느낄 수 있는 새로운 이름을 찾고자 합니다.' — 위비티 접수 2026-11-04~11-18(D-11 산술 검증 일치), 응모대상 제한없음. AI 생성 규칙 명시 없음(공고 상세는 첨부 이미지)",
+    "evidence": [
+      "SAI 공지 원문(2026-11-08 브라우저 확인, 2026-11-04 게시): '두 사이트를 통합한 신규 플랫폼의 가치와 핵심 기능을 학생, 교사, 일반인 등 누구나 쉽고 친근하게 느낄 수 있는 새로운 이름을 찾고자 합니다.' — 위비티 접수 2026-11-04~11-18(D-11 산술 검증 일치), 응모대상 제한없음. AI 생성 규칙 명시 없음(공고 상세는 첨부 이미지)"
+    ],
     "source": "wevity-fetch",
     "first_seen": "2026-11-08",
     "last_checked": "2026-11-08",
@@ -4296,7 +4558,9 @@
     "result_date": null,
     "status": "open",
     "url": "https://www.wevity.com/?c=find&s=1&gbn=view&gp=1&ix=112316",
-    "evidence": "위비티 112316 리스팅·상세(2026-11-12): '접수기간 2026-11-09 ~ 2026-11-25 D-14' + 제목 '지역사회 문제 해결을 위한 AI 솔루션 아이디어 경진대회' — AI 활용이 주제 자체인 공모전",
+    "evidence": [
+      "위비티 112316 리스팅·상세(2026-11-12): '접수기간 2026-11-09 ~ 2026-11-25 D-14' + 제목 '지역사회 문제 해결을 위한 AI 솔루션 아이디어 경진대회' — AI 활용이 주제 자체인 공모전"
+    ],
     "source": "wevity",
     "review": "confirmed",
     "first_seen": "2026-11-12",
@@ -4325,7 +4589,9 @@
     "result_date": null,
     "status": "open",
     "url": "https://www.wevity.com/?c=find&s=1&gbn=view&gp=1&ix=112307",
-    "evidence": "위비티 112307 리스팅·상세(2026-11-12): '접수기간 2026-11-11 ~ 2026-11-30 D-19' + 제목 '귀뚜라미 AI 숏폼 영상 챌린지' — AI 숏폼 영상 제작 챌린지",
+    "evidence": [
+      "위비티 112307 리스팅·상세(2026-11-12): '접수기간 2026-11-11 ~ 2026-11-30 D-19' + 제목 '귀뚜라미 AI 숏폼 영상 챌린지' — AI 숏폼 영상 제작 챌린지"
+    ],
     "source": "wevity",
     "review": "confirmed",
     "first_seen": "2026-11-12",
@@ -4354,7 +4620,9 @@
     "result_date": null,
     "status": "open",
     "url": "https://www.wevity.com/?c=find&s=1&gbn=view&gp=1&ix=112295",
-    "evidence": "위비티 112295 리스팅·상세(2026-11-12): '접수기간 2026-11-09 ~ 2026-12-23 D-42' + 제목 '미래 직업·평생교육 AI 영상 공모전' — AI 영상 제작 공모전",
+    "evidence": [
+      "위비티 112295 리스팅·상세(2026-11-12): '접수기간 2026-11-09 ~ 2026-12-23 D-42' + 제목 '미래 직업·평생교육 AI 영상 공모전' — AI 영상 제작 공모전"
+    ],
     "source": "wevity",
     "review": "confirmed",
     "first_seen": "2026-11-12",
@@ -4383,7 +4651,9 @@
     "result_date": null,
     "status": "upcoming",
     "url": "https://www.wevity.com/?c=find&s=1&gbn=view&gp=1&ix=112285",
-    "evidence": "위비티 112285 리스팅·상세(2026-11-12): '접수기간 2026-11-23 ~ 2026-12-20 D-39' — 접수 11-23 개시 예정, 전국민 대상 AI 공모전",
+    "evidence": [
+      "위비티 112285 리스팅·상세(2026-11-12): '접수기간 2026-11-23 ~ 2026-12-20 D-39' — 접수 11-23 개시 예정, 전국민 대상 AI 공모전"
+    ],
     "source": "wevity",
     "review": "confirmed",
     "first_seen": "2026-11-12",
@@ -4412,7 +4682,9 @@
     "result_date": null,
     "status": "open",
     "url": "https://www.wevity.com/?c=find&s=1&gbn=view&gp=1&ix=112266",
-    "evidence": "위비티 112266 리스팅·상세(2026-11-12): '접수기간 2026-11-11 ~ 2026-11-24 D-13' + 제목 '광명역 미래비전 AI 영상 공모전' — AI 영상 제작 공모전",
+    "evidence": [
+      "위비티 112266 리스팅·상세(2026-11-12): '접수기간 2026-11-11 ~ 2026-11-24 D-13' + 제목 '광명역 미래비전 AI 영상 공모전' — AI 영상 제작 공모전"
+    ],
     "source": "wevity",
     "review": "confirmed",
     "first_seen": "2026-11-12",
@@ -4441,7 +4713,9 @@
     "result_date": null,
     "status": "open",
     "url": "https://www.wevity.com/?c=find&s=1&gbn=view&gp=1&ix=112236",
-    "evidence": "위비티 112236 리스팅·상세(2026-11-12): '접수기간 2026-11-06 ~ 2026-11-30 D-19' + 제목 '지역문제 해결형 AI활용 경진대회' — AI 활용이 주제 자체",
+    "evidence": [
+      "위비티 112236 리스팅·상세(2026-11-12): '접수기간 2026-11-06 ~ 2026-11-30 D-19' + 제목 '지역문제 해결형 AI활용 경진대회' — AI 활용이 주제 자체"
+    ],
     "source": "wevity",
     "review": "confirmed",
     "first_seen": "2026-11-12",
@@ -4470,7 +4744,9 @@
     "result_date": null,
     "status": "open",
     "url": "https://www.wevity.com/?c=find&s=1&gbn=view&gp=1&ix=112234",
-    "evidence": "위비티 112234 리스팅·상세(2026-11-12): '접수기간 2026-11-04 ~ 2026-12-04 D-23' + 제목 '사진·AI 이미지 공모전' — 사진과 AI 이미지 부문 병행(AI 선택적)",
+    "evidence": [
+      "위비티 112234 리스팅·상세(2026-11-12): '접수기간 2026-11-04 ~ 2026-12-04 D-23' + 제목 '사진·AI 이미지 공모전' — 사진과 AI 이미지 부문 병행(AI 선택적)"
+    ],
     "source": "wevity",
     "review": "confirmed",
     "first_seen": "2026-11-12",
@@ -4499,7 +4775,9 @@
     "result_date": null,
     "status": "open",
     "url": "https://www.wevity.com/?c=find&s=1&gbn=view&gp=1&ix=112184",
-    "evidence": "위비티 112184 리스팅·상세(2026-11-12): '접수기간 2026-10-29 ~ 2026-11-30 D-19' + 제목 'AI동영상 공모전' — AI 동영상 제작 공모전(제12회)",
+    "evidence": [
+      "위비티 112184 리스팅·상세(2026-11-12): '접수기간 2026-10-29 ~ 2026-11-30 D-19' + 제목 'AI동영상 공모전' — AI 동영상 제작 공모전(제12회)"
+    ],
     "source": "wevity",
     "review": "confirmed",
     "note": "ix 112184가 추적 max 112221보다 낮은 활성 AI 공모전 — 11-07~09 스윕 누락 추정, 금일 갭복구 전수 스윕으로 발견·편입",
@@ -4529,7 +4807,9 @@
     "result_date": null,
     "status": "open",
     "url": "https://deckthepixels.devpost.com/",
-    "evidence": "Devpost 리스팅(2026-11-12): submission_period_dates 'Nov 10 - Dec 07, 2026' + prize $25,000 + 소개 'A holiday design challenge with Nano Banana in Adobe Photoshop' — Nano Banana(Gemini 이미지 모델) 활용이 중심인 홀리데이 디자인 챌린지",
+    "evidence": [
+      "Devpost 리스팅(2026-11-12): submission_period_dates 'Nov 10 - Dec 07, 2026' + prize $25,000 + 소개 'A holiday design challenge with Nano Banana in Adobe Photoshop' — Nano Banana(Gemini 이미지 모델) 활용이 중심인 홀리데이 디자인 챌린지"
+    ],
     "source": "devpost",
     "review": "confirmed",
     "first_seen": "2026-11-12",
@@ -4558,7 +4838,9 @@
     "result_date": null,
     "status": "open",
     "url": "https://cognizant-agenticweb.devpost.com/",
-    "evidence": "Devpost 상세(2026-11-15): 'The Open Agentic Web Challenge, hosted by Cognizant with technology contributions from Cognizant AI Lab, MIT Lab's NANDA program' + '$ 10,000 in cash' + 'Deadline: Jan 11, 2027 @ 8:00am PST' + themes Machine Learning/AI·Web, All countries/territories 참여 가능(579명 등록) — 오픈 에이전틱 웹 인프라·페이지 구축이 과제",
+    "evidence": [
+      "Devpost 상세(2026-11-15): 'The Open Agentic Web Challenge, hosted by Cognizant with technology contributions from Cognizant AI Lab, MIT Lab's NANDA program' + '$ 10,000 in cash' + 'Deadline: Jan 11, 2027 @ 8:00am PST' + themes Machine Learning/AI·Web, All countries/territories 참여 가능(579명 등록) — 오픈 에이전틱 웹 인프라·페이지 구축이 과제"
+    ],
     "source": "devpost-api",
     "review": "confirmed",
     "first_seen": "2026-11-15",
@@ -4587,7 +4869,9 @@
     "result_date": null,
     "status": "open",
     "url": "https://slayy-hacks.devpost.com/",
-    "evidence": "Devpost API·상세(2026-11-15): 'Nov 07 - Dec 07, 2026 · $4,500 · Online' + 'Build bold. Code creatively. Slay real-world challenges. A hackathon for curious beginners and passionate builders to turn fresh ideas into working projects' — AI 테마 미명시(unknown)",
+    "evidence": [
+      "Devpost API·상세(2026-11-15): 'Nov 07 - Dec 07, 2026 · $4,500 · Online' + 'Build bold. Code creatively. Slay real-world challenges. A hackathon for curious beginners and passionate builders to turn fresh ideas into working projects' — AI 테마 미명시(unknown)"
+    ],
     "source": "devpost-api",
     "review": "confirmed",
     "first_seen": "2026-11-15",
@@ -4616,7 +4900,9 @@
     "result_date": null,
     "status": "open",
     "url": "https://silicon-valley-buildathon.devpost.com/",
-    "evidence": "Devpost API·상세(2026-11-15): 'Nov 08 - Dec 15, 2026 · $500 · Online' + 'Take a rough idea off the workbench, turn it into a working prototype, and show what it can do' — 프로토타입 빌드·제출 해커톤, AI 테마 미명시(unknown)",
+    "evidence": [
+      "Devpost API·상세(2026-11-15): 'Nov 08 - Dec 15, 2026 · $500 · Online' + 'Take a rough idea off the workbench, turn it into a working prototype, and show what it can do' — 프로토타입 빌드·제출 해커톤, AI 테마 미명시(unknown)"
+    ],
     "source": "devpost-api",
     "review": "confirmed",
     "first_seen": "2026-11-15",
@@ -4645,7 +4931,9 @@
     "result_date": null,
     "status": "open",
     "url": "https://fashionbiz.co.kr/article/230975",
-    "evidence": "패션비즈 기사(2026-11-12, gnews kr-5 히트): '2026년 12월3일(목) 10:00~11:30 서울 대치동 삼성역 섬유센터' 개최 + '패션비즈 웹사이트와 기사, 인스타그램 프로필 링크를 통해 신청할 수 있다'(구글폼 공개) — 패션 업무 자율수행 AI 에이전트 '에이전트-F' 최초 공식 소개 세미나. 신청 마감일 미표기(행사일 기준)",
+    "evidence": [
+      "패션비즈 기사(2026-11-12, gnews kr-5 히트): '2026년 12월3일(목) 10:00~11:30 서울 대치동 삼성역 섬유센터' 개최 + '패션비즈 웹사이트와 기사, 인스타그램 프로필 링크를 통해 신청할 수 있다'(구글폼 공개) — 패션 업무 자율수행 AI 에이전트 '에이전트-F' 최초 공식 소개 세미나. 신청 마감일 미표기(행사일 기준)"
+    ],
     "source": "gnews-kr-5-meetup",
     "review": "confirmed",
     "first_seen": "2026-11-15",
@@ -4674,7 +4962,9 @@
     "result_date": "2026-12-07",
     "status": "open",
     "url": "https://daker.ai/public/hackathons/jeju-ai-bigdata-agent-challenge",
-    "evidence": "daker API(2026-11-15): '제주빅데이터센터 및 제주데이터허브의 데이터를 활용한 AI Agent 개발' + registrationDeadline 2026-11-20 + 총 상금 500만원 + 최종단계 종료 2026-12-07, 583명 참여 중 — AI Agent 개발이 주제 자체",
+    "evidence": [
+      "daker API(2026-11-15): '제주빅데이터센터 및 제주데이터허브의 데이터를 활용한 AI Agent 개발' + registrationDeadline 2026-11-20 + 총 상금 500만원 + 최종단계 종료 2026-12-07, 583명 참여 중 — AI Agent 개발이 주제 자체"
+    ],
     "source": "daker-api",
     "review": "confirmed",
     "first_seen": "2026-11-15",
@@ -4703,7 +4993,9 @@
     "result_date": null,
     "status": "open",
     "url": "https://www.wevity.com/?c=find&s=1&gbn=view&gp=1&ix=112319",
-    "evidence": "위비티 112319 리스팅·상세(2026-11-15): '접수기간 2026-11-01 ~ 2026-12-31 D-47' + 제목 '2026 SCENE AI·실사 숏드라마 공모전' — AI 숏드라마 부문이 주제 자체",
+    "evidence": [
+      "위비티 112319 리스팅·상세(2026-11-15): '접수기간 2026-11-01 ~ 2026-12-31 D-47' + 제목 '2026 SCENE AI·실사 숏드라마 공모전' — AI 숏드라마 부문이 주제 자체"
+    ],
     "source": "wevity",
     "review": "confirmed",
     "first_seen": "2026-11-15",
@@ -4732,7 +5024,9 @@
     "result_date": null,
     "status": "open",
     "url": "https://www.wevity.com/?c=find&s=1&gbn=view&gp=1&ix=112294",
-    "evidence": "위비티 112294 리스팅·상세(2026-11-15): '접수기간 2026-11-10 ~ 2026-11-29 D-15' + '2026 서울관광 프롬프톤' + 홈페이지 sto.or.kr AI혁신팀 참가자 모집 공고 링크 — 프롬프트 활용 관광 콘텐츠 공모",
+    "evidence": [
+      "위비티 112294 리스팅·상세(2026-11-15): '접수기간 2026-11-10 ~ 2026-11-29 D-15' + '2026 서울관광 프롬프톤' + 홈페이지 sto.or.kr AI혁신팀 참가자 모집 공고 링크 — 프롬프트 활용 관광 콘텐츠 공모"
+    ],
     "source": "wevity",
     "review": "confirmed",
     "first_seen": "2026-11-15",
@@ -4761,7 +5055,9 @@
     "result_date": null,
     "status": "open",
     "url": "https://www.wevity.com/?c=find&s=1&gbn=view&gp=1&ix=112277",
-    "evidence": "위비티 112277 리스팅·상세(2026-11-15): '접수기간 2026-10-20 ~ 2026-12-20 D-36' + 제목 'AI로 만든 웹게임 연말 시상' — AI 제작 웹게임만을 대상으로 한 시상",
+    "evidence": [
+      "위비티 112277 리스팅·상세(2026-11-15): '접수기간 2026-10-20 ~ 2026-12-20 D-36' + 제목 'AI로 만든 웹게임 연말 시상' — AI 제작 웹게임만을 대상으로 한 시상"
+    ],
     "source": "wevity",
     "review": "confirmed",
     "first_seen": "2026-11-15",
@@ -4790,7 +5086,9 @@
     "result_date": null,
     "status": "open",
     "url": "https://www.wevity.com/?c=find&s=1&gbn=view&gp=1&ix=112280",
-    "evidence": "위비티 112280 상세(2026-11-15): '접수기간 2026-11-11 ~ 2026-11-30 D-16' + '공모분야: 60초 내외 숏폼 영상(AI 활용 가능)' — AI 활용 명시적 허용",
+    "evidence": [
+      "위비티 112280 상세(2026-11-15): '접수기간 2026-11-11 ~ 2026-11-30 D-16' + '공모분야: 60초 내외 숏폼 영상(AI 활용 가능)' — AI 활용 명시적 허용"
+    ],
     "source": "wevity",
     "review": "confirmed",
     "first_seen": "2026-11-15",
@@ -4819,7 +5117,9 @@
     "result_date": null,
     "status": "open",
     "url": "https://www.wevity.com/?c=find&s=1&gbn=view&gp=1&ix=111924",
-    "evidence": "위비티 111924 리스팅·상세(2026-11-15): '접수기간 2026-11-02 ~ 2026-11-20 D-6' + 제목 '2026 제주 청소년 AI 리터러시 영상 공모전' — AI 리터러시가 주제인 영상 공모(청소년 대상, 청소년 AI 공모 채택 선례 승계)",
+    "evidence": [
+      "위비티 111924 리스팅·상세(2026-11-15): '접수기간 2026-11-02 ~ 2026-11-20 D-6' + 제목 '2026 제주 청소년 AI 리터러시 영상 공모전' — AI 리터러시가 주제인 영상 공모(청소년 대상, 청소년 AI 공모 채택 선례 승계)"
+    ],
     "source": "wevity",
     "review": "confirmed",
     "first_seen": "2026-11-15",
@@ -4848,7 +5148,9 @@
     "result_date": null,
     "status": "open",
     "url": "https://firebasehybridaihackathon.devpost.com/",
-    "evidence": "Devpost 상세(2026-11-16): 'Who can participate: Above legal age of majority in country of residence' + 제외국 명단에 'Korea Democratic People's Republic of'(북한만 제외, 한국 참여 가능) + '$30,000' + Nov 11-30, 2026 — Firebase 하이브리드 AI(온디바이스+클라우드 Gemini) 앱 빌드 해커톤, themes Machine Learning/AI·Mobile·Web",
+    "evidence": [
+      "Devpost 상세(2026-11-16): 'Who can participate: Above legal age of majority in country of residence' + 제외국 명단에 'Korea Democratic People's Republic of'(북한만 제외, 한국 참여 가능) + '$30,000' + Nov 11-30, 2026 — Firebase 하이브리드 AI(온디바이스+클라우드 Gemini) 앱 빌드 해커톤, themes Machine Learning/AI·Mobile·Web"
+    ],
     "source": "devpost-api",
     "review": "confirmed",
     "first_seen": "2026-11-16",
@@ -4877,7 +5179,9 @@
     "result_date": null,
     "status": "open",
     "url": "https://redditgameofday2026.devpost.com/",
-    "evidence": "Devpost 상세(2026-11-16): 'All countries/territories, excluding standard exceptions' + 'Online Public' + '$ 35,000 in cash' + 'Deadline: Dec 8, 2026 @ 6:00pm PST' — 하루 플레이 웹게임(게임 오브 더 데이) 해커톤, themes Beginner Friendly/Gaming으로 AI 테마 아님(ai_usage unknown)",
+    "evidence": [
+      "Devpost 상세(2026-11-16): 'All countries/territories, excluding standard exceptions' + 'Online Public' + '$ 35,000 in cash' + 'Deadline: Dec 8, 2026 @ 6:00pm PST' — 하루 플레이 웹게임(게임 오브 더 데이) 해커톤, themes Beginner Friendly/Gaming으로 AI 테마 아님(ai_usage unknown)"
+    ],
     "source": "devpost-api",
     "review": "confirmed",
     "first_seen": "2026-11-16",

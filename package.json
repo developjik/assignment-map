@@ -1,0 +1,14 @@
+{
+  "name": "assignment-map",
+  "private": true,
+  "version": "0.1.0",
+  "description": "과제 지도 — 수집·검증 편의 스크립트 (웹 앱은 web/package.json)",
+  "scripts": {
+    "validate": "node collector/validate.mjs",
+    "normalize": "node collector/normalize.mjs",
+    "news": "python3 collector/fetch_news.py",
+    "test": "node --test collector/tests/ && python3 -m unittest discover -s collector/tests && python3 -m unittest discover -s pipeline/shorts/tests",
+    "build": "npm --prefix web run build",
+    "lint:slop": "npm --prefix web run lint:slop"
+  }
+}

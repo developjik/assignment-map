@@ -45,7 +45,9 @@ const hay = (...parts) =>
     .join(' ')
     .toLowerCase()
 
-const evidenceText = (evidence) => (Array.isArray(evidence) ? evidence.map((e) => e?.quote || '').join(' ') : evidence || '')
+// evidence 배열의 항목은 문자열(이벤트)이거나 { quote, field }(채용 공고)다 — 둘 다 받는다.
+const quoteOf = (e) => (typeof e === 'string' ? e.trim() : e && typeof e.quote === 'string' ? e.quote : '')
+const evidenceText = (evidence) => (Array.isArray(evidence) ? evidence.map(quoteOf).filter(Boolean).join(' ') : evidence || '')
 
 // 수집기가 evidence 를 문자열로 남긴 행이 있다(2026-11-16 잡코리아 5건). 배열로 맞춰 준다 —
 // 문자열에 .map 을 부를면 목록 전체가 죽는다(흰 화면).
@@ -68,7 +70,7 @@ export const rows = [
     assignment: p.assignment_type && p.assignment_type !== 'unknown' ? p.assignment_type : '',
     note: p.note || '',
     stateRaw: p.state_raw || '',
-    evidenceAll: asEvidence(p.evidence).map((e) => e && e.quote).filter(Boolean),
+    evidenceAll: asEvidence(p.evidence).map(quoteOf).filter(Boolean),
     stack: p.positions_raw || (p.positions || []).join(' '),
     hay: hay(
       p.company, p.title, p.positions_raw, p.positions, p.assignment_type, p.process_raw,
@@ -95,7 +97,7 @@ export const rows = [
     format: e.format && e.format !== 'unknown' ? e.format : '',
     team: e.team && e.team !== 'unknown' ? e.team : '',
     resultDate: e.result_date || '',
-    evidenceAll: asEvidence(e.evidence).map((x) => x && x.quote).filter(Boolean),
+    evidenceAll: asEvidence(e.evidence).map(quoteOf).filter(Boolean),
     hay: hay(e.title, e.host, e.prize, evidenceText(asEvidence(e.evidence)), e.note, e.source, EVENT_TYPE[e.type] || e.type, e.format),
   })),
 ]

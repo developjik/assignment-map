@@ -10,12 +10,17 @@ data/news.json 의 스키마(topic/tag/content/date/source/id)에 맞춰 앞쪽�
 - data/meta.json counts.news 도 같이 맞춘다.
 
 사용:
-    python3 collector/fetch_news.py              # 수집해서 파일에 쓴다
+    python3 collector/fetch_news.py              # 수집해서 파일에 쓴다 (바뀐 게 없으면 쓰지 않는다)
     python3 collector/fetch_news.py --dry-run    # 무엇이 들어갈지 콘솔에만 본다
+    python3 collector/fetch_news.py --check      # 파일과 달라질 게 있으면 exit 1 (자동화 점검용)
     python3 collector/fetch_news.py --limit 10   # 새 항목 수 상한 (기본 14)
+
+id 는 기사 URL 해시라서 같은 기사는 다음 회차에도 같은 id 로 남는다 — 회차마다 id 가
+01, 02… 로 밀리면 하루치 갱신이 파일 전체 diff 가 되고, 그게 배포·리뷰를 지치게 한다.
 """
 
 import argparse
+import hashlib
 import html
 import json
 import re
@@ -139,6 +144,12 @@ def parse_date(text):
         return None
 
 
+def stable_id(link, head):
+    """기사 URL 해시로 id 를 만든다 — 같은 기사는 다음 회차에도 같은 id(멱등)."""
+    key = (link or head or "").strip()
+    return FRESH_PREFIX + hashlib.sha1(key.encode("utf-8")).hexdigest()[:10]
+
+
 def split_source(title, label):
     """'헤드라인 - 머니투데이' → (헤드라인, 머니투데이). 언론사 꼬리가 없으면 라벨을 쓴다.
 
@@ -226,6 +237,7 @@ def collect(limit, today):
     failures = []
     accepted_tokens = []
     used_topic = {}
+    seen_links = set()
     for src in SOURCES:
         try:
             raw = fetch(src["url"])
@@ -264,6 +276,8 @@ def collect(limit, today):
         for cand in candidates:
             if picked >= src.get("quota", 3):
                 break
+            if cand["link"] and cand["link"] in seen_links:
+                continue
             if near_duplicate(cand["tokens"], accepted_tokens):
                 continue
             # 같은 회사·주제 기사가 사흘 안에 또 나오면 한 건만 남긴다 (같은 행사를 여러 언론사가 쓴 경우)
@@ -272,6 +286,8 @@ def collect(limit, today):
                 continue
             used_topic[key] = cand["date"]
             accepted_tokens.append(cand["tokens"])
+            if cand["link"]:
+                seen_links.add(cand["link"])
             rows.append(cand)
             picked += 1
     rows.sort(key=lambda r: (r["date"], r["score"]), reverse=True)
@@ -283,13 +299,13 @@ def build(limit, today):
     existing = json.loads(NEWS_PATH.read_text(encoding="utf-8")) if NEWS_PATH.exists() else []
     curated = [n for n in existing if not str(n.get("id", "")).startswith(FRESH_PREFIX)]
     fresh = []
-    for idx, r in enumerate(picked, start=1):
+    for r in picked:
         content = r["head"]
         # 한글 요약이 있을 때만 붙인다 — 영어 피드 본문을 붙이면 제목이 반쯤 영어가 된다
         if r["localized"] and r["body"] and len(r["body"]) > len(content) + 20 and re.search("[가-힣]", r["body"]):
             content = r["head"] + " | " + r["body"][:110]
         fresh.append({
-            "id": "%s%02d" % (FRESH_PREFIX, idx),
+            "id": stable_id(r["link"], r["head"]),
             "topic": r["topic"],
             "tag": r["tag"],
             "content": content[:180],
@@ -304,6 +320,7 @@ def main(argv=None):
     ap = argparse.ArgumentParser(description="트렌드 뉴스 수집 → data/news.json")
     ap.add_argument("--limit", type=int, default=14, help="새로 싣는 기사 수 (기본 14)")
     ap.add_argument("--dry-run", action="store_true", help="파일을 쓰지 않고 결과만 본다")
+    ap.add_argument("--check", action="store_true", help="파일과 달라지면 exit 1 (쓰지 않는다)")
     args = ap.parse_args(argv)
 
     today = datetime.now(KST)
@@ -315,13 +332,25 @@ def main(argv=None):
     for n in fresh:
         print("  %s [%s] %s | %s" % (n["date"], n["tag"], n["topic"], n["content"][:70]))
 
-    if args.dry_run:
-        return 0
-    if not fresh:
-        print("[news] 새 항목이 0건이라 파일을 쓰지 않는다 (피드 응답 확인 필요)")
-        return 1
+    payload = json.dumps(news, ensure_ascii=False, indent=2) + "\n"
+    current = NEWS_PATH.read_text(encoding="utf-8") if NEWS_PATH.exists() else ""
+    changed = payload != current
 
-    NEWS_PATH.write_text(json.dumps(news, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    if args.dry_run:
+        print("[news] 변경 %s (파일을 쓰지 않는다)" % ("있음" if changed else "없음"))
+        return 0
+    if args.check:
+        print("[news] 변경 %s" % ("있음 — 다음 수집에서 반영된다" if changed else "없음 — 파일 최신"))
+        return 1 if changed else 0
+    if not fresh:
+        # 피드가 모두 빈손이면 기존 파일을 덮어쓰지 않는다. 전 소스 실패만 오류로 본다.
+        print("[news] 새 항목이 0건이라 파일을 쓰지 않는다 (소스 실패 %d/%d)" % (len(failures), len(SOURCES)))
+        return 1 if len(failures) == len(SOURCES) else 0
+    if not changed:
+        print("[news] 변경 없음 — data/news.json 그대로 둔다 (멱등)")
+        return 0
+
+    NEWS_PATH.write_text(payload, encoding="utf-8")
     meta = json.loads(META_PATH.read_text(encoding="utf-8"))
     meta.setdefault("counts", {})["news"] = len(news)
     META_PATH.write_text(json.dumps(meta, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
