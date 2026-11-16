@@ -47,19 +47,19 @@ AI 사용을 금지하는 기회는 기록만 하고 화면에서 뺀다. 각 �
 
 수집은 **fetch 우선**이다. 발견은 fetch로 하고(브라우저 페이지 상한을 쓰지 않는다), 브라우저는 JS 렌더가 필요한 상세와 재방문에만 쓴다. 소스의 URL·비용·상태는 `collector/sources.json` 한 곳에 모으고, 성과 없는 소스는 T3 월간 리포트에서 `retired`로 내린다.
 
-## 숫자 (2026-11-12 기준)
+## 숫자 (2026-11-16 기준)
 
 | 항목 | 값 |
 |---|---|
-| 추적 레코드 | 192건 (채용 공고 52 · 이벤트 140) |
-| 지금 열려 있는 기회 | 123건 |
-| AI 정책을 명시한 진행중 항목 | 92건 (그중 AI 필수 77건) |
-| 피드 발행 항목 | 114건 (RSS + JSON Feed 동일 목록) |
+| 추적 레코드 | 206건 (채용 공고 54 · 이벤트 152) |
+| 지금 열려 있는 기회 | 104건 (채용 공고 33 · 이벤트 71) |
+| AI 정책을 명시한 진행중 항목 | 74건 (그중 AI 필수 61건) |
+| 피드 발행 항목 | 104건 (RSS + JSON Feed 동일 목록) |
 | 골든케이스 | 6/6 (정책 판정 회귀 방지) |
 | 안티-슬롭 검사 | 16체크, 빌드 실패 시 배포 중단 |
 | 운영비 | ₩0 (GitHub Actions + Pages 무료 쿼터, 외부 DB·서버 없음) |
 
-숫자는 데이터가 아니라 `data/meta.json`과 빌드가 계산한다. 이 표는 마지막 갱신 시점의 스냅샷이다.
+이 표는 사람이 고치지 않는다. 배포마다 `scripts/sync-readme.mjs`가 `data/*.json` 실측으로 다시 쓴다.
 
 ## 웹 (web/)
 
@@ -138,3 +138,8 @@ React 18 · Rollup 3 · Babel · Terser · Node.js 20 (ESM) · Python 3 (쇼츠 
 - [docs/design/anti-slop.md](docs/design/anti-slop.md) — AI 티 나는 UI 패턴 조사와 금지 목록
 - [collector/ROUTINE_PROMPT.md](collector/ROUTINE_PROMPT.md) — 매일 수집 세션 프롬프트
 - [web/README.md](web/README.md) — 웹 빌드 세부
+
+## 라이선스
+
+- 코드: [MIT](LICENSE)
+- 데이터(`data/*.json`, `data/guides/`): [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/deed.ko) — 출처("과제 지도" + 링크)를 표시하면 자유롭게 재사용·가공할 수 있다. 공고 원문 전문은 저장하지 않으므로(제목·근거 문장만) 원문 저작권은 각 출처에 있다.

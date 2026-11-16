@@ -2,7 +2,7 @@ name: deploy
 on:
   push:
     branches: [main]
-    paths: ['web/**', 'data/**', '.github/workflows/deploy.yml']
+    paths: ['web/**', 'data/**', 'scripts/**', 'collector/golden_cases.json', '.github/workflows/deploy.yml']
   workflow_dispatch:
 
 permissions:
@@ -15,6 +15,35 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
+  sync-readme:
+    # README '숫자' 표를 data/*.json 실측으로 다시 쓴다(정의: scripts/sync-readme.mjs).
+    # 바뀌면 봇이 커밋한다. GITHUB_TOKEN 푸시는 deploy 를 다시 트리거하지 않아 무한루프가 없다.
+    permissions:
+      contents: write
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: README 수치 동기화
+        run: node scripts/sync-readme.mjs
+      - name: 바뀐 게 있으면 커밋·푸시
+        run: |
+          set -eu
+          if git diff --quiet -- README.md; then
+            echo "변경 없음 — 커밋하지 않는다"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add README.md
+          git commit -m "chore(readme): sync numbers from data"
+          git pull --rebase --autostash origin main
+          git push origin HEAD:main
+
   build:
     runs-on: ubuntu-latest
     steps:
