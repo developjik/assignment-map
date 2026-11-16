@@ -1,4 +1,4 @@
-# 매일 수집 루틴 프롬프트 (v1.2 — fetch-우선 아키텍처, 2026-10-25 소스 확장)
+# 매일 수집 루틴 프롬프트 (v1.3 — 파서·카나리 계층 추가. v1.2 fetch-우선 아키텍처, 2026-10-25 소스 확장)
 
 > 이 문서 하나로 매일의 수집 세션이 self-contained로 동작해야 한다.
 > 소스 레지스트리: `collector/sources.json` — URL·비용·상태의 단일 공급원.
@@ -13,6 +13,28 @@
        ↓ 프리스크린 (규칙 기반 1차 → LLM 회색대역만)
 [T1 브라우저] → 상세 추출 + 재방문 (~40페이지)
 ```
+
+## 0.5. 파서·카나리 사용 (v1.3 신설)
+
+소스별 파싱은 즉석 정규식 대신 `collector/parsers/*.mjs`에 맡긴다 — 역사적 함정 회피 규칙이
+코드와 fixture 테스트로 굳어 있다(위비티 주석 li·셸 반환, 잡코리아 이중 data-gno·속성 순서,
+Devpost 문자열 날짜 등). fetch는 여전히 루틴이 하고, 본문을 stdin으로 흘려 보낸다:
+
+```
+fetch 본문 | node collector/parsers/wevity.mjs list      # 전체리스트 gp 페이지
+fetch 본문 | node collector/parsers/wevity.mjs detail    # 상세 gbn=view
+fetch 본문 | node collector/parsers/jobkorea.mjs         # m검색 결과
+fetch 본문 | node collector/parsers/devpost.mjs          # API JSON
+fetch 본문 | node collector/parsers/daker.mjs            # API JSON
+fetch 본문 | node collector/parsers/hn.mjs               # Who's hiring 스레드 확인
+```
+
+- 파서가 `count 0` + note를 내면 조용히 넘기지 않는다 — 마크업 변경이나 fetch 붕괴일 수 있다.
+- 수집 지표(페이지당 항목 수·검색 총건수·API 총 수)를 모아 밴드 검증:
+  `node collector/canary.mjs '{"wevity-list-per-page":15,...}'`
+  VIOLATION이면 run notes에 CANARY 줄을 남기고 해당 소스를 sources.json watch 강등 후보로 기록한다.
+- 마크업이 바뀌어 파서를 고칠 땐: fixture(`collector/tests/fixtures/`) 갱신 → 테스트 케이스 추가 →
+  `node --test collector/tests/*.test.mjs` 통과 → 커밋. (사고를 테스트로)
 
 ## 1. 갭 체크 (첫 동작)
 

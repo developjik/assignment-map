@@ -8,8 +8,10 @@ Aside 루틴 프롬프트와 검증 도구가 여기 들어갑니다.
 - merge.mjs: postings/events 병합·dedup·changelog 생성 (루틴 내 실행)
 - normalize.mjs: 기존 `data/*.json`의 문자열 evidence를 배열로 되돌리는 복구 도구 (멱등)
 - validate.mjs: 골든케이스 + 스키마 무결성 검증
+- parsers/: 소스별 영구 파서(위비티·잡코리아m·Devpost·daker·HN) — 아래 '파서·카나리' 참고
+- canaries.json / canary.mjs: 수집 지표 밴드 검증(조용한 파서 실패를 경보로)
 - fetch_news.py: 트렌드 뉴스 수집 → `data/news.json` (아래 참고)
-- tests/: `node --test collector/tests/`(머지·검증·정규화), `python3 -m unittest discover -s collector/tests`(뉴스 수집)
+- tests/: `node --test collector/tests/*.test.mjs`(머지·검증·정규화·파서 fixture 회귀), `python3 -m unittest discover -s collector/tests`(뉴스 수집)
 
 ## evidence 규칙
 
@@ -33,6 +35,27 @@ node collector/normalize.mjs          # 정리 (멱등)
 node collector/normalize.mjs --check  # CI 게이트
 node collector/validate.mjs           # 스키마 + 골든케이스
 ```
+
+## 파서·카나리 (parsers/, canary.mjs)
+
+소스별 파싱은 즉석 정규식 대신 `collector/parsers/*.mjs`에 맡깁니다. 파서는 fetch하지 않고
+stdin으로 본문을 받아 JSON을 stdout에 내는 순수 함수입니다(브라우저 컨텍스트가 필요한 fetch는
+루틴이 담당). 역사적 함정 회피 규칙이 코드와 fixture 테스트로 굳어 있습니다:
+
+- wevity.mjs: 주석 붙은 `<li >` 처리, SPECIAL 셸(ul.list 없음) 감지, dday-area 상세 파싱
+- jobkorea.mjs: 이중 data-gno 노이즈 제외(컨테이너=data-index 보유), 속성 순서 뒤집힘 대비 2패턴
+- devpost.mjs: `hackathons` 키, 서브도메인 url, `submission_period_dates` 문자열(인덱싱 금지)
+- daker.mjs: UTC ISO → KST 날짜 변환, registrationDeadline/lastStageEndDate 규칙
+- hn.mjs: 월간 Who's hiring 스레드 탐지
+
+```bash
+node collector/parsers/wevity.mjs list  < collector/tests/fixtures/wevity-list.html   # 사용 예
+node collector/canary.mjs '{"wevity-list-per-page":15,"devpost-open-total":59}'       # 밴드 검증
+```
+
+카나리는 수집 지표의 정상 밴드(canaries.json)를 검증합니다. VIOLATION이면 exit 1 —
+루틴은 run notes에 CANARY 줄을 남기고 해당 소스를 watch 강등 후보로 기록합니다.
+소스 마크업이 바뀌면: fixture 갱신 → 테스트 케이스 추가 → 통과 → 커밋(사고를 테스트로).
 
 ## 트렌드 뉴스 (fetch_news.py)
 
@@ -71,7 +94,7 @@ git add data/news.json data/meta.json && git commit -m "chore(news): daily news 
 ## 테스트
 
 ```bash
-node --test collector/tests/                                     # 머지 정규화 · 검증 회귀
+node --test collector/tests/*.test.mjs                          # 머지 정규화 · 검증 · 파서 fixture 회귀
 python3 -m unittest discover -s collector/tests -v               # 뉴스 수집 멱등성
 python3 -m unittest discover -s pipeline/shorts/tests -v         # 쇼츠 신선도
 ```

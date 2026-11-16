@@ -1,0 +1,40 @@
+{
+  "note": "수집 지표의 정상 밴드. 벗어나면 collector/canary.mjs가 VIOLATION을 내고 루틴은 run notes에 CANARY 줄을 남긴다. 밴드는 실측에서 온 것이므로 값 옆에 근거를 남긴다. 소스 마크업/응답이 바뀌어 지표가 급변하면: fixture를 갱신하고 → 파서를 고치고 → 밴드를 재조정한다(사고를 테스트로).",
+  "bands": {
+    "wevity-list-per-page": {
+      "min": 10,
+      "max": 20,
+      "note": "2026-11-16 실측 15/페이지(ul.list). 0이면 SPECIAL 셸만 반환 = fetch 붕괴(11-02 함정)"
+    },
+    "wevity-sweep-unique-ix": {
+      "min": 600,
+      "max": 1300,
+      "note": "gp 전수 스윕 유니크 ix. 11-05 22p/600 → 11-07 60p/900. 리스트는 계속 늘어나는 경향"
+    },
+    "devpost-open-total": {
+      "min": 30,
+      "max": 150,
+      "note": "meta.total_count. 11-15 실측 67, 2026-11-16 실측 59. 12~1월 시즌 급증 대비 상한 여유"
+    },
+    "daker-list-count": {
+      "min": 10,
+      "max": 50,
+      "note": "public-list?limit=50 상한. 2026-11-12·11-16 실측 24"
+    },
+    "jobkorea-search-sagwaje-total": {
+      "min": 300,
+      "max": 1500,
+      "note": "m검색 '사전과제' 총건수. 10-25 실측 788 → 11-16 실측 757. '과제 전형' 키워드 금지 규칙(국책과제 오탐)과 무관"
+    },
+    "jobkorea-mobile-items-per-page": {
+      "min": 20,
+      "max": 50,
+      "note": "컨테이너(data-index) 수/페이지. 2026-11-16 실측 40. 0이면 마크업 4차 변경 — canary 경보"
+    },
+    "hn-whoishiring-stories": {
+      "min": 400,
+      "max": 700,
+      "note": "Algolia author_whoishiring 스토리 총수. 2026-11-16 실측 514"
+    }
+  }
+}
