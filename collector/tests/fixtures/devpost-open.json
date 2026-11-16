@@ -1,0 +1,93 @@
+{
+ "hackathons": [
+  {
+   "id": 31667,
+   "title": "Kiroween 2026",
+   "displayed_location": {
+    "icon": "globe",
+    "location": "Online"
+   },
+   "open_state": "open",
+   "thumbnail_url": "//d112y698adiu2z.cloudfront.net/photos/production/challenge_thumbnails/005/585/149/datas/medium_square.png",
+   "analytics_identifier": "Kiroween 2026 (31667)",
+   "url": "https://kiroween.devpost.com/",
+   "time_left_to_submission": "18 days left",
+   "submission_period_dates": "Oct 30 - Dec 04, 2026",
+   "themes": [
+    {
+     "id": 23,
+     "name": "Beginner Friendly"
+    },
+    {
+     "id": 6,
+     "name": "Machine Learning/AI"
+    },
+    {
+     "id": 22,
+     "name": "Open Ended"
+    }
+   ],
+   "prize_amount": "$<span data-currency-value>100,000</span>",
+   "prizes_counts": {
+    "cash": 1,
+    "other": 0
+   },
+   "registrations_count": 14637,
+   "featured": true,
+   "organization_name": "Kiro",
+   "winners_announced": false,
+   "submission_gallery_url": "https://kiroween.devpost.com/project-gallery",
+   "start_a_submission_url": "https://kiroween.devpost.com/challenges/start_a_submission",
+   "invite_only": false,
+   "eligibility_requirement_invite_only_description": null,
+   "managed_by_devpost_badge": true
+  },
+  {
+   "id": 31024,
+   "title": "Meta VR Start Developer Competition 2026",
+   "displayed_location": {
+    "icon": "globe",
+    "location": "Online"
+   },
+   "open_state": "open",
+   "thumbnail_url": "//d112y698adiu2z.cloudfront.net/photos/production/challenge_thumbnails/005/374/843/datas/medium_square.png",
+   "analytics_identifier": "Meta VR Start Developer Competition 2026 (31024)",
+   "url": "https://start-developer-competition-26.devpost.com/",
+   "time_left_to_submission": "2 days left",
+   "submission_period_dates": "Sep 24 - Nov 18, 2026",
+   "themes": [
+    {
+     "id": 5,
+     "name": "AR/VR"
+    },
+    {
+     "id": 6,
+     "name": "Machine Learning/AI"
+    },
+    {
+     "id": 25,
+     "name": "Web"
+    }
+   ],
+   "prize_amount": "$<span data-currency-value>1,000,000</span>",
+   "prizes_counts": {
+    "cash": 1,
+    "other": 0
+   },
+   "registrations_count": 6429,
+   "featured": true,
+   "organization_name": "Meta",
+   "winners_announced": false,
+   "submission_gallery_url": "https://start-developer-competition-26.devpost.com/project-gallery",
+   "start_a_submission_url": "https://start-developer-competition-26.devpost.com/challenges/start_a_submission",
+   "invite_only": false,
+   "eligibility_requirement_invite_only_description": null,
+   "managed_by_devpost_badge": true
+  }
+ ],
+ "meta": {
+  "total_count": 59,
+  "per_page": 9,
+  "fuzzy": false
+ }
+}
