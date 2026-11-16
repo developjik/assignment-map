@@ -1,0 +1,52 @@
+name: news-refresh
+
+# data/news.json 은 일일 수집 루틴(Aside, 03:00 KST)이 아니라 collector/fetch_news.py 가 관리한다.
+# 03:30 KST 에 돌려 바뀐 게 있으면 커밋하고, deploy.yml 을 직접 깨워 Pages 로 배포한다.
+on:
+  schedule:
+    - cron: "30 18 * * *"   # 03:30 KST (전날 18:30 UTC)
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  actions: write            # deploy.yml 을 workflow_dispatch 로 깨우기 위해
+
+concurrency:
+  group: news-refresh
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main          # detached HEAD 가 아닌 main 브랜치로 체크아웃(푸시 대상)
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: 뉴스 수집 (바뀐 게 없으면 파일을 쓰지 않는다)
+        run: python3 collector/fetch_news.py
+      - name: 데이터 검증 (evidence 배열·골든케이스)
+        run: node collector/validate.mjs
+      - name: 바뀐 게 있으면 커밋·푸시
+        id: commit
+        run: |
+          set -eu
+          if git diff --quiet -- data/news.json data/meta.json; then
+            echo "변경 없음 — 커밋하지 않는다"
+            echo "pushed=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/news.json data/meta.json
+          git commit -m "chore(news): daily news refresh"
+          git pull --rebase --autostash origin main
+          git push origin HEAD:main
+          echo "pushed=true" >> "$GITHUB_OUTPUT"
+      - name: 배포 트리거 (GITHUB_TOKEN 푸시는 deploy.yml 을 깨우지 않는다)
+        if: steps.commit.outputs.pushed == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: gh workflow run deploy.yml --ref main
