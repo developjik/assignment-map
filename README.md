@@ -105,14 +105,14 @@ npm run preview    # dist/ 정적 서버 (127.0.0.1:4173)
 data/       postings.json · events.json · platforms.json · news.json · changelog.json · meta.json
             guides/ (AI 실전 과제 공략 마크다운 4종 — 빌드 타임에 JSON으로 컴파일)
 runs/       런별 실행 기록 (소스별 방문 수·실패·판단)
-collector/  sources.json(소스 레지스트리) · merge.mjs · validate.mjs · golden_cases.json · ROUTINE_PROMPT.md · fetch_news.py
+collector/  sources.json(소스 레지스트리) · evidence.mjs · merge.mjs · normalize.mjs · validate.mjs · golden_cases.json · ROUTINE_PROMPT.md · fetch_news.py · tests/
 pipeline/   shorts/ (이벤트 → 쇼츠 대본 파이프라인)
 ```
 
-- `node collector/validate.mjs` — 스키마 무결성, 중복 id, meta 카운트 일치, 골든케이스 6/6. 실패하면 커밋하지 않는다.
+- `node collector/validate.mjs` — 스키마 무결성, 중복 id, meta 카운트 일치, evidence 배열 규칙, 골든케이스 6/6. 실패하면 커밋하지 않는다. evidence가 문자열이면 exit 1(2026-11-16 사고 회귀 방지).
 - `data/changelog.json` — 날마다 신규·정책 변경·마감 변경·상태 변경을 남긴다. 웹의 "AI 정책 변경 기업" 뷰가 이 기록과 각 레코드 history를 함께 읽는다.
 - `runs/*.json` — 그날 무엇을 몇 페이지로 확인했고 무엇을 못 했는지. 다음 런의 우선순위가 여기서 이어진다.
-- `python3 collector/fetch_news.py` — AI 채용·이직·해커톤·AI 코딩 도구 뉴스를 공개 RSS/JSON 피드에서 모아 `data/news.json`과 `meta.counts.news`를 갱신한다. 수집은 새 항목만 `news-feed-*`로 다시 쓰고, 손으로 정리한 `news-policy-*`/`news-trend-*` 항목은 그대로 둔다.
+- `python3 collector/fetch_news.py` — AI 채용·이직·해커톤·AI 코딩 도구 뉴스를 공개 RSS/JSON 피드에서 모아 `data/news.json`과 `meta.counts.news`를 갱신한다. 수집은 새 항목만 `news-feed-*`로 다시 쓰고, 손으로 정리한 `news-policy-*`/`news-trend-*` 항목은 그대로 둔다. id는 기사 URL 해시이고, 결과가 지금 파일과 같으면 쓰지 않는다(멱등). 매일 03:30 KST `.github/workflows/news-refresh.yml`이 자동으로 돌린다 — 자세한 규칙은 [collector/README.md](collector/README.md).
 
 ## 쇼츠 파이프라인 (pipeline/shorts/)
 

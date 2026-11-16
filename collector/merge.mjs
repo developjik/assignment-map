@@ -3,6 +3,7 @@
 // 사용: node collector/merge.mjs runs/2026-10-24.json
 import fs from 'node:fs';
 import path from 'node:path';
+import { asEvidence, asStringArray } from './evidence.mjs';
 
 const repo = path.resolve(import.meta.dirname, '..');
 const runPath = process.argv[2];
@@ -12,6 +13,22 @@ const date = run.date || path.basename(runPath, '.json');
 const read = f => JSON.parse(fs.readFileSync(path.join(repo, 'data', f), 'utf8'));
 const write = (f, obj) => fs.writeFileSync(path.join(repo, 'data', f), JSON.stringify(obj, null, 2) + '\n');
 const dayDiff = (from, to) => Math.round((new Date(to) - new Date(from)) / 864e5);
+
+// postings 의 evidence 는 { quote, field } 객체 배열, events 는 문자열 배열 (collector/evidence.mjs)
+const QUOTE_OBJECTS = { quoteObjects: true };
+const postingFields = inc => ({
+  ...inc,
+  evidence: asEvidence(inc.evidence, QUOTE_OBJECTS),
+  positions: asStringArray(inc.positions),
+  ...(inc.urls_research !== undefined ? { urls_research: asStringArray(inc.urls_research) } : {}),
+  ...(inc.tags !== undefined ? { tags: asStringArray(inc.tags) } : {}),
+});
+// strings/단일 값 evidence 가 들어와도 저장 전에 배열로 — 원천 차단
+const eventFields = inc => ({
+  ...inc,
+  evidence: asEvidence(inc.evidence),
+  ...(inc.tags !== undefined ? { tags: asStringArray(inc.tags) } : {}),
+});
 
 const cadence = (deadlines, today) => {
   const ds = deadlines.filter(Boolean).sort()[0];
@@ -29,15 +46,16 @@ const pById = new Map(postings.map(p => [p.id, p]));
 for (const inc of run.postings || []) {
   if (!inc.id) continue;
   const ex = pById.get(inc.id);
+  const fields = postingFields(inc);
   if (!ex) {
-    pById.set(inc.id, { ...inc, first_seen: date, last_seen: date, last_checked: date,
+    pById.set(inc.id, { ...fields, first_seen: date, last_seen: date, last_checked: date,
       check_cadence: cadence([inc.deadline], date), review: inc.review || 'auto',
       history: [{ date, event: 'created', ai_policy: inc.ai_policy }] });
     S.new_postings.push(inc.id); continue;
   }
   const hist = [...(ex.history || [])];
   if (inc.ai_policy && inc.ai_policy !== ex.ai_policy) {
-    hist.push({ date, event: 'policy_changed', from: ex.ai_policy, to: inc.ai_policy, evidence: (inc.evidence || [])[0]?.quote || '' });
+    hist.push({ date, event: 'policy_changed', from: ex.ai_policy, to: inc.ai_policy, evidence: fields.evidence[0]?.quote || '' });
     ex.ai_policy = inc.ai_policy; S.policy_changed.push(ex.id);
   }
   if (inc.deadline && inc.deadline !== ex.deadline) {
@@ -49,11 +67,19 @@ for (const inc of run.postings || []) {
     ex.status = inc.status; S.status_changed.push(ex.id);
   }
   ex.history = hist; ex.last_seen = date; ex.last_checked = date;
-  if (inc.evidence?.length) ex.evidence = inc.evidence;
+  if (fields.evidence.length) ex.evidence = fields.evidence;
+  if (inc.positions !== undefined) ex.positions = fields.positions;
   if (inc.url) ex.url = inc.url;
   S.updated_postings++;
 }
 const mergedPostings = [...pById.values()];
+// 기존 레코드에 남아 있는 문자열 evidence 도 이번 병합에서 배열로 정리한다(멱등)
+for (const p of mergedPostings) {
+  p.evidence = asEvidence(p.evidence, QUOTE_OBJECTS);
+  p.positions = asStringArray(p.positions);
+  if (p.urls_research !== undefined) p.urls_research = asStringArray(p.urls_research);
+  if (p.tags !== undefined) p.tags = asStringArray(p.tags);
+}
 for (const p of mergedPostings) p.check_cadence = (p.status === 'closed' || p.status === 'gone' || p.status === 'no_hiring') ? 'none' : cadence([p.deadline], date);
 write('postings.json', mergedPostings);
 
@@ -63,8 +89,9 @@ const eById = new Map(events.map(e => [e.id, e]));
 for (const inc of run.events || []) {
   if (!inc.id) continue;
   const ex = eById.get(inc.id);
+  const fields = eventFields(inc);
   if (!ex) {
-    eById.set(inc.id, { ...inc, first_seen: date, last_checked: date,
+    eById.set(inc.id, { ...fields, first_seen: date, last_checked: date,
       check_cadence: cadence([inc.apply_deadline, inc.submit_deadline], date), review: inc.review || 'auto',
       history: [{ date, event: 'created', status: inc.status }] });
     S.new_events.push(inc.id); continue;
@@ -83,12 +110,14 @@ for (const inc of run.events || []) {
       hist.push({ date, event: 'deadline_changed', field: f, from: ex[f], to: inc[f] });
       ex[f] = inc[f]; S.event_deadline_changed.push(ex.id);
     }
-  for (const f of ['result_date', 'prize', 'title', 'url', 'evidence'])
+  for (const f of ['result_date', 'prize', 'title', 'url'])
     if (inc[f] !== undefined && inc[f] !== null) ex[f] = inc[f];
+  if (fields.evidence.length) ex.evidence = fields.evidence;
   ex.history = hist; ex.last_checked = date;
   S.updated_events++;
 }
 const mergedEvents = [...eById.values()];
+for (const e of mergedEvents) e.evidence = asEvidence(e.evidence);   // 레거시 문자열 정리(멱등)
 for (const e of mergedEvents) e.check_cadence = e.status === 'closed' ? 'none' : cadence([e.apply_deadline, e.submit_deadline], date);
 write('events.json', mergedEvents);
 

@@ -497,9 +497,30 @@ def short_company(name):
     return text or "한 기업"
 
 
+def evidence_entries(record):
+    """evidence 는 문자열 배열(이벤트) 또는 {quote, field} 배열(채용) — 레거시 문자열도 받는다."""
+    ev = (record or {}).get("evidence")
+    if ev is None:
+        return []
+    if isinstance(ev, str):
+        return [ev]
+    return list(ev) if isinstance(ev, (list, tuple)) else []
+
+
+def evidence_text(record):
+    """근거 문장을 한 줄로 이어 붙인다 — 대본 하단 '근거' 표기에 쓴다."""
+    parts = []
+    for ev in evidence_entries(record):
+        q = ev.get("quote") if isinstance(ev, dict) else ev
+        q = clean_fragment(q)
+        if q:
+            parts.append(q)
+    return " ".join(parts)
+
+
 def pick_evidence_quote(record, prefer=("ai", "assignment")):
     """근거 인용문 중 AI 정책/전형 설명에 가장 가까운 것을 고른다."""
-    evs = record.get("evidence") or []
+    evs = evidence_entries(record)
     quotes = []
     for ev in evs:
         if isinstance(ev, dict):
@@ -656,7 +677,7 @@ def event_scenes(event, days, today_str):
     deadline = event.get("submit_deadline") or event.get("apply_deadline")
     deadline_txt = deadline_phrase(deadline, days, with_word=False)
     policy_label = AI_POLICY_KO.get(event.get("ai_usage") or "unspecified", "공고에 명시 없음")
-    ai_detail = clean_fragment(event.get("evidence"))
+    ai_detail = evidence_text(event)
 
     # Scene 1 (00~04초) 후킹
     prize_txt = prize_phrase(event.get("prize"), short=True)
@@ -835,7 +856,7 @@ def script_markdown(kind, record, script_data, slot):
             f"- **상금/혜택**: {prize_phrase(record.get('prize'))}",
             f"- **AI 정책**: {record.get('ai_usage')}",
             f"- **마감**: {script_data['deadline'] or '미정'}",
-            f"- **근거**: {clean_fragment(record.get('evidence')) or '없음'}",
+            f"- **근거**: {evidence_text(record) or '없음'}",
         ]
 
     return f"""# 🎬 [쇼츠 자동생성] {script_data['event_title']}

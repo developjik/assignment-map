@@ -2,6 +2,7 @@
 // validate.mjs — 골든케이스 + 스키마 무결성 검증. exit 0이어야 커밋 허용(잠금 장치).
 import fs from 'node:fs';
 import path from 'node:path';
+import { evidenceProblem } from './evidence.mjs';
 const repo = path.resolve(import.meta.dirname, '..');
 const read = f => JSON.parse(fs.readFileSync(path.join(repo, 'data', f), 'utf8'));
 const gc = JSON.parse(fs.readFileSync(path.join(repo, 'collector', 'golden_cases.json'), 'utf8'));
@@ -22,6 +23,17 @@ for (const e of events) {
 }
 check('meta', meta.counts.postings === postings.length, `postings 수 불일치 meta=${meta.counts.postings} 실제=${postings.length}`);
 check('meta', meta.counts.events === events.length, `events 수 불일치 meta=${meta.counts.events} 실제=${events.length}`);
+
+// evidence 는 언제나 비어 있지 않은 문자열 항목의 배열 — 문자열 하나가 들어오면 즉시 실패.
+// (2026-11-16 잡코리아 5건이 evidence 를 문자열로 남겨 목록 렌더링이 통째로 죽었다)
+for (const p of postings) {
+  const problem = evidenceProblem(p.evidence);
+  check('postings', !problem, `${p.id || '?'}: ${problem}`);
+}
+for (const e of events) {
+  const problem = evidenceProblem(e.evidence);
+  check('events', !problem, `${e.id || '?'}: ${problem}`);
+}
 
 // 골든케이스
 for (const c of gc.postings || []) {

@@ -94,10 +94,15 @@
 행사는 과제 제출과 달리 '참여 기회'로 수집 — 무료 공개 행사 우선, 유료도 가격과 함께 기록.
 
 근거 문장 1개 evidence.quote로 필수. 애매하면 needs_review.
+evidence는 **배열**로 넣는다 — postings는 `[{ "quote": "…", "field": "policy|assignment|research" }]`,
+events는 `["…"]`. 문자열 하나만 넣어도 merge가 배열로 감싸 주지만, 회차 로그에 무엇이 들어갔는지는
+배열이어야 나중에 읽힌다. `node collector/validate.mjs`가 문자열 evidence를 잡아 커밋을 잠근다.
 
 ## 8. 산출물 + 검증 + 커밋
 
 `runs/YYYY-MM-DD.json` → `node collector/merge.mjs` → `node collector/validate.mjs` → exit 0 시만 git push.
+merge가 evidence·positions 같은 배열 필드를 정규화한다. 기존 데이터에 문자열이 남아 있으면
+`node collector/normalize.mjs`로 한 번 정리한다(멱등).
 
 ## 9. 하지 않는 것
 

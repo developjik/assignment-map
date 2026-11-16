@@ -25,7 +25,10 @@ export function normalizeDate(value, fallback) {
 }
 
 const firstQuote = (evidence) => {
-  if (Array.isArray(evidence)) return evidence[0]?.quote || ''
+  if (Array.isArray(evidence)) {
+    const first = evidence.find((e) => (typeof e === 'string' ? e.trim() : e && e.quote))
+    return typeof first === 'string' ? first.trim() : (first && first.quote) || ''
+  }
   return evidence || ''
 }
 
@@ -58,7 +61,7 @@ export function collectFeedItems(dataDir) {
       url: e.url || SITE,
       title: `[${EVENT_TYPE[e.type] || e.type || '이벤트'}] ${e.title}`,
       date,
-      summary: [e.host, e.prize, e.apply_deadline || e.submit_deadline ? `마감 ${e.apply_deadline || e.submit_deadline}` : '마감 미정', e.hiring_link ? '채용연계' : '', e.evidence].filter(Boolean).join(' | '),
+      summary: [e.host, e.prize, e.apply_deadline || e.submit_deadline ? `마감 ${e.apply_deadline || e.submit_deadline}` : '마감 미정', e.hiring_link ? '채용연계' : '', firstQuote(e.evidence)].filter(Boolean).join(' | '),
       tags: [EVENT_TYPE[e.type] || e.type || '이벤트', e.ai_usage || 'unknown', e.hiring_link ? '채용연계' : ''].filter(Boolean),
     })
   }

@@ -1056,7 +1056,11 @@
     "positions_raw": "백엔드개발자",
     "assignment_type": "unknown",
     "ai_policy": "unspecified",
-    "evidence": "잡코리아 GI_Read 브라우저 실측(2026-11-16): '마감되었습니다' 표시 — SOOP LIVE 방송 서버 개발, 마감일 11-15 경과",
+    "evidence": [
+      {
+        "quote": "잡코리아 GI_Read 브라우저 실측(2026-11-16): '마감되었습니다' 표시 — SOOP LIVE 방송 서버 개발, 마감일 11-15 경과"
+      }
+    ],
     "url": "https://www.jobkorea.co.kr/Recruit/GI_Read/50283588",
     "deadline": "2026-11-15",
     "status": "closed",
@@ -1091,7 +1095,11 @@
     "positions_raw": "AI 기반 개인화 추천 시스템 엔지니어 (모집부문명)",
     "assignment_type": "unknown",
     "ai_policy": "unspecified",
-    "evidence": "잡코리아 GI_Read 브라우저 실측(2026-11-16): 지원정보 '마감되었습니다. 기간 2026.11.03(화) ~ 2026.11.15(일)' — SOOP AI 기반 개인화 추천 시스템 엔지니어",
+    "evidence": [
+      {
+        "quote": "잡코리아 GI_Read 브라우저 실측(2026-11-16): 지원정보 '마감되었습니다. 기간 2026.11.03(화) ~ 2026.11.15(일)' — SOOP AI 기반 개인화 추천 시스템 엔지니어"
+      }
+    ],
     "url": "https://www.jobkorea.co.kr/Recruit/GI_Read/50293498",
     "deadline": "2026-11-15",
     "status": "closed",
@@ -1265,7 +1273,11 @@
     "positions_raw": "운영 콘텐츠 디자이너",
     "assignment_type": "pre_assignment",
     "ai_policy": "required",
-    "evidence": "잡코리아 GI_Read 브라우저 실측(2026-11-16): 제목 옆 '마감' 배지 + 본문 모집기간 '~ 2026.11.15(일)' 경과 — 메디씨앤씨 운영 콘텐츠 디자이너",
+    "evidence": [
+      {
+        "quote": "잡코리아 GI_Read 브라우저 실측(2026-11-16): 제목 옆 '마감' 배지 + 본문 모집기간 '~ 2026.11.15(일)' 경과 — 메디씨앤씨 운영 콘텐츠 디자이너"
+      }
+    ],
     "url": "https://www.jobkorea.co.kr/Recruit/GI_Read/50185931",
     "deadline": "2026-11-15",
     "status": "closed",
@@ -1340,7 +1352,11 @@
     "positions_raw": "영상 콘텐츠 편집(계약직 12개월)",
     "assignment_type": "pre_assignment",
     "ai_policy": "allowed",
-    "evidence": "잡코리아 GI_Read 브라우저 실측(2026-11-16): '마감되었습니다' 표시 — 프리컷(SOOP 자회사) 영상 콘텐츠 편집, 마감일 11-15 경과",
+    "evidence": [
+      {
+        "quote": "잡코리아 GI_Read 브라우저 실측(2026-11-16): '마감되었습니다' 표시 — 프리컷(SOOP 자회사) 영상 콘텐츠 편집, 마감일 11-15 경과"
+      }
+    ],
     "url": "https://www.jobkorea.co.kr/Recruit/GI_Read/50256313",
     "deadline": "2026-11-15",
     "status": "closed",
@@ -1790,7 +1806,11 @@
     "positions_raw": "남성향 판타지 웹툰 - 전공정, 선화 작가 구인(프리랜서)",
     "assignment_type": "pre_assignment",
     "ai_policy": "unspecified",
-    "evidence": "잡코리아 GI_Read 브라우저 실측(2026-11-16): '마감되었습니다' 표시 — 스튜디오리코 웹툰 작가 구인, 마감일 11-15 경과",
+    "evidence": [
+      {
+        "quote": "잡코리아 GI_Read 브라우저 실측(2026-11-16): '마감되었습니다' 표시 — 스튜디오리코 웹툰 작가 구인, 마감일 11-15 경과"
+      }
+    ],
     "url": "https://www.jobkorea.co.kr/Recruit/GI_Read/50184128",
     "deadline": "2026-11-15",
     "status": "closed",
