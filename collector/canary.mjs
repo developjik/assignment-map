@@ -26,6 +26,7 @@ export function checkCanaries(counts, bands) {
     return { lines: [line], violations: [line] }
   }
   for (const name of names) {
+    const value = counts[name]
     const band = bands[name]
     if (!band) {
       lines.push(`CANARY NO-BAND  ${name} = ${value} — canaries.json에 밴드 정의 추가 고려`)
