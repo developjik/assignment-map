@@ -2,7 +2,7 @@ name: deploy
 on:
   push:
     branches: [main]
-    paths: ['web/**', 'data/**', 'scripts/**', '.github/workflows/deploy.yml']
+    paths: ['web/**', 'data/**', 'scripts/**', 'collector/golden_cases.json', '.github/workflows/deploy.yml']
   workflow_dispatch:
 
 permissions:

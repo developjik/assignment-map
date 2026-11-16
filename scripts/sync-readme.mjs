@@ -13,7 +13,6 @@ const repo = path.resolve(import.meta.dirname, '..')
 const read = (f) => JSON.parse(fs.readFileSync(path.join(repo, f), 'utf8'))
 const postings = read('data/postings.json')
 const events = read('data/events.json')
-const golden = read('collector/golden_cases.json')
 
 const OPEN_EVENT = new Set(['open', 'upcoming'])
 // '명시' = 정책 문구를 찾은 것 (미언급 unspecified / 확인필요 unknown 제외, 금지 banned 포함)
@@ -32,7 +31,28 @@ const requiredCount =
 // 피드 항목 수는 진짜 피드 생성 로직(collectFeedItems)과 똑같이 센다.
 const feedItems = collectFeedItems(path.join(repo, 'data')).items.length
 
-const goldenTotal = (golden.postings?.length || 0) + (golden.events?.length || 0)
+// 골든케이스는 설정 개수가 아니라 실측 통과 수를 쓴다: validate.mjs 를 직접 돌려
+// '골든케이스 X/Y' 출력을 읽는다. validate 실패면 이 스크립트도 실패한다 —
+// 깨진 데이터로 README를 갱신하지 않는다(Codex PR 리뷰 반영).
+let goldenPass = 0
+let goldenTotal = 0
+try {
+  const out = execFileSync(process.execPath, [path.join(repo, 'collector/validate.mjs')], {
+    encoding: 'utf8',
+    stdio: ['ignore', 'pipe', 'pipe'],
+  })
+  const m = out.match(/골든케이스 (\d+)\/(\d+)/)
+  if (!m) {
+    console.error('sync-readme: validate.mjs 출력에서 골든케이스 X/Y를 못 찾았다 — 메시지 형식이 바뀌면 이 정규식을 고친다')
+    process.exit(1)
+  }
+  goldenPass = Number(m[1])
+  goldenTotal = Number(m[2])
+} catch (e) {
+  console.error('sync-readme: validate.mjs 실패 — README를 갱신하지 않는다')
+  console.error(String((e && e.stdout) || e))
+  process.exit(1)
+}
 
 // 안티-슬롭 체크 수: 린터 자체 출력('N체크')에서 읽는다. 실패 시 표기 유지.
 import { execFileSync } from 'node:child_process'
@@ -56,7 +76,7 @@ const section = `## 숫자 (${kstToday} 기준)
 | 지금 열려 있는 기회 | ${openPostings.length + openEvents.length}건 (채용 공고 ${openPostings.length} · 이벤트 ${openEvents.length}) |
 | AI 정책을 명시한 진행중 항목 | ${stated}건 (그중 AI 필수 ${requiredCount}건) |
 | 피드 발행 항목 | ${feedItems}건 (RSS + JSON Feed 동일 목록) |
-| 골든케이스 | ${goldenTotal}/${goldenTotal} (정책 판정 회귀 방지) |
+| 골든케이스 | ${goldenPass}/${goldenTotal} (정책 판정 회귀 방지) |
 | 안티-슬롭 검사 | ${lintCount}체크, 빌드 실패 시 배포 중단 |
 | 운영비 | ₩0 (GitHub Actions + Pages 무료 쿼터, 외부 DB·서버 없음) |
 
@@ -74,5 +94,5 @@ const next = [...lines.slice(0, start), ...section.split('\n'), ...lines.slice(e
 // 3연속 이상 개행(섹션 교체 잔해)은 빈 줄 1개로 정규화한다.
 fs.writeFileSync(readmePath, next.join('\n').replace(/\n{3,}/g, '\n\n'))
 console.log(
-  `SYNC-README OK — ${kstToday} 기준 · 레코드 ${postings.length + events.length} · 열림 ${openPostings.length + openEvents.length} · 명시 ${stated} (필수 ${requiredCount}) · 피드 ${feedItems} · 골든 ${goldenTotal} · 슬롭린트 ${lintCount}`,
+  `SYNC-README OK — ${kstToday} 기준 · 레코드 ${postings.length + events.length} · 열림 ${openPostings.length + openEvents.length} · 명시 ${stated} (필수 ${requiredCount}) · 피드 ${feedItems} · 골든 ${goldenPass}/${goldenTotal} · 슬롭린트 ${lintCount}`,
 )
