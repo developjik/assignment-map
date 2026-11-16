@@ -619,11 +619,11 @@
     ],
     "positions_raw": "React·TypeScript·Django · 경력 3-10년",
     "assignment_type": "coding_test",
-    "ai_policy": "unspecified",
+    "ai_policy": "banned",
     "evidence": [
       {
-        "quote": "[채용절차] 실시간으로 진행하는 과제가 포함되어 있습니다.",
-        "field": "채용절차"
+        "quote": "AI 사용 : 면접 중 실시간 개발 과제를 수행하는 동안에는 AI 도구를 사용할 수 없습니다.",
+        "field": "policy"
       }
     ],
     "url": "https://jumpit.saramin.co.kr/position/55361658",
@@ -632,14 +632,21 @@
     "review": "auto",
     "note": "실시간 과제. AI 언급은 업무 설명(AI 채점 기능 개발) — 정책 아님",
     "first_seen": "2026-10-24",
-    "last_seen": "2026-10-24",
-    "last_checked": "2026-10-24",
+    "last_seen": "2026-11-17",
+    "last_checked": "2026-11-17",
     "check_cadence": "daily",
     "history": [
       {
         "date": "2026-10-24",
         "event": "created",
         "ai_policy": "unspecified"
+      },
+      {
+        "date": "2026-11-17",
+        "event": "policy_changed",
+        "from": "unspecified",
+        "to": "banned",
+        "evidence": "AI 사용 : 면접 중 실시간 개발 과제를 수행하는 동안에는 AI 도구를 사용할 수 없습니다."
       }
     ]
   },
