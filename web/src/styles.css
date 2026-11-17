@@ -286,32 +286,27 @@ td.c-sub { max-width: 210px; overflow: hidden; text-overflow: ellipsis; white-sp
 /* 기회 표: fixed 레이아웃 — 컨테이너 폭에 항상 맞음 (900~1280 중간 폭 대응) */
 .tscroll table { table-layout: fixed; width: 100%; min-width: 0; }
 .tscroll td, .tscroll th { overflow: hidden; text-overflow: ellipsis; }
-/* 컬럼 폭 배분 (2026-11-13): 근거에 가장 넓은 몫을 준다. 240px 상한을 없애 와이드에서 문장이 더 남는다. */
-col[data-col="name"] { width: 21%; }
-col[data-col="type"] { width: 6%; }
-col[data-col="sub"] { width: 15%; }
+/* 컬럼 폭 배분 (PR B): 유형·확인이 빠져 5컬럼. 근거가 가장 넓고 이름이 그다음이다 (Raycast 증거 분리). */
+col[data-col="name"] { width: 27%; }
+col[data-col="sub"] { width: 16%; }
 col[data-col="policy"] { width: 10%; }
-col[data-col="evidence"] { width: 28%; }
-col[data-col="deadline"] { width: 12%; }
-col[data-col="checked"] { width: 8%; }
+col[data-col="evidence"] { width: 32%; }
+col[data-col="deadline"] { width: 15%; }
 td.ev { white-space: nowrap; color: var(--mut); }
-/* 상세 패널이 열리면 유형·확인 컬럼은 패널이 대신한다 — 근거와 이름에 폭을 넘긴다 */
-.pane-on col[data-col="name"] { width: 27%; }
-.pane-on col[data-col="sub"] { width: 14%; }
-.pane-on col[data-col="policy"] { width: 10%; }
-.pane-on col[data-col="evidence"] { width: 34%; }
-.pane-on col[data-col="deadline"] { width: 15%; }
-.pane-on [data-col="type"], .pane-on [data-col="checked"] { display: none; }
+/* 상세 패널이 열리면 남은 폭을 이름·근거가 나눠 갖는다 */
+.pane-on col[data-col="name"] { width: 30%; }
+.pane-on col[data-col="sub"] { width: 15%; }
+.pane-on col[data-col="policy"] { width: 11%; }
+.pane-on col[data-col="evidence"] { width: 30%; }
+.pane-on col[data-col="deadline"] { width: 14%; }
 /* 1200~1359: 패널이 열리면 대상/주최도 패널에만 두고 이름·근거를 살린다 */
 @media (max-width: 1359px) {
   .pane-on [data-col="sub"] { display: none; }
   .pane-on col[data-col="sub"] { width: 0; }
-  .pane-on col[data-col="name"] { width: 34%; }
+  .pane-on col[data-col="name"] { width: 38%; }
   .pane-on col[data-col="policy"] { width: 12%; }
-  .pane-on col[data-col="evidence"] { width: 40%; }
+  .pane-on col[data-col="evidence"] { width: 36%; }
   .pane-on col[data-col="deadline"] { width: 14%; }
-  /* 좁은 표에서는 행 안 .ics 버튼을 패널에 맡긴다 */
-  .pane-on .rowics { display: none; }
   .pane-on td[data-col="deadline"], .pane-on th[data-col="deadline"] { padding-left: 4px; padding-right: 8px; }
 }
 
@@ -434,16 +429,15 @@ td.ev { white-space: nowrap; color: var(--mut); }
 
 /* 모바일: 부차 컬럼 숨김 (우선순위 컬럼만) */
 @media (max-width: 760px) {
-  [data-col="evidence"], [data-col="checked"], [data-col="sub"], [data-col="type"] { display: none; }
+  [data-col="evidence"], [data-col="sub"] { display: none; }
   /* 남은 컬럼이 찌그러지지 않게 auto 레이아웃 + 마감 폭 고정, 행 .ics는 상세 안 버튼으로 대체 */
   .tscroll { overflow-x: auto; }
   .tscroll table { table-layout: auto; }
-  col[data-col="type"], col[data-col="sub"], col[data-col="evidence"], col[data-col="checked"] { width: 0; }
+  col[data-col="sub"], col[data-col="evidence"] { width: 0; }
   col[data-col="name"] { width: auto; }
   col[data-col="policy"] { width: 70px; }
   col[data-col="deadline"] { width: 96px; }
   td[data-col="deadline"], th[data-col="deadline"] { padding-left: 6px; padding-right: 6px; }
-  .rowics { display: none; }
   /* 좁은 화면: 이름 셀이 260px를 고집하지 않게 (가로 잘림 방지) */
   td.c-name { min-width: 0; }
   .co { max-width: 140px; }
@@ -498,10 +492,6 @@ td.ev { white-space: nowrap; color: var(--mut); }
 /* 확장 행 안의 .ics 버튼 */
 .ics.act { background: none; border: 1px solid var(--border); color: var(--blue); font: 10.5px var(--mono); padding: 2px 7px; margin-left: 12px; cursor: pointer; }
 .ics.act:hover { border-color: var(--blue); color: var(--fg-hi); }
-
-/* 행 안 단건 .ics — 마감 셀에 붙는다 */
-.rowics { background: none; border: 1px solid var(--border); color: var(--faint); font: 9.5px var(--mono); padding: 0 3px; margin-left: 6px; cursor: pointer; vertical-align: 1px; }
-.rowics:hover { color: var(--blue); border-color: var(--blue); }
 
 /* 좁은 화면: 검색 안내문은 헤더 입력의 title 로 옮겼다 */
 
@@ -808,3 +798,40 @@ a.rep:hover { color: var(--fg-hi); border-color: var(--blue); text-decoration: n
   .dayc-pol { flex: 1 1 100%; }
   .cal-dow span { padding: 5px 4px; }
 }
+
+/* ===== PR B — 행은 식별·비교, 패널은 검증·행동 (2026-11-17) ===== */
+/* 패널 본문 12px/1.65 — 표 셀(11.5px)보다 크게 두어 긴 한글 문단의 가독 하한을 넘긴다.
+   섹션 라벨·모노 메타(10~10.5px)는 그대로 두어 위계는 유지한다. */
+.dpane .dp-q,
+.dpane .dp-proc,
+.dpane .dp-kv dd,
+.dpane .dp-hist,
+.dpane .dp-chg,
+.dpane .dp-none,
+.dpane .dp-memo p,
+.dpane .rel-n,
+.dpane .gp-sum,
+.dpane .gp-ess,
+.dpane .gp-sb p,
+.dpane .gp-cki { font-size: 12px; line-height: 1.65; }
+.dpane .dp-q { padding: 7px 10px; }
+.dpane .dp-kv { grid-template-columns: 70px minmax(0, 1fr); gap: 3px 8px; }
+.dpane .dp-kv dt { font-size: 11px; line-height: 1.65; }
+.dpane .dp-hist .d { font-size: 11px; }
+.dpane .rel-t { font-size: 11px; line-height: 1.5; }
+
+/* 접히는 섹션 머리줄 — 라벨(좌) / 요약(우) / 펼치기·접기 */
+.dp-sec-h { display: flex; align-items: baseline; gap: 8px; width: 100%; padding: 1px 0 3px; background: none; border: 0; color: inherit; font-family: inherit; text-align: left; cursor: pointer; }
+.dp-sec-h .k { font-size: 10.5px; font-weight: 600; color: var(--dim); letter-spacing: .04em; }
+.dp-sec-h:hover .k { color: var(--fg-hi); }
+.dp-sec-sum { margin-left: auto; font-size: 10.5px; color: var(--faint); font-variant-numeric: tabular-nums; }
+.dp-sec-x { font: 10px var(--mono); color: var(--dim); border: 1px solid var(--border); padding: 0 5px; }
+.dp-sec-h:hover .dp-sec-x { color: var(--fg-hi); border-color: var(--blue); }
+.dp-sec-b { padding-top: 3px; }
+
+/* 수집 메모 — 수집기가 남긴 운영 문구가 사는 자리 (라벨을 붙여 인용과 섞이지 않게) */
+.dp-memo { margin-top: 8px; padding-top: 7px; border-top: 1px solid var(--border2); }
+.dp-memo-k { display: block; margin-bottom: 3px; font-size: 10px; color: var(--faint); letter-spacing: .04em; }
+.dp-memo p { margin: 0 0 4px; color: var(--faint); word-break: keep-all; }
+.dp-memo p:last-child { margin-bottom: 0; }
+.dpane .dp-memo .dp-raw { font-size: 11px; }
