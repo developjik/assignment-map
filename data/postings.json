@@ -56,7 +56,7 @@
     ],
     "url": "https://www.cjolivenetworks.co.kr/news/press_release/detail/863",
     "urls_research": [],
-    "deadline": "2026-09-30",
+    "deadline": null,
     "status": "closed",
     "state_raw": "마감 (2026.9, ~9/30, 2027.1 입사)",
     "first_seen": "2026-09",
@@ -69,6 +69,13 @@
         "event": "created",
         "ai_policy": "required",
         "note": "2026.9 공고"
+      },
+      {
+        "date": "2026-11-18",
+        "event": "deadline_changed",
+        "from": "2026-09-30",
+        "to": null,
+        "note": "dedupe maxOr 무감사 이식 복구(R1) — 1931be2 dedupe 가 dup(manual:cj-olivenetworks-2026h2) 마감을 감사 없이 이식했던 것을 이식 전 값(null, 마감 미정)으로 복원"
       }
     ],
     "note": "전형: 서류→AI 역량 평가→1·2차 면접→약 3주 현장 인턴십",
@@ -744,7 +751,7 @@
       }
     ],
     "url": "https://www.jobkorea.co.kr/Recruit/GI_Read/50214047",
-    "deadline": "2026-11-15",
+    "deadline": "2026-11-01",
     "status": "closed",
     "review": "needs_review",
     "note": "본문 미렌더링",
@@ -763,6 +770,13 @@
         "event": "status_changed",
         "from": "open",
         "to": "closed"
+      },
+      {
+        "date": "2026-11-18",
+        "event": "deadline_changed",
+        "from": "2026-11-15",
+        "to": "2026-11-01",
+        "note": "dedupe maxOr 무감사 이식 복구(R1) — 재게시 dup(jobkorea:50283588) 의 11-15 가 감사 없이 이식됐던 것을 이식 전 값 2026-11-01 로 복원"
       }
     ],
     "duplicates": [
@@ -1200,7 +1214,7 @@
       }
     ],
     "url": "https://www.jobkorea.co.kr/Recruit/GI_Read/50213617",
-    "deadline": "2026-12-13",
+    "deadline": "2026-11-20",
     "status": "open",
     "review": "confirmed",
     "note": "'사전과제'·'바이브코딩' 검색 양쪽에서 히트",
@@ -1221,6 +1235,13 @@
         "to": "required",
         "via": "jobkorea:50359571",
         "evidence": "GI_Read_Comt_Ifrm 본문(2026-11-15): '서류 합격하신 분에 한해 사전 과제(바이브 코딩)가 주어질 수 있습니다' + 기술스택 'Claude code' 명시 — 사전과제가 바이브 코딩(AI 활용) 그 자체. 접수마감 2026-12-13(D-28)"
+      },
+      {
+        "date": "2026-11-18",
+        "event": "deadline_changed",
+        "from": "2026-12-13",
+        "to": "2026-11-20",
+        "note": "dedupe maxOr 무감사 이식 복구(R1) — 재게시 dup(jobkorea:50359571) 의 12-13 이 감사 없이 이식됐던 것을 이식 전 값 2026-11-20 으로 복원. 진짜 연장이면 collector 재확인 경로가 deadline_changed 감사와 함께 다시 쓴다"
       }
     ],
     "duplicates": [
