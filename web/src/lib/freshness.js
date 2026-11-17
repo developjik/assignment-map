@@ -1,43 +1,8 @@
-// 수집 신선도 — meta.last_run 이 며칠 지났는지 브라우저 시간으로 센다.
-// 빌드 시점에 굳히지 않으므로 수집이 재개되면 배지가 스스로 사라진다.
+// 수집 신선도 — 배지가 쓰는 React 훅. 날짜 계산은 freshnessDate.js 에 있고 여기서는 쓰기만 한다.
+// 이 파일은 'react' 를 import 하므로 web/tests/*.test.mjs 가 절대 import 하면 안 된다
+// (deploy 워크플로는 npm ci 전에 루트에서 npm test 를 돌린다 — react 가 아직 없다).
 import { useEffect, useState } from 'react'
-
-const KST_OFFSET = 9 * 3600e3
-const DAY = 864e5
-
-// 오늘(KST) YYYY-MM-DD
-export function kstToday(now = Date.now()) {
-  return new Date(now + KST_OFFSET).toISOString().slice(0, 10)
-}
-
-// dateStr 이후 지난 KST 달력일 수 (미래/이상값이면 null)
-export function daysSince(dateStr, now = Date.now()) {
-  const s = String(dateStr || '')
-  if (!/^\d{4}-\d{2}-\d{2}$/.test(s)) return null
-  const then = Date.parse(s + 'T00:00:00Z')
-  const today = Date.parse(kstToday(now) + 'T00:00:00Z')
-  if (Number.isNaN(then)) return null
-  return Math.round((today - then) / DAY)
-}
-
-// 수집이 이만큼(일) 멈추면 지연으로 본다. 하루 한 번 도는 루틴이라 2일이면 두 번 놓친 것.
-export const STALE_AFTER_DAYS = 2
-
-export function staleness(lastRun, now = Date.now()) {
-  const days = daysSince(lastRun, now)
-  return { days, stale: days !== null && days >= STALE_AFTER_DAYS, today: kstToday(now) }
-}
-
-// 다음 수집일 — 루틴은 매일 03:00 KST 한 번. last_run(YYYY-MM-DD)의 다음 날.
-// 헤더의 수집 시각 한 곳이 이 값을 title 로만 쓴다 (티커 바에서 옮겨 왔다 — PR C).
-export function nextRun(lastRun) {
-  const s = String(lastRun || '')
-  if (!/^\d{4}-\d{2}-\d{2}$/.test(s)) return ''
-  const d = new Date(s + 'T00:00:00Z')
-  if (Number.isNaN(d.getTime())) return ''
-  d.setUTCDate(d.getUTCDate() + 1)
-  return d.toISOString().slice(0, 10)
-}
+import { staleness } from './freshnessDate.js'
 
 // 자정을 넘겨도 배지가 맞게 바뀌도록 30분마다 다시 센다 (탭이 다시 보일 때도)
 export function useStaleness(lastRun, refreshMs = 1800e3) {

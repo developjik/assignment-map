@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from 'react'
 import { POLICY_LABEL, disp } from '../lib/labels'
 import { downloadIcs } from '../lib/ics'
-import { kstToday } from '../lib/freshness'
+import { kstToday } from '../lib/freshnessDate'
 import { useStarred } from '../lib/starred'
 import DetailPane from '../components/DetailPane'
 
