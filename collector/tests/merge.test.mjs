@@ -376,6 +376,69 @@ test('F2: 결정적 ai_policy 를 근거와 함께 승격한다 (오로라월드
   assert.equal(d.find((p) => p.id === 'jobkorea:rep').ai_policy, 'unspecified', '근거 없는 dup 은 승격하지 않는다');
 });
 
+test('R2: rep banned·restricted 는 근거 있는 상위 dup 으로도 덮이지 않는다 (promotePolicy 가드)', () => {
+  const row = (over) => ({
+    company: '데이터드리븐', title: '실시간 개발 과제', status: 'open',
+    first_seen: '2026-11-01', last_seen: '2026-11-01', last_checked: '2026-11-01',
+    ...over,
+  });
+  const requiredDup = (id) => row({
+    id, ai_policy: 'required', title: '실시간 개발 과제 (재공고)',
+    evidence: [{ quote: "'사전 과제(바이브 코딩)' + 기술스택 'Claude code' 명시", field: 'assignment' }],
+    first_seen: '2026-11-15', last_checked: '2026-11-15',
+  });
+
+  // (a) rep banned + dup required(근거 有) → banned 불변·승격 이력 0건 (점핏 재게시 방어)
+  const a = [
+    row({ id: 'jumpit:rep', ai_policy: 'banned', evidence: [{ quote: '실시간 개발 과제 AI 도구 사용 금지 명시', field: 'policy' }] }),
+    requiredDup('jobkorea:dup'),
+  ];
+  dedupePostings(a);
+  const aRep = a.find((p) => p.id === 'jumpit:rep');
+  assert.equal(aRep.ai_policy, 'banned', '금지 배지가 required dup 으로 뒤집히지 않는다');
+  assert.ok(!aRep.history?.some((h) => h.event === 'policy_promoted'), 'policy_promoted 이력이 0건');
+
+  // (b) rep restricted + dup required(근거 有) → restricted 불변
+  const b = [
+    row({ id: 'jumpit:rep', ai_policy: 'restricted', evidence: [{ quote: '부분 허용·조건 명시', field: 'policy' }] }),
+    requiredDup('jobkorea:dup'),
+  ];
+  dedupePostings(b);
+  assert.equal(b.find((p) => p.id === 'jumpit:rep').ai_policy, 'restricted', 'restricted 도 마찬가지로 불변');
+
+  // (c) rep unspecified + dup required(근거 有) → 승격 (F2 성과 회귀 방어 — 가드가 정상 승격을 막으면 안 된다)
+  const c = [
+    row({ id: 'jobkorea:rep', ai_policy: 'unspecified', evidence: [{ quote: 'rep 자체 조사 근거', field: 'assignment' }] }),
+    requiredDup('jobkorea:dup'),
+  ];
+  dedupePostings(c);
+  const cRep = c.find((p) => p.id === 'jobkorea:rep');
+  assert.equal(cRep.ai_policy, 'required', 'unspecified rep 은 여전히 승격된다');
+  assert.ok(cRep.history.some((h) => h.event === 'policy_promoted'), '승격 감사도 그대로 남는다');
+
+  // (d) 랭크 내 강등 방향 불변(현행 유지) — rep required + dup allowed(근거 有)
+  const d = [
+    row({ id: 'jobkorea:rep', ai_policy: 'required', evidence: [{ quote: 'rep 필수 근거', field: 'assignment' }] }),
+    row({
+      id: 'jobkorea:dup', ai_policy: 'allowed', title: '실시간 개발 과제 (재공고)',
+      evidence: [{ quote: '허용 근거', field: 'assignment' }], first_seen: '2026-11-15', last_checked: '2026-11-15',
+    }),
+  ];
+  dedupePostings(d);
+  assert.equal(d.find((p) => p.id === 'jobkorea:rep').ai_policy, 'required', '하위 등급 dup 으로 강등되지 않는다');
+
+  // 밖 등급 dup 승격 방향도 차단(현행 rank 0 구조 차단을 테스트로 못박는다) — rep unspecified + dup banned
+  const e = [
+    row({ id: 'wanted:rep', ai_policy: 'unspecified', evidence: [{ quote: 'rep 근거', field: 'assignment' }] }),
+    row({
+      id: 'jumpit:dup', ai_policy: 'banned', title: '실시간 개발 과제 (재공고)',
+      evidence: [{ quote: '금지 근거', field: 'policy' }], first_seen: '2026-11-15', last_checked: '2026-11-15',
+    }),
+  ];
+  dedupePostings(e);
+  assert.equal(e.find((p) => p.id === 'wanted:rep').ai_policy, 'unspecified', 'banned dup 이 rep 로 승격되지 않는다');
+});
+
 test('F4: 매처 경계 — 추이성 다리로 서로 다른 직무가 한 그룹이 되지 않는다', () => {
   const row = (title, id) => ({
     id, company: '다리컴퍼니', title, ai_policy: 'unspecified', status: 'open',

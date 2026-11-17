@@ -103,15 +103,24 @@ const maxOr = (values, fallback) => {
   return vs.length ? vs[vs.length - 1] : fallback;
 };
 
-// AI 정책 등급(F2): 결정적일수록 높다. banned·restricted 등 데이터드리븐 정책은
-// 승격 대상이 아니다 — 일상 루틴의 policy_changed 감사 경로가 따로 관리한다.
+// AI 정책 등급(F2): 결정적일수록 높다. banned·restricted 등 POLICY_RANK 밖 등급은
+// 데이터드리븐 정책이라 병합 승격의 rep·dup 어느 방향에도 대상이 되지 않는다(R2 가드) —
+// 일상 루틴의 policy_changed 감사 경로가 따로 관리한다.
 const POLICY_RANK = { allowed: 1, allowed_graded: 2, required: 3 };
+
+// rep 측 가드(R2): 병합 승격은 rep 이 공란/unspecified 이거나 랭크 등급(allowed 등)일 때만
+// 허용한다. 밖 등급(banned·restricted)은 POLICY_RANK 대입이 undefined → rank 0 이 되어
+// 종래 `rank(dup) > rank(rep)` 조건에서 근거 있는 required dup 이 rep 금지 배지를 덮었다
+// (점핏 55361658 재게시 시도 시 AI 금지 배지 뒤집힘). 가드로 이 경로를 원천 차단한다.
+const promotableRep = (value) => !value || value === 'unspecified' || Object.hasOwn(POLICY_RANK, value);
 
 // dup 의 결정적 AI 정책을 rep 에 승격한다(F2) — 오로라월드 사례: rep 미언급인데 숨은
 // 재공고 dup 가 '사전 과제(바이브 코딩)+Claude code' 근거와 함께 required 판정을 갖고 있었다.
 // 근거를 동반한 상위 등급만 승격하고, 같은 등급·근거 없는 dup·강등 방향은 승격하지 않는다.
 const promotePolicy = (rep, dups, field) => {
   const rank = (r) => POLICY_RANK[r[field]] || 0;
+  // R2: rep 밖 등급(banned·restricted 등)은 근거 동반 상위 등급 dup 으로도 덮지 않는다.
+  if (!promotableRep(rep[field])) return;
   const best = dups
     .filter((d) => rank(d) > rank(rep) && (d.evidence || []).length)
     .sort((a, b) => rank(b) - rank(a) || String(b.last_checked || '').localeCompare(String(a.last_checked || '')))[0];
