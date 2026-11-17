@@ -6,6 +6,7 @@ import changelogRaw from '../../../data/changelog.json'
 import metaRaw from '../../../data/meta.json'
 import { clipEvidence, evidenceParts } from './evidence'
 import { relativeText } from './deadline'
+import { buildAliasMap, canonicalId } from './alias'
 
 const KST_OFFSET = 9 * 3600e3
 function dayStartKST(dateStr) {
@@ -59,6 +60,32 @@ const evOf = (evidence) => evidenceParts(asEvidence(evidence).map(quoteOf))
 // 문자열에 .map 을 부를면 목록 전체가 죽는다(흰 화면).
 const asEvidence = (ev) => (Array.isArray(ev) ? ev : ev ? [{ quote: String(ev) }] : [])
 
+// ==== 중복 병합(collector/dedupe.mjs) 다루기 ====
+// 대표행은 `duplicates: [중복 id…]`, 중복 행은 `merged_into: 대표 id` 를 갖는다. 행은 지우지 않는다.
+// 화면에는 대표행만 서고, 중복 행이 가진 원문 링크는 상세 패널의 "같은 기회 다른 출처" 목록에 남긴다.
+const rawById = new Map([...postingsRaw, ...eventsRaw].map((r) => [r.id, r]))
+// 병합된 id → 대표 id. 사용자의 별표·지원 상태가 감춰진 id 를 가리킬 때 대표행으로 옮겨 읽는다.
+export const aliasMap = buildAliasMap([...postingsRaw, ...eventsRaw])
+export const toCanonicalId = (id) => canonicalId(id, aliasMap)
+
+const sourceLabel = (s) => (s || '').replace('manual-research', '리서치')
+const dupesOf = (row) => (row.duplicates || [])
+  .map((id) => {
+    const d = rawById.get(id)
+    if (!d) return null
+    return {
+      id,
+      name: d.company || d.title || id,
+      title: d.title && d.title !== d.company ? d.title : '',
+      source: sourceLabel(d.source),
+      url: !d.url || d.url === 'seed' ? null : d.url,
+      deadline: d.deadline || d.apply_deadline || d.submit_deadline || null,
+      status: d.status || '',
+    }
+  })
+  .filter(Boolean)
+
+
 export const rows = [
   ...postingsRaw.map((p) => ({
     kind: 'posting', id: p.id, name: p.company, title: p.title || '',
@@ -73,6 +100,7 @@ export const rows = [
     checked: p.last_checked, history: p.history || [], review: p.review || '',
     url: p.url === 'seed' ? null : p.url, hiring: false,   // 'seed' = 원문 없는 시드 조사 기록(스펙 1-3) — 링크 아님
     mergedInto: p.merged_into || null,   // 중복 병합 표시(스펙 1-2) — 아래 필터에서 제외된다
+    alsoSeen: dupesOf(p),                // 같은 기회를 수집한 다른 출처·다른 회차
     first: p.first_seen,
     // 상세 패널용 원문 필드 — 표에는 싣지 않고 우측 패널에서만 보여준다
     process: p.process_raw || '',
@@ -101,6 +129,7 @@ export const rows = [
     checked: e.last_checked, history: e.history || [], review: e.review || '',
     url: e.url === 'seed' ? null : e.url, hiring: !!e.hiring_link, first: e.first_seen,
     mergedInto: e.merged_into || null,
+    alsoSeen: dupesOf(e),
     stack: [EVENT_TYPE[e.type] || e.type, e.format].filter(Boolean).join(' '),
     prize: e.prize || '',
     process: '',

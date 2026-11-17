@@ -8,6 +8,7 @@ import { DENSITIES, readDensity, writeDensity } from '../lib/density'
 import { HOT_DAYS, deadlineView, relativeText } from '../lib/deadline'
 import { useStarred, setStarred } from '../lib/starred'
 import { WORKFLOW, WORKFLOW_CLS, WORKFLOW_LABEL, nextStatus, useStatuses } from '../lib/statuses'
+import { useNotes } from '../lib/useNotes'
 import { reportIssueUrl } from '../lib/report'
 import Ticker from '../components/Ticker'
 import DeadlineTicker from '../components/DeadlineTicker'
@@ -16,6 +17,7 @@ import GuidePane from '../components/GuidePane'
 import GuideProgressBadge from '../components/GuideProgressBadge'
 import RelatedList from '../components/RelatedList'
 import StatusPicker from '../components/StatusPicker'
+import NoteField from '../components/NoteField'
 import ShortcutsHelp from '../components/ShortcutsHelp'
 import FilterPopover from '../components/FilterPopover'
 const POLICY_FILTERS = [
@@ -159,6 +161,8 @@ export default function Opportunities({ rows, type, q, setQ, setTab, onVisit }) 
   const [starredOnly, setStarredOnly] = useState(initial.starredOnly)
   const [starredIds, toggleStar] = useStarred()
   const { statuses, statusOf, setStatus: setWorkflow } = useStatuses()
+  // 개인 메모가 있는 행에는 표식 하나만 붙인다(내용은 상세·아코디언에서 보인다)
+  const notes = useNotes()
   const [sortMode, setSortMode] = useState('dday')
   const [openRow, setOpenRow] = useState(null)
   const [pane, setPane] = useState(false)
@@ -695,6 +699,7 @@ export default function Opportunities({ rows, type, q, setQ, setTab, onVisit }) 
                 <Row key={r.id} r={r} q={q} zebra={i % 2 === 1} idx={i} curIdx={cur} curRef={curRef}
                   expanded={!wide && openRow === r.id} starred={starredSet.has(r.id)} onStar={toggleStar}
                   st={statuses[r.id] || ''} onCycle={() => setWorkflow(r.id, nextStatus(statuses[r.id] || ''))}
+                  hasNote={!!(notes[r.id] && notes[r.id].text)}
                   onPick={(e) => pickRow(i, r, e)} rows={rows} onPickRelated={pickDeadline}
                   sel={selSet.has(r.id)} onSel={toggleSel} density={density} wideCols={wideCols} />
               ))}
@@ -724,7 +729,7 @@ export default function Opportunities({ rows, type, q, setQ, setTab, onVisit }) 
   )
 }
 
-function Row({ r, q, zebra, idx, curIdx, curRef, expanded, starred, onStar, st, onCycle, onPick, rows, onPickRelated, sel, onSel, density, wideCols }) {
+function Row({ r, q, zebra, idx, curIdx, curRef, expanded, starred, onStar, st, onCycle, hasNote, onPick, rows, onPickRelated, sel, onSel, density, wideCols }) {
   const isNew = r.first && r.first >= new Date(Date.now() - 2 * 864e5).toISOString().slice(0, 10)
   const hot = r.open && r.dd !== null && r.dd >= 0 && r.dd <= HOT_DAYS
   // 40px 밀도에서는 제목 오른쪽에 주최·유형·확인일을 둔째 줄로 내린다 (한 행에 두 줄)
@@ -747,6 +752,7 @@ function Row({ r, q, zebra, idx, curIdx, curRef, expanded, starred, onStar, st, 
       {r.hiring && <span className="badge">채용연계</span>}
       {isNew && <span className="badge">NEW</span>}
       {change && <span className="badge chg" title={`정책 변경 ${change.date}: ${POLICY_LABEL[change.from] || change.from || '-'} → ${POLICY_LABEL[change.to] || change.to || '-'}`}>정책변경</span>}
+      {hasNote && <span className="badge note" title="개인 메모가 적혀 있다 (상세에서 보인다)">메모</span>}
       {st && (
         <button type="button" className={'stg ' + WORKFLOW_CLS[st]} title={`${WORKFLOW_LABEL[st]} | 누를 때마다 다음 단계 (관심 → 과제중 → 제출완료 → 해제)`}
           onClick={(e) => { e.stopPropagation(); onCycle && onCycle() }}>{WORKFLOW_LABEL[st]}</button>
@@ -818,6 +824,13 @@ function Row({ r, q, zebra, idx, curIdx, curRef, expanded, starred, onStar, st, 
                   onClick={(e) => e.stopPropagation()}>정보 수정·AI 정책 제보</a>
               </div>
               <div className="ln sp-ln">지원 상태: <StatusPicker id={r.id} /><GuideProgressBadge r={r} full /></div>
+              {/* 개인 메모 — 좌우 패널이 없는 폭에서는 아코디언이 유일한 메모 자리다 */}
+              <div className="ln hx-note"><NoteField id={r.id} name={r.name} /></div>
+              {(r.alsoSeen && r.alsoSeen.length > 0) && (
+                <div className="ln">
+                  같은 기회 다른 출처: <span className="q">{r.alsoSeen.map((d) => d.source || '출처 미상').join(', ')}</span>
+                </div>
+              )}
               {(r.history || []).filter(h => h.event !== 'created').map((h, i) => (
                 <div className="ln" key={i}>
                   <span className="d">{h.date}</span>
