@@ -3,6 +3,7 @@ import { meta, rows, platforms, news, runs, stats, commit } from './lib/data'
 import { readHash, writeHash } from './lib/hash'
 import { useStaleness } from './lib/freshness'
 import { nextRun } from './lib/freshnessDate'
+import BackupPanel from './components/BackupPanel'
 import Rail from './components/Rail'
 import Opportunities from './views/Opportunities'
 import Calendar from './views/Calendar'
@@ -34,6 +35,8 @@ export default function App() {
   const [recent, setRecent] = useState(() => {
     try { return JSON.parse(localStorage.getItem('am-recent') || '[]') } catch { return [] }
   })
+  // 내 기록 백업/복원 창 — 푸터의 한 버튼으로만 열린다(헤더는 검색·상태 자리다)
+  const [backup, setBackup] = useState(false)
 
   const onVisit = (r) => {
     setRecent(prev => {
@@ -130,9 +133,10 @@ export default function App() {
         )}
         <footer className="ft">
           <span>데이터: <a href="https://www.wanted.co.kr" target="_blank" rel="noreferrer">원티드</a> <a href="https://jumpit.saramin.co.kr" target="_blank" rel="noreferrer">점핏</a> <a href="https://www.jobkorea.co.kr" target="_blank" rel="noreferrer">잡코리아</a> <a href="https://www.wevity.com" target="_blank" rel="noreferrer">위비티</a> <a href="https://devpost.com" target="_blank" rel="noreferrer">Devpost</a> <a href="https://lablab.ai" target="_blank" rel="noreferrer">lablab</a> | 규칙 v3</span>
-          <span>마지막 수집 {stats.lastRun || '-'} 03:00 KST | 골든케이스 6/6 | commit {commit} | <a href="./feed.xml">RSS</a> <a href="./feed.json">JSON 피드</a> | <a href="https://github.com/developjik/assignment-map" target="_blank" rel="noreferrer">리포</a> | <a href="https://github.com/developjik/assignment-map/issues" target="_blank" rel="noreferrer">오탐 신고</a></span>
+          <span>마지막 수집 {stats.lastRun || '-'} 03:00 KST | 골든케이스 6/6 | commit {commit} | <a href="./feed.xml">RSS</a> <a href="./feed.json">JSON 피드</a> | <a href="https://github.com/developjik/assignment-map" target="_blank" rel="noreferrer">리포</a> | <a href="https://github.com/developjik/assignment-map/issues" target="_blank" rel="noreferrer">오탐 신고</a> | <button type="button" className="ft-b" onClick={() => setBackup(true)} title="관심·지원 상태·가이드 체크·개인 메모를 JSON 파일로 내보내거나 불러온다 (이 브라우저에만 있는 기록)">내 기록 백업</button></span>
         </footer>
       </main>
+      {backup && <BackupPanel onClose={() => setBackup(false)} />}
     </div>
   )
 }

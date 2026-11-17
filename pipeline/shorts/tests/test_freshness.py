@@ -270,3 +270,35 @@ class TestCountdownRefresh(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class TestMergedRowsExcluded(unittest.TestCase):
+    """F3: 병합(merged_into)된 행은 쇼츠 소재가 아니다 — 대표행만 후보가 된다."""
+
+    def test_candidates_exclude_merged_rows(self):
+        merged_posting = posting(
+            id="jobkorea:50326430", merged_into="wanted:wd390319",
+            deadline="2026-11-20", status="open", ai_policy="required",
+        )
+        rep_posting = posting(id="wanted:wd390319", deadline="2026-11-20", status="open")
+        merged_event = {
+            "id": "wevity:dup", "type": "contest", "title": "병합된 공모전", "host": "호스트",
+            "ai_usage": "required", "status": "open", "submit_deadline": "2026-11-20",
+            "evidence": ["근거"], "merged_into": "wevity:rep",
+        }
+        rep_event = dict(merged_event, id="wevity:rep")
+        rep_event.pop("merged_into")
+
+        cands = gen.collect_candidates(
+            [merged_posting, rep_posting], [merged_event, rep_event], set(), TODAY)
+        ids = [c["record"]["id"] for c in cands]
+
+        self.assertNotIn("jobkorea:50326430", ids, "병합된 채용 행은 후보가 아니다")
+        self.assertNotIn("wevity:dup", ids, "병합된 이벤트 행은 후보가 아니다")
+        self.assertIn("wanted:wd390319", ids, "대표행은 후보가 된다")
+        self.assertIn("wevity:rep", ids, "이벤트 대표행은 후보가 된다")
+
+    def test_is_live_rejects_merged_row(self):
+        merged = posting(merged_into="wanted:wd390319", deadline="2026-11-20")
+        self.assertFalse(gen.is_live(merged, TODAY), "병합된 행은 죽은 소재 취급")
+        self.assertTrue(gen.is_live(posting(deadline="2026-11-20"), TODAY), "대표행 규칙은 그대로")

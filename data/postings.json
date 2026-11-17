@@ -17,7 +17,7 @@
         "field": "research"
       }
     ],
-    "url": null,
+    "url": "seed",
     "urls_research": [],
     "deadline": null,
     "status": "closed",
@@ -54,13 +54,13 @@
         "field": "research"
       }
     ],
-    "url": null,
+    "url": "https://www.cjolivenetworks.co.kr/news/press_release/detail/863",
     "urls_research": [],
     "deadline": null,
     "status": "closed",
     "state_raw": "마감 (2026.9, ~9/30, 2027.1 입사)",
     "first_seen": "2026-09",
-    "last_checked": "2026-10-11",
+    "last_checked": "2026-11-01",
     "check_cadence": "none",
     "review": "confirmed",
     "history": [
@@ -69,9 +69,20 @@
         "event": "created",
         "ai_policy": "required",
         "note": "2026.9 공고"
+      },
+      {
+        "date": "2026-11-18",
+        "event": "deadline_changed",
+        "from": "2026-09-30",
+        "to": null,
+        "note": "dedupe maxOr 무감사 이식 복구(R1) — 1931be2 dedupe 가 dup(manual:cj-olivenetworks-2026h2) 마감을 감사 없이 이식했던 것을 이식 전 값(null, 마감 미정)으로 복원"
       }
     ],
-    "note": "전형: 서류→AI 역량 평가→1·2차 면접→약 3주 현장 인턴십"
+    "note": "전형: 서류→AI 역량 평가→1·2차 면접→약 3주 현장 인턴십",
+    "last_seen": "2026-11-01",
+    "duplicates": [
+      "manual:cj-olivenetworks-2026h2"
+    ]
   },
   {
     "id": "seed-kr-03",
@@ -91,7 +102,7 @@
         "field": "research"
       }
     ],
-    "url": null,
+    "url": "seed",
     "urls_research": [],
     "deadline": null,
     "status": "open",
@@ -128,7 +139,7 @@
         "field": "research"
       }
     ],
-    "url": null,
+    "url": "seed",
     "urls_research": [],
     "deadline": null,
     "status": "closed",
@@ -165,7 +176,7 @@
         "field": "research"
       }
     ],
-    "url": null,
+    "url": "seed",
     "urls_research": [],
     "deadline": null,
     "status": "closed",
@@ -202,7 +213,7 @@
         "field": "research"
       }
     ],
-    "url": null,
+    "url": "seed",
     "urls_research": [],
     "deadline": null,
     "status": "closed",
@@ -239,7 +250,7 @@
         "field": "research"
       }
     ],
-    "url": null,
+    "url": "seed",
     "urls_research": [],
     "deadline": null,
     "status": "open",
@@ -276,7 +287,7 @@
         "field": "research"
       }
     ],
-    "url": null,
+    "url": "seed",
     "urls_research": [],
     "deadline": null,
     "status": "closed",
@@ -313,7 +324,7 @@
         "field": "research"
       }
     ],
-    "url": null,
+    "url": "seed",
     "urls_research": [],
     "deadline": null,
     "status": "closed",
@@ -350,7 +361,7 @@
         "field": "research"
       }
     ],
-    "url": null,
+    "url": "seed",
     "urls_research": [],
     "deadline": null,
     "status": "closed",
@@ -387,7 +398,7 @@
         "field": "research"
       }
     ],
-    "url": null,
+    "url": "seed",
     "urls_research": [],
     "deadline": null,
     "status": "closed",
@@ -424,7 +435,7 @@
         "field": "research"
       }
     ],
-    "url": null,
+    "url": "seed",
     "urls_research": [],
     "deadline": null,
     "status": "closed",
@@ -461,7 +472,7 @@
         "field": "research"
       }
     ],
-    "url": null,
+    "url": "seed",
     "urls_research": [],
     "deadline": null,
     "status": "no_hiring",
@@ -572,6 +583,9 @@
         "to": null,
         "note": "원티드 상세 마감일 상시채용 전환 (수동 패치: merge.mjs null 미지원)"
       }
+    ],
+    "duplicates": [
+      "jobkorea:50326430"
     ]
   },
   {
@@ -742,8 +756,8 @@
     "review": "needs_review",
     "note": "본문 미렌더링",
     "first_seen": "2026-10-24",
-    "last_seen": "2026-11-02",
-    "last_checked": "2026-11-02",
+    "last_seen": "2026-11-16",
+    "last_checked": "2026-11-16",
     "check_cadence": "none",
     "history": [
       {
@@ -756,7 +770,17 @@
         "event": "status_changed",
         "from": "open",
         "to": "closed"
+      },
+      {
+        "date": "2026-11-18",
+        "event": "deadline_changed",
+        "from": "2026-11-15",
+        "to": "2026-11-01",
+        "note": "dedupe maxOr 무감사 이식 복구(R1) — 재게시 dup(jobkorea:50283588) 의 11-15 가 감사 없이 이식됐던 것을 이식 전 값 2026-11-01 로 복원"
       }
+    ],
+    "duplicates": [
+      "jobkorea:50283588"
     ]
   },
   {
@@ -1050,7 +1074,8 @@
         "event": "created",
         "ai_policy": "required"
       }
-    ]
+    ],
+    "merged_into": "seed-kr-02"
   },
   {
     "id": "jobkorea:50283588",
@@ -1089,7 +1114,8 @@
         "from": "open",
         "to": "closed"
       }
-    ]
+    ],
+    "merged_into": "jobkorea:50214047"
   },
   {
     "id": "jobkorea:50293498",
@@ -1176,11 +1202,15 @@
     ],
     "positions_raw": "PI오퍼레이션 컨설턴트",
     "assignment_type": "pre_assignment",
-    "ai_policy": "unspecified",
+    "ai_policy": "required",
     "evidence": [
       {
         "quote": "GI_Read_Comt_Ifrm 본문(2026-11-07): '서류 전형 > AI 역량검사 및 사전과제(필요시) > 1차 실무면접 > 2차 임원면접 > 최종 합격' — 조건부 사전과제 + AI 역량검사 단계 존재(AI 역량검사는 검사 도구이며 AI 사용 정책 언급은 아님). 접수마감 2026-11-20",
         "field": "assignment+deadline"
+      },
+      {
+        "quote": "GI_Read_Comt_Ifrm 본문(2026-11-15): '서류 합격하신 분에 한해 사전 과제(바이브 코딩)가 주어질 수 있습니다' + 기술스택 'Claude code' 명시 — 사전과제가 바이브 코딩(AI 활용) 그 자체. 접수마감 2026-12-13(D-28)",
+        "field": "assignment"
       }
     ],
     "url": "https://www.jobkorea.co.kr/Recruit/GI_Read/50213617",
@@ -1189,15 +1219,33 @@
     "review": "confirmed",
     "note": "'사전과제'·'바이브코딩' 검색 양쪽에서 히트",
     "first_seen": "2026-11-07",
-    "last_seen": "2026-11-07",
-    "last_checked": "2026-11-07",
+    "last_seen": "2026-11-15",
+    "last_checked": "2026-11-15",
     "check_cadence": "daily",
     "history": [
       {
         "date": "2026-11-07",
         "event": "created",
         "ai_policy": "unspecified"
+      },
+      {
+        "date": "2026-11-15",
+        "event": "policy_promoted",
+        "from": "unspecified",
+        "to": "required",
+        "via": "jobkorea:50359571",
+        "evidence": "GI_Read_Comt_Ifrm 본문(2026-11-15): '서류 합격하신 분에 한해 사전 과제(바이브 코딩)가 주어질 수 있습니다' + 기술스택 'Claude code' 명시 — 사전과제가 바이브 코딩(AI 활용) 그 자체. 접수마감 2026-12-13(D-28)"
+      },
+      {
+        "date": "2026-11-18",
+        "event": "deadline_changed",
+        "from": "2026-12-13",
+        "to": "2026-11-20",
+        "note": "dedupe maxOr 무감사 이식 복구(R1) — 재게시 dup(jobkorea:50359571) 의 12-13 이 감사 없이 이식됐던 것을 이식 전 값 2026-11-20 으로 복원. 진짜 연장이면 collector 재확인 경로가 deadline_changed 감사와 함께 다시 쓴다"
       }
+    ],
+    "duplicates": [
+      "jobkorea:50359571"
     ]
   },
   {
@@ -1346,7 +1394,8 @@
         "from": "open",
         "to": "closed"
       }
-    ]
+    ],
+    "merged_into": "jobkorea:50328375"
   },
   {
     "id": "jobkorea:50256313",
@@ -1873,6 +1922,9 @@
         "event": "created",
         "ai_policy": "unspecified"
       }
+    ],
+    "duplicates": [
+      "jobkorea:50193361"
     ]
   },
   {
@@ -1908,7 +1960,8 @@
         "event": "created",
         "ai_policy": "unspecified"
       }
-    ]
+    ],
+    "merged_into": "wanted:wd390319"
   },
   {
     "id": "jobkorea:50359977",
@@ -1976,6 +2029,7 @@
         "event": "created",
         "ai_policy": "required"
       }
-    ]
+    ],
+    "merged_into": "jobkorea:50213617"
   }
 ]

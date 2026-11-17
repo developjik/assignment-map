@@ -53,9 +53,20 @@ for (const c of gc.events || []) {
 }
 
 const goldenTotal = (gc.postings?.length || 0) + (gc.events?.length || 0);
+
+// 공개 레코드의 빈 근거 경고(스펙 1-3) — 커밋 잠금이 아닌 경고다. 즉시 채워야 할 데이터를 눈에 띄게 한다.
+const warnings = [];
+for (const p of postings)
+  if ((p.status === 'open' || p.status === 'upcoming') && !(p.evidence || []).length)
+    warnings.push(`postings ${p.id}: 공개 레코드인데 근거가 비어 있다 (빈 근거)`);
+for (const e of events)
+  if ((e.status === 'open' || e.status === 'upcoming') && !(e.evidence || []).length)
+    warnings.push(`events ${e.id}: 공개 레코드인데 근거가 비어 있다 (빈 근거)`);
+
 if (fails.length) {
   console.error(`VALIDATE FAIL (${fails.length}) — 커밋 잠금`);
   for (const f of fails) console.error(' -', f);
   process.exit(1);
 }
 console.log(`VALIDATE OK — 골든케이스 ${goldenTotal}/${goldenTotal} · postings ${postings.length} · events ${events.length} · 무결성 통과`);
+for (const w of warnings) console.log(`경고 - ${w}`);

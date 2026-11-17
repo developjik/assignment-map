@@ -9,6 +9,8 @@
 // 상태를 interested 로 올릴 때 별표를 켜고 내릴 때 별표를 끈다 (같은 사실을 두 곳에 두지 않는다).
 import { useEffect, useState } from 'react'
 import { getStarred, setStarred } from './starred'
+import { canonicalMap } from './alias'
+import { aliasMap, toCanonicalId } from './data'
 
 export const STATUS_KEY = 'am-status'
 const EVENT = 'am-status-changed'
@@ -31,7 +33,9 @@ function readMap() {
     for (const [k, val] of Object.entries(v)) {
       if (typeof k === 'string' && (val === 'in_progress' || val === 'submitted')) out[k] = val
     }
-    return out
+    // 병합된 id 의 상태는 대표 id 로 옮겨 읽는다(여러 개가 모이면 더 나아간 상태)
+    const rank = (s) => (s === 'submitted' ? 2 : s === 'in_progress' ? 1 : 0)
+    return canonicalMap(out, aliasMap, rank)
   } catch { return {} }
 }
 
@@ -49,33 +53,35 @@ export function getStatuses() {
 }
 
 export function statusOf(id) {
+  const key = toCanonicalId(id)
   const map = readMap()
-  if (map[id]) return map[id]
-  return getStarred().includes(id) ? 'interested' : ''
+  if (map[key]) return map[key]
+  return getStarred().includes(key) ? 'interested' : ''
 }
 
 // 상태 전환. '' 이면 해제. 관심은 별표로 대신 표현한다.
 export function setStatus(id, next) {
-  if (!id) return ''
+  const key = toCanonicalId(id)
+  if (!key) return ''
   const map = readMap()
   const starred = getStarred()
 
   if (next === 'interested') {
-    delete map[id]
+    delete map[key]
     writeMap(map)
-    if (!starred.includes(id)) setStarred([...starred, id])
+    if (!starred.includes(key)) setStarred([...starred, key])
     return 'interested'
   }
 
   if (next === '') {
-    delete map[id]
+    delete map[key]
     writeMap(map)
-    if (starred.includes(id)) setStarred(starred.filter((x) => x !== id))
+    if (starred.includes(key)) setStarred(starred.filter((x) => x !== key))
     return ''
   }
 
-  if (next !== 'in_progress' && next !== 'submitted') return statusOf(id)
-  map[id] = next
+  if (next !== 'in_progress' && next !== 'submitted') return statusOf(key)
+  map[key] = next
   writeMap(map)
   return next
 }
