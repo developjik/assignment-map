@@ -42,10 +42,11 @@ export function collectFeedItems(dataDir) {
   const items = []
   for (const p of postings) {
     if (p.status !== 'open') continue
+    if (p.merged_into) continue // 중복 병합 행(스펙 1-2) — 대표행만 발행한다
     const date = normalizeDate(p.last_seen || p.first_seen, fallback)
     items.push({
       id: `posting:${p.id}`,
-      url: p.url || SITE,
+      url: p.url === 'seed' ? SITE : p.url || SITE,   // seed 표기는 링크가 아니다(스펙 1-3)
       title: `[채용] ${p.company}${POLICY_LABEL[p.ai_policy] ? ' — ' + POLICY_LABEL[p.ai_policy] : ''}`,
       date,
       summary: [p.title, p.positions_raw, p.deadline ? `마감 ${p.deadline}` : '마감 미정', firstQuote(p.evidence)].filter(Boolean).join(' | '),
@@ -55,10 +56,11 @@ export function collectFeedItems(dataDir) {
   for (const e of events) {
     if (!OPEN_EVENT.has(e.status)) continue
     if (e.ai_usage === 'banned') continue
+    if (e.merged_into) continue // 중복 병합 행(스펙 1-2) — 대표행만 발행한다
     const date = normalizeDate(e.last_checked || e.first_seen, fallback)
     items.push({
       id: `event:${e.id}`,
-      url: e.url || SITE,
+      url: e.url === 'seed' ? SITE : e.url || SITE,
       title: `[${EVENT_TYPE[e.type] || e.type || '이벤트'}] ${e.title}`,
       date,
       summary: [e.host, e.prize, e.apply_deadline || e.submit_deadline ? `마감 ${e.apply_deadline || e.submit_deadline}` : '마감 미정', e.hiring_link ? '채용연계' : '', firstQuote(e.evidence)].filter(Boolean).join(' | '),

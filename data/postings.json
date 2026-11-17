@@ -54,13 +54,13 @@
         "field": "research"
       }
     ],
-    "url": null,
+    "url": "https://www.cjolivenetworks.co.kr/news/press_release/detail/863",
     "urls_research": [],
-    "deadline": null,
+    "deadline": "2026-09-30",
     "status": "closed",
     "state_raw": "마감 (2026.9, ~9/30, 2027.1 입사)",
     "first_seen": "2026-09",
-    "last_checked": "2026-10-11",
+    "last_checked": "2026-11-01",
     "check_cadence": "none",
     "review": "confirmed",
     "history": [
@@ -71,7 +71,11 @@
         "note": "2026.9 공고"
       }
     ],
-    "note": "전형: 서류→AI 역량 평가→1·2차 면접→약 3주 현장 인턴십"
+    "note": "전형: 서류→AI 역량 평가→1·2차 면접→약 3주 현장 인턴십",
+    "last_seen": "2026-11-01",
+    "duplicates": [
+      "manual:cj-olivenetworks-2026h2"
+    ]
   },
   {
     "id": "seed-kr-03",
@@ -533,7 +537,7 @@
       }
     ],
     "url": "https://www.wanted.co.kr/wd/390319",
-    "deadline": null,
+    "deadline": "2026-11-22",
     "status": "open",
     "review": "auto",
     "note": "잡코리아 동일 공고(GI_Read/50055620) 교차확인 — 마감 10/25. AI 정책 언급 없음",
@@ -572,6 +576,9 @@
         "to": null,
         "note": "원티드 상세 마감일 상시채용 전환 (수동 패치: merge.mjs null 미지원)"
       }
+    ],
+    "duplicates": [
+      "jobkorea:50326430"
     ]
   },
   {
@@ -737,13 +744,13 @@
       }
     ],
     "url": "https://www.jobkorea.co.kr/Recruit/GI_Read/50214047",
-    "deadline": "2026-11-01",
+    "deadline": "2026-11-15",
     "status": "closed",
     "review": "needs_review",
     "note": "본문 미렌더링",
     "first_seen": "2026-10-24",
-    "last_seen": "2026-11-02",
-    "last_checked": "2026-11-02",
+    "last_seen": "2026-11-16",
+    "last_checked": "2026-11-16",
     "check_cadence": "none",
     "history": [
       {
@@ -757,6 +764,9 @@
         "from": "open",
         "to": "closed"
       }
+    ],
+    "duplicates": [
+      "jobkorea:50283588"
     ]
   },
   {
@@ -1050,7 +1060,8 @@
         "event": "created",
         "ai_policy": "required"
       }
-    ]
+    ],
+    "merged_into": "seed-kr-02"
   },
   {
     "id": "jobkorea:50283588",
@@ -1089,7 +1100,8 @@
         "from": "open",
         "to": "closed"
       }
-    ]
+    ],
+    "merged_into": "jobkorea:50214047"
   },
   {
     "id": "jobkorea:50293498",
@@ -1184,13 +1196,13 @@
       }
     ],
     "url": "https://www.jobkorea.co.kr/Recruit/GI_Read/50213617",
-    "deadline": "2026-11-20",
+    "deadline": "2026-12-13",
     "status": "open",
     "review": "confirmed",
     "note": "'사전과제'·'바이브코딩' 검색 양쪽에서 히트",
     "first_seen": "2026-11-07",
-    "last_seen": "2026-11-07",
-    "last_checked": "2026-11-07",
+    "last_seen": "2026-11-15",
+    "last_checked": "2026-11-15",
     "check_cadence": "daily",
     "history": [
       {
@@ -1198,6 +1210,9 @@
         "event": "created",
         "ai_policy": "unspecified"
       }
+    ],
+    "duplicates": [
+      "jobkorea:50359571"
     ]
   },
   {
@@ -1346,7 +1361,8 @@
         "from": "open",
         "to": "closed"
       }
-    ]
+    ],
+    "merged_into": "jobkorea:50328375"
   },
   {
     "id": "jobkorea:50256313",
@@ -1873,6 +1889,9 @@
         "event": "created",
         "ai_policy": "unspecified"
       }
+    ],
+    "duplicates": [
+      "jobkorea:50193361"
     ]
   },
   {
@@ -1908,7 +1927,8 @@
         "event": "created",
         "ai_policy": "unspecified"
       }
-    ]
+    ],
+    "merged_into": "wanted:wd390319"
   },
   {
     "id": "jobkorea:50359977",
@@ -1976,6 +1996,7 @@
         "event": "created",
         "ai_policy": "required"
       }
-    ]
+    ],
+    "merged_into": "jobkorea:50213617"
   }
 ]

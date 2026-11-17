@@ -4,6 +4,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { asEvidence, asStringArray } from './evidence.mjs';
+import { dedupePostings, dedupeEvents, metaNote } from './dedupe.mjs';
 
 const repo = path.resolve(import.meta.dirname, '..');
 const runPath = process.argv[2];
@@ -38,14 +39,22 @@ const cadence = (deadlines, today) => {
   if (d <= 14) return 'daily';
   return 'weekly';
 };
-const S = { date, new_postings: [], policy_changed: [], deadline_changed: [], status_changed: [], new_events: [], event_status_changed: [], event_deadline_changed: [], updated_postings: 0, updated_events: 0, sources: run.sources || [], notes: run.notes || '' };
+const S = { date, new_postings: [], policy_changed: [], deadline_changed: [], status_changed: [], new_events: [], event_status_changed: [], event_deadline_changed: [], updated_postings: 0, updated_events: 0, merged_postings: [], merged_events: [], sources: run.sources || [], notes: run.notes || '' };
+
+// 병합 표시가 붙은 id 로 갱신이 들어오면 대표행에게 적용한다(merge 가 dedupe 를 매번
+// 다시 계산하므로, 숨겨진 중복 행이 스크린 대표행보다 새로워지는 일을 막는다)
+const resolveTarget = (byId, id) => {
+  const direct = byId.get(id);
+  if (!direct || !direct.merged_into) return direct;
+  return byId.get(direct.merged_into) || direct;
+};
 
 // ---- postings ----
 const postings = read('postings.json');
 const pById = new Map(postings.map(p => [p.id, p]));
 for (const inc of run.postings || []) {
   if (!inc.id) continue;
-  const ex = pById.get(inc.id);
+  const ex = resolveTarget(pById, inc.id);
   const fields = postingFields(inc);
   if (!ex) {
     pById.set(inc.id, { ...fields, first_seen: date, last_seen: date, last_checked: date,
@@ -81,6 +90,8 @@ for (const p of mergedPostings) {
   if (p.tags !== undefined) p.tags = asStringArray(p.tags);
 }
 for (const p of mergedPostings) p.check_cadence = (p.status === 'closed' || p.status === 'gone' || p.status === 'no_hiring') ? 'none' : cadence([p.deadline], date);
+// 교차 소스·재게시 중복 제거(스펙 1-2) — 병합 로직은 merge 안에 산다: 매일 루틴이 이 파일을 쓴다
+for (const g of dedupePostings(mergedPostings)) S.merged_postings.push(...g.dups.map((d) => `${d}->${g.rep}`));
 write('postings.json', mergedPostings);
 
 // ---- events ----
@@ -88,7 +99,7 @@ const events = read('events.json');
 const eById = new Map(events.map(e => [e.id, e]));
 for (const inc of run.events || []) {
   if (!inc.id) continue;
-  const ex = eById.get(inc.id);
+  const ex = resolveTarget(eById, inc.id);
   const fields = eventFields(inc);
   if (!ex) {
     eById.set(inc.id, { ...fields, first_seen: date, last_checked: date,
@@ -119,19 +130,31 @@ for (const inc of run.events || []) {
 const mergedEvents = [...eById.values()];
 for (const e of mergedEvents) e.evidence = asEvidence(e.evidence);   // 레거시 문자열 정리(멱등)
 for (const e of mergedEvents) e.check_cadence = e.status === 'closed' ? 'none' : cadence([e.apply_deadline, e.submit_deadline], date);
+for (const g of dedupeEvents(mergedEvents)) S.merged_events.push(...g.dups.map((d) => `${d}->${g.rep}`));
 write('events.json', mergedEvents);
 
 // ---- changelog / meta ----
 const cl = read('changelog.json');
+// 같은 날짜 재병합은 발견·변경 기록을 지우지 않는다(멱등) — 첫 병합의 new/changed 목록을 이어 받는다
+const prevSameDay = cl.events.find(c => c.date === date) || null;
+const unionIds = (prev, now) => [...new Set([...(prev || []), ...(now || [])])];
+if (prevSameDay) {
+  for (const f of ['new_postings', 'new_events', 'policy_changed', 'deadline_changed', 'status_changed', 'event_status_changed', 'event_deadline_changed', 'merged_postings', 'merged_events'])
+    S[f] = unionIds(prevSameDay[f], S[f]);
+  // 카운터는 정보성 — 재실행이 첫 병합의 실측을 덮어쓰지 않게 한다
+  S.updated_postings = prevSameDay.updated_postings ?? S.updated_postings;
+  S.updated_events = prevSameDay.updated_events ?? S.updated_events;
+}
 cl.events = cl.events.filter(c => c.date !== date);
 cl.events.push({ date, ...S,
-  summary: `+${S.new_postings.length}공고 +${S.new_events.length}이벤트 · 정책변경 ${S.policy_changed.length} · 상태변경 ${S.status_changed.length + S.event_status_changed.length} · 마감변경 ${S.deadline_changed.length + S.event_deadline_changed.length}` });
+  summary: `+${S.new_postings.length}공고 +${S.new_events.length}이벤트 · 정책변경 ${S.policy_changed.length} · 상태변경 ${S.status_changed.length + S.event_status_changed.length} · 마감변경 ${S.deadline_changed.length + S.event_deadline_changed.length} · 중복병합 ${S.merged_postings.length + S.merged_events.length}` });
 cl.events.sort((a, b) => a.date < b.date ? -1 : 1);
 write('changelog.json', cl);
 
 const meta = read('meta.json');
 meta.last_run = date;
 meta.counts = { platforms: meta.counts.platforms, postings: mergedPostings.length, news: meta.counts.news, events: mergedEvents.length };
+meta.note = metaNote(date, meta.seed_date);   // 허위 상태 고침(스펙 1-3) — last_run 에서 파생
 meta.events_breakdown = {
   status: Object.fromEntries([...new Set(mergedEvents.map(e => e.status))].map(s => [s, mergedEvents.filter(e => e.status === s).length])),
   hiring_link: mergedEvents.filter(e => e.hiring_link).length,

@@ -182,7 +182,7 @@
     ],
     "source": "wevity",
     "first_seen": "2026-10-24",
-    "last_checked": "2026-10-24",
+    "last_checked": "2026-11-05",
     "check_cadence": "daily",
     "review": "confirmed",
     "history": [
@@ -191,6 +191,9 @@
         "event": "created",
         "status": "open"
       }
+    ],
+    "duplicates": [
+      "wevity:111628-ppas-ai-game-contents"
     ]
   },
   {
@@ -3086,7 +3089,7 @@
     "source": "wevity",
     "review": "confirmed",
     "first_seen": "2026-11-01",
-    "last_checked": "2026-11-09",
+    "last_checked": "2026-11-17",
     "check_cadence": "daily",
     "history": [
       {
@@ -3100,6 +3103,9 @@
         "from": "upcoming",
         "to": "open"
       }
+    ],
+    "duplicates": [
+      "wevity:112073-maekyung-ai-ad-contest"
     ]
   },
   {
@@ -3359,7 +3365,7 @@
     "source": "wevity",
     "review": "confirmed",
     "first_seen": "2026-11-01",
-    "last_checked": "2026-11-01",
+    "last_checked": "2026-11-17",
     "check_cadence": "weekly",
     "history": [
       {
@@ -3367,6 +3373,9 @@
         "event": "created",
         "status": "open"
       }
+    ],
+    "duplicates": [
+      "wevity:112343-vivid-replay-ai-video"
     ]
   },
   {
@@ -3839,7 +3848,8 @@
         "event": "created",
         "status": "open"
       }
-    ]
+    ],
+    "merged_into": "ko-0005"
   },
   {
     "id": "wevity:111567-daegu-climate-publicdata-ai",
@@ -5280,7 +5290,8 @@
         "event": "created",
         "status": "open"
       }
-    ]
+    ],
+    "merged_into": "wevity:112021-vivid-replay"
   },
   {
     "id": "wevity:112073-maekyung-ai-ad-contest",
@@ -5312,7 +5323,8 @@
         "event": "created",
         "status": "open"
       }
-    ]
+    ],
+    "merged_into": "wevity:111903-maekyung-ai-ad"
   },
   {
     "id": "wevity:112299-national-pilot-city-ai-idea",

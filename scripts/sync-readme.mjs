@@ -19,8 +19,11 @@ const OPEN_EVENT = new Set(['open', 'upcoming'])
 const STATED_POLICY = new Set(['required', 'allowed_graded', 'allowed', 'banned'])
 const STATED_USAGE = new Set(['required', 'allowed_graded', 'allowed', 'banned'])
 
-const openPostings = postings.filter((p) => p.status === 'open')
-const openEvents = events.filter((e) => OPEN_EVENT.has(e.status))
+// 중복 병합 표시(스펙 1-2 merged_into)가 붙은 행은 화면·피드에 남지 않는다 —
+// README 숫자도 같은 기준(대표행만)으로 센다.
+const live = (r) => !r.merged_into
+const openPostings = postings.filter((p) => p.status === 'open' && live(p))
+const openEvents = events.filter((e) => OPEN_EVENT.has(e.status) && live(e))
 const stated =
   openPostings.filter((p) => STATED_POLICY.has(p.ai_policy)).length +
   openEvents.filter((e) => STATED_USAGE.has(e.ai_usage)).length
@@ -72,7 +75,7 @@ const section = `## 숫자 (${kstToday} 기준)
 
 | 항목 | 값 |
 |---|---|
-| 추적 레코드 | ${postings.length + events.length}건 (채용 공고 ${postings.length} · 이벤트 ${events.length}) |
+| 추적 레코드 | ${postings.filter(live).length + events.filter(live).length}건 (채용 공고 ${postings.filter(live).length} · 이벤트 ${events.filter(live).length}) |
 | 지금 열려 있는 기회 | ${openPostings.length + openEvents.length}건 (채용 공고 ${openPostings.length} · 이벤트 ${openEvents.length}) |
 | AI 정책을 명시한 진행중 항목 | ${stated}건 (그중 AI 필수 ${requiredCount}건) |
 | 피드 발행 항목 | ${feedItems}건 (RSS + JSON Feed 동일 목록) |
@@ -94,5 +97,5 @@ const next = [...lines.slice(0, start), ...section.split('\n'), ...lines.slice(e
 // 3연속 이상 개행(섹션 교체 잔해)은 빈 줄 1개로 정규화한다.
 fs.writeFileSync(readmePath, next.join('\n').replace(/\n{3,}/g, '\n\n'))
 console.log(
-  `SYNC-README OK — ${kstToday} 기준 · 레코드 ${postings.length + events.length} · 열림 ${openPostings.length + openEvents.length} · 명시 ${stated} (필수 ${requiredCount}) · 피드 ${feedItems} · 골든 ${goldenPass}/${goldenTotal} · 슬롭린트 ${lintCount}`,
+  `SYNC-README OK — ${kstToday} 기준 · 레코드 ${postings.filter(live).length + events.filter(live).length} (병합 제외) · 열림 ${openPostings.length + openEvents.length} · 명시 ${stated} (필수 ${requiredCount}) · 피드 ${feedItems} · 골든 ${goldenPass}/${goldenTotal} · 슬롭린트 ${lintCount}`,
 )

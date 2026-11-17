@@ -71,7 +71,8 @@ export const rows = [
     source: (p.source || '').replace('manual-research', '리서치'),
     deadline: p.deadline, status: p.status, open: isOpen(p.status),
     checked: p.last_checked, history: p.history || [], review: p.review || '',
-    url: p.url, hiring: false,
+    url: p.url === 'seed' ? null : p.url, hiring: false,   // 'seed' = 원문 없는 시드 조사 기록(스펙 1-3) — 링크 아님
+    mergedInto: p.merged_into || null,   // 중복 병합 표시(스펙 1-2) — 아래 필터에서 제외된다
     first: p.first_seen,
     // 상세 패널용 원문 필드 — 표에는 싣지 않고 우측 패널에서만 보여준다
     process: p.process_raw || '',
@@ -98,7 +99,8 @@ export const rows = [
     source: e.source,
     deadline: e.apply_deadline || e.submit_deadline, status: e.status, open: isOpen(e.status),
     checked: e.last_checked, history: e.history || [], review: e.review || '',
-    url: e.url, hiring: !!e.hiring_link, first: e.first_seen,
+    url: e.url === 'seed' ? null : e.url, hiring: !!e.hiring_link, first: e.first_seen,
+    mergedInto: e.merged_into || null,
     stack: [EVENT_TYPE[e.type] || e.type, e.format].filter(Boolean).join(' '),
     prize: e.prize || '',
     process: '',
@@ -113,7 +115,7 @@ export const rows = [
     hay: hay(e.title, e.host, e.prize, evidenceText(asEvidence(e.evidence)), e.note, e.source, EVENT_TYPE[e.type] || e.type, e.format),
   })),
 ]
-  .filter((r) => r.kind === 'posting' || r.policyKey !== 'banned') // banned 이벤트 노출 제외
+  .filter((r) => !r.mergedInto && (r.kind === 'posting' || r.policyKey !== 'banned')) // 중복 병합 행·banned 이벤트 노출 제외
   .map((r) => ({ ...r, dd: dday(r.deadline) }))
   .sort((a, b) => {
     if (a.open !== b.open) return a.open ? -1 : 1

@@ -85,6 +85,8 @@ def collect(today):
     meta = load("meta.json", {})
     rows = []
     for p in postings:
+        if p.get("merged_into"):  # 웹과 같이 중복 병합 행(스펙 1-2)은 세지 않는다
+            continue
         rows.append({
             "kind": "posting",
             "policy": p.get("ai_policy"),
@@ -95,6 +97,8 @@ def collect(today):
         raw = e.get("ai_usage")
         policy = "required" if raw == "required" else "allowed" if raw == "allowed" else raw
         if policy == "banned":  # 웹과 같이 금지 이벤트는 노출하지 않는다
+            continue
+        if e.get("merged_into"):  # 웹과 같이 중복 병합 행(스펙 1-2)은 세지 않는다
             continue
         rows.append({
             "kind": "event",

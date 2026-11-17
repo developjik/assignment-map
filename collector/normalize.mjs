@@ -8,6 +8,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { asEvidence, asStringArray } from './evidence.mjs';
+import { dedupePostings, dedupeEvents, metaNote } from './dedupe.mjs';
 
 const repo = path.resolve(import.meta.dirname, '..');
 const check = process.argv.includes('--check');
@@ -35,8 +36,30 @@ for (const [file, evidenceOpts] of [['postings.json', { quoteObjects: true }], [
       row[field] = arr;
     }
   }
+  // 교차 소스·재게시 중복 표시(스펙 1-2) — merge.mjs 와 같은 규칙으로 기존 데이터에 멱등 적용
+  const marksBefore = new Map(rows.map((r) => [r.id, r.merged_into || null]));
+  const repsBefore = new Map(rows.map((r) => [r.id, r.duplicates || null]));
+  const groups = file === 'postings.json' ? dedupePostings(rows) : dedupeEvents(rows);
+  for (const g of groups) {
+    const changed = g.dups.some((d) => marksBefore.get(d) !== g.rep) ||
+      JSON.stringify(repsBefore.get(g.rep) || null) !== JSON.stringify(g.dups);
+    if (changed) report(file, g.rep, 'duplicates', '', g.dups);
+  }
   const after = JSON.stringify(rows, null, 2) + '\n';
   if (!check && after !== before) save(file, rows);
+}
+
+// meta note 규칙(스펙 1-3) — 'P1 seed. daily routine not started' 허위 상태를 last_run 기준으로 고친다
+{
+  const before = raw('meta.json');
+  const meta = JSON.parse(before);
+  const note = metaNote(meta.last_run, meta.seed_date);
+  if (meta.note !== note) {
+    report('meta.json', 'note', 'note', meta.note, note);
+    meta.note = note;
+    const after = JSON.stringify(meta, null, 2) + '\n';
+    if (!check && after !== before) save('meta.json', meta);
+  }
 }
 
 if (check) {

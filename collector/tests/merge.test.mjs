@@ -16,12 +16,37 @@ const FIXTURE = {
     ai_policy: 'required', evidence: '레거시 문자열 근거', url: 'https://example.com/legacy',
     deadline: '2026-11-30', status: 'open', first_seen: '2026-11-01', last_checked: '2026-11-01',
     check_cadence: 'weekly', review: 'confirmed', history: [],
+  }, {
+    // 스펙 1-2 중복 제거 픽스처: 숲(SOOP) 원본(닫힘) — 재게시가 run 으로 들어온다
+    id: 'soop:orig', company: '숲(SOOP)', title: '[SOOP] LIVE 방송 서버 개발',
+    positions: ['backend'], ai_policy: 'allowed', evidence: [{ quote: 'SOOP 과제 전형 근거' }],
+    url: 'https://example.com/soop', deadline: '2026-11-01', status: 'closed',
+    first_seen: '2026-10-24', last_seen: '2026-11-02', last_checked: '2026-11-02',
+    check_cadence: 'none', review: 'auto', history: [],
+  }, {
+    // 같은 회사의 다른 직무 — 절대 병합되면 안 된다(넷마블 보안직군 사례)
+    id: 'netmarble:sec1', company: '넷마블', title: '보안정책 담당자', positions: ['security'],
+    ai_policy: 'unspecified', evidence: [{ quote: '보안정책 공고 근거' }], url: 'https://example.com/nm1',
+    deadline: '2026-12-01', status: 'open', first_seen: '2026-11-10', last_seen: '2026-11-10',
+    last_checked: '2026-11-10', check_cadence: 'weekly', review: 'auto', history: [],
   }],
   'data/events.json': [{
     id: 'ev:legacy', type: 'contest', title: '레거시 공모전', host: '호스트',
     ai_usage: 'required', status: 'open', apply_deadline: '2026-12-02', submit_deadline: null,
     evidence: '레거시 이벤트 근거', url: 'https://example.com/ev', first_seen: '2026-11-01',
     last_checked: '2026-11-01', check_cadence: 'weekly', review: 'confirmed', history: [],
+  }, {
+    // 매경 재게시 그룹의 먼저 들어온 쪽 (host 표기가 다른 동일 행사)
+    id: 'wevity:m1', type: 'contest', title: '[제3회] 매경 AI 광고 공모전 대한민국 AI 광고대상',
+    host: '매경미디어', ai_usage: 'allowed', status: 'open', apply_deadline: '2026-11-30',
+    submit_deadline: '2026-11-30', evidence: ['매경 공모전 근거'], url: 'https://aimk.example',
+    first_seen: '2026-11-01', last_checked: '2026-11-09', check_cadence: 'weekly', review: 'auto', history: [],
+  }, {
+    // 제목이 같아도 host 가 양립하지 않으면 다른 행사다 (연례 시리즈 오병합 방지)
+    id: 'wevity:h1', type: 'contest', title: '동일 제목 공모전 2026', host: 'A재단',
+    ai_usage: 'allowed', status: 'open', apply_deadline: '2026-12-01', submit_deadline: null,
+    evidence: ['A재단 근거'], url: 'https://example.com/h1', first_seen: '2026-11-01',
+    last_checked: '2026-11-01', check_cadence: 'weekly', review: 'auto', history: [],
   }],
   'data/changelog.json': { events: [] },
   'data/meta.json': { last_run: '2026-11-15', counts: { platforms: 1, postings: 1, news: 3, events: 1 } },
@@ -48,14 +73,53 @@ const FIXTURE = {
         id: 'ev:legacy', type: 'contest', title: '레거시 공모전', host: '호스트', ai_usage: 'required',
         status: 'open', apply_deadline: '2026-12-02', evidence: '레거시 이벤트 근거 갱신',
       },
+      {
+        // 매경 재게시: 제목 동일(년도·회차 보존), host 표기만 다르다
+        id: 'wevity:m2', type: 'contest', title: '[제3회] 매경 AI 광고 공모전 대한민국 AI 광고대상',
+        host: '매경미디어(매일경제)', ai_usage: 'allowed', status: 'open',
+        apply_deadline: '2026-11-30', submit_deadline: '2026-11-30', evidence: '매경 재게시 근거',
+      },
+      {
+        // 같은 제목, 다른 host — 병합되면 안 된다
+        id: 'lablab:h2', type: 'contest', title: '동일 제목 공모전 2026', host: 'B아카데미',
+        ai_usage: 'allowed', status: 'open', apply_deadline: '2026-12-01', evidence: 'B아카데미 근거',
+      },
     ],
+  },
+  'runs/2026-11-18.json': {
+    date: '2026-11-18',
+    postings: [
+      {
+        // SOOP 재게시: 마감이 늘어난 열린 본문 — 대표행이 되어야 한다
+        id: 'soop:repost', company: '숲(SOOP)', title: 'LIVE 방송 서버 개발 (재공고)',
+        positions: 'backend', ai_policy: 'allowed', status: 'open', deadline: '2026-11-15',
+        url: 'https://example.com/soop2', evidence: '재게시 본문 근거',
+      },
+      {
+        // 같은 회사 다른 직무 — 병합 금지 그룹의 대조군
+        id: 'netmarble:sec2', company: '넷마블', title: '기술 보안 담당자', ai_policy: 'unspecified',
+        status: 'open', deadline: '2026-12-01', url: 'https://example.com/nm2', evidence: '기술보안 공고 근거',
+      },
+    ],
+    events: [],
+  },
+  'runs/2026-11-19.json': {
+    date: '2026-11-19',
+    postings: [
+      {
+        // 병합 표시가 이미 붙은 원본 id 로 들어온 갱신은 대표행(soop:repost)으로 흘러야 한다
+        id: 'soop:orig', company: '숲(SOOP)', title: '[SOOP] LIVE 방송 서버 개발',
+        ai_policy: 'allowed', status: 'gone', evidence: '원본 공고 내려감',
+      },
+    ],
+    events: [],
   },
 };
 
 function sandbox() {
   const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'am-collector-'));
   for (const sub of ['collector', 'data', 'runs']) fs.mkdirSync(path.join(dir, sub), { recursive: true });
-  for (const f of ['merge.mjs', 'validate.mjs', 'normalize.mjs', 'evidence.mjs']) {
+  for (const f of ['merge.mjs', 'validate.mjs', 'normalize.mjs', 'evidence.mjs', 'dedupe.mjs']) {
     fs.copyFileSync(path.join(REPO, 'collector', f), path.join(dir, 'collector', f));
   }
   for (const [rel, body] of Object.entries(FIXTURE)) {
@@ -121,6 +185,72 @@ test('validate: merge 결과는 통과하고, 문자열 evidence 는 events·pos
   postings[0].evidence = '문자열로 되돌린 근거';
   fs.writeFileSync(path.join(dir, 'data/postings.json'), JSON.stringify(postings, null, 2) + '\n');
   assert.match(node(dir, 'normalize.mjs'), /NORMALIZE OK/, 'normalize 로 다시 배열로 되돌린다');
+  assert.match(node(dir, 'validate.mjs'), /VALIDATE OK/);
+  fs.rmSync(dir, { recursive: true, force: true });
+});
+
+test('merge: 교차 소스·재게시 중복은 대표행 1개로 수렴한다 (스펙 1-2)', () => {
+  const dir = sandbox();
+  node(dir, 'merge.mjs', 'runs/2026-11-16.json');   // 사전 상태(병합 전) 만들기
+  node(dir, 'merge.mjs', 'runs/2026-11-18.json');   // 재게시·대조군 투입
+
+  const postings = readJSON(dir, 'data/postings.json');
+  const byId = new Map(postings.map((p) => [p.id, p]));
+  // 숲(SOOP): 열린 재게시가 대표, 닫힌 원본은 merged_into — 마감은 가장 늦은 값
+  const repost = byId.get('soop:repost'), orig = byId.get('soop:orig');
+  assert.equal(orig.merged_into, 'soop:repost', '닫힌 원본이 재게시 뒤로 병합된다');
+  assert.ok(!repost.merged_into, '대표행에는 표시가 없다');
+  assert.deepEqual(repost.duplicates, ['soop:orig'], '대표행에 중복 id 감사 목록');
+  assert.equal(repost.deadline, '2026-11-15', '마감은 그룹에서 가장 늦은 값(재게시 연장)');
+  assert.equal(repost.last_seen, '2026-11-18', 'last_seen 은 그룹 최댓값');
+  // 같은 회사의 다른 직무는 절대 병합되지 않는다
+  for (const id of ['netmarble:sec1', 'netmarble:sec2']) {
+    assert.ok(!byId.get(id).merged_into, `${id} 는 다른 직무라 병합 금지`);
+    assert.ok(!byId.get(id).duplicates, `${id} 는 그룹 대표가 아니다`);
+  }
+
+  const events = readJSON(dir, 'data/events.json');
+  const evById = new Map(events.map((e) => [e.id, e]));
+  // 매경: host 표기가 달라도(매경미디어 vs 매경미디어(매일경제)) 같은 행사로 병합
+  const m1 = evById.get('wevity:m1'), m2 = evById.get('wevity:m2');
+  assert.equal(m2.merged_into, 'wevity:m1', '먼저 들어온 쪽이 대표');
+  assert.deepEqual(m1.duplicates, ['wevity:m2']);
+  assert.equal(m1.last_checked, '2026-11-16', 'last_checked 는 그룹 최댓값');
+  // 같은 제목, 다른 host → 서로 다른 행사로 남는다
+  assert.ok(!evById.get('wevity:h1').merged_into && !evById.get('lablab:h2').merged_into,
+    'host 가 양립하지 않으면 같은 제목도 병합하지 않는다');
+
+  // 대표행 데이터로 validate 통과 — 병합 표시는 스키마 무결성을 깨지 않는다
+  assert.match(node(dir, 'validate.mjs'), /VALIDATE OK/);
+  fs.rmSync(dir, { recursive: true, force: true });
+});
+
+test('merge: 중복 병합은 멱등이다 — 같은 런을 두 번 돌려도 데이터가 같다', () => {
+  const dir = sandbox();
+  node(dir, 'merge.mjs', 'runs/2026-11-16.json');
+  node(dir, 'merge.mjs', 'runs/2026-11-18.json');
+  const snap = (f) => fs.readFileSync(path.join(dir, f), 'utf8');
+  const before = ['data/postings.json', 'data/events.json', 'data/changelog.json'].map(snap);
+  node(dir, 'merge.mjs', 'runs/2026-11-18.json');   // 재실행 — 멱등 확인
+  const after = ['data/postings.json', 'data/events.json', 'data/changelog.json'].map(snap);
+  assert.deepEqual(after, before, '같은 날짜 재병합은 데이터를 바꾸지 않는다');
+  fs.rmSync(dir, { recursive: true, force: true });
+});
+
+test('merge: 병합된 id 로 들어온 갱신은 대표행으로 흐른다', () => {
+  const dir = sandbox();
+  node(dir, 'merge.mjs', 'runs/2026-11-16.json');
+  node(dir, 'merge.mjs', 'runs/2026-11-18.json');   // soop:orig → soop:repost 병합 표시
+  node(dir, 'merge.mjs', 'runs/2026-11-19.json');   // 원본 id 갱신(gone) 도착
+
+  const postings = readJSON(dir, 'data/postings.json');
+  const byId = new Map(postings.map((p) => [p.id, p]));
+  const repost = byId.get('soop:repost'), orig = byId.get('soop:orig');
+  assert.equal(repost.status, 'gone', '원본 id 갱신이 대표행 상태를 바꾼다');
+  assert.ok(repost.history.some((h) => h.event === 'status_changed' && h.to === 'gone'),
+    '대표행 history 에 기록된다');
+  assert.equal(orig.status, 'closed', '숨겨진 중복 행은 건드리지 않는다');
+  assert.equal(orig.merged_into, 'soop:repost');
   assert.match(node(dir, 'validate.mjs'), /VALIDATE OK/);
   fs.rmSync(dir, { recursive: true, force: true });
 });
