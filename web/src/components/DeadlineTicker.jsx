@@ -1,8 +1,8 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
+import { HOT_DAYS, relativeText } from '../lib/deadline'
 import { POLICY_LABEL } from '../lib/labels'
 
 // 상단 마감 임박 롤링 티커 — 진행중이면서 마감일이 살아 있는 행만 모은다.
-const HOT_DAYS = 3 // 1차 창: D-3 이내
 const NEAR_DAYS = 7 // 건수가 적을 때 보충하는 창
 const MIN_ITEMS = 5
 const MAX_ITEMS = 7
@@ -57,7 +57,8 @@ export default function DeadlineTicker({ rows, onPick }) {
   }
 
   const r = items[idx]
-  const ddText = r.dd === 0 ? 'D-0 오늘' : `D-${r.dd}`
+  // 낱말은 lib/deadline 한 곳에서 나온다 — 표·패널과 같은 D-Day 표기를 쓴다 (PR E)
+  const ddText = r.dd === 0 ? `${relativeText(r.dd)} 오늘` : relativeText(r.dd)
 
   return (
     <div

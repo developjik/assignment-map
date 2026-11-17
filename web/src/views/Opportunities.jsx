@@ -5,6 +5,7 @@ import { downloadIcs, downloadStarredIcs } from '../lib/ics'
 import { filtersFromHash, readHash, writeHash, filterPatch } from '../lib/hash'
 import { loadPresets, matchPreset } from '../lib/presets'
 import { DENSITIES, readDensity, writeDensity } from '../lib/density'
+import { HOT_DAYS, deadlineView, relativeText } from '../lib/deadline'
 import { useStarred, setStarred } from '../lib/starred'
 import { WORKFLOW, WORKFLOW_CLS, WORKFLOW_LABEL, nextStatus, useStatuses } from '../lib/statuses'
 import { reportIssueUrl } from '../lib/report'
@@ -68,7 +69,9 @@ const COLS = [
   { id: 'type', label: '유형', wide: true },
   { id: 'policy', label: 'AI 정책' },
   { id: 'evidence', label: '근거', nosort: true },
-  { id: 'deadline', label: '마감 (D-day)' },
+  // 마감은 상대값만(D-1 | D-Day | 상시) — 절대 날짜는 셀 title 과 상세 패널이 갖는다 (PR E).
+  // 헤더는 `마감` 만 쓴다: 72px 컬럼에서 `마감 (D-day)` 는 두 줄로 접힌다.
+  { id: 'deadline', label: '마감', title: '마감 (D-day) | 남은 날만 보여준다. 날짜는 칸에 마우스를 올리거나 상세에서 보인다' },
   { id: 'checked', label: '확인', wide: true },
 ]
 const WIDE_KEYS = COLS.filter((c) => c.wide).map((c) => c.id)
@@ -660,6 +663,7 @@ export default function Opportunities({ rows, type, q, setQ, setTab, onVisit }) 
                 </th>
                 {cols.map((c) => (
                   <th key={c.id} data-col={c.id} className={c.id === 'deadline' || c.id === 'checked' ? 'r' : ''}
+                    title={c.title}
                     aria-sort={sort && sort.key === c.id ? (sort.dir === 1 ? 'ascending' : 'descending') : undefined}>
                     {c.nosort ? c.label : (
                       <button className="sort" onClick={() => clickSort(c.id)}>
@@ -722,11 +726,12 @@ export default function Opportunities({ rows, type, q, setQ, setTab, onVisit }) 
 
 function Row({ r, q, zebra, idx, curIdx, curRef, expanded, starred, onStar, st, onCycle, onPick, rows, onPickRelated, sel, onSel, density, wideCols }) {
   const isNew = r.first && r.first >= new Date(Date.now() - 2 * 864e5).toISOString().slice(0, 10)
-  const hot = r.open && r.dd !== null && r.dd >= 0 && r.dd <= 3
+  const hot = r.open && r.dd !== null && r.dd >= 0 && r.dd <= HOT_DAYS
   // 40px 밀도에서는 제목 오른쪽에 주최·유형·확인일을 둔째 줄로 내린다 (한 행에 두 줄)
   const comfort = density === 'comfortable'
-  const ddCls = r.dd === null ? 'dd pass' : r.dd < 0 ? 'dd pass' : r.dd <= 3 ? 'dd hot' : 'dd'
-  const ddText = !r.open ? '종결' : r.dd === null ? '상시' : r.dd < 0 ? '마감' : `D-${r.dd} (${(r.deadline || '').slice(5)})`
+  // 마감은 상대값 하나 — `D-` 는 흐리게, 숫자(Day)는 굵게. 절대 날짜는 title 툴팁으로만 (PR E)
+  const dv = deadlineView(r)
+  const ddCls = 'dd dd-' + dv.tone
   const cls = ['row', zebra && !hot ? 'z' : '', hot ? 'hot' : '', idx === curIdx ? 'cur' : '', sel ? 'sel' : ''].filter(Boolean).join(' ')
   const change = policyChangeByID.get(r.id)
   // 제목 줄 — 별표·제목·배지가 한 줄에 살고, 40px 에서는 이것이 첫째 줄이 된다
@@ -772,8 +777,12 @@ function Row({ r, q, zebra, idx, curIdx, curRef, expanded, starred, onStar, st, 
         <td data-col="policy"><span className={`pol ${r.policy.cls}`}><i aria-hidden="true"></i>{POLICY_LABEL[r.policyKey] || r.policy.label}</span></td>
         {/* 근거는 원문 인용 하나를 48자로 자른다 — 수집기 운영 메모는 패널 '수집 메모'로 (PR B) */}
         <td className="ev" data-col="evidence" title={r.evidenceFull || ''}>{disp(r.evidence)}</td>
-        <td className={ddCls} data-col="deadline">
-          <span className="ddt">{ddText}</span>
+        <td className={ddCls} data-col="deadline" title={dv.title}>
+          <span className="ddt">
+            {dv.prefix
+              ? <><span className="ddp">{dv.prefix}</span><b className="ddv">{dv.value}</b></>
+              : dv.text}
+          </span>
         </td>
         {wideCols && (
           <td className="chk" data-col="checked" title={r.checked ? `마지막 확인 ${r.checked}` : '확인일 없음'}>
@@ -787,7 +796,7 @@ function Row({ r, q, zebra, idx, curIdx, curRef, expanded, starred, onStar, st, 
             <div className="in">
               <div className="ln"><span className="d">{r.first || ''}</span>발견 | <span className="q">{disp(r.evidenceFull || r.evidence || '원문 인용 없음')}</span></div>
               <div className="ln">대상/주최: <span className="q">{r.sub || '-'}</span></div>
-              <div className="ln">마감: <span className="q">{r.deadline ? `${r.deadline} (${ddText})` : '상시/미정'}</span> | 유형: <span className="q">{r.type}</span>{r.prize ? <> | 상금: <span className="q">{r.prize}</span></> : null}</div>
+              <div className="ln">마감: <span className="q">{r.deadline ? `${r.deadline} (${relativeText(r.dd, r.open)})` : '상시/미정'}</span> | 유형: <span className="q">{r.type}</span>{r.prize ? <> | 상금: <span className="q">{r.prize}</span></> : null}</div>
               {/* 표에서 뺀 확인일·출처는 아코디언이 받는다 (좁은 화면에서는 이 줄이 유일한 자리) */}
               <div className="ln">확인: <span className="q">{r.checked || '-'}</span> | 출처: <span className="q">{disp(r.source) || '-'}</span></div>
               {/* 핵심 동작은 제목·마감 바로 아래 — 공략·이력 끝까지 스크롤하지 않아도 된다 */}
