@@ -1,6 +1,11 @@
 :root {
   --bg: #0B0E14; --panel: #0F131B; --panel2: #0D111A; --border: #1A2130; --border2: #12161F;
-  --fg: #C9D4E3; --fg-hi: #E8EEF6; --mut: #8B98AD; --dim: #82909F; --faint: #6E7B90;
+  --fg: #C9D4E3; --fg-hi: #E8EEF6; --mut: #8B98AD; --dim: #82909F;
+  /* 보조 텍스트 하한 — 패널 배경(#0F131B)에서 5.04:1, 본문 배경(#0B0E14)에서 5.23:1.
+     예전 #6E7B90 은 4.34:1 로 AA(4.5:1) 미달이었다 (2026-11-17 대비 보정).
+     --mut(6.37:1) 로 바꾸는 대신 토큰을 올렸다: 도구 줄·메타가 조건 버튼과 같은 밝기가 되면
+     "목록을 좁히는 조건"과 "표시 도구"의 위계가 사라진다. */
+  --faint: #78869C;
   --red: #FF5C5C; --blue: #5CA8FF; --green: #34D399; --yellow: #E5C07B;
   --mono: "JetBrains Mono", "SF Mono", Menlo, monospace;
   /* 한글 산문용 — 숫자·D-Day·단축키·터미널 메타는 --mono 그대로 */
@@ -67,22 +72,25 @@ a:hover { text-decoration: underline; text-underline-offset: 3px; }
 .band .dl-btn { padding: 0 7px; }
 .band .dl-empty { padding: 3px 10px; }
 
-/* filter row — 압축: 4px 패딩 (높이 24px). 두 계층: 조건(fr-q) + 도구(fr-t) */
+/* filter row — 28px 행, 버튼 최소 타깃 28×24 (WCAG 2.2 SC 2.5.8). 두 계층: 조건(fr-q) + 도구(fr-t) */
 .fr { display: flex; border-bottom: 1px solid var(--border); flex-wrap: wrap; align-items: stretch; }
 .fr-q { display: flex; flex-wrap: wrap; align-items: stretch; min-width: 0; }
 .fr-t { display: flex; flex-wrap: wrap; align-items: stretch; margin-left: auto; border-left: 1px solid var(--border2); }
-.fl { display: flex; align-items: center; padding: 0 9px; font-size: 10.5px; color: var(--faint); border-right: 1px solid var(--border); }
-.fopt { display: inline-flex; align-items: center; padding: 4px 8px; font-size: 11px; color: var(--mut); background: none; border: 0; border-right: 1px solid var(--border2); cursor: pointer; font-family: inherit; }
+.fl { display: flex; align-items: center; min-height: 28px; padding: 0 9px; font-size: 10.5px; color: var(--mut); border-right: 1px solid var(--border); }
+.fopt { display: inline-flex; align-items: center; min-height: 28px; min-width: 24px; padding: 0 9px; font-size: 11px; color: var(--mut); background: none; border: 0; border-right: 1px solid var(--border2); cursor: pointer; font-family: inherit; }
 .fr-q .fl { padding: 0 8px; }
+/* 값 옆 건수 — 지금 조건에서 그 값이 몇 건인지 (값이 0이면 누르기 전에 보인다) */
+.fct { margin-left: 6px; color: var(--faint); font-size: 10px; font-variant-numeric: tabular-nums; }
+.fopt.on .fct, .fopt:hover .fct { color: var(--fg); }
 /* 도구 줄 — 조건과 같은 버튼이 아니라 보조 도구로 읽히게: 옅은 글자 + 밑줄 선택 표시 */
 .fr-t .fl { border-right: 0; padding: 0 8px 0 12px; }
 .fr-t .fl:first-child { padding-left: 10px; }
-.fr-t .fopt { color: var(--faint); font-size: 10.5px; padding: 4px 8px; }
+.fr-t .fopt { color: var(--faint); font-size: 10.5px; padding: 0 8px; }
 .fr-t .fopt:hover { color: var(--fg-hi); }
 .fr-t .fopt.on { color: var(--fg-hi); background: none; box-shadow: inset 0 -2px 0 var(--blue); }
 .fr-t .fopt.ics { color: var(--blue); }
-.fr-t .fopt.ics:disabled { color: #46505F; }
-.fopt-reset { margin: 4px 8px; align-self: center; padding: 1px 8px; border: 1px solid var(--border); color: var(--mut); }
+.fr-t .fopt.ics:disabled { color: var(--faint); }
+.fopt-reset { margin: 0 8px; align-self: center; padding: 0 8px; min-height: 24px; border: 1px solid var(--border); color: var(--mut); }
 .fopt-reset:hover { color: var(--fg-hi); border-color: var(--blue); }
 .fopt:hover { color: var(--fg-hi); }
 .fopt.on { color: var(--fg-hi); background: #11151C; }
@@ -90,6 +98,54 @@ a:hover { text-decoration: underline; text-underline-offset: 3px; }
 .fopt.p-ai.on { background: #101826; color: var(--blue); }
 .fopt.p-ok.on { background: #0F1A15; color: var(--green); }
 .fopt.p-rev.on { background: #1B1710; color: var(--yellow); }
+
+/* 필터 팝오버 — 상시 5묶음 밖의 조건이 여기 모인다. 값 한 줄이 토글 한 줄이고,
+   오른쪽 숫자는 이 값을 골랐을 때 남는 건수다. 그림자 없음·radius 0 (DESIGN.md). */
+.fpop-wrap { position: relative; display: inline-flex; align-items: stretch; }
+.fpop-n { margin-left: 5px; padding: 0 3px; border: 1px solid #24303F; color: var(--blue); font-size: 9.5px; line-height: 1.4; font-variant-numeric: tabular-nums; }
+.fpop-btn.has { color: var(--fg-hi); }
+.fpop-caret { margin-left: 4px; color: var(--dim); font-size: 9px; }
+/* 바깥 클릭 레이어 — 화면 전체를 덮고, 누르면 닫힌다 */
+.fpop-back { position: fixed; inset: 0; z-index: 40; }
+.fpop { position: absolute; top: calc(100% + 1px); left: 0; z-index: 41; width: 320px; max-width: calc(100vw - 24px); max-height: min(74vh, 540px); overflow-y: auto; background: var(--panel); border: 1px solid var(--border); }
+/* 버튼이 화면 오른쪽에 가까우면 오른쪽 맞춤 — 패널이 화면 밖으로 나가지 않게 (열 때 JavaScript가 판단) */
+.fpop.right { left: auto; right: 0; }
+.fp-hd { position: sticky; top: 0; display: flex; align-items: center; gap: 6px; padding: 4px 8px 4px 10px; background: var(--panel); border-bottom: 1px solid var(--border); }
+.fp-title { color: var(--fg-hi); font-size: 11px; font-weight: 600; }
+.fp-clear { margin-left: auto; background: none; border: 1px solid var(--border); color: var(--mut); font: 10px var(--mono); min-height: 24px; padding: 0 7px; cursor: pointer; }
+.fp-clear:hover:not(:disabled) { color: var(--fg-hi); border-color: var(--blue); }
+.fp-clear:disabled { color: var(--faint); cursor: default; }
+.fp-x { background: none; border: 1px solid var(--border); color: var(--mut); font: 10px var(--mono); min-height: 24px; padding: 0 7px; cursor: pointer; }
+.fp-x:hover { color: var(--fg-hi); border-color: var(--blue); }
+.fp-g { padding: 6px 0 7px; border-top: 1px solid var(--border2); }
+.fp-g:first-of-type { border-top: 0; }
+.fp-gh { padding: 0 10px 3px; color: var(--dim); font-size: 10px; }
+.fp-row { display: flex; align-items: center; gap: 8px; width: 100%; min-height: 26px; padding: 0 10px; background: none; border: 0; color: var(--mut); font: 11px var(--mono); text-align: left; cursor: pointer; }
+.fp-row:hover { color: var(--fg-hi); background: #11151C; }
+.fp-row.on { color: var(--fg-hi); background: #11151C; box-shadow: inset 2px 0 0 var(--blue); }
+.fp-l { flex: 1 1 auto; min-width: 0; }
+.fp-n { color: var(--dim); font-size: 10px; font-variant-numeric: tabular-nums; }
+.fp-row.on .fp-n { color: var(--fg); }
+.fp-presets { display: flex; flex-wrap: wrap; gap: 6px; padding: 0 10px; }
+.fp-preset { min-height: 24px; padding: 0 8px; background: none; border: 1px solid var(--border); color: var(--mut); font: 10.5px var(--mono); cursor: pointer; }
+.fp-preset:hover { color: var(--fg-hi); border-color: #2A4A73; }
+.fp-preset.on { color: #DCE9FF; border-color: #2A4A73; background: #101826; }
+/* 좁은 화면은 바닥 트레이 — 목록을 완전히 가리지 않고, 행은 손가락 크기로 */
+@media (max-width: 760px) {
+  .fpop, .fpop.right { position: fixed; top: auto; left: 0; right: 0; bottom: 0; width: auto; max-width: none; max-height: 72vh; border-left: 0; border-right: 0; border-bottom: 0; }
+  .fp-row { min-height: 32px; }
+  .fchip, .fchip-clear { min-height: 28px; }
+}
+
+/* 적용 필터 칩 줄 — 칩 하나가 곧 제거 버튼이다. 검색어·정렬은 칩이 아니라 도구라 여기 없다 */
+.fr-chips { display: flex; align-items: center; flex-wrap: wrap; gap: 6px; flex: 0 0 auto; padding: 3px 10px 4px; background: var(--panel2); border-bottom: 1px solid var(--border); }
+.fchip { display: inline-flex; align-items: center; gap: 5px; min-height: 24px; padding: 0 7px; background: none; border: 1px solid var(--border); color: var(--fg); font: 10.5px var(--mono); cursor: pointer; }
+.fchip:hover { color: var(--fg-hi); border-color: var(--blue); }
+.fchip .k { color: var(--faint); font-size: 10px; }
+.fchip .x { color: var(--dim); font-size: 11px; line-height: 1; }
+.fchip:hover .x { color: var(--fg-hi); }
+.fchip-clear { min-height: 24px; padding: 0 7px; background: none; border: 0; color: var(--faint); font: 10.5px var(--mono); cursor: pointer; }
+.fchip-clear:hover { color: var(--fg-hi); text-decoration: underline; text-underline-offset: 3px; }
 
 /* table */
 .twrap { overflow: auto; flex: 1 1 0; min-height: 0; }
@@ -201,7 +257,7 @@ tr.cur td { background: #111726; box-shadow: inset 2px 0 0 var(--blue); }
 
 /* 밀도 (AG Grid spacing 토큰 / MUI 토글) */
 .dens { display: flex; align-self: center; }
-.dens button { background: none; border: 1px solid var(--border); color: var(--faint); font: 10px var(--mono); padding: 3px 8px; cursor: pointer; }
+.dens button { display: inline-flex; align-items: center; min-height: 28px; background: none; border: 1px solid var(--border); color: var(--faint); font: 10px var(--mono); padding: 0 8px; cursor: pointer; }
 .dens button.on { color: var(--fg-hi); background: #11151C; }
 [data-density="compact"] td { padding: 2px 8px; font-size: 11px; }
 [data-density="compact"] th { padding: 4px 8px; }
@@ -299,7 +355,7 @@ td.ev { white-space: nowrap; color: var(--mut); }
 .ics.act.primary { color: #DCE9FF; border-color: #2A4A73; background: #101826; font-weight: 700; padding: 4px 12px; }
 .ics.act.primary:hover { color: #fff; border-color: var(--blue); background: #14203A; }
 .dp-acts-top .ics.act { padding-top: 4px; padding-bottom: 4px; }
-.dp-foot { padding: 7px 12px 0; color: #5A6577; font-size: 10px; }
+.dp-foot { padding: 7px 12px 0; color: var(--faint); font-size: 10px; }
 
 /* 관련 공고 — 패널(.rel .dp-sec)과 모바일 아코디언(.rel-in)이 같은 목록을 쓴다 */
 .rel-list { list-style: none; margin: 2px 0 4px; padding: 0; }
@@ -420,8 +476,8 @@ td.ev { white-space: nowrap; color: var(--mut); }
 .fopt.tog-chg.on { color: var(--red); background: #1C1113; }
 .fopt.ics { color: var(--blue); border-right: 1px solid var(--border); }
 .fopt.ics:hover { color: var(--fg-hi); }
-.fopt:disabled { color: #46505F; cursor: default; }
-.fopt:disabled:hover { color: #46505F; }
+.fopt:disabled { color: var(--faint); cursor: default; }
+.fopt:disabled:hover { color: var(--faint); }
 
 /* 정책 변경 배지 — 정책 이야기는 빨강 */
 .badge.chg { color: var(--red); }

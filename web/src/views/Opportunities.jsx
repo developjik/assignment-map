@@ -3,6 +3,7 @@ import { meta, policyChangeByID, stats, sparkPoints } from '../lib/data'
 import { POLICY_LABEL, STATUS_LABEL, disp } from '../lib/labels'
 import { downloadIcs, downloadStarredIcs } from '../lib/ics'
 import { filtersFromHash, readHash, writeHash, filterPatch } from '../lib/hash'
+import { loadPresets, matchPreset } from '../lib/presets'
 import { useStarred } from '../lib/starred'
 import { WORKFLOW, WORKFLOW_CLS, WORKFLOW_LABEL, nextStatus, useStatuses } from '../lib/statuses'
 import { reportIssueUrl } from '../lib/report'
@@ -14,6 +15,7 @@ import GuideProgressBadge from '../components/GuideProgressBadge'
 import RelatedList from '../components/RelatedList'
 import StatusPicker from '../components/StatusPicker'
 import ShortcutsHelp from '../components/ShortcutsHelp'
+import FilterPopover from '../components/FilterPopover'
 const POLICY_FILTERS = [
   { id: 'all', label: '전체 정책' },
   { id: 'required', label: 'AI 필수', cls: 'p-req' },
@@ -34,11 +36,24 @@ const SORT_MODES = [
   { id: 'dday', label: '마감 임박' },
   { id: 'latest', label: '최신 등록' },
 ]
+// 마감 범위 — 프리셋 'D-3 임박'과 같은 축을 팝오버에서도 직접 고를 수 있게
+const DD_FILTERS = [
+  { id: '', label: '전체 마감' },
+  { id: '3', label: 'D-3 이내' },
+  { id: '7', label: 'D-7 이내' },
+]
+// 필터의 기본값 — 프리셋 적용이 빠진 키를 기본값으로 메운다
+const DEFAULT_FILTERS = {
+  policy: 'all', jobfam: 'all', status: 'open', prog: '', dd: '',
+  hiringOnly: false, changedOnly: false, starredOnly: false,
+}
 const POLICY_RANK = { required: 4, allowed_graded: 3, allowed: 2, banned: 1, unspecified: 0, unknown: 0 }
 // 정책 필터 판정 — 기본 필터와 티커 필터 완화가 같은 규칙을 써야 한다
 const policyMatch = (p, r) => p === 'all' ? true
   : p === 'unspecified' ? ['unspecified', 'unknown'].includes(r.policyKey)
   : r.policyKey === p
+// 마감 범위 판정 — 살아있는 마감(0 이상)만 센다. 지난 마감·상시는 D-3 이내가 아니다.
+const ddMatch = (within, r) => !within ? true : r.dd !== null && r.dd >= 0 && r.dd <= Number(within)
 
 // Enter 단축키를 양보해야 하는 포소스인가 — 버튼·링크·탭·폼 요소와 상세 영역 안쪽
 const INTERACTIVE = 'button, a[href], input, select, textarea, summary, [role="button"], [role="tab"], [role="link"], [role="switch"], [role="checkbox"], [contenteditable="true"]'
@@ -113,6 +128,7 @@ export default function Opportunities({ rows, type, q, setQ, setTab, onVisit }) 
   const [jobfam, setJobfam] = useState(initial.jobfam)
   const [status, setStatus] = useState(initial.status)
   const [prog, setProg] = useState(initial.prog)
+  const [ddw, setDdw] = useState(initial.dd)
   const [hiringOnly, setHiringOnly] = useState(initial.hiringOnly)
   const [changedOnly, setChangedOnly] = useState(initial.changedOnly)
   const [starredOnly, setStarredOnly] = useState(initial.starredOnly)
@@ -128,6 +144,9 @@ export default function Opportunities({ rows, type, q, setQ, setTab, onVisit }) 
   const [notice, setNotice] = useState('')
   // 티커에서 고른 행 — 필터가 끝난 뒤 그 행을 찾아 열기 위한 대기표
   const [pendingPick, setPendingPick] = useState(null)
+  // 필터 팝오버 열림 여부 + 이름 붙은 프리셋 정의(localStorage)
+  const [fpop, setFpop] = useState(false)
+  const [presets] = useState(loadPresets)
   const curRef = useRef(null)
   const noticeTimer = useRef(null)
   // Esc 로 패널을 닫은 뒤에는 j/k 만으로 다시 열지 않는다 (Enter·클릭은 다시 연다)
@@ -139,14 +158,14 @@ export default function Opportunities({ rows, type, q, setQ, setTab, onVisit }) 
 
   // 필터 상태를 URL 해시에 반영 (탭·검색어 키는 App이 쓰므로 건드리지 않는다)
   useEffect(() => {
-    writeHash(filterPatch({ policy, jobfam, status, prog, hiringOnly, changedOnly, starredOnly }))
-  }, [policy, jobfam, status, prog, hiringOnly, changedOnly, starredOnly])
+    writeHash(filterPatch({ policy, jobfam, status, prog, dd: ddw, hiringOnly, changedOnly, starredOnly }))
+  }, [policy, jobfam, status, prog, ddw, hiringOnly, changedOnly, starredOnly])
 
   // 같은 탭에서 해시만 바뀌면(링크 붙여넣기, 뒤로/앞으로) 상태를 다시 맞춘다
   useEffect(() => {
     const onHash = () => {
       const f = filtersFromHash(readHash())
-      setPolicy(f.policy); setJobfam(f.jobfam); setStatus(f.status); setProg(f.prog)
+      setPolicy(f.policy); setJobfam(f.jobfam); setStatus(f.status); setProg(f.prog); setDdw(f.dd)
       setHiringOnly(f.hiringOnly); setChangedOnly(f.changedOnly); setStarredOnly(f.starredOnly)
     }
     window.addEventListener('hashchange', onHash)
@@ -164,21 +183,24 @@ export default function Opportunities({ rows, type, q, setQ, setTab, onVisit }) 
   const starredSet = useMemo(() => new Set(starredIds), [starredIds])
   const starredRows = useMemo(() => rows.filter((r) => starredSet.has(r.id)), [rows, starredSet])
 
-  const { filtered, totalNoStatus } = useMemo(() => {
+  const { filtered, totalNoStatus, facets } = useMemo(() => {
     const tokens = (q || '').trim().toLowerCase().split(/\s+/).filter(Boolean)
-    const base = (r) => {
+    // skip: 이 축의 조건은 빼고 본다 — 값별 건수가 "이 값을 골랐을 때 남는 수"가 되도록 (Datadog facet)
+    const base = (r, skip) => {
       if (!typeMatch(r)) return false
-      if (starredOnly && !starredSet.has(r.id)) return false
-      if (prog && statuses[r.id] !== prog) return false
-      if (jobfam === 'fe' && r.kind === 'posting' && !(r.positions || []).includes('frontend')) return false
-      if (!policyMatch(policy, r)) return false
-      if (hiringOnly && !r.hiring) return false
-      if (changedOnly && !policyChangeByID.has(r.id)) return false
+      if (skip !== 'status' && status !== 'all' && !r.open) return false
+      if (skip !== 'starred' && starredOnly && !starredSet.has(r.id)) return false
+      if (skip !== 'prog' && prog && statuses[r.id] !== prog) return false
+      if (skip !== 'jobfam' && jobfam === 'fe' && r.kind === 'posting' && !(r.positions || []).includes('frontend')) return false
+      if (skip !== 'policy' && !policyMatch(policy, r)) return false
+      if (skip !== 'hiring' && hiringOnly && !r.hiring) return false
+      if (skip !== 'changed' && changedOnly && !policyChangeByID.has(r.id)) return false
+      if (skip !== 'dd' && !ddMatch(ddw, r)) return false
       // 공백으로 나눈 토큰 AND — 제목·기업/주최·상금·기술 스택을 한 인덱스에서 찾는다
       if (tokens.length && !tokens.every((t) => r.hay.includes(t))) return false
       return true
     }
-    const noStatus = rows.filter(base)
+    const noStatus = rows.filter((r) => base(r, 'status'))
     const out = noStatus.filter((r) => status === 'all' || r.open)
     const openFirst = (a, b) => (a.open === b.open ? 0 : a.open ? -1 : 1)
     // 마감 임박: 살아있는 마감(0 이상) → 이미 지난 마감 → 상시 순. 진행중 상태로 남은 지난 마감이 맨 위를 차지하지 않게 한다.
@@ -196,8 +218,27 @@ export default function Opportunities({ rows, type, q, setQ, setTab, onVisit }) 
     if (sort && cmp[sort.key]) out.sort((a, b) => cmp[sort.key](a, b) * sort.dir)
     else if (sortMode === 'latest') out.sort((a, b) => openFirst(a, b) || byLatest(a, b) || byDday(a, b))
     else out.sort((a, b) => openFirst(a, b) || byDday(a, b))
-    return { filtered: out, totalNoStatus: noStatus.length }
-  }, [rows, typeMatch, jobfam, policy, status, prog, hiringOnly, changedOnly, starredOnly, starredSet, statuses, q, sort, sortMode])
+    // 값별 건수 — 각 축은 자기 조건을 뺀 나머지 조건에서 센다
+    const count = (skip, ok) => {
+      let n = 0
+      for (const r of rows) if (base(r, skip) && (!ok || ok(r))) n++
+      return n
+    }
+    const facets = {
+      policy: Object.fromEntries(POLICY_FILTERS.map((f) => [f.id, count('policy', (r) => policyMatch(f.id, r))])),
+      status: { open: count('status', (r) => r.open), all: count('status') },
+      jobfam: {
+        all: count('jobfam'),
+        fe: count('jobfam', (r) => r.kind !== 'posting' || (r.positions || []).includes('frontend')),
+      },
+      prog: Object.fromEntries(PROG_FILTERS.map((f) => [f.id, f.id ? count('prog', (r) => statuses[r.id] === f.id) : count('prog')])),
+      dd: Object.fromEntries(DD_FILTERS.map((f) => [f.id, count('dd', (r) => ddMatch(f.id, r))])),
+      hiring: count('hiring', (r) => r.hiring),
+      changed: count('changed', (r) => policyChangeByID.has(r.id)),
+      starred: count('starred', (r) => starredSet.has(r.id)),
+    }
+    return { filtered: out, totalNoStatus: noStatus.length, facets }
+  }, [rows, typeMatch, jobfam, policy, status, prog, ddw, hiringOnly, changedOnly, starredOnly, starredSet, statuses, q, sort, sortMode])
 
   const sortMsg = sort
     ? `${COLS.find(c => c.id === sort.key)?.label} ${sort.dir === 1 ? '오름차순' : '내림차순'} 정렬, ${filtered.length}건`
@@ -237,6 +278,7 @@ export default function Opportunities({ rows, type, q, setQ, setTab, onVisit }) 
     if (prog && statusOf(r.id) !== prog) { setProg(''); relaxed.push('진행 상태') }
     if (hiringOnly && !r.hiring) { setHiringOnly(false); relaxed.push('채용연계') }
     if (changedOnly && !policyChangeByID.has(r.id)) { setChangedOnly(false); relaxed.push('정책변경') }
+    if (!ddMatch(ddw, r)) { setDdw(''); relaxed.push('마감 범위') }
     if (status === 'open' && !r.open) { setStatus('all'); relaxed.push('진행중') }
     const tokens = (q || '').trim().toLowerCase().split(/\s+/).filter(Boolean)
     if (tokens.length && !tokens.every((t) => r.hay.includes(t))) { setQ(''); relaxed.push('검색어') }
@@ -270,6 +312,7 @@ export default function Opportunities({ rows, type, q, setQ, setTab, onVisit }) 
         return
       }
       if (e.key === 'Escape') {
+        if (fpop) { setFpop(false); return }
         if (typing) { el.blur(); return }
         if (wide && pane) { setPane(false); paneMuted.current = true; return }
         if (openRow !== null) { setOpenRow(null); return }
@@ -306,6 +349,11 @@ export default function Opportunities({ rows, type, q, setQ, setTab, onVisit }) 
         if (r) toggleStar(r.id)
         return
       }
+      // 필터 팝오버 — 목록을 좁히는 나머지 조건이 한 자리에 모여 있다
+      if (e.key === 'f') {
+        setFpop((v) => !v)
+        return
+      }
       if (e.key === 'o') {
         const r = filtered[cur]
         if (!r) return
@@ -315,19 +363,70 @@ export default function Opportunities({ rows, type, q, setQ, setTab, onVisit }) 
     }
     window.addEventListener('keydown', onKey)
     return () => window.removeEventListener('keydown', onKey)
-  }, [filtered, cur, onVisit, toggleStar, help, openRow, wide, pane])
+  }, [filtered, cur, onVisit, toggleStar, help, openRow, wide, pane, fpop])
 
   useEffect(() => () => clearTimeout(noticeTimer.current), [])
 
   // 커서 추적 — 뷰포트 벗어나면 스크롤 (이슈 #2)
   useEffect(() => { curRef.current?.scrollIntoView({ block: 'nearest' }) }, [cur, filtered])
 
-  useEffect(() => { setCur(0) }, [type, jobfam, policy, status, prog, hiringOnly, changedOnly, starredOnly, q, sortMode])
+  useEffect(() => { setCur(0) }, [type, jobfam, policy, status, prog, ddw, hiringOnly, changedOnly, starredOnly, q, sortMode])
 
-  const resetFilters = () => {
-    setPolicy('all'); setStatus('open'); setSort(null); setSortMode('dday'); setProg('')
-    setJobfam('all'); setHiringOnly(false); setChangedOnly(false); setStarredOnly(false); setQ('')
+  // 조건만 푼다 (검색어·정렬은 그대로) — 칩 줄의 '전체 해제'와 팝오버가 같은 곳을 본다
+  const clearFilters = () => {
+    setPolicy('all'); setStatus('open'); setProg(''); setJobfam('all'); setDdw('')
+    setHiringOnly(false); setChangedOnly(false); setStarredOnly(false)
   }
+  const resetFilters = () => {
+    clearFilters()
+    setSort(null); setSortMode('dday'); setQ('')
+  }
+  const applyPreset = (p) => {
+    const f = { ...DEFAULT_FILTERS, ...p.filters }
+    setPolicy(f.policy); setStatus(f.status); setProg(f.prog); setJobfam(f.jobfam); setDdw(f.dd)
+    setHiringOnly(!!f.hiringOnly); setChangedOnly(!!f.changedOnly); setStarredOnly(!!f.starredOnly)
+    setFpop(false)
+  }
+  const filterState = { policy, jobfam, status, prog, dd: ddw, hiringOnly, changedOnly, starredOnly }
+  const activePreset = matchPreset(presets, filterState)
+
+  // 걸린 조건 한 줄 — 칩 하나가 곧 제거 버튼이다
+  const chips = []
+  if (policy !== 'all') chips.push({ id: 'policy', k: 'AI 정책', v: (POLICY_FILTERS.find((f) => f.id === policy) || {}).label, off: () => setPolicy('all') })
+  if (status !== 'open') chips.push({ id: 'status', k: '상태', v: '전체 상태', off: () => setStatus('open') })
+  if (jobfam === 'fe') chips.push({ id: 'jobfam', k: '직군', v: 'FE', off: () => setJobfam('all') })
+  if (prog) chips.push({ id: 'prog', k: '내 진행', v: WORKFLOW_LABEL[prog] || prog, off: () => setProg('') })
+  if (ddw) chips.push({ id: 'dd', k: '마감', v: (DD_FILTERS.find((f) => f.id === ddw) || {}).label, off: () => setDdw('') })
+  if (hiringOnly) chips.push({ id: 'hiring', k: '조건', v: '채용연계만', off: () => setHiringOnly(false) })
+  if (changedOnly) chips.push({ id: 'changed', k: '조건', v: '정책변경만', off: () => setChangedOnly(false) })
+  if (starredOnly) chips.push({ id: 'starred', k: '조건', v: '관심만', off: () => setStarredOnly(false) })
+
+  // 팝오버 안의 축들 — 값 한 줄이 토글 한 줄이고, 오른쪽 숫자가 지금 남는 건수다
+  const groups = [
+    {
+      id: 'jobfam', label: '직군', rows: [
+        { id: 'all', label: '전체', count: facets.jobfam.all, on: jobfam === 'all', pick: () => setJobfam('all') },
+        { id: 'fe', label: 'FE (프론트엔드 포지션)', count: facets.jobfam.fe, on: jobfam === 'fe', pick: () => setJobfam('fe') },
+      ],
+    },
+    {
+      id: 'prog', label: '내 진행', rows: PROG_FILTERS.map((f) => ({
+        id: f.id || 'none', label: f.label, count: facets.prog[f.id], on: prog === f.id, pick: () => setProg(f.id),
+      })),
+    },
+    {
+      id: 'dd', label: '마감', rows: DD_FILTERS.map((f) => ({
+        id: f.id || 'any', label: f.label, count: facets.dd[f.id], on: ddw === f.id, pick: () => setDdw(f.id),
+      })),
+    },
+    {
+      id: 'flags', label: '조건', rows: [
+        { id: 'hiring', label: '채용연계만', count: facets.hiring, on: hiringOnly, pick: () => setHiringOnly((v) => !v) },
+        { id: 'changed', label: '정책변경만', count: facets.changed, on: changedOnly, pick: () => setChangedOnly((v) => !v) },
+        { id: 'starred', label: '관심만', count: facets.starred, on: starredOnly, pick: () => setStarredOnly((v) => !v) },
+      ],
+    },
+  ]
   const clickSort = (key) => {
     if (!sort || sort.key !== key) setSort({ key, dir: 1 })
     else if (sort.dir === 1) setSort({ key, dir: -1 })
@@ -335,9 +434,9 @@ export default function Opportunities({ rows, type, q, setQ, setTab, onVisit }) 
   }
 
   const exportable = filtered.filter((r) => r.deadline)
-  // 초기화는 실제로 조건이 걸렸을 때만 보인다 — 기본 상태에선 할 일이 없는 버튼이다
-  const dirty = policy !== 'all' || jobfam !== 'all' || status !== 'open' || !!prog
-    || hiringOnly || changedOnly || starredOnly || !!(q || '').trim() || !!sort || sortMode !== 'dday'
+  // 초기화는 검색어·정렬처럼 칩으로 보이지 않는 상태까지 바꾸므로 그때만 보인다
+  // (조건만 걸렸을 때는 칩 줄의 '전체 해제'가 그 일을 한다)
+  const dirtyTools = !!(q || '').trim() || !!sort || sortMode !== 'dday'
   const exportAll = () => { if (exportable.length) downloadIcs(exportable) }
   const starredExportable = starredRows.filter((r) => r.deadline)
   const exportStarred = () => { if (starredExportable.length) downloadStarredIcs(starredExportable) }
@@ -355,37 +454,27 @@ export default function Opportunities({ rows, type, q, setQ, setTab, onVisit }) 
         <DeadlineTicker rows={rows} onPick={pickDeadline} />
       </div>
       <div className="fr">
-        {/* 조건 — 지금 목록을 좁힌다 (걸린 것은 색으로 채운다) */}
+        {/* 상시 노출 5묶음 — AI 정책 5 + 상태 2 + 필터 팝오버. 직군·내 진행·마감 범위·조건은 팝오버 안으로. */}
         <div className="fr-q">
-          <span className="fl">직군</span>
-          <button className={'fopt' + (jobfam === 'all' ? ' on' : '')} aria-pressed={jobfam === 'all'} onClick={() => setJobfam('all')}>전체</button>
-          <button className={'fopt' + (jobfam === 'fe' ? ' on' : '')} aria-pressed={jobfam === 'fe'} onClick={() => setJobfam('fe')} title="FE 포지션 공고 + 직군 무관 행사">FE</button>
           <span className="fl">AI 정책</span>
           {POLICY_FILTERS.map((f) => (
             <button key={f.id} className={`fopt ${f.cls || ''}` + (policy === f.id ? ' on' : '')} aria-pressed={policy === f.id}
-              onClick={() => setPolicy(f.id)}>{f.label}</button>
+              onClick={() => setPolicy(f.id)} title={`${f.label} | 지금 조건에서 ${facets.policy[f.id]}건`}>
+              {f.label}<span className="fct">{facets.policy[f.id]}</span>
+            </button>
           ))}
           <span className="fl">상태</span>
           {STATUS_FILTERS.map((f) => (
             <button key={f.id} className={'fopt' + (status === f.id ? ' on' : '')} aria-pressed={status === f.id}
               onClick={() => setStatus(f.id)}>{f.label}</button>
           ))}
-          <span className="fl" title="내가 표시한 지원 진행 상태">내 진행</span>
-          {PROG_FILTERS.map((f) => (
-            <button key={f.id || 'none'} className={'fopt prog-f ' + (f.cls || '') + (prog === f.id ? ' on' : '')}
-              aria-pressed={prog === f.id} onClick={() => setProg(f.id)}>{f.label}</button>
-          ))}
-          <span className="fl">조건</span>
-          <button className={'fopt tog tog-hire' + (hiringOnly ? ' on' : '')} aria-pressed={hiringOnly}
-            onClick={() => setHiringOnly(v => !v)} title="채용 연계 혜택이 있는 이벤트만">채용연계만</button>
-          <button className={'fopt tog tog-chg' + (changedOnly ? ' on' : '')} aria-pressed={changedOnly}
-            onClick={() => setChangedOnly(v => !v)} title="AI 정책이 도입되거나 바뀐 기록이 있는 건만">정책변경만</button>
-          <button className={'fopt star-f' + (starredOnly ? ' on' : '')} aria-pressed={starredOnly}
-            onClick={() => setStarredOnly(v => !v)} title="별표한 공고·이벤트만 보기">
-            <StarIcon filled={starredOnly} />관심 <b>{starredRows.length}</b>
-          </button>
+          <FilterPopover
+            open={fpop} onToggle={() => setFpop((v) => !v)} onClose={() => setFpop(false)}
+            groups={groups} presets={presets} activePreset={activePreset} onApplyPreset={applyPreset}
+            appliedCount={chips.length} onClear={clearFilters}
+          />
         </div>
-        {/* 도구 — 목록을 줄이지 않는 보조 조작. 조건과 분리해 옅게, 오른쪽 정렬 */}
+        {/* 도구 — 목록을 줄이지 않는 표시·내보내기 조작. 조건과 분리해 옅게, 오른쪽 정렬 */}
         <div className="fr-t">
           <span className="fl">정렬</span>
           {SORT_MODES.map((s) => (
@@ -401,13 +490,26 @@ export default function Opportunities({ rows, type, q, setQ, setTab, onVisit }) 
             <button className={density === 'compact' ? 'on' : ''} onClick={() => setDensity('compact')} title="컴팩트">compact</button>
             <button className={density === 'standard' ? 'on' : ''} onClick={() => setDensity('standard')} title="표준">standard</button>
           </span>
-          {dirty && <button className="fopt fopt-reset" onClick={resetFilters} title="모든 조건·정렬·검색을 기본값으로 되돌린다">초기화</button>}
+          {dirtyTools && <button className="fopt fopt-reset" onClick={resetFilters} title="검색어·정렬까지 기본값으로 되돌린다">초기화</button>}
           <span className="match-n">{status === 'open'
             ? <>진행중 <b>{filtered.length}</b> / 전체 <b>{totalNoStatus}</b></>
             : <>매칭 <b>{filtered.length}</b>건</>}</span>
         </div>
         <div className="sr" aria-live="polite">{sortMsg}</div>
       </div>
+      {/* 걸린 조건 한 줄 — 칩 하나가 곧 제거 버튼이다 */}
+      {chips.length > 0 && (
+        <div className="fr-chips" role="group" aria-label="적용된 필터">
+          {chips.map((c) => (
+            <button key={c.id} type="button" className="fchip" onClick={c.off}
+              title={`${c.k} ${c.v} 조건을 푼다`} aria-label={`${c.k} ${c.v} 조건 해제`}>
+              <span className="k">{c.k}</span>{c.v}<span className="x" aria-hidden="true">×</span>
+            </button>
+          ))}
+          <button type="button" className="fchip-clear" onClick={clearFilters}
+            title="걸린 조건을 모두 푼다 (검색어·정렬은 그대로)">전체 해제</button>
+        </div>
+      )}
       <div className={'workspace' + (paneOpen ? ' pane-on' : '')}>
         <div className="twrap tscroll">
           <table>
@@ -441,7 +543,7 @@ export default function Opportunities({ rows, type, q, setQ, setTab, onVisit }) 
                   ) : (
                     <div className="empty-id">
                       <div className="l1">지금 이 조건에 걸리는 기회가 없을 뿐이다.</div>
-                      <div className="l2">Esc 또는 초기화로 조건을 풀고, 매일 03:00 KST에 다시 수집한다.</div>
+                      <div className="l2">필터의 전체 해제 또는 초기화로 조건을 풀고, 매일 03:00 KST에 다시 수집한다.</div>
                     </div>
                   )}
                 </td></tr>
