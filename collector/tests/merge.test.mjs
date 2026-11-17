@@ -7,7 +7,7 @@ import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import { execFileSync } from 'node:child_process';
-import { dedupePostings } from '../dedupe.mjs';
+import { dedupePostings, dedupeEvents } from '../dedupe.mjs';
 
 const REPO = path.resolve(import.meta.dirname, '..', '..');
 
@@ -374,4 +374,57 @@ test('F2: 결정적 ai_policy 를 근거와 함께 승격한다 (오로라월드
   ];
   dedupePostings(d);
   assert.equal(d.find((p) => p.id === 'jobkorea:rep').ai_policy, 'unspecified', '근거 없는 dup 은 승격하지 않는다');
+});
+
+test('F4: 매처 경계 — 추이성 다리로 서로 다른 직무가 한 그룹이 되지 않는다', () => {
+  const row = (title, id) => ({
+    id, company: '다리컴퍼니', title, ai_policy: 'unspecified', status: 'open',
+    evidence: [{ quote: '근거' }], first_seen: '2026-11-01', last_seen: '2026-11-01', last_checked: '2026-11-01',
+  });
+  const rows = [row('개발자', 'p:dev'), row('프론트엔드 개발자', 'p:fe'), row('백엔드 개발자', 'p:be')];
+  const groups = dedupePostings(rows);
+  const inSameGroup = (a, b) => groups.some((g) =>
+    [g.rep, ...g.dups].includes(a) && [g.rep, ...g.dups].includes(b));
+  assert.ok(!inSameGroup('p:fe', 'p:be'), '프론트엔드와 백엔드는 절대 같은 그룹이 아니다');
+  assert.ok(!groups.some((g) => g.dups.length === 2), '3행이 한 그룹으로 추이 병합되지 않는다');
+});
+
+test('F4: 매처 경계 — 부분집합 오탐(경력 vs 신입)이 같은 그룹이 되지 않는다', () => {
+  const row = (title, id) => ({
+    id, company: '가린다', title, ai_policy: 'unspecified', status: 'open',
+    evidence: [{ quote: '근거' }], first_seen: '2026-11-01', last_seen: '2026-11-01', last_checked: '2026-11-01',
+  });
+  const rows = [row('백엔드 개발자(경력)', 'p:senior'), row('백엔드 개발자 신입', 'p:junior'), row('백엔드 개발자', 'p:bare')];
+  const groups = dedupePostings(rows);
+  const inSameGroup = (a, b) => groups.some((g) =>
+    [g.rep, ...g.dups].includes(a) && [g.rep, ...g.dups].includes(b));
+  assert.ok(!inSameGroup('p:senior', 'p:junior'), '경력과 신입은 같은 공고가 아니다');
+});
+
+test('F4: 매처 경계 — host 빈값 동명 이벤트는 host 를 아는 행과 병합되지 않는다', () => {
+  const ev = (id, host, over) => ({
+    id, type: 'contest', title: '동명 AI 컨퍼런스', host, ai_usage: 'allowed', status: 'open',
+    apply_deadline: '2026-11-30', submit_deadline: '2026-11-30', evidence: ['근거'],
+    first_seen: '2026-11-01', last_checked: '2026-11-01', ...over,
+  });
+  // host 있음 vs 빈값 → 병합 금지
+  const rows = [ev('wevity:known', 'A재단'), ev('seed:unknown', '')];
+  assert.equal(dedupeEvents(rows).length, 0, 'host 를 아는 쪽과 모르는 쪽은 양립 미증명');
+  // 빈값끼리는 기존 설계대로 제목으로 판정한다(시드 보호)
+  const both = [ev('seed:a', ''), ev('seed:b', '')];
+  assert.equal(dedupeEvents(both).length, 1, '빈 host 끼리는 같은 제목이면 한 그룹');
+});
+
+test('F4: 매처 경계 — 연도 없는 반복 행사 회차(마감 270일+)는 병합되지 않는다', () => {
+  const ev = (id, apply, over) => ({
+    id, type: 'contest', title: '반복 해커톤', host: 'X주최', ai_usage: 'allowed', status: 'open',
+    apply_deadline: apply, submit_deadline: apply, evidence: ['근거'],
+    first_seen: '2026-11-01', last_checked: '2026-11-01', ...over,
+  });
+  // 내년 회차 → 병합 금지
+  const rows = [ev('wevity:this-year', '2026-11-30'), ev('wevity:next-year', '2027-11-30')];
+  assert.equal(dedupeEvents(rows).length, 0, '마감이 270일 넘게 차면 다른 회차다');
+  // 같은 회차의 마감 연장(재게시) → 병합 유지
+  const close = [ev('wevity:a', '2026-11-30'), ev('wevity:b', '2026-12-13', { host: 'X주최(서울)' })];
+  assert.equal(dedupeEvents(close).length, 1, '마감 연장 재게시는 같은 회차로 병합');
 });

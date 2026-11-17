@@ -10,6 +10,8 @@
 //   이벤트 — 정규화 제목(년도·회차 보존)이 같고 host 가 양립 가능하면 한 그룹.
 //          host 양립 = 같음 · 포함('매경미디어' ⊂ '매경미디어(매일경제)') · 공유 토큰
 //          ('VIVID'·'엔터테인먼트 플랫폼'). 제목만 같고 host 가 다르면 다른 행사로 둔다.
+//          host 를 아는 행과 모르는(빈) 행은 양립을 증명 못 하므로 병합하지 않고,
+//          연도·회차 없는 반복 행사는 마감 간격(270일)으로 회차를 가른다(F4).
 // 대표행 — 진행 중(open·upcoming·judging) > 시드/수동 id > 최초 등장.
 //          닫힌 원본과 열린 재게시가 같은 그룹이면 열린 행이 대표가 된다(문피아 사례 —
 //          화면에 남는 행이 닫힌 본문 뒤에 숨지 않도록).
@@ -36,7 +38,9 @@ export const eventTitleKey = (e) => String(e.title || '').toLowerCase().replace(
 
 const hostsCompatible = (a, b) => {
   const ha = squash(a), hb = squash(b);
-  if (!ha || !hb) return true;                                  // 한쪽 host가 비면 제목만으로 판정한다
+  // 한쪽 host 를 알면 양립을 증명할 수 없다(F4): 빈 host 는 빈 host 와만 제목으로 판정한다.
+  // (동명 이벤트에 host 없는 행이 들어오면 모든 host 와 붙던 과병합을 끊는다)
+  if (!ha || !hb) return !ha && !hb;
   if (ha === hb || ha.includes(hb) || hb.includes(ha)) return true;
   const tb = new Set(tokens(b));
   for (const t of tokens(a)) if (tb.has(t) && t.length >= 2) return true;
@@ -52,22 +56,39 @@ const sameTokens = (a, b) => {
   return b.every((t) => sa.has(t));                             // b ⊂ a
 };
 
+// 반복 행사 회차 판정(F4): 제목에 연도·회차가 없는 행사는 마감 간격으로 구분한다.
+// 같은 회차의 마감 연장은 며칠·몇 주 차이지만 해를 달리한 다음 회차는 270일 넘게 벌어진다.
+const DAY_MS = 864e5;
+const editionGapOK = (a, b) => {
+  const da = a.submit_deadline || a.apply_deadline, db = b.submit_deadline || b.apply_deadline;
+  if (!da || !db) return true;
+  return Math.abs(new Date(da) - new Date(db)) <= 270 * DAY_MS;
+};
 const samePosting = (a, b) => {
   const ck = companyKey(a);
   return !!ck && ck === companyKey(b) && sameTokens(titleTokens(a), titleTokens(b));
 };
 const sameEvent = (a, b) => {
   const tk = eventTitleKey(a);
-  return !!tk && tk === eventTitleKey(b) && hostsCompatible(a.host, b.host);
+  return !!tk && tk === eventTitleKey(b) && hostsCompatible(a.host, b.host) && editionGapOK(a, b);
 };
 
-// 유니온-파인드: 같은 그룹 판정은 추이적이다(A~B, B~C → A~C)
+// 유니온-파인드: 같은 그룹 판정은 추이적이다(A~B, B~C → A~C). 단 그룹을 합칠 때는
+// 양쪽 그룹의 모든 쌍이 직접 양립해야 한다(F4) — 흔한 제목('개발자')이 다리가 되어
+// 서로 양립하지 않는 직무·행사를 한 그룹으로 끌어들이는 과병합을 끊는다. 재게시
+// 그룹(원본·재게시가 서로 양립)은 그대로 합쳐진다.
 const groupAll = (rows, same) => {
   const parent = rows.map((_, i) => i);
   const find = (x) => { while (parent[x] !== x) { parent[x] = parent[parent[x]]; x = parent[x]; } return x; };
+  const groupsCompatible = (ra, rb) => {
+    const ga = [], gb = [];
+    rows.forEach((_, i) => { const r = find(i); if (r === ra) ga.push(i); else if (r === rb) gb.push(i); });
+    return ga.every((a) => gb.every((b) => same(rows[a], rows[b])));
+  };
   for (let i = 0; i < rows.length; i++)
     for (let j = i + 1; j < rows.length; j++)
-      if (find(i) !== find(j) && same(rows[i], rows[j])) parent[find(i)] = find(j);
+      if (find(i) !== find(j) && same(rows[i], rows[j]) && groupsCompatible(find(i), find(j)))
+        parent[find(i)] = find(j);
   const groups = new Map();
   rows.forEach((r, i) => {
     const root = find(i);
