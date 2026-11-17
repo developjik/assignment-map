@@ -327,3 +327,51 @@ test('F1: dup 의 deadline 은 rep 의 deadline 을 절대 덮지 않는다 (한
   dedupePostings(c);
   assert.equal(c.find((p) => p.id === 'wanted:rep').deadline, '2026-11-15', 'rep 자신의 마감이 그대로 유지된다');
 });
+
+test('F2: 결정적 ai_policy 를 근거와 함께 승격한다 (오로라월드 사례)', () => {
+  const row = (over) => ({
+    company: '오로라월드', title: 'PI오퍼레이션 컨설턴트', status: 'open',
+    first_seen: '2026-11-07', last_seen: '2026-11-07', last_checked: '2026-11-07',
+    ...over,
+  });
+  const dupEvidence = [{ quote: "GI_Read_Comt_Ifrm(2026-11-15): '서류 합격하신 분에 한해 사전 과제(바이브 코딩)' + 기술스택 'Claude code' 명시", field: 'assignment' }];
+
+  // (a) rep unspecified + dup required(근거 有) → 승격 + history·근거 반영
+  const a = [
+    row({ id: 'jobkorea:rep', ai_policy: 'unspecified', deadline: '2026-12-13', evidence: [{ quote: 'rep 자체 조사 근거', field: 'assignment' }] }),
+    row({ id: 'jobkorea:dup', ai_policy: 'required', deadline: '2026-12-13', evidence: dupEvidence, title: 'PI오퍼레이션 컨설턴트 (재공고)', first_seen: '2026-11-15', last_checked: '2026-11-15' }),
+  ];
+  dedupePostings(a);
+  const aRep = a.find((p) => p.id === 'jobkorea:rep');
+  assert.equal(aRep.ai_policy, 'required', '숨은 dup 의 필수 정책이 rep 배지로 승격');
+  const promo = aRep.history.find((h) => h.event === 'policy_promoted');
+  assert.ok(promo, '승격이 history 에 감사 기록된다');
+  assert.equal(promo.from, 'unspecified'); assert.equal(promo.to, 'required'); assert.equal(promo.via, 'jobkorea:dup');
+  assert.ok(aRep.evidence.some((e) => e.quote.includes('바이브 코딩')), 'dup 의 근거 인용이 rep evidence 에 반영');
+
+  // (b) rep required + dup unspecified → 불변
+  const b = [
+    row({ id: 'jobkorea:rep', ai_policy: 'required', evidence: [{ quote: 'rep 근거', field: 'assignment' }] }),
+    row({ id: 'jobkorea:dup', ai_policy: 'unspecified', evidence: [{ quote: 'dup 근거', field: 'assignment' }], first_seen: '2026-11-15', last_checked: '2026-11-15' }),
+  ];
+  dedupePostings(b);
+  assert.equal(b.find((p) => p.id === 'jobkorea:rep').ai_policy, 'required', '하위 등급 dup 로 강등되지 않는다');
+
+  // (c) 동일 등급 + dup last_checked 구 → 불변
+  const c = [
+    row({ id: 'jobkorea:rep', ai_policy: 'allowed', evidence: [{ quote: 'rep 근거', field: 'assignment' }] }),
+    row({ id: 'jobkorea:dup', ai_policy: 'allowed', evidence: [{ quote: 'dup 근거', field: 'assignment' }], first_seen: '2026-11-08', last_checked: '2026-11-08' }),
+  ];
+  dedupePostings(c);
+  const cRep = c.find((p) => p.id === 'jobkorea:rep');
+  assert.equal(cRep.ai_policy, 'allowed', '같은 등급이면 승격하지 않는다');
+  assert.ok(!cRep.history?.some((h) => h.event === 'policy_promoted'), '같은 등급엔 감사 기록도 남지 않는다');
+
+  // (d) 근거 없는 dup required → 승격 금지 (근거 없는 승격 금지)
+  const d = [
+    row({ id: 'jobkorea:rep', ai_policy: 'unspecified', evidence: [{ quote: 'rep 근거', field: 'assignment' }] }),
+    row({ id: 'jobkorea:dup', ai_policy: 'required', evidence: [], first_seen: '2026-11-15', last_checked: '2026-11-15' }),
+  ];
+  dedupePostings(d);
+  assert.equal(d.find((p) => p.id === 'jobkorea:rep').ai_policy, 'unspecified', '근거 없는 dup 은 승격하지 않는다');
+});

@@ -18,7 +18,7 @@
 //          수동 검증만 따르고 dup 의 마감은 절대 이식하지 않는다 — 한프카(wanted:wd390319)의
 //          수동 검증된 '상시채용(마감 없음)' 정정이 재게시 dup 의 옛 마감으로 되살아난 사례
 //          방지. dup 의 마감 정보가 필요하면 resolveTarget 로 흘러드는 런 갱신(감사 기록
-//          남음)을 통해서만 반영된다.
+//          남음)을 통해서만 반영된다. AI 정책은 결정적 등급+근거를 동반한 dup 만 승격(F2).
 //          중복 id 는 merged_into 로 표기되어 데이터에 남는다(감사 가능). 멱등: 다시
 //          돌리면 같은 결과가 나온다.
 
@@ -82,6 +82,30 @@ const maxOr = (values, fallback) => {
   return vs.length ? vs[vs.length - 1] : fallback;
 };
 
+// AI 정책 등급(F2): 결정적일수록 높다. banned·restricted 등 데이터드리븐 정책은
+// 승격 대상이 아니다 — 일상 루틴의 policy_changed 감사 경로가 따로 관리한다.
+const POLICY_RANK = { allowed: 1, allowed_graded: 2, required: 3 };
+
+// dup 의 결정적 AI 정책을 rep 에 승격한다(F2) — 오로라월드 사례: rep 미언급인데 숨은
+// 재공고 dup 가 '사전 과제(바이브 코딩)+Claude code' 근거와 함께 required 판정을 갖고 있었다.
+// 근거를 동반한 상위 등급만 승격하고, 같은 등급·근거 없는 dup·강등 방향은 승격하지 않는다.
+const promotePolicy = (rep, dups, field) => {
+  const rank = (r) => POLICY_RANK[r[field]] || 0;
+  const best = dups
+    .filter((d) => rank(d) > rank(rep) && (d.evidence || []).length)
+    .sort((a, b) => rank(b) - rank(a) || String(b.last_checked || '').localeCompare(String(a.last_checked || '')))[0];
+  if (!best) return;
+  rep.history = [...(rep.history || []), {
+    date: best.last_checked || rep.last_checked || '',
+    event: 'policy_promoted', from: rep[field], to: best[field], via: best.id,
+    evidence: best.evidence[0]?.quote ?? String(best.evidence[0] ?? ''),
+  }];
+  // dup 의 근거를 rep evidence 에도 반영한다 — 정책 배지와 근거 인용이 어긋나지 않게.
+  for (const e of best.evidence)
+    if (!(rep.evidence || []).some((x) => JSON.stringify(x) === JSON.stringify(e))) rep.evidence = [...(rep.evidence || []), e];
+  rep[field] = best[field];
+};
+
 const pickRep = (group, prevReps) =>
   group
     .map((r, i) => ({ r, i }))
@@ -96,7 +120,7 @@ const pickRep = (group, prevReps) =>
  * @template {{id:string}} T
  * @param {T[]} rows data/postings.json 또는 events.json 배열 (제자리에서 병합 표시)
  * @param {(a:T,b:T)=>boolean} same 같은 기회 판정
- * @param {{dateFields:string[], mergeFields:string[]}} opts 병합할 필드
+ * @param {{dateFields:string[], mergeFields:string[], policyField?:string}} opts 병합할 필드(policyField: 결정적 등급 dup 의 정책 승격 대상)
  * @returns {{rep:string, dups:string}[]} 병합된 그룹 목록
  */
 const dedupeRows = (rows, same, opts) => {
@@ -116,13 +140,14 @@ const dedupeRows = (rows, same, opts) => {
     for (const f of opts.mergeFields) {
       if (!rep[f]) { const hit = dups.find((d) => d[f]); if (hit) rep[f] = hit[f]; }
     }
+    if (opts.policyField) promotePolicy(rep, dups, opts.policyField);
     rep.duplicates = dups.map((d) => d.id);
     groups.push({ rep: rep.id, dups: rep.duplicates });
   }
   return groups;
 };
 
-export const dedupePostings = (rows) => dedupeRows(rows, samePosting, { dateFields: ['last_seen', 'last_checked'], mergeFields: ['url'] });
+export const dedupePostings = (rows) => dedupeRows(rows, samePosting, { dateFields: ['last_seen', 'last_checked'], mergeFields: ['url'], policyField: 'ai_policy' });
 export const dedupeEvents = (rows) => dedupeRows(rows, sameEvent, { dateFields: ['last_checked', 'apply_deadline', 'submit_deadline'], mergeFields: ['url'] });
 
 // meta note 규칙(스펙 1-3): 마지막 런이 시드 날짜와 같으면 '시드뿐', 그 다음부터는
