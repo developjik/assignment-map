@@ -129,8 +129,11 @@ def is_live(record, today_str):
     """지금 렌더링·생성해도 되는 소재인가.
 
     status 가 closed 이거나 마감일이 지났으면 False. 마감일이 없는 상시 채용은 True.
+    병합(merged_into)으로 대표행 뒤로 숨은 행은 화면·피드와 같은 소재가 아니므로 False(F3).
     대본에 박히는 days_left 는 만든 날의 값이라 며칠 뒤에는 거짓이 된다 — 판단은 마감일로만 한다.
     """
+    if record.get("merged_into"):
+        return False
     if record.get("status") == "closed":
         return False
     deadline = record.get("deadline") or record.get("submit_deadline") or record.get("apply_deadline")
@@ -969,6 +972,36 @@ def select_candidates(candidates, count, track):
     return picked
 
 
+def collect_candidates(postings, events, existing_ids, target_date):
+    """쇼츠 소재 후보 수집(F3). 이미 생성한 id, 병합(merged_into)으로 대표행 뒤로
+    숨은 행, 점수가 0인 행은 후보에서 뺀다 — 병합 센티넬이 쇼츠로 새어나가지 않게."""
+    candidates = []
+    for p in postings:
+        if p.get("id") in existing_ids or p.get("merged_into"):
+            continue
+        sc = score_posting(p, target_date)
+        if sc > 0:
+            candidates.append({
+                "kind": "posting",
+                "record": p,
+                "score": sc,
+                "days": get_days_remaining(target_date, p.get("deadline")) if p.get("deadline") else 999,
+            })
+    for e in events:
+        if e.get("id") in existing_ids or e.get("merged_into"):
+            continue
+        sc = score_event(e, target_date)
+        if sc > 0:
+            deadline = e.get("submit_deadline") or e.get("apply_deadline")
+            candidates.append({
+                "kind": "event",
+                "record": e,
+                "score": sc,
+                "days": get_days_remaining(target_date, deadline) if deadline else 999,
+            })
+    return candidates
+
+
 def main():
     repo_root = os.path.abspath(os.path.join(os.path.dirname(__file__), "../.."))
     events_path = os.path.join(repo_root, "data/events.json")
@@ -1021,30 +1054,7 @@ def main():
 
     existing_ids = {item["id"] for item in manifest.get("items", [])}
 
-    candidates = []
-    for p in postings:
-        if p.get("id") in existing_ids:
-            continue
-        sc = score_posting(p, target_date)
-        if sc > 0:
-            candidates.append({
-                "kind": "posting",
-                "record": p,
-                "score": sc,
-                "days": get_days_remaining(target_date, p.get("deadline")) if p.get("deadline") else 999,
-            })
-    for e in events:
-        if e.get("id") in existing_ids:
-            continue
-        sc = score_event(e, target_date)
-        if sc > 0:
-            deadline = e.get("submit_deadline") or e.get("apply_deadline")
-            candidates.append({
-                "kind": "event",
-                "record": e,
-                "score": sc,
-                "days": get_days_remaining(target_date, deadline) if deadline else 999,
-            })
+    candidates = collect_candidates(postings, events, existing_ids, target_date)
 
     n_posting = len([c for c in candidates if c["kind"] == "posting"])
     n_event = len([c for c in candidates if c["kind"] == "event"])
