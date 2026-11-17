@@ -6,6 +6,7 @@ import { reportIssueUrl } from '../lib/report'
 import { deadlineTone, relativeText } from '../lib/deadline'
 import GuidePane from './GuidePane'
 import GuideProgressBadge from './GuideProgressBadge'
+import NoteField from './NoteField'
 import RelatedList from './RelatedList'
 import StatusPicker from './StatusPicker'
 
@@ -90,6 +91,7 @@ export default function DetailPane({ r, rows = [], starred, onStar, onClose, onP
   useEffect(() => { setTrack(false) }, [r.id])
 
   const checkLine = r.checked ? `확인 ${r.checked.slice(5)}` : ''
+  const dupLine = r.alsoSeen && r.alsoSeen.length ? `출처 ${r.alsoSeen.length + 1}` : ''
   const reviewLine = r.review === 'needs_review' ? '검토 필요' : r.review === 'confirmed' ? '검토 완료' : (r.review || '')
 
   return (
@@ -136,6 +138,13 @@ export default function DetailPane({ r, rows = [], starred, onStar, onClose, onP
         <StatusPicker id={r.id} />
       </div>
 
+      {/* 개인 메모 — 이 기회에만 필요한 내 기록. 서버가 아니라 이 브라우저에만 저장되고,
+          푸터의 '내 기록 백업'으로 JSON 이 되거나 된다. 앞으로 이 패널을 다시 열어도 그대로 있다. */}
+      <section className="dp-sec dp-notebox">
+        <h3>개인 메모</h3>
+        <NoteField id={r.id} name={r.name} label={null} />
+      </section>
+
       {/* 1. 근거 인용 — 공고 원문 문장만. 수집가의 판단은 아래 수집 메모로 내려간다 */}
       <section className="dp-sec">
         <h3>AI 정책 / 근거 인용</h3>
@@ -173,7 +182,7 @@ export default function DetailPane({ r, rows = [], starred, onStar, onClose, onP
 
       {/* 4. 수집 / 추적 — 표에서 뺀 확인일·출처와 수집기 메모가 사는 곳 */}
       <FoldSec id="dp-track" label="수집 / 추적" open={track} onToggle={() => setTrack((v) => !v)}
-        summary={[checkLine, reviewLine].filter(Boolean).join(' | ')}>
+        summary={[checkLine, dupLine, reviewLine].filter(Boolean).join(' | ')}>
         <dl className="dp-kv">
           <KV k="상태" v={STATUS_LABEL[r.status] || r.status} />
           <KV k="확인" v={r.checked ? `${r.checked} (${REL_DAYS(r.checked)})` : '-'} />
@@ -187,6 +196,22 @@ export default function DetailPane({ r, rows = [], starred, onStar, onClose, onP
             {memos.map((m, i) => <p key={i}>{disp(m)}</p>)}
             {r.note && <p>{disp(r.note)}</p>}
             {r.stateRaw && <p>{disp(r.stateRaw)}</p>}
+          </div>
+        )}
+        {/* 같은 기회를 여러 출처에서 수집했다면(collector/dedupe.mjs) 목록에는 1행만 서지만
+            다른 출처의 원문은 여기 남긴다 — 대표행 원문이 막혀 있을 때 쓰는 두 번째 문. */}
+        {(r.alsoSeen && r.alsoSeen.length > 0) && (
+          <div className="dp-memo dp-dups">
+            <span className="dp-memo-k">같은 기회 다른 출처 {r.alsoSeen.length}</span>
+            {r.alsoSeen.map((d) => (
+              <p key={d.id} className="dp-dup">
+                <span className="dp-dup-src">{d.source || '출처 미상'}</span>
+                {d.url
+                  ? <a href={d.url} target="_blank" rel="noreferrer" title={d.url}>다른 출처 원문</a>
+                  : <span className="dp-none">원문 없음</span>}
+                {d.deadline ? <span className="dp-raw">마감 {d.deadline}</span> : null}
+              </p>
+            ))}
           </div>
         )}
         {hist.length > 0 && (

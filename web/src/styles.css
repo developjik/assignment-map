@@ -965,3 +965,87 @@ a.rep:hover { color: var(--fg-hi); border-color: var(--blue); text-decoration: n
 .dp-memo p { margin: 0 0 4px; color: var(--faint); word-break: keep-all; }
 .dp-memo p:last-child { margin-bottom: 0; }
 .dpane .dp-memo .dp-raw { font-size: 11px; }
+
+/* ===== 개인 메모 & 내 기록 백업 (2026-11-17) ===== */
+/* 메모는 "내 기록"이라 수집 메모(.dp-memo, --faint)보다 한 단계 밝게 둔다.
+   입력칸은 1px 보더·radius 0·그림자 없음 — 표와 같은 터미널 톤을 유지한다. */
+.dp-notebox { padding-bottom: 8px; }
+.note { display: block; }
+.note-hd { display: flex; align-items: baseline; gap: 8px; margin-bottom: 4px; }
+.note-k { color: var(--dim); font-size: 10px; }
+.note-st { margin-left: auto; color: var(--faint); font-size: 10px; font-variant-numeric: tabular-nums; }
+.note-st.on { color: var(--green); }
+.note-st.bad { color: var(--red); }
+.note-t { display: block; width: 100%; min-height: 56px; resize: vertical; padding: 6px 8px; background: var(--bg); border: 1px solid var(--border); color: var(--fg); font: 11px/1.6 var(--sans); }
+.note-t::placeholder { color: var(--faint); }
+.note-t:hover { border-color: #243049; }
+.note-t:focus { border-color: var(--blue); outline: none; }
+.note-t:focus-visible { outline: 1px solid var(--blue); outline-offset: 1px; }
+.note-ft { display: flex; align-items: center; gap: 8px; margin-top: 4px; }
+.note-c { color: var(--faint); font-size: 9.5px; font-variant-numeric: tabular-nums; }
+.note-x { margin-left: auto; background: none; border: 1px solid var(--border); color: var(--mut); font: 10px var(--mono); padding: 1px 6px; cursor: pointer; }
+.note-x:hover { color: var(--red); border-color: var(--red); }
+.badge.memo { color: var(--blue); font-weight: 500; }
+/* 24px 밀도는 "한 줄에 정보 하나"가 규칙이라 배지가 줄을 밀지 않게 감춘다(메모는 상세 패널이 갖는다).
+   점으로 줄여도 4px 이 늘었다(28.8px) — 밀도 계약을 깨느니 이 밀도에서만 표식을 뺀다. */
+[data-density="compact"] tr.row .badge.memo { display: none; }
+.hx-note { margin: 4px 0 6px; }
+.hx-note .note-t { min-height: 64px; font-size: 11.5px; }
+.dp-dups { border-top: 0; margin-top: 6px; }
+.dp-dup { display: flex; align-items: baseline; gap: 8px; flex-wrap: wrap; }
+.dp-dup-src { color: var(--mut); }
+.dp-dup a { font-size: 10.5px; }
+
+/* 푸터의 백업 버튼 — 링크와 같은 크기·색이되 버튼임을 1px 보더로만 알린다 */
+.ft-b { background: none; border: 1px solid var(--border); color: var(--blue); font: 10px var(--mono); padding: 1px 6px; cursor: pointer; }
+.ft-b:hover { color: var(--fg-hi); border-color: var(--blue); }
+
+/* 내 기록 백업 창 — 키보드 도움말(.kh)과 같은 다크 시트. 폼 요소만 28px 타깃 */
+.bk-back { position: fixed; inset: 0; z-index: 70; display: flex; align-items: flex-start; justify-content: center; padding: 40px 16px; background: rgba(4, 6, 10, .8); overflow: auto; }
+.bk { width: 560px; max-width: 96vw; background: #0B0E14; border: 1px solid #1E232F; }
+.bk-hd { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 10px 14px; border-bottom: 1px solid var(--border); }
+.bk-title { color: var(--fg-hi); font-weight: 700; font-size: 12.5px; }
+.bk-x { background: none; border: 1px solid var(--border); color: var(--mut); font: 10px var(--mono); padding: 2px 7px; cursor: pointer; }
+.bk-x:hover { color: var(--fg-hi); border-color: var(--blue); }
+.bk-b { padding: 12px 14px 4px; }
+.bk-lede { margin: 0 0 10px; color: var(--mut); font-size: 11px; line-height: 1.7; word-break: keep-all; }
+.bk-lede b { color: var(--fg-hi); font-weight: 600; }
+.bk-tb { width: 100%; border-collapse: collapse; font-size: 11px; }
+.bk-tb th { padding: 4px 0; border-bottom: 1px solid var(--border); color: var(--faint); font-size: 10px; font-weight: 500; text-align: left; }
+.bk-tb td { padding: 5px 0; border-bottom: 1px solid var(--border2); color: var(--mut); }
+.bk-tb th.r, .bk-tb td.r { text-align: right; width: 64px; font-variant-numeric: tabular-nums; }
+.bk-tb td.r { color: var(--fg-hi); }
+.bk-tb td.k { width: 150px; color: var(--faint); font-size: 10px; }
+.bk-act { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; margin: 12px 0 4px; }
+.icb { display: inline-flex; align-items: center; min-height: 26px; padding: 2px 10px; background: none; border: 1px solid var(--border); color: var(--blue); font: 10.5px var(--mono); cursor: pointer; }
+.icb:hover { color: var(--fg-hi); border-color: var(--blue); }
+.icb:disabled { color: var(--faint); border-color: var(--border2); cursor: not-allowed; }
+.icb.primary { color: #DCE9FF; border-color: #2A4A73; background: #101826; font-weight: 700; }
+.icb.primary:hover:not(:disabled) { color: #fff; border-color: var(--blue); background: #14203A; }
+.icb.danger { color: #FFD9D9; border-color: #6B2C2C; background: #1B1113; font-weight: 700; }
+.icb.danger:hover { color: #fff; border-color: var(--red); background: #241417; }
+.bk-file { position: absolute; width: 1px; height: 1px; opacity: 0; pointer-events: none; }
+.bk-file-name { color: var(--faint); font-size: 10px; margin-left: auto; }
+.bk-mode { margin: 12px 0 0; padding: 9px 0 0; border-top: 1px solid var(--border2); display: grid; grid-template-columns: 62px minmax(0, 1fr); gap: 6px 10px; align-items: start; }
+.bk-opts { display: grid; gap: 4px; min-width: 0; }
+.bk-mode-k { color: var(--faint); font-size: 10px; padding-top: 3px; }
+.bk-opt { display: grid; grid-template-columns: 16px auto; gap: 2px 6px; padding: 5px 6px; border: 1px solid transparent; cursor: pointer; }
+.bk-opt:hover { border-color: var(--border); }
+.bk-opt.on { border-color: #243049; background: #0D111A; }
+.bk-opt input { margin: 0; accent-color: #2A4A73; }
+.bk-opt-l { color: var(--fg-hi); font-size: 11px; }
+.bk-opt-h { grid-column: 2; color: var(--faint); font-size: 10px; line-height: 1.5; }
+.bk-confirm { margin: 10px 0 0; padding: 9px 10px; border: 1px solid #4A2A2A; background: #140F12; }
+.bk-confirm-p { margin: 0 0 8px; color: #E7C9C9; font-size: 10.5px; line-height: 1.65; word-break: keep-all; }
+.bk-confirm-a { display: flex; gap: 8px; }
+.bk-msg { margin: 10px 0 0; color: var(--green); font-size: 11px; line-height: 1.6; }
+.bk-err { margin: 10px 0 0; color: var(--red); font-size: 11px; line-height: 1.6; }
+.bk-note { margin: 12px 0 0; padding-top: 8px; border-top: 1px solid var(--border2); color: var(--faint); font-size: 10px; line-height: 1.6; }
+.bk-ft { padding: 9px 14px 11px; color: var(--faint); font-size: 10px; border-top: 1px solid var(--border); }
+@media (max-width: 760px) {
+  .bk-back { padding: 12px 8px; }
+  .bk-mode { grid-template-columns: minmax(0, 1fr); }
+  .bk-mode-k { padding-top: 0; }
+  .bk-tb td.k { display: none; }
+  .note-t { font-size: 12px; min-height: 68px; }
+}
