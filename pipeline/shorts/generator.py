@@ -781,6 +781,8 @@ def build_script(kind, record, days, slot, target_date, score):
         subject_line = f"{company} {pos} 채용 과제"
         hashtags = "#개발자 #취업 #AI코딩 #채용과제 #이직"
         raw_url = record.get("url")
+        if raw_url == "seed":  # 원문 없는 시드 조사 기록(스펙 1-3) — 링크가 아니다
+            raw_url = None
         extra_desc = f"- AI 활용: {AI_POLICY_KO.get(record.get('ai_policy') or 'unspecified')}\n- 마감: {deadline_txt}"
         event_title = f"{company} {pos} 채용 과제 전형"
     else:
@@ -792,6 +794,8 @@ def build_script(kind, record, days, slot, target_date, score):
         subject_line = title_txt
         hashtags = "#개발자 #공모전 #해커톤 #AI코딩 #취준"
         raw_url = record.get("url")
+        if raw_url == "seed":  # 원문 없는 시드 조사 기록(스펙 1-3) — 링크가 아니다
+            raw_url = None
         extra_desc = f"- 상금: {prize_phrase(record.get('prize'))}\n- 마감: {deadline_txt}"
         event_title = title_txt
 

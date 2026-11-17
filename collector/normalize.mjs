@@ -35,6 +35,12 @@ for (const [file, evidenceOpts] of [['postings.json', { quoteObjects: true }], [
       if (JSON.stringify(arr) !== JSON.stringify(row[field])) report(file, row.id, field, row[field], arr);
       row[field] = arr;
     }
+    // 원문을 찾지 못한 시드 조사 기록(스펙 1-3) — null 대신 명시적 seed 표기.
+    // 웹·피드·쇼츠는 'seed' 를 링크가 아니라 '원문 미확보' 로 해석한다.
+    if (file === 'postings.json' && /^seed-/.test(row.id) && row.url == null) {
+      report(file, row.id, 'url', row.url, 'seed');
+      row.url = 'seed';
+    }
   }
   // 교차 소스·재게시 중복 표시(스펙 1-2) — merge.mjs 와 같은 규칙으로 기존 데이터에 멱등 적용
   const marksBefore = new Map(rows.map((r) => [r.id, r.merged_into || null]));

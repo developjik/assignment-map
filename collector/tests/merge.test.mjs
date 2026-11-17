@@ -29,6 +29,12 @@ const FIXTURE = {
     ai_policy: 'unspecified', evidence: [{ quote: '보안정책 공고 근거' }], url: 'https://example.com/nm1',
     deadline: '2026-12-01', status: 'open', first_seen: '2026-11-10', last_seen: '2026-11-10',
     last_checked: '2026-11-10', check_cadence: 'weekly', review: 'auto', history: [],
+  }, {
+    // 스펙 1-3: 원문 url 이 없는 시드 조사 기록 — normalize 가 'seed' 표기로 바꾼다
+    id: 'seed-kr-99', company: '시드기업', positions: ['frontend'], ai_policy: 'allowed',
+    evidence: [{ quote: '시드 조사 근거' }], url: null, deadline: null, status: 'open',
+    first_seen: '2026-08', last_checked: '2026-10-11', check_cadence: 'weekly',
+    review: 'confirmed', history: [],
   }],
   'data/events.json': [{
     id: 'ev:legacy', type: 'contest', title: '레거시 공모전', host: '호스트',
@@ -234,6 +240,35 @@ test('merge: 중복 병합은 멱등이다 — 같은 런을 두 번 돌려도 �
   node(dir, 'merge.mjs', 'runs/2026-11-18.json');   // 재실행 — 멱등 확인
   const after = ['data/postings.json', 'data/events.json', 'data/changelog.json'].map(snap);
   assert.deepEqual(after, before, '같은 날짜 재병합은 데이터를 바꾸지 않는다');
+  fs.rmSync(dir, { recursive: true, force: true });
+});
+
+test('validate: 공개 레코드의 빈 근거 경고가 동작한다 (스펙 1-3)', () => {
+  const dir = sandbox();
+  node(dir, 'merge.mjs', 'runs/2026-11-16.json');
+  assert.doesNotMatch(node(dir, 'validate.mjs'), /빈 근거/, '정상 데이터에는 경고 없음');
+
+  const postings = readJSON(dir, 'data/postings.json');
+  const open = postings.find((p) => p.status === 'open');
+  open.evidence = [];
+  fs.writeFileSync(path.join(dir, 'data/postings.json'), JSON.stringify(postings, null, 2) + '\n');
+  const out = node(dir, 'validate.mjs');
+  assert.match(out, /VALIDATE OK/, '경고는 커밋 잠금이 아니다');
+  assert.match(out, /빈 근거/);
+  assert.match(out, new RegExp(open.id));
+  fs.rmSync(dir, { recursive: true, force: true });
+});
+
+test('normalize: 원문 없는 시드 url 을 명시적 seed 표기로 바꾼다 (스펙 1-3)', () => {
+  const dir = sandbox();
+  node(dir, 'merge.mjs', 'runs/2026-11-16.json');
+  assert.equal(readJSON(dir, 'data/postings.json').find((p) => p.id === 'seed-kr-99').url, null,
+    '병합만 돌리면 아직 null');
+
+  assert.match(node(dir, 'normalize.mjs'), /seed-kr-99 url/);
+  assert.equal(readJSON(dir, 'data/postings.json').find((p) => p.id === 'seed-kr-99').url, 'seed',
+    'null → 명시적 seed 표기');
+  assert.doesNotMatch(node(dir, 'normalize.mjs'), /seed-kr-99/, '두 번째는 조용히 지나간다(멱등)');
   fs.rmSync(dir, { recursive: true, force: true });
 });
 
