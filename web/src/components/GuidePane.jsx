@@ -30,10 +30,10 @@ function fallbackCopy(text) {
   } catch { return false }
 }
 
-export default function GuidePane({ r, inline = false }) {
+export default function GuidePane({ r, inline = false, defaultOpen = true }) {
   const auto = useMemo(() => matchGuide(r), [r.id])
   const [pickedId, setPickedId] = useState(null)
-  const [open, setOpen] = useState(true)
+  const [open, setOpen] = useState(defaultOpen)
   const [copied, setCopied] = useState(-1)
   const [checks, setChecks] = useState(readChecks)
   const timer = useRef(null)

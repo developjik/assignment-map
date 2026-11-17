@@ -7,7 +7,7 @@
     "validate": "node collector/validate.mjs",
     "normalize": "node collector/normalize.mjs",
     "news": "python3 collector/fetch_news.py",
-    "test": "node --test collector/tests/*.test.mjs && python3 -m unittest discover -s collector/tests && python3 -m unittest discover -s pipeline/shorts/tests",
+    "test": "node --test collector/tests/*.test.mjs web/tests/*.test.mjs && python3 -m unittest discover -s collector/tests && python3 -m unittest discover -s pipeline/shorts/tests",
     "build": "npm --prefix web run build",
     "lint:slop": "npm --prefix web run lint:slop"
   }

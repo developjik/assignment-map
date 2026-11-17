@@ -4,6 +4,7 @@ import platformsRaw from '../../../data/platforms.json'
 import newsRaw from '../../../data/news.json'
 import changelogRaw from '../../../data/changelog.json'
 import metaRaw from '../../../data/meta.json'
+import { clipEvidence, evidenceParts } from './evidence'
 
 const KST_OFFSET = 9 * 3600e3
 function dayStartKST(dateStr) {
@@ -49,6 +50,9 @@ const hay = (...parts) =>
 const quoteOf = (e) => (typeof e === 'string' ? e.trim() : e && typeof e.quote === 'string' ? e.quote : '')
 const evidenceText = (evidence) => (Array.isArray(evidence) ? evidence.map(quoteOf).filter(Boolean).join(' ') : evidence || '')
 
+// 표에는 원문 인용만, 수집기 운영 메모는 detailMemo 로 따로 넘긴다 (PR B)
+const evOf = (evidence) => evidenceParts(asEvidence(evidence).map(quoteOf))
+
 // 수집기가 evidence 를 문자열로 남긴 행이 있다(2026-11-16 잡코리아 5건). 배열로 맞춰 준다 —
 // 문자열에 .map 을 부를면 목록 전체가 죽는다(흰 화면).
 const asEvidence = (ev) => (Array.isArray(ev) ? ev : ev ? [{ quote: String(ev) }] : [])
@@ -58,7 +62,10 @@ export const rows = [
     kind: 'posting', id: p.id, name: p.company, title: p.title || '',
     sub: p.positions_raw || (p.positions || []).join('/'),
     type: '채용', positions: p.positions || [], policy: POLICY[p.ai_policy] || POLICY.unspecified,
-    policyKey: p.ai_policy, evidence: asEvidence(p.evidence)[0]?.quote || p.note || '',
+    policyKey: p.ai_policy,
+    evidence: clipEvidence(evOf(p.evidence).best),
+    evidenceFull: evOf(p.evidence).best,
+    evidenceMemo: evOf(p.evidence).memos,
     source: (p.source || '').replace('manual-research', '리서치'),
     deadline: p.deadline, status: p.status, open: isOpen(p.status),
     checked: p.last_checked, history: p.history || [], review: p.review || '',
@@ -70,7 +77,7 @@ export const rows = [
     assignment: p.assignment_type && p.assignment_type !== 'unknown' ? p.assignment_type : '',
     note: p.note || '',
     stateRaw: p.state_raw || '',
-    evidenceAll: asEvidence(p.evidence).map(quoteOf).filter(Boolean),
+    evidenceAll: evOf(p.evidence).quotes,
     stack: p.positions_raw || (p.positions || []).join(' '),
     hay: hay(
       p.company, p.title, p.positions_raw, p.positions, p.assignment_type, p.process_raw,
@@ -83,7 +90,10 @@ export const rows = [
     type: EVENT_TYPE[e.type] || e.type, positions: [],
     policy: EV_POLICY[e.ai_usage] || EV_POLICY.unknown,
     policyKey: e.ai_usage === 'required' ? 'required' : e.ai_usage === 'allowed' ? 'allowed' : e.ai_usage,
-    evidence: evidenceText(asEvidence(e.evidence)), source: e.source,
+    evidence: clipEvidence(evOf(e.evidence).best),
+    evidenceFull: evOf(e.evidence).best,
+    evidenceMemo: evOf(e.evidence).memos,
+    source: e.source,
     deadline: e.apply_deadline || e.submit_deadline, status: e.status, open: isOpen(e.status),
     checked: e.last_checked, history: e.history || [], review: e.review || '',
     url: e.url, hiring: !!e.hiring_link, first: e.first_seen,
@@ -97,7 +107,7 @@ export const rows = [
     format: e.format && e.format !== 'unknown' ? e.format : '',
     team: e.team && e.team !== 'unknown' ? e.team : '',
     resultDate: e.result_date || '',
-    evidenceAll: asEvidence(e.evidence).map(quoteOf).filter(Boolean),
+    evidenceAll: evOf(e.evidence).quotes,
     hay: hay(e.title, e.host, e.prize, evidenceText(asEvidence(e.evidence)), e.note, e.source, EVENT_TYPE[e.type] || e.type, e.format),
   })),
 ]

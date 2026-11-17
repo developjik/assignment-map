@@ -86,7 +86,7 @@ function descriptionFor(r) {
     r.prize ? `상금/혜택: ${r.prize}` : '',
     r.hiring ? '채용 연계 있음' : '',
     `AI 정책: ${r.policy?.label || r.policyKey || '-'}`,
-    r.evidence ? `근거: ${r.evidence}` : '',
+    r.evidenceFull || r.evidence ? `근거: ${r.evidenceFull || r.evidence}` : '',
     r.url ? `원문: ${r.url}` : '',
     `출처: 과제지도 ${SITE}`,
   ].filter(Boolean).join('\n')

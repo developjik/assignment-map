@@ -26,7 +26,7 @@ export function reportIssueUrl(r, base = NEW_ISSUE) {
     '### 원문 근거',
     '',
     '<!-- 공고 원문에서 해당 문장을 그대로 붙여 주세요 -->',
-    r.evidence ? `> ${r.evidence}` : '> ',
+    r.evidenceFull || r.evidence ? `> ${r.evidenceFull || r.evidence}` : '> ',
     '',
     '### 출처',
     '',

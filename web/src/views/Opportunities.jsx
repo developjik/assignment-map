@@ -59,24 +59,16 @@ const ddMatch = (within, r) => !within ? true : r.dd !== null && r.dd >= 0 && r.
 const INTERACTIVE = 'button, a[href], input, select, textarea, summary, [role="button"], [role="tab"], [role="link"], [role="switch"], [role="checkbox"], [contenteditable="true"]'
 const takesEnter = (el) => !!el && typeof el.closest === 'function' && !!el.closest(INTERACTIVE)
 const inPane = (el) => !!el && typeof el.closest === 'function' && !!el.closest('.dpane, .hx, .cal-side')
+// 행은 식별·비교만 맡긴다 (PR B) — 유형은 패널 kicker, 확인일은 패널 추적·아코디언이 보여준다.
 const COLS = [
   { id: 'name', label: '기업 / 이벤트명' },
-  { id: 'type', label: '유형' },
   { id: 'sub', label: '대상 / 주최' },
   { id: 'policy', label: 'AI 정책' },
   { id: 'evidence', label: '근거', nosort: true },
   { id: 'deadline', label: '마감 (D-day)' },
-  { id: 'checked', label: '확인' },
 ]
-// 우측 상세 패널을 붙이는 폭 — 7컬럼 표와 384px 패널이 같이 설 수 있는 최소 데스크톱
+// 우측 상세 패널을 붙이는 폭 — 5컬럼 표와 400px 패널이 같이 설 수 있는 최소 데스크톱
 const WIDE_QUERY = '(min-width: 1200px)'
-
-const relDays = (dateStr) => {
-  if (!dateStr) return null
-  const d = Math.round((Date.now() - new Date(dateStr + 'T03:00:00+09:00').getTime()) / 864e5)
-  if (d <= 0) return '오늘'; if (d === 1) return '어제'
-  return d + '일 전'
-}
 
 // 별표 아이콘 — 이모지 문자 대신 인라인 SVG (모노크롬 유지, 폰트 의존 없음)
 function StarIcon({ filled }) {
@@ -209,11 +201,9 @@ export default function Opportunities({ rows, type, q, setQ, setTab, onVisit }) 
     const byLatest = (a, b) => (b.first || '').localeCompare(a.first || '') || (b.checked || '').localeCompare(a.checked || '')
     const cmp = {
       name: (a, b) => a.name.localeCompare(b.name, 'ko'),
-      type: (a, b) => a.type.localeCompare(b.type, 'ko'),
       sub: (a, b) => (a.sub || '').localeCompare(b.sub || '', 'ko'),
       policy: (a, b) => (POLICY_RANK[a.policyKey] || 0) - (POLICY_RANK[b.policyKey] || 0),
       deadline: (a, b) => (a.dd === null) - (b.dd === null) || (a.dd ?? 0) - (b.dd ?? 0),
-      checked: (a, b) => (a.checked || '').localeCompare(b.checked || ''),
     }
     if (sort && cmp[sort.key]) out.sort((a, b) => cmp[sort.key](a, b) * sort.dir)
     else if (sortMode === 'latest') out.sort((a, b) => openFirst(a, b) || byLatest(a, b) || byDday(a, b))
@@ -514,13 +504,13 @@ export default function Opportunities({ rows, type, q, setQ, setTab, onVisit }) 
         <div className="twrap tscroll">
           <table>
             <colgroup>
-              <col data-col="name" /><col data-col="type" /><col data-col="sub" />
-              <col data-col="policy" /><col data-col="evidence" /><col data-col="deadline" /><col data-col="checked" />
+              <col data-col="name" /><col data-col="sub" />
+              <col data-col="policy" /><col data-col="evidence" /><col data-col="deadline" />
             </colgroup>
             <thead>
               <tr>
                 {COLS.map((c) => (
-                  <th key={c.id} data-col={c.id} className={c.id === 'deadline' || c.id === 'checked' ? 'r' : ''}
+                  <th key={c.id} data-col={c.id} className={c.id === 'deadline' ? 'r' : ''}
                     aria-sort={sort && sort.key === c.id ? (sort.dir === 1 ? 'ascending' : 'descending') : undefined}>
                     {c.nosort ? c.label : (
                       <button className="sort" onClick={() => clickSort(c.id)}>
@@ -534,7 +524,7 @@ export default function Opportunities({ rows, type, q, setQ, setTab, onVisit }) 
             </thead>
             <tbody>
               {filtered.length === 0 && (
-                <tr><td colSpan={7}>
+                <tr><td colSpan={5}>
                   {starredOnly && starredRows.length === 0 ? (
                     <div className="empty-id">
                       <div className="l1"><StarIcon filled={false} /> 관심 등록된 공고가 없습니다</div>
@@ -612,27 +602,23 @@ function Row({ r, q, zebra, idx, curIdx, curRef, expanded, starred, onStar, st, 
               onClick={(e) => { e.stopPropagation(); onCycle && onCycle() }}>{WORKFLOW_LABEL[st]}</button>
           )}
         </td>
-        <td className="typ" data-col="type"><Hl text={r.type} q={q} /></td>
         <td className="typ c-sub" data-col="sub" title={r.sub}><Hl text={r.sub} q={q} /></td>
         <td data-col="policy"><span className={`pol ${r.policy.cls}`}><i aria-hidden="true"></i>{POLICY_LABEL[r.policyKey] || r.policy.label}</span></td>
-        <td className="ev" data-col="evidence" title={r.evidence}>{disp(r.evidence)}</td>
+        {/* 근거는 원문 인용 하나를 48자로 자른다 — 수집기 운영 메모는 패널 '수집 메모'로 (PR B) */}
+        <td className="ev" data-col="evidence" title={r.evidenceFull || ''}>{disp(r.evidence)}</td>
         <td className={ddCls} data-col="deadline">
           <span className="ddt">{ddText}</span>
-          {r.deadline && (
-            <button className="rowics" title={`${r.deadline} 마감을 캘린더(.ics)로 내려받기`}
-              aria-label={`${r.name} 마감일을 캘린더 파일로 내려받기`}
-              onClick={(e) => { e.stopPropagation(); downloadIcs([r]) }}>ics</button>
-          )}
         </td>
-        <td className="chk" data-col="checked">{r.checked ? `${r.checked.slice(5)} (${relDays(r.checked)})` : ''}</td>
       </tr>
       {expanded && (
         <tr className="hx">
-          <td colSpan={7}>
+          <td colSpan={5}>
             <div className="in">
-              <div className="ln"><span className="d">{r.first || ''}</span>발견 | <span className="q">{disp(r.evidence)}</span></div>
+              <div className="ln"><span className="d">{r.first || ''}</span>발견 | <span className="q">{disp(r.evidenceFull || r.evidence || '원문 인용 없음')}</span></div>
               <div className="ln">대상/주최: <span className="q">{r.sub || '-'}</span></div>
               <div className="ln">마감: <span className="q">{r.deadline ? `${r.deadline} (${ddText})` : '상시/미정'}</span> | 유형: <span className="q">{r.type}</span>{r.prize ? <> | 상금: <span className="q">{r.prize}</span></> : null}</div>
+              {/* 표에서 뺀 확인일·출처는 아코디언이 받는다 (좁은 화면에서는 이 줄이 유일한 자리) */}
+              <div className="ln">확인: <span className="q">{r.checked || '-'}</span> | 출처: <span className="q">{disp(r.source) || '-'}</span></div>
               {/* 핵심 동작은 제목·마감 바로 아래 — 공략·이력 끝까지 스크롤하지 않아도 된다 */}
               <div className="ln hx-acts">
                 {r.url
