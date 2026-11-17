@@ -1464,7 +1464,19 @@
         }
       ],
       "notes": "정상 런(last_run 11-16, 1일 갭). 신규 공고 0 · 신규 이벤트 4(global-0051 Relate by Neo4j 32024 — AI에이전트 그래프DB 해커톤, 전 세계·Students-only 아님, 12-11 마감 · wevity 3: VIVID RE:PLAY 112343 AI영상 공모 총1천만~3천만 · 매경 AI광고 112073 총5천만 이상 11-30 · 국가시범도시 AI 아이디어 112299 국토부 12-14) · 정책 변경 1(데이터드리븐 점핏 — 실시간 개발 과제 AI 도구 금지 명시, unspecified→banned, 마감 11-21) · D-3 임박 13(공고 1: 오로라월드 50213617 11-20 + 이벤트 12: 11-18 Meta VR global-0026·네이밍 112155 / 11-19 전북 뮤직쇼츠 112128 / 11-20 사회보장AI 111847·용산스마트시티 111726·Dakar Bitcoin global-0035·성평등AI 112029·AI달인s4 112049·대구기후 111567·제천AI영상 111490·제주 AI Agent ko-0035·제주 AI리터러시 111924) · 종결 4(위비티 3: 세종사이버 K-빌런 111797·AI전자그림책 111449 D+0 배지 + AFPK 111059 상세 D+0·리스트 이탈 · Devpost 1: UGREEN global-0021 open 이탈) · needs_review 0 · 방문 29/80(위비티 상세 5 + 잡코리아 GI_Read www 15 + 원티드 2 + 점핏 4 + gnews-en 브라우저 fetch 1, 발견 전부 fetch) · CANARY 전 지표 OK(wevity 16/p·900 ix, devpost 59, daker 24, 잡코리아 778·40/p, HN 514). 실패 소스: festa.io(9일째 스텁). [운영 발견] (1) 잡코리아 GI_Read www 경로(/Recruit/GI_Read/N) 브라우저 렌더 성공 — JD 전문은 iframe 내, m 경로는 이번 세션 빈 셸. (2) 위비티 상세 fetch 배너 셸 붕괴 지속(29,474B 고정) — 상세는 브라우저 필수. (3) Devpost Students-only 미채택 기준 명문화: 채택 선례 2건 모두 비-학생전용. [다음 우선순위] (1) 11-19 런 종결 2(11-18 마감): Meta VR global-0026·네이밍 112155, (2) 11-20 런 종결 1(11-19): 전북 뮤직쇼츠 112128, (3) 11-21 런 종결 11(11-20 마감 D-0 당일 종결 금지): 사회보장 111847·용산 111726·Dakar global-0035·성평등 112029·AI달인s4 112049·대구기후 111567·제천 111490·제주 ko-0035·제주리터러시 111924 + 공고 오로라 50213617 + T2 로테이션 실행(11-14 공백 — 씽유·링커리어·DoraHacks·MLH·programmers 등), (4) 11-22 런: 데이터드리븐 55361658 종결(11-21 마감·banned 정책 승계) + 에스에스알 50222686(11-21), (5) 11-23 런 종결: 엘리스 111915(제출 11-22)·경산 112022·KICET 111819 + 세종사이버 AI불씨 112285 접수 11-23 개시 감시(upcoming→open) + 한프카 wd390319/50326430 11-22 마감 후 재확인, (6) global-0049 #BuildHybridAI 11-30 D-13 감시 · global-0051 Neo4j 12-11, (7) 12/1 T3: festa.io 퇴출 + HN 12월 스레드 + 소스 성과 리포.",
-      "summary": "+0공고 +4이벤트 · 정책변경 1 · 상태변경 4 · 마감변경 0"
+      "summary": "+0공고 +4이벤트 · 정책변경 1 · 상태변경 4 · 마감변경 0 · 중복병합 8",
+      "merged_postings": [
+        "manual:cj-olivenetworks-2026h2->seed-kr-02",
+        "jobkorea:50283588->jobkorea:50214047",
+        "jobkorea:50193361->jobkorea:50328375",
+        "jobkorea:50326430->wanted:wd390319",
+        "jobkorea:50359571->jobkorea:50213617"
+      ],
+      "merged_events": [
+        "wevity:111628-ppas-ai-game-contents->ko-0005",
+        "wevity:112343-vivid-replay-ai-video->wevity:112021-vivid-replay",
+        "wevity:112073-maekyung-ai-ad-contest->wevity:111903-maekyung-ai-ad"
+      ]
     }
   ]
 }

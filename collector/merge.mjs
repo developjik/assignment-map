@@ -12,7 +12,13 @@ if (!runPath) { console.error('usage: node collector/merge.mjs runs/YYYY-MM-DD.j
 const run = JSON.parse(fs.readFileSync(runPath, 'utf8'));
 const date = run.date || path.basename(runPath, '.json');
 const read = f => JSON.parse(fs.readFileSync(path.join(repo, 'data', f), 'utf8'));
-const write = (f, obj) => fs.writeFileSync(path.join(repo, 'data', f), JSON.stringify(obj, null, 2) + '\n');
+// 반쪽 쓰기 방지(F5): 임시 파일에 쓴 뒤 바꿔치기한다 — 쓰기 도중 크래시로 data/*.json 이
+// 잘린 채 남는 경로(changelog 반쪽 쓰기)를 원자적으로 막는다.
+const write = (f, obj) => {
+  const tmp = path.join(repo, 'data', `.${f}.tmp`);
+  fs.writeFileSync(tmp, JSON.stringify(obj, null, 2) + '\n');
+  fs.renameSync(tmp, path.join(repo, 'data', f));
+};
 const dayDiff = (from, to) => Math.round((new Date(to) - new Date(from)) / 864e5);
 
 // postings 의 evidence 는 { quote, field } 객체 배열, events 는 문자열 배열 (collector/evidence.mjs)
@@ -90,8 +96,17 @@ for (const p of mergedPostings) {
   if (p.tags !== undefined) p.tags = asStringArray(p.tags);
 }
 for (const p of mergedPostings) p.check_cadence = (p.status === 'closed' || p.status === 'gone' || p.status === 'no_hiring') ? 'none' : cadence([p.deadline], date);
-// 교차 소스·재게시 중복 제거(스펙 1-2) — 병합 로직은 merge 안에 산다: 매일 루틴이 이 파일을 쓴다
-for (const g of dedupePostings(mergedPostings)) S.merged_postings.push(...g.dups.map((d) => `${d}->${g.rep}`));
+// 교차 소스·재게시 중복 제거(스펙 1-2) — 병합 로직은 merge 안에 산다: 매일 루틴이 이 파일을 쓴다.
+// changelog 에는 이번에 새로 붙은 병합 표시만 남긴다(F5): 이미 병합된 그룹이 매일
+// '중복병합'으로 재기록되는 노이즈를 끊는다.
+const newMerges = (rows, dedupe) => {
+  const marksBefore = new Map(rows.map((r) => [r.id, r.merged_into || null]));
+  const fresh = [];
+  for (const g of dedupe(rows))
+    for (const d of g.dups) if (marksBefore.get(d) !== g.rep) fresh.push(`${d}->${g.rep}`);
+  return fresh;
+};
+S.merged_postings = newMerges(mergedPostings, dedupePostings);
 write('postings.json', mergedPostings);
 
 // ---- events ----
@@ -130,7 +145,7 @@ for (const inc of run.events || []) {
 const mergedEvents = [...eById.values()];
 for (const e of mergedEvents) e.evidence = asEvidence(e.evidence);   // 레거시 문자열 정리(멱등)
 for (const e of mergedEvents) e.check_cadence = e.status === 'closed' ? 'none' : cadence([e.apply_deadline, e.submit_deadline], date);
-for (const g of dedupeEvents(mergedEvents)) S.merged_events.push(...g.dups.map((d) => `${d}->${g.rep}`));
+S.merged_events = newMerges(mergedEvents, dedupeEvents);
 write('events.json', mergedEvents);
 
 // ---- changelog / meta ----
@@ -144,6 +159,11 @@ if (prevSameDay) {
   // 카운터는 정보성 — 재실행이 첫 병합의 실측을 덮어쓰지 않게 한다
   S.updated_postings = prevSameDay.updated_postings ?? S.updated_postings;
   S.updated_events = prevSameDay.updated_events ?? S.updated_events;
+  // sources·notes 는 같은 날 재병합에서 유실되지 않게 이어 받는다(F5) — 첫 런의 감사
+  // 기록이 빈 run 파일의 재실행으로 지워지는 공백을 막는다.
+  for (const s of prevSameDay.sources || [])
+    if (!S.sources.some((x) => x.id === s.id)) S.sources.push(s);
+  if (!S.notes && prevSameDay.notes) S.notes = prevSameDay.notes;
 }
 cl.events = cl.events.filter(c => c.date !== date);
 cl.events.push({ date, ...S,

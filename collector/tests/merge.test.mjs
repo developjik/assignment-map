@@ -428,3 +428,58 @@ test('F4: 매처 경계 — 연도 없는 반복 행사 회차(마감 270일+)�
   const close = [ev('wevity:a', '2026-11-30'), ev('wevity:b', '2026-12-13', { host: 'X주최(서울)' })];
   assert.equal(dedupeEvents(close).length, 1, '마감 연장 재게시는 같은 회차로 병합');
 });
+
+test('F5: 이미 병합된 그룹은 다음 날 changelog 에 재기록되지 않는다', () => {
+  const dir = sandbox();
+  node(dir, 'merge.mjs', 'runs/2026-11-16.json');
+  node(dir, 'merge.mjs', 'runs/2026-11-18.json');   // soop 그룹 형성 — 첫 기록
+  node(dir, 'merge.mjs', 'runs/2026-11-19.json');   // 다음 날 루틴 — 그룹은 그대로
+  const log = readJSON(dir, 'data/changelog.json').events;
+  const d18 = log.find((c) => c.date === '2026-11-18');
+  const d19 = log.find((c) => c.date === '2026-11-19');
+  assert.deepEqual(d18.merged_postings, ['soop:orig->soop:repost'], '첫 병합은 기록된다');
+  assert.deepEqual(d19.merged_postings, [], '이미 병합된 그룹은 재기록되지 않는다');
+  assert.match(d19.summary, /중복병합 0/, '요약 카운트도 0');
+  fs.rmSync(dir, { recursive: true, force: true });
+});
+
+test('F5: normalize 이 새 병합을 적용하면 changelog merged_* 에 감사 기록된다', () => {
+  const dir = sandbox();
+  node(dir, 'merge.mjs', 'runs/2026-11-16.json');
+  // 병합 표시 없이 재게시 행이 데이터에 들어온 상황(다른 경로 유입)을 만든다
+  const postings = readJSON(dir, 'data/postings.json');
+  postings.push({
+    id: 'soop:repost', company: '숲(SOOP)', title: 'LIVE 방송 서버 개발 (재공고)',
+    positions: ['backend'], ai_policy: 'allowed', evidence: [{ quote: '재게시 본문 근거' }],
+    url: 'https://example.com/soop2', deadline: '2026-11-15', status: 'open',
+    first_seen: '2026-11-18', last_seen: '2026-11-18', last_checked: '2026-11-18',
+    check_cadence: 'weekly', review: 'auto', history: [],
+  });
+  fs.writeFileSync(path.join(dir, 'data/postings.json'), JSON.stringify(postings, null, 2) + '\n');
+  assert.match(node(dir, 'normalize.mjs'), /soop:repost duplicates/);
+  const entry = readJSON(dir, 'data/changelog.json').events.find((c) => c.date === '2026-11-16');
+  assert.ok(entry, 'meta.last_run(2026-11-16) 날짜 엔트리에 기록');
+  assert.deepEqual(entry.merged_postings, ['soop:orig->soop:repost'], 'normalize 경유 병합의 merged_* 감사 기록');
+  assert.deepEqual(entry.merged_events, ['wevity:m2->wevity:m1'], 'merge 경유 병합 기록은 그대로 공존');
+  assert.match(entry.summary, /중복병합 2/, '요약 카운트에 두 경로가 모두 반영');
+  assert.match(node(dir, 'normalize.mjs'), /바꿀 필드 없음/, '두 번째는 멱등 — 감사 기록도 중복되지 않는다');
+  fs.rmSync(dir, { recursive: true, force: true });
+});
+
+test('F5: 같은 날 재병합이 첫 런의 sources·notes 를 지우지 않는다', () => {
+  const dir = sandbox();
+  fs.writeFileSync(path.join(dir, 'runs/2026-11-17.json'), JSON.stringify({
+    date: '2026-11-17',
+    sources: [{ id: 'wevity-fetch', method: 'fetch', pages: 1, result: '첫 런 조사 기록' }],
+    notes: '첫 런 메모', postings: [], events: [],
+  }, null, 2) + '\n');
+  node(dir, 'merge.mjs', 'runs/2026-11-17.json');
+  fs.writeFileSync(path.join(dir, 'runs/2026-11-17b.json'), JSON.stringify({
+    date: '2026-11-17', postings: [], events: [],
+  }, null, 2) + '\n');
+  node(dir, 'merge.mjs', 'runs/2026-11-17b.json');   // sources·notes 없는 같은 날 재실행
+  const entry = readJSON(dir, 'data/changelog.json').events.find((c) => c.date === '2026-11-17');
+  assert.equal(entry.notes, '첫 런 메모', 'notes 유실 없음');
+  assert.deepEqual(entry.sources.map((x) => x.id), ['wevity-fetch'], 'sources 유실 없음');
+  fs.rmSync(dir, { recursive: true, force: true });
+});
