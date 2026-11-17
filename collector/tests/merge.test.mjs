@@ -328,6 +328,46 @@ test('F1: dup 의 deadline 은 rep 의 deadline 을 절대 덮지 않는다 (한
   assert.equal(c.find((p) => p.id === 'wanted:rep').deadline, '2026-11-15', 'rep 자신의 마감이 그대로 유지된다');
 });
 
+test('R3: dup 의 apply/submit 마감은 rep 이벤트의 값을 절대 덮지 않는다 (F1 의 이벤트 확장)', () => {
+  const ev = (over) => ({
+    id: 'wevity:rep', type: 'contest', title: 'AI 공모전', host: 'A재단', ai_usage: 'allowed',
+    status: 'open', evidence: ['공모전 근거'], first_seen: '2026-11-01', last_checked: '2026-11-01', ...over,
+  });
+  const dup = (over) => ev({ id: 'wevity:dup', first_seen: '2026-11-02', last_checked: '2026-11-02', ...over });
+
+  // (a) rep null + dup 날짜 → null 유지
+  const a = [ev({ apply_deadline: null, submit_deadline: null }), dup({ apply_deadline: '2026-12-31', submit_deadline: '2026-12-31' })];
+  dedupeEvents(a);
+  const aRep = a.find((e) => e.id === 'wevity:rep');
+  assert.ok(!aRep.merged_into, '대표행은 wevity:rep');
+  assert.equal(aRep.apply_deadline, null, 'rep 의 null 이 dup 날짜로 덮이지 않는다');
+  assert.equal(aRep.submit_deadline, null, 'submit_deadline 도 null 유지');
+
+  // (b) rep 수동 정정 이력(deadline_changed → 11-25) + dup 옛 날짜 → 수동 정정값 유지 (ko-0003 동형)
+  const b = [
+    ev({
+      apply_deadline: '2026-11-25', submit_deadline: '2026-11-25',
+      history: [{ date: '2026-11-07', event: 'deadline_changed', field: 'submit_deadline', from: '2026-11-10', to: '2026-11-25' }],
+    }),
+    dup({ apply_deadline: '2026-11-10', submit_deadline: '2026-11-10' }),
+  ];
+  dedupeEvents(b);
+  const bRep = b.find((e) => e.id === 'wevity:rep');
+  assert.equal(bRep.apply_deadline, '2026-11-25', '수동 정정 마감이 dup 의 옛 값으로 되살아나지 않는다');
+  assert.equal(bRep.submit_deadline, '2026-11-25', 'submit_deadline 도 수동 정정값 유지');
+
+  // (c) rep 날짜 + dup 이후 날짜 → rep 값 그대로, last_checked maxOr 는 유지
+  const c = [
+    ev({ apply_deadline: '2026-11-30', submit_deadline: '2026-11-30' }),
+    dup({ apply_deadline: '2026-12-31', submit_deadline: '2026-12-31', last_checked: '2026-11-09' }),
+  ];
+  dedupeEvents(c);
+  const cRep = c.find((e) => e.id === 'wevity:rep');
+  assert.equal(cRep.apply_deadline, '2026-11-30', 'rep 자신의 마감이 그대로 유지된다');
+  assert.equal(cRep.submit_deadline, '2026-11-30', 'submit_deadline 도 rep 값 그대로');
+  assert.equal(cRep.last_checked, '2026-11-09', 'last_checked maxOr 는 계속 작동한다');
+});
+
 test('F2: 결정적 ai_policy 를 근거와 함께 승격한다 (오로라월드 사례)', () => {
   const row = (over) => ({
     company: '오로라월드', title: 'PI오퍼레이션 컨설턴트', status: 'open',

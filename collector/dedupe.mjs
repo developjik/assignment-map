@@ -165,7 +165,7 @@ const dedupeRows = (rows, same, opts) => {
       .sort((a, b) => (a.first_seen || '9999').localeCompare(b.first_seen || '9999') || a.id.localeCompare(b.id));
     for (const d of dups) d.merged_into = rep.id;
     // 대표행 병합: 확인·발견 최댓값(dateFields), 스칼라는 대표값이 비었을 때만 채운다(mergeFields).
-    // deadline 은 어느 쪽에도 없다(F1) — dup 의 마감이 rep 의 값(null 포함)을 건드리지 않는다.
+    // deadline·마감(apply/submit_deadline)은 어느 쪽에도 없다(F1·R3) — dup 의 마감이 rep 의 값(null 포함)을 건드리지 않는다.
     for (const f of opts.dateFields) rep[f] = maxOr([rep[f], ...dups.map((d) => d[f])], rep[f] || null);
     for (const f of opts.mergeFields) {
       if (!rep[f]) { const hit = dups.find((d) => d[f]); if (hit) rep[f] = hit[f]; }
@@ -178,7 +178,11 @@ const dedupeRows = (rows, same, opts) => {
 };
 
 export const dedupePostings = (rows) => dedupeRows(rows, samePosting, { dateFields: ['last_seen', 'last_checked'], mergeFields: ['url'], policyField: 'ai_policy' });
-export const dedupeEvents = (rows) => dedupeRows(rows, sameEvent, { dateFields: ['last_checked', 'apply_deadline', 'submit_deadline'], mergeFields: ['url'] });
+// 이벤트 마감(apply/submit)도 채용 deadline 과 같은 규칙(R3, F1 의 이벤트 확장): dup 의
+// 마감이 rep 의 값(null·수동 정정 포함)을 건드리지 않는다 — ko-0003 등 수동 정정 이력
+// 보유 이벤트 5건이 재게시 dup 의 옛 마감으로 되살아나는 결함 차단. 합법적 마감 연장은
+// collector 재확인 경로가 event_deadline_changed 감사와 함께 반영한다. last_checked 만 maxOr.
+export const dedupeEvents = (rows) => dedupeRows(rows, sameEvent, { dateFields: ['last_checked'], mergeFields: ['url'] });
 
 // meta note 규칙(스펙 1-3): 마지막 런이 시드 날짜와 같으면 '시드뿐', 그 다음부터는
 // 루틴 가동 상태로 쓴다. 허위 상태("not started")가 데이터에 박히지 않게 last_run 에서 파생한다.
