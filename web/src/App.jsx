@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from 'react'
 import { meta, rows, platforms, news, runs, stats, commit } from './lib/data'
 import { readHash, writeHash } from './lib/hash'
-import { useStaleness } from './lib/freshness'
+import { useStaleness, nextRun } from './lib/freshness'
 import Rail from './components/Rail'
 import Opportunities from './views/Opportunities'
 import Calendar from './views/Calendar'
@@ -75,7 +75,7 @@ export default function App() {
       <header className="hd">
         <span className="logo"><span className="mk" aria-hidden="true"></span>과제지도</span>
         <span className="ver">v0.1.0</span>
-        <span className="tagline">AI로 만들어 제출하는 모든 기회 | 매일 03:00 수집</span>
+        <span className="tagline">AI로 만들어 제출하는 모든 기회</span>
         {/* 검색은 모바일에서 자기 줄을 쓴다 — 로고 옆에 끼면 18px 로 찌그러진다 */}
         <span className="sbox">
           <input id="q" value={q} onChange={(e) => setQ(e.target.value)}
@@ -84,14 +84,18 @@ export default function App() {
           {q && <button type="button" className="sclr" onClick={() => setQ('')} aria-label="검색어 지우기">×</button>}
           <span className="kbd">/</span>
         </span>
-        {/* 수집 상태는 한 곳에만 — 지연 배지가 뜨면 날짜 라벨은 감춘다 (같은 날짜를 두 번 쓰지 않는다) */}
+        {/* 수집 시각은 이 한 곳만 쓴다 — 태그라인·티커 바에 있던 같은 값을 여기로 모았다 (PR C).
+            다음 수집일은 폭을 먹지 않게 title 로만 둔다. */}
         <span className="hstatus">
           {stale.stale ? (
             <span className="stale" role="status" title="마지막 수집 이후 오래 지났다. 수집이 재개되면 이 배지는 저절로 사라진다">
               <i aria-hidden="true"></i>수집 지연 (마지막: {meta.last_run} | {stale.days}일 전)
             </span>
           ) : (
-            <span className="live"><i aria-hidden="true"></i>{stats.lastRun ? `수집 ${stats.lastRun}` : '미실행'}</span>
+            <span className="live"
+              title={`매일 03:00 KST 자동 수집 | 다음 수집 ${stats.lastRun ? nextRun(stats.lastRun) + ' 03:00' : '예정'}`}>
+              <i aria-hidden="true"></i>{stats.lastRun ? `수집 ${stats.lastRun} 03:00` : '미실행'}
+            </span>
           )}
         </span>
         {recent.length > 0 && (

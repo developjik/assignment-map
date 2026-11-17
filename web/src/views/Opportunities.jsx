@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
-import { meta, policyChangeByID, stats, sparkPoints } from '../lib/data'
+import { policyChangeByID, stats, sparkPoints } from '../lib/data'
 import { POLICY_LABEL, STATUS_LABEL, disp } from '../lib/labels'
 import { downloadIcs, downloadStarredIcs } from '../lib/ics'
 import { filtersFromHash, readHash, writeHash, filterPatch } from '../lib/hash'
@@ -360,6 +360,16 @@ export default function Opportunities({ rows, type, q, setQ, setTab, onVisit }) 
   // 커서 추적 — 뷰포트 벗어나면 스크롤 (이슈 #2)
   useEffect(() => { curRef.current?.scrollIntoView({ block: 'nearest' }) }, [cur, filtered])
 
+  // 데스크톱 첫 진입 — 목록 첫 행의 상세를 열어 둔다 (PR C).
+  // 한 번만 돈다: Esc 로 닫은 뒤에는 다시 열지 않고, 닫히면 표가 전체 폭으로 돌아온다.
+  const paneBooted = useRef(false)
+  useEffect(() => {
+    if (paneBooted.current || !wide || !filtered.length) return
+    paneBooted.current = true
+    paneMuted.current = false
+    setPane(true)
+  }, [wide, filtered.length])
+
   useEffect(() => { setCur(0) }, [type, jobfam, policy, status, prog, ddw, hiringOnly, changedOnly, starredOnly, q, sortMode])
 
   // 조건만 푼다 (검색어·정렬은 그대로) — 칩 줄의 '전체 해제'와 팝오버가 같은 곳을 본다
@@ -435,12 +445,10 @@ export default function Opportunities({ rows, type, q, setQ, setTab, onVisit }) 
   const activeRow = paneOpen ? filtered[Math.min(cur, filtered.length - 1)] : null
   return (
     <>
-      {/* 압축 밴드 — 통계 | 수집 메타 | 마감 티커를 한 줄에 묶는다 (예전 3줄 → 1줄) */}
+      {/* 압축 밴드 — 통계 | 마감 티커를 한 줄에 묶는다.
+          수집 시각은 헤더 한 곳(App.jsx .live)만 쓴다 — 밴드에서 빼앗긴 폭은 마감 티커가 갖는다 (PR C). */}
       <div className="band">
         <Ticker stats={stats} spark={sparkPoints} />
-        <span className="band-meta">
-          수집 <b>{meta.last_run || '-'}</b> 03:00 | 다음 <b>{meta.last_run ? nextRun(meta.last_run) : '예정'}</b>
-        </span>
         <DeadlineTicker rows={rows} onPick={pickDeadline} />
       </div>
       <div className="fr">
@@ -567,12 +575,6 @@ export default function Opportunities({ rows, type, q, setQ, setTab, onVisit }) 
       {help && <ShortcutsHelp onClose={() => setHelp(false)} />}
     </>
   )
-}
-
-function nextRun(last) {
-  const d = new Date(last + 'T00:00:00Z')
-  d.setUTCDate(d.getUTCDate() + 1)
-  return d.toISOString().slice(0, 10)
 }
 
 function Row({ r, q, zebra, idx, curIdx, curRef, expanded, starred, onStar, st, onCycle, onPick, rows, onPickRelated }) {
