@@ -4,7 +4,8 @@ import { POLICY_LABEL, STATUS_LABEL, disp } from '../lib/labels'
 import { downloadIcs, downloadStarredIcs } from '../lib/ics'
 import { filtersFromHash, readHash, writeHash, filterPatch } from '../lib/hash'
 import { loadPresets, matchPreset } from '../lib/presets'
-import { useStarred } from '../lib/starred'
+import { DENSITIES, readDensity, writeDensity } from '../lib/density'
+import { useStarred, setStarred } from '../lib/starred'
 import { WORKFLOW, WORKFLOW_CLS, WORKFLOW_LABEL, nextStatus, useStatuses } from '../lib/statuses'
 import { reportIssueUrl } from '../lib/report'
 import Ticker from '../components/Ticker'
@@ -59,16 +60,45 @@ const ddMatch = (within, r) => !within ? true : r.dd !== null && r.dd >= 0 && r.
 const INTERACTIVE = 'button, a[href], input, select, textarea, summary, [role="button"], [role="tab"], [role="link"], [role="switch"], [role="checkbox"], [contenteditable="true"]'
 const takesEnter = (el) => !!el && typeof el.closest === 'function' && !!el.closest(INTERACTIVE)
 const inPane = (el) => !!el && typeof el.closest === 'function' && !!el.closest('.dpane, .hx, .cal-side')
-// 행은 식별·비교만 맡긴다 (PR B) — 유형은 패널 kicker, 확인일은 패널 추적·아코디언이 보여준다.
+// 행은 식별·비교만 맡긴다 (PR B) — 유형·확인일은 패널이 이미 보여주므로 기본 표에서는 뺀다.
+// `wide: true` 인 컬럼만 툴바의 wide 토글로 꺼내 쓴다 (k9s 의 `W` 플래그).
 const COLS = [
   { id: 'name', label: '기업 / 이벤트명' },
   { id: 'sub', label: '대상 / 주최' },
+  { id: 'type', label: '유형', wide: true },
   { id: 'policy', label: 'AI 정책' },
   { id: 'evidence', label: '근거', nosort: true },
   { id: 'deadline', label: '마감 (D-day)' },
+  { id: 'checked', label: '확인', wide: true },
 ]
+const WIDE_KEYS = COLS.filter((c) => c.wide).map((c) => c.id)
+const WIDE_COLS_KEY = 'am-wide-cols'
 // 우측 상세 패널을 붙이는 폭 — 5컬럼 표와 400px 패널이 같이 설 수 있는 최소 데스크톱
 const WIDE_QUERY = '(min-width: 1200px)'
+
+// 체크박스 — 행 선택과 헤더 전체 선택이 같은 모양을 쓴다.
+// 헤더는 일부만 골랐을 때를 indeterminate 로 보여준다 (native 체크박스의 삼상태).
+function SelBox({ checked, indeterminate, label, title, onToggle }) {
+  const ref = useRef(null)
+  const shift = useRef(false)
+  useEffect(() => {
+    if (ref.current) ref.current.indeterminate = !!indeterminate && !checked
+  }, [indeterminate, checked])
+  // 실제 토글은 native 체크박스의 change 하나가 맡는다 (마우스·Space 모두 같은 길).
+  // 라벨 클릭에서 따로 토글하면 한 번의 클릭이 두 번 토글되어 선택이 사라진다.
+  return (
+    <label className="selhit" title={title}
+      onMouseDown={(e) => { shift.current = e.shiftKey; e.stopPropagation() }}
+      onClick={(e) => e.stopPropagation()}>
+      <input ref={ref} type="checkbox" className="selbox" checked={!!checked} aria-label={label}
+        onChange={(e) => {
+          const s = !!(e.nativeEvent && e.nativeEvent.shiftKey) || shift.current
+          shift.current = false
+          onToggle && onToggle({ shiftKey: s })
+        }} />
+    </label>
+  )
+}
 
 // 별표 아이콘 — 이모지 문자 대신 인라인 SVG (모노크롬 유지, 폰트 의존 없음)
 function StarIcon({ filled }) {
@@ -131,7 +161,14 @@ export default function Opportunities({ rows, type, q, setQ, setTab, onVisit }) 
   const [pane, setPane] = useState(false)
   const [sort, setSort] = useState(null)
   const [cur, setCur] = useState(0)
-  const [density, setDensity] = useState(() => localStorage.getItem('am-density') || 'standard')
+  // 밀도는 세 단 — 예전 저장값(standard)도 lib/density 가 default 로 옮긴다
+  const [density, setDensity] = useState(readDensity)
+  // wide 컬럼(유형·확인) — 기본 OFF, 켜면 표에 한 열씩 더 붙고 가로 스크롤을 허용한다
+  const [wideCols, setWideCols] = useState(() => {
+    try { return localStorage.getItem(WIDE_COLS_KEY) === '1' } catch { return false }
+  })
+  // 다중 선택 — 행 id 목록. 선택이 하나라도 있으면 표 위에 일괄 액션 바가 선다 (Carbon 배치 바)
+  const [selIds, setSelIds] = useState([])
   const [help, setHelp] = useState(false)
   const [notice, setNotice] = useState('')
   // 티커에서 고른 행 — 필터가 끝난 뒤 그 행을 찾아 열기 위한 대기표
@@ -146,7 +183,10 @@ export default function Opportunities({ rows, type, q, setQ, setTab, onVisit }) 
   const wide = useWide(WIDE_QUERY)
 
   useEffect(() => { document.documentElement.dataset.density = density }, [density])
-  useEffect(() => { localStorage.setItem('am-density', density) }, [density])
+  useEffect(() => { writeDensity(density) }, [density])
+  useEffect(() => {
+    try { localStorage.setItem(WIDE_COLS_KEY, wideCols ? '1' : '0') } catch { /* 사생활 모드 */ }
+  }, [wideCols])
 
   // 필터 상태를 URL 해시에 반영 (탭·검색어 키는 App이 쓰므로 건드리지 않는다)
   useEffect(() => {
@@ -202,8 +242,10 @@ export default function Opportunities({ rows, type, q, setQ, setTab, onVisit }) 
     const cmp = {
       name: (a, b) => a.name.localeCompare(b.name, 'ko'),
       sub: (a, b) => (a.sub || '').localeCompare(b.sub || '', 'ko'),
+      type: (a, b) => (a.type || '').localeCompare(b.type || '', 'ko'),
       policy: (a, b) => (POLICY_RANK[a.policyKey] || 0) - (POLICY_RANK[b.policyKey] || 0),
       deadline: (a, b) => (a.dd === null) - (b.dd === null) || (a.dd ?? 0) - (b.dd ?? 0),
+      checked: (a, b) => (a.checked || '').localeCompare(b.checked || ''),
     }
     if (sort && cmp[sort.key]) out.sort((a, b) => cmp[sort.key](a, b) * sort.dir)
     else if (sortMode === 'latest') out.sort((a, b) => openFirst(a, b) || byLatest(a, b) || byDday(a, b))
@@ -234,6 +276,62 @@ export default function Opportunities({ rows, type, q, setQ, setTab, onVisit }) 
     ? `${COLS.find(c => c.id === sort.key)?.label} ${sort.dir === 1 ? '오름차순' : '내림차순'} 정렬, ${filtered.length}건`
     : `${SORT_MODES.find(s => s.id === sortMode)?.label} 정렬, ${filtered.length}건`
 
+  // ===== 다중 선택과 일괄 액션 (PR D) =====
+  // 선택은 id 목록으로 들고, 액션은 지금 화면에 보이는 선택분에만 적용한다.
+  // 필터를 바꾸면 바의 건수도 같이 줄어 선택되지 않은 것처럼 보이지 않는다.
+  const selSet = useMemo(() => new Set(selIds), [selIds])
+  const selRows = useMemo(() => filtered.filter((r) => selSet.has(r.id)), [filtered, selSet])
+  const selAll = filtered.length > 0 && selRows.length === filtered.length
+  const selSome = selRows.length > 0 && !selAll
+  const selAnchor = useRef(null) // Shift 클릭 범위 선택의 기준 행
+
+  const toggleSel = (id, shift) => {
+    const idx = filtered.findIndex((r) => r.id === id)
+    if (shift && selAnchor.current !== null && idx >= 0) {
+      const [a, b] = selAnchor.current <= idx ? [selAnchor.current, idx] : [idx, selAnchor.current]
+      const range = filtered.slice(a, b + 1).map((r) => r.id)
+      setSelIds((prev) => [...new Set([...prev, ...range])])
+      return
+    }
+    setSelIds((prev) => (prev.includes(id) ? prev.filter((x) => x !== id) : [...prev, id]))
+    selAnchor.current = idx >= 0 ? idx : selAnchor.current
+  }
+  const toggleSelAll = () => {
+    setSelIds(selAll ? [] : filtered.map((r) => r.id))
+    selAnchor.current = null
+  }
+  const clearSel = () => { setSelIds([]); selAnchor.current = null }
+
+  const bulkIcs = () => {
+    const list = selRows.filter((r) => r.deadline)
+    if (!list.length) return
+    downloadIcs(list)
+    flash(`선택 ${list.length}건의 마감을 .ics로 내려받았다`)
+  }
+  // 관심은 별표와 같은 사실이라 한 번의 쓰기로 모아 저장한다 (행마다 이벤트를 돌리지 않는다)
+  const bulkStar = () => {
+    const ids = selRows.map((r) => r.id)
+    if (!ids.length) return
+    const all = ids.every((id) => starredSet.has(id))
+    const next = all ? starredIds.filter((id) => !ids.includes(id)) : [...new Set([...starredIds, ...ids])]
+    setStarred(next)
+    flash(all ? `선택 ${ids.length}건 관심 해제` : `선택 ${ids.length}건 관심 등록`)
+  }
+  const bulkStatus = (next) => {
+    const ids = selRows.map((r) => r.id)
+    if (!ids.length) return
+    ids.forEach((id) => setWorkflow(id, next))
+    flash(`선택 ${ids.length}건 지원 상태 → ${next ? WORKFLOW_LABEL[next] : '미설정'}`)
+  }
+  const selAllStarred = selRows.length > 0 && selRows.every((r) => starredSet.has(r.id))
+
+  const toggleWideCols = () => {
+    const next = !wideCols
+    setWideCols(next)
+    // 컬럼을 감추면 그 컬럼으로 걸어 둔 정렬도 같이 풀어야 머리줄과 순서가 어긋나지 않는다
+    if (!next && sort && WIDE_KEYS.includes(sort.key)) setSort(null)
+  }
+
   // 잠깐 뜨는 안내 (원문 링크가 없는 행에서 o 를 눌렀을 때 등) — 스크린리더에도 읽힌다
   const flash = (msg) => {
     setNotice(msg)
@@ -241,8 +339,10 @@ export default function Opportunities({ rows, type, q, setQ, setTab, onVisit }) 
     noticeTimer.current = setTimeout(() => setNotice(''), 2600)
   }
 
-  // 행 선택 — 넓은 화면은 우측 패널, 좁은 화면은 아코디언
-  const pickRow = (i, r) => {
+  // 행 선택 — 선택 모드에서는 클릭이 선택 토글이 된다 (패널 열기와 충돌하지 않게).
+  // 그 외에는 넓은 화면은 우측 패널, 좁은 화면은 아코디언.
+  const pickRow = (i, r, e) => {
+    if (selRows.length > 0) { toggleSel(r.id, e && e.shiftKey); return }
     setCur(i)
     onVisit && onVisit(r)
     if (wide) {
@@ -294,7 +394,9 @@ export default function Opportunities({ rows, type, q, setQ, setTab, onVisit }) 
   useEffect(() => {
     const onKey = (e) => {
       const el = document.activeElement
-      const typing = el && ['INPUT', 'TEXTAREA', 'SELECT'].includes(el.tagName)
+      // 체크박스는 입력 요소지만 글자를 치는 자리가 아니다 — 단축키를 막지 않는다
+      const typing = !!el && (['TEXTAREA', 'SELECT'].includes(el.tagName)
+        || (el.tagName === 'INPUT' && !['checkbox', 'radio'].includes(el.type)))
 
       // 도움말이 열려 있으면 닫기 키만 받는다
       if (help) {
@@ -304,6 +406,8 @@ export default function Opportunities({ rows, type, q, setQ, setTab, onVisit }) 
       if (e.key === 'Escape') {
         if (fpop) { setFpop(false); return }
         if (typing) { el.blur(); return }
+        // 선택은 패널보다 먼저 걷운다 — 일괄 작업 중 Esc 는 "선택 해제"다
+        if (selIds.length) { clearSel(); return }
         if (wide && pane) { setPane(false); paneMuted.current = true; return }
         if (openRow !== null) { setOpenRow(null); return }
         return
@@ -339,6 +443,12 @@ export default function Opportunities({ rows, type, q, setQ, setTab, onVisit }) 
         if (r) toggleStar(r.id)
         return
       }
+      // 선택 — x 로 커서 행을 선택/해제하고, 선택이 있으면 행 클릭도 선택 토글이 된다
+      if (e.key === 'x') {
+        const r = filtered[cur]
+        if (r) toggleSel(r.id, e.shiftKey)
+        return
+      }
       // 필터 팝오버 — 목록을 좁히는 나머지 조건이 한 자리에 모여 있다
       if (e.key === 'f') {
         setFpop((v) => !v)
@@ -353,7 +463,7 @@ export default function Opportunities({ rows, type, q, setQ, setTab, onVisit }) 
     }
     window.addEventListener('keydown', onKey)
     return () => window.removeEventListener('keydown', onKey)
-  }, [filtered, cur, onVisit, toggleStar, help, openRow, wide, pane, fpop])
+  }, [filtered, cur, onVisit, toggleStar, help, openRow, wide, pane, fpop, selIds, toggleSel, clearSel])
 
   useEffect(() => () => clearTimeout(noticeTimer.current), [])
 
@@ -443,6 +553,8 @@ export default function Opportunities({ rows, type, q, setQ, setTab, onVisit }) 
 
   const paneOpen = wide && pane && filtered.length > 0
   const activeRow = paneOpen ? filtered[Math.min(cur, filtered.length - 1)] : null
+  // wide 토글이 켜졌을 때만 유형·확인 컬럼이 표에 붙는다
+  const cols = wideCols ? COLS : COLS.filter((c) => !c.wide)
   return (
     <>
       {/* 압축 밴드 — 통계 | 마감 티커를 한 줄에 묶는다.
@@ -484,9 +596,13 @@ export default function Opportunities({ rows, type, q, setQ, setTab, onVisit }) 
             title="현재 조건에 보이는 건의 마감일을 iCalendar 파일로 내려받는다">.ics {exportable.length > 0 ? exportable.length : ''}</button>
           <button className="fopt ics ics-star" onClick={exportStarred} disabled={!starredExportable.length}
             title="관심 등록한 건의 마감일만 모아 assignment-map-starred.ics 하나로 내려받는다">관심 .ics {starredExportable.length > 0 ? starredExportable.length : ''}</button>
+          <button className={'fopt wcol' + (wideCols ? ' on' : '')} aria-pressed={wideCols} onClick={toggleWideCols}
+            title={wideCols ? '유형·확인 컬럼을 표에서 뺀다' : '유형·확인 컬럼을 표에 더 보여준다 (표는 필요하면 가로로 스크롤한다)'}>wide 컬럼</button>
           <span className="dens" role="group" aria-label="행 밀도">
-            <button className={density === 'compact' ? 'on' : ''} onClick={() => setDensity('compact')} title="컴팩트">compact</button>
-            <button className={density === 'standard' ? 'on' : ''} onClick={() => setDensity('standard')} title="표준">standard</button>
+            {DENSITIES.map((d) => (
+              <button key={d.id} className={density === d.id ? 'on' : ''} aria-pressed={density === d.id}
+                onClick={() => setDensity(d.id)} title={`${d.label} ${d.px}px | ${d.hint}`}>{d.label}</button>
+            ))}
           </span>
           {dirtyTools && <button className="fopt fopt-reset" onClick={resetFilters} title="검색어·정렬까지 기본값으로 되돌린다">초기화</button>}
           <span className="match-n">{status === 'open'
@@ -508,17 +624,42 @@ export default function Opportunities({ rows, type, q, setQ, setTab, onVisit }) 
             title="걸린 조건을 모두 푼다 (검색어·정렬은 그대로)">전체 해제</button>
         </div>
       )}
+      {/* 일괄 액션 바 — 하나라도 선택되면 표 위에 선다 (Carbon batch action bar).
+          행마다 반복되던 .ics 를 여기로 모으고, 선택이 없는 동안에는 자리를 차지하지 않는다. */}
+      {selRows.length > 0 && (
+        <div className="bulk" role="region" aria-label="선택 항목 일괄 작업">
+          <span className="bulk-n" aria-live="polite"><b>{selRows.length}</b>건 선택</span>
+          <button type="button" className="bulk-b ics" onClick={bulkIcs} disabled={!selRows.some((r) => r.deadline)}
+            title="선택한 건 중 마감이 있는 건을 iCalendar 파일 하나로 내려받는다">.ics {selRows.filter((r) => r.deadline).length}</button>
+          <button type="button" className="bulk-b" onClick={bulkStar}
+            title="선택한 건을 관심 목록에 한 번에 담거나 뺀다">{selAllStarred ? '관심 해제' : '관심 등록'}</button>
+          <span className="bulk-l">지원 상태</span>
+          {WORKFLOW.map((w) => (
+            <button key={w.id} type="button" className={'bulk-b ' + w.cls} onClick={() => bulkStatus(w.id)}
+              title={`선택한 ${selRows.length}건을 ${w.label}로 바꾼다`}>{w.label}</button>
+          ))}
+          <button type="button" className="bulk-b" onClick={() => bulkStatus('')}
+            title="선택한 건의 지원 상태를 미설정으로 돌린다 (관심은 별표도 같이 걷힌다)">미설정</button>
+          <button type="button" className="bulk-x" onClick={clearSel}
+            title="선택을 모두 걷는다">선택 해제<span className="kbd">Esc</span></button>
+        </div>
+      )}
       <div className={'workspace' + (paneOpen ? ' pane-on' : '')}>
-        <div className="twrap tscroll">
+        <div className={'twrap tscroll' + (wideCols ? ' wcols' : '')}>
           <table>
             <colgroup>
-              <col data-col="name" /><col data-col="sub" />
-              <col data-col="policy" /><col data-col="evidence" /><col data-col="deadline" />
+              <col data-col="sel" />
+              {cols.map((c) => <col key={c.id} data-col={c.id} />)}
             </colgroup>
             <thead>
               <tr>
-                {COLS.map((c) => (
-                  <th key={c.id} data-col={c.id} className={c.id === 'deadline' ? 'r' : ''}
+                <th data-col="sel" className="csel">
+                  <SelBox checked={selAll} indeterminate={selSome} onToggle={toggleSelAll}
+                    label={selAll ? '보이는 행 전체 선택 해제' : '보이는 행 전체 선택'}
+                    title={selAll ? '보이는 행 전체 선택 해제' : '보이는 행 전체 선택 (Shift+클릭은 범위)'} />
+                </th>
+                {cols.map((c) => (
+                  <th key={c.id} data-col={c.id} className={c.id === 'deadline' || c.id === 'checked' ? 'r' : ''}
                     aria-sort={sort && sort.key === c.id ? (sort.dir === 1 ? 'ascending' : 'descending') : undefined}>
                     {c.nosort ? c.label : (
                       <button className="sort" onClick={() => clickSort(c.id)}>
@@ -532,7 +673,7 @@ export default function Opportunities({ rows, type, q, setQ, setTab, onVisit }) 
             </thead>
             <tbody>
               {filtered.length === 0 && (
-                <tr><td colSpan={5}>
+                <tr><td colSpan={cols.length + 1}>
                   {starredOnly && starredRows.length === 0 ? (
                     <div className="empty-id">
                       <div className="l1"><StarIcon filled={false} /> 관심 등록된 공고가 없습니다</div>
@@ -550,7 +691,8 @@ export default function Opportunities({ rows, type, q, setQ, setTab, onVisit }) 
                 <Row key={r.id} r={r} q={q} zebra={i % 2 === 1} idx={i} curIdx={cur} curRef={curRef}
                   expanded={!wide && openRow === r.id} starred={starredSet.has(r.id)} onStar={toggleStar}
                   st={statuses[r.id] || ''} onCycle={() => setWorkflow(r.id, nextStatus(statuses[r.id] || ''))}
-                  onPick={() => pickRow(i, r)} rows={rows} onPickRelated={pickDeadline} />
+                  onPick={(e) => pickRow(i, r, e)} rows={rows} onPickRelated={pickDeadline}
+                  sel={selSet.has(r.id)} onSel={toggleSel} density={density} wideCols={wideCols} />
               ))}
             </tbody>
           </table>
@@ -565,8 +707,9 @@ export default function Opportunities({ rows, type, q, setQ, setTab, onVisit }) 
         <span><span className="kbd">Enter</span>상세 {wide ? '패널' : '확장'}</span>
         <span><span className="kbd">o</span>원문 열기</span>
         <span><span className="kbd">s</span>관심 등록</span>
+        <span><span className="kbd">x</span>선택</span>
         <span><span className="kbd">/</span>검색</span>
-        <span><span className="kbd">Esc</span>{wide ? '패널 닫기' : '닫기'}</span>
+        <span><span className="kbd">Esc</span>{selRows.length ? '선택 해제' : wide ? '패널 닫기' : '닫기'}</span>
         <button type="button" className="kb-open" onClick={() => setHelp(true)} aria-label="키보드 단축키 도움말 열기">
           <span className="kbd">?</span>도움말
         </button>
@@ -577,44 +720,70 @@ export default function Opportunities({ rows, type, q, setQ, setTab, onVisit }) 
   )
 }
 
-function Row({ r, q, zebra, idx, curIdx, curRef, expanded, starred, onStar, st, onCycle, onPick, rows, onPickRelated }) {
+function Row({ r, q, zebra, idx, curIdx, curRef, expanded, starred, onStar, st, onCycle, onPick, rows, onPickRelated, sel, onSel, density, wideCols }) {
   const isNew = r.first && r.first >= new Date(Date.now() - 2 * 864e5).toISOString().slice(0, 10)
   const hot = r.open && r.dd !== null && r.dd >= 0 && r.dd <= 3
+  // 40px 밀도에서는 제목 오른쪽에 주최·유형·확인일을 둔째 줄로 내린다 (한 행에 두 줄)
+  const comfort = density === 'comfortable'
   const ddCls = r.dd === null ? 'dd pass' : r.dd < 0 ? 'dd pass' : r.dd <= 3 ? 'dd hot' : 'dd'
   const ddText = !r.open ? '종결' : r.dd === null ? '상시' : r.dd < 0 ? '마감' : `D-${r.dd} (${(r.deadline || '').slice(5)})`
-  const cls = ['row', zebra && !hot ? 'z' : '', hot ? 'hot' : '', idx === curIdx ? 'cur' : ''].filter(Boolean).join(' ')
+  const cls = ['row', zebra && !hot ? 'z' : '', hot ? 'hot' : '', idx === curIdx ? 'cur' : '', sel ? 'sel' : ''].filter(Boolean).join(' ')
   const change = policyChangeByID.get(r.id)
+  // 제목 줄 — 별표·제목·배지가 한 줄에 살고, 40px 에서는 이것이 첫째 줄이 된다
+  const nameLine = (
+    <>
+      <button type="button" className={'star' + (starred ? ' on' : '')} aria-pressed={starred}
+        aria-label={starred ? `${r.name} 관심 해제` : `${r.name} 관심 등록`}
+        title={starred ? '관심 해제' : '관심 등록 - 모아서 .ics로 내려받는다'}
+        onClick={(e) => { e.stopPropagation(); onStar(r.id) }}>
+        <StarIcon filled={starred} />
+      </button>
+      <span className="co" title={r.name}><Hl text={r.name} q={q} /></span>
+      {r.hiring && <span className="badge">채용연계</span>}
+      {isNew && <span className="badge">NEW</span>}
+      {change && <span className="badge chg" title={`정책 변경 ${change.date}: ${POLICY_LABEL[change.from] || change.from || '-'} → ${POLICY_LABEL[change.to] || change.to || '-'}`}>정책변경</span>}
+      {st && (
+        <button type="button" className={'stg ' + WORKFLOW_CLS[st]} title={`${WORKFLOW_LABEL[st]} | 누를 때마다 다음 단계 (관심 → 과제중 → 제출완료 → 해제)`}
+          onClick={(e) => { e.stopPropagation(); onCycle && onCycle() }}>{WORKFLOW_LABEL[st]}</button>
+      )}
+    </>
+  )
   return (
     <>
       <tr className={cls} ref={idx === curIdx ? curRef : undefined} aria-selected={idx === curIdx}
         onClick={onPick}>
+        <td className="csel" data-col="sel" onClick={(e) => { e.stopPropagation(); onSel(r.id, e.shiftKey) }}>
+          <SelBox checked={sel} onToggle={(e) => onSel(r.id, e.shiftKey)}
+            label={`${r.name} 선택`} title="선택 (Shift+클릭은 범위)" />
+        </td>
         <td className="c-name" data-col="name">
-          <button type="button" className={'star' + (starred ? ' on' : '')} aria-pressed={starred}
-            aria-label={starred ? `${r.name} 관심 해제` : `${r.name} 관심 등록`}
-            title={starred ? '관심 해제' : '관심 등록 - 모아서 .ics로 내려받는다'}
-            onClick={(e) => { e.stopPropagation(); onStar(r.id) }}>
-            <StarIcon filled={starred} />
-          </button>
-          <span className="co" title={r.name}><Hl text={r.name} q={q} /></span>
-          {r.hiring && <span className="badge">채용연계</span>}
-          {isNew && <span className="badge">NEW</span>}
-          {change && <span className="badge chg" title={`정책 변경 ${change.date}: ${POLICY_LABEL[change.from] || change.from || '-'} → ${POLICY_LABEL[change.to] || change.to || '-'}`}>정책변경</span>}
-          {st && (
-            <button type="button" className={'stg ' + WORKFLOW_CLS[st]} title={`${WORKFLOW_LABEL[st]} | 누를 때마다 다음 단계 (관심 → 과제중 → 제출완료 → 해제)`}
-              onClick={(e) => { e.stopPropagation(); onCycle && onCycle() }}>{WORKFLOW_LABEL[st]}</button>
+          {comfort ? <span className="co-line">{nameLine}</span> : nameLine}
+          {comfort && (
+            <span className="co-meta">
+              {r.sub && <span className="m-sub">{r.sub}</span>}
+              {r.sub && <span className="sep">|</span>}
+              <span>{r.type || '-'}</span>
+              {!wideCols && r.checked && <><span className="sep">|</span>확인 {r.checked.slice(5)}</>}
+            </span>
           )}
         </td>
         <td className="typ c-sub" data-col="sub" title={r.sub}><Hl text={r.sub} q={q} /></td>
+        {wideCols && <td className="typ" data-col="type" title={r.type}>{r.type}</td>}
         <td data-col="policy"><span className={`pol ${r.policy.cls}`}><i aria-hidden="true"></i>{POLICY_LABEL[r.policyKey] || r.policy.label}</span></td>
         {/* 근거는 원문 인용 하나를 48자로 자른다 — 수집기 운영 메모는 패널 '수집 메모'로 (PR B) */}
         <td className="ev" data-col="evidence" title={r.evidenceFull || ''}>{disp(r.evidence)}</td>
         <td className={ddCls} data-col="deadline">
           <span className="ddt">{ddText}</span>
         </td>
+        {wideCols && (
+          <td className="chk" data-col="checked" title={r.checked ? `마지막 확인 ${r.checked}` : '확인일 없음'}>
+            {r.checked ? r.checked.slice(5) : '-'}
+          </td>
+        )}
       </tr>
       {expanded && (
         <tr className="hx">
-          <td colSpan={5}>
+          <td colSpan={wideCols ? 8 : 6}>
             <div className="in">
               <div className="ln"><span className="d">{r.first || ''}</span>발견 | <span className="q">{disp(r.evidenceFull || r.evidence || '원문 인용 없음')}</span></div>
               <div className="ln">대상/주최: <span className="q">{r.sub || '-'}</span></div>

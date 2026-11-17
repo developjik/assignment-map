@@ -242,7 +242,9 @@ th .dir { color: var(--blue); }
 .kb-open:hover .kbd { color: var(--blue); border-color: var(--blue); }
 
 /* 커서 행 (j/k 이동) */
-tr.cur td { background: #111726; box-shadow: inset 2px 0 0 var(--blue); }
+tr.cur td { background: #111726; }
+/* 현재 행 표시선은 첫 칸에만 — 칸마다 그리면 컬럼 경계선처럼 보인다 */
+tr.cur td:first-child { box-shadow: inset 2px 0 0 var(--blue); }
 
 /* 검색 매치 하이라이트 (Pencil & Paper) */
 .hl { background: rgba(232,196,104,.28); color: var(--fg-hi); }
@@ -258,14 +260,107 @@ tr.cur td { background: #111726; box-shadow: inset 2px 0 0 var(--blue); }
 .empty-id .l1 { color: var(--mut); font-size: 13px; margin-bottom: 6px; }
 .empty-id .l2 { font-size: 10.5px; }
 
-/* 밀도 (AG Grid spacing 토큰 / MUI 토글) */
+/* 밀도 (PR D) — 세 단: compact 24 / default 28 / comfortable 40.
+   값은 행 높이 그대로다 (Carbon xs/sm/md 중 md 40 만 우리 격자에 맞춘 28).
+   --row-h 는 html[data-density] 에서 오고, tr.row 가 그 높이를 지킨다. */
+html[data-density="compact"] { --row-h: 24px; }
+html[data-density="default"] { --row-h: 28px; }
+html[data-density="comfortable"] { --row-h: 40px; }
+tr.row { height: var(--row-h, 28px); }
+
 .dens { display: flex; align-self: center; }
 .dens button { display: inline-flex; align-items: center; min-height: 28px; background: none; border: 1px solid var(--border); color: var(--faint); font: 10px var(--mono); padding: 0 8px; cursor: pointer; }
 .dens button.on { color: var(--fg-hi); background: #11151C; }
-[data-density="compact"] td { padding: 2px 8px; font-size: 11px; }
+
+/* compact — 1줄, 근거 컬럼은 숨긴다 (훑기 모드). 컬럼 자체를 0으로 접어야 남은 폭이 제목으로 간다. */
+[data-density="compact"] tr.row > td { padding: 4px 8px; font-size: 11px; line-height: 1.35; }
 [data-density="compact"] th { padding: 4px 8px; }
+[data-density="compact"] [data-col="evidence"] { display: none; }
+[data-density="compact"] col[data-col="evidence"] { width: 0; }
+[data-density="compact"] th.csel, [data-density="compact"] td.csel { padding-left: 5px; padding-right: 0; }
 [data-density="compact"] .hx .in { padding: 5px 8px 6px 24px; }
 [data-density="compact"] .ln { font-size: 10.5px; line-height: 1.6; }
+
+/* default — 28px 한 줄. 글자 줄높이를 1.3으로 조여 행이 28px 에 서게 한다.
+   td 에 높이를 박아 아이콘·배지의 baseline 1px 이 행을 밀지 못하게 한다 (761px 이상만 —
+   모바일은 아래 모바일 규칙의 46px 터치 높이를 그대로 쓴다). */
+[data-density="default"] tr.row > td { padding: 6px 10px; line-height: 1.3; }
+@media (min-width: 761px) {
+  [data-density] tr.row > td:not(.csel) { height: var(--row-h); }
+}
+
+/* comfortable — 40px 두 줄: 제목 줄 + 주최·유형·확인 줄. 주최는 둘째 줄이 이미 보여주므로
+   표의 '대상/주최' 컬럼은 접는다 (같은 사실을 두 곳에 두지 않는다). */
+[data-density="comfortable"] tr.row > td { padding: 5px 10px; }
+/* 두 줄 밀도는 제목이 컬럼 폭을 다 쓴다 (한 줄 밀도의 300px 상한은 두 줄에서는 답답하다) */
+[data-density="comfortable"] td.c-name { max-width: none; }
+[data-density="comfortable"] [data-col="sub"] { display: none; }
+[data-density="comfortable"] col[data-col="sub"] { width: 0; }
+[data-density="comfortable"] .co-line { display: flex; align-items: center; min-width: 0; }
+[data-density="comfortable"] .co-line .co { flex: 1 1 auto; min-width: 0; max-width: 100%; line-height: 1.3; }
+[data-density="comfortable"] .co-line .badge,
+[data-density="comfortable"] .co-line .stg { flex: 0 0 auto; }
+.co-meta { display: none; }
+[data-density="comfortable"] .co-meta { display: block; margin-top: 1px; color: var(--faint); font-size: 10px; line-height: 1.3; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+[data-density="comfortable"] .co-meta .m-sub { color: var(--mut); }
+[data-density="comfortable"] .co-meta .sep { margin: 0 5px; color: #35415A; }
+
+/* 행 선택 체크박스 — 상자는 13px, 누를 수 있는 자리는 행 높이 그대로다 (WCAG 2.2 SC 2.5.8).
+   라벨 높이를 행보다 키우면 24px 밀도가 25px 로 밀리므로 20px 로 두고 셀 자체를 눌러도 토글된다. */
+.csel { width: 34px; padding: 0 0 0 10px; vertical-align: middle; line-height: 0; cursor: pointer; }
+/* 밀도 규칙이 모든 td 에 위·아래 여백을 주는데, 체크박스 칸은 행 높이에 맞춰 스스로만 하면 된다.
+   그래서 밀도 규칙과 같은 특이도로 여백을 다시 0 으로 집는다 — 안 그러면 24px 밀도가 34px 이 된다. */
+tr.row > td.csel, [data-density] tr.row > td.csel { padding-top: 0; padding-bottom: 0; }
+.selhit { display: inline-flex; align-items: center; justify-content: center; width: 24px; height: 20px; vertical-align: middle; cursor: pointer; }
+/* native 체크박스의 밝은 상자를 그대로 두면 다크 표에서 혼자 튄다 — 상자·체크를 직접 그린다 (radius 0) */
+.selbox { appearance: none; -webkit-appearance: none; position: relative; width: 13px; height: 13px; margin: 0; padding: 0; background: var(--bg); border: 1px solid #46536A; border-radius: 0; cursor: pointer; }
+.selbox:hover { border-color: var(--mut); }
+.selbox:checked, .selbox:indeterminate { background: var(--blue); border-color: var(--blue); }
+.selbox:checked::after { content: ""; position: absolute; left: 3.5px; top: 0.5px; width: 4px; height: 8px; border: solid var(--bg); border-width: 0 2px 2px 0; transform: rotate(42deg); }
+.selbox:indeterminate::after { content: ""; position: absolute; left: 2px; right: 2px; top: 5px; height: 2px; background: var(--bg); }
+.selbox:focus-visible { outline-offset: 0; }
+.selhit:has(.selbox:focus-visible) { outline: 1px solid var(--blue); outline-offset: 1px; }
+tr.sel td { background: #101A2A; }
+tr.sel td.csel { box-shadow: inset 2px 0 0 var(--blue); }
+
+/* 일괄 액션 바 (Carbon batch action bar) — 선택이 있을 때만 표 위에 서고, 없으면 0px 다.
+   radius 0, 1px 보더, 그림자 없음: 구분은 보더 두 개로 끝낸다. */
+.bulk { display: flex; align-items: stretch; flex-wrap: wrap; flex: 0 0 auto; background: #0F1420; border-bottom: 1px solid var(--border); }
+.bulk-n { display: flex; align-items: center; gap: 3px; padding: 0 10px; font-size: 10.5px; color: var(--mut); border-right: 1px solid var(--border); }
+.bulk-n b { color: var(--fg-hi); font-size: 11.5px; font-variant-numeric: tabular-nums; }
+.bulk-l { display: flex; align-items: center; padding: 0 9px; font-size: 10px; color: var(--faint); border-right: 1px solid var(--border2); }
+.bulk-b { display: inline-flex; align-items: center; min-height: 30px; padding: 0 9px; background: none; border: 0; border-right: 1px solid var(--border2); color: var(--mut); font: 10.5px var(--mono); cursor: pointer; }
+.bulk-b:hover:not(:disabled) { color: var(--fg-hi); background: #11151C; }
+.bulk-b:disabled { color: var(--faint); cursor: default; }
+.bulk-b.ics { color: var(--blue); }
+.bulk-b.ics:disabled { color: var(--faint); }
+.bulk-x { margin-left: auto; display: inline-flex; align-items: center; gap: 6px; min-height: 30px; padding: 0 10px; background: none; border: 0; border-left: 1px solid var(--border); color: var(--mut); font: 10.5px var(--mono); cursor: pointer; }
+.bulk-x:hover { color: var(--fg-hi); }
+.bulk-x .kbd { font-size: 9.5px; }
+
+/* wide 컬럼 — 기본은 숨김. 켜면 유형·확인이 붙고 표는 자기 영역에서 가로로 스크롤한다. */
+col[data-col="type"] { width: 74px; }
+col[data-col="checked"] { width: 70px; }
+.tscroll.wcols table { min-width: 800px; }
+@media (min-width: 761px) { .tscroll.wcols { overflow-x: auto; } }
+/* wide 컬럼을 켜면 표가 800px 를 원한다. 그 폭이 안 나오는 구간에서는 한 컬럼을 접어 맞춘다 —
+   태블릿은 근거까지, 1068~1199px 는 주최를, 2-Pane 이 열린 1200~1319px 는 근거를 접는다.
+   접힌 정보는 아코디언/패널이 이미 보여준다 (Raycast isShowingDetail). */
+@media (min-width: 761px) and (max-width: 1067px) {
+  .tscroll.wcols [data-col="evidence"] { display: none; }
+  .tscroll.wcols col[data-col="evidence"] { width: 0; }
+  .tscroll.wcols table { min-width: 0; }
+}
+@media (min-width: 1068px) and (max-width: 1199px) {
+  .tscroll.wcols [data-col="sub"] { display: none; }
+  .tscroll.wcols col[data-col="sub"] { width: 0; }
+  .tscroll.wcols table { min-width: 0; }
+}
+@media (min-width: 1200px) and (max-width: 1319px) {
+  .pane-on .tscroll.wcols [data-col="evidence"] { display: none; }
+  .pane-on .tscroll.wcols col[data-col="evidence"] { width: 0; }
+  .pane-on .tscroll.wcols table { min-width: 0; }
+}
 
 /* ===== 감사 반영 (20+8 이슈) ===== */
 /* 스크롤바 — 터미널 톤 */
@@ -435,17 +530,26 @@ td.ev { white-space: nowrap; color: var(--mut); }
 /* 모바일: 부차 컬럼 숨김 (우선순위 컬럼만) */
 @media (max-width: 760px) {
   [data-col="evidence"], [data-col="sub"] { display: none; }
+  /* wide 컬럼도 모바일은 표에서 뺀다 — 토글 버튼도 숨겨 둔 상태가 화면과 어긋나지 않게 */
+  [data-col="type"], [data-col="checked"] { display: none; }
+  col[data-col="type"], col[data-col="checked"] { width: 0; }
+  .wcol { display: none; }
   /* 남은 컬럼이 찌그러지지 않게 auto 레이아웃 + 마감 폭 고정, 행 .ics는 상세 안 버튼으로 대체 */
   .tscroll { overflow-x: auto; }
   .tscroll table { table-layout: auto; }
+  .tscroll.wcols table { min-width: 0; }
   col[data-col="sub"], col[data-col="evidence"] { width: 0; }
   col[data-col="name"] { width: auto; }
+  col[data-col="sel"] { width: 30px; }
   col[data-col="policy"] { width: 70px; }
   col[data-col="deadline"] { width: 96px; }
+  td.csel, th.csel { padding-left: 6px; }
   td[data-col="deadline"], th[data-col="deadline"] { padding-left: 6px; padding-right: 6px; }
   /* 좁은 화면: 이름 셀이 260px를 고집하지 않게 (가로 잘림 방지) */
   td.c-name { min-width: 0; }
   .co { max-width: 140px; }
+  .bulk-b, .bulk-x { min-height: 34px; }
+  .bulk-x { margin-left: 0; border-left: 0; }
 }
 
 /* 뉴스 태그 라벨 */
@@ -502,7 +606,7 @@ td.ev { white-space: nowrap; color: var(--mut); }
 
 /* ===== 관심(북마크) — 2026-11-12 ===== */
 /* 행 이름 앞 별표: 기본은 테두리만, 담으면 채운다 (노랑 = 관심) */
-.star { background: none; border: 0; padding: 0; margin: 0 6px 0 0; color: #66738A; cursor: pointer; line-height: 0; vertical-align: -1px; }
+.star { background: none; border: 0; padding: 0; margin: 0 6px 0 0; color: #66738A; cursor: pointer; line-height: 0; vertical-align: middle; }
 .star .star-ico { display: block; }
 .star:hover { color: var(--yellow); }
 .star.on { color: var(--yellow); }
@@ -600,6 +704,8 @@ td.ev { white-space: nowrap; color: var(--mut); }
   .fr .fopt { display: inline-flex; align-items: center; min-height: 38px; padding: 0 12px; font-size: 11.5px; }
   .fr .dens { align-self: stretch; }
   .fr .dens button { padding: 0 10px; }
+  /* wide 컬럼 토글은 모바일에 자리가 없다 — 컬럼도 숨기므로 버튼도 숨긴다 */
+  .fr-t .fopt.wcol { display: none; }
   .match-n { margin-left: 0; }
 
   /* C. 헤더 한 줄 — 태그라인·버전은 모바일에선 뺀다 */
@@ -616,10 +722,19 @@ td.ev { white-space: nowrap; color: var(--mut); }
   /* 표가 flex-basis 0 에 눌려 사라지지 않게: 본문·표는 내용 높이로 흐르게 둔다 */
   .main { overflow: visible; }
   .twrap { flex: 0 0 auto; overflow: visible; min-height: 0; }
+  /* 표가 화면보다 넓어지면(40px 밀도·wide) 페이지가 아니라 표 안에서 가로 스크롤한다 */
+  .twrap.tscroll { overflow-x: auto; }
   .tscroll td { padding: 8px 10px; }
   tr.row td { height: 46px; }
   td.c-name { min-width: 0; padding-left: 6px; }
   .co { display: -webkit-box; max-width: none; white-space: normal; word-break: keep-all; line-height: 1.35; overflow: hidden; -webkit-line-clamp: 2; -webkit-box-orient: vertical; }
+  /* 40px 밀도의 두째 줄은 한 줄로만 — 좁은 화면에서 제목 폭을 넘지 않게 다시 제한한다.
+     좁은 화면의 auto 레이아웃은 nowrap 두째 줄의 최대 폭을 따라 표를 넓히므로,
+     이 밀도에서는 fixed 로 두어 남은 폭을 제목이 갖고 두째 줄은 말줄임으로 자른다. */
+  [data-density="comfortable"] .tscroll table { table-layout: fixed; }
+  /* fixed 로 두면 정책 칸 폭도 못 박힌다 — 한 줄 밀도에서 읽히던 폭을 그대로 준다 */
+  [data-density="comfortable"] col[data-col="policy"] { width: 84px; }
+  [data-density="comfortable"] .co-line .co { max-width: 100%; -webkit-line-clamp: 1; }
   .star { padding: 11px; margin: -11px 2px -11px -4px; }
   .badge { font-size: 9.5px; }
   .dd { font-size: 11px; }
