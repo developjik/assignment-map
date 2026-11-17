@@ -13,8 +13,12 @@
 // 대표행 — 진행 중(open·upcoming·judging) > 시드/수동 id > 최초 등장.
 //          닫힌 원본과 열린 재게시가 같은 그룹이면 열린 행이 대표가 된다(문피아 사례 —
 //          화면에 남는 행이 닫힌 본문 뒤에 숨지 않도록).
-// 병합 — 대표행에 last_seen·last_checked 최댓값, url·deadline 을 그룹에서 채운다
-//          (deadline 은 가장 늦은 값 — 재게시는 마감이 늘어난 본문이다).
+// 병합 — 대표행에 last_seen·last_checked 최댓값, url 은 그룹에서 채운다.
+//          deadline 은 maxOr 대상이 아니다(F1, 2026-11-17 반려 정정): rep 자신의 원천·
+//          수동 검증만 따르고 dup 의 마감은 절대 이식하지 않는다 — 한프카(wanted:wd390319)의
+//          수동 검증된 '상시채용(마감 없음)' 정정이 재게시 dup 의 옛 마감으로 되살아난 사례
+//          방지. dup 의 마감 정보가 필요하면 resolveTarget 로 흘러드는 런 갱신(감사 기록
+//          남음)을 통해서만 반영된다.
 //          중복 id 는 merged_into 로 표기되어 데이터에 남는다(감사 가능). 멱등: 다시
 //          돌리면 같은 결과가 나온다.
 
@@ -106,7 +110,8 @@ const dedupeRows = (rows, same, opts) => {
     const dups = group.filter((r) => r !== rep)
       .sort((a, b) => (a.first_seen || '9999').localeCompare(b.first_seen || '9999') || a.id.localeCompare(b.id));
     for (const d of dups) d.merged_into = rep.id;
-    // 대표행 병합: 확인·발견 최댓값, 스칼라 필드는 대표값이 비었을 때 채우거나(deadline 제외) 최댓값
+    // 대표행 병합: 확인·발견 최댓값(dateFields), 스칼라는 대표값이 비었을 때만 채운다(mergeFields).
+    // deadline 은 어느 쪽에도 없다(F1) — dup 의 마감이 rep 의 값(null 포함)을 건드리지 않는다.
     for (const f of opts.dateFields) rep[f] = maxOr([rep[f], ...dups.map((d) => d[f])], rep[f] || null);
     for (const f of opts.mergeFields) {
       if (!rep[f]) { const hit = dups.find((d) => d[f]); if (hit) rep[f] = hit[f]; }
@@ -117,7 +122,7 @@ const dedupeRows = (rows, same, opts) => {
   return groups;
 };
 
-export const dedupePostings = (rows) => dedupeRows(rows, samePosting, { dateFields: ['last_seen', 'last_checked', 'deadline'], mergeFields: ['url'] });
+export const dedupePostings = (rows) => dedupeRows(rows, samePosting, { dateFields: ['last_seen', 'last_checked'], mergeFields: ['url'] });
 export const dedupeEvents = (rows) => dedupeRows(rows, sameEvent, { dateFields: ['last_checked', 'apply_deadline', 'submit_deadline'], mergeFields: ['url'] });
 
 // meta note 규칙(스펙 1-3): 마지막 런이 시드 날짜와 같으면 '시드뿐', 그 다음부터는

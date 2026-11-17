@@ -7,6 +7,7 @@ import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import { execFileSync } from 'node:child_process';
+import { dedupePostings } from '../dedupe.mjs';
 
 const REPO = path.resolve(import.meta.dirname, '..', '..');
 
@@ -288,4 +289,41 @@ test('merge: 병합된 id 로 들어온 갱신은 대표행으로 흐른다', ()
   assert.equal(orig.merged_into, 'soop:repost');
   assert.match(node(dir, 'validate.mjs'), /VALIDATE OK/);
   fs.rmSync(dir, { recursive: true, force: true });
+});
+
+test('F1: dup 의 deadline 은 rep 의 deadline 을 절대 덮지 않는다 (한프카 수동 검증 보호)', () => {
+  const row = (over) => ({
+    company: '한국프리미엄카드마케팅', ai_policy: 'unspecified',
+    evidence: [{ quote: '공고 본문 실측 근거' }], status: 'open',
+    first_seen: '2026-11-01', last_seen: '2026-11-01', last_checked: '2026-11-01',
+    ...over,
+  });
+  // (a) rep deadline null + dup 날짜 → null 유지 (구 maxOr 은 2026-11-22 로 되살렸다)
+  const a = [
+    row({ id: 'wanted:rep', title: '플랫폼 개발자', deadline: null }),
+    row({ id: 'jobkorea:dup', title: '플랫폼 개발자 경력 채용', deadline: '2026-11-22', first_seen: '2026-11-02' }),
+  ];
+  dedupePostings(a);
+  const aRep = a.find((p) => p.id === 'wanted:rep');
+  assert.ok(!aRep.merged_into, '대표행은 wanted:rep');
+  assert.equal(aRep.deadline, null, 'rep 의 null(상시채용) 이 dup 날짜로 덮이지 않는다');
+
+  // (b) 수동 정정 이력(deadline_changed → null) + dup 날짜 → null 유지 (반려 사유 재현)
+  const b = [
+    row({
+      id: 'wanted:rep', title: '플랫폼 개발자', deadline: null,
+      history: [{ date: '2026-11-09', event: 'deadline_changed', from: '2026-11-08', to: null }],
+    }),
+    row({ id: 'jobkorea:dup', title: '플랫폼 개발자 경력 채용', deadline: '2026-11-22', first_seen: '2026-11-02' }),
+  ];
+  dedupePostings(b);
+  assert.equal(b.find((p) => p.id === 'wanted:rep').deadline, null, '수동 검증 정정이 dup 의 옛 마감에 밀리지 않는다');
+
+  // (c) rep 날짜 + dup 이후 날짜 → rep 값 그대로 (구 maxOr 은 더 늦은 dup 값으로 바꿨다)
+  const c = [
+    row({ id: 'wanted:rep', title: '플랫폼 개발자', deadline: '2026-11-15' }),
+    row({ id: 'jobkorea:dup', title: '플랫폼 개발자 경력 채용', deadline: '2026-12-31', first_seen: '2026-11-02' }),
+  ];
+  dedupePostings(c);
+  assert.equal(c.find((p) => p.id === 'wanted:rep').deadline, '2026-11-15', 'rep 자신의 마감이 그대로 유지된다');
 });
