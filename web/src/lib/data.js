@@ -5,6 +5,7 @@ import newsRaw from '../../../data/news.json'
 import changelogRaw from '../../../data/changelog.json'
 import metaRaw from '../../../data/meta.json'
 import { clipEvidence, evidenceParts } from './evidence'
+import { relativeText } from './deadline'
 
 const KST_OFFSET = 9 * 3600e3
 function dayStartKST(dateStr) {
@@ -18,7 +19,8 @@ export function dday(dateStr) {
   const nowKst = new Date(now.getTime() + (KST_OFFSET) + now.getTimezoneOffset() * 60000)
   return Math.round((t - nowKst.setHours(0, 0, 0, 0)) / 864e5)
 }
-export const ddayText = (d) => d === null ? '상시' : d < 0 ? '마감' : d === 0 ? 'D-0' : 'D-' + d
+// 예전 이름 하나만 남겨 둔다 — 낱말은 lib/deadline 이 정한다 (PR E)
+export const ddayText = (d) => relativeText(d, true)
 
 export const POLICY = {
   required: { cls: 'p-req', label: '필수' },

@@ -3,6 +3,7 @@ import { POLICY_LABEL, STATUS_LABEL, disp } from '../lib/labels'
 import { downloadIcs } from '../lib/ics'
 import { policyChangeByID } from '../lib/data'
 import { reportIssueUrl } from '../lib/report'
+import { deadlineTone, relativeText } from '../lib/deadline'
 import GuidePane from './GuidePane'
 import GuideProgressBadge from './GuideProgressBadge'
 import RelatedList from './RelatedList'
@@ -47,12 +48,8 @@ function useCountdown(deadline) {
   return { over: false, text }
 }
 
-const ddBig = (r) => {
-  if (!r.open) return '종결'
-  if (r.dd === null) return '상시'
-  if (r.dd < 0) return '마감'
-  return 'D-' + r.dd
-}
+// 큰 마감 숫자도 표와 같은 낱말·톤을 쓴다 (PR E)
+const ddBig = (r) => relativeText(r.dd, r.open)
 
 function KV({ k, v }) {
   if (!v) return null
@@ -85,7 +82,8 @@ export default function DetailPane({ r, rows = [], starred, onStar, onClose, onP
   const hist = (r.history || []).filter((h) => h.event !== 'created')
   const quotes = (r.evidenceAll && r.evidenceAll.length ? r.evidenceAll : [r.evidenceFull || r.evidence]).filter(Boolean)
   const memos = (r.evidenceMemo || []).filter(Boolean)
-  const ddCls = !r.open || (r.dd !== null && r.dd < 0) ? 'dp-dd big pass' : r.dd !== null && r.dd <= 3 ? 'dp-dd big hot' : 'dp-dd big'
+  const tone = deadlineTone(r.dd, r.open)
+  const ddCls = 'dp-dd big ' + (tone === 'hot' ? 'hot' : tone === 'over' ? 'pass' : tone === 'calm' ? 'calm' : 'base')
   const [track, setTrack] = useState(false)
 
   // 다른 행으로 옮기면 접힘 상태는 기본값으로 돌린다 (한 행의 판단을 다음 행에 물려주지 않는다)

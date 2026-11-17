@@ -1,16 +1,13 @@
 import { disp } from '../lib/labels'
 import { relatedRows } from '../lib/related'
+import { deadlineTone, relativeText } from '../lib/deadline'
 
 // 관련 공고 — 지금 연 행과 같은 회사·직무·AI 정책으로 이어지는 모집 중 항목.
 // 데스크톱 우측 패널(.dp-sec)과 모바일 아코디언(.rel-in)이 같은 목록을 쓴다.
 // 누르면 그 행으로 이동해 선택한다(Opportunities 의 pickAny 가 필터도 함께 풀어 준다).
 
-const ddLabel = (r) => {
-  if (!r.open) return '종결'
-  if (r.dd === null) return '상시'
-  if (r.dd < 0) return '마감'
-  return r.dd === 0 ? 'D-DAY' : 'D-' + r.dd
-}
+// 낱말·톤은 lib/deadline 한 곳에서 — 표·패널·티커와 같은 규칙 (PR E)
+const ddLabel = (r) => relativeText(r.dd, r.open)
 
 const kindLabel = (r) => (r.kind === 'posting' ? '채용 과제' : r.type)
 
@@ -33,7 +30,7 @@ export default function RelatedList({ r, rows, onPick, inline = false }) {
               </span>
               <span className="rel-m">
                 <span className="rel-k">{kindLabel(it)}</span>
-                <span className={'rel-dd' + (it.open && it.dd !== null && it.dd >= 0 && it.dd <= 3 ? ' hot' : '')}>
+                <span className={'rel-dd' + (deadlineTone(it.dd, it.open) === 'hot' ? ' hot' : '')}>
                   {ddLabel(it)}
                 </span>
               </span>
