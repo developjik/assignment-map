@@ -1,7 +1,8 @@
 // 수집 시각 — 헤더 한 곳이 쓰는 다음 수집일 계산 (PR C)
+// 순수 날짜 모듈만 import 한다. freshness.js 는 'react' 를 쓰므로 CI(npm ci 전 npm test)에서 열리지 않는다.
 import test from 'node:test'
 import assert from 'node:assert/strict'
-import { nextRun } from '../src/lib/freshness.js'
+import { nextRun } from '../src/lib/freshnessDate.js'
 
 test('nextRun: 다음 날짜', () => {
   assert.equal(nextRun('2026-11-17'), '2026-11-18')
