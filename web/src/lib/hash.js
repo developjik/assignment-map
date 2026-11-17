@@ -33,6 +33,8 @@ export function writeHash(patch) {
 
 // 필터 → 해시 파라미터 (기본값은 지운다). 딥링크로 공유할 수 있는 최소 집합.
 const PROG_IDS = ['interested', 'in_progress', 'submitted']
+// 마감 범위(일) — 프리셋 'D-3 임박'도 이 키 하나로 공유된다
+export const DD_WITHIN = ['3', '7']
 
 export function filterPatch(s) {
   return {
@@ -40,6 +42,7 @@ export function filterPatch(s) {
     jobfam: s.jobfam === 'fe' ? 'fe' : null,
     status: s.status === 'open' ? null : s.status,
     prog: PROG_IDS.includes(s.prog) ? s.prog : null,
+    dd: DD_WITHIN.includes(s.dd) ? s.dd : null,
     hiring: s.hiringOnly ? '1' : null,
     changed: s.changedOnly ? '1' : null,
     starred: s.starredOnly ? '1' : null,
@@ -54,6 +57,7 @@ export function filtersFromHash(h) {
     jobfam: h.jobfam === 'fe' ? 'fe' : 'all',
     status: h.status === 'all' ? 'all' : 'open',
     prog: PROG_IDS.includes(h.prog) ? h.prog : '',
+    dd: DD_WITHIN.includes(h.dd) ? h.dd : '',
     hiringOnly: h.hiring === '1',
     changedOnly: h.changed === '1',
     starredOnly: h.starred === '1',
