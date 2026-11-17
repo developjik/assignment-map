@@ -1,12 +1,39 @@
 [
   {
-    "id": "news-feed-91e58e2ea9",
-    "topic": "OpenAI",
+    "id": "news-feed-e9870f8b58",
+    "topic": "네이버",
+    "tag": "통계",
+    "content": "LG U+, AI 코딩 비용 최대 90% 절감 실증…내년 B2B 사업 추진 : 네이버 블로그",
+    "date": "2026-11-17",
+    "source": "Naver Blog",
+    "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxPaUVtTnZGMFQ1UFFuLWJRUGlhNTdCVHBYWWJ1ejN4RUI3emt1ZExnZXRCamxqM3NzeXBfbzA1QzVwdmhNUURxTEp3Q3NPSHVPeENWMmtHRWF5Q0NfX1hWVVhqQTRLVGE4bHRVN1MwOWthcE9XTkdmWUJHNV9ZdGhxVDJqLW1aS2xNN1p3RVFnVQ?oc=5"
+  },
+  {
+    "id": "news-feed-f26f2a4dfd",
+    "topic": "AI 업계 동향",
     "tag": "업계",
-    "content": "LVMH’s Media Division announces strategic partnership with OpenAI",
-    "date": "2026-11-16",
+    "content": "Broadening access to AI for scientists",
+    "date": "2026-11-17",
     "source": "OpenAI",
-    "url": "https://openai.com/index/lvmh-media-division-partnership"
+    "url": "https://openai.com/index/expanding-chatgpt-for-academic-researchers"
+  },
+  {
+    "id": "news-feed-07da3f4e50",
+    "topic": "바이브코딩",
+    "tag": "업계",
+    "content": "현대오토에버, SI·ITO 성장 속 AI 기술 개발…바이브코딩·에이전트 추진",
+    "date": "2026-11-16",
+    "source": "지디넷코리아",
+    "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE1FNU5nc2xzOXVWdlJQYkZXTUQtQUNWYzVpX3JVc01RTjJuMGRPUm9OS2t6Tk1Udk85MURUWTNmbVo3UmZ0TDR5MzlTZzhtTkwwU29KeFdB?oc=5"
+  },
+  {
+    "id": "news-feed-147ed3a3b3",
+    "topic": "AI 코딩 도구",
+    "tag": "업계",
+    "content": "노타, 두베에 금융권 특화 AI 코딩 에이전트용 최적화 LLM·서버 공급",
+    "date": "2026-11-16",
+    "source": "데이터넷",
+    "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE8wVGRyRkJyWEQzY05NRXdCNk5XNG12WTlhcS1WaGtSVmlEQkp4STBPZlBOWWNDbVdKMTRnR3FXc0k5YVpNaXl4cjJRQ2NjZjZmTDdrR3I3bHRGVHZoMUJQc2xWTTB2X2ZZQzBocw?oc=5"
   },
   {
     "id": "news-feed-acd5e3dfca",
@@ -25,6 +52,15 @@
     "date": "2026-11-13",
     "source": "OpenAI",
     "url": "https://openai.com/business/customer-stories/amplitude"
+  },
+  {
+    "id": "news-feed-25024f62e2",
+    "topic": "바이브코딩",
+    "tag": "업계",
+    "content": "한남대, 대전창업 One 클럽 AI바이브코딩 경진대회 성료",
+    "date": "2026-11-11",
+    "source": "충남일보",
+    "url": "https://news.google.com/rss/articles/CBMic0FVX3lxTFBkNmNrTnhJVU5LdG9WcVljTkh4SlI5NGlCMGNRYm9oWHJNbmtpblduMmpLa1ZMbzZjOEUwMXRuM3BjTzB5N1NQbjhBa0tnY0FqaFBXdEYwSnpNNTJUaDRGTkF6ZFFqMThzX0lIVzlpQlJlbVk?oc=5"
   },
   {
     "id": "news-feed-be77c96c39",
