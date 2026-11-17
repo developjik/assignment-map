@@ -752,7 +752,7 @@ function Row({ r, q, zebra, idx, curIdx, curRef, expanded, starred, onStar, st, 
       {r.hiring && <span className="badge">채용연계</span>}
       {isNew && <span className="badge">NEW</span>}
       {change && <span className="badge chg" title={`정책 변경 ${change.date}: ${POLICY_LABEL[change.from] || change.from || '-'} → ${POLICY_LABEL[change.to] || change.to || '-'}`}>정책변경</span>}
-      {hasNote && <span className="badge note" title="개인 메모가 적혀 있다 (상세에서 보인다)">메모</span>}
+      {hasNote && <span className="badge memo" title="개인 메모가 적혀 있다 (상세에서 보인다)">메모</span>}
       {st && (
         <button type="button" className={'stg ' + WORKFLOW_CLS[st]} title={`${WORKFLOW_LABEL[st]} | 누를 때마다 다음 단계 (관심 → 과제중 → 제출완료 → 해제)`}
           onClick={(e) => { e.stopPropagation(); onCycle && onCycle() }}>{WORKFLOW_LABEL[st]}</button>
