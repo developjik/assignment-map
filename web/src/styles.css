@@ -7,6 +7,9 @@
      "목록을 좁히는 조건"과 "표시 도구"의 위계가 사라진다. */
   --faint: #78869C;
   --red: #FF5C5C; --blue: #5CA8FF; --green: #34D399; --yellow: #E5C07B;
+  /* 2-Pane 우측 상세 패널 폭 (PR C) — 1919px 에서 480px(본문 1751px 의 27%), 1200px 에서 340px.
+     표는 그만큼 줄어도 660px 밑으로 내려가지 않는다 (아래 .tscroll table 참조). */
+  --pane-w: clamp(340px, 30%, 480px);
   --mono: "JetBrains Mono", "SF Mono", Menlo, monospace;
   /* 한글 산문용 — 숫자·D-Day·단축키·터미널 메타는 --mono 그대로 */
   --sans: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Noto Sans KR", "Noto Sans CJK KR", "Malgun Gothic", "Nanum Gothic", sans-serif;
@@ -61,8 +64,6 @@ a:hover { text-decoration: underline; text-underline-offset: 3px; }
 .sq b { color: var(--fg-hi); font-weight: 600; font-variant-numeric: tabular-nums; }
 .sq .up { color: var(--red); } .sq .bl { color: var(--blue); } .sq .yl { color: var(--yellow); } .sq .gr { color: var(--green); }
 .spark { display: flex; align-items: center; padding: 0 10px; color: var(--faint); font-size: 10px; gap: 7px; white-space: nowrap; }
-.band-meta { display: flex; align-items: center; gap: 4px; padding: 0 10px; border-left: 1px solid var(--border2); color: var(--faint); font-size: 10px; white-space: nowrap; }
-.band-meta b { color: var(--mut); font-weight: 600; font-variant-numeric: tabular-nums; }
 /* 밴드 안의 티커는 오른쪽 칸을 차지한다 */
 .band .dl { flex: 1 1 320px; min-width: 0; border-bottom: 0; border-left: 1px solid var(--border); background: none; }
 .band .dl-badge { padding: 0 8px; }
@@ -150,7 +151,9 @@ a:hover { text-decoration: underline; text-underline-offset: 3px; }
 /* table */
 .twrap { overflow: auto; flex: 1 1 0; min-height: 0; }
 table { width: 100%; border-collapse: collapse; font-size: 11.5px; min-width: 680px; }
-th { text-align: left; font-weight: 600; color: var(--dim); padding: 6px 10px; border-bottom: 1px solid var(--border); font-size: 10px; letter-spacing: .04em; position: sticky; top: 0; background: var(--bg); }
+/* 표 헤더 밴드 — 본문 배경보다 한 단계 올린 --panel 로 머리줄을 만든다 (Levels.fyi 를 다크로 옮긴 정도).
+   radius 0, 그림자 없음: 구분은 1px 보더 하나로 끝낸다. */
+th { text-align: left; font-weight: 600; color: var(--dim); padding: 6px 10px; border-bottom: 1px solid var(--border); font-size: 10px; letter-spacing: .04em; position: sticky; top: 0; background: var(--panel); }
 th.r { text-align: right; }
 td { padding: 5px 10px; border-bottom: 1px solid var(--border2); font-variant-numeric: tabular-nums; color: #B4C0D2; line-height: 1.35; vertical-align: top; }
 tr.z td { background: rgba(255,255,255,.012); }
@@ -228,7 +231,7 @@ th .dir { color: var(--blue); }
 /* 매칭 카운트 (GitHub Projects) */
 .match-n { margin-left: auto; padding: 0 12px; font-size: 10.5px; color: var(--dim); font-variant-numeric: tabular-nums; align-self: center; white-space: nowrap; }
 
-/* 수집 메타는 .band 안 .band-meta 로 들어갔다 (2026-11-13 데스크톱 압축 패스) */
+/* 수집 시각은 헤더 한 곳(.live)만 쓴다 — 예전 .band-meta 는 PR C 에서 없앴다 (마감 티커 폭 확보) */
 
 /* 키 힌트 바 (k9s/lazygit) — 하단 유일한 단축키 안내 */
 .keybar { display: flex; gap: 14px; align-items: center; padding: 4px 12px; border-top: 1px solid var(--border); color: var(--faint); font-size: 10px; flex-wrap: wrap; background: var(--bg); flex-shrink: 0; }
@@ -286,35 +289,37 @@ td.c-sub { max-width: 210px; overflow: hidden; text-overflow: ellipsis; white-sp
 /* 기회 표: fixed 레이아웃 — 컨테이너 폭에 항상 맞음 (900~1280 중간 폭 대응) */
 .tscroll table { table-layout: fixed; width: 100%; min-width: 0; }
 .tscroll td, .tscroll th { overflow: hidden; text-overflow: ellipsis; }
-/* 컬럼 폭 배분 (PR B): 유형·확인이 빠져 5컬럼. 근거가 가장 넓고 이름이 그다음이다 (Raycast 증거 분리). */
-col[data-col="name"] { width: 27%; }
-col[data-col="sub"] { width: 16%; }
-col[data-col="policy"] { width: 10%; }
-col[data-col="evidence"] { width: 32%; }
-col[data-col="deadline"] { width: 15%; }
+/* 표 최소 폭 — 패널이 붙어도 5컬럼이 읽히는 하한. 1200px(패널 340 + 표 692)에서도 지켜진다.
+   이 밑으로 내려가는 폭이 생기면 표는 자기 영역 안에서 가로 스크롤한다 (모바일은 아래 자체 규칙). */
+@media (min-width: 761px) { .tscroll table { min-width: 660px; } }
+/* 컬럼 폭 배분 (PR C): 제목이 남는 폭을 모두 갖고, 짧은 컬럼은 px 로 못 박는다.
+   이름은 "대상/주최·정책·근거·마감"을 뺀 나머지 → 1919 패널 열림 557px, 1440 패널 열림 453px,
+   패널 닫힘 903 / 558px. 근거는 표 폭의 28%(357 / 249px)로 48자 인용의 앞부분이 남는다. */
+col[data-col="name"] { width: auto; }
+col[data-col="sub"] { width: 170px; }
+col[data-col="policy"] { width: 96px; }
+col[data-col="evidence"] { width: 28%; }
+col[data-col="deadline"] { width: 92px; }
 td.ev { white-space: nowrap; color: var(--mut); }
-/* 상세 패널이 열리면 남은 폭을 이름·근거가 나눠 갖는다 */
-.pane-on col[data-col="name"] { width: 30%; }
-.pane-on col[data-col="sub"] { width: 15%; }
-.pane-on col[data-col="policy"] { width: 11%; }
-.pane-on col[data-col="evidence"] { width: 30%; }
-.pane-on col[data-col="deadline"] { width: 14%; }
-/* 1200~1359: 패널이 열리면 대상/주최도 패널에만 두고 이름·근거를 살린다 */
-@media (max-width: 1359px) {
+/* 패널이 열리면 대상/주최는 패널 두 번째 줄(.dp-sub)이 이미 보여준다 (Raycast isShowingDetail).
+   제목이 330px 밑으로 내려가는 폭(뷰포트 1520px 미만)에서만 감춘다 — 1520px 에서 이름 323px. */
+@media (min-width: 761px) and (max-width: 1519px) {
   .pane-on [data-col="sub"] { display: none; }
   .pane-on col[data-col="sub"] { width: 0; }
-  .pane-on col[data-col="name"] { width: 38%; }
-  .pane-on col[data-col="policy"] { width: 12%; }
-  .pane-on col[data-col="evidence"] { width: 36%; }
-  .pane-on col[data-col="deadline"] { width: 14%; }
-  .pane-on td[data-col="deadline"], .pane-on th[data-col="deadline"] { padding-left: 4px; padding-right: 8px; }
+}
+/* 태블릿(761~1067px): 패널 없이 표만 서고 폭은 660~900px 뿐이라 다섯 컬럼이 서로를 깎는다.
+   대상/주최는 아코디언 첫 줄이 "대상/주최:"로 이미 보여주므로 표에서는 빼고 제목에 폭을 준다.
+   1067px(표 900px)에서 제목 290px 이 유지되는 경계다. */
+@media (min-width: 761px) and (max-width: 1067px) {
+  [data-col="sub"] { display: none; }
+  col[data-col="sub"] { width: 0; }
 }
 
 /* ===== 데스크톱 2-Pane 마스터-디테일 (2026-11-13) ===== */
 /* 표와 우측 상세 패널이 나란히 선다. 패널은 자기 영역에서만 스크롤한다. */
 .workspace { flex: 1 1 0; min-height: 0; display: flex; align-items: stretch; min-width: 0; }
 .workspace > .twrap { flex: 1 1 0; min-width: 0; }
-.dpane { flex: 0 0 clamp(320px, 23vw, 400px); min-width: 0; border-left: 1px solid var(--border); background: var(--panel2); overflow-y: auto; }
+.dpane { flex: 0 0 var(--pane-w); min-width: 0; border-left: 1px solid var(--border); background: var(--panel2); overflow-y: auto; }
 .dp-hd { display: flex; align-items: center; gap: 8px; padding: 7px 12px; border-bottom: 1px solid var(--border); position: sticky; top: 0; background: var(--panel2); z-index: 2; }
 .dp-kicker { color: var(--mut); font-size: 10.5px; }
 .dp-x { margin-left: auto; background: none; border: 1px solid var(--border); color: var(--mut); font: 10px var(--mono); padding: 2px 7px; cursor: pointer; }
@@ -580,7 +585,6 @@ td.ev { white-space: nowrap; color: var(--mut); }
   .sqs { flex: 1 1 100%; overflow-x: auto; scrollbar-width: none; }
   .sqs::-webkit-scrollbar { display: none; }
   .sq { flex: 0 0 auto; min-height: 32px; }
-  .band-meta { display: none; }
   .band .dl { flex: 1 1 100%; border-left: 0; border-top: 1px solid var(--border); }
   /* 표 영역은 flex 가 아닌 일반 흐름으로 (모바일은 페이지 스크롤) */
   .workspace { display: block; flex: 0 0 auto; }

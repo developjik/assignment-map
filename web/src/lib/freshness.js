@@ -28,6 +28,17 @@ export function staleness(lastRun, now = Date.now()) {
   return { days, stale: days !== null && days >= STALE_AFTER_DAYS, today: kstToday(now) }
 }
 
+// 다음 수집일 — 루틴은 매일 03:00 KST 한 번. last_run(YYYY-MM-DD)의 다음 날.
+// 헤더의 수집 시각 한 곳이 이 값을 title 로만 쓴다 (티커 바에서 옮겨 왔다 — PR C).
+export function nextRun(lastRun) {
+  const s = String(lastRun || '')
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(s)) return ''
+  const d = new Date(s + 'T00:00:00Z')
+  if (Number.isNaN(d.getTime())) return ''
+  d.setUTCDate(d.getUTCDate() + 1)
+  return d.toISOString().slice(0, 10)
+}
+
 // 자정을 넘겨도 배지가 맞게 바뀌도록 30분마다 다시 센다 (탭이 다시 보일 때도)
 export function useStaleness(lastRun, refreshMs = 1800e3) {
   const [now, setNow] = useState(() => Date.now())
