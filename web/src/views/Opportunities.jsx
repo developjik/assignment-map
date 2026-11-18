@@ -8,6 +8,7 @@ import { DENSITIES, readDensity, writeDensity } from '../lib/density'
 import { HOT_DAYS, deadlineView, relativeText } from '../lib/deadline'
 import { useStarred, setStarred } from '../lib/starred'
 import { WORKFLOW, WORKFLOW_CLS, WORKFLOW_LABEL, nextStatus, useStatuses } from '../lib/statuses'
+import { pipelineCounts } from '../lib/pipeline'
 import { useNotes } from '../lib/useNotes'
 import { reportIssueUrl } from '../lib/report'
 import Ticker from '../components/Ticker'
@@ -18,6 +19,8 @@ import GuideProgressBadge from '../components/GuideProgressBadge'
 import RelatedList from '../components/RelatedList'
 import StatusPicker from '../components/StatusPicker'
 import NoteField from '../components/NoteField'
+import PipelineBar from '../components/PipelineBar'
+import StrategyCopy from '../components/StrategyCopy'
 import ShortcutsHelp from '../components/ShortcutsHelp'
 import FilterPopover from '../components/FilterPopover'
 const POLICY_FILTERS = [
@@ -222,7 +225,7 @@ export default function Opportunities({ rows, type, q, setQ, setTab, onVisit }) 
   const starredSet = useMemo(() => new Set(starredIds), [starredIds])
   const starredRows = useMemo(() => rows.filter((r) => starredSet.has(r.id)), [rows, starredSet])
 
-  const { filtered, totalNoStatus, facets } = useMemo(() => {
+  const { filtered, totalNoStatus, facets, pipeline } = useMemo(() => {
     const tokens = (q || '').trim().toLowerCase().split(/\s+/).filter(Boolean)
     // skip: 이 축의 조건은 빼고 본다 — 값별 건수가 "이 값을 골랐을 때 남는 수"가 되도록 (Datadog facet)
     const base = (r, skip) => {
@@ -276,7 +279,9 @@ export default function Opportunities({ rows, type, q, setQ, setTab, onVisit }) 
       changed: count('changed', (r) => policyChangeByID.has(r.id)),
       starred: count('starred', (r) => starredSet.has(r.id)),
     }
-    return { filtered: out, totalNoStatus: noStatus.length, facets }
+    // 파이프라인은 '내 진행' 축을 뺀 나머지 조건 안에서 센다 — 칩을 눌렀을 때 목록과 수가 어긋나지 않게.
+    const pipeline = pipelineCounts(rows.filter((r) => base(r, 'prog')), (id) => statuses[id] || '')
+    return { filtered: out, totalNoStatus: noStatus.length, facets, pipeline }
   }, [rows, typeMatch, jobfam, policy, status, prog, ddw, hiringOnly, changedOnly, starredOnly, starredSet, statuses, q, sort, sortMode])
 
   const sortMsg = sort
@@ -494,6 +499,8 @@ export default function Opportunities({ rows, type, q, setQ, setTab, onVisit }) 
     setPolicy('all'); setStatus('open'); setProg(''); setJobfam('all'); setDdw('')
     setHiringOnly(false); setChangedOnly(false); setStarredOnly(false)
   }
+  // 파이프라인 칩 — 같은 상태를 다시 누르면 해제(칩 줄의 '내 진행' 과 같은 축이다)
+  const pickStage = (id) => setProg((cur) => (cur === id ? '' : id))
   const resetFilters = () => {
     clearFilters()
     setSort(null); setSortMode('dday'); setQ('')
@@ -570,6 +577,8 @@ export default function Opportunities({ rows, type, q, setQ, setTab, onVisit }) 
         <Ticker stats={stats} spark={sparkPoints} />
         <DeadlineTicker rows={rows} onPick={pickDeadline} />
       </div>
+      {/* 지원 파이프라인 — 내 기록이 어느 단계에 몇 건 서 있는지 (칩을 누르면 그 단계만 남는다) */}
+      <PipelineBar counts={pipeline} prog={prog} onPick={pickStage} />
       <div className="fr">
         {/* 상시 노출 5묶음 — AI 정책 5 + 상태 2 + 필터 팝오버. 직군·내 진행·마감 범위·조건은 팝오버 안으로. */}
         <div className="fr-q">
@@ -822,6 +831,10 @@ function Row({ r, q, zebra, idx, curIdx, curRef, expanded, starred, onStar, st, 
                 <a className="rep" href={reportIssueUrl(r)} target="_blank" rel="noreferrer"
                   title="정보가 틀렸거나 AI 정책이 바뀌었을 때 GitHub 이슈로 보낸다"
                   onClick={(e) => e.stopPropagation()}>정보 수정·AI 정책 제보</a>
+              </div>
+              {/* 제출 직전의 한 걸음 — 공고 사실과 내 포지셔닝을 한 프롬프트로 복사한다 */}
+              <div className="ln hx-acts hx-strat">
+                <StrategyCopy r={r} btnClass="hx-a strat" />
               </div>
               <div className="ln sp-ln">지원 상태: <StatusPicker id={r.id} /><GuideProgressBadge r={r} full /></div>
               {/* 개인 메모 — 좌우 패널이 없는 폭에서는 아코디언이 유일한 메모 자리다 */}

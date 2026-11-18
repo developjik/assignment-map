@@ -1,34 +1,12 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
 import { guideById, guides, matchGuide } from '../lib/guides'
 import { readChecks, writeChecks } from '../lib/guideProgress'
+import { copyText } from '../lib/clipboard'
 
 // AI 실전 과제 공략 — 우측 2-Pane 패널과 모바일 아코디언이 같은 컴포넌트를 쓴다.
 // 데이터는 빌드 타임에 data/guides/*.md 에서 컴파일된 JSON 이고, 여기서는 고른 행에
 // 어떤 아키타입을 붙일지(lib/guides.js)와 체크 상태/복사 피드백만 다룬다.
 // 체크는 lib/guideProgress 를 거쳐 저장한다 — 행 배지가 같은 변경 신호를 받는다.
-
-function copyText(text) {
-  if (navigator.clipboard && navigator.clipboard.writeText) {
-    return navigator.clipboard.writeText(text).then(() => true, () => fallbackCopy(text))
-  }
-  return Promise.resolve(fallbackCopy(text))
-}
-
-// 클립보드 API 가 막힌 환경(비보안 컨텍스트, 구형 웹뷰)에서도 복사가 되게 한다
-function fallbackCopy(text) {
-  try {
-    const ta = document.createElement('textarea')
-    ta.value = text
-    ta.setAttribute('readonly', '')
-    ta.style.position = 'fixed'
-    ta.style.top = '-1000px'
-    document.body.appendChild(ta)
-    ta.select()
-    const ok = document.execCommand('copy')
-    ta.remove()
-    return ok
-  } catch { return false }
-}
 
 export default function GuidePane({ r, inline = false, defaultOpen = true }) {
   const auto = useMemo(() => matchGuide(r), [r.id])

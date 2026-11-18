@@ -1049,3 +1049,61 @@ a.rep:hover { color: var(--fg-hi); border-color: var(--blue); text-decoration: n
   .bk-tb td.k { display: none; }
   .note-t { font-size: 12px; min-height: 68px; }
 }
+
+/* ===== 지원 파이프라인 요약 바 (2026-11-18) ===== */
+/* 표 위 한 줄. 조건 버튼(.fr)과 같은 높이 문법이되, 값이 아니라 "지금 내 기록의 분포"라서
+   오른쪽 도구 영역이 아니라 왼쪽 정보 영역의 리듬을 따른다. 칩 하나가 곧 필터 하나다. */
+.pl { display: flex; align-items: stretch; flex-wrap: wrap; flex: 0 0 auto; border-bottom: 1px solid var(--border); background: var(--bg); }
+.pl-k { display: flex; align-items: center; min-height: 26px; padding: 0 9px; border-right: 1px solid var(--border); color: var(--mut); font-size: 10.5px; white-space: nowrap; }
+.pl-b { display: inline-flex; align-items: center; gap: 6px; min-height: 26px; padding: 0 10px; background: none; border: 0; border-right: 1px solid var(--border2); color: var(--mut); font: 11px var(--mono); cursor: pointer; white-space: nowrap; }
+.pl-b:hover { color: var(--fg-hi); background: #11151C; }
+.pl-b.on { color: var(--fg-hi); background: #11151C; box-shadow: inset 0 -2px 0 var(--blue); }
+.pl-l { color: inherit; }
+/* 단계별 숫자 색은 행 배지(.stg)·상태 버튼(.sp-b)과 같은 뜻을 쓴다: 관심 노랑 / 과제중 파랑 / 제출완료 초록 */
+.pl-n { color: var(--fg-hi); font-weight: 600; font-variant-numeric: tabular-nums; }
+.pl-b.w-int .pl-n { color: var(--yellow); }
+.pl-b.w-prog .pl-n { color: var(--blue); }
+.pl-b.w-done .pl-n { color: var(--green); }
+.pl-b.z .pl-n { color: var(--faint); font-weight: 400; }
+/* 임박 — 빨강은 긴급에만 쓴다 (DESIGN.md §8). 칩 안의 작은 표식은 보더 하나로 끝낸다. */
+.pl-hot { border: 1px solid #4A1D1D; background: #1C1113; color: var(--red); font-size: 9.5px; line-height: 1.5; padding: 0 4px; font-variant-numeric: tabular-nums; }
+.pl-u { display: flex; align-items: center; min-height: 26px; padding: 0 10px; border-right: 1px solid var(--border2); color: var(--faint); font-size: 10px; white-space: nowrap; font-variant-numeric: tabular-nums; }
+.pl-warn { display: flex; align-items: center; gap: 6px; min-height: 26px; margin-left: auto; padding: 0 10px; color: var(--red); font-size: 10.5px; white-space: nowrap; font-variant-numeric: tabular-nums; }
+.pl-warn::before { content: ""; width: 6px; height: 6px; background: var(--red); }
+@media (max-width: 760px) {
+  /* 390px: 한 줄 가로 스크롤 — 줄이 바뀌면 표가 첫 화면에서 밀려난다 */
+  .pl { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; }
+  .pl::-webkit-scrollbar { display: none; }
+  .pl-k, .pl-b, .pl-u, .pl-warn { flex: 0 0 auto; min-height: 34px; }
+  .pl-k { padding: 0 10px; }
+  .pl-b { padding: 0 12px; font-size: 11.5px; }
+  .pl-b .pl-n { font-size: 12px; }
+  .pl-warn { margin-left: 0; border-left: 1px solid var(--border2); }
+}
+
+/* ===== 공고별 AI 전략 프롬프트 복사 (2026-11-18) ===== */
+/* 복사됨 피드백은 글자(복사됨) + 인라인 SVG 체크. 이모지 문자는 슬롭 검사에서 막는다. */
+.ics.act.strat, .hx-a.strat { display: inline-flex; align-items: center; gap: 5px; }
+.ics.act.strat:hover, .hx-a.strat:hover { color: var(--fg-hi); border-color: var(--blue); }
+/* 복사됨 = 성공이라 초록. 실패는 초록을 쓰지 않는다(폴백 시트가 맡는다).
+   누른 뒤에도 마우스가 버튼 위에 있으므로 :hover 까지 같이 못박지 않으면 피드백 색이 사라진다. */
+.ics.act.strat.on, .hx-a.strat.on,
+.ics.act.strat.on:hover, .hx-a.strat.on:hover { color: var(--green); border-color: #1B3A2C; }
+.hx-strat { margin: 2px 0 8px; }
+
+/* 클립보드가 막힌 브라우저의 폴백 — 프롬프트 전문을 선택해 두고 직접 복사하게 한다 */
+.sc-back { position: fixed; inset: 0; z-index: 75; display: flex; align-items: flex-start; justify-content: center; padding: 40px 16px; background: rgba(4, 6, 10, .8); overflow: auto; }
+.sc { width: 620px; max-width: 96vw; background: #0B0E14; border: 1px solid #1E232F; }
+.sc-hd { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 10px 14px; border-bottom: 1px solid var(--border); }
+.sc-title { color: var(--fg-hi); font-weight: 700; font-size: 12.5px; }
+.sc-x { background: none; border: 1px solid var(--border); color: var(--mut); font: 10px var(--mono); padding: 2px 7px; cursor: pointer; }
+.sc-x:hover { color: var(--fg-hi); border-color: var(--blue); }
+.sc-lede { margin: 10px 14px; color: var(--mut); font-size: 11px; line-height: 1.65; word-break: keep-all; }
+.sc-ta { display: block; width: calc(100% - 28px); margin: 0 14px; min-height: 320px; max-height: 52vh; padding: 9px 10px; background: var(--panel); border: 1px solid var(--border); color: var(--fg); font: 11px/1.6 var(--mono); resize: vertical; }
+.sc-ta:focus-visible { outline: 1px solid var(--blue); outline-offset: 1px; }
+.sc-ft { display: flex; justify-content: flex-end; padding: 10px 14px 12px; }
+@media (max-width: 760px) {
+  .sc-back { padding: 12px 8px; }
+  .sc-ta { font-size: 12px; max-height: 56vh; }
+  .ics.act.strat { min-height: 38px; }
+}

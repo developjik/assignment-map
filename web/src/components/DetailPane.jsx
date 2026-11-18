@@ -9,6 +9,7 @@ import GuideProgressBadge from './GuideProgressBadge'
 import NoteField from './NoteField'
 import RelatedList from './RelatedList'
 import StatusPicker from './StatusPicker'
+import StrategyCopy from './StrategyCopy'
 
 // 데스크톱 우측 고정 상세 패널 (k9s describe / Linear 우측 패널).
 // 행을 고르면 표를 밀어내지 않고 이 패널이 붙는다. j/k 로 행을 옮기면 내용이 따라온다.
@@ -131,6 +132,8 @@ export default function DetailPane({ r, rows = [], starred, onStar, onClose, onP
           ? <button type="button" className="ics act" title={`${r.deadline} 종일 일정으로 캘린더에 넣는다`}
             onClick={() => downloadIcs([r])}>마감 .ics</button>
           : <span className="dp-none">마감일 미정 | .ics 없음</span>}
+        {/* 제출 직전의 한 걸음 — 공고 사실과 내 포지셔닝을 담은 프롬프트를 한 번에 복사한다 */}
+        <StrategyCopy r={r} btnClass="ics act strat" />
       </div>
 
       <div className="dp-status">
