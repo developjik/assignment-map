@@ -66,6 +66,8 @@ test('마감·정책 문장 — 없는 값은 지어내지 않는다', () => {
   assert.equal(deadlineLine(posting), '2026-11-30 (D-12)')
   assert.equal(deadlineLine({ ...posting, deadline: null, dd: null }), '마감일 미정 | 상시 또는 미확인 원문에서 확인')
   assert.equal(deadlineLine({ ...posting, open: false, dd: -3 }), '2026-11-30 (종결)')
+  // 닫혔는데 마감일도 없는 경우 — '상시'로 뭉개면 닫힌 공고가 진행중으로 읽힌다 (PR #19 Codex P2)
+  assert.equal(deadlineLine({ ...posting, deadline: null, dd: null, open: false }), '마감일 미기록 | 모집 종결')
   assert.equal(policyLine(posting), '필수 | 원문: "AI 활용 요구"')
   assert.equal(policyLine({ policyKey: 'unspecified', policy: { label: '미언급' } }), '미언급')
 })

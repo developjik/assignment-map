@@ -30,9 +30,15 @@ function quotesOf(r) {
 
 // 마감 — 표와 같은 낱말(D-3 | D-Day | 상시 | 종결)에 절대 날짜를 붙인다.
 // 프롬프트는 화면이 아니라서 상대값만으로는 쓸 수 없다.
+// 마감일이 없을 때 '종결'을 '상시 또는 미확인'으로 뭉개면 닫힌 공고가 진행중으로 읽힌다 —
+// 그래서 open 부터 본다 (PR #19 Codex P2).
 export function deadlineLine(r) {
   const rel = relativeText(r.dd, r.open)
-  if (!r.deadline) return '마감일 미정 | 상시 또는 미확인 원문에서 확인'
+  if (!r.deadline) {
+    return r.open === false
+      ? '마감일 미기록 | 모집 종결'
+      : '마감일 미정 | 상시 또는 미확인 원문에서 확인'
+  }
   return `${r.deadline} (${rel})`
 }
 
