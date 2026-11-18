@@ -1555,6 +1555,88 @@
       ],
       "notes": "정상 런(last_run 11-17, 1일 갭). 신규 공고 0 · 신규 이벤트 0 · 정책 변경 0 · 종결 0(오늘 마감 2건 모두 D-0 생존 실측: Meta VR global-0026 Devpost open 리스트 잔존 '1 day left' + 네이밍 112155 위비티 D-1(당일마감) 배지 — 마감일 당일 종결 금지 규칙으로 11-19 런 종결 확정) · D-3 임박 16(공고 3: 오로라월드 50213617 11-20 D-2 + 데이터드리븐 55361658·에스에스알 50222686 11-21 D-3[banned 승계 주의] / 이벤트 13: 11-18 Meta VR global-0026·네이밍 112155 D-0, 11-19 전북 뮤직쇼츠 112128 D-1, 11-20 Dakar global-0035·제주 ko-0035·제천 111490·대구기후 111567·용산 111726·사회보장 111847·제주리터러시 111924·성평등 112029·AI달인s4 112049 D-2, 11-21 STEM2Connect global-0023 D-3) · needs_review 0 · 방문 12/80(잡코리아 GI_Read www 6 + 원티드 3 + 점핏 3, 발견 전부 fetch) · CANARY 전 지표 OK. 실패 소스: festa.io(10일째 스텁, 12/1 T3 퇴출 확정). [운영] (1) 로컬 클론이 fix/spec-2026-11-17 브랜치에 체크아웃돼 있어 pull divergent — main 전환 후 ff pull로 해결(로컬 main 선두 0, 데이터 무손실). (2) 이번 pull로 merge/validate/dedupe/normalize 툴체인 갱신(PR #17) — 오늘 런이 신규 툴체인 첫 데일리 검증. [다음 우선순위] (1) 11-19 런 종결 2(11-18 마감): Meta VR global-0026(Devpost open 리스트 이탈 확인)·네이밍 112155(D+0 배지/리스트 이탈), (2) 11-20 런 종결 1: 전북 뮤직쇼츠 112128, (3) 11-21 런 대량 종결: 11-20 마감 이벤트 9(Dakar·제주 ko-0035·제천·대구기후·용산·사회보장·제주리터러시·성평등·AI달인s4 — 당일 D-0 생존 확인 후 다음날 종결 원칙 유지 시 11-21 마감분과 분리) + 오로라 50213617(D-2)+ T2 로테이션 필수(11-14 공백 만회 — 씽유·링커리어·DoraHacks·MLH·programmers), (4) 11-22 런: 데이터드리븐 55361658 종결(banned 승계)·에스에스알 50222686·씨어스 50228434·50228417·한프카 50326430(11-22), (5) 11-23 런: 엘리스 111915(제출 11-22)·경산 112022·KICET 111819 종결 + 세종사이버 AI불씨 112285 개시 감시(upcoming→open), (6) 12/1 T3: festa.io 퇴출 + HN 12월 스레드(50338728 다음) + 소스 성과 리포.",
       "summary": "+0공고 +0이벤트 · 정책변경 0 · 상태변경 0 · 마감변경 0 · 중복병합 0"
+    },
+    {
+      "date": "2026-11-19",
+      "new_postings": [
+        "jobkorea:50384587"
+      ],
+      "policy_changed": [],
+      "deadline_changed": [],
+      "status_changed": [],
+      "new_events": [
+        "global-0052",
+        "ko-0036",
+        "ko-0037"
+      ],
+      "event_status_changed": [
+        "wevity:112155-ai-fusedu-platform-naming"
+      ],
+      "event_deadline_changed": [
+        "global-0026"
+      ],
+      "updated_postings": 0,
+      "updated_events": 2,
+      "merged_postings": [],
+      "merged_events": [],
+      "sources": [
+        {
+          "id": "devpost-api",
+          "method": "fetch",
+          "pages": 0,
+          "result": "open 62건 스윕 — 신규 채택 1: Cloud9 x JetBrains Sky's The Limit(31571, $25k, 마감 2027-01-13, Online 전 세계·표준 예외만 제외·성년, AI 코딩 에이전트 장려) · deadline_changed 1: Meta VR global-0026 실측 마감 11-19 05:00 KST('2 more hours to deadline', 데이터 11-18→11-19 정정, D-0 생존 — 11-20 런 종결) · 미채택 신규 판정 5: OBSCURA 위성 AI(Students only $50)·Build with AI Pico Space Program(포함국가 US·캐나다(퀘벡 제외)·EU/EEA·UK·스위스·튀르키예 — 한국 불포함)·AI@UCF Semester Sprint(Students only+US only)·2026-2027 Fall ESE Senior Design(UPenn 오프라인 과목 쇼케이스)·RAMHACK Mini 2026(Fordham Lincoln Center 오프라인) · 기존 선례 재노출 27(305 Veterans 11-07·CSC Winter Sparkathon 11-09·HETIC·HackOut·KUK·MCA·Syntax Summit 등) · 기추적 open 20 전수 잔존 확인(종결 0)"
+        },
+        {
+          "id": "daker-api",
+          "method": "fetch",
+          "pages": 0,
+          "result": "24건 — 신규 0: published 4 중 ko-0035 제주 AI Agent(등록 11-20 D-1 진행)·ko-0001 KIC(judging) 기추적, 소재연구데이터(reg 11-13)·AI 플랫폼 구축(reg 10-25) 등록마감 경과 채택 제외 승계"
+        },
+        {
+          "id": "hn-algolia-hiring",
+          "method": "fetch",
+          "pages": 0,
+          "result": "514 stories — 최신 스레드 11월(50338728), 12월 스레드 미개시(12/1 T3 파싱 대기)"
+        },
+        {
+          "id": "gnews",
+          "method": "fetch",
+          "pages": 0,
+          "result": "kr 5개+en 1개 피드 파싱 — 신규 0: 후보 2건 실측 전부 미채택(인천대 제2회 물류AI해커톤대회: 동북아국제통상물류학부 재학생 한정·11-13 개최 종료 / NVIDIA AI Day Seoul 2026: 11-9~10 코엑스 개최 종료·등록 조기 마감) — kr-1 올리브영 AI 과제 전형 보도는 7월 기존 이슈(seed-kr-01 기추적), kr-3 호남 IS 코딩챌린지 등 성료 기사, 나머지 비AI/과거 기사"
+        },
+        {
+          "id": "wevity-fetch",
+          "method": "fetch",
+          "pages": 0,
+          "result": "본리스트 gp 1-85 스윕(유니크 ix 1,275, 15/p) + AI 검색(sw=AI) 180건 — 신규 채택 2: 112402 지역 창업 솔버톤(ko-0036, AI 주제·총상금 4천만·11-28 마감·결선 1-18)·112313 디어비 글로벌 런칭(ko-0037, AI 캐릭터 창작·총 1,500만·11-22 마감) · 종결 1: 112155 네이밍 '마감(end)' 배지 · 112128 전북 뮤직쇼츠 D-0 생존('마감임박' 배지 — 11-20 런 종결 확정) · 미채택: 112400 한남대 지역문제 아이디어(참가대상 '권역 내 (예비)창업자' 한정·D-1)·112318 MOBIS Robotics Challenge(상세 본문 AI 미언급·대학생 한정 하드웨어 경진)·111065 AI와 신학 논문('AI에 관한 글쓰기'로 AI로 만들기 범위 밖)·110817 플라이하이 AI 패션(고교생 한정)·103817 파킨슨 AI 리빙랩(서포터즈)·112330 대만 관광영상(비AI) + SPECIAL 캐러셀 광고(교정의 신 등)·신춘문예·마감 경과 다수"
+        },
+        {
+          "id": "jobkorea-mobile",
+          "method": "browser",
+          "pages": 9,
+          "result": "m검색 사전과제(772건·30/p)+바이브코딩 — 신규 채택 1: 노아에이티에스 50384587(2027 공채 16기, 전형절차 '사전과제 제출(서류 합격자에 한함)' + '전 과정에 AI(LLM) 기반 바이브코딩 방법론 도입', 마감 11-30, 11-19 게시 신규) · 미채택: 50383503 파괴연구소(카피라이터·디자이너, 포트폴리오만·과제 전형 없음)·50346363 로젠('개선과제 발굴'·'사전 준비' 노이즈, 전형절차 없음)·50389261 이엔티팩토리(모집분야 'AI 활용 개발자 바이브코딩 개발 풀스택'이나 과제 전형 문구 없음·포트폴리오) — 메타빌드(11-15 과제 단계 없음)·누리아이(11-15)·망고스토리(11-18)·LS ITC(11-18)·동화약품(11-12)·빅레그·에픽카(iframe 빈값 선례) 승계"
+        },
+        {
+          "id": "wanted",
+          "method": "browser",
+          "pages": 2,
+          "result": "사전과제 검색 3건(한프카 플랫폼 개발자 기추적 wd390319·언어발전소 임상연구 PM 연구과제 노이즈 선례·인터엑스 B2G 정부과제 Pre-Sales 노이즈) + AI 과제 검색 15건 전부 정부 R&D 과제 컨설팅/PM 노이즈(디써클·페르소나에이아이·한국딥러닝·현대차 AX 등) — 신규 0"
+        },
+        {
+          "id": "jumpit",
+          "method": "browser",
+          "pages": 6,
+          "result": "⚠️ 도메인 변경 발견: jumpit.co.kr → jumpit.saramin.co.kr 301 리다이렉트(사람인 통합), /positions?keyword= 직접 URL은 키워드 탈락(헤더 검색 UI → /search?keyword= 랜딩 필요) — 사전과제 퍼지 상위 상세 3건 전부 무과제(55530192 케이더블유이코리아: 서류>코딩테스트>역량검사>면접 = 실시간형·55491439 아이제라 AI 서비스 PM: 서류>면접·55592664 인젠트 AI 개발: 서류>1차>2차) — 신규 0 · 코어시큐리티 55357203 D-1 노출(R&D 과제 노이즈 선례 11-18 승계)"
+        },
+        {
+          "id": "revisit-queue",
+          "method": "fetch",
+          "pages": 0,
+          "result": "D-3 마감 임박 리스트 생존 확인(잡코리아 검색 노출 기반): 오로라월드 50213617 11-20 D-1 · 데이터드리븐 55361658·에스에스알 50222686 11-21 D-2(banned 승계 주의) · 한프카 50326430·씨어스 50228434·50228417 11-22 D-3 · 이벤트 11-19 마감 1(뮤직쇼츠 D-0 생존)·11-20 마감 9(Dakar·제주 ko-0035·제천·대구기후·용산·사회보장·제주리터러시·성평등·AI달인s4 D-1)·11-21 STEM2Connect D-2 — festa.io 스텁 11일째(12/1 T3 퇴출 확정)"
+        }
+      ],
+      "notes": "정상 런(last_run 11-18, 1일 갭). 신규 공고 1(노아에이티에스 2027 공채 — 사전과제 전형 + AI(LLM) 바이브코딩 방법론 명시, required) · 신규 이벤트 3(Cloud9×JetBrains global-0052 $25k 1-13 · 지역 창업 솔버톤 ko-0036 AI 주제 4천만 11-28 · 디어비 글로벌 런칭 ko-0037 AI 캐릭터 창작 1,500만 11-22) · 정책 변경 0 · 종결 1(wevity:112155 네이밍 '마감' 배지) · D-3 임박: 공고 6(오로라 11-20, 데이터드리븐 banned·에스에스알 11-21, 한프카·씨어스 2건 11-22) + 이벤트 11(뮤직쇼츠 11-19 D-0 생존, Meta VR 11-19 05:00 KST 마감 정정·D-0 생존, 11-20 9건 D-1, STEM2Connect 11-21 D-2) · needs_review 0 · 방문 31/80(Devpost 상세 6 + 위비티 상세 7 + 잡코리아 9 + 원티드 2 + 점핏 6 + 잡코리아 www 총건수 1) · CANARY 전 지표 OK(wevity 15/p·유니크 1,275[gps 1-85 확장 스윕], devpost open 62, daker 24, 잡코리아 사전과제 772·30/p, HN 514) · 실패 소스: festa.io 200 'Coming Soon' 스텁 11일째(12/1 T3 퇴출). 운영 발견 2건: ① Meta VR 마감 시간대 정정(데이터 11-18 → 실측 11-19 05:00 KST) — Devpost 마감 기록은 KST 표시 기준으로 남기고 evidence에 시각 명기 ② 점핏 도메인 jumpit.saramin.co.kr 리다이렉트 + 직접 ?keyword= URL 무효(검색 UI 경유 필수). 다음 런: (1) 11-20 종결 확정 3: Meta VR global-0026(Devpost open 리스트 이탈 확인)·네이밍 승계 완료·전북 뮤직쇼츠 112128(D+0 배지/이탈) (2) 11-21 런 대량 종결 + T2 필수(11-14 공백 만회 — 씽유·링커리어·DoraHacks·MLH·programmers-competitions·dacon; programmers는 JS 렌더): 11-20 마감 9(Dakar·제주 ko-0035·제천·대구기후·용산·사회보장·제주리터러시·성평등·AI달인s4 당일 D-0 생존 확인 후 종결 원칙) + 오로라 50213617 + STEM2Connect global-0023 11-21 (3) 11-22 런: 데이터드리븐 55361658 종결(banned 승계 기록)·에스에스알 50222686·씨어스 50228434·50228417·한프카 50326430·디어비 ko-0037(전부 11-22) (4) 11-23 런: 엘리스 111915·경산 112022·KICET 111819 종결 + 세종사이버 AI불씨 112285 개시 감시(upcoming→open) + 솔버톤 ko-0036 마감 임박(D-5) (5) 12/1 T3: festa.io 퇴출 + HN 12월 스레드(50338728 다음) + 소스 성과 리포 + 점핏 도메인 변경 sources.json 반영 오너 보고",
+      "summary": "+1공고 +3이벤트 · 정책변경 0 · 상태변경 1 · 마감변경 1 · 중복병합 0"
     }
   ]
 }

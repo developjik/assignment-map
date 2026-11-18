@@ -1,0 +1,164 @@
+{
+  "date": "2026-11-19",
+  "postings": [
+    {
+      "id": "jobkorea:50384587",
+      "source": "jobkorea",
+      "company": "노아에이티에스(Noah ATS)",
+      "title": "노아에이티에스 2027년 공채 16기 신입사원 채용(개발자, 컨설턴트)",
+      "positions": ["backend", "frontend"],
+      "positions_raw": "개발자, 컨설턴트",
+      "assignment_type": "pre_assignment",
+      "ai_policy": "required",
+      "evidence": [
+        {
+          "quote": "GI_Read iframe(2026-11-19): 전형절차 '서류전형 → 사전과제 제출 (*서류 합격자에 한함) → 1차 실무면접 → 2차 최종면접' + 일정 '공고게시 및 서류접수: 2026.11.19(목)~2026.11.30(월) / 서류전형 결과발표 및 사전과제 배포: 2026.12.03(목)'",
+          "field": "assignment"
+        },
+        {
+          "quote": "GI_Read iframe(2026-11-19): '차세대 통합 패키지를 개발 중이며, 요구사항 정의부터 배포까지 전 과정에 AI(LLM) 기반의 바이브코딩 방법론을 도입하여 개발의 패러다임을 바꾸고 있습니다. 단순히 문법을 암기하여 코딩하는 개발자를 찾는 것이 아닙니다. AI라는 강력한 조력자와 함께, 복잡한 금융 로직을 시스템에 녹여낼 수 있는 스마트한 엔지니어를 찾습니다' — 자산운용 시스템 전문기업(보험사·중앙은행·연기금 고객)",
+          "field": "policy"
+        }
+      ],
+      "url": "https://www.jobkorea.co.kr/Recruit/GI_Read/50384587",
+      "deadline": "2026-11-30",
+      "status": "open",
+      "review": "confirmed"
+    }
+  ],
+  "events": [
+    {
+      "id": "global-0052",
+      "type": "hackathon",
+      "title": "Cloud9 x JetBrains: Sky's The Limit Hackathon 2026",
+      "host": "Cloud9 × JetBrains",
+      "ai_usage": "allowed",
+      "format": "online",
+      "team": "solo/team",
+      "prize": "$25,000 in cash",
+      "hiring_link": false,
+      "apply_deadline": null,
+      "submit_deadline": "2027-01-13",
+      "result_date": null,
+      "status": "open",
+      "url": "https://cloud9.devpost.com/",
+      "evidence": [
+        "Devpost 상세(2026-11-19): 'Who can participate: Above legal age of majority in country of residence / All countries/territories, excluding standard exceptions'(한국 제외 없음, Students-only 아님) + '$25,000 in cash' + 'Deadline 2027년 1월 13일 @ 4:00am GMT+9' + '55 more days to deadline' — 이스포츠(Cloud9 VALORANT·Game Changers·LoL) 코칭 툴·스카우팅 엔진·미니게임 빌드, JetBrains IDE + 'JetBrains Air in IDEs to work with coding agents like Junie, Codex or Claude' AI 코딩 에이전트 활용 장려(필수 아님), 공식 e스포츠 데이터 GRID 제공, themes Databases/Gaming/ML·AI"
+      ],
+      "source": "devpost-api",
+      "review": "confirmed"
+    },
+    {
+      "id": "ko-0036",
+      "type": "competition",
+      "title": "2027 지역 창업 솔버톤 - AI가 깨우는 지역의 불씨",
+      "host": "서울대학교 대학연대 지역인재양성사업단(IITD)",
+      "ai_usage": "required",
+      "format": "online",
+      "team": "1~5인 팀(연령 제한 없음)",
+      "prize": "총 4,000만원 + 투자 확약 연계",
+      "hiring_link": false,
+      "apply_deadline": "2026-11-28",
+      "submit_deadline": null,
+      "result_date": "2027-01-18",
+      "status": "open",
+      "url": "https://www.wevity.com/?c=find&s=1&gbn=view&gp=2&ix=112402",
+      "evidence": [
+        "위비티 상세(2026-11-19): 대회명 'AI가 깨우는 지역의 불씨' + 'AI 역량(AQ) 진단: 인큐베이팅 전후 AI 활용 역량 진단, 개인 리포트 제공' + '총 상금 4,000만 원' + 투자 확약·VC 오피스아워 — 모집 2026.11.16~11.28, 결선 2027.1.18. 지원: 수도권 외 대학(원) 재학생·졸업 3년 이내(팀원 과반 지역대학 출신이면 수도권 대학 출신 포함 가능) 또는 예비 창업자·기창업자(창업 3년 이내)·학생 창업팀. 홈페이지 underdogsteam.notion.site"
+      ],
+      "source": "wevity",
+      "review": "confirmed"
+    },
+    {
+      "id": "ko-0037",
+      "type": "contest",
+      "title": "디어비 글로벌 런칭 공모전 (AI 캐릭터·테마 창작)",
+      "host": "DEARBE Corp. (디어비)",
+      "ai_usage": "required",
+      "format": "online",
+      "team": "개인(수상 1인 1작품, 출품 수 제한 없음)",
+      "prize": "총 1,500만원 (대상 500만·우수 3×200·장려 4×100)",
+      "hiring_link": false,
+      "apply_deadline": "2026-11-22",
+      "submit_deadline": "2026-11-22",
+      "result_date": "2026-12-08",
+      "status": "open",
+      "url": "https://www.wevity.com/?c=find&s=1&gbn=view&gp=1&ix=112313",
+      "evidence": [
+        "위비티 상세(2026-11-19): \"AI 컴패니언 채팅 플랫폼 '디어비'에서 이용자와 대화하는 나만의 AI 캐릭터·테마를 만들어 출품하는 창작 공모전\" + '캐릭터 제작 메뉴에서 컨셉 한 줄 작성 시 AI 기능을 통해 성격, 세계관 등 초안 자동 완성 가능' + 접수 11.2~11.22 23:59(KST)·심사 11.23~12.4·발표 12.8 — 지원자격: 한국·일본·미국·홍콩·대만 거주 성인(미성년자 불가)"
+      ],
+      "source": "wevity",
+      "review": "confirmed"
+    },
+    {
+      "id": "global-0026",
+      "submit_deadline": "2026-11-19",
+      "status": "open",
+      "evidence": [
+        "Devpost 상세(2026-11-19 실측): '2 more hours to deadline' + 'Deadline 2026년 11월 19일 @ 5:00am GMT+9' — 데이터상 마감 11-18에서 11-19(05:00 KST)로 정정(시간대 차이/연장). 마감일 당일 생존 취급 — open 리스트 잔존, 11-20 런에서 이탈 확인 후 종결"
+      ]
+    },
+    {
+      "id": "wevity:112155-ai-fusedu-platform-naming",
+      "status": "closed",
+      "evidence": "위비티 본리스트 '마감(end)' 배지 실측(2026-11-19) — AI·융합교육 신규 통합 플랫폼 네이밍 공모전(한국과학창의재단), 접수마감 2026-11-18 경과"
+    }
+  ],
+  "sources": [
+    {
+      "id": "devpost-api",
+      "method": "fetch",
+      "pages": 0,
+      "result": "open 62건 스윕 — 신규 채택 1: Cloud9 x JetBrains Sky's The Limit(31571, $25k, 마감 2027-01-13, Online 전 세계·표준 예외만 제외·성년, AI 코딩 에이전트 장려) · deadline_changed 1: Meta VR global-0026 실측 마감 11-19 05:00 KST('2 more hours to deadline', 데이터 11-18→11-19 정정, D-0 생존 — 11-20 런 종결) · 미채택 신규 판정 5: OBSCURA 위성 AI(Students only $50)·Build with AI Pico Space Program(포함국가 US·캐나다(퀘벡 제외)·EU/EEA·UK·스위스·튀르키예 — 한국 불포함)·AI@UCF Semester Sprint(Students only+US only)·2026-2027 Fall ESE Senior Design(UPenn 오프라인 과목 쇼케이스)·RAMHACK Mini 2026(Fordham Lincoln Center 오프라인) · 기존 선례 재노출 27(305 Veterans 11-07·CSC Winter Sparkathon 11-09·HETIC·HackOut·KUK·MCA·Syntax Summit 등) · 기추적 open 20 전수 잔존 확인(종결 0)"
+    },
+    {
+      "id": "daker-api",
+      "method": "fetch",
+      "pages": 0,
+      "result": "24건 — 신규 0: published 4 중 ko-0035 제주 AI Agent(등록 11-20 D-1 진행)·ko-0001 KIC(judging) 기추적, 소재연구데이터(reg 11-13)·AI 플랫폼 구축(reg 10-25) 등록마감 경과 채택 제외 승계"
+    },
+    {
+      "id": "hn-algolia-hiring",
+      "method": "fetch",
+      "pages": 0,
+      "result": "514 stories — 최신 스레드 11월(50338728), 12월 스레드 미개시(12/1 T3 파싱 대기)"
+    },
+    {
+      "id": "gnews",
+      "method": "fetch",
+      "pages": 0,
+      "result": "kr 5개+en 1개 피드 파싱 — 신규 0: 후보 2건 실측 전부 미채택(인천대 제2회 물류AI해커톤대회: 동북아국제통상물류학부 재학생 한정·11-13 개최 종료 / NVIDIA AI Day Seoul 2026: 11-9~10 코엑스 개최 종료·등록 조기 마감) — kr-1 올리브영 AI 과제 전형 보도는 7월 기존 이슈(seed-kr-01 기추적), kr-3 호남 IS 코딩챌린지 등 성료 기사, 나머지 비AI/과거 기사"
+    },
+    {
+      "id": "wevity-fetch",
+      "method": "fetch",
+      "pages": 0,
+      "result": "본리스트 gp 1-85 스윕(유니크 ix 1,275, 15/p) + AI 검색(sw=AI) 180건 — 신규 채택 2: 112402 지역 창업 솔버톤(ko-0036, AI 주제·총상금 4천만·11-28 마감·결선 1-18)·112313 디어비 글로벌 런칭(ko-0037, AI 캐릭터 창작·총 1,500만·11-22 마감) · 종결 1: 112155 네이밍 '마감(end)' 배지 · 112128 전북 뮤직쇼츠 D-0 생존('마감임박' 배지 — 11-20 런 종결 확정) · 미채택: 112400 한남대 지역문제 아이디어(참가대상 '권역 내 (예비)창업자' 한정·D-1)·112318 MOBIS Robotics Challenge(상세 본문 AI 미언급·대학생 한정 하드웨어 경진)·111065 AI와 신학 논문('AI에 관한 글쓰기'로 AI로 만들기 범위 밖)·110817 플라이하이 AI 패션(고교생 한정)·103817 파킨슨 AI 리빙랩(서포터즈)·112330 대만 관광영상(비AI) + SPECIAL 캐러셀 광고(교정의 신 등)·신춘문예·마감 경과 다수"
+    },
+    {
+      "id": "jobkorea-mobile",
+      "method": "browser",
+      "pages": 9,
+      "result": "m검색 사전과제(772건·30/p)+바이브코딩 — 신규 채택 1: 노아에이티에스 50384587(2027 공채 16기, 전형절차 '사전과제 제출(서류 합격자에 한함)' + '전 과정에 AI(LLM) 기반 바이브코딩 방법론 도입', 마감 11-30, 11-19 게시 신규) · 미채택: 50383503 파괴연구소(카피라이터·디자이너, 포트폴리오만·과제 전형 없음)·50346363 로젠('개선과제 발굴'·'사전 준비' 노이즈, 전형절차 없음)·50389261 이엔티팩토리(모집분야 'AI 활용 개발자 바이브코딩 개발 풀스택'이나 과제 전형 문구 없음·포트폴리오) — 메타빌드(11-15 과제 단계 없음)·누리아이(11-15)·망고스토리(11-18)·LS ITC(11-18)·동화약품(11-12)·빅레그·에픽카(iframe 빈값 선례) 승계"
+    },
+    {
+      "id": "wanted",
+      "method": "browser",
+      "pages": 2,
+      "result": "사전과제 검색 3건(한프카 플랫폼 개발자 기추적 wd390319·언어발전소 임상연구 PM 연구과제 노이즈 선례·인터엑스 B2G 정부과제 Pre-Sales 노이즈) + AI 과제 검색 15건 전부 정부 R&D 과제 컨설팅/PM 노이즈(디써클·페르소나에이아이·한국딥러닝·현대차 AX 등) — 신규 0"
+    },
+    {
+      "id": "jumpit",
+      "method": "browser",
+      "pages": 6,
+      "result": "⚠️ 도메인 변경 발견: jumpit.co.kr → jumpit.saramin.co.kr 301 리다이렉트(사람인 통합), /positions?keyword= 직접 URL은 키워드 탈락(헤더 검색 UI → /search?keyword= 랜딩 필요) — 사전과제 퍼지 상위 상세 3건 전부 무과제(55530192 케이더블유이코리아: 서류>코딩테스트>역량검사>면접 = 실시간형·55491439 아이제라 AI 서비스 PM: 서류>면접·55592664 인젠트 AI 개발: 서류>1차>2차) — 신규 0 · 코어시큐리티 55357203 D-1 노출(R&D 과제 노이즈 선례 11-18 승계)"
+    },
+    {
+      "id": "revisit-queue",
+      "method": "fetch",
+      "pages": 0,
+      "result": "D-3 마감 임박 리스트 생존 확인(잡코리아 검색 노출 기반): 오로라월드 50213617 11-20 D-1 · 데이터드리븐 55361658·에스에스알 50222686 11-21 D-2(banned 승계 주의) · 한프카 50326430·씨어스 50228434·50228417 11-22 D-3 · 이벤트 11-19 마감 1(뮤직쇼츠 D-0 생존)·11-20 마감 9(Dakar·제주 ko-0035·제천·대구기후·용산·사회보장·제주리터러시·성평등·AI달인s4 D-1)·11-21 STEM2Connect D-2 — festa.io 스텁 11일째(12/1 T3 퇴출 확정)"
+    }
+  ],
+  "notes": "정상 런(last_run 11-18, 1일 갭). 신규 공고 1(노아에이티에스 2027 공채 — 사전과제 전형 + AI(LLM) 바이브코딩 방법론 명시, required) · 신규 이벤트 3(Cloud9×JetBrains global-0052 $25k 1-13 · 지역 창업 솔버톤 ko-0036 AI 주제 4천만 11-28 · 디어비 글로벌 런칭 ko-0037 AI 캐릭터 창작 1,500만 11-22) · 정책 변경 0 · 종결 1(wevity:112155 네이밍 '마감' 배지) · D-3 임박: 공고 6(오로라 11-20, 데이터드리븐 banned·에스에스알 11-21, 한프카·씨어스 2건 11-22) + 이벤트 11(뮤직쇼츠 11-19 D-0 생존, Meta VR 11-19 05:00 KST 마감 정정·D-0 생존, 11-20 9건 D-1, STEM2Connect 11-21 D-2) · needs_review 0 · 방문 31/80(Devpost 상세 6 + 위비티 상세 7 + 잡코리아 9 + 원티드 2 + 점핏 6 + 잡코리아 www 총건수 1) · CANARY 전 지표 OK(wevity 15/p·유니크 1,275[gps 1-85 확장 스윕], devpost open 62, daker 24, 잡코리아 사전과제 772·30/p, HN 514) · 실패 소스: festa.io 200 'Coming Soon' 스텁 11일째(12/1 T3 퇴출). 운영 발견 2건: ① Meta VR 마감 시간대 정정(데이터 11-18 → 실측 11-19 05:00 KST) — Devpost 마감 기록은 KST 표시 기준으로 남기고 evidence에 시각 명기 ② 점핏 도메인 jumpit.saramin.co.kr 리다이렉트 + 직접 ?keyword= URL 무효(검색 UI 경유 필수). 다음 런: (1) 11-20 종결 확정 3: Meta VR global-0026(Devpost open 리스트 이탈 확인)·네이밍 승계 완료·전북 뮤직쇼츠 112128(D+0 배지/이탈) (2) 11-21 런 대량 종결 + T2 필수(11-14 공백 만회 — 씽유·링커리어·DoraHacks·MLH·programmers-competitions·dacon; programmers는 JS 렌더): 11-20 마감 9(Dakar·제주 ko-0035·제천·대구기후·용산·사회보장·제주리터러시·성평등·AI달인s4 당일 D-0 생존 확인 후 종결 원칙) + 오로라 50213617 + STEM2Connect global-0023 11-21 (3) 11-22 런: 데이터드리븐 55361658 종결(banned 승계 기록)·에스에스알 50222686·씨어스 50228434·50228417·한프카 50326430·디어비 ko-0037(전부 11-22) (4) 11-23 런: 엘리스 111915·경산 112022·KICET 111819 종결 + 세종사이버 AI불씨 112285 개시 감시(upcoming→open) + 솔버톤 ko-0036 마감 임박(D-5) (5) 12/1 T3: festa.io 퇴출 + HN 12월 스레드(50338728 다음) + 소스 성과 리포 + 점핏 도메인 변경 sources.json 반영 오너 보고"
+}

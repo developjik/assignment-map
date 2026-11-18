@@ -2,19 +2,19 @@
   "schema_version": "0.1",
   "seed_date": "2026-10-24",
   "research_date": "2026-10-11",
-  "last_run": "2026-11-18",
+  "last_run": "2026-11-19",
   "counts": {
     "platforms": 29,
-    "postings": 54,
+    "postings": 55,
     "news": 30,
-    "events": 156
+    "events": 159
   },
-  "note": "daily routine active (P3) — last run 2026-11-18.",
+  "note": "daily routine active (P3) — last run 2026-11-19.",
   "events_breakdown": {
     "status": {
       "judging": 11,
-      "open": 66,
-      "closed": 74,
+      "open": 68,
+      "closed": 75,
       "upcoming": 5
     },
     "hiring_link": 4

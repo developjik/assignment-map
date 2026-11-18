@@ -2031,5 +2031,43 @@
       }
     ],
     "merged_into": "jobkorea:50213617"
+  },
+  {
+    "id": "jobkorea:50384587",
+    "source": "jobkorea",
+    "company": "노아에이티에스(Noah ATS)",
+    "title": "노아에이티에스 2027년 공채 16기 신입사원 채용(개발자, 컨설턴트)",
+    "positions": [
+      "backend",
+      "frontend"
+    ],
+    "positions_raw": "개발자, 컨설턴트",
+    "assignment_type": "pre_assignment",
+    "ai_policy": "required",
+    "evidence": [
+      {
+        "quote": "GI_Read iframe(2026-11-19): 전형절차 '서류전형 → 사전과제 제출 (*서류 합격자에 한함) → 1차 실무면접 → 2차 최종면접' + 일정 '공고게시 및 서류접수: 2026.11.19(목)~2026.11.30(월) / 서류전형 결과발표 및 사전과제 배포: 2026.12.03(목)'",
+        "field": "assignment"
+      },
+      {
+        "quote": "GI_Read iframe(2026-11-19): '차세대 통합 패키지를 개발 중이며, 요구사항 정의부터 배포까지 전 과정에 AI(LLM) 기반의 바이브코딩 방법론을 도입하여 개발의 패러다임을 바꾸고 있습니다. 단순히 문법을 암기하여 코딩하는 개발자를 찾는 것이 아닙니다. AI라는 강력한 조력자와 함께, 복잡한 금융 로직을 시스템에 녹여낼 수 있는 스마트한 엔지니어를 찾습니다' — 자산운용 시스템 전문기업(보험사·중앙은행·연기금 고객)",
+        "field": "policy"
+      }
+    ],
+    "url": "https://www.jobkorea.co.kr/Recruit/GI_Read/50384587",
+    "deadline": "2026-11-30",
+    "status": "open",
+    "review": "confirmed",
+    "first_seen": "2026-11-19",
+    "last_seen": "2026-11-19",
+    "last_checked": "2026-11-19",
+    "check_cadence": "daily",
+    "history": [
+      {
+        "date": "2026-11-19",
+        "event": "created",
+        "ai_policy": "required"
+      }
+    ]
   }
 ]
