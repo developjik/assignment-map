@@ -18,3 +18,5 @@ React 18 + Rollup 3 (순수 JS 툴체인, 네이티브 바이너리 없음 — �
 - 미니파이: terser 적용 (dist assets/app.js 약 740KB)
 - 렌더: ReactDOM.render 동기 렌더 사용 (임베디드 브라우저에서 createRoot 동시성 커밋 무음 스톨 관측, 2026-10-24. 재전환 검토 필요)
 - 확인: `npm run preview` → http://127.0.0.1:4173
+- 지원 파이프라인: `components/PipelineBar.jsx`가 목록 위 한 줄로 `관심·과제중·제출완료·미설정` 건수를 세고(계산은 `src/lib/pipeline.js` 순수 함수), 칩 클릭은 필터 팝오버의 `내 진행`(`prog`)과 같은 축이다 — 재클릭 해제, 해시 `#prog=` 공유. 관심·과제중 중 D-3 이내는 `임박 n`으로 강조
+- AI 전략 프롬프트: `components/StrategyCopy.jsx` + `src/lib/strategy.js`가 공고 사실(회사·포지션·마감·AI 정책·전형·근거·원문)과 포지셔닝을 묶어 여섯 가지 요청이 담긴 프롬프트를 만든다. 복사는 `src/lib/clipboard.js`(클립보드 API → execCommand 폴백, 둘 다 막히면 전문 선택 시트)
