@@ -1,21 +1,66 @@
 [
   {
-    "id": "news-feed-e9870f8b58",
-    "topic": "네이버",
-    "tag": "통계",
-    "content": "LG U+, AI 코딩 비용 최대 90% 절감 실증…내년 B2B 사업 추진 : 네이버 블로그",
-    "date": "2026-11-17",
-    "source": "Naver Blog",
-    "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxPaUVtTnZGMFQ1UFFuLWJRUGlhNTdCVHBYWWJ1ejN4RUI3emt1ZExnZXRCamxqM3NzeXBfbzA1QzVwdmhNUURxTEp3Q3NPSHVPeENWMmtHRWF5Q0NfX1hWVVhqQTRLVGE4bHRVN1MwOWthcE9XTkdmWUJHNV9ZdGhxVDJqLW1aS2xNN1p3RVFnVQ?oc=5"
+    "id": "news-feed-9c47a52d6d",
+    "topic": "AI 해커톤",
+    "tag": "업계",
+    "content": "아이디어 넘어 실전 서비스로…한국앤컴퍼니 AI 해커톤 2라운드",
+    "date": "2026-11-18",
+    "source": "전기신문",
+    "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE1kdHlxY01HV21rbTJlclR1VHpmSnZYY3BGZk15UzJSVHZIRWJsSlZfZlllcjY1UE1IendRTm5lYWJpcVNJeE5YQ2tGZG5CWTA1V29VcERINVo4WFpnWlZ4N0hOQWxPX3FGQ1g2N3JVU0fSAXBBVV95cUxNZHR5cWNNR1dta20yZXJUdVR6Zkp2WGNwRmZNeVMyUlR2SEVibEpWX2ZZZXI2NVBNSHp3UU5uZWFiaXFTSXhOWENrRmRuQlkwNVdvVXBESDVaOFhaZ1pWeDdITkFsT19xRkNYNjdyVVNH?oc=5"
   },
   {
-    "id": "news-feed-f26f2a4dfd",
+    "id": "news-feed-27764df690",
+    "topic": "구글",
+    "tag": "업계",
+    "content": "구글 “북한 해커, 기업 AI 코딩 도구 설정 조작해 악성코드 유포”",
+    "date": "2026-11-18",
+    "source": "VOA 한국어 홈페이지",
+    "url": "https://news.google.com/rss/articles/CBMigAFBVV95cUxNZlQycGhMUG9wM2xBSEprU1VOSTZSdFJjT3h2RnBOWW5aeG45QUxheGFFZmoycW1kMUR2cFBXeGh5MERDRGM4d0N4V21VT2NYalhVTTdxR0JEYUx3LV9xall4VHc5blB4ZXdZZXNEdHNTY2R4cVBYZVI1YUk5cWVhS9IBgwFBVV95cUxQV1BueE5fbm1MWkFUWXRYcmp6VkVGOHdvTzgxbXU2T2tvZGFuaFdSbkJSeHp4dHRZOWFwZ0t6TWpmRUI1MHg4WUdRTWFiQmRiOHNlS2tmVXpnY1BtVmo4N0tfRDRvOEtTUHd3eXZDWkp4Xy14UXB3aENtNUpKa0R0TEtoTQ?oc=5"
+  },
+  {
+    "id": "news-feed-75ed533b5a",
     "topic": "AI 업계 동향",
     "tag": "업계",
-    "content": "Broadening access to AI for scientists",
+    "content": "AI is blurring the lines between CIO, CISO and CRO",
     "date": "2026-11-17",
+    "source": "CIO",
+    "url": "https://www.cio.com/article/4249210/ai-is-blurring-the-lines-between-cio-ciso-and-cro.html"
+  },
+  {
+    "id": "news-feed-a158b0c85f",
+    "topic": "AI 면접",
+    "tag": "정책",
+    "content": "세컨드팀, 슈퍼코더 AI 면접대회 개최···수상자 “기술 변화 경험하는 좋은 기회”",
+    "date": "2026-11-17",
+    "source": "동아일보",
+    "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTFA4dk5GQkFtUVlJTXI1MWNQTmx2YXpsbk9vQ0M3aUZvY0piZ0hiVW5aS3Q5b3JNaXBKbFNBR0l6aXpvNkdQSjBZNU5JS2lha0dOSHBfUmZMZ192TW1MQllLVGVCRUtKc2hHand1a0pnWdIBZkFVX3lxTFBLalFHZ3B5NnZSaXJhYzlVTXNxdERPUzN0ZEh1ZGxCdG0xUHMzalh4WkNHdVZCNU9oOWQ4YlFMdUlQVGtXU2VPMGplVzJJZkdQcWNBcWRvMFp2T3ZPS0ROLU53X2pLUQ?oc=5"
+  },
+  {
+    "id": "news-feed-0124a6b5af",
+    "topic": "AI 공모전",
+    "tag": "업계",
+    "content": "대구문화예술진흥원 감사서 AI 공모전 공정성·장애인 고용 등 점검",
+    "date": "2026-11-17",
+    "source": "서울경제TV",
+    "url": "https://news.google.com/rss/articles/CBMiZEFVX3lxTE9oTlNzT3VXazJpUkdLejYyaWxJbHY1TXA5MWZJNXhKemhJTWpwWkNKR0I1MFlwb1RETk1VcjBoeTE2VVlZQ2NnaS02WEktc3BmR2RCMFJVdjBDWGVTendfS3VBcXI?oc=5"
+  },
+  {
+    "id": "news-feed-5187ca4686",
+    "topic": "AI 경진대회",
+    "tag": "업계",
+    "content": "JB금융그룹, 총상금 1억4000만원 AI 경진대회 성료… 비개발자 ‘바이브 코딩’으로 실전 도구 빚어냈다",
+    "date": "2026-11-16",
+    "source": "비즈트리뷴",
+    "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE9hakNYd19BODZtTldMaGF0cEtGRkVnWTBpRHRka05STnZfajhaZk02bGgzaklqTlh4M2ZIVVMySEtBTFNCay1CdXFtdEpHejdyS29CWXNlbm8tcGQtbGJkUjZFWmNQVDNPam14dHRkYTE?oc=5"
+  },
+  {
+    "id": "news-feed-f054a54f82",
+    "topic": "OpenAI",
+    "tag": "통계",
+    "content": "How Revolut raises ambition without lowering the bar",
+    "date": "2026-11-16",
     "source": "OpenAI",
-    "url": "https://openai.com/index/expanding-chatgpt-for-academic-researchers"
+    "url": "https://openai.com/business/customer-stories/revolut"
   },
   {
     "id": "news-feed-07da3f4e50",
@@ -36,6 +81,24 @@
     "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE8wVGRyRkJyWEQzY05NRXdCNk5XNG12WTlhcS1WaGtSVmlEQkp4STBPZlBOWWNDbVdKMTRnR3FXc0k5YVpNaXl4cjJRQ2NjZjZmTDdrR3I3bHRGVHZoMUJQc2xWTTB2X2ZZQzBocw?oc=5"
   },
   {
+    "id": "news-feed-c50e217207",
+    "topic": "AI 채용",
+    "tag": "정책",
+    "content": "사람인, AI 채용 전 과정으로 사업 확대…기업 구매 발생·HR 솔루션 수익화 본격 추진",
+    "date": "2026-11-16",
+    "source": "업코리아",
+    "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTE9qNEoyV3ZldjdVbUNtVlZwSVh6QUF3U0tLcS1HaXlUNzhsOTlWeHJTQVNjR21iNUY5Wm1FZ0ZPVGpWWG40WUk2Qk9RRzJrcXlzX3ZabVFVaVdKcWJVbV9vZlczTDlZM1J3WWFfUmtn?oc=5"
+  },
+  {
+    "id": "news-feed-eb12ca0736",
+    "topic": "AI 면접",
+    "tag": "통계",
+    "content": "영국 노동자 다수, AI 채용 면접에 불편함 느낀다는 조사 결과",
+    "date": "2026-11-15",
+    "source": "Mezha.net",
+    "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxPcHRqXzRUbFhDbzZJSlpkcDFSakpCYzFDS25MTWYyMWJ6M1FMX2VvVmlRM2phZTVSLXhQQmUxcmFYd2xfTVNucG9yV3VJbnRiZWRnRTVQZG5MLVVhalI5Qk9LaWI3ZF9qcVd2azRUOHc1SDV0YVY5eUp2RnJORWVDSVZBLU9OVy1ESjhlQ3VxYWZuN2ZHR2FYN0l6bw?oc=5"
+  },
+  {
     "id": "news-feed-acd5e3dfca",
     "topic": "AI 업계 동향",
     "tag": "업계",
@@ -45,6 +108,15 @@
     "url": "https://www.cio.com/article/4247042/ciscos-4-pillars-to-achieve-agentic-ai-transformation.html"
   },
   {
+    "id": "news-feed-234ebb798b",
+    "topic": "AI 면접",
+    "tag": "정책",
+    "content": "면접 연습은 AI, 실전은 사람과…Z세대 취준생이 원하는 채용 면접은?",
+    "date": "2026-11-13",
+    "source": "피앤피뉴스",
+    "url": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE9fUTNCUF9vaVZFRUZiS1htWjF2LVZTWWRsY2xCbktpeHNUYkFqbEFuVkw2d19KRXBsZEFzaTFEMDJFMVl0aTUwMXhkZDhkM2NEMWN4QkZnYzhkWDQ2Z2c?oc=5"
+  },
+  {
     "id": "news-feed-5b0f73df89",
     "topic": "OpenAI",
     "tag": "업계",
@@ -52,24 +124,6 @@
     "date": "2026-11-13",
     "source": "OpenAI",
     "url": "https://openai.com/business/customer-stories/amplitude"
-  },
-  {
-    "id": "news-feed-25024f62e2",
-    "topic": "바이브코딩",
-    "tag": "업계",
-    "content": "한남대, 대전창업 One 클럽 AI바이브코딩 경진대회 성료",
-    "date": "2026-11-11",
-    "source": "충남일보",
-    "url": "https://news.google.com/rss/articles/CBMic0FVX3lxTFBkNmNrTnhJVU5LdG9WcVljTkh4SlI5NGlCMGNRYm9oWHJNbmtpblduMmpLa1ZMbzZjOEUwMXRuM3BjTzB5N1NQbjhBa0tnY0FqaFBXdEYwSnpNNTJUaDRGTkF6ZFFqMThzX0lIVzlpQlJlbVk?oc=5"
-  },
-  {
-    "id": "news-feed-be77c96c39",
-    "topic": "Google",
-    "tag": "업계",
-    "content": "Our newest AI Quest: Mapping the human brain",
-    "date": "2026-10-27",
-    "source": "Google AI",
-    "url": "https://blog.google/products-and-platforms/products/education/ai-quests-polar-peaks/"
   },
   {
     "id": "news-policy-01",
