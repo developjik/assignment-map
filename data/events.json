@@ -1287,7 +1287,7 @@
     "source": "devpost",
     "first_seen": "2026-10-24",
     "last_checked": "2026-11-12",
-    "check_cadence": "weekly",
+    "check_cadence": "daily",
     "review": "confirmed",
     "history": [
       {
@@ -2255,17 +2255,17 @@
     "apply_deadline": null,
     "submit_deadline": "2026-11-19",
     "result_date": null,
-    "status": "open",
+    "status": "closed",
     "url": "https://start-developer-competition-26.devpost.com/",
     "evidence": [
-      "Devpost 상세(2026-11-19 실측): '2 more hours to deadline' + 'Deadline 2026년 11월 19일 @ 5:00am GMT+9' — 데이터상 마감 11-18에서 11-19(05:00 KST)로 정정(시간대 차이/연장). 마감일 당일 생존 취급 — open 리스트 잔존, 11-20 런에서 이탈 확인 후 종결"
+      "Devpost ?status=open 8페이지 전수 스윕(2026-11-20, total 62)에서 이탈 — Meta VR Start Developer Competition 2026, 실측 마감 2026-11-19 05:00 KST(11-19 런 '2 more hours to deadline' 확인·deadline_changed 기록 승계)"
     ],
     "source": "devpost",
     "review": "needs_review",
     "note": "VR Start 프로그램 가입자 대상 여부 확인 필요",
     "first_seen": "2026-10-25",
-    "last_checked": "2026-11-19",
-    "check_cadence": "daily",
+    "last_checked": "2026-11-20",
+    "check_cadence": "none",
     "history": [
       {
         "date": "2026-10-25",
@@ -2278,6 +2278,12 @@
         "field": "submit_deadline",
         "from": "2026-11-18",
         "to": "2026-11-19"
+      },
+      {
+        "date": "2026-11-20",
+        "event": "status_changed",
+        "from": "open",
+        "to": "closed"
       }
     ]
   },
@@ -3632,22 +3638,28 @@
     "apply_deadline": "2026-11-19",
     "submit_deadline": "2026-11-19",
     "result_date": null,
-    "status": "open",
+    "status": "closed",
     "url": "https://www.wevity.com/?c=find&s=1&gbn=view&gp=1&ix=112128",
     "evidence": [
-      "위비티 상세(2026-11-04): '우리 지역(전북 14개 시·군)을 소재로 AI로 만든 음악에 영상·사진·자막을 결합한 30초~60초 세로형 쇼츠 뮤직비디오' — AI 생성 음악이 출품의 핵심 요건. 모집 기간 2026.11.2(월)~11.19(목) 24:00, 지원 자격 '전북에 빠진 누구나'"
+      "위비티 본리스트 gp 1-85 전수 스윕(2026-11-20) D+0 '마감' 배지 실측 — 전북에 빠졌쏭 AI 뮤직쇼츠 공모전, 접수마감 2026-11-19 경과(11-19 런 D-0 '마감임박' 생존 확인 승계)"
     ],
     "source": "wevity",
     "note": "홈페이지 https://jb-ai.kr/2026-song. 주제: 전북의 매력·맛·문화·활력·사람·내일 등 6분야+자유. 11/2 개시 신규(ix 112128)",
     "first_seen": "2026-11-04",
-    "last_checked": "2026-11-04",
-    "check_cadence": "daily",
+    "last_checked": "2026-11-20",
+    "check_cadence": "none",
     "review": "auto",
     "history": [
       {
         "date": "2026-11-04",
         "event": "created",
         "status": "open"
+      },
+      {
+        "date": "2026-11-20",
+        "event": "status_changed",
+        "from": "open",
+        "to": "closed"
       }
     ]
   },
@@ -4798,7 +4810,7 @@
     "review": "confirmed",
     "first_seen": "2026-11-12",
     "last_checked": "2026-11-12",
-    "check_cadence": "weekly",
+    "check_cadence": "daily",
     "history": [
       {
         "date": "2026-11-12",
@@ -5459,6 +5471,68 @@
     "history": [
       {
         "date": "2026-11-19",
+        "event": "created",
+        "status": "open"
+      }
+    ]
+  },
+  {
+    "id": "ko-0038",
+    "type": "hackathon",
+    "title": "INNO-CODER AI HACKATHON - 일상 속 아이디어를 AI로 웹·앱 서비스로",
+    "host": "(재)운당나눔재단 × (재)울산창조경제혁신센터 (운영 팀모노리스)",
+    "ai_usage": "required",
+    "format": "offline",
+    "team": "팀(2~3인)",
+    "prize": "총 200만원 (대상 80만·최우수 50만·우수 30만·장려 2×20만)",
+    "hiring_link": false,
+    "apply_deadline": "2026-11-29",
+    "submit_deadline": "2026-11-29",
+    "result_date": "2026-12-06",
+    "status": "open",
+    "url": "https://www.wevity.com/?c=find&s=1&gbn=view&gp=1&ix=112474",
+    "evidence": [
+      "위비티 상세(2026-11-20): '일상 속 아이디어를 AI로 웹, 앱 서비스로 만들어 보는 1박 2일 해커톤입니다. 코딩을 한 번도 안 해 봤어도 괜찮습니다. AI에게 말로 설명하며 내 서비스를 직접 만들어 봅니다' + '주최 측 제공 AI 플랫폼 사용' — 접수 2026.11.19~11.29(접수순 10개 팀 내외), 해커톤 12.5(토)~12.6(일) 울산 관내 호텔. 지원자격 '고등학생, 대학생 재학생 및 예비창업자 / 팀원 중 1명 이상이 울산에 거주하거나 울산 소재 학교에 재학 중이면 타지역 팀원도 참여 가능' — 1박 2일 숙박·식사 제공"
+    ],
+    "source": "wevity",
+    "review": "confirmed",
+    "first_seen": "2026-11-20",
+    "last_checked": "2026-11-20",
+    "check_cadence": "daily",
+    "history": [
+      {
+        "date": "2026-11-20",
+        "event": "created",
+        "status": "open"
+      }
+    ]
+  },
+  {
+    "id": "ko-0039",
+    "type": "contest",
+    "title": "밀양아리랑대축제 AI 포스터 공모전",
+    "host": "밀양시 (관광진흥과)",
+    "ai_usage": "required",
+    "format": "online",
+    "team": "개인(1인 1점)",
+    "prize": "총 90만원 (최우수 50만·우수 2×20만)",
+    "hiring_link": false,
+    "apply_deadline": "2026-12-11",
+    "submit_deadline": "2026-12-11",
+    "result_date": "2026-12-18",
+    "status": "open",
+    "url": "https://www.wevity.com/?c=find&s=1&gbn=view&gp=1&ix=112439",
+    "evidence": [
+      "위비티 상세(2026-11-20): '공모주제: AI로 표현하는 밀양아리랑대축제의 매력' + '공모내용: 생성형 AI를 활용한 축제 홍보용 포스터 이미지 제작' — 참가자격 '밀양아리랑대축제에 관심 있는 누구나(전국, 만 14세 미만 법정대리인 동의)', 접수 2026.11.16~12.11(금) 18:00, 결과발표 12.18"
+    ],
+    "source": "wevity",
+    "review": "confirmed",
+    "first_seen": "2026-11-20",
+    "last_checked": "2026-11-20",
+    "check_cadence": "weekly",
+    "history": [
+      {
+        "date": "2026-11-20",
         "event": "created",
         "status": "open"
       }
