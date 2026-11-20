@@ -1,21 +1,66 @@
 [
   {
-    "id": "news-feed-c199637345",
-    "topic": "AI 해커톤",
-    "tag": "업계",
-    "content": "해시드, AI 해커톤 'OBA RUN' 개최…송금·결제 서비스 등 9개 팀 수상",
+    "id": "news-feed-96ee637afc",
+    "topic": "AI 면접",
+    "tag": "정책",
+    "content": "경북전문대, 맞춤형 취·창업 지원 '잡페스티벌' 개최…AI 면접진단 운영",
     "date": "2026-11-19",
-    "source": "한국경제",
-    "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE1SeWJQRlhOZTNidUg3RmROUmxLUm1ta3ZDcWpPQ2dFdGJwNi1RQTF4NXZDM2ZTWG1GeC1XTUhrQm0xSk9zSEVZV1V2Y3RTa2RpYTNlTFMzQzVoQQ?oc=5"
+    "source": "국제뉴스",
+    "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTE0zRlJtYXZGWTYwa29SZkVOUGhzZEY5S3VPWWd6S3JtRWdWblpDM25ia2xKc1hQYkxPRkdFdnJhUGlXRS1IeWtFbXNkUUJRdjhFaXhVSElFMVg5Z1lWZnlCR0lxTF8yakU0MjhONEZ3?oc=5"
   },
   {
-    "id": "news-feed-bd945d957b",
+    "id": "news-feed-7c7598b749",
+    "topic": "AI 채용",
+    "tag": "정책",
+    "content": "\"AI가 내 직업 바꾼다면?\"… 그룹바이 AI 채용박람회에 3천 명 몰렸다",
+    "date": "2026-11-19",
+    "source": "머스트 뉴스",
+    "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE9YUUtrVnRzZ0w3YnpPV2tTYnZlcGFTT01UWm8xNWNwMnZ3V1RWa1JocEZwZHE4QmVyVWswRTlzQlhhbUh6Z0FTTlg5OWJxV1NSMUVWYllB?oc=5"
+  },
+  {
+    "id": "news-feed-dd509b36bd",
+    "topic": "AI 코딩 도구",
+    "tag": "정책",
+    "content": "팔로알토 CEO “기업들, AI 코딩 에이전트 보안 해법 아직 못 찾아…통제 체계 필요”",
+    "date": "2026-11-19",
+    "source": "Benzinga",
+    "url": "https://news.google.com/rss/articles/CBMi0AJBVV95cUxOQU94YTFXaUVla1VHalI4Y3cxdGVfWU9YdXE5ZXd2QnZlMkdWSEMwckVld0lSS1hXSVNhVXI3M25BZ01GS1dBQ0hqTlUzbTFTcG52SktfVmcyQUtueVhqV01aQVphaWw2QlRQcDNhNGZOc2RMdDhpY0RmOVZ5Tk9qRzl2RDRNTXNzUm9KXzRlSHZuVURKem5WOVFiaFI1czhpa1NmOWNuZ1pmT1R1SmM1WTJLSUdHdEk2aTNEM1UxdmlyS1lEc053TzF0WGJMMFF2ZHJTT0ZnWHJ6c0RtcTQ5SjR1QzZLMTdYNTNZUGVvSWJTQU5hRy10RUhCSmNxaWJsV3RkXzVCc1dkc0lJb2M4eUJiZXhzekpVeVB6d1ZJOXVlRWdielV3aU11UzlyMHJaamtiT2xDTkI5RkprczRETkFsTEZuaDNoSTlrS3I0VWY?oc=5"
+  },
+  {
+    "id": "news-feed-ae097140d2",
     "topic": "SK",
     "tag": "업계",
-    "content": "Trusted AI by design, not by default",
+    "content": "The dark side of AI in hiring: When job applicants become security threats",
     "date": "2026-11-19",
     "source": "CIO",
-    "url": "https://www.cio.com/article/4243814/trusted-ai-by-design-not-by-default.html"
+    "url": "https://www.cio.com/article/4250367/the-dark-side-of-ai-in-hiring-when-job-applicants-become-security-threats.html"
+  },
+  {
+    "id": "news-feed-f7cc829dc0",
+    "topic": "AI 해커톤",
+    "tag": "업계",
+    "content": "백석문화대, ‘2026 AI 해커톤 대회’ 개최…AI 활용 창의적 아이디어 발굴",
+    "date": "2026-11-19",
+    "source": "충남일보",
+    "url": "https://news.google.com/rss/articles/CBMic0FVX3lxTFBYUjJQYmsyM3dFN3pPUEIyRmk5SXZQMFlTdzlURDF4VFNNT0t1TDFfc2xwdFptWnNDYWhHYi1zX2d2cVpuc0swN0pGNUZmclFnQldsZDBXdW84Um5OdC1sWlNXWFh4clVGXzlFOWY4ekM1a2s?oc=5"
+  },
+  {
+    "id": "news-feed-6687f7be62",
+    "topic": "OpenAI",
+    "tag": "업계",
+    "content": "How OpenAI’s Performance Factory keeps ChatGPT fast",
+    "date": "2026-11-19",
+    "source": "OpenAI",
+    "url": "https://openai.com/index/how-openai-performance-factory-keeps-chatgpt-fast"
+  },
+  {
+    "id": "news-feed-4d316f0cef",
+    "topic": "AI 과제 전형",
+    "tag": "정책",
+    "content": "미래에셋생명, 직원 주도로 AI 과제 37개 추진",
+    "date": "2026-11-19",
+    "source": "코리아리포트",
+    "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTFB3M2xxaldPdDZqaXBJamRXdlNKQTZwd2gyOC04ZTBpY3V6cFdlbi1HTnVMci1GdFRjQl9WeTBsOWFnY0hDSzRpMHVDUFdKVXIxQmJsR3BFaUtJNjRyT2dleVpVRnJCUFNLN3liWWtqcFc?oc=5"
   },
   {
     "id": "news-feed-496d2d6948",
@@ -36,94 +81,49 @@
     "url": "https://blog.google/innovation-and-ai/products/gemini-app/gemini-lower-memory-devices/"
   },
   {
-    "id": "news-feed-d90badd8e9",
-    "topic": "AI 면접",
-    "tag": "정책",
-    "content": "취준생 절반 이상 \"면접관은 사람이어야\"...AI 면접 외면받는 이유",
-    "date": "2026-11-18",
-    "source": "인사이트",
-    "url": "https://news.google.com/rss/articles/CBMiTkFVX3lxTE1YZDNRQjc2QlMzbDRCdExhNV80YjRaNnMxR0s1SFRxUU9qOFlKYlZQVVVRQmdNczVWR2g0ZWVBSDFrS0IwS3NfaGVpdkU4Zw?oc=5"
-  },
-  {
-    "id": "news-feed-fd2d256bac",
-    "topic": "AI 채용",
-    "tag": "정책",
-    "content": "김주영, 청년 고용·노동환경 간담회…“AI 채용·장시간 노동 개선 필요”",
-    "date": "2026-11-18",
-    "source": "포커스경제",
-    "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTFBoVkNaQXdrWThSZ25EMTRjT0M3OGxHMTRXUmowcUFSVlNBMTJGbkY5Vi1OSXhVTjZ5ajFyQWZkOVQwMG1WOWZYdW1RUWt1d3RWZEVJc3lzamdWRW9OM3YtV2tfM1BWNGlNSFNGeG1R?oc=5"
-  },
-  {
-    "id": "news-feed-27764df690",
-    "topic": "구글",
-    "tag": "업계",
-    "content": "구글 “북한 해커, 기업 AI 코딩 도구 설정 조작해 악성코드 유포”",
-    "date": "2026-11-18",
-    "source": "VOA 한국어 홈페이지",
-    "url": "https://news.google.com/rss/articles/CBMigAFBVV95cUxNZlQycGhMUG9wM2xBSEprU1VOSTZSdFJjT3h2RnBOWW5aeG45QUxheGFFZmoycW1kMUR2cFBXeGh5MERDRGM4d0N4V21VT2NYalhVTTdxR0JEYUx3LV9xall4VHc5blB4ZXdZZXNEdHNTY2R4cVBYZVI1YUk5cWVhS9IBgwFBVV95cUxQV1BueE5fbm1MWkFUWXRYcmp6VkVGOHdvTzgxbXU2T2tvZGFuaFdSbkJSeHp4dHRZOWFwZ0t6TWpmRUI1MHg4WUdRTWFiQmRiOHNlS2tmVXpnY1BtVmo4N0tfRDRvOEtTUHd3eXZDWkp4Xy14UXB3aENtNUpKa0R0TEtoTQ?oc=5"
-  },
-  {
-    "id": "news-feed-0124a6b5af",
-    "topic": "AI 공모전",
-    "tag": "업계",
-    "content": "대구문화예술진흥원 감사서 AI 공모전 공정성·장애인 고용 등 점검",
-    "date": "2026-11-17",
-    "source": "서울경제TV",
-    "url": "https://news.google.com/rss/articles/CBMiZEFVX3lxTE9oTlNzT3VXazJpUkdLejYyaWxJbHY1TXA5MWZJNXhKemhJTWpwWkNKR0I1MFlwb1RETk1VcjBoeTE2VVlZQ2NnaS02WEktc3BmR2RCMFJVdjBDWGVTendfS3VBcXI?oc=5"
-  },
-  {
-    "id": "news-feed-5187ca4686",
+    "id": "news-feed-96bfe3513c",
     "topic": "AI 경진대회",
     "tag": "업계",
-    "content": "JB금융그룹, 총상금 1억4000만원 AI 경진대회 성료… 비개발자 ‘바이브 코딩’으로 실전 도구 빚어냈다",
-    "date": "2026-11-16",
-    "source": "비즈트리뷴",
-    "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE9hakNYd19BODZtTldMaGF0cEtGRkVnWTBpRHRka05STnZfajhaZk02bGgzaklqTlh4M2ZIVVMySEtBTFNCay1CdXFtdEpHejdyS29CWXNlbm8tcGQtbGJkUjZFWmNQVDNPam14dHRkYTE?oc=5"
+    "content": "축사 지키는 인공지능 주치의 시대 열렸다… 제4회 스마트축산 AI 경진대회 성료",
+    "date": "2026-11-18",
+    "source": "뉴스N연합",
+    "url": "https://news.google.com/rss/articles/CBMiSkFVX3lxTE5IT1F2NE9tV0NLam1UUWhVZnM5NFUwM3VSa2lTaUE0RTBkSzJReDB4Zi12ZjFpWGJxdU1MLWFWV1pwWk9ITEpuSFln?oc=5"
   },
   {
-    "id": "news-feed-f054a54f82",
-    "topic": "OpenAI",
-    "tag": "통계",
-    "content": "How Revolut raises ambition without lowering the bar",
-    "date": "2026-11-16",
-    "source": "OpenAI",
-    "url": "https://openai.com/business/customer-stories/revolut"
-  },
-  {
-    "id": "news-feed-07da3f4e50",
-    "topic": "바이브코딩",
-    "tag": "업계",
-    "content": "현대오토에버, SI·ITO 성장 속 AI 기술 개발…바이브코딩·에이전트 추진",
-    "date": "2026-11-16",
-    "source": "지디넷코리아",
-    "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE1FNU5nc2xzOXVWdlJQYkZXTUQtQUNWYzVpX3JVc01RTjJuMGRPUm9OS2t6Tk1Udk85MURUWTNmbVo3UmZ0TDR5MzlTZzhtTkwwU29KeFdB?oc=5"
-  },
-  {
-    "id": "news-feed-d116137c16",
-    "topic": "AI 면접",
-    "tag": "정책",
-    "content": "[청년이 말하는 청년노동] AI 면접에 ‘현타’ 취업 뒤엔 ‘번아웃’",
-    "date": "2026-11-16",
-    "source": "매일노동뉴스",
-    "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTFBjb1FJQ2JJTnBMZXB2V3JRelIyVWprRkVHcnRwVHJsSTZSWlo3eVJEeTJWQWhIMVp5NVBaRTh3V1gycmVTclNfbEZINzVRM3VZN010VHVhQVJDYTdfMThxbU4xTnZfRG0xcWZPNnJBQW4?oc=5"
-  },
-  {
-    "id": "news-feed-13b75d6539",
+    "id": "news-feed-147ed3a3b3",
     "topic": "AI 코딩 도구",
     "tag": "업계",
-    "content": "노타, 금융권 특화 AI 코딩 에이전트용 최적화 LLM·서버 공급",
+    "content": "노타, 두베에 금융권 특화 AI 코딩 에이전트용 최적화 LLM·서버 공급",
     "date": "2026-11-16",
-    "source": "e4ds news",
-    "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE9WLWJRWW1vWDktOFNtVlVGcWJKOFhnY0lsOGRRRVJIV0FoSjZFdENrdW55VE1US3RXUXQwWlc3MWE2eU9EM0NJS3Q5ekVHdDVrN0RRblpB?oc=5"
+    "source": "데이터넷",
+    "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE8wVGRyRkJyWEQzY05NRXdCNk5XNG12WTlhcS1WaGtSVmlEQkp4STBPZlBOWWNDbVdKMTRnR3FXc0k5YVpNaXl4cjJRQ2NjZjZmTDdrR3I3bHRGVHZoMUJQc2xWTTB2X2ZZQzBocw?oc=5"
   },
   {
-    "id": "news-feed-234ebb798b",
+    "id": "news-feed-1d77d4fcae",
+    "topic": "AI 코딩 도구",
+    "tag": "업계",
+    "content": "“업무 불편함 AI로 해결”…코스콤, 사내 AI 코딩 해커톤 ‘ㅋㅋ톤’ 개최",
+    "date": "2026-11-16",
+    "source": "매일경제 마켓",
+    "url": "https://news.google.com/rss/articles/CBMiUkFVX3lxTE93XzE3TWhpOXdIVXdhY2hFbEt6dm56WWhQVVFEU1Z4MUYzMWRrVTdQdVQ1ZnZKN0VYSmRCbHdJOTk3eEp1YUlfMU9IclB5UE93TUE?oc=5"
+  },
+  {
+    "id": "news-feed-eb12ca0736",
     "topic": "AI 면접",
-    "tag": "정책",
-    "content": "면접 연습은 AI, 실전은 사람과…Z세대 취준생이 원하는 채용 면접은?",
+    "tag": "통계",
+    "content": "영국 노동자 다수, AI 채용 면접에 불편함 느낀다는 조사 결과",
+    "date": "2026-11-15",
+    "source": "Mezha.net",
+    "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxPcHRqXzRUbFhDbzZJSlpkcDFSakpCYzFDS25MTWYyMWJ6M1FMX2VvVmlRM2phZTVSLXhQQmUxcmFYd2xfTVNucG9yV3VJbnRiZWRnRTVQZG5MLVVhalI5Qk9LaWI3ZF9qcVd2azRUOHc1SDV0YVY5eUp2RnJORWVDSVZBLU9OVy1ESjhlQ3VxYWZuN2ZHR2FYN0l6bw?oc=5"
+  },
+  {
+    "id": "news-feed-5b0f73df89",
+    "topic": "OpenAI",
+    "tag": "업계",
+    "content": "How Amplitude ships product improvements in 1–2 days with OpenAI",
     "date": "2026-11-13",
-    "source": "피앤피뉴스",
-    "url": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE9fUTNCUF9vaVZFRUZiS1htWjF2LVZTWWRsY2xCbktpeHNUYkFqbEFuVkw2d19KRXBsZEFzaTFEMDJFMVl0aTUwMXhkZDhkM2NEMWN4QkZnYzhkWDQ2Z2c?oc=5"
+    "source": "OpenAI",
+    "url": "https://openai.com/business/customer-stories/amplitude"
   },
   {
     "id": "news-policy-01",
