@@ -1650,21 +1650,27 @@
     "apply_deadline": "2026-11-20",
     "submit_deadline": "2026-11-20",
     "result_date": "2026-12-03",
-    "status": "open",
+    "status": "closed",
     "url": "https://www.wevity.com/?c=find&s=1&gbn=view&gp=1&ix=111847",
     "evidence": [
-      "공모주제: '사회보장 데이터·AI를 활용하여 공공성을 추구하는 아이디어 발굴'"
+      "종결 실측(2026-11-21): 위비티 리스트 '마감 D+0' 배지"
     ],
     "source": "wevity",
     "review": "auto",
     "first_seen": "2026-10-24",
-    "last_checked": "2026-10-24",
-    "check_cadence": "daily",
+    "last_checked": "2026-11-21",
+    "check_cadence": "none",
     "history": [
       {
         "date": "2026-10-24",
         "event": "created",
         "status": "open"
+      },
+      {
+        "date": "2026-11-21",
+        "event": "status_changed",
+        "from": "open",
+        "to": "closed"
       }
     ]
   },
@@ -2760,21 +2766,27 @@
     "apply_deadline": "2026-11-20",
     "submit_deadline": "2026-11-20",
     "result_date": null,
-    "status": "open",
+    "status": "closed",
     "url": "https://www.wevity.com/?c=find&s=1&gbn=view&gp=1&ix=111726",
     "evidence": [
-      "'첨단기술 활용한 해결방안 제안' — 공모명에 AI 명시, 첨단기술(AI 포함) 활용 아이디어 공모(allowed). 참가 등록 10/20~11/20"
+      "종결 실측(2026-11-21): 위비티 리스트 '마감 D+0' 배지"
     ],
     "source": "wevity",
     "review": "auto",
     "first_seen": "2026-10-27",
-    "last_checked": "2026-10-27",
-    "check_cadence": "daily",
+    "last_checked": "2026-11-21",
+    "check_cadence": "none",
     "history": [
       {
         "date": "2026-10-27",
         "event": "created",
         "status": "open"
+      },
+      {
+        "date": "2026-11-21",
+        "event": "status_changed",
+        "from": "open",
+        "to": "closed"
       }
     ]
   },
@@ -2868,7 +2880,7 @@
     "review": "auto",
     "first_seen": "2026-10-27",
     "last_checked": "2026-10-27",
-    "check_cadence": "daily",
+    "check_cadence": "archive_candidate",
     "history": [
       {
         "date": "2026-10-27",
@@ -3222,16 +3234,16 @@
     "apply_deadline": "2026-11-20",
     "submit_deadline": "2026-11-20",
     "result_date": null,
-    "status": "open",
+    "status": "closed",
     "url": "https://www.mogefdatacontest.co.kr/index.jsp",
     "evidence": [
-      "위비티 전체리스트 카드 'D-19 접수중'(2026-11-02) — 예정대로 11/2 접수 개시 확인, 접수마감 11-20 (성평등가족부)"
+      "종결 실측(2026-11-21): 위비티 리스트 '마감 D+0' 배지"
     ],
     "source": "wevity",
     "review": "confirmed",
     "first_seen": "2026-11-01",
-    "last_checked": "2026-11-02",
-    "check_cadence": "daily",
+    "last_checked": "2026-11-21",
+    "check_cadence": "none",
     "history": [
       {
         "date": "2026-11-01",
@@ -3243,6 +3255,12 @@
         "event": "status_changed",
         "from": "upcoming",
         "to": "open"
+      },
+      {
+        "date": "2026-11-21",
+        "event": "status_changed",
+        "from": "open",
+        "to": "closed"
       }
     ]
   },
@@ -3606,22 +3624,28 @@
     "apply_deadline": "2026-11-20",
     "submit_deadline": "2026-11-20",
     "result_date": "2026-12-04",
-    "status": "open",
+    "status": "closed",
     "url": "https://aichallenge4all.or.kr/competitions/master100_s4",
     "evidence": [
-      "주최사 페이지 직접 확인(2026-11-03): 'AI 활용 과정과 결과를 담은 60초 이내 세로형 숏폼 영상으로 누구나 참여할 수 있습니다' — 작품 접수 2026.11.02 ~ 11.20, 대국민 투표 12.3, 수상자 발표 12.4"
+      "종결 실측(2026-11-21): 위비티 리스트 '마감 D+0' 배지"
     ],
     "source": "wevity",
     "note": "위비티 상세 본문은 미기재(주최사 원문으로 보강). 응모대상 제한없음, 위비티 카드 D-18(마감 11/20 정합)",
     "first_seen": "2026-11-03",
-    "last_checked": "2026-11-03",
-    "check_cadence": "daily",
+    "last_checked": "2026-11-21",
+    "check_cadence": "none",
     "review": "auto",
     "history": [
       {
         "date": "2026-11-03",
         "event": "created",
         "status": "open"
+      },
+      {
+        "date": "2026-11-21",
+        "event": "status_changed",
+        "from": "open",
+        "to": "closed"
       }
     ]
   },
@@ -3883,21 +3907,27 @@
     "apply_deadline": "2026-11-20",
     "submit_deadline": "2026-11-20",
     "result_date": null,
-    "status": "open",
+    "status": "closed",
     "url": "https://dcnc.or.kr/bbs/board.php?bo_table=notice&wr_id=193",
     "evidence": [
-      "위비티 상세(2026-11-05): '공모주제 : 공공데이터 및 AI 기술을 활용한 대구광역시 기후·환경·탄소중립 문제 해결' · '대한민국 국민 누구나(개인)'. 접수 10/12~11/20 17:00"
+      "종결 실측(2026-11-21): 위비티 리스트 '마감 D+0' 배지"
     ],
     "source": "wevity",
     "first_seen": "2026-11-05",
-    "last_checked": "2026-11-05",
-    "check_cadence": "daily",
+    "last_checked": "2026-11-21",
+    "check_cadence": "none",
     "review": "auto",
     "history": [
       {
         "date": "2026-11-05",
         "event": "created",
         "status": "open"
+      },
+      {
+        "date": "2026-11-21",
+        "event": "status_changed",
+        "from": "open",
+        "to": "closed"
       }
     ]
   },
@@ -4306,21 +4336,27 @@
     "apply_deadline": "2026-11-20",
     "submit_deadline": null,
     "result_date": null,
-    "status": "open",
+    "status": "closed",
     "url": "https://www.wevity.com/?c=find&s=1&gbn=view&gp=1&ix=111490",
     "evidence": [
-      "위비티 상세(2026-11-07): 접수 2026-09-28~11-20(D-14 일치), '공모분야: AI영상 콘텐츠 ※ 30초~3분 이내 영상' — AI 생성 영상 공모"
+      "종결 실측(2026-11-21): 위비티 리스트 '마감 D+0' 배지"
     ],
     "source": "wevity-fetch",
     "first_seen": "2026-11-07",
-    "last_checked": "2026-11-07",
-    "check_cadence": "daily",
+    "last_checked": "2026-11-21",
+    "check_cadence": "none",
     "review": "auto",
     "history": [
       {
         "date": "2026-11-07",
         "event": "created",
         "status": "open"
+      },
+      {
+        "date": "2026-11-21",
+        "event": "status_changed",
+        "from": "open",
+        "to": "closed"
       }
     ]
   },
@@ -4477,23 +4513,30 @@
     "prize": "$6,000",
     "hiring_link": false,
     "apply_deadline": null,
-    "submit_deadline": "2026-12-01",
+    "submit_deadline": "2027-03-31",
     "result_date": null,
     "status": "open",
     "url": "https://dorahacks.io/hackathon/2349",
     "evidence": [
-      "DoraHacks 상세(2026-11-07): 'PRIZE POOL 6,000 USD', 'Submission deadline extended', 타임라인 2026/08/01~2026/12/01 00:59(UTC+9) — AI 앱 빌더 해커톤(Extended 23 days left)"
+      "마감 연장 실측(2026-11-21, DoraHacks 상세): 'Update: Founding Builder Qualification Window Extended — extended the Founding Builder qualification window by Four months, from November 30, 2026, to March 31, 2027'"
     ],
     "source": "dorahacks",
     "first_seen": "2026-11-07",
-    "last_checked": "2026-11-07",
-    "check_cadence": "daily",
+    "last_checked": "2026-11-21",
+    "check_cadence": "weekly",
     "review": "auto",
     "history": [
       {
         "date": "2026-11-07",
         "event": "created",
         "status": "open"
+      },
+      {
+        "date": "2026-11-21",
+        "event": "deadline_changed",
+        "field": "submit_deadline",
+        "from": "2026-12-01",
+        "to": "2027-03-31"
       }
     ]
   },
@@ -5019,21 +5062,27 @@
     "apply_deadline": "2026-11-20",
     "submit_deadline": "2026-11-20",
     "result_date": "2026-12-07",
-    "status": "open",
+    "status": "judging",
     "url": "https://daker.ai/public/hackathons/jeju-ai-bigdata-agent-challenge",
     "evidence": [
-      "daker API(2026-11-15): '제주빅데이터센터 및 제주데이터허브의 데이터를 활용한 AI Agent 개발' + registrationDeadline 2026-11-20 + 총 상금 500만원 + 최종단계 종료 2026-12-07, 583명 참여 중 — AI Agent 개발이 주제 자체"
+      "상태전환 실측(2026-11-21): daker API 상태 'published' → 'evaluation' (접수 11-20 마감, 최종 12-07) — 심사중 전환"
     ],
     "source": "daker-api",
     "review": "confirmed",
     "first_seen": "2026-11-15",
-    "last_checked": "2026-11-15",
-    "check_cadence": "daily",
+    "last_checked": "2026-11-21",
+    "check_cadence": "archive_candidate",
     "history": [
       {
         "date": "2026-11-15",
         "event": "created",
         "status": "open"
+      },
+      {
+        "date": "2026-11-21",
+        "event": "status_changed",
+        "from": "open",
+        "to": "judging"
       }
     ]
   },
@@ -5174,21 +5223,27 @@
     "apply_deadline": "2026-11-20",
     "submit_deadline": "2026-11-20",
     "result_date": null,
-    "status": "open",
+    "status": "closed",
     "url": "https://www.wevity.com/?c=find&s=1&gbn=view&gp=1&ix=111924",
     "evidence": [
-      "위비티 111924 리스팅·상세(2026-11-15): '접수기간 2026-11-02 ~ 2026-11-20 D-6' + 제목 '2026 제주 청소년 AI 리터러시 영상 공모전' — AI 리터러시가 주제인 영상 공모(청소년 대상, 청소년 AI 공모 채택 선례 승계)"
+      "종결 실측(2026-11-21): 위비티 리스트 '마감 D+0' 배지"
     ],
     "source": "wevity",
     "review": "confirmed",
     "first_seen": "2026-11-15",
-    "last_checked": "2026-11-15",
-    "check_cadence": "daily",
+    "last_checked": "2026-11-21",
+    "check_cadence": "none",
     "history": [
       {
         "date": "2026-11-15",
         "event": "created",
         "status": "open"
+      },
+      {
+        "date": "2026-11-21",
+        "event": "status_changed",
+        "from": "open",
+        "to": "closed"
       }
     ]
   },
@@ -5533,6 +5588,132 @@
     "history": [
       {
         "date": "2026-11-20",
+        "event": "created",
+        "status": "open"
+      }
+    ]
+  },
+  {
+    "id": "global-0053",
+    "type": "hackathon",
+    "title": "InnovArt 2027: Art and Technology Hack Day",
+    "host": "InnovArt",
+    "ai_usage": "unknown",
+    "format": "online",
+    "team": "solo/team",
+    "prize": "$0 (비현금)",
+    "hiring_link": false,
+    "apply_deadline": null,
+    "submit_deadline": "2027-01-02",
+    "status": "open",
+    "url": "https://innovart2027.devpost.com/",
+    "evidence": [
+      "Devpost rules(2026-11-21): 'Eligibility: Open to participants of all ages and technical backgrounds' — 전 연령·전 세계 온라인 Hack Day, 제출 2026-08-23~2027-01-02"
+    ],
+    "source": "devpost-api",
+    "review": "confirmed",
+    "note": "상금 없음, 참여형. 저우선순위",
+    "first_seen": "2026-11-21",
+    "last_checked": "2026-11-21",
+    "check_cadence": "weekly",
+    "history": [
+      {
+        "date": "2026-11-21",
+        "event": "created",
+        "status": "open"
+      }
+    ]
+  },
+  {
+    "id": "global-0054",
+    "type": "hackathon",
+    "title": "PhysTech 2027: Physical Activity and Technology Hack Day",
+    "host": "Binnovative",
+    "ai_usage": "unknown",
+    "format": "online",
+    "team": "solo/team",
+    "prize": "$0 (비현금)",
+    "hiring_link": false,
+    "apply_deadline": null,
+    "submit_deadline": "2027-06-26",
+    "status": "open",
+    "url": "https://phystech2027.devpost.com/",
+    "evidence": [
+      "Devpost rules(2026-11-21): 'Eligibility: Open to participants of all ages and technical backgrounds' — 전 연령·전 세계 온라인, 제출 2026-11-04~2027-06-26, 참가자 23명"
+    ],
+    "source": "devpost-api",
+    "review": "confirmed",
+    "note": "상금 없음, 참여형. 저우선순위",
+    "first_seen": "2026-11-21",
+    "last_checked": "2026-11-21",
+    "check_cadence": "weekly",
+    "history": [
+      {
+        "date": "2026-11-21",
+        "event": "created",
+        "status": "open"
+      }
+    ]
+  },
+  {
+    "id": "ko-0040",
+    "type": "meetup",
+    "title": "AI Demo Night at AWS with AI Tinkerers",
+    "host": "AI Builders Seoul × AI Tinkerers (AWS 협력)",
+    "ai_usage": "required",
+    "format": "offline",
+    "team": "individual",
+    "prize": null,
+    "hiring_link": false,
+    "apply_deadline": "2026-11-24",
+    "submit_deadline": null,
+    "result_date": null,
+    "status": "open",
+    "url": "https://www.meetup.com/ai-builders-seoul/events/317368437/",
+    "evidence": [
+      "meetup.com 상세(2026-11-21): 'AI Demo Night at AWS with AI Tinkerers — If you are interested in joining a group of builders or presenting your interesting product / project to a talented group. Please join us' — 11/24(화) 18:30 서울 강남 AWS, 무료(사전등록 seoul.aitinkerers.org)"
+    ],
+    "source": "meetup-com",
+    "review": "confirmed",
+    "note": "AI 빌더 데모 나이트 — 발표(데모) 참여 기회",
+    "first_seen": "2026-11-21",
+    "last_checked": "2026-11-21",
+    "check_cadence": "daily",
+    "history": [
+      {
+        "date": "2026-11-21",
+        "event": "created",
+        "status": "open"
+      }
+    ]
+  },
+  {
+    "id": "wevity:112160-ksponco-publicdata",
+    "type": "competition",
+    "title": "[한국체육산업개발(주)] 공공데이터 활용 경진대회",
+    "host": "한국체육산업개발(주)",
+    "ai_usage": "unknown",
+    "format": "online",
+    "team": "unknown",
+    "prize": "1등 300만원 (총 1천만원 이하)",
+    "hiring_link": false,
+    "apply_deadline": "2026-12-01",
+    "submit_deadline": "2026-12-01",
+    "result_date": null,
+    "status": "open",
+    "url": "https://www.wevity.com/?c=find&s=1&gbn=view&gp=1&ix=112160",
+    "evidence": [
+      "위비티 상세(2026-11-21): '한국체육산업개발(주) 개방 공공데이터를 활용한 활용사례 (웹/앱 개발, 실감형콘텐츠 활용 등)' + 지원자격 '공공데이터에 관심 있는 국민 누구나' + '26.11.2~12.1 18:00 이메일 접수' — 빌드형(웹/앱) 경진대회"
+    ],
+    "source": "wevity",
+    "review": "confirmed",
+    "note": "AI 미언급(unknown). 분야 웹/모바일/IT — 공공데이터 57종",
+    "first_seen": "2026-11-21",
+    "last_checked": "2026-11-21",
+    "check_cadence": "daily",
+    "history": [
+      {
+        "date": "2026-11-21",
         "event": "created",
         "status": "open"
       }

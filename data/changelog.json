@@ -1715,6 +1715,116 @@
       ],
       "notes": "정상 런(last_run 11-19, 1일 갭). 신규 공고 0(노아에이티에스 재등록 이관 1 — 구 gno 50384587 '마감' → 50394279 활성, 동일 공고라 신규 집계 제외, id 유지·url·evidence 갱신) · 신규 이벤트 2(ko-0038 INNO-CODER AI 해커톤 울산 11-29 마감 총 200만·AI 시제품 제작·울산 연계 1명 필수 전국 팀 참여 가능 / ko-0039 밀양아리랑대축제 AI 포스터 12-11 마감 전국·생성형 AI 필수 총 90만) · 정책 변경 0 · 종결 2(Meta VR global-0026 Devpost open 리스트 이탈 + 전북 뮤직쇼츠 112128 D+0 '마감' 배지) · D-3 임박: 공고 6(오로라 11-20 D-0 생존 실측 · 데이터드리븐[banned 승계 주의]·에스에스알 11-21 · 한프카·씨어스 2건 11-22) + 이벤트 14(11-20 마감 9: 위비티 D-1 7[제천·대구기후·용산·사회보장·제주리터러시·성평등·AI달인s4] + 제주 ko-0035 + Dakar global-0035 · 11-21 STEM2Connect · 11-22 디어비 ko-0037 · 11-23 조달청·나무엑스·부산동구) · needs_review 0 · 방문 18/80(위비티 상세 3 + Devpost 상세 3 + 잡코리아 GI_Read 5 + 원티드 2 + 점핏 4 + REPL 복구 API 탭 1, 발견 전부 fetch) · CANARY 전 지표 OK(wevity 15/p·유니크 1,275[gps 1-85], devpost open 62, daker 24, 잡코리아 사전과제 783·30/p, HN 514) · 실패 소스: festa.io(200 'Coming Soon' 스텁 12일째, 12/1 T3 퇴출 확정) · 운영 발견 1: 노아에이티에스 공고 재등록(gno 교체) — id 기반 추적 + url 이관 + evidence에 이관 내역 기록하는 패턴 확립(공고 1건당 gno 수명 관찰 필요, 향후 m검색에서 50394279 미인식 재생성 방지) · gnews 발견: CJ올리브영 '코테 대신 AI 과제' 경력채용 보도 파도(seed-kr-01 재보도, 실공고는 11-21 T2 그리팅에서 확인) · 쿠팡 UX 과제 전형 폐지 = 미추적 직군 맥락 기록. 다음 런: (1) 11-21 대량 종결 + T2 필수(11-14 공백 만회 — 씽유·링커리어·DoraHacks·MLH·programmers-competitions·dacon + 올리브영 그리팅 ATS 신규 공고 확인): 11-20 마감 9(위비티 7·제주 ko-0035·Dakar global-0035 당일 D-0 생존 확인 후 종결) + 오로라 50213617 + STEM2Connect global-0023(11-21) (2) 11-22 런: 데이터드리븐 55361658 종결(banned 승계 기록)·에스에스알 50222686·한프카 50326430·씨어스 50228434·50228417·디어비 ko-0037(전부 11-22) (3) 11-23 런: 엘리스 111915(D+6 배지지만 제출 11-22 진행 사유 open 유지 → 종결)·경산 112022·KICET 111819 종결 + 세종사이버 AI불씨 112285 개시 감시(upcoming→open, 현재 '접수예정' D-31) + INNO-CODER ko-0038 D-6 임박 (4) 12/1 T3: festa.io 퇴출 + HN 12월 스레드(50338728 다음) + 소스 성과 리포 + 점핏 도메인 sources.json 갱신 오너 보고",
       "summary": "+0공고 +2이벤트 · 정책변경 0 · 상태변경 2 · 마감변경 0 · 중복병합 0"
+    },
+    {
+      "date": "2026-11-21",
+      "new_postings": [
+        "greeting:musinsa-245220",
+        "greeting:musinsa-245715",
+        "jobkorea:50399595",
+        "jobkorea:50402639",
+        "jobkorea:50405264"
+      ],
+      "policy_changed": [],
+      "deadline_changed": [],
+      "status_changed": [
+        "jobkorea:50213617"
+      ],
+      "new_events": [
+        "global-0053",
+        "global-0054",
+        "ko-0040",
+        "wevity:112160-ksponco-publicdata"
+      ],
+      "event_status_changed": [
+        "wevity:111490-jecheon-ai-video",
+        "wevity:111567-daegu-climate-publicdata-ai",
+        "wevity:111726-yongsan-ai-smartcity",
+        "wevity:111847-socialsecurity-ai-idea-contest",
+        "wevity:111924-jeju-ai-literacy",
+        "wevity:112029-gender-equality-ai",
+        "wevity:112049-ai-master-tips-s4",
+        "ko-0035"
+      ],
+      "event_deadline_changed": [
+        "global-0044"
+      ],
+      "updated_postings": 2,
+      "updated_events": 9,
+      "merged_postings": [
+        "jobkorea:50213617->jobkorea:50359571"
+      ],
+      "merged_events": [],
+      "sources": [
+        {
+          "id": "devpost-api",
+          "method": "fetch",
+          "pages": 0,
+          "result": "open 63건(전일 62, +1). 이탈 0 — Dakar global-0035·STEM2Connect global-0023 모두 open 리스트 잔존(D+1/D-0 생존 → 다음 런 종결). 신규 판정: 미추적 26 중 24 전부 미채택(신규 실측 14 전부 학생 한정: launchpad 'students above legal age' · hackout 고교 grades 9-12 · kuk '대학원생 제외' 학부생 · code-for-humanity 'STUDENTS ONLY' · ml-build-4 'students high school and college' · hetic 'enrolled in a higher-education institution' · build-first-ai-app 'eligible students' · obscura 'exclusively enrolled students' · sq-hacks 고교+학부 · taskforge 'STUDENT PARTICIPANTS' · code-for-change 'open to students' · green-shift 'student participants' · peninsula 'student eligibility' · accessed/idealab/safespace/buildyourownwebsite 'Students only' + 기판정 재노출 8: mca·syntax·tripleh·teens-in-ai·smbp·tum-xr·creators-winter·pico·diwali + 오프라인/코스 6: rookie 헬싱키·upside 튀니지·her-200·pixel 인도캠퍼스·windsor 캠퍼스·ese 과목·free-aws 강좌) · 채택 2: global-0053 InnovArt(전 연령) · global-0054 PhysTech(전 연령)"
+        },
+        {
+          "id": "daker-api",
+          "method": "fetch",
+          "pages": 0,
+          "result": "24건(밴드 내). ko-0035 제주 status 'evaluation' 전환 실측 → judging 처리. 소재연구데이터 해커톤·AI 플랫폼 구축 경진대회(서울대) 미추적 지속 — 기판정(11-12 런) 미채택 확인"
+        },
+        {
+          "id": "hn-algolia-hiring",
+          "method": "fetch",
+          "pages": 0,
+          "result": "11월 스레드 50338728(380댓글) 유지, 신규 스레드 없음. 12/1 T3 파싱 예정"
+        },
+        {
+          "id": "gnews-kr-1~5,en",
+          "method": "fetch",
+          "pages": 0,
+          "result": "6피드 패치. 신규 채택 0 — 올리브영 'AI 과제' 파도는 재보도(실공고 미게시, 그리팅 실측으로 seed-kr-01 evidence 갱신) · 마포 MAPO NEXT STAGE(9-14~10-6 마감 경과)·프라이머 GenAI 해커톤(2023-03 재보도)·강원랜드 바이브코딩 대회(8-12 결과 보도) 전부 websearch로 확인 후 미채택"
+        },
+        {
+          "id": "wevity-fetch",
+          "method": "fetch",
+          "pages": 0,
+          "result": "gp 1-85 스윕, 유니크 1,275(밴드 정확히 일치), 15/p. 종결 7(D+0 '마감' 배지) · 신규 채택 1(112160 체육공공데이터 — 웹/앱 빌드형) · 미채택 2(112475 포항 MICE 창업 해커톤: 비AI·사업계획서 완성형, 전국 모집이나 111324 창업 아이디어톤 라인과 동일 취급 · 112449 원-윈도우 데이터플랫폼 아이디어 공모: 비AI·기획서 제출형)"
+        },
+        {
+          "id": "jobkorea-mobile",
+          "method": "fetch+browser",
+          "pages": 5,
+          "result": "사전과제 total 774(-9)·30/p, 바이브코딩 172. gno>50394279 신규 4 중 채택 3(50399595 고투엑스 required · 50402639 스튜디오리코 unspecified · 50405264 아이아이컴바인드 unspecified), 기판정 1(50394712 NC 3D스캔). 종결 1(50213617 오로라 m버전 '마감' 실측). 노아에이티에스 50394279 재생성 없음(이관분 준수)"
+        },
+        {
+          "id": "wanted+jumpit",
+          "method": "browser",
+          "pages": 4,
+          "result": "원티드 사전과제 2(한프카 기추적+인터엑스 정부과제 노이즈)·AI 과제 = 정부과제 노이즈 전부. 점핏 관련도순·최신순 16+16 전부 기술스택 OR 노이즈, 신규 0(모아이스 기판정)"
+        },
+        {
+          "id": "greeting-ats",
+          "method": "fetch+browser",
+          "pages": 7,
+          "result": "T2 핵심 감시. 무신사 [AI Agent 전형] 2건 신규 채택(required — AI Agent Test에 Codex·Claude 제공) · 올리브영 개발 3공고(Back-end·ML '사전코딩테스트', iOS 'Live Coding') 실측 — 보도의 AI 과제 전형은 미게시, seed-kr-01 evidence 갱신 · 무신사 그 외(ML Engineer·Cloud·Product Engineer 등) 전형절차 미포함/미확인"
+        },
+        {
+          "id": "t2-weekly-rotations",
+          "method": "fetch+browser",
+          "pages": 10,
+          "result": "11-14 공백 만회 실행: 씽유 IT/SW 1p 45건(신규 0 — 원-윈도우 위비티 중복·DAPIER 국비교육 광고) · 링커리어 fetch CSR 셸(커뮤니티 노이즈만 SSR) · DoraHacks 목록 19(Anna AI 2349=global-0044 기추적·자격연장 확인, Tether ai-yako 'ended', 그 외 웹3 노이즈) · MLH fetch/브라우저 모두 셸(재시도 필요) · programmers competitions 전부 종료 대회(활성 0) · KISTI AIDA 브라우저 확인: ko-0003 진행중 11-25 마감 D-4 · meetup-com: AI Demo Night 신규 채택(ko-0040), PyLadies Asia Conf(₩40k 비AI)·OWASP·Airflow·ClickHouse·AWTKRUG 소모임 다수 검토후 미채택 · encode-club 4KB 셸"
+        },
+        {
+          "id": "festa-io",
+          "method": "fetch",
+          "pages": 0,
+          "result": "200 'Coming Soon' 스텁 13일째 — 12/1 T3 퇴출 확정"
+        },
+        {
+          "id": "canary",
+          "method": "cli",
+          "pages": 0,
+          "result": "CANARY OK — wevity 15/p·1,275, devpost open 63, daker 24, 잡코리아 사전과제 774·30/p, HN 11월 스레드 380댓글"
+        }
+      ],
+      "notes": "정상 런(last_run 11-20, 1일 갭) + 토요일 T2 필수 실행(11-14 미실행분 만회). 신규 공고 5 — 무신사 [AI Agent 전형] 2건(greeting:musinsa-245220 Retention 10년+·245715 Global Integration 5년+, 상시): 전형 '서류 검토 → AI Agent Test → AI Deep Dive → 2차 인터뷰', '무신사가 제공하는 AI Agent(Codex, Claude)를 자유롭게 활용해 문제를 해결' — ai_policy required, 코딩테스트 없는 AI 에이전트 네이티브 전형 국내 대형 커머스 첫 실측 · 고투엑스코리아 jobkorea:50399595(바이브 코딩 빌더 인턴, '서류전형>과제전형>1차면접>최종합격' + AI(LLM) 프롬프트 활용 사례 제출, 마감 2027-01-18, required) · 스튜디오리코 jobkorea:50402639(웹툰 선화 작가 프리랜서, 사전과제 1차 캐릭터디자인·2차 원고 테스트, 마감 12-20, unspecified) · 아이아이컴바인드 누다케 jobkorea:50405264(그래픽 디자이너, '서류→1차 면접→사전 과제→2차 면접', 마감 12-19, unspecified). 신규 이벤트 4 — global-0053 InnovArt 2027 Art&Tech Hack Day(전 연령·온라인, 2027-01-02, $0 참여형) · global-0054 PhysTech 2027(전 연령·온라인, 2027-06-26, $0 참여형) · ko-0040 AI Demo Night at AWS with AI Tinkerers(11-24 강남, 무료, AI 빌더 데모 발표) · wevity:112160 한국체육산업개발 공공데이터 활용 경진대회(웹/앱 빌드형, 12-01 18:00, 1등 300만, unknown). 정책 변경 0(무신사 AI Agent 전형은 신규 공고로 집계). 종결 8 — 공고 1(오로라 jobkorea:50213617, m GI_Read '마감' 실측) + 이벤트 7(제천 111490·대구기후 111567·용산 111726·사회보장 111847·제주리터러시 111924·성평등 112029·AI달인s4 112049, 전부 '마감 D+0' 배지). 심사전환 1(ko-0035 제주 daker 'evaluation' → judging, 최종 12-07). 마감변경 1(global-0044 Anna AI Founding Builder 자격창 11-30 → 2027-03-31 4개월 연장). D-3 임박 16 — 공고 5(데이터드리븐 55361658 11-21 D-0[banned 승계 주의] · 에스에스알 50222686 11-21 · 한프카 50326430·씨어스 50228434·50228417 11-22) + 이벤트 11(STEM2Connect global-0023 11-21 D-0 open 리스트 잔존 · 엘리스 111915 11-22 제출 진행 · 조달청 ko-0005·wevity:111628[동일 URL 중복 — 오너 검토 대상] · 나무엑스 111804 · 부산동구 112122 · 디어비 ko-0037 전부 11-22 · KICET 111819·경산 112022·세종사이버 112285(upcoming→개시 감시) 11-23 · 광명 112266 11-24). 생존 보류 2(Dakar global-0035 open 리스트 잔존 → 11-22 종결 · STEM2Connect D-0 → 11-22 종결). needs_review 0. 방문 60/80(잡코리아 GI_Read 5 + 위비티 상세 3 + 원티드 2 + 점핏 2 + 그리팅 ATS 7 + 씽유·programmers·MLH·DoraHacks·KISTI·meetup 10 + Devpost 상세 29 + API 탭 1, 발견 전부 fetch). CANARY 전 지표 OK(wevity 15/p·1,275, devpost open 63, daker 24, 잡코리아 사전과제 774·30/p, HN 380). 실패 소스: festa.io(스텁 13일째, 12/1 T3 퇴출) · doodlin fetch 실패 · MLH·링커리어·encode fetch CSR 셸(브라우저 재시도 요). 운영 발견: (1) 조달청 ko-0005와 wevity:111628 동일 이벤트 중복(동일 blog.naver URL, first_seen 10-24/11-05) — dedupe 오너 검토 (2) 올리브영 'AI 과제' 보도 파도 vs 실공고 미게시 — seed-kr-01 evidence 갱신, 공고 개시 시 채택 (3) Devpost 최근 신규는 소규모 학생 해커톤 급증(14/14 학생 한정) — 수집 여과 정상 작동. 다음 런: (1) 11-22: Dakar global-0035·STEM2Connect global-0023 종결(Devpost open 리스트 이탈 확인) + 데이터드리븐 55361658 종결(banned 승계 기록)·에스에스알 50222686·한프카 50326430·씨어스 2건·디어비 ko-0037·조달청 2건(중복 검토)·나무엑스·부산동구 전부 11-22 마감 D-0 생존 확인 후 종결 + 엘리스 111915 제출 11-22 (2) 11-23: 엘리스·경산 112022·KICET 111819 종결 + 세종사이버 112285 개시 감시(D-30 '접수예정' → open) + INNO-CODER ko-0038 D-6 (3) 12/1 T3: festa.io 퇴출 + HN 12월 스레드 + 소스 성과 리포 + MLH/링커리어 브라우저 재시도 + 점핏 도메인 sources.json 갱신 오너 보고",
+      "summary": "+5공고 +4이벤트 · 정책변경 0 · 상태변경 9 · 마감변경 1 · 중복병합 1"
     }
   ]
 }
