@@ -4,6 +4,7 @@
 // 있었다(2026-11-21 실측). 패밀리 = 첫 세그먼트 + 변형 맵. 멱등: 이미 정규값이면 그대로.
 export const SOURCE_VARIANTS = {
   'devpost-api': 'devpost',
+  'daker-api': 'daker',
   'wevity-fetch': 'wevity',
   'gnews-kr-5-meetup': 'gnews-kr-5',
   'thinkyou-dev-event': 'thinkyou',

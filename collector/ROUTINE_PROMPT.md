@@ -42,7 +42,7 @@ fetch 본문 | node collector/parsers/hn.mjs               # Who's hiring 스레
 2. `runs/`에 오늘 날짜 파일이 있으면 이미 실행: 한 줄 보고 후 종료.
 3. `queue/`에 미소비 콜드스탠바이 파일(있으면)부터 처리한다 — Actions fetch-candidates가
    노트북 공백 동안 모아둔 후보다. 후보는 이번 런의 T0 결과와 같은 방식(채택/미채택 판정)으로
-   소비하고, 소비한 파일은 지운다.
+   소비하고, 소비한 날짜 파일만 지운다(`_ledger.json`은 관측 원장이니 절대 지우지 않는다).
 4. 직전 `runs/*.json` notes의 "다음 우선순위 후보"가 있으면 이번 런에서 먼저 처리.
 
 ## 2. T0: fetch 스윕 (0페이지, 매일)

@@ -1,0 +1,43 @@
+name: fetch-candidates
+
+# 콜드스탠바이 fetch 스윕(R3 첫 슬라이스) — 노트북이 꺼진 날에도 발견 계층이 클라우드에서
+# 돈다. 03:30 KST: 루틴(03:00)이 이미 커밋했으면 새 후보 0(원장만 갱신), 노트북 공백이면
+# queue/YYYY-MM-DD.json 이 쌓인다. 다음 Aside 루틴이 큐를 소비·판정·merge 한다(ROUTINE_PROMPT §1.3).
+# queue/ 는 deploy.yml paths 밖이라 Pages 재빌드를 유발하지 않는다.
+on:
+  schedule:
+    - cron: "40 18 * * *"   # 03:40 KST — 루틴(03:00~03:30)·news-refresh(03:30) 뒤
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: fetch-candidates
+  cancel-in-progress: false
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main          # detached HEAD 가 아닌 main 브랜치로 체크아웃(푸시 대상)
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: 콜드스탠바이 fetch 스윕 (새 후보가 있을 때만 queue/ 에 기록)
+        run: node collector/coldscan.mjs
+      - name: 바뀐 게 있으면 커밋·푸시
+        run: |
+          set -eu
+          if git diff --quiet -- queue/ && [ -z "$(git ls-files --others --exclude-standard queue/)" ]; then
+            echo "변경 없음 — 커밋하지 않는다"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add queue/
+          git commit -m "chore(queue): cold-standby candidates $(date -u +%F)"
+          git pull --rebase --autostash origin main
+          git push origin HEAD:main
