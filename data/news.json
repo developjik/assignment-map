@@ -1,12 +1,39 @@
 [
   {
-    "id": "news-feed-96ee637afc",
+    "id": "news-feed-a0e4bb7d33",
+    "topic": "AI 코딩 도구",
+    "tag": "업계",
+    "content": "“AI 코딩 에이전트는 왜 거짓말할까?”…벨뷰서 흥미로운 한인대상 개발자세미나 > 시애틀 뉴스/핫이슈",
+    "date": "2026-11-21",
+    "source": "SeattleN",
+    "url": "https://news.google.com/rss/articles/CBMiSkFVX3lxTFBfYXB4NktfZVl1R2NVa3p4aXAwT1hvbWY1RGpqeFRTUUctYjVRNVJuYU92cHNGaTV4TG42dU5RamllR2pUa0VQSzV3?oc=5"
+  },
+  {
+    "id": "news-feed-bb5afe3bfb",
+    "topic": "AI 해커톤",
+    "tag": "업계",
+    "content": "백석문화대, '2026 AI 해커톤 대회' 개최",
+    "date": "2026-11-20",
+    "source": "중도일보",
+    "url": "https://news.google.com/rss/articles/CBMiZEFVX3lxTE9qRWsyak1wNWFsRGswdGs4RkI2b29ma1liamVMOUR3R3BtSElhX2NUSDlIVHVPT3FIeVRlNnh6bTNTTWE0aXl4MDVGRHVJTHgwbGdHa2tVQVJMcGMtbUdSUU90Z1A?oc=5"
+  },
+  {
+    "id": "news-feed-08348a021d",
+    "topic": "개발자 이직",
+    "tag": "업계",
+    "content": "“단순 바이브 코딩 넘어선다”…베이직인터내셔널, 멀티 AI 에이전트 기반 코딩 자동화 솔루션 공개",
+    "date": "2026-11-20",
+    "source": "인공지능신문",
+    "url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE9uX2RQV1M0MFgtUnpKdlZzUGFUOGlnaVdVRlA1OGhsWm85WnhaN3FJbFIzVFNsZk5ua2pqLXBzZVU0RURwRm4xcFJ2WDg0ejhVSHdaUFhxeVNQWTZCZGVXc3BPekZpRWc?oc=5"
+  },
+  {
+    "id": "news-feed-68d624284b",
     "topic": "AI 면접",
     "tag": "정책",
-    "content": "경북전문대, 맞춤형 취·창업 지원 '잡페스티벌' 개최…AI 면접진단 운영",
-    "date": "2026-11-19",
-    "source": "국제뉴스",
-    "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTE0zRlJtYXZGWTYwa29SZkVOUGhzZEY5S3VPWWd6S3JtRWdWblpDM25ia2xKc1hQYkxPRkdFdnJhUGlXRS1IeWtFbXNkUUJRdjhFaXhVSElFMVg5Z1lWZnlCR0lxTF8yakU0MjhONEZ3?oc=5"
+    "content": "청운대 ‘AI면접으로 배우는 AI실전 문제해결 과정’ 성료",
+    "date": "2026-11-20",
+    "source": "경상일보",
+    "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE41QnE0NG1TMTJ4aXBrcnZzMi16NHRPVmw0ek9yWWJYLVhsZFA1S29VUTNzWE9yOFN1NU1STFlMVXl2bzh1dXlZcVZsRTNfTlBRS3RTc1p4SWhqZUpYRVlxelRlckZkS1ZBeHdVSA?oc=5"
   },
   {
     "id": "news-feed-7c7598b749",
@@ -18,15 +45,6 @@
     "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE9YUUtrVnRzZ0w3YnpPV2tTYnZlcGFTT01UWm8xNWNwMnZ3V1RWa1JocEZwZHE4QmVyVWswRTlzQlhhbUh6Z0FTTlg5OWJxV1NSMUVWYllB?oc=5"
   },
   {
-    "id": "news-feed-dd509b36bd",
-    "topic": "AI 코딩 도구",
-    "tag": "정책",
-    "content": "팔로알토 CEO “기업들, AI 코딩 에이전트 보안 해법 아직 못 찾아…통제 체계 필요”",
-    "date": "2026-11-19",
-    "source": "Benzinga",
-    "url": "https://news.google.com/rss/articles/CBMi0AJBVV95cUxOQU94YTFXaUVla1VHalI4Y3cxdGVfWU9YdXE5ZXd2QnZlMkdWSEMwckVld0lSS1hXSVNhVXI3M25BZ01GS1dBQ0hqTlUzbTFTcG52SktfVmcyQUtueVhqV01aQVphaWw2QlRQcDNhNGZOc2RMdDhpY0RmOVZ5Tk9qRzl2RDRNTXNzUm9KXzRlSHZuVURKem5WOVFiaFI1czhpa1NmOWNuZ1pmT1R1SmM1WTJLSUdHdEk2aTNEM1UxdmlyS1lEc053TzF0WGJMMFF2ZHJTT0ZnWHJ6c0RtcTQ5SjR1QzZLMTdYNTNZUGVvSWJTQU5hRy10RUhCSmNxaWJsV3RkXzVCc1dkc0lJb2M4eUJiZXhzekpVeVB6d1ZJOXVlRWdielV3aU11UzlyMHJaamtiT2xDTkI5RkprczRETkFsTEZuaDNoSTlrS3I0VWY?oc=5"
-  },
-  {
     "id": "news-feed-ae097140d2",
     "topic": "SK",
     "tag": "업계",
@@ -34,15 +52,6 @@
     "date": "2026-11-19",
     "source": "CIO",
     "url": "https://www.cio.com/article/4250367/the-dark-side-of-ai-in-hiring-when-job-applicants-become-security-threats.html"
-  },
-  {
-    "id": "news-feed-f7cc829dc0",
-    "topic": "AI 해커톤",
-    "tag": "업계",
-    "content": "백석문화대, ‘2026 AI 해커톤 대회’ 개최…AI 활용 창의적 아이디어 발굴",
-    "date": "2026-11-19",
-    "source": "충남일보",
-    "url": "https://news.google.com/rss/articles/CBMic0FVX3lxTFBYUjJQYmsyM3dFN3pPUEIyRmk5SXZQMFlTdzlURDF4VFNNT0t1TDFfc2xwdFptWnNDYWhHYi1zX2d2cVpuc0swN0pGNUZmclFnQldsZDBXdW84Um5OdC1sWlNXWFh4clVGXzlFOWY4ekM1a2s?oc=5"
   },
   {
     "id": "news-feed-6687f7be62",
@@ -81,6 +90,15 @@
     "url": "https://blog.google/innovation-and-ai/products/gemini-app/gemini-lower-memory-devices/"
   },
   {
+    "id": "news-feed-9cc28f4bf3",
+    "topic": "AI 코딩 도구",
+    "tag": "업계",
+    "content": "Harvard 연구진, AI 코딩 에이전트가 병목을 코드 리뷰로 옮겼음을 확인",
+    "date": "2026-11-18",
+    "source": "GeekNews",
+    "url": "https://news.google.com/rss/articles/CBMiS0FVX3lxTE1pTjNTOXJhNjBBZnJ6ZWx2cTNwTlFOa0VXNWdyQVlGaUZzUktQelJDYzhwVUs3STdjUGM4MDBNcDlMS3daYlZlSEFjNA?oc=5"
+  },
+  {
     "id": "news-feed-96bfe3513c",
     "topic": "AI 경진대회",
     "tag": "업계",
@@ -90,40 +108,22 @@
     "url": "https://news.google.com/rss/articles/CBMiSkFVX3lxTE5IT1F2NE9tV0NLam1UUWhVZnM5NFUwM3VSa2lTaUE0RTBkSzJReDB4Zi12ZjFpWGJxdU1MLWFWV1pwWk9ITEpuSFln?oc=5"
   },
   {
-    "id": "news-feed-147ed3a3b3",
-    "topic": "AI 코딩 도구",
-    "tag": "업계",
-    "content": "노타, 두베에 금융권 특화 AI 코딩 에이전트용 최적화 LLM·서버 공급",
-    "date": "2026-11-16",
-    "source": "데이터넷",
-    "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE8wVGRyRkJyWEQzY05NRXdCNk5XNG12WTlhcS1WaGtSVmlEQkp4STBPZlBOWWNDbVdKMTRnR3FXc0k5YVpNaXl4cjJRQ2NjZjZmTDdrR3I3bHRGVHZoMUJQc2xWTTB2X2ZZQzBocw?oc=5"
-  },
-  {
-    "id": "news-feed-1d77d4fcae",
-    "topic": "AI 코딩 도구",
-    "tag": "업계",
-    "content": "“업무 불편함 AI로 해결”…코스콤, 사내 AI 코딩 해커톤 ‘ㅋㅋ톤’ 개최",
-    "date": "2026-11-16",
-    "source": "매일경제 마켓",
-    "url": "https://news.google.com/rss/articles/CBMiUkFVX3lxTE93XzE3TWhpOXdIVXdhY2hFbEt6dm56WWhQVVFEU1Z4MUYzMWRrVTdQdVQ1ZnZKN0VYSmRCbHdJOTk3eEp1YUlfMU9IclB5UE93TUE?oc=5"
-  },
-  {
-    "id": "news-feed-eb12ca0736",
+    "id": "news-feed-d116137c16",
     "topic": "AI 면접",
-    "tag": "통계",
-    "content": "영국 노동자 다수, AI 채용 면접에 불편함 느낀다는 조사 결과",
-    "date": "2026-11-15",
-    "source": "Mezha.net",
-    "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxPcHRqXzRUbFhDbzZJSlpkcDFSakpCYzFDS25MTWYyMWJ6M1FMX2VvVmlRM2phZTVSLXhQQmUxcmFYd2xfTVNucG9yV3VJbnRiZWRnRTVQZG5MLVVhalI5Qk9LaWI3ZF9qcVd2azRUOHc1SDV0YVY5eUp2RnJORWVDSVZBLU9OVy1ESjhlQ3VxYWZuN2ZHR2FYN0l6bw?oc=5"
+    "tag": "정책",
+    "content": "[청년이 말하는 청년노동] AI 면접에 ‘현타’ 취업 뒤엔 ‘번아웃’",
+    "date": "2026-11-16",
+    "source": "매일노동뉴스",
+    "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTFBjb1FJQ2JJTnBMZXB2V3JRelIyVWprRkVHcnRwVHJsSTZSWlo3eVJEeTJWQWhIMVp5NVBaRTh3V1gycmVTclNfbEZINzVRM3VZN010VHVhQVJDYTdfMThxbU4xTnZfRG0xcWZPNnJBQW4?oc=5"
   },
   {
-    "id": "news-feed-5b0f73df89",
-    "topic": "OpenAI",
+    "id": "news-feed-0685d6085c",
+    "topic": "AI 코딩 도구",
     "tag": "업계",
-    "content": "How Amplitude ships product improvements in 1–2 days with OpenAI",
-    "date": "2026-11-13",
-    "source": "OpenAI",
-    "url": "https://openai.com/business/customer-stories/amplitude"
+    "content": "코스콤, 사내 AI 코딩 해커톤 개최…우수작 4건 업무 적용키로",
+    "date": "2026-11-16",
+    "source": "한국경제",
+    "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE93M1BYbEIyWTBQaHdNdVJOVGJnNVdBeXFiUmIwTjYwOTk5YnFrMmU0a0U4Mk5aNzdYVl9WaHlvS3djUEpfQUxIVmgwOWw5YWo3R2FzNWtESE5KUQ?oc=5"
   },
   {
     "id": "news-policy-01",
