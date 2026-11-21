@@ -77,3 +77,31 @@ test('greeting: openings JSON(openingId·title·마감) — 무신사·컬리 �
   assert.equal(withDue.items[0].dday, 10);
   assert.equal(parseGreetingList('<html></html>').count, 0);
 });
+
+test('kaggle: Nullable 접미사 필드 정규화 + Getting Started 카운트', async () => {
+  const { parseKaggleList } = await import('../parsers/kaggle.mjs');
+  const fx = JSON.parse(fs.readFileSync(path.join(import.meta.dirname, 'fixtures', 'kaggle-list.json'), 'utf8'));
+  const r = parseKaggleList(fx);
+  assert.equal(r.count, 3);
+  assert.ok(r.items.every((i) => i.title && i.url), '제목·URL 정규화');
+  assert.equal(typeof r.getting_started, 'number');
+  // 접미사 없는 필드 폴백 + 날짜 KST + 비배열 가드
+  const r2 = parseKaggleList([{ id: 1, title: 'Old Field', url: 'https://www.kaggle.com/competitions/x', category: 'Featured', deadline: '2026-11-21T15:00:00Z', reward: 50000 }]);
+  assert.equal(r2.items[0].title, 'Old Field');
+  assert.equal(r2.items[0].deadline, '2026-11-22', 'UTC 15시 → KST 다음날');
+  assert.deepEqual(parseKaggleList('{"error":1}').items, []);
+});
+
+test('coldscan kaggle: 원장 스키마 2 + 선택 소스(인증 없으면 skip, 전멸 가드 무관)', async () => {
+  const m = await import('../coldscan.mjs');
+  const { emptyLedger, diffCandidates, trackedKeys, allSourcesFailed } = m;
+  assert.equal(emptyLedger().schema_version, 2);
+  assert.ok(Array.isArray(emptyLedger().kaggleRefs));
+  const seen = { wevityIxs: new Set(), devpostUrls: new Set(), dakerTitles: new Set(), dakerSlugs: new Set(), hnIds: new Set(), kaggleRefs: new Set(['old-ref']) };
+  const d = diffCandidates(seen, { kaggle: { items: [{ ref: 'old-ref' }, { ref: 'new-comp', title: '신규 대회', url: 'https://www.kaggle.com/competitions/new-comp', category: 'Featured' }] } });
+  assert.equal(d.kaggle.length, 1);
+  assert.equal(d.kaggle[0].ref, 'new-comp');
+  const t = trackedKeys([{ id: 'k-1', source: 'kaggle', url: 'https://www.kaggle.com/competitions/foo' }]);
+  assert.equal(t.kaggleRefs.size, 1);
+  assert.equal(allSourcesFailed({ wevity: 'fail: x', devpost: 'fail: x', daker: 'fail: x', hn: 'fail: x', kaggle: 'skip: 인증 없음' }), true, '핵심 4종 전멸이면 kaggle skip과 무관하게 실패');
+});

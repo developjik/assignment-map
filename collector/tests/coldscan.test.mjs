@@ -28,11 +28,12 @@ test('trackedKeys: wevity id∪url ix · devpost 호스트 · daker 패밀리', 
 test('원장 save/load 라운드트립 + schema 가드', () => {
   const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'am-cold-'));
   const file = path.join(dir, '_ledger.json');
-  const ledger = { wevityIxs: new Set([1, 2]), devpostUrls: new Set(['https://a.devpost.com']), dakerTitles: new Set(['대회']), dakerSlugs: new Set(['slug']), hnIds: new Set(['50338728']) };
+  const ledger = { wevityIxs: new Set([1, 2]), devpostUrls: new Set(['https://a.devpost.com']), dakerTitles: new Set(['대회']), dakerSlugs: new Set(['slug']), hnIds: new Set(['50338728']), kaggleRefs: new Set(['https://www.kaggle.com/competitions/foo']) };
   saveLedger(file, ledger);
   const back = loadLedger(file);
   assert.deepEqual([...back.wevityIxs], [1, 2]);
   assert.deepEqual([...back.hnIds], ['50338728']);
+  assert.deepEqual([...back.kaggleRefs], ['https://www.kaggle.com/competitions/foo']);
   fs.writeFileSync(file, JSON.stringify({ schema_version: 99, wevityIxs: [] }));
   assert.equal(loadLedger(file), null, 'schema 불일치 원장은 부트스트랩 재수행');
   fs.rmSync(dir, { recursive: true, force: true });

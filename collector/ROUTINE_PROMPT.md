@@ -34,6 +34,7 @@ fetch 본문 | node collector/parsers/drivendata.mjs       # DrivenData 대회(�
 fetch 본문 | node collector/parsers/aicrowd.mjs          # AIcrowd 챌린지(배지·상금)
 fetch 본문 | node collector/parsers/onoffmix.mjs         # 온오프믹스 카테고리 이벤트
 fetch 본문 | node collector/parsers/devto.mjs            # DEV 해커톤 캠프(신호)
+node collector/kaggle_fetch.mjs 2                        # Kaggle 인증 fetch+파서(키 미노출)
 ```
 
 - 파서가 `count 0` + note를 내면 조용히 넘기지 않는다 — 마크업 변경이나 fetch 붕괴일 수 있다.

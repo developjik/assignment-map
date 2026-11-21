@@ -40,28 +40,29 @@ const normUrl = (u) => String(u || '').replace(/\/+$/, '').toLowerCase();
 
 /** events.json 전수에서 소스별 기추적 키를 뽑는다(순수 함수 — 테스트 대상). */
 export function trackedKeys(events) {
-  const wevityIxs = new Set(), devpostUrls = new Set(), dakerTitles = new Set(), dakerSlugs = new Set();
+  const wevityIxs = new Set(), devpostUrls = new Set(), dakerTitles = new Set(), dakerSlugs = new Set(), kaggleRefs = new Set();
   for (const e of events) {
     for (const m of String(e.id || '').matchAll(/wevity:(\d+)/g)) wevityIxs.add(Number(m[1]));
     for (const m of String(e.url || '').matchAll(/[?&]ix=(\d+)/g)) wevityIxs.add(Number(m[1]));
     const host = (() => { try { return new URL(e.url).host; } catch { return ''; } })();
     if (host === 'devpost.com' || host.endsWith('.devpost.com')) devpostUrls.add(normUrl(e.url));
+    if (host === 'kaggle.com' || host === 'www.kaggle.com') kaggleRefs.add(normUrl(e.url));
     if (sourceFamily(e.source) === 'daker') {
       if (e.title) dakerTitles.add(String(e.title).trim());
       for (const m of String(e.url || '').matchAll(/hackathon\/([a-z0-9-]+)/gi)) dakerSlugs.add(m[1]);
     }
   }
-  return { wevityIxs, devpostUrls, dakerTitles, dakerSlugs };
+  return { wevityIxs, devpostUrls, dakerTitles, dakerSlugs, kaggleRefs };
 }
 
 /** 관측 원장(JSON) — 키 집합 4종. 부트스트랩 판정에 schema_version 을 쓴다. */
 export const LEDGER_PATH = () => path.join(repo, 'queue', '_ledger.json');
-export const emptyLedger = () => ({ schema_version: 1, wevityIxs: [], devpostUrls: [], dakerTitles: [], dakerSlugs: [], hnIds: [] });
+export const emptyLedger = () => ({ schema_version: 2, wevityIxs: [], devpostUrls: [], dakerTitles: [], dakerSlugs: [], hnIds: [], kaggleRefs: [] });
 export const loadLedger = (file) => {
   try {
     const o = JSON.parse(fs.readFileSync(file, 'utf8'));
-    if (o.schema_version !== 1) return null;
-    return { wevityIxs: new Set(o.wevityIxs), devpostUrls: new Set(o.devpostUrls), dakerTitles: new Set(o.dakerTitles), dakerSlugs: new Set(o.dakerSlugs), hnIds: new Set(o.hnIds) };
+    if (o.schema_version !== 2) return null;
+    return { wevityIxs: new Set(o.wevityIxs), devpostUrls: new Set(o.devpostUrls), dakerTitles: new Set(o.dakerTitles), dakerSlugs: new Set(o.dakerSlugs), hnIds: new Set(o.hnIds), kaggleRefs: new Set(o.kaggleRefs || []) };
   } catch { return null; }
 };
 export const saveLedger = (file, ledger) => {
@@ -84,6 +85,10 @@ export function diffCandidates(seen, parsed) {
   out.daker = (parsed.daker?.items || [])
     .filter((i) => !seen.dakerTitles.has(String(i.title).trim()) && !seen.dakerSlugs.has(String(i.slug || '').trim()))
     .map((i) => ({ id: i.id, title: i.title, url: i.slug ? `https://daker.ai/hackathon/${i.slug}` : null, registration_deadline: i.registration_deadline, prize: i.prize, organizer: i.organizer }));
+  const seenKaggle = seen.kaggleRefs || new Set();
+  out.kaggle = (parsed.kaggle?.items || [])
+    .filter((i) => !seenKaggle.has(String(i.ref)))
+    .map((i) => ({ ref: i.ref, title: i.title, url: i.url, category: i.category, deadline: i.deadline, reward: i.reward }));
   out.hn = parsed.hn?.latest && !seen.hnIds.has(parsed.hn.latest.id)
     ? [{ thread_id: parsed.hn.latest.id, title: parsed.hn.latest.title, url: `https://news.ycombinator.com/item?id=${parsed.hn.latest.id}`, month: parsed.hn.latest.month }]
     : [];
@@ -96,6 +101,9 @@ export function absorbIntoLedger(ledger, tracked, parsed) {
   for (const i of parsed.devpost?.items || []) ledger.devpostUrls.add(normUrl(i.url));
   for (const i of parsed.daker?.items || []) { ledger.dakerTitles.add(String(i.title).trim()); if (i.slug) ledger.dakerSlugs.add(String(i.slug).trim()); }
   if (parsed.hn?.latest?.id) ledger.hnIds.add(parsed.hn.latest.id);
+  ledger.kaggleRefs = ledger.kaggleRefs || new Set();
+  for (const k of tracked.kaggleRefs || []) ledger.kaggleRefs.add(k);
+  for (const i of parsed.kaggle?.items || []) ledger.kaggleRefs.add(String(i.ref));
   // 채택돼 events.json 에 들어간 항목도 원장에 — 이후 종결로 리스트에서 사라져도 무관.
   for (const ix of tracked.wevityIxs) ledger.wevityIxs.add(ix);
   for (const u of tracked.devpostUrls) ledger.devpostUrls.add(u);
@@ -152,6 +160,23 @@ async function sweep() {
     parsed.daker = parseDakerList(body);
     statuses.daker = `ok ${parsed.daker.count}`;
   } catch (e) { statuses.daker = `fail: ${e.message}`; }
+
+  // kaggle — 인증 env(GitHub secrets)가 있을 때만. 없으면 skip(전멸 가드 대상 아님).
+  if (process.env.KAGGLE_USERNAME && process.env.KAGGLE_KEY) {
+    try {
+      const auth = Buffer.from(`${process.env.KAGGLE_USERNAME}:${process.env.KAGGLE_KEY}`).toString('base64');
+      const rows = [];
+      for (let page = 1; page <= 2; page++) {
+        const res = await fetch(`https://www.kaggle.com/api/v1/competitions/list?page=${page}&sortBy=latestDeadline`, { headers: { authorization: `Basic ${auth}`, 'user-agent': 'assignment-map/1.0' } });
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        const r = await res.json();
+        if (!Array.isArray(r) || !r.length) break;
+        rows.push(...r);
+      }
+      parsed.kaggle = { items: rows.map((c) => ({ ref: c.ref ?? String(c.id ?? ''), title: c.titleNullable ?? c.title ?? null, url: c.urlNullable ?? c.url ?? null, category: c.categoryNullable ?? c.category ?? null })) };
+      statuses.kaggle = `ok ${rows.length}`;
+    } catch (e) { statuses.kaggle = `fail: ${e.message}`; }
+  } else statuses.kaggle = 'skip: 인증 없음';
 
   // hn — 최신 스레드 확인만(전체 파싱은 루틴 T3).
   try {
