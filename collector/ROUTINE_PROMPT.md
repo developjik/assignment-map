@@ -77,14 +77,18 @@ fetch 본문 | node collector/parsers/hn.mjs               # Who's hiring 스레
    **list_covered**(wevity·jobkorea·devpost·daker — 매일 리스트/API 스윕이 관측)로 갈려 나온다.
 2. **detail_needed 초과부터 우선 처리** (fetch 가능 경로 우선: 원티드 `/api/v4/jobs/{id}`,
    그리팅 ATS SSR diff). 상태·마감·정책 문구 변화만 본다.
-3. **list_covered 항목은 리스트 스윕으로 확인한 것으로 친다**: 위비티 배지 스냅·잡코리아 검색
+3. **news.json 단서 연동**: `data/news.json`(읽기 전용) 최근 3일 항목에서 추적 중 기업·공고명과
+   교차하는 정책 뉴스가 있으면 해당 공고를 이번 런 재방문 최상단으로 승격 — cadence 대기 없이
+   당일 재방문한다 (올리브영 '코테 대신 AI 과제' 보도 파도를 구조화한 절차, 2026-11-21 신설).
+   뉴스 제목만으로 채택·변경 판정 금지 — 원문(공고·보도) 확인 후 evidence로.
+4. **list_covered 항목은 리스트 스윕으로 확인한 것으로 친다**: 위비티 배지 스냅·잡코리아 검색
    노출·Devpost open 리스트·daker 상태에서 관측된 id는 이번 run 파일의 `checked` 배열에 기록한다:
    `"checked": [{"id": "wevity:111204-...", "via": "list-sweep", "note": "D-1 배지 생존"}]`
    → merge.mjs가 `last_checked`를 갱신하고 changelog에 감사를 남긴다. via는
    `list-sweep | search-exposure | api | detail` 중 하나.
-4. 강제 병합이 필요하면(매처가 못 잡는 중복) `data/dedupe_overrides.json`에
+5. 강제 병합이 필요하면(매처가 못 잡는 중복) `data/dedupe_overrides.json`에
    `{"postings": [{"dup": "...", "rep": "..."}]}` 형태로 추가 — 매일의 dedupe 재계산에도 살아남는다.
-5. cadence: `daily`(D-7) / `every3d` / `weekly` — merge가 마감일에서 재계산한다. 3회 연속 fetch 실패 → status: gone.
+6. cadence: `daily`(D-7) / `every3d` / `weekly` — merge가 마감일에서 재계산한다. 3회 연속 fetch 실패 → status: gone.
 
 ### 매너
 
