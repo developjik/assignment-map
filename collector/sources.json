@@ -1,6 +1,6 @@
 {
-  "version": "2026-11-21",
-  "note": "fetch()는 브라우저 페이지 상한 미소모. 발견=fetch(0페이지), 상세=브라우저(80페이지 상한 내). 2026-11-21: 점핏 도메인 갱신(jumpit.saramin.co.kr, CSR 브라우저 필수)·위비티 gp 전수 스윕으로 정정·잡코리아 www GI_Read 경로 명문화. ROUTINE_PROMPT v1.4부터 이 파일이 소스 정보의 단일 공급원(프롬프트의 소스 표 폐기). status: active=매일/주간 자동 수집, watch=상태만 추적, retired=퇴출. 2026-11-01 T3 월간: github-hackathon·hackhq·gnews-kr-6-workshop 퇴출(retired). 2026-11-12 소스 확장: daker-api(T0, 데이콘 계열 해커톤 JSON 실측), dacon-competitions·programmers-competitions·programmers-assignments(T2, 주 1회), lablab→starfield 리브랜드 확인. status 의미: active=매일/주간 자동 수집, watch=상태만 추적(차단·이벤트 없음·참고용), retired=퇴출. (2026-11-16 이력: news_feeds 티어 추가·daker-api 편입)",
+  "version": "2026-11-21-c",
+  "note": "fetch()는 브라우저 페이지 상한 미소모. 발견=fetch(0페이지), 상세=브라우저(80페이지 상한 내). 2026-11-21-c 소스 확장(오너 '최대한 추가'): T0 +devto-hackathons, T2 +drivendata·aicrowd·onoffmix, greeting-ats 무신사+컬리 fetch화(greeting.mjs)·야놀자/SSG 브라우저 감시 추가. 후보·폐쇄 기록은 collector/sources_candidates.json. 카나리 밴드는 각 소스 첫 실측 후 추가.",
   "tiers": {
     "T0_fetch_daily": [
       {
@@ -116,6 +116,15 @@
         "cost": 0,
         "note": "영어권 AI 밋업/워크샵",
         "status": "active"
+      },
+      {
+        "id": "devto-hackathons",
+        "kind": "ssr-fetch",
+        "url": "https://dev.to/hackathons",
+        "target": "events",
+        "cost": 0,
+        "status": "active",
+        "note": "DEV Hackathon Camp 피드(SSR 64KB). 2026-11-21 실측: 아티클 슬러그 2-3개/스냅 — 구조화 목록이 아닌 '발견 신호' 계층(gnews 계열). 파서 collector/parsers/devto.mjs (보조 API /api/articles?tag=hackathon). 제목만으로 채택 판정 금지, 링크 본문 확인 후 판정."
       }
     ],
     "T1_browser_daily": [
@@ -253,10 +262,10 @@
       {
         "id": "greeting-ats",
         "kind": "fetch-diff",
-        "url": "https://musinsa.career.greetinghr.com/,https://oliveyoung.career.greetinghr.com/,https://doodlin.co.kr/ko/career",
+        "url": "https://musinsa.career.greetinghr.com/ko,https://kurly.career.greetinghr.com/ko,https://oliveyoung.career.greetinghr.com/,https://doodlin.co.kr/ko/career",
         "target": "postings",
         "cost": 0,
-        "note": "SSR에서 공고 제목·ID 파싱. 신규만 상세 1페이지",
+        "note": "2026-11-21 확장+파서화: fetch 계층(매일 가능)은 무신사·컬리 — /ko 경로 필수(루트 307) + collector/parsers/greeting.mjs (openings JSON: openingId·title·dueDate·deadlineDDay). 실측 무신사 110·컬리 68건. 브라우저 감시(주간): 올리브영(taxonomy만 나옴·career.oliveyoung.com/ko/apply 리다이렉트 주의), 두들린(doodlin.co.kr), 야놀자·SSG(공고 목록 클라이언트 렌더 — fetch 불가). 그리팅 미사용 404 확인(2026-11-21): toss·daangn·ridi·snowcorp·nexon·socar·kakaoent·krafton·lineplus·netmarble·sm — 재탐색 불필요.",
         "status": "active"
       },
       {
@@ -285,6 +294,33 @@
         "cost_pages": 2,
         "note": "2026-11-12 실측: lablab.ai/event 는 starfieldlabs.ai 로 리다이렉트(LabLab AI → Starfield Labs 리브랜드). /events SSR 문구 'No events yet. Check back soon.' — 현재 진행/예정 이벤트 0건. RSS·JSON 피드 없음(모든 경로가 SPA 셸 반환, robots.txt만 200). 재개 시 경로: https://starfieldlabs.ai/mcp 의 find_events MCP 툴(T0 후보). 그때까지 기존 lablab 이벤트(global-0009 등)는 상세 URL 생존만 확인.",
         "status": "watch"
+      },
+      {
+        "id": "drivendata-competitions",
+        "kind": "ssr-fetch",
+        "url": "https://www.drivendata.org/competitions/",
+        "target": "events",
+        "cost": 0,
+        "status": "active",
+        "note": "AI 사회공헌 대회(SSR 304KB). 2026-11-21 실측 59개 — Prize(active)·Benchmarks·Practice·Completed 섹션이 상태를 말한다. 파서 collector/parsers/drivendata.mjs. 화이트라벨 링크(platform.k12-ai-infrastructure.org 등)도 섞여 나옴. 신규 판정은 status='active' 중심, completed 상태 기추적 대조용."
+      },
+      {
+        "id": "aicrowd-challenges",
+        "kind": "ssr-fetch",
+        "url": "https://www.aicrowd.com/challenges",
+        "target": "events",
+        "cost": 0,
+        "status": "active",
+        "note": "ML 챌린지(SSR 283KB). 2026-11-21 실측 18개 — 카드 배지(Active|Phase n)가 상태, prize-item-cash가 상금. 파서 collector/parsers/aicrowd.mjs. 주의: 구 경로 /competitions 는 404. AIcrowd 계정 필요 없음(비로그인 SSR)."
+      },
+      {
+        "id": "onoffmix-events",
+        "kind": "ssr-fetch",
+        "url": "https://onoffmix.com/event/main/?interest=A0110",
+        "target": "events",
+        "cost": 0,
+        "status": "active",
+        "note": "국내 세미나·컨퍼런스·밋업. 2026-11-21 실측: 메인은 셸, 카테고리 페이지 /event/main/?interest={코드}만 SSR(이벤트 19개/카테고리). 파서 collector/parsers/onoffmix.mjs. 카테고리 코드 첫 T2 실행에서 확정(A0101 비즈니스·A0110 게임/IT교육 확인됨 — 개발/IT 코드 탐색 후 url 갱신). 부트캠프 광고 다수 → 프리스크린 블랙리스트(국비지원·부트캠프) 의존. end_layer=종료."
       }
     ],
     "T3_monthly": [

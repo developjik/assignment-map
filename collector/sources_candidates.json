@@ -1,0 +1,100 @@
+{
+  "version": "2026-11-21",
+  "note": "T3 새 소스 탐사 결과 보존(스펙: 오너 승인 후 sources.json 편입). status: owner-action(키/계정 필요) | browser(브라우저만 가능) | hold(가치 대비 비용 보류) | dead(폐쇄).",
+  "owner_action": [
+    {
+      "id": "kaggle-api",
+      "why": "글로벌 AI 대회 1위 플랫폼 — 현재 커버리지 최대 구멍",
+      "path": "무료 계정 → Settings→API→Create New Token(kaggle.json) → oapi 대신 kaggle.com/api/v1/competitions/list (Basic auth, 일 호출 상한 넉넉). 토큰을 Vault에 저장하면 파서 작성 후 T0 편입"
+    },
+    {
+      "id": "saramin-api",
+      "why": "국내 최대 채용 소스",
+      "path": "2026-11-21 이용신청 접수(승인 대기, 원샷 루틴 eF2DO7Tf16KhOx6d가 키 확보) — 승인 즉시 파서 작성·편입"
+    }
+  ],
+  "browser": [
+    {
+      "id": "zindi",
+      "url": "https://zindi.africa/competitions",
+      "why": "아프리카 중심 AI 챌린지(전 지구 참여 가능 다수) — fetch는 셸(클라이언트 렌더), API 경로 전부 HTML 폴백. 월 1회 브라우저 체크 후보"
+    },
+    {
+      "id": "hashnode-hackathons",
+      "url": "https://hashnode.com/hackathons",
+      "why": "해시노드 공식 해커톤(현 시즌 1개 수준) — Next 클라이언트 렌더. 분기 1회 브라우저 체크면 충분"
+    },
+    {
+      "id": "hf-hackathons",
+      "url": "https://huggingface.co/hackathons",
+      "why": "HF 공식 커뮤니티 해커톤(동시 1-3개) — SSR에 링크 없음·API는 401. 월 1회 브라우저"
+    },
+    {
+      "id": "taikai",
+      "url": "https://taikai.net/hackathons",
+      "why": "웹3+AI 해커톤(DoraHacks 유사) — 114B 셸. 월 1회 브라우저"
+    },
+    {
+      "id": "kakao-careers",
+      "url": "https://careers.kakao.com/jobs",
+      "why": "자체 ATS SPA(1.4KB 셸) — AI 과제 전형 개시 감시용, 월 1회 브라우저"
+    },
+    {
+      "id": "naver-recruit",
+      "url": "https://naver.recruit.com/",
+      "why": "구경로 404·신규 도메인 fetch 실패(DNS/TLS) — 브라우저로 경로 확인 후 월 1회 감시 후보"
+    },
+    {
+      "id": "wishket-contest",
+      "url": "https://contest.wishket.com/",
+      "why": "위시캣 공모전(국내 상위권 공모전 플랫폼) — fetch 전멸(봇월 추정). 브라우저로 접근성 확인 후 T2 브라우저 편입 검토"
+    },
+    {
+      "id": "encode-club / mlh / linkareer",
+      "url": "",
+      "why": "기존 CSR 셸 3종 — 12/1 T3 브라우저 재시도 예정(루틴 메모리 안건)"
+    }
+  ],
+  "hold": [
+    {
+      "id": "codalab-lisn",
+      "url": "https://codalab.lisn.upsaclay.fr/competitions",
+      "why": "학술 ML 벤치마크 대회 다수 — SSR이지만 1.5MB/회, 참여 기회 가치는 Kaggle/DrivenData보다 낮음. T3 월간 후보(파서 미작성)"
+    },
+    {
+      "id": "hackquest",
+      "url": "https://www.hackquest.io/",
+      "why": "웹3 교육 중심 — AI 테마 비중 낮음. 재방문 보류"
+    }
+  ],
+  "dead": [
+    {
+      "id": "greeting-{toss,daangn,ridi,snowcorp,nexon,socar,kakaoent,krafton,lineplus,netmarble,sm}",
+      "why": "404 — 전부 자체 ATS 사용(2026-11-21 전수 실측). 재탐색 불필요"
+    },
+    {
+      "id": "aicrowd /competitions",
+      "why": "404 — 정확한 경로는 /challenges"
+    },
+    {
+      "id": "codalab.stanford.edu",
+      "why": "fetch 실패(서비스 종료 추정)"
+    },
+    {
+      "id": "hackathonkorea.org",
+      "why": "fetch 실패"
+    },
+    {
+      "id": "wanted-search-api",
+      "why": "403(봇월) — 원티드 발견은 브라우저 T1 유지. 단, 상세 /api/v4/jobs/{id}는 fetch 가능(기존)"
+    },
+    {
+      "id": "onoffmix legacy api",
+      "why": "/api/event/listProperEvent 404 — 카테고리 SSR만 사용"
+    },
+    {
+      "id": "hf hackathons api",
+      "why": "401(인증 필요)"
+    }
+  ]
+}
