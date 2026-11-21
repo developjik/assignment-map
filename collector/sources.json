@@ -1,6 +1,6 @@
 {
-  "version": "2026-11-16",
-  "note": "fetch()는 브라우저 페이지 상한 미소모. 발견=fetch(0페이지), 상세=브라우저(80페이지 상한 내). 2026-11-01 T3 월간: github-hackathon·hackhq·gnews-kr-6-workshop 퇴출(retired). 2026-11-12 소스 확장: daker-api(T0, 데이콘 계열 해커톤 JSON 실측), dacon-competitions·programmers-competitions·programmers-assignments(T2, 주 1회), lablab→starfield 리브랜드 확인. status 의미: active=매일/주간 자동 수집, watch=상태만 추적(차단·이벤트 없음·참고용), retired=퇴출. 2026-11-16 news_feeds 티어 추가: collector/fetch_news.py 가 트렌드 뉴스(data/news.json)를 수집한다.",
+  "version": "2026-11-21",
+  "note": "fetch()는 브라우저 페이지 상한 미소모. 발견=fetch(0페이지), 상세=브라우저(80페이지 상한 내). 2026-11-21: 점핏 도메인 갱신(jumpit.saramin.co.kr, CSR 브라우저 필수)·위비티 gp 전수 스윕으로 정정·잡코리아 www GI_Read 경로 명문화. ROUTINE_PROMPT v1.4부터 이 파일이 소스 정보의 단일 공급원(프롬프트의 소스 표 폐기). status: active=매일/주간 자동 수집, watch=상태만 추적, retired=퇴출. 2026-11-01 T3 월간: github-hackathon·hackhq·gnews-kr-6-workshop 퇴출(retired). 2026-11-12 소스 확장: daker-api(T0, 데이콘 계열 해커톤 JSON 실측), dacon-competitions·programmers-competitions·programmers-assignments(T2, 주 1회), lablab→starfield 리브랜드 확인. status 의미: active=매일/주간 자동 수집, watch=상태만 추적(차단·이벤트 없음·참고용), retired=퇴출. (2026-11-16 이력: news_feeds 티어 추가·daker-api 편입)",
   "tiers": {
     "T0_fetch_daily": [
       {
@@ -75,10 +75,10 @@
       {
         "id": "wevity-fetch",
         "kind": "ssr-fetch",
-        "url": "https://www.wevity.com/?c=find&s=1&sp=contents&sw=AI",
+        "url": "https://www.wevity.com/?c=find&s=1&gp=1",
         "target": "events",
         "cost": 0,
-        "note": "SSR HTML에서 ix= 링크 50건 추출. 신규 ix만 브라우저 상세 방문",
+        "note": "발견은 gp 전수 스윕(?c=find&s=1&gp=N, <ul class=list> 파서 wevity.mjs list) — 빈 페이지까지, 유니크 ix 1,275 밴드. sp=contents&sw=AI 검색은 관련성 상위 일부만 반환해 발견용 부적합(11-12 확립). 신규 ix만 브라우저 상세 방문(gbn=view). D-N = 마감일 오늘+(N-1).",
         "status": "active"
       },
       {
@@ -138,7 +138,8 @@
           "사전과제"
         ],
         "cost_pages": 3,
-        "status": "active"
+        "status": "active",
+        "note": "2026-11-19 실측: jumpit.co.kr → jumpit.saramin.co.kr 301 리다이렉트(사람인 통합)로 URL 쿼리가 유실 — 직접 URL 접속은 /search?keyword= 랜딩만 동작, 결과는 CSR이라 브라우저 필수(헤더 검색 UI 경유). 관련도순·최신순 모두 대부분 기술스택 노이즈(11-21: 32건 전부 노이즈)."
       },
       {
         "id": "jobkorea-mobile",
@@ -149,7 +150,7 @@
           "바이브코딩"
         ],
         "cost_pages": 8,
-        "note": "모바일 GI_Read에서 전체보기 클릭 → iframe innerText로 상세요강 전문 확보 (데스크톱 미렌더링 해결)",
+        "note": "발견: m검색 fetch → collector/parsers/jobkorea.mjs. 상세(2026-11-17 확정): www.jobkorea.co.kr/Recruit/GI_Read/{gno} 렌더 후 '상세 모집 요강' iframe 내부를 page.frames() 순회로 읽는다(메인 innerText만 읽으면 누락). fetch 대안: GI_Read_Comt_Ifrm?Gno={id} + user-agent(Chrome)+referer 헤더. 종결 실측: m GI_Read 상단 '마감' 배지 또는 지원정보 '마감되었습니다'. 재등록(gno 교체) 시 기존 id 유지·url 이관.",
         "status": "active"
       },
       {
