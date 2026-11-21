@@ -29,6 +29,11 @@ fetch 본문 | node collector/parsers/jobkorea.mjs         # m검색 결과
 fetch 본문 | node collector/parsers/devpost.mjs          # API JSON
 fetch 본문 | node collector/parsers/daker.mjs            # API JSON
 fetch 본문 | node collector/parsers/hn.mjs               # Who's hiring 스레드 확인
+fetch 본문 | node collector/parsers/greeting.mjs         # 그리팅 ATS(무신사·컬리) openings
+fetch 본문 | node collector/parsers/drivendata.mjs       # DrivenData 대회(섹션=상태)
+fetch 본문 | node collector/parsers/aicrowd.mjs          # AIcrowd 챌린지(배지·상금)
+fetch 본문 | node collector/parsers/onoffmix.mjs         # 온오프믹스 카테고리 이벤트
+fetch 본문 | node collector/parsers/devto.mjs            # DEV 해커톤 캠프(신호)
 ```
 
 - 파서가 `count 0` + note를 내면 조용히 넘기지 않는다 — 마크업 변경이나 fetch 붕괴일 수 있다.
