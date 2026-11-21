@@ -29,6 +29,13 @@ const repo = path.resolve(import.meta.dirname, '..');
 
 export const kstToday = () => new Intl.DateTimeFormat('en-CA', { timeZone: 'Asia/Seoul' }).format(new Date());
 
+// 전멸 가드(2026-11-21): 4소스 전부 fail 이면 원장·큐를 쓰지 않고 exit 1 — Actions 빨간 불로
+// 실패를 전파한다(부분 실패는 정상 운영: 소스별 차단·일시 오류). 완전 무응답은 네트워크·
+// IP 차단·마크업 변경 동시 발생이므로 조용히 지나가면 안 된다.
+export const COLDSCAN_SOURCES = ['wevity', 'devpost', 'daker', 'hn'];
+export const allSourcesFailed = (statuses) =>
+  COLDSCAN_SOURCES.every((k) => String(statuses[k] || '').startsWith('fail'));
+
 const normUrl = (u) => String(u || '').replace(/\/+$/, '').toLowerCase();
 
 /** events.json 전수에서 소스별 기추적 키를 뽑는다(순수 함수 — 테스트 대상). */
@@ -152,6 +159,12 @@ async function sweep() {
     parsed.hn = parseHnWhoishiring(body);
     statuses.hn = parsed.hn.latest ? `ok thread ${parsed.hn.latest.id}` : 'ok (스레드 없음)';
   } catch (e) { statuses.hn = `fail: ${e.message}`; }
+
+  // 전멸 가드 — 전 소스 실패면 아무 파일도 쓰지 않고 실패로 끝낸다(원장 오염 방지).
+  if (allSourcesFailed(statuses)) {
+    console.error(`COLDSCAN ${date} — 전 소스 실패(네트워크·IP 차단·응답 변경 의심): ${JSON.stringify(statuses)}`);
+    process.exit(1);
+  }
 
   const events = JSON.parse(fs.readFileSync(path.join(repo, 'data', 'events.json'), 'utf8'));
   const tracked = trackedKeys(events);

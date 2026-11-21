@@ -85,3 +85,12 @@ test('kstToday: KST 달력일 YYYY-MM-DD 형식', () => {
   assert.match(kstToday(), /^\d{4}-\d{2}-\d{2}$/);
   assert.equal(typeof LEDGER_PATH(), 'string');
 });
+
+test('전멸 가드: 4소스 전부 fail일 때만 참 (부분 실패·정상은 거짓)', async () => {
+  const { allSourcesFailed } = await import('../coldscan.mjs');
+  const fail = (n) => Object.fromEntries(['wevity', 'devpost', 'daker', 'hn'].map((k, i) => [k, i < n ? `fail: HTTP 403` : `ok 100`]));
+  assert.equal(allSourcesFailed(fail(4)), true, '전멸은 참');
+  assert.equal(allSourcesFailed(fail(3)), false, '부분 실패는 정상 운영');
+  assert.equal(allSourcesFailed(fail(0)), false, '전멸 아니면 거짓');
+  assert.equal(allSourcesFailed({}), false, '빈 상태(이론상 없음)도 거짓');
+});
