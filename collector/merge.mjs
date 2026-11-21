@@ -7,6 +7,16 @@ import { asEvidence, asStringArray } from './evidence.mjs';
 import { dedupePostings, dedupeEvents, metaNote } from './dedupe.mjs';
 
 const repo = path.resolve(import.meta.dirname, '..');
+// 사람 강제 병합 규칙(data/dedupe_overrides.json) — 매처가 못 잡는 중복을 오너 판단으로
+// 합친다. 매일의 dedupe 재계산이 표시를 지우고 다시 그리므로, 강제 병합도 여기서
+// 매번 재적용된다(멱등). 파일이 없으면 빈 규칙.
+const loadOverrides = () => {
+  try {
+    const o = JSON.parse(fs.readFileSync(path.join(repo, 'data', 'dedupe_overrides.json'), 'utf8'));
+    return { postings: o.postings || [], events: o.events || [] };
+  } catch { return { postings: [], events: [] }; }
+};
+const overrides = loadOverrides();
 const runPath = process.argv[2];
 if (!runPath) { console.error('usage: node collector/merge.mjs runs/YYYY-MM-DD.json'); process.exit(2); }
 const run = JSON.parse(fs.readFileSync(runPath, 'utf8'));
@@ -45,7 +55,21 @@ const cadence = (deadlines, today) => {
   if (d <= 14) return 'daily';
   return 'weekly';
 };
-const S = { date, new_postings: [], policy_changed: [], deadline_changed: [], status_changed: [], new_events: [], event_status_changed: [], event_deadline_changed: [], updated_postings: 0, updated_events: 0, merged_postings: [], merged_events: [], sources: run.sources || [], notes: run.notes || '' };
+const S = { date, new_postings: [], policy_changed: [], deadline_changed: [], status_changed: [], new_events: [], event_status_changed: [], event_deadline_changed: [], updated_postings: 0, updated_events: 0, merged_postings: [], merged_events: [], checked: [], sources: run.sources || [], notes: run.notes || '' };
+
+// run.checked — 이번 런에서 “확인했음”을 기록한 id 목록 [{id, via?, note?}].
+// 위비티 배지 스윕·잡코리아 검색 노출 같은 리스트 기반 확인도 1회 확인으로 인정해
+// last_checked 를 갱신한다(2026-11-21 개선: 확인 기록이 안 남아 open 38건 중 31건이
+// 케이던스 초과로 보이던 거짓 경보 해소). via·note 는 감사용으로 run 파일에만 남는다.
+const applyCheckedTo = (rows) => {
+  const byId = new Map(rows.map(r => [r.id, r]));
+  for (const c of run.checked || []) {
+    const direct = byId.get(c.id);
+    if (!direct) continue;                       // 다른 종류(postings/events)일 수 있다
+    const target = direct.merged_into ? (byId.get(direct.merged_into) || direct) : direct;
+    if (target.last_checked !== date) { target.last_checked = date; S.checked.push(target.id); }
+  }
+};
 
 // 병합 표시가 붙은 id 로 갱신이 들어오면 대표행에게 적용한다(merge 가 dedupe 를 매번
 // 다시 계산하므로, 숨겨진 중복 행이 스크린 대표행보다 새로워지는 일을 막는다)
@@ -106,7 +130,8 @@ const newMerges = (rows, dedupe) => {
     for (const d of g.dups) if (marksBefore.get(d) !== g.rep) fresh.push(`${d}->${g.rep}`);
   return fresh;
 };
-S.merged_postings = newMerges(mergedPostings, dedupePostings);
+S.merged_postings = newMerges(mergedPostings, rows => dedupePostings(rows, overrides.postings));
+applyCheckedTo(mergedPostings);
 write('postings.json', mergedPostings);
 
 // ---- events ----
@@ -145,7 +170,14 @@ for (const inc of run.events || []) {
 const mergedEvents = [...eById.values()];
 for (const e of mergedEvents) e.evidence = asEvidence(e.evidence);   // 레거시 문자열 정리(멱등)
 for (const e of mergedEvents) e.check_cadence = e.status === 'closed' ? 'none' : cadence([e.apply_deadline, e.submit_deadline], date);
-S.merged_events = newMerges(mergedEvents, dedupeEvents);
+S.merged_events = newMerges(mergedEvents, rows => dedupeEvents(rows, overrides.events));
+applyCheckedTo(mergedEvents);
+// checked id 정산 — 양쪽 어디에도 없는 id 는 경고만 남기고 넘긴다(타이포 허용, 커밋 잠금 아님)
+{
+  const known = new Set([...mergedPostings.map(r => r.id), ...mergedEvents.map(r => r.id)]);
+  const unknown = (run.checked || []).filter(c => c && c.id && !known.has(c.id)).map(c => c.id);
+  if (unknown.length) console.error(`merge: checked 미확인 id ${unknown.length}건 스킵 — ${unknown.join(', ')}`);
+}
 write('events.json', mergedEvents);
 
 // ---- changelog / meta ----
@@ -154,7 +186,7 @@ const cl = read('changelog.json');
 const prevSameDay = cl.events.find(c => c.date === date) || null;
 const unionIds = (prev, now) => [...new Set([...(prev || []), ...(now || [])])];
 if (prevSameDay) {
-  for (const f of ['new_postings', 'new_events', 'policy_changed', 'deadline_changed', 'status_changed', 'event_status_changed', 'event_deadline_changed', 'merged_postings', 'merged_events'])
+  for (const f of ['new_postings', 'new_events', 'policy_changed', 'deadline_changed', 'status_changed', 'event_status_changed', 'event_deadline_changed', 'merged_postings', 'merged_events', 'checked'])
     S[f] = unionIds(prevSameDay[f], S[f]);
   // 카운터는 정보성 — 재실행이 첫 병합의 실측을 덮어쓰지 않게 한다
   S.updated_postings = prevSameDay.updated_postings ?? S.updated_postings;

@@ -9,9 +9,18 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { asEvidence, asStringArray } from './evidence.mjs';
 import { dedupePostings, dedupeEvents, metaNote } from './dedupe.mjs';
+import { sourceFamily } from './sources_family.mjs';
 
 const repo = path.resolve(import.meta.dirname, '..');
 const check = process.argv.includes('--check');
+// 사람 강제 병합 규칙(merge.mjs 와 같은 파일) — normalize 재계산에도 매번 재적용된다.
+const loadOverrides = () => {
+  try {
+    const o = JSON.parse(fs.readFileSync(path.join(repo, 'data', 'dedupe_overrides.json'), 'utf8'));
+    return { postings: o.postings || [], events: o.events || [] };
+  } catch { return { postings: [], events: [] }; }
+};
+const overrides = loadOverrides();
 const load = f => JSON.parse(fs.readFileSync(path.join(repo, 'data', f), 'utf8'));
 const raw = f => fs.readFileSync(path.join(repo, 'data', f), 'utf8');
 // 반쪽 쓰기 방지(F5): merge.mjs 와 같은 원자 쓰기 — 쓰기 도중 죽어도 data/*.json 이 잘린 채 남지 않는다.
@@ -44,6 +53,10 @@ for (const [file, evidenceOpts] of [['postings.json', { quoteObjects: true }], [
       if (JSON.stringify(arr) !== JSON.stringify(row[field])) report(file, row.id, field, row[field], arr);
       row[field] = arr;
     }
+    // source 패밀리 정규화(2026-11-21) — 'devpost-api'·'official/thinkyou/…' 같은 분열값을
+    // 정규 패밀리로 모은다. 소스 ROI 집계(T3 월간 리포)·overdue 감사가 이 값을 기준으로 동작.
+    const fam = sourceFamily(row.source);
+    if (fam !== row.source) { report(file, row.id, 'source', row.source, fam); row.source = fam; }
     // 원문을 찾지 못한 시드 조사 기록(스펙 1-3) — null 대신 명시적 seed 표기.
     // 웹·피드·쇼츠는 'seed' 를 링크가 아니라 '원문 미확보' 로 해석한다.
     if (file === 'postings.json' && /^seed-/.test(row.id) && row.url == null) {
@@ -55,7 +68,7 @@ for (const [file, evidenceOpts] of [['postings.json', { quoteObjects: true }], [
   const policyBefore = new Map(rows.map((r) => [r.id, r.ai_policy]));   // 승격(F2) 가시화용
   const marksBefore = new Map(rows.map((r) => [r.id, r.merged_into || null]));
   const repsBefore = new Map(rows.map((r) => [r.id, r.duplicates || null]));
-  const groups = file === 'postings.json' ? dedupePostings(rows) : dedupeEvents(rows);
+  const groups = file === 'postings.json' ? dedupePostings(rows, overrides.postings) : dedupeEvents(rows, overrides.events);
   for (const g of groups) {
     const fresh = g.dups.filter((d) => marksBefore.get(d) !== g.rep);
     const changed = fresh.length > 0 ||
