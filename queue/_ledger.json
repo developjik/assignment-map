@@ -1,5 +1,5 @@
 {
- "schema_version": 1,
+ "schema_version": 2,
  "wevityIxs": [
   103817,
   104065,
@@ -1398,7 +1398,6 @@
   "https://idealab-hacks.devpost.com",
   "https://inceptrix-hackathon.devpost.com",
   "https://innovart2027.devpost.com",
-  "https://innovate-in-windsor-hackathon.devpost.com",
   "https://kiroween.devpost.com",
   "https://kuk-virtual-hackathon.devpost.com",
   "https://launchpad-hacks.devpost.com",
@@ -1439,6 +1438,7 @@
   "https://twitchcon-codex.devpost.com",
   "https://ugreenhackathon.devpost.com",
   "https://unihacks-youth.devpost.com",
+  "https://wellesleyhack-2026.devpost.com",
   "https://youcam-api-skin-ai-ecommerce.devpost.com"
  ],
  "dakerTitles": [
@@ -1495,5 +1495,28 @@
  ],
  "hnIds": [
   "50338728"
+ ],
+ "kaggleRefs": [
+  "https://www.kaggle.com/competitions/connectx",
+  "https://www.kaggle.com/competitions/contradictory-my-dear-watson",
+  "https://www.kaggle.com/competitions/digit-recognizer",
+  "https://www.kaggle.com/competitions/enveda-CASMI26-molecule-id-mass-spectra",
+  "https://www.kaggle.com/competitions/gemma-4-developer-agent",
+  "https://www.kaggle.com/competitions/google-verifiable-quantum-circuit-compilation",
+  "https://www.kaggle.com/competitions/home-data-for-ml-course",
+  "https://www.kaggle.com/competitions/house-prices-advanced-regression-techniques",
+  "https://www.kaggle.com/competitions/llm-classification-finetuning",
+  "https://www.kaggle.com/competitions/name-that-llm",
+  "https://www.kaggle.com/competitions/nfl-big-data-bowl-2027",
+  "https://www.kaggle.com/competitions/nlp-getting-started",
+  "https://www.kaggle.com/competitions/physical-engineerings-last-exam",
+  "https://www.kaggle.com/competitions/playground-series-s6e11",
+  "https://www.kaggle.com/competitions/santa-2026",
+  "https://www.kaggle.com/competitions/spaceship-titanic",
+  "https://www.kaggle.com/competitions/squares-in-squares",
+  "https://www.kaggle.com/competitions/store-sales-time-series-forecasting",
+  "https://www.kaggle.com/competitions/the-pokemon-company-ptcg-ai-battle-challenge-playground",
+  "https://www.kaggle.com/competitions/titanic",
+  "https://www.kaggle.com/competitions/tpu-getting-started"
  ]
 }
