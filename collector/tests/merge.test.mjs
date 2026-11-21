@@ -126,7 +126,7 @@ const FIXTURE = {
 function sandbox() {
   const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'am-collector-'));
   for (const sub of ['collector', 'data', 'runs']) fs.mkdirSync(path.join(dir, sub), { recursive: true });
-  for (const f of ['merge.mjs', 'validate.mjs', 'normalize.mjs', 'evidence.mjs', 'dedupe.mjs']) {
+  for (const f of ['merge.mjs', 'validate.mjs', 'normalize.mjs', 'evidence.mjs', 'dedupe.mjs', 'overdue.mjs', 'sources_family.mjs']) {
     fs.copyFileSync(path.join(REPO, 'collector', f), path.join(dir, 'collector', f));
   }
   for (const [rel, body] of Object.entries(FIXTURE)) {

@@ -24,6 +24,8 @@
 //          중복 id 는 merged_into 로 표기되어 데이터에 남는다(감사 가능). 멱등: 다시
 //          돌리면 같은 결과가 나온다.
 
+import { canonicalUrl, isDetailUrl } from './sources_family.mjs';
+
 const PLATFORM_ID = /^(wevity|jobkorea|jumpit|wanted|saramin|devpost|lablab|festa|onoffmix|eventbrite):/i;
 const OPENISH = new Set(['open', 'upcoming', 'judging']);
 const REPOST_MARK = '재공고';
@@ -64,11 +66,22 @@ const editionGapOK = (a, b) => {
   if (!da || !db) return true;
   return Math.abs(new Date(da) - new Date(db)) <= 270 * DAY_MS;
 };
+// 동일 URL 판정(2026-11-21 조달청 사례): 제목·host 표기가 달라도 원문 URL 이 같으면
+// 같은 기회다 — 단 상세 페이지만 근거로 한다(isDetailUrl). 랜딩/리스트 URL 을 여러 행사가
+// 공유하는 경우(aichallenge4all /competitions, 위비티 cidx 리스트)는 병합하지 않는다.
+// 'seed' 등 비-http 값은 매칭하지 않는다(시드 전체가 한 그룹으로 엉키는 사고 방지).
+const sameUrl = (a, b) => {
+  const ca = canonicalUrl(a.url), cb = canonicalUrl(b.url);
+  return !!ca && ca === cb && isDetailUrl(ca);
+};
+
 const samePosting = (a, b) => {
+  if (sameUrl(a, b)) return true;
   const ck = companyKey(a);
   return !!ck && ck === companyKey(b) && sameTokens(titleTokens(a), titleTokens(b));
 };
 const sameEvent = (a, b) => {
+  if (sameUrl(a, b)) return true;
   const tk = eventTitleKey(a);
   return !!tk && tk === eventTitleKey(b) && hostsCompatible(a.host, b.host) && editionGapOK(a, b);
 };
@@ -77,7 +90,9 @@ const sameEvent = (a, b) => {
 // 양쪽 그룹의 모든 쌍이 직접 양립해야 한다(F4) — 흔한 제목('개발자')이 다리가 되어
 // 서로 양립하지 않는 직무·행사를 한 그룹으로 끌어들이는 과병합을 끊는다. 재게시
 // 그룹(원본·재게시가 서로 양립)은 그대로 합쳐진다.
-const groupAll = (rows, same) => {
+// forced (사람 강제 병합, data/dedupe_overrides.json)는 호환 게이트를 건너뛴다 —
+// 매처가 못 잡는 중복을 오너 판단으로 합친 결정이므로 재검증하지 않는다.
+const groupAll = (rows, same, forced = []) => {
   const parent = rows.map((_, i) => i);
   const find = (x) => { while (parent[x] !== x) { parent[x] = parent[parent[x]]; x = parent[x]; } return x; };
   const groupsCompatible = (ra, rb) => {
@@ -89,6 +104,11 @@ const groupAll = (rows, same) => {
     for (let j = i + 1; j < rows.length; j++)
       if (find(i) !== find(j) && same(rows[i], rows[j]) && groupsCompatible(find(i), find(j)))
         parent[find(i)] = find(j);
+  for (const f of forced) {
+    const a = rows.findIndex((r) => r.id === f.dup), b = rows.findIndex((r) => r.id === f.rep);
+    if (a === -1 || b === -1 || a === b) continue;
+    if (find(a) !== find(b)) parent[find(a)] = find(b);
+  }
   const groups = new Map();
   rows.forEach((r, i) => {
     const root = find(i);
@@ -153,13 +173,13 @@ const pickRep = (group, prevReps) =>
  * @param {{dateFields:string[], mergeFields:string[], policyField?:string}} opts 병합할 필드(policyField: 결정적 등급 dup 의 정책 승격 대상)
  * @returns {{rep:string, dups:string}[]} 병합된 그룹 목록
  */
-const dedupeRows = (rows, same, opts) => {
+const dedupeRows = (rows, same, opts, forced = []) => {
   // 이전 병합 표시를 먼저 기억한다 — 대표행 선택의 동률 판정에 써서, 그룹 상태가
   // 바뀌어도 대표 id 가 뒤집히지 않게 한다(관심·딥링크가 id 를 참조한다)
   const prevReps = new Set(rows.filter((r) => r.duplicates && r.duplicates.length).map((r) => r.id));
   for (const r of rows) { delete r.merged_into; delete r.duplicates; }   // 멱등: 표시를 다시 계산한다
   const groups = [];
-  for (const group of groupAll(rows, same)) {
+  for (const group of groupAll(rows, same, forced)) {
     const rep = pickRep(group, prevReps);
     const dups = group.filter((r) => r !== rep)
       .sort((a, b) => (a.first_seen || '9999').localeCompare(b.first_seen || '9999') || a.id.localeCompare(b.id));
@@ -177,12 +197,12 @@ const dedupeRows = (rows, same, opts) => {
   return groups;
 };
 
-export const dedupePostings = (rows) => dedupeRows(rows, samePosting, { dateFields: ['last_seen', 'last_checked'], mergeFields: ['url'], policyField: 'ai_policy' });
+export const dedupePostings = (rows, forced = []) => dedupeRows(rows, samePosting, { dateFields: ['last_seen', 'last_checked'], mergeFields: ['url'], policyField: 'ai_policy' }, forced);
 // 이벤트 마감(apply/submit)도 채용 deadline 과 같은 규칙(R3, F1 의 이벤트 확장): dup 의
 // 마감이 rep 의 값(null·수동 정정 포함)을 건드리지 않는다 — ko-0003 등 수동 정정 이력
 // 보유 이벤트 5건이 재게시 dup 의 옛 마감으로 되살아나는 결함 차단. 합법적 마감 연장은
 // collector 재확인 경로가 event_deadline_changed 감사와 함께 반영한다. last_checked 만 maxOr.
-export const dedupeEvents = (rows) => dedupeRows(rows, sameEvent, { dateFields: ['last_checked'], mergeFields: ['url'] });
+export const dedupeEvents = (rows, forced = []) => dedupeRows(rows, sameEvent, { dateFields: ['last_checked'], mergeFields: ['url'] }, forced);
 
 // meta note 규칙(스펙 1-3): 마지막 런이 시드 날짜와 같으면 '시드뿐', 그 다음부터는
 // 루틴 가동 상태로 쓴다. 허위 상태("not started")가 데이터에 박히지 않게 last_run 에서 파생한다.
