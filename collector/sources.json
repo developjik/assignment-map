@@ -1,6 +1,6 @@
 {
-  "version": "2026-11-21-d",
-  "note": "fetch()는 브라우저 페이지 상한 미소모. 발견=fetch(0페이지), 상세=브라우저(80페이지 상한 내). 2026-11-21-d 2차 확장: T0 +빌더 RSS 3종(vercel·supabase·cloudflare), T2 +브라우저 7종 승격(zindi·kakao·hashnode·hf·taikai active / wishket·naver watch). 잡코리아 키워드 '과제형'(5,671)·'과제전형'(3,881)은 국책과제 노이즈 풀로 기각(사전과제 788 대비 5-7배).",
+  "version": "2026-11-21-e",
+  "note": "fetch()는 브라우저 페이지 상한 미소모. 발견=fetch(0페이지), 상세=브라우저(80페이지 상한 내). 2026-11-21-e: T0 +kaggle-api(인증 API, kaggle_fetch.mjs 래퍼·키 미노출 구조). 콜드스탠바이도 env 시크릿으로 동일 소스 커버.",
   "tiers": {
     "T0_fetch_daily": [
       {
@@ -152,6 +152,15 @@
         "cost": 0,
         "status": "active",
         "note": "Cloudflare 블로그 RSS(아이템 20). Developer Challenge 계열 공지 — 같은 필터."
+      },
+      {
+        "id": "kaggle-api",
+        "kind": "api-auth",
+        "url": "https://www.kaggle.com/api/v1/competitions/list?page=1&sortBy=latestDeadline",
+        "target": "events",
+        "cost": 0,
+        "status": "active",
+        "note": "2026-11-21 편입(오너 승인, 계정 developjik Google SSO + legacy API 키). 실행: `node collector/kaggle_fetch.mjs 2` — 키는 스크립트가 ~/.kaggle/kaggle.json(또는 env KAGGLE_USERNAME/KAGGLE_KEY)에서 직접 읽어 에이전트 컨텍스트를 통과하지 않는다. 실측 21개/2p(20/페이지). 주의: 응답 필드가 Nullable 접미사형(titleNullable), 'Getting Started' 카테고리는 영구 튜토리얼(2030년 마감)이라 채택 제외 — Featured/Playground/Community만 판정. 자격 증명은 Vault 'Kaggle API (developjik)' + GitHub secrets KAGGLE_USERNAME/KAGGLE_KEY(콜드스탠바이)."
       }
     ],
     "T1_browser_daily": [

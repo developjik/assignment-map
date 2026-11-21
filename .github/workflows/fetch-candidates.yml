@@ -27,6 +27,9 @@ jobs:
         with:
           node-version: 20
       - name: 콜드스탠바이 fetch 스윕 (새 후보가 있을 때만 queue/ 에 기록)
+        env:
+          KAGGLE_USERNAME: ${{ secrets.KAGGLE_USERNAME }}
+          KAGGLE_KEY: ${{ secrets.KAGGLE_KEY }}
         run: node collector/coldscan.mjs
       - name: 바뀐 게 있으면 커밋·푸시
         run: |
