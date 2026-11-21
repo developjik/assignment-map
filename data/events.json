@@ -5067,7 +5067,7 @@
     "evidence": [
       "상태전환 실측(2026-11-21): daker API 상태 'published' → 'evaluation' (접수 11-20 마감, 최종 12-07) — 심사중 전환"
     ],
-    "source": "daker-api",
+    "source": "daker",
     "review": "confirmed",
     "first_seen": "2026-11-15",
     "last_checked": "2026-11-21",
