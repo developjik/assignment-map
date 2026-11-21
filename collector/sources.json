@@ -1,6 +1,6 @@
 {
-  "version": "2026-11-21-c",
-  "note": "fetch()는 브라우저 페이지 상한 미소모. 발견=fetch(0페이지), 상세=브라우저(80페이지 상한 내). 2026-11-21-c 소스 확장(오너 '최대한 추가'): T0 +devto-hackathons, T2 +drivendata·aicrowd·onoffmix, greeting-ats 무신사+컬리 fetch화(greeting.mjs)·야놀자/SSG 브라우저 감시 추가. 후보·폐쇄 기록은 collector/sources_candidates.json. 카나리 밴드는 각 소스 첫 실측 후 추가.",
+  "version": "2026-11-21-d",
+  "note": "fetch()는 브라우저 페이지 상한 미소모. 발견=fetch(0페이지), 상세=브라우저(80페이지 상한 내). 2026-11-21-d 2차 확장: T0 +빌더 RSS 3종(vercel·supabase·cloudflare), T2 +브라우저 7종 승격(zindi·kakao·hashnode·hf·taikai active / wishket·naver watch). 잡코리아 키워드 '과제형'(5,671)·'과제전형'(3,881)은 국책과제 노이즈 풀로 기각(사전과제 788 대비 5-7배).",
   "tiers": {
     "T0_fetch_daily": [
       {
@@ -125,6 +125,33 @@
         "cost": 0,
         "status": "active",
         "note": "DEV Hackathon Camp 피드(SSR 64KB). 2026-11-21 실측: 아티클 슬러그 2-3개/스냅 — 구조화 목록이 아닌 '발견 신호' 계층(gnews 계열). 파서 collector/parsers/devto.mjs (보조 API /api/articles?tag=hackathon). 제목만으로 채택 판정 금지, 링크 본문 확인 후 판정."
+      },
+      {
+        "id": "vercel-atom",
+        "kind": "rss",
+        "url": "https://vercel.com/atom",
+        "target": "events",
+        "cost": 0,
+        "status": "active",
+        "note": "Vercel 공식 블로그 atom(아이템 100). 2026-11-21 실측. 해커톤·Template 경진을 changelog와 함께 발표 — 제목에 'hackathon|competition|challenge' 필터 후 본문 확인."
+      },
+      {
+        "id": "supabase-rss",
+        "kind": "rss",
+        "url": "https://supabase.com/rss.xml",
+        "target": "events",
+        "cost": 0,
+        "status": "active",
+        "note": "Supabase 공식 블로그 RSS(아이템 448). Hackathon 시리즈를 정기 발표(LW hackathon 등) — 같은 필터."
+      },
+      {
+        "id": "cloudflare-blog-rss",
+        "kind": "rss",
+        "url": "https://blog.cloudflare.com/rss/",
+        "target": "events",
+        "cost": 0,
+        "status": "active",
+        "note": "Cloudflare 블로그 RSS(아이템 20). Developer Challenge 계열 공지 — 같은 필터."
       }
     ],
     "T1_browser_daily": [
@@ -321,6 +348,69 @@
         "cost": 0,
         "status": "active",
         "note": "국내 세미나·컨퍼런스·밋업. 2026-11-21 실측: 메인은 셸, 카테고리 페이지 /event/main/?interest={코드}만 SSR(이벤트 19개/카테고리). 파서 collector/parsers/onoffmix.mjs. 카테고리 코드 첫 T2 실행에서 확정(A0101 비즈니스·A0110 게임/IT교육 확인됨 — 개발/IT 코드 탐색 후 url 갱신). 부트캠프 광고 다수 → 프리스크린 블랙리스트(국비지원·부트캠프) 의존. end_layer=종료."
+      },
+      {
+        "id": "zindi-competitions",
+        "kind": "browser",
+        "url": "https://zindi.africa/competitions",
+        "target": "events",
+        "cost_pages": 1,
+        "status": "active",
+        "note": "아프리카 중심 AI 챌린지(전 지구 참여 다수). 2026-11-21 실측: fetch는 셸, API 경로 전부 HTML 폴백 — 브라우저만 가능. 브라우저 1p에서 active 목록 제목+마감만."
+      },
+      {
+        "id": "kakao-careers",
+        "kind": "browser",
+        "url": "https://careers.kakao.com/jobs",
+        "target": "postings",
+        "cost_pages": 1,
+        "status": "active",
+        "note": "카카오 자체 ATS(SPA 1.4KB 셸 — fetch 불가). AI 과제 전형 개시 감시용 주 1회. 공고 제목에 '과제|AI|코딩' 필터."
+      },
+      {
+        "id": "hashnode-hackathons",
+        "kind": "browser",
+        "url": "https://hashnode.com/hackathons",
+        "target": "events",
+        "cost_pages": 1,
+        "status": "active",
+        "note": "Hashnode 공식 해커톤(동시 1개 수준, 분기성). Next 클라이언트 렌더 — 브라우저만."
+      },
+      {
+        "id": "hf-hackathons",
+        "kind": "browser",
+        "url": "https://huggingface.co/hackathons",
+        "target": "events",
+        "cost_pages": 1,
+        "status": "active",
+        "note": "HuggingFace 공식 커뮤니티 해커톤(동시 1-3개). SSR에 링크 없음·API 401 — 브라우저만."
+      },
+      {
+        "id": "taikai-hackathons",
+        "kind": "browser",
+        "url": "https://taikai.net/hackathons",
+        "target": "events",
+        "cost_pages": 1,
+        "status": "active",
+        "note": "웹3+AI 해커톤 플랫폼(DoraHacks 유사, AI 필터로 채택). fetch 114B 셸 — 브라우저만."
+      },
+      {
+        "id": "wishket-contest",
+        "kind": "browser",
+        "url": "https://contest.wishket.com/",
+        "target": "events",
+        "cost_pages": 1,
+        "status": "watch",
+        "note": "위시캣 공모전(국내 상위권). 2026-11-21 실측: fetch 전멸(봇월 추정) — 첫 브라우저 실행에서 접근성 확인, 열리면 active 승격+카테고리(IT) 확정."
+      },
+      {
+        "id": "naver-recruit",
+        "kind": "browser",
+        "url": "https://naver.recruit.com/",
+        "target": "postings",
+        "cost_pages": 1,
+        "status": "watch",
+        "note": "네이버 채용 — 구경로(recruit.navercorp.com) 404, 신규 도메인 fetch 실패(DNS/TLS). 첫 브라우저 실행에서 실제 경로 확인 후 watch 해제/제거 판정."
       }
     ],
     "T3_monthly": [

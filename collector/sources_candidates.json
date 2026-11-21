@@ -1,5 +1,5 @@
 {
-  "version": "2026-11-21",
+  "version": "2026-11-21-d",
   "note": "T3 새 소스 탐사 결과 보존(스펙: 오너 승인 후 sources.json 편입). status: owner-action(키/계정 필요) | browser(브라우저만 가능) | hold(가치 대비 비용 보류) | dead(폐쇄).",
   "owner_action": [
     {
@@ -11,44 +11,13 @@
       "id": "saramin-api",
       "why": "국내 최대 채용 소스",
       "path": "2026-11-21 이용신청 접수(승인 대기, 원샷 루틴 eF2DO7Tf16KhOx6d가 키 확보) — 승인 즉시 파서 작성·편입"
+    },
+    {
+      "id": "worknet-api",
+      "why": "워크넷 채용정보 오픈API(사람인과 유사한 신청형) — 국내 공공 채용 커버. 가치는 사람인보다 낮음(중소 위주·사전과제 드묾) — 사람인 승인 후 재평가 권장"
     }
   ],
   "browser": [
-    {
-      "id": "zindi",
-      "url": "https://zindi.africa/competitions",
-      "why": "아프리카 중심 AI 챌린지(전 지구 참여 가능 다수) — fetch는 셸(클라이언트 렌더), API 경로 전부 HTML 폴백. 월 1회 브라우저 체크 후보"
-    },
-    {
-      "id": "hashnode-hackathons",
-      "url": "https://hashnode.com/hackathons",
-      "why": "해시노드 공식 해커톤(현 시즌 1개 수준) — Next 클라이언트 렌더. 분기 1회 브라우저 체크면 충분"
-    },
-    {
-      "id": "hf-hackathons",
-      "url": "https://huggingface.co/hackathons",
-      "why": "HF 공식 커뮤니티 해커톤(동시 1-3개) — SSR에 링크 없음·API는 401. 월 1회 브라우저"
-    },
-    {
-      "id": "taikai",
-      "url": "https://taikai.net/hackathons",
-      "why": "웹3+AI 해커톤(DoraHacks 유사) — 114B 셸. 월 1회 브라우저"
-    },
-    {
-      "id": "kakao-careers",
-      "url": "https://careers.kakao.com/jobs",
-      "why": "자체 ATS SPA(1.4KB 셸) — AI 과제 전형 개시 감시용, 월 1회 브라우저"
-    },
-    {
-      "id": "naver-recruit",
-      "url": "https://naver.recruit.com/",
-      "why": "구경로 404·신규 도메인 fetch 실패(DNS/TLS) — 브라우저로 경로 확인 후 월 1회 감시 후보"
-    },
-    {
-      "id": "wishket-contest",
-      "url": "https://contest.wishket.com/",
-      "why": "위시캣 공모전(국내 상위권 공모전 플랫폼) — fetch 전멸(봇월 추정). 브라우저로 접근성 확인 후 T2 브라우저 편입 검토"
-    },
     {
       "id": "encode-club / mlh / linkareer",
       "url": "",
@@ -95,6 +64,14 @@
     {
       "id": "hf hackathons api",
       "why": "401(인증 필요)"
+    },
+    {
+      "id": "jobkorea 키워드 '과제형'·'과제전형'",
+      "why": "2026-11-21 파서 실측 total 5,671/3,881 — 국책과제·R&D 과제형 오탐 풀(사전과제 788의 5-7배). 유효 키워드는 사전과제·바이브코딩뿐이라 재확정"
+    },
+    {
+      "id": "hackjunction.com",
+      "why": "해커톤 페이지 1.6KB 셸(CSR) — fetch 불가. 브라우저 후보로도 빈도 낮아 보류"
     }
   ]
 }
