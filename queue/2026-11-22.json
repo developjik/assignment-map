@@ -1,0 +1,126 @@
+{
+  "date": "2026-11-22",
+  "generated_by": "collector/coldscan.mjs (fetch-candidates.yml)",
+  "statuses": {
+    "wevity": "ok 1350 ix / 90p",
+    "devpost": "ok 68 / 8p",
+    "daker": "ok 24",
+    "kaggle": "ok 21",
+    "hn": "ok thread 50338728"
+  },
+  "counts": {
+    "wevity": 0,
+    "devpost": 11,
+    "daker": 0,
+    "kaggle": 0,
+    "hn": 0
+  },
+  "total_candidates": 11,
+  "candidates": {
+    "wevity": [],
+    "devpost": [
+      {
+        "id": 31826,
+        "title": "Global AI Builder’s Challenge",
+        "url": "https://global-ai-builders-challenge.devpost.com/",
+        "period": "Nov 21 - 28, 2026",
+        "prize": "$<span data-currency-value>0</span>",
+        "org": "Refactor The World",
+        "invite_only": false
+      },
+      {
+        "id": 31721,
+        "title": "EvoHacks 2",
+        "url": "https://evohacks2.devpost.com/",
+        "period": "Nov 21 - 22, 2026",
+        "prize": "$<span data-currency-value>27,629</span>",
+        "org": "EvoHacks",
+        "invite_only": false
+      },
+      {
+        "id": 32163,
+        "title": "tidalBYTE '26",
+        "url": "https://tidalbyte-26.devpost.com/",
+        "period": "Nov 21, 2026",
+        "prize": "$<span data-currency-value>2,370</span>",
+        "org": "tidalTAMU",
+        "invite_only": false
+      },
+      {
+        "id": 32153,
+        "title": "BostonHacks 2026",
+        "url": "https://bostonhacks-2026.devpost.com/",
+        "period": "Nov 21 - 22, 2026",
+        "prize": "$<span data-currency-value>3,500</span>",
+        "org": "BostonHacks",
+        "invite_only": false
+      },
+      {
+        "id": 29847,
+        "title": "Cutie Hack 2026",
+        "url": "https://cutie-hack-2026.devpost.com/",
+        "period": "Nov 21, 2026",
+        "prize": "$<span data-currency-value>0</span>",
+        "org": "ACM at UCR",
+        "invite_only": false
+      },
+      {
+        "id": 31884,
+        "title": "START Hack League Munich 2026",
+        "url": "https://start-hack-league-munich-2026.devpost.com/",
+        "period": "Nov 21 - 22, 2026",
+        "prize": "€<span data-currency-value>4,000</span>",
+        "org": "START Munich",
+        "invite_only": false
+      },
+      {
+        "id": 32192,
+        "title": "Tech For Community 2026",
+        "url": "https://tfc26.devpost.com/",
+        "period": "Nov 21, 2026",
+        "prize": "$CAD <span data-currency-value>0</span>",
+        "org": "TecNurtur",
+        "invite_only": false
+      },
+      {
+        "id": 32085,
+        "title": "Acalanes Data Fest hosted by BRIDGEGOOD",
+        "url": "https://ahs.devpost.com/",
+        "period": "Nov 21, 2026",
+        "prize": "$<span data-currency-value>0</span>",
+        "org": "Acalanes Data Science Club",
+        "invite_only": false
+      },
+      {
+        "id": 30918,
+        "title": "FutureForge Hacks",
+        "url": "https://futureforge-hacks.devpost.com/",
+        "period": "Nov 21, 2026",
+        "prize": "$<span data-currency-value>0</span>",
+        "org": "Future Forge",
+        "invite_only": false
+      },
+      {
+        "id": 32214,
+        "title": "EurekaHacks Jr",
+        "url": "https://eurekahacks-jr.devpost.com/",
+        "period": "Nov 21 - 22, 2026",
+        "prize": "$<span data-currency-value>0</span>",
+        "org": "EurekaHACKS",
+        "invite_only": false
+      },
+      {
+        "id": 32210,
+        "title": "Glushkov 2026 GameDev Contest",
+        "url": "https://glushkov-2026-gamedev-contest.devpost.com/",
+        "period": "Nov 21 - 23, 2026",
+        "prize": "$<span data-currency-value>0</span>",
+        "org": "GlushkovCompany",
+        "invite_only": false
+      }
+    ],
+    "daker": [],
+    "kaggle": [],
+    "hn": []
+  }
+}
