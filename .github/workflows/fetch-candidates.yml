@@ -23,7 +23,7 @@ jobs:
       - uses: actions/checkout@v7
         with:
           ref: main          # detached HEAD 가 아닌 main 브랜치로 체크아웃(푸시 대상)
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v7
         with:
           node-version: 20
       - name: 콜드스탠바이 fetch 스윕 (새 후보가 있을 때만 queue/ 에 기록)
