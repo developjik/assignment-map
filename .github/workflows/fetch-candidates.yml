@@ -20,7 +20,7 @@ jobs:
   scan:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
         with:
           ref: main          # detached HEAD 가 아닌 main 브랜치로 체크아웃(푸시 대상)
       - uses: actions/setup-node@v4
