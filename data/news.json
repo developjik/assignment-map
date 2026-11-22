@@ -45,15 +45,6 @@
     "url": "https://www.cio.com/article/4250367/the-dark-side-of-ai-in-hiring-when-job-applicants-become-security-threats.html"
   },
   {
-    "id": "news-feed-6687f7be62",
-    "topic": "OpenAI",
-    "tag": "업계",
-    "content": "How OpenAI’s Performance Factory keeps ChatGPT fast",
-    "date": "2026-11-19",
-    "source": "OpenAI",
-    "url": "https://openai.com/index/how-openai-performance-factory-keeps-chatgpt-fast"
-  },
-  {
     "id": "news-feed-674ecac25e",
     "topic": "구글",
     "tag": "정책",
@@ -63,15 +54,6 @@
     "url": "https://news.google.com/rss/articles/CBMiUEFVX3lxTFBJWllGdkEwbUswWE50LWZBSHk5X1Q5LTJVS0pkXzV0djU4Q094Vkx1ZVJPWko1bGZyeXltSHJseXE3eHkwVzQ4NzZaaHV2M1hI?oc=5"
   },
   {
-    "id": "news-feed-4d316f0cef",
-    "topic": "AI 과제 전형",
-    "tag": "정책",
-    "content": "미래에셋생명, 직원 주도로 AI 과제 37개 추진",
-    "date": "2026-11-19",
-    "source": "코리아리포트",
-    "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTFB3M2xxaldPdDZqaXBJamRXdlNKQTZwd2gyOC04ZTBpY3V6cFdlbi1HTnVMci1GdFRjQl9WeTBsOWFnY0hDSzRpMHVDUFdKVXIxQmJsR3BFaUtJNjRyT2dleVpVRnJCUFNLN3liWWtqcFc?oc=5"
-  },
-  {
     "id": "news-feed-2e6470ec77",
     "topic": "AI 코딩 도구",
     "tag": "업계",
@@ -79,15 +61,6 @@
     "date": "2026-11-19",
     "source": "GeekNews",
     "url": "https://news.google.com/rss/articles/CBMiS0FVX3lxTFBfSDBGczlEUFctak5zbW1sUXVFMEZiVVFYX3VHemZEZGg2ZnA4MDB0YVJ3RDkxZ2NncHQtN1FFckNEWEVUdkFrZUJlWQ?oc=5"
-  },
-  {
-    "id": "news-feed-c199637345",
-    "topic": "AI 해커톤",
-    "tag": "업계",
-    "content": "해시드, AI 해커톤 'OBA RUN' 개최…송금·결제 서비스 등 9개 팀 수상",
-    "date": "2026-11-19",
-    "source": "한국경제",
-    "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE1SeWJQRlhOZTNidUg3RmROUmxLUm1ta3ZDcWpPQ2dFdGJwNi1RQTF4NXZDM2ZTWG1GeC1XTUhrQm0xSk9zSEVZV1V2Y3RTa2RpYTNlTFMzQzVoQQ?oc=5"
   },
   {
     "id": "news-feed-496d2d6948",
@@ -108,6 +81,24 @@
     "url": "https://blog.google/innovation-and-ai/products/gemini-app/gemini-lower-memory-devices/"
   },
   {
+    "id": "news-feed-c903064b8a",
+    "topic": "AI 공모전",
+    "tag": "업계",
+    "content": "세종사이버대, 전 국민 대상 AI 공모전 개최… 총상금 1500만 원",
+    "date": "2026-11-18",
+    "source": "동아일보",
+    "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTE12Y2RYT2t4N0RHam5fMGRCV2tMVkxIUWxGLVF3RUFYRU9paGVmTWlIcEdmOElJbnl3OW8zOGtIaFNOU2tmMXgyNFlRQ1FBWE04MTJtNTZ0TFduTk9acm82dFBKYjVVUWJaVUdHajhLMNIBZkFVX3lxTFBtVlk3QXdLZl9NQWZoYzdHVmRnZG1tdThZbFk5SHhjdmZDWURrVFd4NDR6dy0tRVpIemllODI5bEZmaW5IajRzSWJWWlo2RGswY3d4SjVVRnIzblpReHVtRTB2N0UwUQ?oc=5"
+  },
+  {
+    "id": "news-feed-7bf04e256a",
+    "topic": "AI 채용",
+    "tag": "정책",
+    "content": "‘안 뽑는’ AI 채용시장…2030년 유망 일자리는 ‘빅데이터·핀테크’",
+    "date": "2026-11-18",
+    "source": "이투데이",
+    "url": "https://news.google.com/rss/articles/CBMiVEFVX3lxTFB4U1dDY1pzSFoyRzJjNGVMSVhaOEhoN21DSFdlSVlDZ3NYSldYWVFLUFRMVFRTQXdOSWhSMHRucnp6ajhxb3R6Y1NKZjNjUzJCU1hOOQ?oc=5"
+  },
+  {
     "id": "news-feed-8a5012b162",
     "topic": "AI 경진대회",
     "tag": "정책",
@@ -124,6 +115,15 @@
     "date": "2026-11-13",
     "source": "OpenAI",
     "url": "https://openai.com/business/customer-stories/amplitude"
+  },
+  {
+    "id": "news-feed-705ca08569",
+    "topic": "AI 채용",
+    "tag": "정책",
+    "content": "사람인, 'AI 채용 에이전트' 선봬…인사담당자 의사결정 지원",
+    "date": "2026-11-12",
+    "source": "뉴스1",
+    "url": "https://news.google.com/rss/articles/CBMiZEFVX3lxTFBVWHo2SDB3Rm55bGVjdHlyU1VTMFowUXB2bnB0Y0FWQnpGUGp2RFhrQ1JaQWRHWkNDSTRJbFo4WTZjOWZkbVFXdkpDQ29DdWJWbEl3YTRfNGVqRkJ0V0ZxdEJKcmg?oc=5"
   },
   {
     "id": "news-policy-01",
