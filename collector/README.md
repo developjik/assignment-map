@@ -8,6 +8,7 @@ Aside 루틴 프롬프트와 검증 도구가 여기 들어갑니다.
 - merge.mjs: postings/events 병합·dedup·changelog 생성 (루틴 내 실행)
 - normalize.mjs: 기존 `data/*.json`의 문자열 evidence를 배열로 되돌리는 복구 도구 (멱등)
 - validate.mjs: 골든케이스 + 스키마 무결성 검증
+- watchdog.mjs: 수집 지연 자동 진단(검증 잠금·push 이탈·소스 차단·루틴 미도착) — watchdog.yml이 이슈에 붙인다
 - parsers/: 소스별 영구 파서(위비티·잡코리아m·Devpost·daker·HN) — 아래 '파서·카나리' 참고
 - canaries.json / canary.mjs: 수집 지표 밴드 검증(조용한 파서 실패를 경보로)
 - fetch_news.py: 트렌드 뉴스 수집 → `data/news.json` (아래 참고)
