@@ -1,4 +1,4 @@
-# 매일 수집 루틴 프롬프트 (v1.4 — sources.json 단일 공급원·재방문 관측성. v1.3 파서·카나리 계층, v1.2 fetch-우선 아키텍처)
+# 매일 수집 루틴 프롬프트 (v1.5 — 런 시작 동기화·push 실패 처리. v1.4 sources.json 단일 공급원·재방문 관측성. v1.3 파서·카나리 계층, v1.2 fetch-우선 아키텍처)
 
 > 이 문서 하나로 매일의 수집 세션이 self-contained로 동작해야 한다.
 > **소스의 URL·키워드·비용·상태·주의사항은 `collector/sources.json`이 단일 공급원이다.**
@@ -37,6 +37,8 @@ fetch 본문 | node collector/parsers/devto.mjs            # DEV 해커톤 캠�
 node collector/kaggle_fetch.mjs 2                        # Kaggle 인증 fetch+파서(키 미노출)
 ```
 
+- kaggle_fetch가 exit 2(자격 증명 없음)면 Kaggle만 건너뛰고 notes에 `KAGGLE: no-credentials`를 남긴다 — 런 중단 사유가 아니다.
+
 - 파서가 `count 0` + note를 내면 조용히 넘기지 않는다 — 마크업 변경이나 fetch 붕괴일 수 있다.
 - 수집 지표를 모아 밴드 검증: `node collector/canary.mjs '{"wevity-list-per-page":15,...}'`
   VIOLATION이면 run notes에 CANARY 줄 + sources.json watch 강등 후보 기록.
@@ -44,6 +46,8 @@ node collector/kaggle_fetch.mjs 2                        # Kaggle 인증 fetch+�
 
 ## 1. 갭 체크 (첫 동작)
 
+0. `git pull --rebase --autostash origin main` — Actions 봇(news·readme·queue)과 PR 병합이 매일 main을 앞서 간다.
+   실패(충돌·자격 증명)하면 수집을 시작하지 말고 오류를 노티로 남긴 뒤 종료한다.
 1. `data/meta.json`의 `last_run` 확인. 오늘과 1일 차이 → 정상. 2일 이상 → lookback 확대 안내 노티.
 2. `runs/`에 오늘 날짜 파일이 있으면 이미 실행: 한 줄 보고 후 종료.
 3. `queue/`에 미소비 콜드스탠바이 파일(있으면)부터 처리한다 — Actions fetch-candidates가
@@ -137,6 +141,9 @@ T2 소스가 2주 무관측된 사례 방지.
 
 `runs/YYYY-MM-DD.json`(postings·events·checked·sources·notes) → `node collector/merge.mjs runs/…` →
 `node collector/validate.mjs` → exit 0 시만 git push. merge가 evidence·positions 배열을 정규화한다.
+push가 non-fast-forward로 거부되면 `git pull --rebase --autostash origin main` 후 validate를 다시 돌리고 한 번 더 push한다.
+그래도 실패하면 커밋을 로컬에 둔 채 오류를 노티로 남긴다 — main 외 브랜치로 우회 push 금지.
+watchdog(04:30 KST)이 2일 무갱신을 잡으면 `collector/watchdog.mjs` 진단이 이슈에 붙는다(검증 잠금·push 이탈·소스 차단·루틴 미도착).
 기존 데이터 정리가 필요하면 `node collector/normalize.mjs`(멱등).
 
 ## 9. 하지 않는 것
