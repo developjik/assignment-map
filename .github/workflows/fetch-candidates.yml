@@ -10,7 +10,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: write
+  contents: read
 
 concurrency:
   group: fetch-candidates
@@ -18,12 +18,14 @@ concurrency:
 
 jobs:
   scan:
+    permissions:
+      contents: write
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v7
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
         with:
           ref: main          # detached HEAD 가 아닌 main 브랜치로 체크아웃(푸시 대상)
-      - uses: actions/setup-node@v7
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7
         with:
           node-version: 20
       - name: 콜드스탠바이 fetch 스윕 (새 후보가 있을 때만 queue/ 에 기록)
