@@ -1,39 +1,102 @@
 [
   {
-    "id": "news-feed-1f9a1fd4fa",
-    "topic": "AI 경진대회",
-    "tag": "업계",
-    "content": "한국경영기술지도사회, AI 경진대회 성료…권형남 회장 “중소기업 경영 개선에 실질적 도움”",
-    "date": "2026-11-22",
-    "source": "아시아투데이",
-    "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTE5LUTIyQkwyRkNwVEY0NHpCRjhQb3Q1OW53SjB0NWdiQm02Qnpld2hZTVNpWGdxUVZtdTF5M3FlbGRQWGRSTXJCMGVCTEVzVlU2N3dqNlpCQXJ1M3lRSWZjV3VZNzdGWjNPOFdRZll3?oc=5"
-  },
-  {
-    "id": "news-feed-a0e4bb7d33",
-    "topic": "AI 코딩 도구",
-    "tag": "업계",
-    "content": "“AI 코딩 에이전트는 왜 거짓말할까?”…벨뷰서 흥미로운 한인대상 개발자세미나 > 시애틀 뉴스/핫이슈",
-    "date": "2026-11-21",
-    "source": "SeattleN",
-    "url": "https://news.google.com/rss/articles/CBMiSkFVX3lxTFBfYXB4NktfZVl1R2NVa3p4aXAwT1hvbWY1RGpqeFRTUUctYjVRNVJuYU92cHNGaTV4TG42dU5RamllR2pUa0VQSzV3?oc=5"
-  },
-  {
-    "id": "news-feed-08348a021d",
-    "topic": "개발자 이직",
-    "tag": "업계",
-    "content": "“단순 바이브 코딩 넘어선다”…베이직인터내셔널, 멀티 AI 에이전트 기반 코딩 자동화 솔루션 공개",
-    "date": "2026-11-20",
-    "source": "인공지능신문",
-    "url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE9uX2RQV1M0MFgtUnpKdlZzUGFUOGlnaVdVRlA1OGhsWm85WnhaN3FJbFIzVFNsZk5ua2pqLXBzZVU0RURwRm4xcFJ2WDg0ejhVSHdaUFhxeVNQWTZCZGVXc3BPekZpRWc?oc=5"
-  },
-  {
-    "id": "news-feed-68d624284b",
+    "id": "news-feed-e910d6512b",
     "topic": "AI 면접",
     "tag": "정책",
-    "content": "청운대 ‘AI면접으로 배우는 AI실전 문제해결 과정’ 성료",
-    "date": "2026-11-20",
-    "source": "경상일보",
-    "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE41QnE0NG1TMTJ4aXBrcnZzMi16NHRPVmw0ek9yWWJYLVhsZFA1S29VUTNzWE9yOFN1NU1STFlMVXl2bzh1dXlZcVZsRTNfTlBRS3RTc1p4SWhqZUpYRVlxelRlckZkS1ZBeHdVSA?oc=5"
+    "content": "하나금융, 중장년 일자리 연결 확대…AI 면접부터 현장 채용까지",
+    "date": "2026-11-24",
+    "source": "기호일보",
+    "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTE5DeWk2UnlrUVZzNzZMcjdpQ1l3MUU0QV9yZUtOaUpyQXh4Z3hOa0xCR2ZDYjdaVjhxQUMydGNSX0NaS0x4MWZkX0Ezc19VRlBUUzh1aXRZVlI1Um04bkk1VU1EdGlGVFQ5SDEtbTZWZw?oc=5"
+  },
+  {
+    "id": "news-feed-064eb17ecc",
+    "topic": "AI 과제 전형",
+    "tag": "정책",
+    "content": "GS샵, 영업·지원 직원들이 AI과제 발굴…94개 솔루션 구현",
+    "date": "2026-11-24",
+    "source": "연합뉴스",
+    "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTFAtRU5VZkdkUklKRzh6VHY4TUxxZ2RtU0JVU0ZsMHdQTVZPU09IM2ZCYlBySUFTWnhzbDVNVXZvQ0JLUXd1Qi1GSHZTNDZZUXI2aWxLNVQwcERoVWMxV2hILdIBYEFVX3lxTFAtRU5VZkdkUklKRzh6VHY4TUxxZ2RtU0JVU0ZsMHdQTVZPU09IM2ZCYlBySUFTWnhzbDVNVXZvQ0JLUXd1Qi1GSHZTNDZZUXI2aWxLNVQwcERoVWMxV2hILQ?oc=5"
+  },
+  {
+    "id": "news-feed-4907fc5da2",
+    "topic": "AI 채용",
+    "tag": "정책",
+    "content": "AI 채용 자동화에 40억 달러 몰린다…국내 인력사무소가 준비할 것",
+    "date": "2026-11-24",
+    "source": "뉴스N연합",
+    "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTFBCdWJXeXNiY01Fak9KOC1VTm5vNkRUREo2bHpERmlfZDdQS3lEVE9Lbm8zT0NBODRFcm1BYjlQOFAxc0s4ZmlHR0k1SGNhblE?oc=5"
+  },
+  {
+    "id": "news-feed-1d0c151fef",
+    "topic": "OpenAI",
+    "tag": "업계",
+    "content": "OpenAI and Cisco introduce Shirudo",
+    "date": "2026-11-24",
+    "source": "OpenAI",
+    "url": "https://openai.com/index/introducing-shirudo"
+  },
+  {
+    "id": "news-feed-c5903c8754",
+    "topic": "Google",
+    "tag": "업계",
+    "content": "A more tailored Google Search that’s uniquely yours",
+    "date": "2026-11-24",
+    "source": "Google AI",
+    "url": "https://blog.google/products-and-platforms/products/search/google-search-personal-intelligence-apps/"
+  },
+  {
+    "id": "news-feed-c00c3641fa",
+    "topic": "AI 공모전",
+    "tag": "업계",
+    "content": "한화손보, “AI 기술로 불완전판매 예방”… AI 공모전 최고상",
+    "date": "2026-11-23",
+    "source": "한국보험신문",
+    "url": "https://news.google.com/rss/articles/CBMia0FVX3lxTE9LcnAxSS1rZFB3aU0tV0lpSTJROHJIOHg1VGJXNG45ZjFuRkZQSThyY0tYOVZjRnlMRDNRU1JvTTB5a2xxcWNYRU8wTVFFRjlqQkY1RTVUdUU3Um1kYnYtMGRuN3FSSVowQmpv0gFvQVVfeXFMT3FydXR2UUNxYkZUQ1BKNDg1WEFMOFFPOTNFZE5HMFk2eHk0ZUpfamw5SGtRTzFoVEZZeThwOXdLX0tNdEVrM3plVkVKZ3k0b053S0pUaS14NGtIR2FIQW9PbUtBQlZqeDkxNEIzNmNN?oc=5"
+  },
+  {
+    "id": "news-feed-f6065ee3aa",
+    "topic": "AI 코딩 도구",
+    "tag": "업계",
+    "content": "AWS, 신규 가입 절차 간소화…AI 코딩 에이전트로 바로 앱 배포",
+    "date": "2026-11-23",
+    "source": "테크월드",
+    "url": "https://news.google.com/rss/articles/CBMiaEFVX3lxTE1XQmt1b0ttTXE3cEVFOWdTckZtQ0tHWlhQbTF6djYwcEdieHBNcjRTWEE1WUhKendpOTFyMk9KSlN4LW9OWVZqb1pSVnpRUUw4MFNGdHlkbjZXUEF1cXNmMGxwOTE3d0lt?oc=5"
+  },
+  {
+    "id": "news-feed-03b2eb6865",
+    "topic": "카카오",
+    "tag": "업계",
+    "content": "카카오, AI 경진대회 ‘AI TOP 100’ 개최…에이전트 설계·운용 역량 겨뤄",
+    "date": "2026-11-23",
+    "source": "바이라인네트워크",
+    "url": "https://news.google.com/rss/articles/CBMiV0FVX3lxTE9RdXN4VklYNDBFc201TXM2dmFUZ2Z5bzBSZk5fZXNVZmNPOEpYMGlSeDhvbzJ1a0hNSE5uNENxbnppWXlyMHNTbHJSTU1aYURWdC1RanRTTQ?oc=5"
+  },
+  {
+    "id": "news-feed-cfcd070359",
+    "topic": "바이브코딩",
+    "tag": "업계",
+    "content": "세종사이버대 AI학과 '2026 바이브코딩 실습 특강(무료)' 개최.. 'AI 에이전트와 JEV로 만드는 나만의 업무 시스템'",
+    "date": "2026-11-23",
+    "source": "베리타스알파",
+    "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE1fZEhQekFyOUdHM2pJcjhudzhLZ3djY0sxYTBTNTFVYkp5RDZEWEw0ZDBTbDdPZ1QyQ1I1WjFGYzBCZGNGYWxWWHRHV2NDQXpmako4bC1FUkRVcldZTVBFaTlYTmdobWhnX1RNMQ?oc=5"
+  },
+  {
+    "id": "news-feed-f0baa6af43",
+    "topic": "AI 코딩 도구",
+    "tag": "업계",
+    "content": "베이직인터내셔널, AI 코딩 자동화 솔루션 ‘AI 싱크옵스 스튜디오’ 공개",
+    "date": "2026-11-21",
+    "source": "데이터넷",
+    "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTFBSa3pYTlV2Qi1MQTN6YnJnWlVlR1cxSWFkOURqc1V2bFBKOXpCM2diYUo5RndsOUNhR081dFctSkt6ZC1md0pjN3hUaGNOQlZwcDZuUksyU25lc3ZKVEY5dks1Q21RTXFlajNnMw?oc=5"
+  },
+  {
+    "id": "news-feed-e011a71b69",
+    "topic": "Microsoft",
+    "tag": "업계",
+    "content": "Microsoft keeps failing. Why can’t its customers leave?",
+    "date": "2026-11-19",
+    "source": "CIO",
+    "url": "https://www.cio.com/article/4250381/microsoft-keeps-failing-why-cant-its-customers-leave.html"
   },
   {
     "id": "news-feed-ae097140d2",
@@ -45,33 +108,6 @@
     "url": "https://www.cio.com/article/4250367/the-dark-side-of-ai-in-hiring-when-job-applicants-become-security-threats.html"
   },
   {
-    "id": "news-feed-674ecac25e",
-    "topic": "구글",
-    "tag": "정책",
-    "content": "구글 제미나이 4 네온, AI 코딩 에이전트 평가 1위…클로드 제쳐",
-    "date": "2026-11-19",
-    "source": "이코노미블록",
-    "url": "https://news.google.com/rss/articles/CBMiUEFVX3lxTFBJWllGdkEwbUswWE50LWZBSHk5X1Q5LTJVS0pkXzV0djU4Q094Vkx1ZVJPWko1bGZyeXltSHJseXE3eHkwVzQ4NzZaaHV2M1hI?oc=5"
-  },
-  {
-    "id": "news-feed-2e6470ec77",
-    "topic": "AI 코딩 도구",
-    "tag": "업계",
-    "content": "Reticle - AI 코딩 에이전트가 웹/데스크톱 앱을 직접 조작해 검증하는 도구",
-    "date": "2026-11-19",
-    "source": "GeekNews",
-    "url": "https://news.google.com/rss/articles/CBMiS0FVX3lxTFBfSDBGczlEUFctak5zbW1sUXVFMEZiVVFYX3VHemZEZGg2ZnA4MDB0YVJ3RDkxZ2NncHQtN1FFckNEWEVUdkFrZUJlWQ?oc=5"
-  },
-  {
-    "id": "news-feed-496d2d6948",
-    "topic": "AI 업계 동향",
-    "tag": "업계",
-    "content": "Why CIOs must make zero trust an AI-era priority in 2027",
-    "date": "2026-11-19",
-    "source": "CIO",
-    "url": "https://www.cio.com/article/4250310/why-cios-must-make-zero-trust-an-ai-era-priority-in-2027.html"
-  },
-  {
     "id": "news-feed-03ca256a4a",
     "topic": "Google",
     "tag": "업계",
@@ -81,49 +117,13 @@
     "url": "https://blog.google/innovation-and-ai/products/gemini-app/gemini-lower-memory-devices/"
   },
   {
-    "id": "news-feed-c903064b8a",
-    "topic": "AI 공모전",
-    "tag": "업계",
-    "content": "세종사이버대, 전 국민 대상 AI 공모전 개최… 총상금 1500만 원",
-    "date": "2026-11-18",
-    "source": "동아일보",
-    "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTE12Y2RYT2t4N0RHam5fMGRCV2tMVkxIUWxGLVF3RUFYRU9paGVmTWlIcEdmOElJbnl3OW8zOGtIaFNOU2tmMXgyNFlRQ1FBWE04MTJtNTZ0TFduTk9acm82dFBKYjVVUWJaVUdHajhLMNIBZkFVX3lxTFBtVlk3QXdLZl9NQWZoYzdHVmRnZG1tdThZbFk5SHhjdmZDWURrVFd4NDR6dy0tRVpIemllODI5bEZmaW5IajRzSWJWWlo2RGswY3d4SjVVRnIzblpReHVtRTB2N0UwUQ?oc=5"
-  },
-  {
-    "id": "news-feed-7bf04e256a",
-    "topic": "AI 채용",
+    "id": "news-feed-2f821b524e",
+    "topic": "AI 해커톤",
     "tag": "정책",
-    "content": "‘안 뽑는’ AI 채용시장…2030년 유망 일자리는 ‘빅데이터·핀테크’",
+    "content": "AI와 일하는 F&F, AI 해커톤에 패션 과제를 내다 | (주)에프앤에프의 컬쳐 뉴스 | (주)에프앤에프",
     "date": "2026-11-18",
-    "source": "이투데이",
-    "url": "https://news.google.com/rss/articles/CBMiVEFVX3lxTFB4U1dDY1pzSFoyRzJjNGVMSVhaOEhoN21DSFdlSVlDZ3NYSldYWVFLUFRMVFRTQXdOSWhSMHRucnp6ajhxb3R6Y1NKZjNjUzJCU1hOOQ?oc=5"
-  },
-  {
-    "id": "news-feed-8a5012b162",
-    "topic": "AI 경진대회",
-    "tag": "정책",
-    "content": "세라젬, 사내 ‘AX 혁신 경진대회’ 개최…AI 과제 현업 적용 추진",
-    "date": "2026-11-18",
-    "source": "데일리한국",
-    "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTE1Od3pnbE9KVkUtT1N0aXNYd1JzaWxqRmJoVFQ2S3lnTjVJbHJPdFhpUlp2R3RLdWlmS1l2RFZDQWVEeE5oRUFHN24xMzZHdDQ5bHZFRk5GM3p2WlpmSko5c1E5dklmZzlPem52N0pZMNIBc0FVX3lxTE16bWdtV0hnMzRxT1dDc3M2VWhTbE5DUE0xWlNiT0UwS2pWbjBwVlhfTkl4RDZyTzRfZnhOQWFMTXBJUjRfdEwySXNSenJnbS1nRDE4emhDNV9aX0gxSlNEX2JZNkJFWW50MlhXZU5zX3hvUU0?oc=5"
-  },
-  {
-    "id": "news-feed-5b0f73df89",
-    "topic": "OpenAI",
-    "tag": "업계",
-    "content": "How Amplitude ships product improvements in 1–2 days with OpenAI",
-    "date": "2026-11-13",
-    "source": "OpenAI",
-    "url": "https://openai.com/business/customer-stories/amplitude"
-  },
-  {
-    "id": "news-feed-705ca08569",
-    "topic": "AI 채용",
-    "tag": "정책",
-    "content": "사람인, 'AI 채용 에이전트' 선봬…인사담당자 의사결정 지원",
-    "date": "2026-11-12",
-    "source": "뉴스1",
-    "url": "https://news.google.com/rss/articles/CBMiZEFVX3lxTFBVWHo2SDB3Rm55bGVjdHlyU1VTMFowUXB2bnB0Y0FWQnpGUGp2RFhrQ1JaQWRHWkNDSTRJbFo4WTZjOWZkbVFXdkpDQ29DdWJWbEl3YTRfNGVqRkJ0V0ZxdEJKcmg?oc=5"
+    "source": "잡플래닛",
+    "url": "https://news.google.com/rss/articles/CBMiogJBVV95cUxOcF9RcHhqWlZLTDljNzhwTFV5NEw1d1ktZXljekVMMkJ6bkkzUjRvOFRDd2VaLVhZUTB2VTh3bHZoWm15a1Y1MEJiZVZDWDVLQjVQdUVMNkc2NGdkZDdrRnItT0o3RUM3RENmLW9hUzlvVWluaFkxazJ3OHZVV0V2V3hNRFhHRzJ4QzRmUGNDci1SYXRKYmJ4bmZJODdoU2VJOTFNNjVMMzFSZUVhZnI0TnJiVmVFd055bmtfYS1kbWw4QTlSeHozbGdGajRBUWZOUEpfZTVzcXZ6d1pjaGlXTjltRW5EaE9yTU9uTkJTQktBMW1pR1lZQW90SUlYT0l2NHM5c25nbXRtX0kzdVdRZ0kwQmt6ZVM3NVZfUjZiVEtNQQ?oc=5"
   },
   {
     "id": "news-policy-01",
