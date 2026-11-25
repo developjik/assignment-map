@@ -1,5 +1,77 @@
 [
   {
+    "id": "news-feed-9d185c34f3",
+    "topic": "AI 해커톤",
+    "tag": "업계",
+    "content": "한진, 물류 실무자 참여 AI 해커톤 ‘커넥톤’ 개최",
+    "date": "2026-11-25",
+    "source": "물류신문",
+    "url": "https://news.google.com/rss/articles/CBMia0FVX3lxTE80cEZZbUljNFQxLTN1MVVvcmlfaEM5aXEwaWViNEtVTXZJYjhlQmF4SFFJNTJ0M3p0YVp1WHVQVHhkYzA3R2pBeC1PMG5ncnZYMGhabU0xNmt5QlctaFJ6azk4NzhDcjdrbjhN?oc=5"
+  },
+  {
+    "id": "news-feed-16dd27f29a",
+    "topic": "AI 코딩 도구",
+    "tag": "업계",
+    "content": "동양생명, ABL생명과 AI 코딩 해커톤 개최",
+    "date": "2026-11-25",
+    "source": "PRESS9",
+    "url": "https://news.google.com/rss/articles/CBMiZEFVX3lxTE5GS1FBTTZPWVhRTWkzOENBcC0zXzI0d3pCOTJuM2Vmd3RZUENsdDluX2FLc1l1aXJpMWMtV3pWLUp1cGZNRHdxWjZZb2Y3RkhpWjRBRlV0TG5kd1ZIUV93SDUyang?oc=5"
+  },
+  {
+    "id": "news-feed-97b29b0a99",
+    "topic": "AI 해커톤",
+    "tag": "업계",
+    "content": "동양·ABL생명, AI 네이티브 통합 가속...개발자 70명 AI코딩 해커톤",
+    "date": "2026-11-25",
+    "source": "뉴스로드",
+    "url": "https://news.google.com/rss/articles/CBMia0FVX3lxTE9EZVFxNE53QTFURlRLRG9YYktPcFZFRkZMeWNJRHQ4Q01pOVlQSHV6ZUpMcW11M1hMdnBNaC1zWC1lQWZJWGc3eGlDTjJ0Z1FQTEp5R2tmZk9yRTFtS2ZuRjAxT1dwMXdkMGVr0gFvQVVfeXFMT0tHZU50QTBwWE5rQmZ5bHQwajNXYzNnLTE4OUQ4dVNCZmlod0pOMWFJZHpWSV9sSERuUXhNemladUNHeU5aTDE1Y2EtSFU3MVM5VUxKN0UwYnhINkhZakUtQVZiNFUtN2dmY3NISGRn?oc=5"
+  },
+  {
+    "id": "news-feed-eb5363140b",
+    "topic": "바이브코딩",
+    "tag": "업계",
+    "content": "김종신 글로벌휴먼타임즈 발행인, 전자책 『클로드코드 바이브코딩 입문: 코딩 몰라도 업무 웹앱 만들기』 출간ㅣGlobalHumanTimes Publisher Kim Jong-shin Releases E-Book ‘Introduction to Claude Code Vibe Coding: Building Business Web",
+    "date": "2026-11-25",
+    "source": "글로벌휴먼타임즈",
+    "url": "https://news.google.com/rss/articles/CBMickFVX3lxTFBOWDlSZXMxMXBZUjIySU5SdU1oLVJFV1dfbUFYQkFSckllcEFqcmZnbVFkZFd4VUI0OWt3eUJxdlV4YXJRWFUxR1N1YjlDTzZScTRRRWZONHE5Vjltdi0ybXAtS1Q5d05VTEJpOG5saVIzUQ?oc=5"
+  },
+  {
+    "id": "news-feed-dc1728f916",
+    "topic": "AI 경진대회",
+    "tag": "정책",
+    "content": "기업이 낸 AI 과제에 대학생 도전…부여서 부트캠프 경진대회",
+    "date": "2026-11-25",
+    "source": "이투데이",
+    "url": "https://news.google.com/rss/articles/CBMiVEFVX3lxTE5RMng0aVZPT29HMHJrSnBLNTdBVlNYRHBnTGdxdWltZ1FDX3VqaDNQalhVZkllZGQxVkJXaXA0RGtMcUMtZlprUElvUHFiVmExQlhWbg?oc=5"
+  },
+  {
+    "id": "news-feed-5bd9c30893",
+    "topic": "AI 공모전",
+    "tag": "업계",
+    "content": "[KHARN칸] LG CNS, 고교생 대상 AI 공모전 개최",
+    "date": "2026-11-24",
+    "source": "kharn.kr",
+    "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTFBZajRMaEpCeGlOczhDTjZmQXAydU9NYkU4QWVxbk80ZW9EZjhfbWtmSUdyVzg3TURWY0lCQ0RoNWlxVEhQdHh2Nzd2MzVMX3dHdUFKUm1B?oc=5"
+  },
+  {
+    "id": "news-feed-2ecfa1c9cf",
+    "topic": "AI 업계 동향",
+    "tag": "업계",
+    "content": "The AI invoice is a governance signal most CIOs are failing to read",
+    "date": "2026-11-24",
+    "source": "CIO",
+    "url": "https://www.cio.com/article/4252236/the-ai-invoice-is-a-governance-signal-most-cios-are-failing-to-read.html"
+  },
+  {
+    "id": "news-feed-10154a2d8d",
+    "topic": "AI 과제 전형",
+    "tag": "정책",
+    "content": "GS샵 직원 178명, AI 과제 113개 발굴…94개 구현",
+    "date": "2026-11-24",
+    "source": "라이센스뉴스",
+    "url": "https://news.google.com/rss/articles/CBMia0FVX3lxTE5oclEtMmtsYjBmRHZ0c0hIOGJaUnlaRHRacTIxZXV2cUttd0p6TmpxTHM3cDBTSEs4UHNzeVdGd2tiNm1XSnZPYkhiTDNGaE9mZS1RbE9WWWw0N0pFcklwaFJXWkt1M1dlV3Rz?oc=5"
+  },
+  {
     "id": "news-feed-e910d6512b",
     "topic": "AI 면접",
     "tag": "정책",
@@ -9,22 +81,13 @@
     "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTE5DeWk2UnlrUVZzNzZMcjdpQ1l3MUU0QV9yZUtOaUpyQXh4Z3hOa0xCR2ZDYjdaVjhxQUMydGNSX0NaS0x4MWZkX0Ezc19VRlBUUzh1aXRZVlI1Um04bkk1VU1EdGlGVFQ5SDEtbTZWZw?oc=5"
   },
   {
-    "id": "news-feed-064eb17ecc",
-    "topic": "AI 과제 전형",
-    "tag": "정책",
-    "content": "GS샵, 영업·지원 직원들이 AI과제 발굴…94개 솔루션 구현",
-    "date": "2026-11-24",
-    "source": "연합뉴스",
-    "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTFAtRU5VZkdkUklKRzh6VHY4TUxxZ2RtU0JVU0ZsMHdQTVZPU09IM2ZCYlBySUFTWnhzbDVNVXZvQ0JLUXd1Qi1GSHZTNDZZUXI2aWxLNVQwcERoVWMxV2hILdIBYEFVX3lxTFAtRU5VZkdkUklKRzh6VHY4TUxxZ2RtU0JVU0ZsMHdQTVZPU09IM2ZCYlBySUFTWnhzbDVNVXZvQ0JLUXd1Qi1GSHZTNDZZUXI2aWxLNVQwcERoVWMxV2hILQ?oc=5"
-  },
-  {
-    "id": "news-feed-4907fc5da2",
+    "id": "news-feed-a29d9ec223",
     "topic": "AI 채용",
     "tag": "정책",
     "content": "AI 채용 자동화에 40억 달러 몰린다…국내 인력사무소가 준비할 것",
     "date": "2026-11-24",
     "source": "뉴스N연합",
-    "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTFBCdWJXeXNiY01Fak9KOC1VTm5vNkRUREo2bHpERmlfZDdQS3lEVE9Lbm8zT0NBODRFcm1BYjlQOFAxc0s4ZmlHR0k1SGNhblE?oc=5"
+    "url": "https://news.google.com/rss/articles/CBMiSkFVX3lxTFBEMHdDN0dDd2djTkNNQU54LURsQmZ5UVdXY3RnRi1VNnhTNXJBOGVObFcyX2R1ZFpJcll1eXpGUVhka1c2SGxrRF9R?oc=5"
   },
   {
     "id": "news-feed-1d0c151fef",
@@ -45,67 +108,13 @@
     "url": "https://blog.google/products-and-platforms/products/search/google-search-personal-intelligence-apps/"
   },
   {
-    "id": "news-feed-c00c3641fa",
-    "topic": "AI 공모전",
-    "tag": "업계",
-    "content": "한화손보, “AI 기술로 불완전판매 예방”… AI 공모전 최고상",
-    "date": "2026-11-23",
-    "source": "한국보험신문",
-    "url": "https://news.google.com/rss/articles/CBMia0FVX3lxTE9LcnAxSS1rZFB3aU0tV0lpSTJROHJIOHg1VGJXNG45ZjFuRkZQSThyY0tYOVZjRnlMRDNRU1JvTTB5a2xxcWNYRU8wTVFFRjlqQkY1RTVUdUU3Um1kYnYtMGRuN3FSSVowQmpv0gFvQVVfeXFMT3FydXR2UUNxYkZUQ1BKNDg1WEFMOFFPOTNFZE5HMFk2eHk0ZUpfamw5SGtRTzFoVEZZeThwOXdLX0tNdEVrM3plVkVKZ3k0b053S0pUaS14NGtIR2FIQW9PbUtBQlZqeDkxNEIzNmNN?oc=5"
-  },
-  {
-    "id": "news-feed-f6065ee3aa",
-    "topic": "AI 코딩 도구",
-    "tag": "업계",
-    "content": "AWS, 신규 가입 절차 간소화…AI 코딩 에이전트로 바로 앱 배포",
-    "date": "2026-11-23",
-    "source": "테크월드",
-    "url": "https://news.google.com/rss/articles/CBMiaEFVX3lxTE1XQmt1b0ttTXE3cEVFOWdTckZtQ0tHWlhQbTF6djYwcEdieHBNcjRTWEE1WUhKendpOTFyMk9KSlN4LW9OWVZqb1pSVnpRUUw4MFNGdHlkbjZXUEF1cXNmMGxwOTE3d0lt?oc=5"
-  },
-  {
-    "id": "news-feed-03b2eb6865",
-    "topic": "카카오",
-    "tag": "업계",
-    "content": "카카오, AI 경진대회 ‘AI TOP 100’ 개최…에이전트 설계·운용 역량 겨뤄",
-    "date": "2026-11-23",
-    "source": "바이라인네트워크",
-    "url": "https://news.google.com/rss/articles/CBMiV0FVX3lxTE9RdXN4VklYNDBFc201TXM2dmFUZ2Z5bzBSZk5fZXNVZmNPOEpYMGlSeDhvbzJ1a0hNSE5uNENxbnppWXlyMHNTbHJSTU1aYURWdC1RanRTTQ?oc=5"
-  },
-  {
-    "id": "news-feed-cfcd070359",
-    "topic": "바이브코딩",
-    "tag": "업계",
-    "content": "세종사이버대 AI학과 '2026 바이브코딩 실습 특강(무료)' 개최.. 'AI 에이전트와 JEV로 만드는 나만의 업무 시스템'",
-    "date": "2026-11-23",
-    "source": "베리타스알파",
-    "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE1fZEhQekFyOUdHM2pJcjhudzhLZ3djY0sxYTBTNTFVYkp5RDZEWEw0ZDBTbDdPZ1QyQ1I1WjFGYzBCZGNGYWxWWHRHV2NDQXpmako4bC1FUkRVcldZTVBFaTlYTmdobWhnX1RNMQ?oc=5"
-  },
-  {
-    "id": "news-feed-f0baa6af43",
-    "topic": "AI 코딩 도구",
-    "tag": "업계",
-    "content": "베이직인터내셔널, AI 코딩 자동화 솔루션 ‘AI 싱크옵스 스튜디오’ 공개",
-    "date": "2026-11-21",
-    "source": "데이터넷",
-    "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTFBSa3pYTlV2Qi1MQTN6YnJnWlVlR1cxSWFkOURqc1V2bFBKOXpCM2diYUo5RndsOUNhR081dFctSkt6ZC1md0pjN3hUaGNOQlZwcDZuUksyU25lc3ZKVEY5dks1Q21RTXFlajNnMw?oc=5"
-  },
-  {
-    "id": "news-feed-e011a71b69",
-    "topic": "Microsoft",
-    "tag": "업계",
-    "content": "Microsoft keeps failing. Why can’t its customers leave?",
-    "date": "2026-11-19",
-    "source": "CIO",
-    "url": "https://www.cio.com/article/4250381/microsoft-keeps-failing-why-cant-its-customers-leave.html"
-  },
-  {
-    "id": "news-feed-ae097140d2",
+    "id": "news-feed-6264e9eac7",
     "topic": "SK",
     "tag": "업계",
-    "content": "The dark side of AI in hiring: When job applicants become security threats",
-    "date": "2026-11-19",
+    "content": "What developers and QA need from each other when AI writes the code",
+    "date": "2026-11-21",
     "source": "CIO",
-    "url": "https://www.cio.com/article/4250367/the-dark-side-of-ai-in-hiring-when-job-applicants-become-security-threats.html"
+    "url": "https://www.cio.com/article/4251514/what-developers-and-qa-need-from-each-other-when-ai-writes-the-code.html"
   },
   {
     "id": "news-feed-03ca256a4a",
@@ -115,15 +124,6 @@
     "date": "2026-11-19",
     "source": "Google AI",
     "url": "https://blog.google/innovation-and-ai/products/gemini-app/gemini-lower-memory-devices/"
-  },
-  {
-    "id": "news-feed-2f821b524e",
-    "topic": "AI 해커톤",
-    "tag": "정책",
-    "content": "AI와 일하는 F&F, AI 해커톤에 패션 과제를 내다 | (주)에프앤에프의 컬쳐 뉴스 | (주)에프앤에프",
-    "date": "2026-11-18",
-    "source": "잡플래닛",
-    "url": "https://news.google.com/rss/articles/CBMiogJBVV95cUxOcF9RcHhqWlZLTDljNzhwTFV5NEw1d1ktZXljekVMMkJ6bkkzUjRvOFRDd2VaLVhZUTB2VTh3bHZoWm15a1Y1MEJiZVZDWDVLQjVQdUVMNkc2NGdkZDdrRnItT0o3RUM3RENmLW9hUzlvVWluaFkxazJ3OHZVV0V2V3hNRFhHRzJ4QzRmUGNDci1SYXRKYmJ4bmZJODdoU2VJOTFNNjVMMzFSZUVhZnI0TnJiVmVFd055bmtfYS1kbWw4QTlSeHozbGdGajRBUWZOUEpfZTVzcXZ6d1pjaGlXTjltRW5EaE9yTU9uTkJTQktBMW1pR1lZQW90SUlYT0l2NHM5c25nbXRtX0kzdVdRZ0kwQmt6ZVM3NVZfUjZiVEtNQQ?oc=5"
   },
   {
     "id": "news-policy-01",
