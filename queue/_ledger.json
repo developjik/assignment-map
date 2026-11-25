@@ -1357,6 +1357,11 @@
   112485,
   112486,
   112487,
+  112488,
+  112490,
+  112491,
+  112492,
+  112493,
   112496,
   112498,
   112499,
@@ -1373,7 +1378,10 @@
   112524,
   112525,
   112528,
-  112531
+  112531,
+  112543,
+  112546,
+  112549
  ],
  "devpostUrls": [
   "https://305veteransnov2026.devpost.com",
@@ -1389,6 +1397,7 @@
   "https://aws-cds-partner.devpost.com",
   "https://bostonhacks-2026.devpost.com",
   "https://build-a-working-ai-support-bot.devpost.com",
+  "https://build-day.devpost.com",
   "https://build-your-first-ai-app.devpost.com",
   "https://buildyourownwebsite.devpost.com",
   "https://cloud9.devpost.com",
@@ -1468,6 +1477,7 @@
   "https://sq-hacks.devpost.com",
   "https://start-developer-competition-26.devpost.com",
   "https://start-hack-league-munich-2026.devpost.com",
+  "https://stem-innovation-challenge-2026.devpost.com",
   "https://stem2connect-online-hackathon.devpost.com",
   "https://syntax-summit.devpost.com",
   "https://taskforge.devpost.com",
@@ -1483,6 +1493,7 @@
   "https://ugreenhackathon.devpost.com",
   "https://unihacks-youth.devpost.com",
   "https://wellesleyhack-2026.devpost.com",
+  "https://whs-build.devpost.com",
   "https://youcam-api-skin-ai-ecommerce.devpost.com"
  ],
  "dakerTitles": [

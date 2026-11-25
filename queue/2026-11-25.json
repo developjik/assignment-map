@@ -1,0 +1,119 @@
+{
+  "date": "2026-11-25",
+  "generated_by": "collector/coldscan.mjs (fetch-candidates.yml)",
+  "statuses": {
+    "wevity": "ok 1350 ix / 90p",
+    "devpost": "ok 60 / 8p",
+    "daker": "ok 24",
+    "kaggle": "ok 22",
+    "hn": "ok thread 50338728"
+  },
+  "counts": {
+    "wevity": 8,
+    "devpost": 3,
+    "daker": 0,
+    "kaggle": 0,
+    "hn": 0
+  },
+  "total_candidates": 11,
+  "candidates": {
+    "wevity": [
+      {
+        "ix": 112549,
+        "title": "대구광역시 남구 AI 행정혁신 경진대회",
+        "url": "https://wevity.com/?c=find&s=1&gbn=view&gp=1&ix=112549",
+        "dday": "D-15",
+        "badge": "접수중",
+        "organ": "대구광역시 남구청, 계명대학교 창업지원단"
+      },
+      {
+        "ix": 112546,
+        "title": "글로벌지식협력단지 13기 전시해설 도슨트 모집",
+        "url": "https://wevity.com/?c=find&s=1&gbn=view&gp=1&ix=112546",
+        "dday": "D-21",
+        "badge": "접수중",
+        "organ": "글로벌지식협력단지"
+      },
+      {
+        "ix": 112543,
+        "title": "2027 경상북도 SNS 서포터즈 모집",
+        "url": "https://wevity.com/?c=find&s=1&gbn=view&gp=1&ix=112543",
+        "dday": "D-19",
+        "badge": "접수중",
+        "organ": "경상북도청"
+      },
+      {
+        "ix": 112493,
+        "title": "2026 AI·데이터 기반 융복합 기업가정신 아이디어 공모전",
+        "url": "https://wevity.com/?c=find&s=1&gbn=view&gp=1&ix=112493",
+        "dday": "D-6",
+        "badge": "마감임박",
+        "organ": "포스텍 산업경영공학과"
+      },
+      {
+        "ix": 112492,
+        "title": "2026 K리그 팬 사진 공모전",
+        "url": "https://wevity.com/?c=find&s=1&gbn=view&gp=1&ix=112492",
+        "dday": "D-2",
+        "badge": "마감임박",
+        "organ": "한국프로축구연맹"
+      },
+      {
+        "ix": 112491,
+        "title": "2026년 태백시 숏폼 영상 공모전",
+        "url": "https://wevity.com/?c=find&s=1&gbn=view&gp=1&ix=112491",
+        "dday": "D-3",
+        "badge": "마감임박",
+        "organ": "태백시"
+      },
+      {
+        "ix": 112490,
+        "title": "1004섬 분재정원 새 이름 공모전",
+        "url": "https://wevity.com/?c=find&s=1&gbn=view&gp=1&ix=112490",
+        "dday": "D-29",
+        "badge": "접수중",
+        "organ": "신안군"
+      },
+      {
+        "ix": 112488,
+        "title": "2026 슈만 챌린지: EU-한 파트너십 강화를 위한 정책 아이디어 공모전",
+        "url": "https://wevity.com/?c=find&s=1&gbn=view&gp=1&ix=112488",
+        "dday": "D-36",
+        "badge": "접수중",
+        "organ": "주한유럽연합대표부 (EU 공공·문화외교 프로젝트)"
+      }
+    ],
+    "devpost": [
+      {
+        "id": 32188,
+        "title": "STEM Innovation Challenge 2026",
+        "url": "https://stem-innovation-challenge-2026.devpost.com/",
+        "period": "Nov 24 - 25, 2026",
+        "prize": "$<span data-currency-value>100</span>",
+        "org": "Global STEM Innovation Initiative",
+        "invite_only": false
+      },
+      {
+        "id": 31956,
+        "title": "Build Day 2",
+        "url": "https://build-day.devpost.com/",
+        "period": "Nov 24 - 28, 2026",
+        "prize": "£<span data-currency-value>1,000</span>",
+        "org": "Durham College",
+        "invite_only": false
+      },
+      {
+        "id": 32078,
+        "title": "Westside High School Build Challenge",
+        "url": "https://whs-build.devpost.com/",
+        "period": "Nov 24 - Dec 01, 2026",
+        "prize": "$<span data-currency-value>0</span>",
+        "org": "Westside Coding Club",
+        "invite_only": false
+      }
+    ],
+    "daker": [],
+    "kaggle": [],
+    "hn": []
+  }
+}
