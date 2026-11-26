@@ -1981,6 +1981,198 @@
       ],
       "notes": "페일오버 런 — 주 루틴 RYHrlEu3cCOV5zpd가 11-24 03:00:12 스폰 실패로 자동 pause(11-21 수동 정지 누락 포함 3일 갭) → 가드 루틴 FJybdsUzKEOklfzU(11-24 12:30, 모델 상이)가 대신 실행. 주 루틴은 런 시작 시점 이미 active(다음 실행 11-25 03:00) — resume 불필요. lookback 확대: 11-21 '다음 런' 지시 전량 이관 실행(D-0 종결 batch·세종사이버 개시 감시 적중·Devpost 이탈 확인). 집계: 신규 공고 3(큐피스트 상시·한프카 재게시 12-06·러쉬코리아 12-13) / 신규 이벤트 1(AlgoConnect Quantathon 11-28 $700) / 종결 공고 9 / 종결 이벤트 11 / 전환 1(세종사이버 upcoming→open) / checked 8. 정책 변경 0. queue 소비: 11-22·11-23 coldscan 파일 19후보 판정 완료(채택 1) + _ledger.json 보존. 브라우저 8/80. 운영 발견: (1) lablab.ai 개별 이벤트 URL 전면 starfieldlabs.ai 리다이렉트 — starfield-lablab-events(watch) 관측과 동일 원인, 이탈 속행 시 12/1 T3에서 lablab 경로 퇴출 검토 (2) 한프카 gno 재생성(50326430→50411795) — 노아에이티에스 이후 2건째, '재등록 = 신규 기회' 원칙 적용 (3) 조달청 ko-0005/wevity:111628 동일 이벤트 동시 종결 — dedupe 오너 검토 유지 (4) Devpost 신규 지속 학생한정(16후보 중 채택 1, 학생한정 실측 4) — 여과 정상 작동 (5) seed-kr-03·seed-kr-07 41일 무관측 — 시드 재검토 오너 과제. 실패 소스: aichallenge4all(SSR 상태부재)·hack2skill(9KB 셸)·씽유/링커리어 등 T2는 금일 미실행(11-21 만회 실행 존재, 직전 7일 내 T2 있음 — ROTATION 면제). CANARY 전 지표 OK. 다음 런(11-25): (1) STEM2Connect global-0023 리스트 잔존 2회차 확인 — 이탈 시 종결 (2) AWSKRUG ko-0032 11-26(목) 개최 D-1 상태 확인 (3) INNO-CODER ko-0038 D-4 마감 임박 감시 + AlgoConnect global-0055 D-3 (4) 세종사이버 112285 open 첫 cadence 방문 (5) 러쉬코리아 50418981·한프카 50411795 신규 안착 확인 (6) 12/1 T3: HN 12월 스레드 + festa.io 퇴출 확정 + 소스 성과 리포 + lablab 퇴출 검토 + 점핏 도메인 sources.json 갱신 오너 보고",
       "summary": "+3공고 +1이벤트 · 정책변경 0 · 상태변경 21 · 마감변경 1 · 중복병합 5"
+    },
+    {
+      "date": "2026-11-26",
+      "new_postings": [
+        "jobkorea:50430527",
+        "jobkorea:50426839",
+        "jobkorea:50431394",
+        "jobkorea:50425293"
+      ],
+      "policy_changed": [],
+      "deadline_changed": [],
+      "status_changed": [
+        "jobkorea:49928240",
+        "jobkorea:50062816",
+        "jobkorea:50035351",
+        "jobkorea:50035273",
+        "jobkorea:50359977"
+      ],
+      "new_events": [
+        "wevity:112528-ai-video-china",
+        "wevity:112518-qwen-autorag-hackathon",
+        "wevity:112508-siadaff-ai-ad-film",
+        "wevity:112549-daegu-namgu-ai-admin",
+        "wevity:112493-postech-ai-fusion-idea",
+        "wevity:112572-saeksaek-ai-shorts",
+        "wevity:112568-ai-opendata-idea",
+        "wevity:112565-kwater-ai-5th",
+        "wevity:112519-kepco-kps-ai-idea",
+        "wevity:112505-ai-seoul-content",
+        "kaggle:generalist-gaming-agent"
+      ],
+      "event_status_changed": [
+        "wevity:112316-pohang-ai-solution",
+        "wevity:112266-gwangmyeong-ai-video",
+        "global-0028",
+        "global-0033",
+        "ko-0040",
+        "ko-0003"
+      ],
+      "event_deadline_changed": [
+        "global-0023",
+        "wevity:112285-sejongcyber-ai-bulssi"
+      ],
+      "updated_postings": 5,
+      "updated_events": 8,
+      "merged_postings": [],
+      "merged_events": [],
+      "checked": [
+        "wanted:wd381276",
+        "jobkorea:50411795",
+        "jobkorea:50384587",
+        "jobkorea:50418981",
+        "jobkorea:50251589",
+        "jobkorea:50232251",
+        "jobkorea:50232412",
+        "jobkorea:50328375",
+        "jobkorea:50275870",
+        "jobkorea:50172427",
+        "jobkorea:50083974",
+        "jobkorea:50317339",
+        "jobkorea:50317329",
+        "jobkorea:50292966",
+        "jobkorea:50292919",
+        "jobkorea:50292765",
+        "jobkorea:50292866",
+        "jobkorea:50293072",
+        "jobkorea:50262160",
+        "wevity:112212-daum-ai-shortdrama",
+        "wevity:111837-ai-creation-competition",
+        "ko-0036",
+        "ko-0038",
+        "wevity:112294-seoul-tourism-prompton",
+        "wevity:112142-cliip-ai-webtoon-video",
+        "wevity:112221-gimcheon-saeksaek-ai",
+        "ko-0032",
+        "ko-0034",
+        "ko-0001",
+        "ko-0035",
+        "ko-0002",
+        "ko-0013",
+        "ko-0015",
+        "global-0011",
+        "global-0029",
+        "global-0039",
+        "global-0041",
+        "global-0042",
+        "global-0046",
+        "global-0049",
+        "global-0051",
+        "global-0052",
+        "global-0055"
+      ],
+      "sources": [
+        {
+          "id": "queue-consumption",
+          "method": "file",
+          "pages": 0,
+          "result": "queue/2026-11-24·25·26 3파일 56후보 판정 — 채택 11(위비티 AI 공모전·경진대회·해커톤 10 + kaggle 1), 미채택 45(위비티 서포터즈·장학·봉사·비AI 일반 공모 32 + devpost 9[학생한정 7: GDG on campus·Acodemic X KeebsforWater(Hack Club)·Bath CS Society·Dev 2.0 SCESoc·STEM Innovation·Durham College·Westside HS + 종경과 test·GDG 1일] + kaggle 0 + perceive 회색 1['Draw with Sound. Feel with Touch' 사운드-촉각 아트 스튜디오 실측 — AI 아님]). 소비 날짜 파일 3개 삭제, _ledger.json 보존"
+        },
+        {
+          "id": "wevity-fetch",
+          "method": "fetch(Actions coldscan 관측 소비 + 상세 실측)",
+          "pages": 0,
+          "result": "11-26 10:59 coldscan gp 전수 1,350ix/90p 관측 소비. 큐 신규 46(3일치) 판정 → 채택 10. 기추적 상세 실측 12: 종결 2(포항 D+1·광명 D+2) + 세종사이버 D-24 생존(마감 12-20 정정) + D-0~D-4 생존 8(Daum D-0·AI창조 D-1·솔버톤 D-2·INNO-CODER·프롬프톤 D-3·CLIIP·김천 D-4) + 아카이브 후보 2(D+18·D+13, judging 유지)"
+        },
+        {
+          "id": "devpost-api",
+          "method": "fetch",
+          "pages": 0,
+          "result": "open 58 전수 대조(밴드 내): 이탈→종결 2(Agéntico·HackWithAditya, 마감 11-25 경과). STEM2Connect 잔존 2회차 + 기간 Nov 29 연장(마감 변경). 잔존 20건 checked 기록. 큐 후보 devpost 9 전부 미채택(학생한정 7·종경과 2)"
+        },
+        {
+          "id": "daker-api",
+          "method": "fetch",
+          "pages": 0,
+          "result": "24건 관측(밴드 내) — ko-0001 published·ko-0035 evaluation, 변동 없음"
+        },
+        {
+          "id": "hn-algolia-hiring",
+          "method": "fetch(큐 관측 소비)",
+          "pages": 0,
+          "result": "11월 스레드 50338728 유지(신규 없음), stories 514(밴드 400-700) — 12/1 T3 전체 파싱 예정"
+        },
+        {
+          "id": "gnews-kr-1~5,en",
+          "method": "fetch",
+          "pages": 0,
+          "result": "6피드 패치(http 200): kr-1 31건 중 필터 2(올리브영 AI 과제 전형 7월 재보도) · kr-2 5건 전부 2020-2025 과거 보도 · kr-3/kr-4 0건 · kr-5 60건 중 55(기업 초청 세미나·과거 컨퍼런스 위주) · en 28건 중 8(리스트형·과거). news.json 최근 3일 교차 — 추적 기업·공고 교차 없음(재방문 승격 0: 한화손보 공모전 결과보도·교육부 부트캠프(블랙리스트)·한진/동양생명 사내 해커톤 — 전부 결과·비공개)"
+        },
+        {
+          "id": "devto-hackathons",
+          "method": "fetch(보조 API)",
+          "pages": 0,
+          "result": "아티클 30 — 참가자 회고글(Hack Western·BostonHacks·HackUTD·Kigali 등 신호 아티클), 구조화 이벤트 0(파서 정상)"
+        },
+        {
+          "id": "vercel-atom",
+          "method": "fetch",
+          "pages": 0,
+          "result": "100엔트리 스윕, hackathon/competition 타이틀 0"
+        },
+        {
+          "id": "supabase-rss",
+          "method": "fetch",
+          "pages": 0,
+          "result": "449엔트리 hackathon 타이틀 26 — 최신 LW15 우승자 발표(2025-08 종결) 이후 신규 0, 다음 LW 해커톤 개시 감시 지속"
+        },
+        {
+          "id": "cloudflare-blog-rss",
+          "method": "fetch",
+          "pages": 0,
+          "result": "20엔트리, challenge 타이틀 0"
+        },
+        {
+          "id": "kaggle-api",
+          "method": "fetch(kaggle_fetch.mjs 2)",
+          "pages": 0,
+          "result": "22건 관측 — 큐 신규 1(Generalist Gaming Agent: Research·$50,000·2027-03-02) 채택 = 데이터 첫 kaggle 이벤트. Getting Started 11·Playground 3·Featured 7건은 원장 기준선(11-22 흡수) 이전 등록 미판정분 — Gemma 4 Developer Agent($75K·12-03)·Agent Harness($400K·2027-01) 등 오너 채택 정책 검토 노트 승계"
+        },
+        {
+          "id": "jobkorea-mobile",
+          "method": "fetch",
+          "pages": 0,
+          "result": "사전과제 total 798·30p(+26 vs 11-24), 바이브코딩 178. gno>50420523 신규 6 판정 — 채택 4(50430527 마이프랜 '사전과제 있습니다' · 50426839 셀트리온 AI Scientist 사전과제+AI Enablement vibe 역량 · 50431394 코스알엑스 서류합격자 사전과제 · 50425293 에스디바이오센서 서류전형 사전과제) · 미채택 2(50435262 티엔블루·50432388 디에이아이 — 바이브/AI코딩 역할이나 과제 전형·AI 산출물 제출 문구 없음, 11-19 이엔티팩토리 선례 승계). 기판정 일치 확인 4(누리아이·메타빌드·이엔티팩토리·미림미디어랩 — 11-15/16/19 미채택 유지, 워터마크 하위 재노출분). 종결 실측 5(우아한형제들·넥스트증권 조기마감·클라우드네트웍스 2·마이나비). overdue postings 21건 전수 실측: alive 15 + 오늘마감 1 + 종결 5"
+        },
+        {
+          "id": "wanted",
+          "method": "browser",
+          "pages": 4,
+          "result": "사전과제 검색 4건: 큐피스트 wd381276 활성(기추적) · 한프카 wd390319 재활성(11-24 API 'request' 종결 오판 정정 — 상세 렌더 '지원하기'·상시채용·'사전과제 제출이 필수' 실측, 잡코리아 50411795 듀얼채널) · 마인드브이알 wd399984 미채택('R&D 과제' 기획 직무 — 사전과제 아님) · 인터엑스 정부과제 노이즈. 'AI 과제' 20건 전부 정부/R&D 과제 PM·AI Engineer 노이즈(신규 0, 11-24 패턴 동일)"
+        },
+        {
+          "id": "jumpit",
+          "method": "browser",
+          "pages": 1,
+          "result": "사전과제 검색 16건 전부 기술스택 OR 노이즈 — 신규 0(11-24 패턴 동일)"
+        },
+        {
+          "id": "revisit-queue",
+          "method": "fetch+browser",
+          "pages": 0,
+          "result": "overdue 감사(기준일 11-24, 백필 반영): postings 23(상세 2 = seed-kr-03·07 44일 — URL 없는 리서치 시드 오너 재검토 승계 / 리스트 21 전수 실측: 종결 5·오늘마감 1·alive 15), events 50(상세 4 전부 관측 — ko-0040 종결, ko-0002·0001·0034 상태 유지 / 리스트 46: devpost 잔존 20 checked · 위비티 상세 12 · daker 2 · kisti ko-0003 종결 · 나머지 D-7+ 생존). 11-24 '다음 런' 지시 6항 전량 이행"
+        },
+        {
+          "id": "canary",
+          "method": "cli",
+          "pages": 0,
+          "result": "CANARY VIOLATION 1 — wevity-sweep-unique-ix 1350(밴드 600~1300 초과). 11-24~26 3일 연속 1350·파서 15/p 정상·신규 19건 검출 → 마크업 변경 아닌 유기적 증가로 판정, 밴드 max 1400 재조정(근거 노트 갱신). 잔여 전 지표 OK(wevity 15/p·devpost open 58·daker 24·잡코리아 사전과제 798·HN stories 514)"
+        }
+      ],
+      "notes": "페일오버 가드 2차 실행(11-26) — 11-25 가드런(gqnXTcHCNlzkrF1y)은 스폰 직후 무응답 사망(출력 0)으로 11-25 무런, 11-26 주 루틴 03:00 스폰 실패 지속(런 시작 시점 status=paused·nextRun null 확인). 주 루틴 RYHrlEu3cCOV5zpd resume 불가 — 가드 세션에 routine_update 도구 없음(aside.routines는 list/get만 제공), 오너/부모 세션에서 수동 resume 필요(페일오버 가드 루틴 메모리 FJybdsUzKEOklfzU에 기록). 11-24 가드런 미푸시분(validate 6/6 통과 상태)은 금일 12:34 백필 커밋 8911354로 복구 완료(한프카 50326430 종결 포함 전원 data 반영 확인). 집계: 신규 공고 4(마이프랜 사전과제 디자인 D-29 · 셀트리온 AI 트랙 사전과제 11-30 · 코스알엑스 VMD D-13 · 에스디바이오센서 기구설계 D-10) · 원티드 한프카 wd390319 채널 재활성 확인(11-24 API 'request' 오판 정정 — 병합 그림자행, 대표행 50411795 open 유지) / 신규 이벤트 11(위비티 AI 공모전·경진대회 10[Qwen AutoRAG 해커톤 3천만원 D-3·대구 남구 5천만원 포함] + kaggle Generalist Gaming Agent $50K — 데이터 첫 kaggle 채택) / 종결 공고 5 / 종결 이벤트 6(위비티 2·Devpost 2·meetup 1·kisti 1) / 마감 변경 2(STEM2Connect 11-29 연장 · 세종사이버 12-20 정정) / checked 45 / queue 소비 3파일 56후보(채택 11·미채택 45) + _ledger.json 보존. 정책 변경 0. 브라우저 5/80(원티드 4·점핏 1 — 채용 상세 포함 나머지는 전부 fetch로 관측). CANARY: wevity-sweep-unique-ix 1350 밴드 초과 — 3일 연속 동일값·유기적 리스트 증가로 판정, canaries.json max 1400 재조정 커밋. 잔여 지표 전부 OK. 운영 발견: (1) 11-25 가드런 무응답 사망 — 가드 자체 실패 모드(주 루틴과 다른 독립 경로지만 여전히 사망 가능), 11-27 가드런에서 누적 갭 점검 필요 (2) 원티드 API status 'request'는 종결 지표가 아님 — wd390319 페이지 렌더 실측으로 정정(11-24 종결 4건 중 1건 오판), 원티드 종결 판정은 페이지 렌더 우선으로 방법론 수정 권고 (3) kaggle 원장 기준선(11-22 전량 흡수)은 미판정 흡수 — 기존 대회(Gemma 4 Developer Agent $75K·12-03 등)가 큐 미노출, kaggle 채택 정책 오너 결정 필요 (4) 잡코리아 m 스윕 워터마크가 키워드 간 공유 — 과거 등록분 재노출 시 기판정 조회로 처리(누리아이·메타빌드·이엔티팩토리·미림 11-15/16/19 판정 승계 확인, 신규 누락 없음 확인) (5) Devpost 신규는 11-24 이후에도 학생한정·종경과 위주(9후보 전부 미채택) — 여과 정상 작동. 실패 소스: 없음(전 소스 관측 성공). T2 금일 미실행(11-21 만회 실행이 직전 7일 내 — 면제, 다음 T2: 11-28 토). 다음 런(11-27): (1) 112212 Daum AI 숏드라마 D-0 금일 자정 종결 확정 (2) Qwen AutoRAG 112518·AI창조공모대전 111837(D-1)·솔버톤·INNO-CODER·프롬프톤·AlgoConnect(D-2) 종결 감시 batch (3) AWSKRUG ko-0032 개최 종료 종결 (4) 셀트리온 50426839 D-4·펜타시큐리티 50251589 D-0 마감 임박 감시 (5) 12/1 T3: HN 12월 스레드 + 소스 성과 리포 + lablab 퇴출 검토 + kaggle 기준선·채택 정책 오너 보고 + 원티드 종결 판정 방법론(페이지 렌더 우선) 반영",
+      "summary": "+4공고 +11이벤트 · 정책변경 0 · 상태변경 11 · 마감변경 2 · 중복병합 0"
     }
   ]
 }
