@@ -509,24 +509,30 @@
     "ai_policy": "unspecified",
     "evidence": [
       {
-        "quote": "서류접수 ＞ 과제전형 ＞ 전화 인터뷰 (15분) ＞ CEO 인터뷰 ＞ 레퍼런스 체크 ＞ 처우 협의 ＞ 최종합격",
-        "field": "채용절차"
+        "quote": "종결 실측(2026-11-24): 원티드 API /api/v4/jobs/391332 status='close' — 레브잇(쇼포트) Problem Solver (AI Agent), 28일 무관측 후 실측",
+        "field": "policy"
       }
     ],
     "url": "https://www.wanted.co.kr/wd/391332",
     "deadline": null,
-    "status": "open",
+    "status": "closed",
     "review": "auto",
     "note": "AI 언급은 업무 설명 수준(LLM·에이전트 설계) — 과제 AI 정책 언급 없음. 상시채용",
     "first_seen": "2026-10-24",
-    "last_seen": "2026-10-24",
-    "last_checked": "2026-10-24",
-    "check_cadence": "weekly",
+    "last_seen": "2026-11-24",
+    "last_checked": "2026-11-24",
+    "check_cadence": "none",
     "history": [
       {
         "date": "2026-10-24",
         "event": "created",
         "ai_policy": "unspecified"
+      },
+      {
+        "date": "2026-11-24",
+        "event": "status_changed",
+        "from": "open",
+        "to": "closed"
       }
     ]
   },
@@ -544,19 +550,19 @@
     "ai_policy": "unspecified",
     "evidence": [
       {
-        "quote": "원티드 상세(2026-11-09): 마감일 '상시채용' 표시로 전환(기존 데이터 2026-11-08) + '본 포지션은 직무 역량확인을 위한 사전과제 제출이 필수입니다'(사전과제 상세 bit.ly/4is1IJx 유지), 지원하기 버튼 활성 — 마감 연장(상시), 종결 아님",
-        "field": "deadline"
+        "quote": "종결 실측(2026-11-24): m GI_Read '마감' 표기 — 한프카 플랫폼 개발자(사전과제 제출 필수), 마감 2026-11-22 경과. 동일 공고 11/23 재게시분 50411795 신규 채택",
+        "field": "policy"
       }
     ],
     "url": "https://www.wanted.co.kr/wd/390319",
     "deadline": null,
-    "status": "open",
+    "status": "closed",
     "review": "auto",
     "note": "잡코리아 동일 공고(GI_Read/50055620) 교차확인 — 마감 10/25. AI 정책 언급 없음",
     "first_seen": "2026-10-24",
-    "last_seen": "2026-11-12",
-    "last_checked": "2026-11-12",
-    "check_cadence": "weekly",
+    "last_seen": "2026-11-24",
+    "last_checked": "2026-11-24",
+    "check_cadence": "none",
     "history": [
       {
         "date": "2026-10-24",
@@ -587,11 +593,15 @@
         "from": "2026-11-08",
         "to": null,
         "note": "원티드 상세 마감일 상시채용 전환 (수동 패치: merge.mjs null 미지원)"
+      },
+      {
+        "date": "2026-11-24",
+        "event": "status_changed",
+        "from": "open",
+        "to": "closed"
       }
     ],
-    "duplicates": [
-      "jobkorea:50326430"
-    ]
+    "merged_into": "jobkorea:50411795"
   },
   {
     "id": "wanted:wd377832",
@@ -606,24 +616,30 @@
     "ai_policy": "unspecified",
     "evidence": [
       {
-        "quote": "본 포지션은 원티드 이력서와 사전 문제 제출을 모두 확인한 뒤 서류 전형을 진행합니다. 사전 문제는 서술형 3문항이며, 예상 소요 시간은 1~2시간입니다.",
-        "field": "포지션 상세"
+        "quote": "종결 실측(2026-11-24): 원티드 API status='close' — 크레바스에이아이 [인턴] 서버 개발자",
+        "field": "policy"
       }
     ],
     "url": "https://www.wanted.co.kr/wd/377832",
     "deadline": null,
-    "status": "open",
+    "status": "closed",
     "review": "auto",
     "note": "AI 스타트업이지만 과제 AI 정책 언급 없음",
     "first_seen": "2026-10-24",
-    "last_seen": "2026-10-24",
-    "last_checked": "2026-10-24",
-    "check_cadence": "weekly",
+    "last_seen": "2026-11-24",
+    "last_checked": "2026-11-24",
+    "check_cadence": "none",
     "history": [
       {
         "date": "2026-10-24",
         "event": "created",
         "ai_policy": "unspecified"
+      },
+      {
+        "date": "2026-11-24",
+        "event": "status_changed",
+        "from": "open",
+        "to": "closed"
       }
     ]
   },
@@ -641,19 +657,19 @@
     "ai_policy": "banned",
     "evidence": [
       {
-        "quote": "AI 사용 : 면접 중 실시간 개발 과제를 수행하는 동안에는 AI 도구를 사용할 수 없습니다.",
+        "quote": "종결 실측(2026-11-24): 점핏 position/55361658 본문 '마감된'·'closed' 문구 — 데이터드리븐 풀스택 제품 개발자(3년+), 마감 2026-11-21 경과(D+3)",
         "field": "policy"
       }
     ],
     "url": "https://jumpit.saramin.co.kr/position/55361658",
     "deadline": "2026-11-21",
-    "status": "open",
+    "status": "closed",
     "review": "auto",
     "note": "실시간 과제. AI 언급은 업무 설명(AI 채점 기능 개발) — 정책 아님",
     "first_seen": "2026-10-24",
-    "last_seen": "2026-11-17",
-    "last_checked": "2026-11-17",
-    "check_cadence": "daily",
+    "last_seen": "2026-11-24",
+    "last_checked": "2026-11-24",
+    "check_cadence": "none",
     "history": [
       {
         "date": "2026-10-24",
@@ -666,6 +682,12 @@
         "from": "unspecified",
         "to": "banned",
         "evidence": "AI 사용 : 면접 중 실시간 개발 과제를 수행하는 동안에는 AI 도구를 사용할 수 없습니다."
+      },
+      {
+        "date": "2026-11-24",
+        "event": "status_changed",
+        "from": "open",
+        "to": "closed"
       }
     ]
   },
@@ -836,19 +858,19 @@
     "ai_policy": "required",
     "evidence": [
       {
-        "quote": "GI_Read_Comt_Ifrm 본문(2026-11-07): '[채용절차] ㆍ서류전형 → 사전 과제 → 인성검사 → 면접 → 최종합격 ※ 전형 중 사전 과제는 AI를 이용한 개발역량을 평가하며, AI 활용 방식 자체를 평가에 반영합니다' + 'AI 코딩 어시스턴트(Claude Code, Cursor, Copilot 등)를 활용하여 운영 도구 또는 내부 시스템을 직접 개발 가능하신 분'",
-        "field": "assignment+ai_policy"
+        "quote": "종결 실측(2026-11-24): m GI_Read '마감' 표기 — 씨어스 [경력] 플랫폼 엔지니어, 마감 2026-11-22 경과",
+        "field": "policy"
       }
     ],
     "url": "https://www.jobkorea.co.kr/Recruit/GI_Read/50228434",
     "deadline": "2026-11-22",
-    "status": "open",
+    "status": "closed",
     "review": "needs_review",
     "note": "본문 미렌더링",
     "first_seen": "2026-10-24",
-    "last_seen": "2026-11-07",
-    "last_checked": "2026-11-07",
-    "check_cadence": "daily",
+    "last_seen": "2026-11-24",
+    "last_checked": "2026-11-24",
+    "check_cadence": "none",
     "history": [
       {
         "date": "2026-10-24",
@@ -861,6 +883,12 @@
         "from": "unspecified",
         "to": "required",
         "evidence": "GI_Read_Comt_Ifrm 본문(2026-11-07): '[채용절차] ㆍ서류전형 → 사전 과제 → 인성검사 → 면접 → 최종합격 ※ 전형 중 사전 과제는 AI를 이용한 개발역량을 평가하며, AI 활용 방식 자체를 평가에 반영합니다' + 'AI 코딩 어시스턴트(Claude Code, Cursor, Copilot 등)를 활용하여 운영 도구 또는 내부 시스템을 직접 개발 가능하신 분'"
+      },
+      {
+        "date": "2026-11-24",
+        "event": "status_changed",
+        "from": "open",
+        "to": "closed"
       }
     ]
   },
@@ -877,24 +905,30 @@
     "ai_policy": "unspecified",
     "evidence": [
       {
-        "quote": "원티드 상세(2026-11-09): '* 서류 합격시 사전과제 전형이 진행 됩니다' + 마감일 '상시채용' — 사전과제 전형 생존 재확인(10-25 시드 이후 지속 추적, 신규 아님)",
-        "field": "assignment"
+        "quote": "종결 실측(2026-11-24): 원티드 API status='close' — 라프텔 콘텐츠 디자이너",
+        "field": "policy"
       }
     ],
     "url": "https://www.wanted.co.kr/wd/380935",
     "deadline": null,
-    "status": "open",
+    "status": "closed",
     "review": "auto",
     "note": "디자인 직군 사전과제 — 포트폴리오 필수. AI 정책 언급 없음",
     "first_seen": "2026-10-25",
-    "last_seen": "2026-11-09",
-    "last_checked": "2026-11-09",
-    "check_cadence": "weekly",
+    "last_seen": "2026-11-24",
+    "last_checked": "2026-11-24",
+    "check_cadence": "none",
     "history": [
       {
         "date": "2026-10-25",
         "event": "created",
         "ai_policy": "unspecified"
+      },
+      {
+        "date": "2026-11-24",
+        "event": "status_changed",
+        "from": "open",
+        "to": "closed"
       }
     ]
   },
@@ -945,24 +979,30 @@
     "ai_policy": "unspecified",
     "evidence": [
       {
-        "quote": "GI_Read_Comt_Ifrm 본문(2026-11-07): '합류 여정 ㆍ서류전형 → 인성검사 → 실무자 면접 → 임원 면접 … 기타사항 ㆍ포지션의 특성에 따라 전형 과정 중 과제 전형 또는 추가 인터뷰 등이 진행될 수 있습니다' — 조건부 과제 전형. AI 사용 정책 언급 없음",
-        "field": "assignment"
+        "quote": "종결 실측(2026-11-24): m GI_Read '마감' 표기 — 씨어스 [경력] AI Research Scientist, 마감 2026-11-22 경과",
+        "field": "policy"
       }
     ],
     "url": "https://www.jobkorea.co.kr/Recruit/GI_Read/50228417",
     "deadline": "2026-11-22",
-    "status": "open",
+    "status": "closed",
     "review": "needs_review",
     "note": "조건부 과제 전형 — 플랫폼 엔지니어 형제 공고(50228434)와 동일 마감. AI 정책 언급 없음",
     "first_seen": "2026-10-25",
-    "last_seen": "2026-11-07",
-    "last_checked": "2026-11-07",
-    "check_cadence": "daily",
+    "last_seen": "2026-11-24",
+    "last_checked": "2026-11-24",
+    "check_cadence": "none",
     "history": [
       {
         "date": "2026-10-25",
         "event": "created",
         "ai_policy": "unspecified"
+      },
+      {
+        "date": "2026-11-24",
+        "event": "status_changed",
+        "from": "open",
+        "to": "closed"
       }
     ]
   },
@@ -1278,7 +1318,7 @@
     "first_seen": "2026-11-07",
     "last_seen": "2026-11-07",
     "last_checked": "2026-11-07",
-    "check_cadence": "weekly",
+    "check_cadence": "daily",
     "history": [
       {
         "date": "2026-11-07",
@@ -1312,7 +1352,7 @@
     "first_seen": "2026-11-07",
     "last_seen": "2026-11-07",
     "last_checked": "2026-11-07",
-    "check_cadence": "weekly",
+    "check_cadence": "daily",
     "history": [
       {
         "date": "2026-11-07",
@@ -1699,24 +1739,30 @@
     "ai_policy": "required",
     "evidence": [
       {
-        "quote": "GI_Read_Comt_Ifrm 본문(2026-11-09): '경력 연차보다 AI 활용 실적·포트폴리오 중심 평가' + 제출자료 'AI 활용 실적서: 업무(사업 기획, 분석, 자동화 등)별 사용 도구, 본인 기여도, 적용 전후 효과', '포트폴리오: 바이브코딩 산출물(저장소·배포 링크, 시연 영상 등), 생성형 AI를 활용한 사업 기획·분석 산출물 등' — AI 실적서·바이브코딩 산출물 제출이 전형 평가의 핵심. 접수 2026-10-22~11-21(D-12)",
-        "field": "assignment+ai_policy"
+        "quote": "종결 실측(2026-11-24): m GI_Read '마감' 표기 — 에스에스알 AI활용 전문가(사업기획·분석·자동화), 마감 2026-11-21 경과",
+        "field": "policy"
       }
     ],
     "url": "https://www.jobkorea.co.kr/Recruit/GI_Read/50222686",
     "deadline": "2026-11-21",
-    "status": "open",
+    "status": "closed",
     "review": "confirmed",
     "note": "잡코리아 '바이브코딩' 검색 히트, 광주 광산구 — 바이브코딩 산출물·AI 실적서 중심 채용",
     "first_seen": "2026-11-09",
-    "last_seen": "2026-11-09",
-    "last_checked": "2026-11-09",
-    "check_cadence": "daily",
+    "last_seen": "2026-11-24",
+    "last_checked": "2026-11-24",
+    "check_cadence": "none",
     "history": [
       {
         "date": "2026-11-09",
         "event": "created",
         "ai_policy": "required"
+      },
+      {
+        "date": "2026-11-24",
+        "event": "status_changed",
+        "from": "open",
+        "to": "closed"
       }
     ]
   },
@@ -1938,35 +1984,46 @@
     "company": "한국프리미엄카드마케팅(한프카)",
     "title": "플랫폼 개발자 경력 채용(사전과제 제출 필수)",
     "positions": [
-      "backend",
-      "mobile"
+      "backend"
     ],
     "positions_raw": "플랫폼 개발자 경력 채용",
     "assignment_type": "pre_assignment",
     "ai_policy": "unspecified",
     "evidence": [
       {
-        "quote": "GI_Read(2026-11-12): 공고 제목 '[한국프리미엄카드마케팅] 플랫폼 개발자 경력 채용(사전과제 제출 필수)' + 접수기간 '2026-11-22T23:59' — 사전과제 제출 필수가 제목에 명시. 본문 AI 언급 없음(Comt_Ifrm 빈값, GI_Read 페이지 JSON으로 확인)",
-        "field": "assignment"
+        "quote": "종결 실측(2026-11-24): m GI_Read '마감' 표기 — 한프카 플랫폼 개발자(사전과제 제출 필수), 마감 2026-11-22 경과. 동일 공고 11/23 재게시분 50411795 신규 채택",
+        "field": "policy"
       }
     ],
-    "url": "https://www.jobkorea.co.kr/Recruit/GI_Read/50326430",
-    "deadline": "2026-11-22",
-    "status": "open",
+    "url": "https://www.jobkorea.co.kr/Recruit/GI_Read/50411795",
+    "deadline": "2026-12-06",
+    "status": "closed",
     "review": "confirmed",
     "note": "원티드 wd390319(상시, 사전과제 필수 동일)의 잡코리아 채널 재공고 — 채널별 마감 상이(원티드 API 11-12 확인 상시 active 유지 vs 잡코리아 11-22)",
     "first_seen": "2026-11-12",
-    "last_seen": "2026-11-12",
-    "last_checked": "2026-11-12",
-    "check_cadence": "daily",
+    "last_seen": "2026-11-24",
+    "last_checked": "2026-11-24",
+    "check_cadence": "none",
     "history": [
       {
         "date": "2026-11-12",
         "event": "created",
         "ai_policy": "unspecified"
+      },
+      {
+        "date": "2026-11-24",
+        "event": "deadline_changed",
+        "from": "2026-11-22",
+        "to": "2026-12-06"
+      },
+      {
+        "date": "2026-11-24",
+        "event": "status_changed",
+        "from": "open",
+        "to": "closed"
       }
     ],
-    "merged_into": "wanted:wd390319"
+    "merged_into": "jobkorea:50411795"
   },
   {
     "id": "jobkorea:50359977",
@@ -2259,6 +2316,118 @@
     "history": [
       {
         "date": "2026-11-21",
+        "event": "created",
+        "ai_policy": "unspecified"
+      }
+    ]
+  },
+  {
+    "id": "wanted:wd381276",
+    "source": "wanted",
+    "company": "큐피스트(글램)",
+    "title": "브랜드 디자이너 (BX Designer)",
+    "positions": [
+      "design"
+    ],
+    "positions_raw": "브랜드 디자이너 (BX Designer), 경력 2-5년, 서울 강남구",
+    "assignment_type": "assignment",
+    "process_raw": "온라인 사전과제 전형 진행(자격요건 각주 명시), 상시채용",
+    "ai_policy": "unspecified",
+    "policy_raw": "AI 정책 언급 없음(기업 태그 'AI 선도 기업'·'캐릭터챗 AI 기업' 보유하나 전형 문구 아님)",
+    "evidence": [
+      {
+        "quote": "원티드 상세(2026-11-24, /wd/381276) 자격요건: '*포지션 특성 상, 온라인 사전과제 전형이 진행됩니다' — 마감일 '상시채용'",
+        "field": "assignment"
+      }
+    ],
+    "url": "https://www.wanted.co.kr/wd/381276",
+    "deadline": null,
+    "status": "open",
+    "review": "confirmed",
+    "note": "원티드 '사전과제' 검색 신규 발견(11-21 미노출). 디자인 과제 전형 — 스튜디오리코·아이아이컴바인드(11-21)와 동일 계열",
+    "first_seen": "2026-11-24",
+    "last_seen": "2026-11-24",
+    "last_checked": "2026-11-24",
+    "check_cadence": "weekly",
+    "history": [
+      {
+        "date": "2026-11-24",
+        "event": "created",
+        "ai_policy": "unspecified"
+      }
+    ]
+  },
+  {
+    "id": "jobkorea:50411795",
+    "source": "jobkorea-mobile",
+    "company": "한국프리미엄카드마케팅(한프카)",
+    "title": "플랫폼 개발자 경력 채용(사전과제 제출 필수)",
+    "positions": [
+      "backend"
+    ],
+    "positions_raw": "플랫폼 개발자, 경력 5년↑, 정규직(수습 3개월), 서울·경기",
+    "assignment_type": "assignment",
+    "process_raw": "사전과제 제출 필수(공고 제목 명시)",
+    "ai_policy": "unspecified",
+    "policy_raw": "AI 언급 없음(전 게시 50326430 판정 승계)",
+    "evidence": [
+      {
+        "quote": "잡코리아(2026-11-24, GI_Read/50411795): 제목 '[한국프리미엄카드마케팅] 플랫폼 개발자 경력 채용(사전과제 제출 필수)' — 11/23(월) 등록, 마감 ~12.06(일)",
+        "field": "assignment"
+      }
+    ],
+    "url": "https://www.jobkorea.co.kr/Recruit/GI_Read/50411795",
+    "deadline": "2026-12-06",
+    "status": "open",
+    "review": "confirmed",
+    "note": "50326430(11-22 마감 종결) 직후 11/23 재게시 — gno 재생성 케이스(노아에이티에스 이후 2건째), '재등록 = 지원 기회 갱신' 원칙으로 신규 채택. 원티드 게시분 wd390319은 비활성",
+    "first_seen": "2026-11-24",
+    "last_seen": "2026-11-24",
+    "last_checked": "2026-11-24",
+    "check_cadence": "daily",
+    "history": [
+      {
+        "date": "2026-11-24",
+        "event": "created",
+        "ai_policy": "unspecified"
+      }
+    ],
+    "duplicates": [
+      "wanted:wd390319",
+      "jobkorea:50326430"
+    ]
+  },
+  {
+    "id": "jobkorea:50418981",
+    "source": "jobkorea-mobile",
+    "company": "㈜러쉬코리아",
+    "title": "샵 디자인팀 샵 디자이너 채용",
+    "positions": [
+      "design"
+    ],
+    "positions_raw": "샵 디자이너, 러쉬 매장 디자인팀, 접수 2026-11-23~12-13",
+    "assignment_type": "assignment",
+    "process_raw": "2차 면접 시 사전과제 및 PT 발표 진행 · 제출서류 이력서·자기소개서·포트폴리오(PDF/링크)",
+    "ai_policy": "unspecified",
+    "policy_raw": "AI 언급 없음",
+    "evidence": [
+      {
+        "quote": "잡코리아 상세(2026-11-24, GI_Read/50418981 iframe): '* 2차 면접 시 사전과제 및 PT 발표 진행' — 접수기간 2026-11-23(월)~12-13(일)",
+        "field": "assignment"
+      }
+    ],
+    "url": "https://www.jobkorea.co.kr/Recruit/GI_Read/50418981",
+    "deadline": "2026-12-13",
+    "status": "open",
+    "review": "confirmed",
+    "note": "m검색 '사전과제' 18시간 전 등록 신규",
+    "first_seen": "2026-11-24",
+    "last_seen": "2026-11-24",
+    "last_checked": "2026-11-24",
+    "check_cadence": "weekly",
+    "history": [
+      {
+        "date": "2026-11-24",
         "event": "created",
         "ai_policy": "unspecified"
       }

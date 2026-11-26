@@ -175,26 +175,30 @@
     "apply_deadline": "2026-11-22",
     "submit_deadline": "2026-11-22",
     "result_date": null,
-    "status": "open",
+    "status": "closed",
     "url": "https://blog.naver.com/ppspr/224439199284",
     "evidence": [
-      "공모주제가 '조달청 소재 AI 게임·콘텐츠' 제작"
+      "종결 실측(2026-11-24): 위비티 상세 '2026-10-12 ~ 2026-11-22 D+2' 마감 경과 — 조달청 AI 게임·콘텐츠 공모전(ko-0005 중복분)"
     ],
     "source": "wevity",
     "first_seen": "2026-10-24",
-    "last_checked": "2026-11-05",
-    "check_cadence": "daily",
+    "last_checked": "2026-11-24",
+    "check_cadence": "none",
     "review": "confirmed",
     "history": [
       {
         "date": "2026-10-24",
         "event": "created",
         "status": "open"
+      },
+      {
+        "date": "2026-11-24",
+        "event": "status_changed",
+        "from": "open",
+        "to": "closed"
       }
     ],
-    "duplicates": [
-      "wevity:111628-ppas-ai-game-contents"
-    ]
+    "merged_into": "wevity:111628-ppas-ai-game-contents"
   },
   {
     "id": "ko-0006",
@@ -506,7 +510,7 @@
     ],
     "source": "aichallenge4all",
     "first_seen": "2026-10-24",
-    "last_checked": "2026-10-24",
+    "last_checked": "2026-11-24",
     "check_cadence": "archive_candidate",
     "review": "confirmed",
     "history": [
@@ -568,7 +572,7 @@
     ],
     "source": "aichallenge4all",
     "first_seen": "2026-10-24",
-    "last_checked": "2026-10-24",
+    "last_checked": "2026-11-24",
     "check_cadence": "archive_candidate",
     "review": "confirmed",
     "history": [
@@ -1205,21 +1209,27 @@
     "apply_deadline": null,
     "submit_deadline": "2026-12-01",
     "result_date": null,
-    "status": "open",
+    "status": "closed",
     "url": "https://lablab.ai/ai-hackathons/amd-lablab-ai-academy-challenge",
     "evidence": [
-      "AMD GPU 인프라에서 AI를 빌드하는 6개 매치 리그전(개인 참가만 허용). 현재 Match 4 '웹 정보 검색 에이전트' 진행 중(10/13~27)"
+      "종결 실측(2026-11-24): lablab.ai/ai-hackathons/amd-lablab-ai-academy-challenge → starfieldlabs.ai/ai-hackathons 전면 리다이렉트(utm_source=lablab redirect) + starfieldlabs 목록 AMD 항목 부재 — AMD AI League, 28일 무관측 후 실측"
     ],
     "source": "lablab",
     "first_seen": "2026-10-24",
-    "last_checked": "2026-10-24",
-    "check_cadence": "daily",
+    "last_checked": "2026-11-24",
+    "check_cadence": "none",
     "review": "confirmed",
     "history": [
       {
         "date": "2026-10-24",
         "event": "created",
         "status": "open"
+      },
+      {
+        "date": "2026-11-24",
+        "event": "status_changed",
+        "from": "open",
+        "to": "closed"
       }
     ]
   },
@@ -1323,7 +1333,7 @@
     ],
     "source": "google-cloud",
     "first_seen": "2026-10-24",
-    "last_checked": "2026-11-03",
+    "last_checked": "2026-11-24",
     "check_cadence": "weekly",
     "review": "confirmed",
     "history": [
@@ -1428,7 +1438,7 @@
     ],
     "source": "google-cloud",
     "first_seen": "2026-10-24",
-    "last_checked": "2026-10-24",
+    "last_checked": "2026-11-24",
     "check_cadence": "archive_candidate",
     "review": "confirmed",
     "history": [
@@ -1452,21 +1462,27 @@
     "apply_deadline": null,
     "submit_deadline": "2026-10-17",
     "result_date": null,
-    "status": "judging",
+    "status": "closed",
     "url": "https://lablab.ai/ai-hackathons/amd-developer-hackathon-act-iii",
     "evidence": [
-      "AMD 인프라로 AI 앱을 만드는 lablab 해커톤 시리즈 3막. 온라인 빌드 10/12~17 종료, 현지 10/17~18. 결과 집계 중"
+      "종결 실측(2026-11-24): lablab.ai AMD Developer Hackathon ACT III 개별 URL → starfieldlabs.ai 리다이렉트 + 목록 부재 — judging 단계에서 플랫폼 이탈, 결과 관측 불가로 종결 처리"
     ],
     "source": "lablab",
     "first_seen": "2026-10-24",
-    "last_checked": "2026-10-24",
-    "check_cadence": "archive_candidate",
+    "last_checked": "2026-11-24",
+    "check_cadence": "none",
     "review": "confirmed",
     "history": [
       {
         "date": "2026-10-24",
         "event": "created",
         "status": "judging"
+      },
+      {
+        "date": "2026-11-24",
+        "event": "status_changed",
+        "from": "judging",
+        "to": "closed"
       }
     ]
   },
@@ -1798,21 +1814,27 @@
     "apply_deadline": "2026-11-23",
     "submit_deadline": "2026-11-23",
     "result_date": null,
-    "status": "open",
+    "status": "closed",
     "url": "https://www.wevity.com/?c=find&s=1&gbn=view&gp=1&ix=111819",
     "evidence": [
-      "'공모 분야: 생성형 AI 활용 숏폼 영상' — 생성형 AI 사용이 참가 조건"
+      "종결 실측(2026-11-24): 위비티 상세 '2026-10-23 ~ 2026-11-23 D+1' 마감 경과 — 한국세라믹기술원 AI 영상 공모전"
     ],
     "source": "wevity",
     "review": "auto",
     "first_seen": "2026-10-25",
-    "last_checked": "2026-10-25",
-    "check_cadence": "daily",
+    "last_checked": "2026-11-24",
+    "check_cadence": "none",
     "history": [
       {
         "date": "2026-10-25",
         "event": "created",
         "status": "open"
+      },
+      {
+        "date": "2026-11-24",
+        "event": "status_changed",
+        "from": "open",
+        "to": "closed"
       }
     ]
   },
@@ -1829,21 +1851,27 @@
     "apply_deadline": "2026-11-22",
     "submit_deadline": "2026-11-22",
     "result_date": null,
-    "status": "open",
+    "status": "closed",
     "url": "https://www.wevity.com/?c=find&s=1&gbn=view&gp=1&ix=111804",
     "evidence": [
-      "'출품작은 참가자가 직접 제작한 창작물이어야 하며 사용한 AI 툴을 명시합니다' — AI 툴 사용 필수"
+      "종결 실측(2026-11-24): 위비티 상세 '2026-10-19 ~ 2026-11-22 D+2' 마감 경과 — 나무엑스 AI 숏폼 공모전"
     ],
     "source": "wevity",
     "review": "auto",
     "first_seen": "2026-10-25",
-    "last_checked": "2026-10-25",
-    "check_cadence": "daily",
+    "last_checked": "2026-11-24",
+    "check_cadence": "none",
     "history": [
       {
         "date": "2026-10-25",
         "event": "created",
         "status": "open"
+      },
+      {
+        "date": "2026-11-24",
+        "event": "status_changed",
+        "from": "open",
+        "to": "closed"
       }
     ]
   },
@@ -2164,8 +2192,8 @@
     "source": "devpost",
     "review": "auto",
     "first_seen": "2026-10-25",
-    "last_checked": "2026-10-25",
-    "check_cadence": "daily",
+    "last_checked": "2026-11-24",
+    "check_cadence": "archive_candidate",
     "history": [
       {
         "date": "2026-10-25",
@@ -2421,7 +2449,7 @@
     "review": "auto",
     "first_seen": "2026-10-26",
     "last_checked": "2026-11-12",
-    "check_cadence": "weekly",
+    "check_cadence": "daily",
     "history": [
       {
         "date": "2026-10-26",
@@ -2871,21 +2899,27 @@
     "apply_deadline": "2026-11-20",
     "submit_deadline": "2026-11-20",
     "result_date": null,
-    "status": "open",
+    "status": "closed",
     "url": "https://dakar-bitcoin-hack-2026.devpost.com/",
     "evidence": [
-      "Create tools that will enhance the life of African people, around or on top of the Bitcoin protocol, the lightning network, nostr and AI. — AI가 공식 스코프에 포함(allowed), 제출 10/26~11/20"
+      "종결 실측(2026-11-24): Devpost open 리스트 60건 전수 대조 이탈 — Dakar Bitcoin Hack by BTrust(11-21 D-0 이후)"
     ],
     "source": "devpost",
     "review": "auto",
     "first_seen": "2026-10-27",
-    "last_checked": "2026-10-27",
-    "check_cadence": "archive_candidate",
+    "last_checked": "2026-11-24",
+    "check_cadence": "none",
     "history": [
       {
         "date": "2026-10-27",
         "event": "created",
         "status": "open"
+      },
+      {
+        "date": "2026-11-24",
+        "event": "status_changed",
+        "from": "open",
+        "to": "closed"
       }
     ]
   },
@@ -3038,21 +3072,27 @@
     "apply_deadline": "2026-11-13",
     "submit_deadline": "2026-11-22",
     "result_date": "2026-12-11",
-    "status": "open",
+    "status": "closed",
     "url": "https://ai-challenge.elice.page/home/main",
     "evidence": [
-      "위비티 D+1 배지(2026-11-15 실측): 참가자 모집 10-23~11-13 마감 — PoC 제출 11-14~11-22 진행 중이므로 open 유지, 11-23 런 종결 예정"
+      "종결 실측(2026-11-24): 위비티 상세 '2026-10-23 ~ 2026-11-13 D+11' 마감 경과 — 과기부×엘리스 AI 챌린지"
     ],
     "source": "wevity",
     "review": "confirmed",
     "first_seen": "2026-11-01",
-    "last_checked": "2026-11-15",
-    "check_cadence": "archive_candidate",
+    "last_checked": "2026-11-24",
+    "check_cadence": "none",
     "history": [
       {
         "date": "2026-11-01",
         "event": "created",
         "status": "open"
+      },
+      {
+        "date": "2026-11-24",
+        "event": "status_changed",
+        "from": "open",
+        "to": "closed"
       }
     ]
   },
@@ -3351,16 +3391,16 @@
     "apply_deadline": "2026-11-23",
     "submit_deadline": "2026-11-23",
     "result_date": null,
-    "status": "open",
+    "status": "closed",
     "url": "https://aiart.gbgs.art/",
     "evidence": [
-      "위비티 상세(2026-11-12): '접수기간 2026-11-09 ~ 2026-11-23 D-12' — 접수 11-09 개시로 upcoming→open 전환(11-09 런 매경·진안 전환 시 누락)"
+      "종결 실측(2026-11-24): 위비티 상세 '2026-11-09 ~ 2026-11-23 D+1' 마감 경과 — 경산시 AI 미디어 콘텐츠 공모전"
     ],
     "source": "wevity",
     "review": "confirmed",
     "first_seen": "2026-11-01",
-    "last_checked": "2026-11-12",
-    "check_cadence": "daily",
+    "last_checked": "2026-11-24",
+    "check_cadence": "none",
     "history": [
       {
         "date": "2026-11-01",
@@ -3372,6 +3412,12 @@
         "event": "status_changed",
         "from": "upcoming",
         "to": "open"
+      },
+      {
+        "date": "2026-11-24",
+        "event": "status_changed",
+        "from": "open",
+        "to": "closed"
       }
     ]
   },
@@ -3700,22 +3746,28 @@
     "apply_deadline": "2026-11-22",
     "submit_deadline": "2026-11-22",
     "result_date": "2026-12-21",
-    "status": "open",
+    "status": "closed",
     "url": "https://www.wevity.com/?c=find&s=1&gbn=view&gp=1&ix=112122",
     "evidence": [
-      "위비티 상세(2026-11-04): 'AI로 만드는 부산 동구!' — 'AI를 활용하여 숏폼 형식의 영상으로 표현' + '영상에 사용된 AI 활용 프로그램 및 활용 범위를 신청서에 기재' (AI 활용 고지 필수). 모집 기간 2026.11.3~11.22 자정, 지원 자격 '대한민국 국민 누구나'"
+      "종결 실측(2026-11-24): 위비티 상세 '2026-11-03 ~ 2026-11-22 D+2' 마감 경과 — 부산 동구 AI 숏폼 영상 공모전"
     ],
     "source": "wevity",
     "note": "수상작 발표 12/21. 공고처: blog.naver.com/bsdonggublog/224463183087. 11/3 개시 신규(ix 112122)",
     "first_seen": "2026-11-04",
-    "last_checked": "2026-11-04",
-    "check_cadence": "daily",
+    "last_checked": "2026-11-24",
+    "check_cadence": "none",
     "review": "auto",
     "history": [
       {
         "date": "2026-11-04",
         "event": "created",
         "status": "open"
+      },
+      {
+        "date": "2026-11-24",
+        "event": "status_changed",
+        "from": "open",
+        "to": "closed"
       }
     ]
   },
@@ -3875,24 +3927,32 @@
     "apply_deadline": "2026-11-22",
     "submit_deadline": "2026-11-22",
     "result_date": null,
-    "status": "open",
+    "status": "closed",
     "url": "https://blog.naver.com/ppspr/224439199284",
     "evidence": [
-      "위비티 상세(2026-11-05): '공모대상 - 대한민국 국민 누구나' · 시상 AI 게임/AI 시나리오/AI 영상 부문 (AI 시나리오 주제 「2050년 미래의 조달청」). 접수 10/12~11/22"
+      "종결 실측(2026-11-24): 위비티 상세 '2026-10-12 ~ 2026-11-22 D+2' 마감 경과 — 조달청 AI 게임·콘텐츠 공모전(ko-0005 중복분)"
     ],
     "source": "wevity",
     "first_seen": "2026-11-05",
-    "last_checked": "2026-11-05",
-    "check_cadence": "daily",
+    "last_checked": "2026-11-24",
+    "check_cadence": "none",
     "review": "auto",
     "history": [
       {
         "date": "2026-11-05",
         "event": "created",
         "status": "open"
+      },
+      {
+        "date": "2026-11-24",
+        "event": "status_changed",
+        "from": "open",
+        "to": "closed"
       }
     ],
-    "merged_into": "ko-0005"
+    "duplicates": [
+      "ko-0005"
+    ]
   },
   {
     "id": "wevity:111567-daegu-climate-publicdata-ai",
@@ -4417,7 +4477,7 @@
     ],
     "source": "thinkyou",
     "first_seen": "2026-11-07",
-    "last_checked": "2026-11-07",
+    "last_checked": "2026-11-24",
     "check_cadence": "daily",
     "review": "auto",
     "history": [
@@ -4560,7 +4620,7 @@
     ],
     "source": "meetup-com",
     "first_seen": "2026-11-07",
-    "last_checked": "2026-11-07",
+    "last_checked": "2026-11-24",
     "check_cadence": "daily",
     "review": "auto",
     "history": [
@@ -4751,21 +4811,27 @@
     "apply_deadline": "2026-11-23",
     "submit_deadline": "2026-12-20",
     "result_date": null,
-    "status": "upcoming",
+    "status": "open",
     "url": "https://www.wevity.com/?c=find&s=1&gbn=view&gp=1&ix=112285",
     "evidence": [
-      "위비티 112285 리스팅·상세(2026-11-12): '접수기간 2026-11-23 ~ 2026-12-20 D-39' — 접수 11-23 개시 예정, 전국민 대상 AI 공모전"
+      "상태 전환 실측(2026-11-24): 위비티 상세 '2026-11-23 ~ 2026-12-20 D-26' — 11-21 '접수예정(D-30)'에서 11-23 접수 개시, upcoming→open"
     ],
     "source": "wevity",
     "review": "confirmed",
     "first_seen": "2026-11-12",
-    "last_checked": "2026-11-12",
-    "check_cadence": "daily",
+    "last_checked": "2026-11-24",
+    "check_cadence": "archive_candidate",
     "history": [
       {
         "date": "2026-11-12",
         "event": "created",
         "status": "upcoming"
+      },
+      {
+        "date": "2026-11-24",
+        "event": "status_changed",
+        "from": "upcoming",
+        "to": "open"
       }
     ]
   },
@@ -4916,7 +4982,7 @@
     "review": "confirmed",
     "first_seen": "2026-11-12",
     "last_checked": "2026-11-12",
-    "check_cadence": "weekly",
+    "check_cadence": "daily",
     "history": [
       {
         "date": "2026-11-12",
@@ -4978,7 +5044,7 @@
     "review": "confirmed",
     "first_seen": "2026-11-15",
     "last_checked": "2026-11-15",
-    "check_cadence": "weekly",
+    "check_cadence": "daily",
     "history": [
       {
         "date": "2026-11-15",
@@ -5300,7 +5366,7 @@
     "review": "confirmed",
     "first_seen": "2026-11-16",
     "last_checked": "2026-11-16",
-    "check_cadence": "weekly",
+    "check_cadence": "daily",
     "history": [
       {
         "date": "2026-11-16",
@@ -5513,21 +5579,27 @@
     "apply_deadline": "2026-11-22",
     "submit_deadline": "2026-11-22",
     "result_date": "2026-12-08",
-    "status": "open",
+    "status": "closed",
     "url": "https://www.wevity.com/?c=find&s=1&gbn=view&gp=1&ix=112313",
     "evidence": [
-      "위비티 상세(2026-11-19): \"AI 컴패니언 채팅 플랫폼 '디어비'에서 이용자와 대화하는 나만의 AI 캐릭터·테마를 만들어 출품하는 창작 공모전\" + '캐릭터 제작 메뉴에서 컨셉 한 줄 작성 시 AI 기능을 통해 성격, 세계관 등 초안 자동 완성 가능' + 접수 11.2~11.22 23:59(KST)·심사 11.23~12.4·발표 12.8 — 지원자격: 한국·일본·미국·홍콩·대만 거주 성인(미성년자 불가)"
+      "종결 실측(2026-11-24): 위비티 상세 ix 112313 '2026-11-02 ~ 2026-11-22 D+2' 마감 경과 — 디어비 글로벌 런칭 공모전"
     ],
     "source": "wevity",
     "review": "confirmed",
     "first_seen": "2026-11-19",
-    "last_checked": "2026-11-19",
-    "check_cadence": "daily",
+    "last_checked": "2026-11-24",
+    "check_cadence": "none",
     "history": [
       {
         "date": "2026-11-19",
         "event": "created",
         "status": "open"
+      },
+      {
+        "date": "2026-11-24",
+        "event": "status_changed",
+        "from": "open",
+        "to": "closed"
       }
     ]
   },
@@ -5552,7 +5624,7 @@
     "source": "wevity",
     "review": "confirmed",
     "first_seen": "2026-11-20",
-    "last_checked": "2026-11-20",
+    "last_checked": "2026-11-24",
     "check_cadence": "daily",
     "history": [
       {
@@ -5714,6 +5786,37 @@
     "history": [
       {
         "date": "2026-11-21",
+        "event": "created",
+        "status": "open"
+      }
+    ]
+  },
+  {
+    "id": "global-0055",
+    "type": "hackathon",
+    "title": "AlgoConnect Quantathon - 2026",
+    "host": "AlgoConnect x QUARCC",
+    "ai_usage": "unknown",
+    "format": "online",
+    "team": "solo/team",
+    "prize": "$700",
+    "hiring_link": false,
+    "apply_deadline": null,
+    "submit_deadline": "2026-11-28",
+    "status": "open",
+    "url": "https://algoconnect-quantathon-2026.devpost.com/",
+    "evidence": [
+      "Devpost rules(2026-11-24): 'Who can participate — Approved participants, Above legal age of majority in country of residence' — 전 연령 성인 온라인 해커톤, 2026-11-22~28, 상금 $700, 'Where the Algo gets evaluated, not the Pitch'"
+    ],
+    "source": "devpost-api",
+    "review": "confirmed",
+    "note": "queue/2026-11-23 coldscan 후보 → 자격 실측 채택. D-4 마감 임박",
+    "first_seen": "2026-11-24",
+    "last_checked": "2026-11-24",
+    "check_cadence": "daily",
+    "history": [
+      {
+        "date": "2026-11-24",
         "event": "created",
         "status": "open"
       }
