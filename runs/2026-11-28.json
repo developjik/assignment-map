@@ -1,0 +1,1169 @@
+{
+ "date": "2026-11-28",
+ "postings": [
+  {
+   "id": "jobkorea:50436083",
+   "source": "jobkorea-mobile",
+   "company": "㈜아이디스",
+   "title": "2026년 11월 수시 채용 (신입/경력) — 영상제작·기술지원 등",
+   "positions": [
+    "design"
+   ],
+   "positions_raw": "영상제작 및 편집(모션그래픽 과제)·해외기술지원(일본)·국내사업 기술지원·생산·영업지원 다부문",
+   "assignment_type": "assignment",
+   "process_raw": "지원서 내 과제 제출(주제 택1) — 서류 > 과제 > 면접",
+   "ai_policy": "allowed",
+   "policy_raw": "AI 도구 활용 경험 우대(전형 필수 아님)",
+   "evidence": [
+    {
+     "quote": "잡코리아 GI_Read_Comt_Ifrm(2026-11-28, 50436083): '지원서 내 과제파일 다운로드 링크 기재 또는 프로젝트 수행내역 첨부란을 통해 과제 제출) 아래 주제 중 택1 글로벌 CCTV 브랜드 아이디스 / 인공지능 영상 보안 솔루션 아이디스' — m검색 11-27 등록, D-9",
+     "field": "assignment"
+    },
+    {
+     "quote": "잡코리아 GI_Read_Comt_Ifrm(2026-11-28, 50436083): 해외기술지원·영상제작 등 우대조건 'AI 도구를 활용한 문서 작성, 분석, 업무 자동화 경험' + '입사지원 시 아이디스를 주제로 한 모션그래픽(15초 이내) 포트폴리오 제출 필수'",
+     "field": "policy"
+    }
+   ],
+   "url": "https://www.jobkorea.co.kr/Recruit/GI_Read/50436083",
+   "deadline": "2026-12-07",
+   "status": "open",
+   "review": "confirmed",
+   "note": "m검색 '사전과제' 신규 — 영상보안 업체 다부문 수시채용, 과제+AI 도구 경험 우대 병존"
+  },
+  {
+   "id": "jobkorea:50442219",
+   "source": "jobkorea-mobile",
+   "company": "펜타시큐리티㈜",
+   "title": "웹보안 소프트웨어 개발자",
+   "positions": [
+    "security"
+   ],
+   "positions_raw": "웹보안 소프트웨어 개발자(경력)",
+   "assignment_type": "assignment",
+   "process_raw": "서류전형 > 사전과제 및 면접전형 > 최종합류",
+   "ai_policy": "unspecified",
+   "policy_raw": "AI 언급 없음",
+   "evidence": [
+    {
+     "quote": "잡코리아 GI_Read_Comt_Ifrm(2026-11-28, 50442219): '합류 여정은 이렇게 진행돼요 ㆍ서류전형 > 사전과제 및 면접전형 > 최종합류 ㆍ면접일정은 추후 통보됩니다' — D-59, gno 50251589 재등록(마감일 연장 패턴)",
+     "field": "assignment"
+    }
+   ],
+   "url": "https://www.jobkorea.co.kr/Recruit/GI_Read/50442219",
+   "deadline": "2027-01-26",
+   "status": "open",
+   "review": "confirmed",
+   "note": "50251589(11-26 마감)의 재등록 — gno 교체로 마감 2개월 연장, 종결된 구 공고 대체"
+  },
+  {
+   "id": "wanted:wd381276",
+   "source": "wanted",
+   "company": "큐피스트(글램)",
+   "title": "브랜드 디자이너 (BX Designer)",
+   "positions": [
+    "design"
+   ],
+   "positions_raw": "브랜드 디자이너 BX(경력 2-5년), 러브테크 기업(글램·알파스테이트·AI 챗 닷닷닷)",
+   "assignment_type": "assignment",
+   "process_raw": "온라인 사전과제 전형 명시",
+   "ai_policy": "unspecified",
+   "policy_raw": "AI 언급 없음(회사 소개에 AI 서비스 언급 — 전형 정책 아님)",
+   "evidence": [
+    {
+     "quote": "원티드 API wd/381276(2026-11-28): '*포지션 특성 상, 온라인 사전과제 전형이 진행됩니다.' — 채용 프로세스 안내 문구",
+     "field": "assignment"
+    }
+   ],
+   "url": "https://www.wanted.co.kr/wd/381276",
+   "deadline": null,
+   "status": "open",
+   "review": "confirmed",
+   "note": "원티드 '사전과제' 검색 4건 중 신규(나머지: 한프카 기추적·마인드브이알·언어발전소 R&D 연구과제 노이즈) — 큐피스트 AI 챗 서비스 운영사, 디자인 사전과제"
+  },
+  {
+   "id": "krafton:8836426002",
+   "source": "manual-research",
+   "company": "크래프톤(KRAFTON)",
+   "title": "[AI Research Div.] Research Scientist - Specialized Model (2년 이상 / 인턴)",
+   "positions": [
+    "ai"
+   ],
+   "positions_raw": "AI Research 본부 Specialized Model 연구 인턴(석사 이상, 서울)",
+   "assignment_type": "assignment",
+   "process_raw": "서류 > 사전 인터뷰(Phone) > 과제 전형 > 인성검사 > 직무면접 > 종합면접(2-3회) > 합격",
+   "ai_policy": "required",
+   "policy_raw": "AI 연구 직무 — 과제 전형이 AI 연구 역량 평가(LLM/VLM)",
+   "evidence": [
+    {
+     "quote": "KRAFTON Greenhouse 공고(2026-11-28, 8836426002): '크래프톤의 도전에 함께 하기 위해 아래의 전형 과정이 필요합니다. 서류 전형 > 사전 인터뷰 (Phone Interview) > *과제 전형 > 인성검사 (Personality Assessment) > 직무면접 (Technical Fit Interview) > 종합면접 (2-3회) (Culture Fit Interview) > 합격 및 입사' — 상시 채용",
+     "field": "assignment"
+    },
+    {
+     "quote": "KRAFTON Greenhouse 공고(2026-11-28, 8836426002): AI Research 본부 — '게임 제작에 도움이 될 수 있는 AI 기술 개발…유저와 함께 게임 플레이를 할 수 있는 Multi-modal LLM 기반 Foundation Model 개발' — Specialized Model(딥러닝·LLM 연구) 인턴",
+     "field": "policy"
+    }
+   ],
+   "url": "https://job-boards.greenhouse.io/krafton/jobs/8836426002",
+   "deadline": null,
+   "status": "open",
+   "review": "confirmed",
+   "note": "seed-kr-03 재방문 실측 — 크래프톤 AI Research Div. 과제 전형형 공고(커리어피크 2026-10-29 분석: WAM 2건·Specialized·Generalist가 과제 전형형). 현재 활성은 Specialized Model 인턴뿐(AI Agent Engineer·World Action Models 2건·Generalist Agent는 Greenhouse error=종료). 코테 없이 과제 전형으로 대체하는 국내 게임 대기업 AI 연구 조직 사례"
+  },
+  {
+   "id": "jobkorea:50394136",
+   "source": "jobkorea-mobile",
+   "company": "㈜에이블리코퍼레이션",
+   "title": "오프라인 영업 매니저 인턴 (채용연계형)",
+   "positions": [
+    "etc"
+   ],
+   "positions_raw": "오프라인 영업 매니저 인턴(채용연계형, 6개월 계약)",
+   "assignment_type": "assignment",
+   "process_raw": "서류전형 → 사전과제 → 직무 인터뷰(화상) → 심층 직무 인터뷰(화상) → 최종합격",
+   "ai_policy": "unspecified",
+   "policy_raw": "AI 언급 없음",
+   "evidence": [
+    {
+     "quote": "잡코리아 GI_Read_Comt_Ifrm(2026-11-28, 50394136): '합류 여정을 소개해요 서류전형 → 사전과제 → 직무 인터뷰 (화상) → 심층 직무 인터뷰 (화상) → 최종합격' — 근무 6개월, 채용연계형 인턴",
+     "field": "assignment"
+    }
+   ],
+   "url": "https://www.jobkorea.co.kr/Recruit/GI_Read/50394136",
+   "deadline": "2027-01-18",
+   "status": "open",
+   "review": "confirmed",
+   "note": "m검색 '사전과제' 재노출(기판정 없음 확인) — 커머스 유니콘 에이블리, 영업직 사전과제 전형"
+  },
+  {
+   "id": "jobkorea:50251589",
+   "status": "closed",
+   "evidence": [
+    {
+     "quote": "m GI_Read(2026-11-28, 50251589): 펜타시큐리티 웹보안 소프트웨어 개발자 상단 '마감' 표기 — 마감일 2026-11-26 경과, gno 50442219 재등록으로 대체(D-59 신규 채택)",
+     "field": "policy"
+    }
+   ]
+  },
+  {
+   "id": "seed-kr-03",
+   "source": "manual-research",
+   "company": "크래프톤",
+   "positions": [
+    "frontend"
+   ],
+   "positions_raw": "개발 직군 / FE 여부 미확인",
+   "assignment_type": "unknown",
+   "process_raw": "AI Research Div. 공고: 서류 > (사전 인터뷰) > 과제 전형 > 인성검사 > 직무면접 > 종합면접 — 코파 프로브 솔루션 자체 적용",
+   "ai_policy": "allowed_graded",
+   "policy_raw": "AI 허용 + AI 채점",
+   "evidence": [
+    {
+     "quote": "코드+대화기록·프롬프트·도구설정·검증실행흔적 자동 수집, 사후 질의응답, 면접 리포트",
+     "field": "research"
+    },
+    {
+     "quote": "KRAFTON Greenhouse(2026-11-28): AI Research Div. 활성 공고 14건 중 과제 전형형(Specialized Model 인턴 8836426002 채택, AI Agent Engineer·World Action Models 2건·Generalist Agent 공고는 종료) — 커리어피크 2026-10-29 분석 '코딩테스트 대신 직무 테스트와 과제 전형'",
+     "field": "assignment"
+    }
+   ],
+   "url": "seed",
+   "urls_research": [],
+   "deadline": null,
+   "status": "open",
+   "state_raw": "정책 진행 중 · AI Research Div. 과제 전형 공고 상시",
+   "first_seen": "2026-08",
+   "review": "confirmed",
+   "note": "코파 프로브 개발사 — 자사 채용에도 도입 · 11-28 실측: AI Research Div. 과제 전형 공고 실존(46일 만 재방문)"
+  },
+  {
+   "id": "seed-kr-07",
+   "source": "manual-research",
+   "company": "더게임(TheGame AI)",
+   "positions": [
+    "frontend"
+   ],
+   "positions_raw": "GOlang 백엔드 (FE 아님 — 참고)",
+   "assignment_type": "unknown",
+   "process_raw": "AI 엔지니어 공고(마감): 서류 → 팀 면접 → 과제 → 최종 면접 — 현재 활성 공고는 SAM 영업 담당뿐",
+   "ai_policy": "required",
+   "policy_raw": "AI 활용 요구",
+   "evidence": [
+    {
+     "quote": "제작물 지참(프롬프트 제출 명시 없음)",
+     "field": "research"
+    },
+    {
+     "quote": "websearch 실측(2026-11-28, 데모데이·직행·원티드): 더게임 AI 엔지니어·데이터 사이언티스트 공고 '채용 전형: 서류 전형 • 팀 면접 • 과제 • 최종 면접'(마감) — 현재 활성은 SAM 영업 담당(12-16 마감)뿐, AI 과제 전형 공고 미개설",
+     "field": "assignment"
+    }
+   ],
+   "url": "seed",
+   "urls_research": [],
+   "deadline": null,
+   "status": "open",
+   "state_raw": "상시 감시 (과제 전형 공고 마감 상태)",
+   "first_seen": "2026-10",
+   "review": "confirmed",
+   "note": "\"면접 때 AI agent로 무엇을 만들었는가\"를 중점 확인 · 11-28 실측: AI 엔지니어 공고 과제 전형 확인(마감) — 재개설 시 채택 대상(46일 만 재방문)"
+  }
+ ],
+ "events": [
+  {
+   "id": "kaggle:gemma-4-developer-agent",
+   "type": "competition",
+   "title": "Google - The Gemma 4 Developer Agent Competition",
+   "host": "Google DeepMind",
+   "ai_usage": "required",
+   "format": "online",
+   "team": "unknown",
+   "prize": "$75,000",
+   "hiring_link": false,
+   "apply_deadline": null,
+   "submit_deadline": "2026-12-03",
+   "status": "open",
+   "url": "https://www.kaggle.com/competitions/gemma-4-developer-agent",
+   "evidence": [
+    "Kaggle API(2026-11-28, kaggle_fetch.mjs): category Featured, deadline 2026-12-03, reward 75,000 USD — Google DeepMind 주최 Gemma 4 개발자 에이전트 대회"
+   ],
+   "source": "kaggle",
+   "review": "confirmed",
+   "note": "kaggle 백필 판정 1순위(오너 결정) — 원장 11-22 흡수분, D-5 마감"
+  },
+  {
+   "id": "kaggle:physical-engineerings-last-exam",
+   "type": "competition",
+   "title": "Google - Agent Harness on Physical-Engineering's Last Exam",
+   "host": "Google",
+   "ai_usage": "required",
+   "format": "online",
+   "team": "unknown",
+   "prize": "$400,000",
+   "hiring_link": false,
+   "apply_deadline": null,
+   "submit_deadline": "2027-01-06",
+   "status": "open",
+   "url": "https://www.kaggle.com/competitions/physical-engineerings-last-exam",
+   "evidence": [
+    "Kaggle API(2026-11-28, kaggle_fetch.mjs): category Featured, deadline 2027-01-06, reward 400,000 USD — 에이전트 하네스 대회"
+   ],
+   "source": "kaggle",
+   "review": "confirmed",
+   "note": "kaggle 백필 판정 2순위(오너 결정) — $400K 최대 상금"
+  },
+  {
+   "id": "kaggle:playground-series-s6e11",
+   "type": "competition",
+   "title": "Predicting Credit Card Fraud (Playground S6E11)",
+   "host": "Kaggle",
+   "ai_usage": "required",
+   "format": "online",
+   "team": "unknown",
+   "prize": "Swag 3",
+   "hiring_link": false,
+   "apply_deadline": null,
+   "submit_deadline": "2026-12-01",
+   "status": "open",
+   "url": "https://www.kaggle.com/competitions/playground-series-s6e11",
+   "evidence": [
+    "Kaggle API(2026-11-28, kaggle_fetch.mjs): category Playground, deadline 2026-12-01, reward 3 Swag — 월간 연습 시리즈(채점 리더보드 운영)"
+   ],
+   "source": "kaggle",
+   "review": "confirmed",
+   "note": "kaggle 백필 — Playground 판정 대상(마감 D-3)"
+  },
+  {
+   "id": "kaggle:enveda-CASMI26-molecule-id-mass-spectra",
+   "type": "competition",
+   "title": "Enveda CASMI 2026 - Molecule ID From Mass Spectra",
+   "host": "Enveda",
+   "ai_usage": "required",
+   "format": "online",
+   "team": "unknown",
+   "prize": "$50,000",
+   "hiring_link": false,
+   "apply_deadline": null,
+   "submit_deadline": "2026-12-15",
+   "status": "open",
+   "url": "https://www.kaggle.com/competitions/enveda-CASMI26-molecule-id-mass-spectra",
+   "evidence": [
+    "Kaggle API(2026-11-28, kaggle_fetch.mjs): category Featured, deadline 2026-12-15, reward 50,000 USD — 질량스펙트럼 분자 식별 ML 대회"
+   ],
+   "source": "kaggle",
+   "review": "confirmed",
+   "note": "kaggle 백필 — ML 분류 대회"
+  },
+  {
+   "id": "kaggle:nfl-big-data-bowl-2027",
+   "type": "competition",
+   "title": "NFL Big Data Bowl 2027",
+   "host": "The National Football League",
+   "ai_usage": "unknown",
+   "format": "online",
+   "team": "unknown",
+   "prize": "$100,000",
+   "hiring_link": false,
+   "apply_deadline": null,
+   "submit_deadline": "2027-01-07",
+   "status": "open",
+   "url": "https://www.kaggle.com/competitions/nfl-big-data-bowl-2027",
+   "evidence": [
+    "Kaggle API(2026-11-28, kaggle_fetch.mjs): category Featured, deadline 2027-01-07, reward 100,000 USD — 스포츠 데이터 분석 대회"
+   ],
+   "source": "kaggle",
+   "review": "confirmed",
+   "note": "kaggle 백필 — 데이터 분석 대회(빌드형·전지구)"
+  },
+  {
+   "id": "kaggle:the-pokemon-company-ptcg-ai-battle-challenge-playground",
+   "type": "competition",
+   "title": "The Pokémon Company - PTCG AI Battle Challenge (Playground)",
+   "host": "The Pokémon Company",
+   "ai_usage": "required",
+   "format": "online",
+   "team": "unknown",
+   "prize": "Swag",
+   "hiring_link": false,
+   "apply_deadline": null,
+   "submit_deadline": "2027-01-09",
+   "status": "open",
+   "url": "https://www.kaggle.com/competitions/the-pokemon-company-ptcg-ai-battle-challenge-playground",
+   "evidence": [
+    "Kaggle API(2026-11-28, kaggle_fetch.mjs): category Playground, deadline 2027-01-09, reward Swag — 포켓몬 TCG AI 배틀 챌린지"
+   ],
+   "source": "kaggle",
+   "review": "confirmed",
+   "note": "kaggle 백필 — AI 게임 대결 주제"
+  },
+  {
+   "id": "kaggle:name-that-llm",
+   "type": "competition",
+   "title": "Name That LLM",
+   "host": "Kaggle",
+   "ai_usage": "required",
+   "format": "online",
+   "team": "unknown",
+   "prize": "$50,000",
+   "hiring_link": false,
+   "apply_deadline": null,
+   "submit_deadline": "2027-01-15",
+   "status": "open",
+   "url": "https://www.kaggle.com/competitions/name-that-llm",
+   "evidence": [
+    "Kaggle API(2026-11-28, kaggle_fetch.mjs): category Featured, deadline 2027-01-15, reward 50,000 USD — LLM 식별 대회"
+   ],
+   "source": "kaggle",
+   "review": "confirmed",
+   "note": "kaggle 백필 — LLM 주제"
+  },
+  {
+   "id": "kaggle:google-verifiable-quantum-circuit-compilation",
+   "type": "competition",
+   "title": "Google Quantum AI - Verifiable Quantum Circuit Compilation",
+   "host": "Google Quantum AI",
+   "ai_usage": "unknown",
+   "format": "online",
+   "team": "unknown",
+   "prize": "$150,000",
+   "hiring_link": false,
+   "apply_deadline": null,
+   "submit_deadline": "2027-01-21",
+   "status": "open",
+   "url": "https://www.kaggle.com/competitions/google-verifiable-quantum-circuit-compilation",
+   "evidence": [
+    "Kaggle API(2026-11-28, kaggle_fetch.mjs): category Featured, deadline 2027-01-21, reward 150,000 USD — 양자회로 컴파일 최적화 대회"
+   ],
+   "source": "kaggle",
+   "review": "confirmed",
+   "note": "kaggle 백필 — 최적화 대회(AI 테마 아님·전지구 판단 채택)"
+  },
+  {
+   "id": "kaggle:santa-2026",
+   "type": "competition",
+   "title": "Santa 2026 - The Elf Calculator",
+   "host": "Kaggle",
+   "ai_usage": "unknown",
+   "format": "online",
+   "team": "unknown",
+   "prize": "$50,000",
+   "hiring_link": false,
+   "apply_deadline": null,
+   "submit_deadline": "2027-01-29",
+   "status": "open",
+   "url": "https://www.kaggle.com/competitions/santa-2026",
+   "evidence": [
+    "Kaggle API(2026-11-28, kaggle_fetch.mjs): category Featured, deadline 2027-01-29, reward 50,000 USD — 연말 알고리즘 최적화 대회"
+   ],
+   "source": "kaggle",
+   "review": "confirmed",
+   "note": "kaggle 백필 — 연례 산타 시리즈"
+  },
+  {
+   "id": "kaggle:squares-in-squares",
+   "type": "competition",
+   "title": "Squares in Squares",
+   "host": "Kaggle",
+   "ai_usage": "unknown",
+   "format": "online",
+   "team": "unknown",
+   "prize": "$50,000",
+   "hiring_link": false,
+   "apply_deadline": null,
+   "submit_deadline": "2027-07-19",
+   "status": "open",
+   "url": "https://www.kaggle.com/competitions/squares-in-squares",
+   "evidence": [
+    "Kaggle API(2026-11-28, kaggle_fetch.mjs): category Playground, deadline 2027-07-19, reward 50,000 USD — 기하 최적화 Playground"
+   ],
+   "source": "kaggle",
+   "review": "confirmed",
+   "note": "kaggle 백필 — 장기 마감 Playground"
+  },
+  {
+   "id": "global-0060",
+   "type": "competition",
+   "title": "The Geologic Enhanced Mapping System (GEMS) Prize Challenge",
+   "host": "U.S. DOE / DrivenData",
+   "ai_usage": "required",
+   "format": "online",
+   "team": "unknown",
+   "prize": "$300,000",
+   "hiring_link": false,
+   "apply_deadline": null,
+   "submit_deadline": "2026-12-04",
+   "status": "open",
+   "url": "https://www.drivendata.org/competitions/306/competition-doe-gems/",
+   "evidence": [
+    "DrivenData 대회 상세(2026-11-28): '$300,000 in prizes 6 days left' + '$300,000 Initial Prize Round — $50,000 Top 5' / 'Final Prize Round — $250,000' — 1,228 joined, 지질 매핑 ML 예측 대회"
+   ],
+   "source": "drivendata",
+   "review": "confirmed",
+   "note": "T2 drivendata 첫 커밋 판정 — 활성 2건 중 1, D-6"
+  },
+  {
+   "id": "global-0061",
+   "type": "competition",
+   "title": "Where the Wild Features Are (Literacy Speech Modeling)",
+   "host": "K12 AI Infrastructure / DrivenData",
+   "ai_usage": "required",
+   "format": "online",
+   "team": "unknown",
+   "prize": "$50,000",
+   "hiring_link": false,
+   "apply_deadline": null,
+   "submit_deadline": "2027-01-19",
+   "status": "open",
+   "url": "https://platform.k12-ai-infrastructure.org/competitions/4/literacy-speech-modeling/",
+   "evidence": [
+    "DrivenData 대회 상세(2026-11-28): '$50,000 in prizes 7 weeks left' + 'January 19, 2027 at 23:59:59 UTC' — 음성 기반 문해력 스크리닝 ML 대회, 206 joined"
+   ],
+   "source": "drivendata",
+   "review": "confirmed",
+   "note": "T2 drivendata 첫 커밋 판정 — 활성 2건 중 2"
+  },
+  {
+   "id": "global-0056",
+   "type": "competition",
+   "title": "GenAI for Good Challenge: Cities Edition (Phase 1 Technical Assessment)",
+   "host": "IEEE Humanitarian Technologies x UNDP",
+   "ai_usage": "required",
+   "format": "online",
+   "team": "unknown",
+   "prize": "$40,000",
+   "hiring_link": false,
+   "apply_deadline": null,
+   "submit_deadline": "2026-12-13",
+   "status": "open",
+   "url": "https://zindi.africa/competitions/GenAI-for-Good-Challenge",
+   "evidence": [
+    "Zindi 챌린지 상세(2026-11-28): 'closes on 13 December', '$40 000 USD', 'open to legal residents of the United States and international jurisdictions where permitted by local law' — GenAI 도시 문제 해결 챌린지, 835 joined"
+   ],
+   "source": "zindi",
+   "review": "confirmed",
+   "note": "T2 zindi 첫 커밋 판정 — 전지구 참여 가능, 최대 상금"
+  },
+  {
+   "id": "global-0057",
+   "type": "competition",
+   "title": "AMD Global Physical AI Behavioral Safety Challenge",
+   "host": "AMD / Zindi",
+   "ai_usage": "required",
+   "format": "online",
+   "team": "unknown",
+   "prize": "$10,000",
+   "hiring_link": false,
+   "apply_deadline": null,
+   "submit_deadline": "2027-01-31",
+   "status": "open",
+   "url": "https://zindi.africa/competitions/amd-global-physical-ai-safety-challenge",
+   "evidence": [
+    "Zindi 챌린지 상세(2026-11-28): 'closes on 31 January', '$10 000 USD', 'open to all, sponsored by AMD' — 물리 AI 행동 안전 챌린지, 596 joined"
+   ],
+   "source": "zindi",
+   "review": "confirmed",
+   "note": "T2 zindi 첫 커밋 판정"
+  },
+  {
+   "id": "global-0058",
+   "type": "competition",
+   "title": "AI Agents for RAN Challenge",
+   "host": "ITU / Zindi",
+   "ai_usage": "required",
+   "format": "online",
+   "team": "unknown",
+   "prize": "€30,000",
+   "hiring_link": false,
+   "apply_deadline": null,
+   "submit_deadline": "2027-02-06",
+   "status": "open",
+   "url": "https://zindi.africa/competitions/ai-agents-for-ran-challenge",
+   "evidence": [
+    "Zindi 챌린지 상세(2026-11-28): 'Can your AI agent reason, experiment and solve complex radio network problems?' — Start 27 Nov 26 / Close 06 Feb 27 / Reveal 07 Feb 27, €30,000, 'Open to all'"
+   ],
+   "source": "zindi",
+   "review": "confirmed",
+   "note": "T2 zindi 첫 커밋 판정 — AI 에이전트 주제, 11-27 개시"
+  },
+  {
+   "id": "global-0059",
+   "type": "competition",
+   "title": "TelcoRetrieve Challenge: Unlocking Telco Knowledge",
+   "host": "ITU / Zindi",
+   "ai_usage": "required",
+   "format": "online",
+   "team": "unknown",
+   "prize": "€25,000",
+   "hiring_link": false,
+   "apply_deadline": null,
+   "submit_deadline": "2027-01-13",
+   "status": "open",
+   "url": "https://zindi.africa/competitions/telcoretrieve-challenge-unlocking-telco-knowledge",
+   "evidence": [
+    "Zindi 챌린지 상세(2026-11-28): 'deadline on 13 January 2027', '€25 000 EUR' — ITU 통신 지식 검색(LLM) 챌린지"
+   ],
+   "source": "zindi",
+   "review": "confirmed",
+   "note": "T2 zindi 첫 커밋 판정 — ITU AI/ML 챌린지 시리즈"
+  },
+  {
+   "id": "global-0062",
+   "type": "hackathon",
+   "title": "FLUX: In Production",
+   "host": "Encode Club / Black Forest Labs",
+   "ai_usage": "required",
+   "format": "online",
+   "team": "unknown",
+   "prize": "$25,000+",
+   "hiring_link": false,
+   "apply_deadline": null,
+   "submit_deadline": "2026-12-11",
+   "status": "upcoming",
+   "url": "https://encodeclub.com/programmes/bfl-flux-in-production",
+   "evidence": [
+    "Encode Club 프로그램 상세(2026-11-28): '$25,000 in cash prizes from Black Forest Labs', '$300 in FLUX credits for every selected creator or team', 'Two weeks, online: 30 November to 11 December', 'Submit by Friday 11 December, 23:59 CET', Finale on 16 December — FLUX AI 영상·이미지 제작 해커톤"
+   ],
+   "source": "encode-club",
+   "review": "confirmed",
+   "note": "T2 encode-club 첫 커밋 판정 — 11-30 개시(접수 시작 전), 실제 브리프(RTL·Nura Studios·Studio Babelsberg)"
+  },
+  {
+   "id": "global-0063",
+   "type": "hackathon",
+   "title": "Concordium Trusted Agents Hackathon",
+   "host": "Encode Club / Concordium",
+   "ai_usage": "required",
+   "format": "online",
+   "team": "unknown",
+   "prize": "3M CCD",
+   "hiring_link": false,
+   "apply_deadline": null,
+   "submit_deadline": "2026-12-09",
+   "status": "open",
+   "url": "https://encodeclub.com/programmes/concordium-trusted-agents-hackathon",
+   "evidence": [
+    "Encode Club 프로그램 상세(2026-11-28): 'Add trust and accountability to the AI agents you already have', 'The top three projects each win 1M CCD: 3M CCD in total' + 'final submissions close Wednesday 9 December, 23:59 UTC' — 11-02 개시, 참가 신청 진행 중"
+   ],
+   "source": "encode-club",
+   "review": "confirmed",
+   "note": "T2 encode-club 첫 커밋 판정 — AI 에이전트 신뢰성 주제, 75M CCD 그랜트 연계"
+  },
+  {
+   "id": "global-0064",
+   "type": "hackathon",
+   "title": "Agent Arena Competition: Evidence Mining",
+   "host": "Gensyn / DoraHacks",
+   "ai_usage": "required",
+   "format": "online",
+   "team": "unknown",
+   "prize": "$7,250",
+   "hiring_link": false,
+   "apply_deadline": null,
+   "submit_deadline": "2026-12-12",
+   "status": "open",
+   "url": "https://dorahacks.io/hackathon/delphi-agent-competition2",
+   "evidence": [
+    "DoraHacks 해커톤 상세(2026-11-28): 'PRIZE POOL 7,250 USD', 'Deadline 2026/12/12 02:00 (UTC+9)', Virtual, HACKATHON TAGS AI Agents Prediction Markets — 'Can your AI agent reason, experiment and solve complex problems?'"
+   ],
+   "source": "dorahacks",
+   "review": "confirmed",
+   "note": "T2 dorahacks — AI 에이전트 챌린지 채택(그 외 웹3 노이즈: HSK Chain Seoul·QDay·Cortensor 등 비AI 미채택)"
+  },
+  {
+   "id": "ko-0041",
+   "type": "contest",
+   "title": "2026 비 마이 에이전트(Be My Agent) 공모전",
+   "host": "과학기술정보통신부, NIA(한국지능정보사회진흥원) / 주관 카카오",
+   "ai_usage": "required",
+   "format": "online",
+   "team": "unknown",
+   "prize": "4,000만원",
+   "hiring_link": false,
+   "apply_deadline": null,
+   "submit_deadline": "2026-12-11",
+   "status": "open",
+   "url": "https://www.thinkyou.co.kr/contest/68344/",
+   "evidence": [
+    "씽유 상세(2026-11-28, 68344): '주제 실제 업무나 생활의 문제를 해결하는 AI 에이전트, MCP — 일의 효율화·일상의 편의·새로운 가치' + '총 상금 4,000만 원 규모! (최대 20팀 시상, 팀 당 200만 원)' — 접수 2026-11-27~12-11"
+   ],
+   "source": "thinkyou",
+   "review": "confirmed",
+   "note": "씽유 신규 — 과기부·NIA 주최 카카오 주관 AI 에이전트 공모전, 위비티 미등재(씽유 유일)"
+  },
+  {
+   "id": "ko-0042",
+   "type": "contest",
+   "title": "Google Gemini Tasks 우수 활용사례 공모전",
+   "host": "#TeamGemini",
+   "ai_usage": "required",
+   "format": "online",
+   "team": "unknown",
+   "prize": "경품",
+   "hiring_link": false,
+   "apply_deadline": null,
+   "submit_deadline": "2026-12-02",
+   "status": "open",
+   "url": "https://www.thinkyou.co.kr/contest/68347/",
+   "evidence": [
+    "씽유 상세(2026-11-28, 68347): '주제 나만의 기발한 Gemini Task 활용법을 공유할 기회! 학업, 일상, 취미, 업무 등 다양한 분야' — 접수 2026-11-25~12-02, #TeamGemini(구글 커뮤니티 팀) 주최"
+   ],
+   "source": "thinkyou",
+   "review": "confirmed",
+   "note": "씽유 신규 — Gemini Tasks 활용 사례 공모(AI 활용 필수), D-4"
+  },
+  {
+   "id": "ko-0043",
+   "type": "contest",
+   "title": "YBM 수능 영어 부스터 AI영상 공모전",
+   "host": "YBM",
+   "ai_usage": "required",
+   "format": "online",
+   "team": "unknown",
+   "prize": "500만원",
+   "hiring_link": false,
+   "apply_deadline": null,
+   "submit_deadline": "2026-12-20",
+   "status": "open",
+   "url": "https://www.thinkyou.co.kr/contest/68335/",
+   "evidence": [
+    "씽유 상세(2026-11-28, 68335): '수능 영어 전문 교재 부스터를 홍보하는 AI영상 — 부스터의 매력을 담은 수능 영어의 새로운 장면을 AI로 자유롭게 표현' + '총 상금 500만 원' — 접수 2026-11-26~12-20"
+   ],
+   "source": "thinkyou",
+   "review": "confirmed",
+   "note": "씽유 신규 — AI 생성 영상 공모전"
+  },
+  {
+   "id": "ko-0044",
+   "type": "contest",
+   "title": "사운드 오브 어스 - 2026 장애인식개선 AI 음원 공모전",
+   "host": "제주관광대학교 앵커사업단",
+   "ai_usage": "required",
+   "format": "online",
+   "team": "unknown",
+   "prize": "미상",
+   "hiring_link": false,
+   "apply_deadline": null,
+   "submit_deadline": "2026-12-04",
+   "status": "open",
+   "url": "https://www.thinkyou.co.kr/contest/68333/",
+   "evidence": [
+    "씽유 상세(2026-11-28, 68333): 'AI 음원 공모전' — 주제 장애인식개선 메시지(자유주제), 접수 2026-11-26~12-04, D-6"
+   ],
+   "source": "thinkyou",
+   "review": "confirmed",
+   "note": "씽유 신규 — AI 음원 공모전. gnews 11-27 '제주사회복지협의회 장애인식개선 AI 음원 공모전 개최' 보도와 주체 표기 불일치(동일 행사 추정 — 씽유 상세 기준 추적)"
+  },
+  {
+   "id": "ko-0045",
+   "type": "contest",
+   "title": "AI·공공데이터·정보공개 대국민 혁신 아이디어 공모전",
+   "host": "국토안전관리원(KALIS)",
+   "ai_usage": "required",
+   "format": "online",
+   "team": "unknown",
+   "prize": "미상",
+   "hiring_link": false,
+   "apply_deadline": null,
+   "submit_deadline": "2026-12-10",
+   "status": "open",
+   "url": "https://www.thinkyou.co.kr/contest/68296/",
+   "evidence": [
+    "씽유 상세(2026-11-28, 68296): 'AI 부문 : KALIS 주요 사업에 AI를 접목한 업무 효율화 및 AX 방안 발굴 / 공공데이터 부문 : AI 활용 및 국민 수요를 고려한 고가치 데이터 개방 확대' — 접수 2026-11-23~12-10"
+   ],
+   "source": "thinkyou",
+   "review": "confirmed",
+   "note": "씽유 신규 — 정부기관 AI 접목 아이디어 공모(기획서형·대국민)"
+  },
+  {
+   "id": "ko-0046",
+   "type": "contest",
+   "title": "제1회 제주어 AI 음악 경진대회",
+   "host": "월드 AI 사운드 마스터즈 협회(WASMA) / 공동주관 제주문화예술경영·AI Sound Lab·Muse House",
+   "ai_usage": "required",
+   "format": "online",
+   "team": "unknown",
+   "prize": "600만원",
+   "hiring_link": false,
+   "apply_deadline": null,
+   "submit_deadline": "2026-12-20",
+   "status": "open",
+   "url": "https://aimusicstudio.store/contest.html",
+   "evidence": [
+    "제주콘텐츠진흥원 공지(2026-11-19)·더팀스 요강: 'AI로 생성한 보컬이 들어간 곡이어야 합니다. 직접 부른 곡, 연주곡만 있는 곡은 참가할 수 없습니다.' — 총상금 600만 원(대상 300·우수 200·장려 100), 접수 11-18~12-20, '대한민국 국민 누구나 — 나이·지역·경력 제한 없음'"
+   ],
+   "source": "gnews",
+   "review": "confirmed",
+   "note": "websearch 발구(사운드 오브 어스와 별개 행사) — AI 보컬 생성 필수, 전 국민 참여"
+  },
+  {
+   "id": "ko-0047",
+   "type": "meetup",
+   "title": "AI Adoption Talk - Learning & Talking on AI",
+   "host": "AI Seoul Public (meetup.com)",
+   "ai_usage": "required",
+   "format": "offline",
+   "team": "unknown",
+   "prize": "무료",
+   "hiring_link": false,
+   "apply_deadline": null,
+   "submit_deadline": "2026-11-28",
+   "status": "open",
+   "url": "https://www.meetup.com/ai-seoul-public/events/317206741/",
+   "evidence": [
+    "meetup 검색(2026-11-28): 'AI Adoption Talk - Learning & Talking on AI 👥' — 2026-11-28(토) 12:00 강남역, ai-seoul-public 그룹 공개 밋업(레스토랑·카페 런치 세션, 'We usually meet at a restaurant or café for lunch')"
+   ],
+   "source": "meetup-com",
+   "review": "confirmed",
+   "note": "meetup AI 키워드 스윕 신규 — 당일 무료 공개 소셜 미팅"
+  },
+  {
+   "id": "wevity:112589-newtake-ai-video",
+   "type": "contest",
+   "title": "뉴테이크 AI 영상 공모전 - NEW TAKE ON AI",
+   "host": "뉴테이크 (후원 AI-Kive)",
+   "ai_usage": "required",
+   "format": "online",
+   "team": "unknown",
+   "prize": "5,024만원",
+   "hiring_link": false,
+   "apply_deadline": null,
+   "submit_deadline": "2027-01-05",
+   "status": "upcoming",
+   "url": "https://www.wevity.com/?c=find&s=1&gbn=view&gp=1&ix=112589",
+   "evidence": [
+    "위비티 상세(2026-11-28, ix 112589): 'AI 단편영화/드라마(가로 16:9, 1~10분) • AI 숏드라마(세로 9:16, 1~3분) • AI 광고' 부문 + '이 영상은 생성형 AI 기반으로 만들어졌습니다' 표시 필수 — 총 상금 5,024만 원(현금 2,200만+크레딧), 만 14세 이상, 접수 2026-12-07~2027-01-05"
+   ],
+   "source": "wevity",
+   "review": "confirmed",
+   "note": "queue/2026-11-27 콜드스탠바이 후보 채택 — 접수 12-07 개시(현재 접수예정 D-39)"
+  },
+  {
+   "id": "wevity:112212-daum-ai-shortdrama",
+   "status": "closed",
+   "evidence": [
+    "위비티 상세(2026-11-28, ix 112212): D+1 — 접수기간 2026-11-05~11-26 마감 경과 실측"
+   ]
+  },
+  {
+   "id": "wevity:111837-ai-creation-competition",
+   "status": "closed",
+   "evidence": [
+    "위비티 상세(2026-11-28, ix 111837): D+0 — 접수기간 2026-11-23~11-27 마감 경과 실측(배지 D+ = 종결)"
+   ]
+  },
+  {
+   "id": "ko-0032",
+   "status": "closed",
+   "evidence": [
+    "meetup 이벤트 페이지(2026-11-28, 317199460): 'AWSKRUG 커넥트 - 유럽 소버린 AI 및 AI 에이전트 기반 K8s 플랫폼 엔지니어링 (11월 26일), Thu, Nov 26, 2026, 7:00 PM' — 개최일 11-26 경과"
+   ]
+  }
+ ],
+ "checked": [
+  {
+   "id": "wevity:112402-solverthon",
+   "via": "detail",
+   "note": "ko-0036 솔버톤 D-1(당일 11-28 마감) 생존 — ix 112402"
+  },
+  {
+   "id": "global-0055",
+   "via": "api",
+   "note": "AlgoConnect Quantathon Devpost open 리스트 잔존 — 마감일 11-28 D-0 당일 생존"
+  },
+  {
+   "id": "global-0023",
+   "via": "api",
+   "note": "STEM2Connect open 잔존 — 11-29 마감 D-1 생존"
+  },
+  {
+   "id": "global-0049",
+   "via": "api",
+   "note": "#BuildHybridAI open 잔존 — 11-30 마감 D-2 생존"
+  },
+  {
+   "id": "wevity:112518-qwen-autorag-hackathon",
+   "via": "detail",
+   "note": "Qwen AutoRAG D-2(11-29 마감) 생존"
+  },
+  {
+   "id": "wevity:112294-seoul-tourism-prompton",
+   "via": "detail",
+   "note": "프롬프톤 D-2(11-29 마감) 생존"
+  },
+  {
+   "id": "ko-0038",
+   "via": "detail",
+   "note": "INNO-CODER AI HACKATHON D-2(11-29 마감) 생존 — ix 112474"
+  },
+  {
+   "id": "wevity:112073-maekyung-ai-ad-contest",
+   "via": "detail",
+   "note": "매경 AI 광고 D-3(11-30 마감) 생존 — 111903 중복행 강제 병합(dedupe_overrides 신설)"
+  },
+  {
+   "id": "wevity:112160-ksponco-publicdata",
+   "via": "detail",
+   "note": "체육공공데이터 D-4(12-01 마감) 생존"
+  },
+  {
+   "id": "wevity:112285-sejongcyber-ai-bulssi",
+   "via": "detail",
+   "note": "세종사이버 AI 불씨 D-23 접수중(12-20 마감) — 11-23 개시 감시 종료"
+  },
+  {
+   "id": "ko-0030",
+   "via": "detail",
+   "note": "문경시 관광 AI영상 씽유 67930 '마감임박' D-2(11-30 마감) 생존 — 46일래 overdue 해소"
+  },
+  {
+   "id": "ko-0035",
+   "via": "list-sweep",
+   "note": "daker 24건 관측 — 제주 status judging 유지"
+  },
+  {
+   "id": "global-0011",
+   "via": "api",
+   "note": "Kiroween Devpost open 잔존(12-04 마감)"
+  },
+  {
+   "id": "global-0029",
+   "via": "api",
+   "note": "Learn Specs open 잔존(12-07)"
+  },
+  {
+   "id": "global-0030",
+   "via": "api",
+   "note": "Arbiter Hacks v1 open 잔존(12-21)"
+  },
+  {
+   "id": "global-0039",
+   "via": "api",
+   "note": "Codegeist 2026 open 잔존(12-22)"
+  },
+  {
+   "id": "global-0038",
+   "via": "api",
+   "note": "GenHacks Open open 잔존(12-26)"
+  },
+  {
+   "id": "global-0040",
+   "via": "api",
+   "note": "QNX open 잔존(12-15)"
+  },
+  {
+   "id": "global-0041",
+   "via": "api",
+   "note": "AWS Agentic MSP open 잔존(12-11)"
+  },
+  {
+   "id": "global-0042",
+   "via": "api",
+   "note": "AI OpenBuild open 잔존(12-11)"
+  },
+  {
+   "id": "global-0045",
+   "via": "api",
+   "note": "Deck the Pixels open 잔존(12-07)"
+  },
+  {
+   "id": "global-0046",
+   "via": "api",
+   "note": "Cognizant Agentic Web open 잔존(2027-01-11)"
+  },
+  {
+   "id": "global-0047",
+   "via": "api",
+   "note": "Slayy Hacks open 잔존(12-07)"
+  },
+  {
+   "id": "global-0048",
+   "via": "api",
+   "note": "Silicon Valley Buildathon open 잔존(12-15)"
+  },
+  {
+   "id": "global-0050",
+   "via": "api",
+   "note": "Reddit Game of Day open 잔존(12-08)"
+  },
+  {
+   "id": "global-0051",
+   "via": "api",
+   "note": "Relate open 잔존(12-11)"
+  },
+  {
+   "id": "global-0052",
+   "via": "api",
+   "note": "Cloud9 open 잔존(2027-01-13)"
+  },
+  {
+   "id": "global-0053",
+   "via": "api",
+   "note": "InnovArt 2027 open 잔존(2027-01-02)"
+  },
+  {
+   "id": "global-0054",
+   "via": "api",
+   "note": "PhysTech 2027 open 잔존(2027-06-26)"
+  },
+  {
+   "id": "wevity:111800-ai-play-content",
+   "via": "list-sweep",
+   "note": "gp 전수 스윕(1,350 ix) 관측 유지"
+  },
+  {
+   "id": "wevity:111713-korea-culture-ai-video-12th",
+   "via": "list-sweep",
+   "note": "gp 스윕 관측 유지"
+  },
+  {
+   "id": "wevity:111869-chuncheon-mbc-ai",
+   "via": "list-sweep",
+   "note": "gp 스윕 관측 유지"
+  },
+  {
+   "id": "wevity:112066-storyleague-ai-trailer",
+   "via": "list-sweep",
+   "note": "gp 스윕 관측 유지"
+  },
+  {
+   "id": "wevity:111222-nexmuse-ai-mv-2027",
+   "via": "list-sweep",
+   "note": "gp 스윕 관측 유지"
+  },
+  {
+   "id": "wevity:112065-sourcinginmarket-ai-ad",
+   "via": "list-sweep",
+   "note": "gp 스윕 관측 유지(archive_candidate)"
+  },
+  {
+   "id": "wevity:111087-uiuc-ai-idea",
+   "via": "list-sweep",
+   "note": "gp 스윕 관측 유지(archive_candidate)"
+  },
+  {
+   "id": "wevity:112307-kiturami-ai-shorts",
+   "via": "list-sweep",
+   "note": "gp 스윕 관측 유지 — D-3(11-30 마감)"
+  },
+  {
+   "id": "wevity:112295-busan-future-job-ai-video",
+   "via": "list-sweep",
+   "note": "gp 스윕 관측 유지"
+  },
+  {
+   "id": "wevity:112236-daegu-local-ai-ground",
+   "via": "list-sweep",
+   "note": "gp 스윕 관측 유지 — D-3(11-30 마감)"
+  },
+  {
+   "id": "wevity:112234-lowfloor-bus-ai-image",
+   "via": "list-sweep",
+   "note": "gp 스윕 관측 유지"
+  },
+  {
+   "id": "wevity:112184-suwon-ai-video",
+   "via": "list-sweep",
+   "note": "gp 스윕 관측 유지 — D-3(11-30 마감)"
+  },
+  {
+   "id": "wevity:111912-cj-hetbahn-ai",
+   "via": "list-sweep",
+   "note": "gp 스윕 관측 유지(archive_candidate)"
+  },
+  {
+   "id": "wevity:112319-scene-ai-shortdrama",
+   "via": "list-sweep",
+   "note": "gp 스윕 관측 유지"
+  },
+  {
+   "id": "wevity:112277-saaskr-ai-webgame-awards",
+   "via": "list-sweep",
+   "note": "gp 스윕 관측 유지"
+  },
+  {
+   "id": "wevity:112280-pipc-ai-shorts",
+   "via": "list-sweep",
+   "note": "gp 스윕 관측 유지 — D-3(11-30 마감)"
+  },
+  {
+   "id": "wevity:112021-vivid-replay",
+   "via": "list-sweep",
+   "note": "gp 스윕 관측 유지"
+  },
+  {
+   "id": "wevity:112299-national-pilot-city-ai-idea",
+   "via": "list-sweep",
+   "note": "gp 스윕 관측 유지"
+  },
+  {
+   "id": "wevity:112142-cliip-ai-webtoon-video",
+   "via": "list-sweep",
+   "note": "gp 스윕 관측 유지 — D-3(11-30 마감)"
+  },
+  {
+   "id": "wevity:112221-gimcheon-saeksaek-ai",
+   "via": "list-sweep",
+   "note": "gp 스윕 관측 유지 — D-3(11-30 마감)"
+  },
+  {
+   "id": "wevity:111903-maekyung-ai-ad",
+   "via": "list-sweep",
+   "note": "gp 스윕 관측 유지 — 112073과 동일 이벤트 중복, dedupe_overrides 강제 병합(dup)"
+  },
+  {
+   "id": "wevity:112493-postech-ai-fusion-idea",
+   "via": "list-sweep",
+   "note": "gp 스윕 관측 유지 — D-3(11-30 마감)"
+  },
+  {
+   "id": "global-0013",
+   "via": "api",
+   "note": "DeveloperWeek 2027 upcoming(open 리스트 미포함 정상 — 2027-02 마감)"
+  }
+ ],
+ "sources": [
+  {
+   "id": "queue-consumption",
+   "method": "file",
+   "pages": 0,
+   "result": "queue/2026-11-27(12후보)·2026-11-28(8후보) 소비 — 채택 2(뉴테이크 AI 영상 112589 + devpost 0... 위비티 1), 미채택 18(위비티 14[전남대 기획서형·UNIQLO 해외채용·사진·미디어아트·미술·미니픽션·낚시·식품명칭·창업천재·체크리스트·캐릭터·발명대회·연말콘텐츠·핀업어워드] + devpost 5[thanksgiving·KickStart 학생한정, AWS SBG COMSATS·Fanshawe 학생한정, Mosque & Madrassah 비AI 커뮤니티 특화]). 소비 날짜 파일 2개 삭제 예정, _ledger.json 보존"
+  },
+  {
+   "id": "wevity-fetch",
+   "method": "coldscan gp 전수 스윕 + 상세 fetch(-L)",
+   "pages": 0,
+   "result": "90p 스윕 1,350 ix(밴드 내) · 신규 후보 5(전부 비AI 일반 공모) · 상세 실측 8건(종결 2·생존 6) + 뉴테이크 112589 채택 상세"
+  },
+  {
+   "id": "devpost-api",
+   "method": "fetch+parser",
+   "pages": 0,
+   "result": "open 60건(8p 파서 스윕) — 기추적 20+ open 잔존 전수 확인, global-0013 upcoming 제외 정상. 신규 판정 8후보 전부 미채택(학생한정 4·커뮤니티 특화 1·기타 3 사실상 5후보+11-27 2후보)"
+  },
+  {
+   "id": "daker-api",
+   "method": "fetch+parser",
+   "pages": 0,
+   "result": "24건(밴드 내) — 신규 0, ko-0035 judging 유지 관측"
+  },
+  {
+   "id": "hn-algolia-hiring",
+   "method": "coldscan",
+   "pages": 0,
+   "result": "11월 스레드 50338728 유지 — 12/1 T3 전체 파싱 예정"
+  },
+  {
+   "id": "gnews-kr-1~5,en",
+   "method": "fetch RSS",
+   "pages": 0,
+   "result": "6피드 422건 패치 — 신규 채택 0: 수상·성료 결과 보도 다수(아모레퍼시픽·고용24·화성시·카카오 내부 해커톤 전부 비참여형), 올리브영 파도는 재보도. 제주 AI 음원 관련 2건 → 씽유·websearch로 실측 채택(ko-0044·ko-0046)"
+  },
+  {
+   "id": "devto-hackathons",
+   "method": "fetch+parser",
+   "pages": 0,
+   "result": "아티클 2개(발표 신호 계층) — 후보 0"
+  },
+  {
+   "id": "vercel-atom,supabase-rss,cloudflare-blog-rss",
+   "method": "fetch RSS",
+   "pages": 0,
+   "result": "해커톤/경진 필터 0건 신규(supabase LW15 과거 항목만)"
+  },
+  {
+   "id": "kaggle-api",
+   "method": "node collector/kaggle_fetch.mjs 2",
+   "pages": 0,
+   "result": "22대회 — Getting Started 11 제외 11 중 기추적 1(generalist-gaming-agent) 재확인, 신규 채택 10(백필 판정·오너 결정): Gemma 4 $75K·Agent Harness $400K 우선 + Playground 2·Featured 6. 마감 경과 0"
+  },
+  {
+   "id": "jobkorea-mobile",
+   "method": "m검색 fetch + GI_Read_Comt_Ifrm fetch",
+   "pages": 0,
+   "result": "'사전과제' 807건(밴드 내)·30/p 1p — NEW 12 중 채택 3(아이디스 50436083 과제제출+AI경험우대·펜타시큐리티 50442219 재등록·에이블리 50394136 인턴 사전과제), 미채택 9(NC 6·SOOP 조건부 문구 노이즈, 마인드브이알·언어발전소는 원티드 경유 판정 R&D 노이즈). 종결 1(50251589 재등록 마감)"
+  },
+  {
+   "id": "wanted",
+   "method": "browser 검색 2 + API 판정",
+   "pages": 2,
+   "result": "'사전과제' 4건 — 신규 채택 1(큐피스트 wd381276 온라인 사전과제 전형), 미채택 3(마인드브이알·언어발전소 R&D 연구과제 노이즈, 한프카 기추적). 'AI 과제' 1,000건 전부 정부과제 컨설팅/PM 노이즈(고정 패턴 재확인)"
+  },
+  {
+   "id": "jumpit",
+   "method": "browser CSR",
+   "pages": 1,
+   "result": "'사전과제' 81건 — 관련도순 상위 전부 기술스택 OR 노이즈, 신규 0(고정 패턴)"
+  },
+  {
+   "id": "greeting-ats",
+   "method": "fetch /ko + greeting.mjs(-L 필요 실측)",
+   "pages": 0,
+   "result": "무신사 107공고(AI Agent 전형 2 기추적 유지·그 외 AI 타이틀 3 기판정)·컬리 66공고(신규 AI 전형 0) — [AI Agent 전형] 신규 개시 없음"
+  },
+  {
+   "id": "t2-weekly-saturday",
+   "method": "fetch+browser 혼합",
+   "pages": 38,
+   "result": "토요일 T2 전실행(11-21 만회 이후 첫 정기 토요 런, 11-22 확장 소스는 사실상 첫 커밋 판정): 채택 — drivendata 2(GEMS $300K D-6·Wild Features $50K 2027-01-19, 59건 중 활성 2) / zindi 4(GenAI for Good $40K 12-13·AMD $10K·ITU RAN €30K·TelcoRetrieve €25K, open 10 중 전지구 4) / encode-club 2(FLUX $25K 11-30~12-11·Concordium Trusted Agents 3M CCD 12-09 — 브라우저 렌더 성공, fetch 셸이었던 것과 다름) / dorahacks 1(Agent Arena $7,250 12-12) / thinkyou 5(비 마이 에이전트 4천만·Gemini Tasks·YBM·사운드 오브 어스·KALIS) / meetup 1(AI Adoption Talk) / onoffmix 0(19행사 전부 종료 교육광고) / aicrowd 0(18 전부 Completed) / MLH 0(2026 시즌 전부 과거·GHW 6월 종료) / programmers 0(챌린지 전부 종료) / hashnode 0(Breaking Apps 완료) / HF 0 / starfield 0('No hackathon is open right now') / kisti 0(2026 대회 최종결과 공지·진행중 문제 없음) / kakao-careers 33공고 관측(AI·과제 전형 신호 없음) / 씽유 IT/SW+전체 리스트(신규 5채택+교직원내부 1 미채택) · 링커리어 키워드 유실(CSR) · festa 스텁 15일째(12/1 퇴출) · dacon 202 블록(watch 유지)"
+  },
+  {
+   "id": "seed-revisit",
+   "method": "websearch + Greenhouse 브라우저",
+   "pages": 5,
+   "result": "seed-kr-03 크래프톤(46일): AI Research Div. Greenhouse 66공고 — 과제 전형형 Specialized Model 인턴(8836426002) 활성 → 신규 채택, AI Agent Engineer·World Action Models 2건·Generalist Agent 공고 종료(error 실측), career.krafton.com은 미해석 도메인(Greenhouse가 실제 원천). seed-kr-07 더게임(46일): AI 엔지니어 공고 '서류→팀면접→과제→최종면접' 확인(마감) — 현재 활성은 SAM 영업뿐, 채택 없음"
+  },
+  {
+   "id": "revisit-queue",
+   "method": "overdue.mjs + 상세 실측",
+   "pages": 0,
+   "result": "overdue 31건(상세필요 3·리스트커버 28) — seed 2 재방문 완료(위), ko-0030 thinkyou 상세 생존(D-2), 28건 list-sweep으로 checked 기록"
+  },
+  {
+   "id": "canary",
+   "method": "cli",
+   "pages": 0,
+   "result": "CANARY OK — wevity 15/p·1,350(600-1400), devpost open 60(30-150), daker 24(10-50), 잡코리아 사전과제 807(300-1500)·30/p(20-50) — 전 지표 밴드 내"
+  }
+ ],
+ "notes": [
+  "11-28 런(1일 갭 복구 — 11-27 루틴 미실행을 콜드스탠바이 큐 12후보로 커버 + 금일 coldscan 8후보 소비). 신규 공고 5(아이디스 사전과제+AI도구경험우대 · 펜타시큐리티 50442219 재등록(구 50251589 마감·gno 교체) · 큐피스트 원티드 온라인 사전과제 · 크래프톤 AI Research Div. Specialized Model 인턴 과제 전형(Greenhouse) · 에이블리 인턴 사전과제) / 신규 이벤트 27 = kaggle 백필 10(오너 결정 채택 — Gemma 4 $75K D-5·Agent Harness $400K 우선, Playground s6e11·Squares 포함, Getting Started 11 제외·마감경과 0) + T2 첫 커밋 판정 15(drivendata 2·zindi 4·encode 2·dorahacks 1·thinkyou 5·meetup 1) + 콜드스탠바이/발구 2(뉴테이크 5,024만원 12-07 개시 · 제주어 AI 음악 600만원 websearch 발구). 정책 변경 0 · 종결 공고 1(펜타시큐리티 재등록) · 종결 이벤트 3(Daum AI 숏드라마 D+1·AI 창조공모대전 D+0 위비티 실측, AWSKRUG 개최종료) · needs_review 0 · 방문 38/80(토요일 T2 + kaggle 백필 검증) · CANARY 전 지표 OK. 큐 2파일 20후보 소비(채택 2·미채택 18). dedupe_overrides.json 신설 — 매경 AI 광고 공모전 위비티 이중 등재(111903↔112073, 동일 제목·마감 11-30) 첫 강제 병합. 핵심 발견: (1) 크래프톤 AI Research Div.가 코테 대신 과제 전형 운영(Specialized Model 인턴 활성 — 커리어피크 10-29 분석을 원문으로 검증, WAM·Generalist·AgentEngineer 공고는 종료) (2) taikai.net 도메인 매물 전환 — 소스 사망(12/1 T3 퇴출 후보) (3) wishket·naver.recruit.com DNS 미해석(브라우저 포함 — 도메인 부재 추정, 12/1 제거 판정) (4) encode-club 브라우저 렌더 정상(fetch CSR 셸 판정 정정) — FLUX $25K Black Forest Labs 해커톤 11-30 개시 (5) 씽유 유일 등재 AI 공모 5건 발구(위비티 미등재 — 비 마이 에이전트 과기부·NIA·카카오 포함) (6) 11-22 T2 확장 소스의 첫 스윙이 커밋 런 파일 없이 소실되었음을 확인 — 금일 판정이 사실상 첫 커밋 기록. 실패 소스: festa.io(스텁 15일째) · wishket(DNS) · naver-recruit(DNS) · taikai(도메인 매물) · dacon(202) · 씽유/KISTI fetch(0바이트·브라우저 대체 성공) · 링커리어(키워드 유실). 다음 런: (1) 12-01 마감 kaggle s6e11·체육공공데이터 종결 감시 + 11-29/30 마감 14건 종결 batch (2) 매경 병합 결과 검증(dedupe_overrides 첫 적용) (3) 노아에이티에스 사전과제 배부 12-03 감시 (4) 12/1 T3: HN 12월 스레드 + 소스 성과 리포 + festa·taikai·naver 퇴출 + kaggle 백필 완료 보고 (5) 금요 문경·솔버톤 D-0 생존 → 종결"
+ ]
+}

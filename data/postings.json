@@ -105,6 +105,10 @@
       {
         "quote": "코드+대화기록·프롬프트·도구설정·검증실행흔적 자동 수집, 사후 질의응답, 면접 리포트",
         "field": "research"
+      },
+      {
+        "quote": "KRAFTON Greenhouse(2026-11-28): AI Research Div. 활성 공고 14건 중 과제 전형형(Specialized Model 인턴 8836426002 채택, AI Agent Engineer·World Action Models 2건·Generalist Agent 공고는 종료) — 커리어피크 2026-10-29 분석 '코딩테스트 대신 직무 테스트와 과제 전형'",
+        "field": "assignment"
       }
     ],
     "url": "seed",
@@ -113,7 +117,7 @@
     "status": "open",
     "state_raw": "정책 진행 중",
     "first_seen": "2026-08",
-    "last_checked": "2026-10-11",
+    "last_checked": "2026-11-28",
     "check_cadence": "weekly",
     "review": "confirmed",
     "history": [
@@ -124,7 +128,8 @@
         "note": "2026.8.29 보도"
       }
     ],
-    "note": "코파 프로브 개발사 — 자사 채용에도 도입"
+    "note": "코파 프로브 개발사 — 자사 채용에도 도입",
+    "last_seen": "2026-11-28"
   },
   {
     "id": "seed-kr-04",
@@ -253,6 +258,10 @@
       {
         "quote": "제작물 지참(프롬프트 제출 명시 없음)",
         "field": "research"
+      },
+      {
+        "quote": "websearch 실측(2026-11-28, 데모데이·직행·원티드): 더게임 AI 엔지니어·데이터 사이언티스트 공고 '채용 전형: 서류 전형 • 팀 면접 • 과제 • 최종 면접'(마감) — 현재 활성은 SAM 영업 담당(12-16 마감)뿐, AI 과제 전형 공고 미개설",
+        "field": "assignment"
       }
     ],
     "url": "seed",
@@ -261,7 +270,7 @@
     "status": "open",
     "state_raw": "상시 (원티드 진행 중)",
     "first_seen": "2026-10",
-    "last_checked": "2026-10-11",
+    "last_checked": "2026-11-28",
     "check_cadence": "weekly",
     "review": "confirmed",
     "history": [
@@ -272,7 +281,8 @@
         "note": "2026.10 기준 진행 중"
       }
     ],
-    "note": "\"면접 때 AI agent로 무엇을 만들었는가\"를 중점 확인"
+    "note": "\"면접 때 AI agent로 무엇을 만들었는가\"를 중점 확인",
+    "last_seen": "2026-11-28"
   },
   {
     "id": "seed-kr-08",
@@ -1221,26 +1231,33 @@
     "ai_policy": "unspecified",
     "evidence": [
       {
-        "quote": "GI_Read_Comt_Ifrm 본문(2026-11-07): '합류 여정은 이렇게 진행돼요 ㆍ서류전형 > 사전과제 및 면접전형 > 최종합류' — 전형절차에 사전과제 명시. 본문 내 AI 정책 언급 없음. 접수마감 2026-11-26(GI_Read 메인)",
-        "field": "assignment+deadline"
+        "quote": "m GI_Read(2026-11-28, 50251589): 펜타시큐리티 웹보안 소프트웨어 개발자 상단 '마감' 표기 — 마감일 2026-11-26 경과, gno 50442219 재등록으로 대체(D-59 신규 채택)",
+        "field": "policy"
       }
     ],
     "url": "https://www.jobkorea.co.kr/Recruit/GI_Read/50251589",
     "deadline": "2026-11-26",
-    "status": "open",
+    "status": "closed",
     "review": "confirmed",
     "note": "사전과제 검색 신규 히트. 동사 50172427(보안 네트워크 개발자)와 동일하게 사전과제 전형 존재",
     "first_seen": "2026-11-07",
-    "last_seen": "2026-11-07",
-    "last_checked": "2026-11-26",
-    "check_cadence": "daily",
+    "last_seen": "2026-11-28",
+    "last_checked": "2026-11-28",
+    "check_cadence": "none",
     "history": [
       {
         "date": "2026-11-07",
         "event": "created",
         "ai_policy": "unspecified"
+      },
+      {
+        "date": "2026-11-28",
+        "event": "status_changed",
+        "from": "open",
+        "to": "closed"
       }
-    ]
+    ],
+    "merged_into": "jobkorea:50442219"
   },
   {
     "id": "jobkorea:50213617",
@@ -2366,7 +2383,7 @@
     "policy_raw": "AI 정책 언급 없음(기업 태그 'AI 선도 기업'·'캐릭터챗 AI 기업' 보유하나 전형 문구 아님)",
     "evidence": [
       {
-        "quote": "원티드 상세(2026-11-24, /wd/381276) 자격요건: '*포지션 특성 상, 온라인 사전과제 전형이 진행됩니다' — 마감일 '상시채용'",
+        "quote": "원티드 API wd/381276(2026-11-28): '*포지션 특성 상, 온라인 사전과제 전형이 진행됩니다.' — 채용 프로세스 안내 문구",
         "field": "assignment"
       }
     ],
@@ -2376,8 +2393,8 @@
     "review": "confirmed",
     "note": "원티드 '사전과제' 검색 신규 발견(11-21 미노출). 디자인 과제 전형 — 스튜디오리코·아이아이컴바인드(11-21)와 동일 계열",
     "first_seen": "2026-11-24",
-    "last_seen": "2026-11-24",
-    "last_checked": "2026-11-26",
+    "last_seen": "2026-11-28",
+    "last_checked": "2026-11-28",
     "check_cadence": "weekly",
     "history": [
       {
@@ -2607,6 +2624,167 @@
     "history": [
       {
         "date": "2026-11-26",
+        "event": "created",
+        "ai_policy": "unspecified"
+      }
+    ]
+  },
+  {
+    "id": "jobkorea:50436083",
+    "source": "jobkorea-mobile",
+    "company": "㈜아이디스",
+    "title": "2026년 11월 수시 채용 (신입/경력) — 영상제작·기술지원 등",
+    "positions": [
+      "design"
+    ],
+    "positions_raw": "영상제작 및 편집(모션그래픽 과제)·해외기술지원(일본)·국내사업 기술지원·생산·영업지원 다부문",
+    "assignment_type": "assignment",
+    "process_raw": "지원서 내 과제 제출(주제 택1) — 서류 > 과제 > 면접",
+    "ai_policy": "allowed",
+    "policy_raw": "AI 도구 활용 경험 우대(전형 필수 아님)",
+    "evidence": [
+      {
+        "quote": "잡코리아 GI_Read_Comt_Ifrm(2026-11-28, 50436083): '지원서 내 과제파일 다운로드 링크 기재 또는 프로젝트 수행내역 첨부란을 통해 과제 제출) 아래 주제 중 택1 글로벌 CCTV 브랜드 아이디스 / 인공지능 영상 보안 솔루션 아이디스' — m검색 11-27 등록, D-9",
+        "field": "assignment"
+      },
+      {
+        "quote": "잡코리아 GI_Read_Comt_Ifrm(2026-11-28, 50436083): 해외기술지원·영상제작 등 우대조건 'AI 도구를 활용한 문서 작성, 분석, 업무 자동화 경험' + '입사지원 시 아이디스를 주제로 한 모션그래픽(15초 이내) 포트폴리오 제출 필수'",
+        "field": "policy"
+      }
+    ],
+    "url": "https://www.jobkorea.co.kr/Recruit/GI_Read/50436083",
+    "deadline": "2026-12-07",
+    "status": "open",
+    "review": "confirmed",
+    "note": "m검색 '사전과제' 신규 — 영상보안 업체 다부문 수시채용, 과제+AI 도구 경험 우대 병존",
+    "first_seen": "2026-11-28",
+    "last_seen": "2026-11-28",
+    "last_checked": "2026-11-28",
+    "check_cadence": "daily",
+    "history": [
+      {
+        "date": "2026-11-28",
+        "event": "created",
+        "ai_policy": "allowed"
+      }
+    ]
+  },
+  {
+    "id": "jobkorea:50442219",
+    "source": "jobkorea-mobile",
+    "company": "펜타시큐리티㈜",
+    "title": "웹보안 소프트웨어 개발자",
+    "positions": [
+      "security"
+    ],
+    "positions_raw": "웹보안 소프트웨어 개발자(경력)",
+    "assignment_type": "assignment",
+    "process_raw": "서류전형 > 사전과제 및 면접전형 > 최종합류",
+    "ai_policy": "unspecified",
+    "policy_raw": "AI 언급 없음",
+    "evidence": [
+      {
+        "quote": "m GI_Read(2026-11-28, 50251589): 펜타시큐리티 웹보안 소프트웨어 개발자 상단 '마감' 표기 — 마감일 2026-11-26 경과, gno 50442219 재등록으로 대체(D-59 신규 채택)",
+        "field": "policy"
+      }
+    ],
+    "url": "https://www.jobkorea.co.kr/Recruit/GI_Read/50442219",
+    "deadline": "2027-01-26",
+    "status": "closed",
+    "review": "confirmed",
+    "note": "50251589(11-26 마감)의 재등록 — gno 교체로 마감 2개월 연장, 종결된 구 공고 대체",
+    "first_seen": "2026-11-28",
+    "last_seen": "2026-11-28",
+    "last_checked": "2026-11-28",
+    "check_cadence": "none",
+    "history": [
+      {
+        "date": "2026-11-28",
+        "event": "created",
+        "ai_policy": "unspecified"
+      },
+      {
+        "date": "2026-11-28",
+        "event": "status_changed",
+        "from": "open",
+        "to": "closed"
+      }
+    ],
+    "duplicates": [
+      "jobkorea:50251589"
+    ]
+  },
+  {
+    "id": "krafton:8836426002",
+    "source": "manual-research",
+    "company": "크래프톤(KRAFTON)",
+    "title": "[AI Research Div.] Research Scientist - Specialized Model (2년 이상 / 인턴)",
+    "positions": [
+      "ai"
+    ],
+    "positions_raw": "AI Research 본부 Specialized Model 연구 인턴(석사 이상, 서울)",
+    "assignment_type": "assignment",
+    "process_raw": "서류 > 사전 인터뷰(Phone) > 과제 전형 > 인성검사 > 직무면접 > 종합면접(2-3회) > 합격",
+    "ai_policy": "required",
+    "policy_raw": "AI 연구 직무 — 과제 전형이 AI 연구 역량 평가(LLM/VLM)",
+    "evidence": [
+      {
+        "quote": "KRAFTON Greenhouse 공고(2026-11-28, 8836426002): '크래프톤의 도전에 함께 하기 위해 아래의 전형 과정이 필요합니다. 서류 전형 > 사전 인터뷰 (Phone Interview) > *과제 전형 > 인성검사 (Personality Assessment) > 직무면접 (Technical Fit Interview) > 종합면접 (2-3회) (Culture Fit Interview) > 합격 및 입사' — 상시 채용",
+        "field": "assignment"
+      },
+      {
+        "quote": "KRAFTON Greenhouse 공고(2026-11-28, 8836426002): AI Research 본부 — '게임 제작에 도움이 될 수 있는 AI 기술 개발…유저와 함께 게임 플레이를 할 수 있는 Multi-modal LLM 기반 Foundation Model 개발' — Specialized Model(딥러닝·LLM 연구) 인턴",
+        "field": "policy"
+      }
+    ],
+    "url": "https://job-boards.greenhouse.io/krafton/jobs/8836426002",
+    "deadline": null,
+    "status": "open",
+    "review": "confirmed",
+    "note": "seed-kr-03 재방문 실측 — 크래프톤 AI Research Div. 과제 전형형 공고(커리어피크 2026-10-29 분석: WAM 2건·Specialized·Generalist가 과제 전형형). 현재 활성은 Specialized Model 인턴뿐(AI Agent Engineer·World Action Models 2건·Generalist Agent는 Greenhouse error=종료). 코테 없이 과제 전형으로 대체하는 국내 게임 대기업 AI 연구 조직 사례",
+    "first_seen": "2026-11-28",
+    "last_seen": "2026-11-28",
+    "last_checked": "2026-11-28",
+    "check_cadence": "weekly",
+    "history": [
+      {
+        "date": "2026-11-28",
+        "event": "created",
+        "ai_policy": "required"
+      }
+    ]
+  },
+  {
+    "id": "jobkorea:50394136",
+    "source": "jobkorea-mobile",
+    "company": "㈜에이블리코퍼레이션",
+    "title": "오프라인 영업 매니저 인턴 (채용연계형)",
+    "positions": [
+      "etc"
+    ],
+    "positions_raw": "오프라인 영업 매니저 인턴(채용연계형, 6개월 계약)",
+    "assignment_type": "assignment",
+    "process_raw": "서류전형 → 사전과제 → 직무 인터뷰(화상) → 심층 직무 인터뷰(화상) → 최종합격",
+    "ai_policy": "unspecified",
+    "policy_raw": "AI 언급 없음",
+    "evidence": [
+      {
+        "quote": "잡코리아 GI_Read_Comt_Ifrm(2026-11-28, 50394136): '합류 여정을 소개해요 서류전형 → 사전과제 → 직무 인터뷰 (화상) → 심층 직무 인터뷰 (화상) → 최종합격' — 근무 6개월, 채용연계형 인턴",
+        "field": "assignment"
+      }
+    ],
+    "url": "https://www.jobkorea.co.kr/Recruit/GI_Read/50394136",
+    "deadline": "2027-01-18",
+    "status": "open",
+    "review": "confirmed",
+    "note": "m검색 '사전과제' 재노출(기판정 없음 확인) — 커머스 유니콘 에이블리, 영업직 사전과제 전형",
+    "first_seen": "2026-11-28",
+    "last_seen": "2026-11-28",
+    "last_checked": "2026-11-28",
+    "check_cadence": "weekly",
+    "history": [
+      {
+        "date": "2026-11-28",
         "event": "created",
         "ai_policy": "unspecified"
       }
