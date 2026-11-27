@@ -1,5 +1,41 @@
 [
   {
+    "id": "news-feed-b5e99555c3",
+    "topic": "AI 코딩 도구",
+    "tag": "업계",
+    "content": "AI 코딩부터 제주 역사·인권까지…교과의 경계를 허무는 미래교실",
+    "date": "2026-11-26",
+    "source": "뉴스N제주",
+    "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE5UZWRHZUlmaEVsNWF0cF9CQUlXN1V3bEhfRFZ6eWJQTUpwaGFiREp4MlRuaUZfa1hMRnIwYkV6RDBadVRCRy1EcFVpaU92Z09QNUZyMURTcWRkWkRudnFiZlNTb1NTUTBxTjJxcA?oc=5"
+  },
+  {
+    "id": "news-feed-6f27eb0770",
+    "topic": "AI 공모전",
+    "tag": "업계",
+    "content": "화성 AI 공모전 1125작품 몰렸다",
+    "date": "2026-11-26",
+    "source": "뉴스클레임",
+    "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE9ydl82UEwxNXlVQ1dDSm14ZHpyMDFJZGxVMWNLUTk5S3JNaDdkNDd2YjgwZEZXV2tqS205MW92VEUtTlI3MjBYbjhXMkctOThnc2c3Ry1salV1QXFJSlNkd1AzRDZoU0NycjVUN3dvdlnSAXRBVV95cUxNT083SGVyVlNsOFEwM3RnWWFna3g4SWlMSEx1dDNjdFdEYU5FTVAzeWZrb2llSTVuT1VMYjVDTUJaQ09lMTkzdmZRWHhHdm1yeXpyWnZTS01UU0hjMndPa1c4QlAteWlCd2puNEVwUnN4WkZLTg?oc=5"
+  },
+  {
+    "id": "news-feed-ca6ed55498",
+    "topic": "AI 채용",
+    "tag": "정책",
+    "content": "대전세종중기청, 세종 청년 취업 도약 및 AI 채용 매칭데이",
+    "date": "2026-11-26",
+    "source": "중도일보",
+    "url": "https://news.google.com/rss/articles/CBMiZEFVX3lxTE9VbEgzalB6NWR6UFZSTDNUNW9VRUsteFVQWTBtVHVYMExNT0h6bEFiRjJnS1NERmJPLXhDSzRIVGhuYWpDT2ZjaEhZUTd2aXR0aWpnaHZEaU5yUGlIaGpDMEN3ZEI?oc=5"
+  },
+  {
+    "id": "news-feed-bb2f933496",
+    "topic": "AI 면접",
+    "tag": "정책",
+    "content": "세종 청년 채용에 AI 면접 첫 활용…7개 기업 참여",
+    "date": "2026-11-26",
+    "source": "대전일보",
+    "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTE9pMzZzWksteUdoLXFOMGhzeWd0R05wMlA2dUxsT2pidTVWOTdXV09nLWNoWkxvU2tqWXFESjh6eW1jZ0xWb2pSWFU3YlRFQ0ZlTndSUGhFSFlkSmZGSDlDQWRNUWRhRjZ2Z3Bpb1NETdIBc0FVX3lxTFBxYkRnZmVoVlRfOEFxSnlGcDdCWUNjRzhQLXIzOXNpT3RxVEZiUkE5Z216emRFZkdkTFJfZ0diWmFlcHk2ZG9MY0Ewc3BFeEFjNTMwVDFsLXk2VWlPNTNIaUw3WUp5TkZ2SUE5QXBiQTBLeEE?oc=5"
+  },
+  {
     "id": "news-feed-9b0befc9a2",
     "topic": "SK",
     "tag": "업계",
@@ -9,49 +45,31 @@
     "url": "https://www.cio.com/article/4252552/i-built-an-ai-agent-it-broke-my-assumptions-about-my-own-team.html"
   },
   {
-    "id": "news-feed-6740230832",
-    "topic": "AI 공모전",
-    "tag": "업계",
-    "content": "[AI 금융혁신]한화손보, 금융 AI 공모전 대상…소비자 보호 혁신 입증",
-    "date": "2026-11-25",
-    "source": "전국뉴스",
-    "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE4xalgycS1jdVhjeFNXT2YzQ211eVBCbXpidE51X2xUNjR1b05valJ6NDI1YndsTUJqbnFpUHA1SWptLTA0OU55Z3ZJRF95TU9JLTh3aUtYQ09hT01waUM4Q0dqZDNWRFdIcEZ3eWY4LXo?oc=5"
-  },
-  {
-    "id": "news-feed-123f635c0e",
-    "topic": "AI 경진대회",
-    "tag": "정책",
-    "content": "대학생이 기업의 AI 과제 해결한다…교육부, 25~27일 부트캠프 경진대회·취업 지원 행사",
-    "date": "2026-11-25",
-    "source": "피앤피뉴스",
-    "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE0tcGl3R0pCU3JaMkppUFlYTEFad0dTbHh4VlZPQXRjSFVrdEU0Q0Z1UFdwVGVGa1htWENwb2h2ZGtOSy1aeTliV2hqQWRBUXhCR1FJX1F3?oc=5"
-  },
-  {
-    "id": "news-feed-9d185c34f3",
-    "topic": "AI 해커톤",
-    "tag": "업계",
-    "content": "한진, 물류 실무자 참여 AI 해커톤 ‘커넥톤’ 개최",
-    "date": "2026-11-25",
-    "source": "물류신문",
-    "url": "https://news.google.com/rss/articles/CBMia0FVX3lxTE80cEZZbUljNFQxLTN1MVVvcmlfaEM5aXEwaWViNEtVTXZJYjhlQmF4SFFJNTJ0M3p0YVp1WHVQVHhkYzA3R2pBeC1PMG5ncnZYMGhabU0xNmt5QlctaFJ6azk4NzhDcjdrbjhN?oc=5"
-  },
-  {
-    "id": "news-feed-00145a96c6",
+    "id": "news-feed-aeb6fa547b",
     "topic": "AI 코딩 도구",
     "tag": "업계",
-    "content": "동양생명·ABL생명, 개발자 70명 AI 코딩 해커톤…통합 협업",
+    "content": "동양생명·ABL생명, 통합 앞두고 AI 코딩 해커톤 공동 개최",
     "date": "2026-11-25",
-    "source": "중앙이코노미뉴스",
-    "url": "https://news.google.com/rss/articles/CBMickFVX3lxTE1qNFpzTUdLRGJ0MmlMQjZSZHpJMWZNM1EwMlZGeG5ZOV9SV0pwZko2LUM3R0lwQ0NIS2J5V0FWMjFBYjM0SHNPT1otNWFHOVZpbE5JcUEzMkNtZnZ4d0VrazljN2Q1cFQwdDZSOHZudlJRZw?oc=5"
+    "source": "서울타임즈뉴스",
+    "url": "https://news.google.com/rss/articles/CBMia0FVX3lxTE1DXzEydUtlTURPV1E1bTlzcXlwQTlZVkZiX2x5cmh2YlRaZ2NlZzlFY3J5WGdZZ3U1cTI2cG52QzNwZ1BFX285dHhsUjRHWERBelF1OFhxeEdYRGoybjE2YUQwN2hpNm9hYnU4?oc=5"
   },
   {
-    "id": "news-feed-eb5363140b",
-    "topic": "바이브코딩",
+    "id": "news-feed-97b29b0a99",
+    "topic": "AI 해커톤",
     "tag": "업계",
-    "content": "김종신 글로벌휴먼타임즈 발행인, 전자책 『클로드코드 바이브코딩 입문: 코딩 몰라도 업무 웹앱 만들기』 출간ㅣGlobalHumanTimes Publisher Kim Jong-shin Releases E-Book ‘Introduction to Claude Code Vibe Coding: Building Business Web",
+    "content": "동양·ABL생명, AI 네이티브 통합 가속...개발자 70명 AI코딩 해커톤",
     "date": "2026-11-25",
-    "source": "글로벌휴먼타임즈",
-    "url": "https://news.google.com/rss/articles/CBMickFVX3lxTFBOWDlSZXMxMXBZUjIySU5SdU1oLVJFV1dfbUFYQkFSckllcEFqcmZnbVFkZFd4VUI0OWt3eUJxdlV4YXJRWFUxR1N1YjlDTzZScTRRRWZONHE5Vjltdi0ybXAtS1Q5d05VTEJpOG5saVIzUQ?oc=5"
+    "source": "뉴스로드",
+    "url": "https://news.google.com/rss/articles/CBMia0FVX3lxTE9EZVFxNE53QTFURlRLRG9YYktPcFZFRkZMeWNJRHQ4Q01pOVlQSHV6ZUpMcW11M1hMdnBNaC1zWC1lQWZJWGc3eGlDTjJ0Z1FQTEp5R2tmZk9yRTFtS2ZuRjAxT1dwMXdkMGVr0gFvQVVfeXFMT0tHZU50QTBwWE5rQmZ5bHQwajNXYzNnLTE4OUQ4dVNCZmlod0pOMWFJZHpWSV9sSERuUXhNemladUNHeU5aTDE1Y2EtSFU3MVM5VUxKN0UwYnhINkhZakUtQVZiNFUtN2dmY3NISGRn?oc=5"
+  },
+  {
+    "id": "news-feed-dc1728f916",
+    "topic": "AI 경진대회",
+    "tag": "정책",
+    "content": "기업이 낸 AI 과제에 대학생 도전…부여서 부트캠프 경진대회",
+    "date": "2026-11-25",
+    "source": "이투데이",
+    "url": "https://news.google.com/rss/articles/CBMiVEFVX3lxTE5RMng0aVZPT29HMHJrSnBLNTdBVlNYRHBnTGdxdWltZ1FDX3VqaDNQalhVZkllZGQxVkJXaXA0RGtMcUMtZlprUElvUHFiVmExQlhWbg?oc=5"
   },
   {
     "id": "news-feed-2ecfa1c9cf",
@@ -63,22 +81,13 @@
     "url": "https://www.cio.com/article/4252236/the-ai-invoice-is-a-governance-signal-most-cios-are-failing-to-read.html"
   },
   {
-    "id": "news-feed-e910d6512b",
-    "topic": "AI 면접",
+    "id": "news-feed-10154a2d8d",
+    "topic": "AI 과제 전형",
     "tag": "정책",
-    "content": "하나금융, 중장년 일자리 연결 확대…AI 면접부터 현장 채용까지",
+    "content": "GS샵 직원 178명, AI 과제 113개 발굴…94개 구현",
     "date": "2026-11-24",
-    "source": "기호일보",
-    "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTE5DeWk2UnlrUVZzNzZMcjdpQ1l3MUU0QV9yZUtOaUpyQXh4Z3hOa0xCR2ZDYjdaVjhxQUMydGNSX0NaS0x4MWZkX0Ezc19VRlBUUzh1aXRZVlI1Um04bkk1VU1EdGlGVFQ5SDEtbTZWZw?oc=5"
-  },
-  {
-    "id": "news-feed-1d0c151fef",
-    "topic": "OpenAI",
-    "tag": "업계",
-    "content": "OpenAI and Cisco introduce Shirudo",
-    "date": "2026-11-24",
-    "source": "OpenAI",
-    "url": "https://openai.com/index/introducing-shirudo"
+    "source": "라이센스뉴스",
+    "url": "https://news.google.com/rss/articles/CBMia0FVX3lxTE5oclEtMmtsYjBmRHZ0c0hIOGJaUnlaRHRacTIxZXV2cUttd0p6TmpxTHM3cDBTSEs4UHNzeVdGd2tiNm1XSnZPYkhiTDNGaE9mZS1RbE9WWWw0N0pFcklwaFJXWkt1M1dlV3Rz?oc=5"
   },
   {
     "id": "news-feed-c5903c8754",
@@ -90,6 +99,15 @@
     "url": "https://blog.google/products-and-platforms/products/search/google-search-personal-intelligence-apps/"
   },
   {
+    "id": "news-feed-a65d983bd0",
+    "topic": "카카오",
+    "tag": "업계",
+    "content": "카카오, AI 경진대회에 5000명 몰려…가상 세계 속 문제 해결",
+    "date": "2026-11-23",
+    "source": "매일일보",
+    "url": "https://news.google.com/rss/articles/CBMiZEFVX3lxTFBWSXh0MkhHNWJ6NkFtWG5oQXRkZFFNUm9xdGxUQmFtZTRhOUdqekcyZnhYaEFSYlVLNkNTMXVUTzdIeGhQVmJBaUoxc3RCUHVGOVYyMkRHUi1qUHJpcXo4R3o2X0s?oc=5"
+  },
+  {
     "id": "news-feed-23ed92194f",
     "topic": "AI 코딩 도구",
     "tag": "업계",
@@ -99,31 +117,13 @@
     "url": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE5JMWRZcmd6S2R3NXdSRnBqZUdEVUVvVGdobTlhQWw5Z284em50bGJfM3RVMjN1N3FlOG11ZEtEQ2ZVN1lieVZPX1RDNFg4ZnZKWFp4MHR4YTNjVjA2cndCLW9Nb1l2QQ?oc=5"
   },
   {
-    "id": "news-feed-04dd9ad865",
-    "topic": "AI 에이전트",
-    "tag": "업계",
-    "content": "투게더 AI, 코딩 에이전트가 올린 인증 정보로 프롬프트 유출",
-    "date": "2026-11-23",
-    "source": "AI 매터스",
-    "url": "https://news.google.com/rss/articles/CBMiVEFVX3lxTFBsRFp5WDBkRHZIOWRTdmpOOTBWNk5HOWFpUkhYOUdhZXdMaVBueGZ6bFhjTVRLYUJMdERwa3NXbFd3cHNuN2ZzX0hYV1pQTExZb3hZSQ?oc=5"
-  },
-  {
-    "id": "news-feed-03ca256a4a",
-    "topic": "Google",
-    "tag": "업계",
-    "content": "The Gemini app is now available on lower-memory Android devices.",
-    "date": "2026-11-19",
-    "source": "Google AI",
-    "url": "https://blog.google/innovation-and-ai/products/gemini-app/gemini-lower-memory-devices/"
-  },
-  {
-    "id": "news-feed-b41fddb687",
+    "id": "news-feed-a3b7d5720d",
     "topic": "AI 해커톤",
     "tag": "업계",
-    "content": "해커블 - 해커톤·AI공모전·창업지원사업 공고를 매주 정리해 보여주는 서비스",
-    "date": "2026-11-14",
-    "source": "GeekNews",
-    "url": "https://news.google.com/rss/articles/CBMiS0FVX3lxTFBDS1BmSk02aWxKZUZ5RkQyMjJDR19SS0YwWUVreDFVM0k3THpEWHd4NjJlZmZZV2VhSkZONkNTR2NFVDNpVExHd1Rtbw?oc=5"
+    "content": "KAIST, AI 안경으로 소통·학습 돕는다…XR·AI 해커톤 개최",
+    "date": "2026-11-23",
+    "source": "헤럴드경제",
+    "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE9jLWRVbFNpOVpNTkR4QktMTElCRF9yNUd3RExYdEt5UjkwVldqaHVXd0JZNEN1X21YdGdGZ1JoTm8weC02clZnTVlRQURoRFRKbXFTamRR?oc=5"
   },
   {
     "id": "news-policy-01",
