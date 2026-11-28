@@ -1,0 +1,54 @@
+{
+  "date": "2026-11-28",
+  "generated_by": "collector/coldscan.mjs (fetch-candidates.yml)",
+  "statuses": {
+    "wevity": "ok 1350 ix / 90p",
+    "devpost": "ok 63 / 8p",
+    "daker": "ok 24",
+    "kaggle": "ok 22",
+    "hn": "ok thread 50338728"
+  },
+  "counts": {
+    "wevity": 0,
+    "devpost": 3,
+    "daker": 0,
+    "kaggle": 0,
+    "hn": 0
+  },
+  "total_candidates": 3,
+  "candidates": {
+    "wevity": [],
+    "devpost": [
+      {
+        "id": 31716,
+        "title": "hackaTUM 2026",
+        "url": "https://hackatum26.devpost.com/",
+        "period": "Nov 27 - 28, 2026",
+        "prize": "€<span data-currency-value>0</span>",
+        "org": "Technical University of Munich",
+        "invite_only": false
+      },
+      {
+        "id": 31958,
+        "title": "K-Dub Hacks",
+        "url": "https://k-dub-hacks.devpost.com/",
+        "period": "Nov 27 - 29, 2026",
+        "prize": "$CAD <span data-currency-value>448,000</span>",
+        "org": "AWS Student Builders Group - Laurier",
+        "invite_only": false
+      },
+      {
+        "id": 31744,
+        "title": "LooHacks",
+        "url": "https://loohacks.devpost.com/",
+        "period": "Nov 27 - 29, 2026",
+        "prize": "$CAD <span data-currency-value>0</span>",
+        "org": "AWS Student Builder Group - WLU",
+        "invite_only": false
+      }
+    ],
+    "daker": [],
+    "kaggle": [],
+    "hn": []
+  }
+}
