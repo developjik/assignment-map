@@ -1,21 +1,48 @@
 [
   {
-    "id": "news-feed-b5e99555c3",
+    "id": "news-feed-60be50c8b1",
     "topic": "AI 코딩 도구",
     "tag": "업계",
-    "content": "AI 코딩부터 제주 역사·인권까지…교과의 경계를 허무는 미래교실",
-    "date": "2026-11-26",
-    "source": "뉴스N제주",
-    "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE5UZWRHZUlmaEVsNWF0cF9CQUlXN1V3bEhfRFZ6eWJQTUpwaGFiREp4MlRuaUZfa1hMRnIwYkV6RDBadVRCRy1EcFVpaU92Z09QNUZyMURTcWRkWkRudnFiZlNTb1NTUTBxTjJxcA?oc=5"
+    "content": "Refact.ai – 오픈 소스 AI 코딩 에이전트, IDE 채팅 및 도구 연동",
+    "date": "2026-11-28",
+    "source": "quasa.io",
+    "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxOMWo3dFdEeUFMRF96aUJ0dm5FMXhRdVgxZ252dGcxMm54c3ltYW5Na3A2VjdoLVpNenhKalJUcGZSRHlXZXk4NzNRZTFHOFpzZkMzZE9DYWFzVk5OVDh6WmIwRU5pZnhaZ1dSLTlOUmRRSU9va3NjNWtxbWgza3FUTHU3eUhDQVVGbEJkYzNBdGFrWkpYOVA2TnBobUo?oc=5"
   },
   {
-    "id": "news-feed-6f27eb0770",
+    "id": "news-feed-8f96f94a68",
+    "topic": "AI 업계 동향",
+    "tag": "업계",
+    "content": "How Adesso defies the AI cost spiral",
+    "date": "2026-11-27",
+    "source": "CIO",
+    "url": "https://www.cio.com/article/4250252/how-adesso-is-coping-with-the-ai-cost-spiral.html"
+  },
+  {
+    "id": "news-feed-66fdbe0ef8",
     "topic": "AI 공모전",
     "tag": "업계",
-    "content": "화성 AI 공모전 1125작품 몰렸다",
-    "date": "2026-11-26",
-    "source": "뉴스클레임",
-    "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE9ydl82UEwxNXlVQ1dDSm14ZHpyMDFJZGxVMWNLUTk5S3JNaDdkNDd2YjgwZEZXV2tqS205MW92VEUtTlI3MjBYbjhXMkctOThnc2c3Ry1salV1QXFJSlNkd1AzRDZoU0NycjVUN3dvdlnSAXRBVV95cUxNT083SGVyVlNsOFEwM3RnWWFna3g4SWlMSEx1dDNjdFdEYU5FTVAzeWZrb2llSTVuT1VMYjVDTUJaQ09lMTkzdmZRWHhHdm1yeXpyWnZTS01UU0hjMndPa1c4QlAteWlCd2puNEVwUnN4WkZLTg?oc=5"
+    "content": "예스코, 임직원 ‘2026 AI 공모전’ 성료 … 3~4주 걸리던 업무 ‘10분’ 만에",
+    "date": "2026-11-27",
+    "source": "에너지코리아뉴스",
+    "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE9TREIzM0dMdUJlRWxxcVNISEMtcXVZZGRVNFJMcGFBUjVIdFQ4dnZueDRSUUExOW40aDladVZERWV1Vl9wSC0wOTlrSENfcmFnSmo4bDJnX00taW96Ul81WWxaaE1aQkVmTE9WUU12dmQ?oc=5"
+  },
+  {
+    "id": "news-feed-ce218a1f03",
+    "topic": "바이브코딩",
+    "tag": "업계",
+    "content": "회의록도, 홍보영상 제작도…안성시, AI바이브코딩 교육",
+    "date": "2026-11-27",
+    "source": "뉴시스",
+    "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE5HZEJnTkdYQ2hKQzhWWnJKa2FwcXhiYm12RFVCdHp0d2M2R2Y1NUpKU3d6eEQtMzhuX0JaZ1VTTEJnajZDd1NwdXRFZHdYczYzSHVvVlJ5RlRPUC1MdkhhR9IBeEFVX3lxTFB6Mk51RDdXOWxCRGU3UTZLeHRZRHVmZ25rbU9rQ3M5UEFIeTc5OEhXcXk5dWFCT3k1bUhMZDZVYTRPMENJNld0cWpRLXFIa1ZrMTNGVjR3ZGlmemZiWHFjekRJSUxDTTZkd0didG9PcXBycC1pUW9RTw?oc=5"
+  },
+  {
+    "id": "news-feed-2bd3e676d1",
+    "topic": "AI 과제 전형",
+    "tag": "정책",
+    "content": "아모레퍼시픽, 현업 AI 과제 56건 발굴…바이브 코딩 업무 적용 확대",
+    "date": "2026-11-27",
+    "source": "뉴스락",
+    "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTFAyWUFUeV9oMlJMM2k5NUZVN1hONWhJa1RuU3dOYnEwV1I4TVQ2NGlqLVpnR0Z1aHRpN1I1T2FEbjVlekcxN0V5NWxKUldqSU41LWx4ZFgtNzZjQUV0WEZsV1RPV0hmSG1EcHpRYw?oc=5"
   },
   {
     "id": "news-feed-ca6ed55498",
@@ -54,6 +81,15 @@
     "url": "https://news.google.com/rss/articles/CBMia0FVX3lxTE1DXzEydUtlTURPV1E1bTlzcXlwQTlZVkZiX2x5cmh2YlRaZ2NlZzlFY3J5WGdZZ3U1cTI2cG52QzNwZ1BFX285dHhsUjRHWERBelF1OFhxeEdYRGoybjE2YUQwN2hpNm9hYnU4?oc=5"
   },
   {
+    "id": "news-feed-9d185c34f3",
+    "topic": "AI 해커톤",
+    "tag": "업계",
+    "content": "한진, 물류 실무자 참여 AI 해커톤 ‘커넥톤’ 개최",
+    "date": "2026-11-25",
+    "source": "물류신문",
+    "url": "https://news.google.com/rss/articles/CBMia0FVX3lxTE80cEZZbUljNFQxLTN1MVVvcmlfaEM5aXEwaWViNEtVTXZJYjhlQmF4SFFJNTJ0M3p0YVp1WHVQVHhkYzA3R2pBeC1PMG5ncnZYMGhabU0xNmt5QlctaFJ6azk4NzhDcjdrbjhN?oc=5"
+  },
+  {
     "id": "news-feed-97b29b0a99",
     "topic": "AI 해커톤",
     "tag": "업계",
@@ -72,24 +108,6 @@
     "url": "https://news.google.com/rss/articles/CBMiVEFVX3lxTE5RMng0aVZPT29HMHJrSnBLNTdBVlNYRHBnTGdxdWltZ1FDX3VqaDNQalhVZkllZGQxVkJXaXA0RGtMcUMtZlprUElvUHFiVmExQlhWbg?oc=5"
   },
   {
-    "id": "news-feed-2ecfa1c9cf",
-    "topic": "AI 업계 동향",
-    "tag": "업계",
-    "content": "The AI invoice is a governance signal most CIOs are failing to read",
-    "date": "2026-11-24",
-    "source": "CIO",
-    "url": "https://www.cio.com/article/4252236/the-ai-invoice-is-a-governance-signal-most-cios-are-failing-to-read.html"
-  },
-  {
-    "id": "news-feed-10154a2d8d",
-    "topic": "AI 과제 전형",
-    "tag": "정책",
-    "content": "GS샵 직원 178명, AI 과제 113개 발굴…94개 구현",
-    "date": "2026-11-24",
-    "source": "라이센스뉴스",
-    "url": "https://news.google.com/rss/articles/CBMia0FVX3lxTE5oclEtMmtsYjBmRHZ0c0hIOGJaUnlaRHRacTIxZXV2cUttd0p6TmpxTHM3cDBTSEs4UHNzeVdGd2tiNm1XSnZPYkhiTDNGaE9mZS1RbE9WWWw0N0pFcklwaFJXWkt1M1dlV3Rz?oc=5"
-  },
-  {
     "id": "news-feed-c5903c8754",
     "topic": "Google",
     "tag": "업계",
@@ -99,31 +117,13 @@
     "url": "https://blog.google/products-and-platforms/products/search/google-search-personal-intelligence-apps/"
   },
   {
-    "id": "news-feed-a65d983bd0",
-    "topic": "카카오",
+    "id": "news-feed-03ca256a4a",
+    "topic": "Google",
     "tag": "업계",
-    "content": "카카오, AI 경진대회에 5000명 몰려…가상 세계 속 문제 해결",
-    "date": "2026-11-23",
-    "source": "매일일보",
-    "url": "https://news.google.com/rss/articles/CBMiZEFVX3lxTFBWSXh0MkhHNWJ6NkFtWG5oQXRkZFFNUm9xdGxUQmFtZTRhOUdqekcyZnhYaEFSYlVLNkNTMXVUTzdIeGhQVmJBaUoxc3RCUHVGOVYyMkRHUi1qUHJpcXo4R3o2X0s?oc=5"
-  },
-  {
-    "id": "news-feed-23ed92194f",
-    "topic": "AI 코딩 도구",
-    "tag": "업계",
-    "content": "베이직인터내셔널, AI 코딩 자동화 솔루션 ‘AI 싱크옵스 스튜디오’ 공개",
-    "date": "2026-11-23",
-    "source": "벤처타임즈",
-    "url": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE5JMWRZcmd6S2R3NXdSRnBqZUdEVUVvVGdobTlhQWw5Z284em50bGJfM3RVMjN1N3FlOG11ZEtEQ2ZVN1lieVZPX1RDNFg4ZnZKWFp4MHR4YTNjVjA2cndCLW9Nb1l2QQ?oc=5"
-  },
-  {
-    "id": "news-feed-a3b7d5720d",
-    "topic": "AI 해커톤",
-    "tag": "업계",
-    "content": "KAIST, AI 안경으로 소통·학습 돕는다…XR·AI 해커톤 개최",
-    "date": "2026-11-23",
-    "source": "헤럴드경제",
-    "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE9jLWRVbFNpOVpNTkR4QktMTElCRF9yNUd3RExYdEt5UjkwVldqaHVXd0JZNEN1X21YdGdGZ1JoTm8weC02clZnTVlRQURoRFRKbXFTamRR?oc=5"
+    "content": "The Gemini app is now available on lower-memory Android devices.",
+    "date": "2026-11-19",
+    "source": "Google AI",
+    "url": "https://blog.google/innovation-and-ai/products/gemini-app/gemini-lower-memory-devices/"
   },
   {
     "id": "news-policy-01",
